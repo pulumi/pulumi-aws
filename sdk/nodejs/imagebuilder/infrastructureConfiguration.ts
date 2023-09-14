@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
  *  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -114,6 +114,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     public readonly logging!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
     /**
      * Name for the configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -245,6 +247,8 @@ export interface InfrastructureConfigurationState {
     logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -307,6 +311,8 @@ export interface InfrastructureConfigurationArgs {
     logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

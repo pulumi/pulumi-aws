@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Snapshot Copy Grants support import by name, e.g., console
+ * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
  *
  * ```sh
  *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant

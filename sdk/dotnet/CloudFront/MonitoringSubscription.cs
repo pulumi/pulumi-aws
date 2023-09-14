@@ -39,7 +39,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// CloudFront monitoring subscription can be imported using the id, e.g.,
+    /// Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB

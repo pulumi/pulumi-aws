@@ -19,6 +19,17 @@ class InternetGatewayArgs:
         """
         The set of arguments for constructing a InternetGateway resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               gw = aws.ec2.InternetGateway("gw", vpc_id=aws_vpc["main"]["id"])
+               # ... other arguments ...
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
+               ```
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
         """
         if tags is not None:
@@ -31,6 +42,17 @@ class InternetGatewayArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gw = aws.ec2.InternetGateway("gw", vpc_id=aws_vpc["main"]["id"])
+        # ... other arguments ...
+        foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
+        ```
         """
         return pulumi.get(self, "tags")
 
@@ -64,6 +86,17 @@ class _InternetGatewayState:
         :param pulumi.Input[str] arn: The ARN of the Internet Gateway.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the internet gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               gw = aws.ec2.InternetGateway("gw", vpc_id=aws_vpc["main"]["id"])
+               # ... other arguments ...
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
+               ```
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
         """
@@ -107,6 +140,17 @@ class _InternetGatewayState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gw = aws.ec2.InternetGateway("gw", vpc_id=aws_vpc["main"]["id"])
+        # ... other arguments ...
+        foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
+        ```
         """
         return pulumi.get(self, "tags")
 
@@ -165,7 +209,7 @@ class InternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateways can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Internet Gateways using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
@@ -174,6 +218,17 @@ class InternetGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               gw = aws.ec2.InternetGateway("gw", vpc_id=aws_vpc["main"]["id"])
+               # ... other arguments ...
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
+               ```
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
         """
         ...
@@ -200,7 +255,7 @@ class InternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateways can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Internet Gateways using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
@@ -262,6 +317,17 @@ class InternetGateway(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Internet Gateway.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the internet gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               gw = aws.ec2.InternetGateway("gw", vpc_id=aws_vpc["main"]["id"])
+               # ... other arguments ...
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
+               ```
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
         """
@@ -297,6 +363,17 @@ class InternetGateway(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gw = aws.ec2.InternetGateway("gw", vpc_id=aws_vpc["main"]["id"])
+        # ... other arguments ...
+        foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
+        ```
         """
         return pulumi.get(self, "tags")
 

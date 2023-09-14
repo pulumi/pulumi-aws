@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon MQ broker resource. This resources also manages users for the broker.
@@ -27,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,7 +71,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,7 +108,7 @@ import (
 //
 // ## Import
 //
-// MQ Brokers can be imported using their broker id, e.g.,
+// Using `pulumi import`, import MQ Brokers using their broker id. For example:
 //
 // ```sh
 //
@@ -170,6 +172,8 @@ type Broker struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayOutput `pulumi:"users"`
 }
 
@@ -192,6 +196,7 @@ func NewBroker(ctx *pulumi.Context,
 	if args.Users == nil {
 		return nil, errors.New("invalid value for required argument 'Users'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Broker
 	err := ctx.RegisterResource("aws:mq/broker:Broker", name, args, &resource, opts...)
 	if err != nil {
@@ -268,6 +273,8 @@ type brokerState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -326,6 +333,8 @@ type BrokerState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -371,6 +380,8 @@ type brokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -413,6 +424,8 @@ type BrokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -437,6 +450,12 @@ func (i *Broker) ToBrokerOutput() BrokerOutput {
 
 func (i *Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerOutput)
+}
+
+func (i *Broker) ToOutput(ctx context.Context) pulumix.Output[*Broker] {
+	return pulumix.Output[*Broker]{
+		OutputState: i.ToBrokerOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BrokerArrayInput is an input type that accepts BrokerArray and BrokerArrayOutput values.
@@ -464,6 +483,12 @@ func (i BrokerArray) ToBrokerArrayOutputWithContext(ctx context.Context) BrokerA
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerArrayOutput)
 }
 
+func (i BrokerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Broker] {
+	return pulumix.Output[[]*Broker]{
+		OutputState: i.ToBrokerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BrokerMapInput is an input type that accepts BrokerMap and BrokerMapOutput values.
 // You can construct a concrete instance of `BrokerMapInput` via:
 //
@@ -489,6 +514,12 @@ func (i BrokerMap) ToBrokerMapOutputWithContext(ctx context.Context) BrokerMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerMapOutput)
 }
 
+func (i BrokerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Broker] {
+	return pulumix.Output[map[string]*Broker]{
+		OutputState: i.ToBrokerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BrokerOutput struct{ *pulumi.OutputState }
 
 func (BrokerOutput) ElementType() reflect.Type {
@@ -501,6 +532,12 @@ func (o BrokerOutput) ToBrokerOutput() BrokerOutput {
 
 func (o BrokerOutput) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 	return o
+}
+
+func (o BrokerOutput) ToOutput(ctx context.Context) pulumix.Output[*Broker] {
+	return pulumix.Output[*Broker]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -620,6 +657,8 @@ func (o BrokerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+//
+// The following arguments are optional:
 func (o BrokerOutput) Users() BrokerUserArrayOutput {
 	return o.ApplyT(func(v *Broker) BrokerUserArrayOutput { return v.Users }).(BrokerUserArrayOutput)
 }
@@ -636,6 +675,12 @@ func (o BrokerArrayOutput) ToBrokerArrayOutput() BrokerArrayOutput {
 
 func (o BrokerArrayOutput) ToBrokerArrayOutputWithContext(ctx context.Context) BrokerArrayOutput {
 	return o
+}
+
+func (o BrokerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Broker] {
+	return pulumix.Output[[]*Broker]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BrokerArrayOutput) Index(i pulumi.IntInput) BrokerOutput {
@@ -656,6 +701,12 @@ func (o BrokerMapOutput) ToBrokerMapOutput() BrokerMapOutput {
 
 func (o BrokerMapOutput) ToBrokerMapOutputWithContext(ctx context.Context) BrokerMapOutput {
 	return o
+}
+
+func (o BrokerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Broker] {
+	return pulumix.Output[map[string]*Broker]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BrokerMapOutput) MapIndex(k pulumi.StringInput) BrokerOutput {

@@ -8,13 +8,13 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-//
-// > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `securityGroups` argument and a Client VPN endpoint resource with a `securityGroupIds` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
 //
 // ## Example Usage
 //
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +57,7 @@ import (
 //
 // ## Import
 //
-// AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
+// Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 //
 // ```sh
 //
@@ -95,10 +95,6 @@ type Endpoint struct {
 	SessionTimeoutHours pulumi.IntPtrOutput `pulumi:"sessionTimeoutHours"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrOutput `pulumi:"splitTunnel"`
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
-	// Deprecated: This attribute has been deprecated.
-	Status pulumi.StringOutput `pulumi:"status"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -130,6 +126,7 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.ServerCertificateArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServerCertificateArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:ec2clientvpn/endpoint:Endpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -180,10 +177,6 @@ type endpointState struct {
 	SessionTimeoutHours *int `pulumi:"sessionTimeoutHours"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel *bool `pulumi:"splitTunnel"`
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
-	// Deprecated: This attribute has been deprecated.
-	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -225,10 +218,6 @@ type EndpointState struct {
 	SessionTimeoutHours pulumi.IntPtrInput
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrInput
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
-	// Deprecated: This attribute has been deprecated.
-	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -339,6 +328,12 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
+func (i *Endpoint) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: i.ToEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointArrayInput` via:
 //
@@ -362,6 +357,12 @@ func (i EndpointArray) ToEndpointArrayOutput() EndpointArrayOutput {
 
 func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) EndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointArrayOutput)
+}
+
+func (i EndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: i.ToEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
@@ -389,6 +390,12 @@ func (i EndpointMap) ToEndpointMapOutputWithContext(ctx context.Context) Endpoin
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMapOutput)
 }
 
+func (i EndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: i.ToEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
@@ -401,6 +408,12 @@ func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
 
 func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
 	return o
+}
+
+func (o EndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Client VPN endpoint.
@@ -473,13 +486,6 @@ func (o EndpointOutput) SplitTunnel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.SplitTunnel }).(pulumi.BoolPtrOutput)
 }
 
-// **Deprecated** The current state of the Client VPN endpoint.
-//
-// Deprecated: This attribute has been deprecated.
-func (o EndpointOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
-}
-
 // A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -519,6 +525,12 @@ func (o EndpointArrayOutput) ToEndpointArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointArrayOutput) Index(i pulumi.IntInput) EndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Endpoint {
 		return vs[0].([]*Endpoint)[vs[1].(int)]
@@ -537,6 +549,12 @@ func (o EndpointMapOutput) ToEndpointMapOutput() EndpointMapOutput {
 
 func (o EndpointMapOutput) ToEndpointMapOutputWithContext(ctx context.Context) EndpointMapOutput {
 	return o
+}
+
+func (o EndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointMapOutput) MapIndex(k pulumi.StringInput) EndpointOutput {

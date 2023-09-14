@@ -8,10 +8,14 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a S3 bucket server-side encryption configuration resource.
+//
+// > **NOTE:** Destroying an `s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
 //
 // ## Example Usage
 //
@@ -20,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +65,13 @@ import (
 //
 // ## Import
 //
-// S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+//
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+//
+// __Using `pulumi import` to import__ S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+//
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
 //
@@ -69,7 +79,7 @@ import (
 //
 // ```
 //
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
 //
@@ -100,6 +110,7 @@ func NewBucketServerSideEncryptionConfigurationV2(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketServerSideEncryptionConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2", name, args, &resource, opts...)
 	if err != nil {
@@ -185,6 +196,12 @@ func (i *BucketServerSideEncryptionConfigurationV2) ToBucketServerSideEncryption
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2Output)
 }
 
+func (i *BucketServerSideEncryptionConfigurationV2) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationV2] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationV2]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketServerSideEncryptionConfigurationV2ArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationV2Array and BucketServerSideEncryptionConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2ArrayInput` via:
 //
@@ -208,6 +225,12 @@ func (i BucketServerSideEncryptionConfigurationV2Array) ToBucketServerSideEncryp
 
 func (i BucketServerSideEncryptionConfigurationV2Array) ToBucketServerSideEncryptionConfigurationV2ArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2ArrayOutput)
+}
+
+func (i BucketServerSideEncryptionConfigurationV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketServerSideEncryptionConfigurationV2] {
+	return pulumix.Output[[]*BucketServerSideEncryptionConfigurationV2]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketServerSideEncryptionConfigurationV2MapInput is an input type that accepts BucketServerSideEncryptionConfigurationV2Map and BucketServerSideEncryptionConfigurationV2MapOutput values.
@@ -235,6 +258,12 @@ func (i BucketServerSideEncryptionConfigurationV2Map) ToBucketServerSideEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2MapOutput)
 }
 
+func (i BucketServerSideEncryptionConfigurationV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketServerSideEncryptionConfigurationV2] {
+	return pulumix.Output[map[string]*BucketServerSideEncryptionConfigurationV2]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketServerSideEncryptionConfigurationV2Output struct{ *pulumi.OutputState }
 
 func (BucketServerSideEncryptionConfigurationV2Output) ElementType() reflect.Type {
@@ -247,6 +276,12 @@ func (o BucketServerSideEncryptionConfigurationV2Output) ToBucketServerSideEncry
 
 func (o BucketServerSideEncryptionConfigurationV2Output) ToBucketServerSideEncryptionConfigurationV2OutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2Output {
 	return o
+}
+
+func (o BucketServerSideEncryptionConfigurationV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationV2] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID (name) of the bucket.
@@ -282,6 +317,12 @@ func (o BucketServerSideEncryptionConfigurationV2ArrayOutput) ToBucketServerSide
 	return o
 }
 
+func (o BucketServerSideEncryptionConfigurationV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketServerSideEncryptionConfigurationV2] {
+	return pulumix.Output[[]*BucketServerSideEncryptionConfigurationV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketServerSideEncryptionConfigurationV2ArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionConfigurationV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketServerSideEncryptionConfigurationV2 {
 		return vs[0].([]*BucketServerSideEncryptionConfigurationV2)[vs[1].(int)]
@@ -300,6 +341,12 @@ func (o BucketServerSideEncryptionConfigurationV2MapOutput) ToBucketServerSideEn
 
 func (o BucketServerSideEncryptionConfigurationV2MapOutput) ToBucketServerSideEncryptionConfigurationV2MapOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2MapOutput {
 	return o
+}
+
+func (o BucketServerSideEncryptionConfigurationV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketServerSideEncryptionConfigurationV2] {
+	return pulumix.Output[map[string]*BucketServerSideEncryptionConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketServerSideEncryptionConfigurationV2MapOutput) MapIndex(k pulumi.StringInput) BucketServerSideEncryptionConfigurationV2Output {

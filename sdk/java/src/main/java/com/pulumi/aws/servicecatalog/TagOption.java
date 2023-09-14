@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
@@ -98,12 +98,16 @@ public class TagOption extends com.pulumi.resources.CustomResource {
     /**
      * Tag option value.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
      * @return Tag option value.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> value() {

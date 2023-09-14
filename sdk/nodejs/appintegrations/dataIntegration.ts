@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amazon AppIntegrations Data Integrations can be imported using the `id` e.g.,
+ * Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123

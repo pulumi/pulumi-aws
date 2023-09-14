@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_product` can be imported using the product ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
@@ -131,6 +131,8 @@ export class Product extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -262,6 +264,8 @@ export interface ProductState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -312,6 +316,8 @@ export interface ProductArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

@@ -60,7 +60,7 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * `aws_api_gateway_integration_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+ * Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
  *
  * ```sh
  *  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
@@ -124,6 +124,8 @@ export class IntegrationResponse extends pulumi.CustomResource {
     public readonly selectionPattern!: pulumi.Output<string | undefined>;
     /**
      * HTTP status code.
+     *
+     * The following arguments are optional:
      */
     public readonly statusCode!: pulumi.Output<string>;
 
@@ -210,6 +212,8 @@ export interface IntegrationResponseState {
     selectionPattern?: pulumi.Input<string>;
     /**
      * HTTP status code.
+     *
+     * The following arguments are optional:
      */
     statusCode?: pulumi.Input<string>;
 }
@@ -248,6 +252,8 @@ export interface IntegrationResponseArgs {
     selectionPattern?: pulumi.Input<string>;
     /**
      * HTTP status code.
+     *
+     * The following arguments are optional:
      */
     statusCode: pulumi.Input<string>;
 }

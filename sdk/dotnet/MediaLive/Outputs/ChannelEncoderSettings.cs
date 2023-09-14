@@ -22,6 +22,22 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAvailBlanking? AvailBlanking;
         /// <summary>
+        /// Caption Descriptions. See Caption Descriptions for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ChannelEncoderSettingsCaptionDescription> CaptionDescriptions;
+        /// <summary>
+        /// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        /// </summary>
+        public readonly Outputs.ChannelEncoderSettingsGlobalConfiguration? GlobalConfiguration;
+        /// <summary>
+        /// Settings for motion graphics. See Motion Graphics Configuration for more details.
+        /// </summary>
+        public readonly Outputs.ChannelEncoderSettingsMotionGraphicsConfiguration? MotionGraphicsConfiguration;
+        /// <summary>
+        /// Nielsen configuration settings. See Nielsen Configuration for more details.
+        /// </summary>
+        public readonly Outputs.ChannelEncoderSettingsNielsenConfiguration? NielsenConfiguration;
+        /// <summary>
         /// Output groups for the channel. See Output Groups for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> OutputGroups;
@@ -40,6 +56,14 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             Outputs.ChannelEncoderSettingsAvailBlanking? availBlanking,
 
+            ImmutableArray<Outputs.ChannelEncoderSettingsCaptionDescription> captionDescriptions,
+
+            Outputs.ChannelEncoderSettingsGlobalConfiguration? globalConfiguration,
+
+            Outputs.ChannelEncoderSettingsMotionGraphicsConfiguration? motionGraphicsConfiguration,
+
+            Outputs.ChannelEncoderSettingsNielsenConfiguration? nielsenConfiguration,
+
             ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> outputGroups,
 
             Outputs.ChannelEncoderSettingsTimecodeConfig timecodeConfig,
@@ -48,6 +72,10 @@ namespace Pulumi.Aws.MediaLive.Outputs
         {
             AudioDescriptions = audioDescriptions;
             AvailBlanking = availBlanking;
+            CaptionDescriptions = captionDescriptions;
+            GlobalConfiguration = globalConfiguration;
+            MotionGraphicsConfiguration = motionGraphicsConfiguration;
+            NielsenConfiguration = nielsenConfiguration;
             OutputGroups = outputGroups;
             TimecodeConfig = timecodeConfig;
             VideoDescriptions = videoDescriptions;

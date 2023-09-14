@@ -96,6 +96,10 @@ def get_solution_stack(most_recent: Optional[bool] = None,
     :param str name_regex: Regex string to apply to the solution stack list returned
            by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
            AWS documentation for reference solution stack names.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single solution stack, or use `most_recent` to choose the most recent one.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
@@ -104,10 +108,10 @@ def get_solution_stack(most_recent: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts, typ=GetSolutionStackResult).value
 
     return AwaitableGetSolutionStackResult(
-        id=__ret__.id,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        name_regex=__ret__.name_regex)
+        id=pulumi.get(__ret__, 'id'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        name_regex=pulumi.get(__ret__, 'name_regex'))
 
 
 @_utilities.lift_output_func(get_solution_stack)
@@ -133,5 +137,9 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
     :param str name_regex: Regex string to apply to the solution stack list returned
            by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
            AWS documentation for reference solution stack names.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single solution stack, or use `most_recent` to choose the most recent one.
     """
     ...

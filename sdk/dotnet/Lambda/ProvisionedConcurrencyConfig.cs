@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Manages a Lambda Provisioned Concurrency Configuration.
     /// 
+    /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
+    /// 
     /// ## Example Usage
     /// ### Alias Name
     /// 
@@ -54,10 +56,10 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+    /// Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+    ///  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
@@ -77,9 +79,17 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Lambda Function version or Lambda Alias name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("qualifier")]
         public Output<string> Qualifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,9 +151,17 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Lambda Function version or Lambda Alias name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("qualifier", required: true)]
         public Input<string> Qualifier { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         public ProvisionedConcurrencyConfigArgs()
         {
@@ -167,9 +185,17 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Lambda Function version or Lambda Alias name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
+
+        /// <summary>
+        /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         public ProvisionedConcurrencyConfigState()
         {

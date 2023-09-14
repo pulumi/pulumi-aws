@@ -10,6 +10,21 @@ export type Accelerator = import("./accelerator").Accelerator;
 export const Accelerator: typeof import("./accelerator").Accelerator = null as any;
 utilities.lazyLoad(exports, ["Accelerator"], () => require("./accelerator"));
 
+export { CustomRoutingAcceleratorArgs, CustomRoutingAcceleratorState } from "./customRoutingAccelerator";
+export type CustomRoutingAccelerator = import("./customRoutingAccelerator").CustomRoutingAccelerator;
+export const CustomRoutingAccelerator: typeof import("./customRoutingAccelerator").CustomRoutingAccelerator = null as any;
+utilities.lazyLoad(exports, ["CustomRoutingAccelerator"], () => require("./customRoutingAccelerator"));
+
+export { CustomRoutingEndpointGroupArgs, CustomRoutingEndpointGroupState } from "./customRoutingEndpointGroup";
+export type CustomRoutingEndpointGroup = import("./customRoutingEndpointGroup").CustomRoutingEndpointGroup;
+export const CustomRoutingEndpointGroup: typeof import("./customRoutingEndpointGroup").CustomRoutingEndpointGroup = null as any;
+utilities.lazyLoad(exports, ["CustomRoutingEndpointGroup"], () => require("./customRoutingEndpointGroup"));
+
+export { CustomRoutingListenerArgs, CustomRoutingListenerState } from "./customRoutingListener";
+export type CustomRoutingListener = import("./customRoutingListener").CustomRoutingListener;
+export const CustomRoutingListener: typeof import("./customRoutingListener").CustomRoutingListener = null as any;
+utilities.lazyLoad(exports, ["CustomRoutingListener"], () => require("./customRoutingListener"));
+
 export { EndpointGroupArgs, EndpointGroupState } from "./endpointGroup";
 export type EndpointGroup = import("./endpointGroup").EndpointGroup;
 export const EndpointGroup: typeof import("./endpointGroup").EndpointGroup = null as any;
@@ -19,6 +34,11 @@ export { GetAcceleratorArgs, GetAcceleratorResult, GetAcceleratorOutputArgs } fr
 export const getAccelerator: typeof import("./getAccelerator").getAccelerator = null as any;
 export const getAcceleratorOutput: typeof import("./getAccelerator").getAcceleratorOutput = null as any;
 utilities.lazyLoad(exports, ["getAccelerator","getAcceleratorOutput"], () => require("./getAccelerator"));
+
+export { GetCustomRoutingAcceleratorArgs, GetCustomRoutingAcceleratorResult, GetCustomRoutingAcceleratorOutputArgs } from "./getCustomRoutingAccelerator";
+export const getCustomRoutingAccelerator: typeof import("./getCustomRoutingAccelerator").getCustomRoutingAccelerator = null as any;
+export const getCustomRoutingAcceleratorOutput: typeof import("./getCustomRoutingAccelerator").getCustomRoutingAcceleratorOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomRoutingAccelerator","getCustomRoutingAcceleratorOutput"], () => require("./getCustomRoutingAccelerator"));
 
 export { ListenerArgs, ListenerState } from "./listener";
 export type Listener = import("./listener").Listener;
@@ -32,6 +52,12 @@ const _module = {
         switch (type) {
             case "aws:globalaccelerator/accelerator:Accelerator":
                 return new Accelerator(name, <any>undefined, { urn })
+            case "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator":
+                return new CustomRoutingAccelerator(name, <any>undefined, { urn })
+            case "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup":
+                return new CustomRoutingEndpointGroup(name, <any>undefined, { urn })
+            case "aws:globalaccelerator/customRoutingListener:CustomRoutingListener":
+                return new CustomRoutingListener(name, <any>undefined, { urn })
             case "aws:globalaccelerator/endpointGroup:EndpointGroup":
                 return new EndpointGroup(name, <any>undefined, { urn })
             case "aws:globalaccelerator/listener:Listener":
@@ -42,5 +68,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "globalaccelerator/accelerator", _module)
+pulumi.runtime.registerResourceModule("aws", "globalaccelerator/customRoutingAccelerator", _module)
+pulumi.runtime.registerResourceModule("aws", "globalaccelerator/customRoutingEndpointGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "globalaccelerator/customRoutingListener", _module)
 pulumi.runtime.registerResourceModule("aws", "globalaccelerator/endpointGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "globalaccelerator/listener", _module)

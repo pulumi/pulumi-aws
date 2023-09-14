@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Amazon CloudFront web distribution.
@@ -17,9 +19,301 @@ import (
 //
 // > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
 //
+// ## Example Usage
+// ### S3 Origin
+//
+// The example below creates a CloudFront distribution with an S3 origin.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("My bucket"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "bAcl", &s3.BucketAclV2Args{
+//				Bucket: bucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s3OriginId := "myS3Origin"
+//			_, err = cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName:            bucketV2.BucketRegionalDomainName,
+//						OriginAccessControlId: pulumi.Any(aws_cloudfront_origin_access_control.Default.Id),
+//						OriginId:              pulumi.String(s3OriginId),
+//					},
+//				},
+//				Enabled:           pulumi.Bool(true),
+//				IsIpv6Enabled:     pulumi.Bool(true),
+//				Comment:           pulumi.String("Some comment"),
+//				DefaultRootObject: pulumi.String("index.html"),
+//				LoggingConfig: &cloudfront.DistributionLoggingConfigArgs{
+//					IncludeCookies: pulumi.Bool(false),
+//					Bucket:         pulumi.String("mylogs.s3.amazonaws.com"),
+//					Prefix:         pulumi.String("myprefix"),
+//				},
+//				Aliases: pulumi.StringArray{
+//					pulumi.String("mysite.example.com"),
+//					pulumi.String("yoursite.example.com"),
+//				},
+//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
+//					AllowedMethods: pulumi.StringArray{
+//						pulumi.String("DELETE"),
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//						pulumi.String("OPTIONS"),
+//						pulumi.String("PATCH"),
+//						pulumi.String("POST"),
+//						pulumi.String("PUT"),
+//					},
+//					CachedMethods: pulumi.StringArray{
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//					},
+//					TargetOriginId: pulumi.String(s3OriginId),
+//					ForwardedValues: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs{
+//						QueryString: pulumi.Bool(false),
+//						Cookies: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{
+//							Forward: pulumi.String("none"),
+//						},
+//					},
+//					ViewerProtocolPolicy: pulumi.String("allow-all"),
+//					MinTtl:               pulumi.Int(0),
+//					DefaultTtl:           pulumi.Int(3600),
+//					MaxTtl:               pulumi.Int(86400),
+//				},
+//				OrderedCacheBehaviors: cloudfront.DistributionOrderedCacheBehaviorArray{
+//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
+//						PathPattern: pulumi.String("/content/immutable/*"),
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						CachedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						TargetOriginId: pulumi.String(s3OriginId),
+//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
+//							QueryString: pulumi.Bool(false),
+//							Headers: pulumi.StringArray{
+//								pulumi.String("Origin"),
+//							},
+//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
+//								Forward: pulumi.String("none"),
+//							},
+//						},
+//						MinTtl:               pulumi.Int(0),
+//						DefaultTtl:           pulumi.Int(86400),
+//						MaxTtl:               pulumi.Int(31536000),
+//						Compress:             pulumi.Bool(true),
+//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					},
+//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
+//						PathPattern: pulumi.String("/content/*"),
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						CachedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//						},
+//						TargetOriginId: pulumi.String(s3OriginId),
+//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
+//							QueryString: pulumi.Bool(false),
+//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
+//								Forward: pulumi.String("none"),
+//							},
+//						},
+//						MinTtl:               pulumi.Int(0),
+//						DefaultTtl:           pulumi.Int(3600),
+//						MaxTtl:               pulumi.Int(86400),
+//						Compress:             pulumi.Bool(true),
+//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					},
+//				},
+//				PriceClass: pulumi.String("PriceClass_200"),
+//				Restrictions: &cloudfront.DistributionRestrictionsArgs{
+//					GeoRestriction: &cloudfront.DistributionRestrictionsGeoRestrictionArgs{
+//						RestrictionType: pulumi.String("whitelist"),
+//						Locations: pulumi.StringArray{
+//							pulumi.String("US"),
+//							pulumi.String("CA"),
+//							pulumi.String("GB"),
+//							pulumi.String("DE"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//				ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
+//					CloudfrontDefaultCertificate: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Failover Routing
+//
+// The example below creates a CloudFront distribution with an origin group for failover routing.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//				OriginGroups: cloudfront.DistributionOriginGroupArray{
+//					&cloudfront.DistributionOriginGroupArgs{
+//						OriginId: pulumi.String("groupS3"),
+//						FailoverCriteria: &cloudfront.DistributionOriginGroupFailoverCriteriaArgs{
+//							StatusCodes: pulumi.IntArray{
+//								pulumi.Int(403),
+//								pulumi.Int(404),
+//								pulumi.Int(500),
+//								pulumi.Int(502),
+//							},
+//						},
+//						Members: cloudfront.DistributionOriginGroupMemberArray{
+//							&cloudfront.DistributionOriginGroupMemberArgs{
+//								OriginId: pulumi.String("primaryS3"),
+//							},
+//							&cloudfront.DistributionOriginGroupMemberArgs{
+//								OriginId: pulumi.String("failoverS3"),
+//							},
+//						},
+//					},
+//				},
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
+//						OriginId:   pulumi.String("primaryS3"),
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//						},
+//					},
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName: pulumi.Any(aws_s3_bucket.Failover.Bucket_regional_domain_name),
+//						OriginId:   pulumi.String("failoverS3"),
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//						},
+//					},
+//				},
+//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
+//					TargetOriginId: pulumi.String("groupS3"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Managed Caching Policy
+//
+// The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			s3OriginId := "myS3Origin"
+//			_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
+//						OriginId:   pulumi.String("myS3Origin"),
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//						},
+//					},
+//				},
+//				Enabled:           pulumi.Bool(true),
+//				IsIpv6Enabled:     pulumi.Bool(true),
+//				Comment:           pulumi.String("Some comment"),
+//				DefaultRootObject: pulumi.String("index.html"),
+//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
+//					CachePolicyId: pulumi.String("4135ea2d-6df8-44a3-9df3-4b5a84be39ad"),
+//					AllowedMethods: pulumi.StringArray{
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//						pulumi.String("OPTIONS"),
+//					},
+//					TargetOriginId: pulumi.String(s3OriginId),
+//				},
+//				Restrictions: &cloudfront.DistributionRestrictionsArgs{
+//					GeoRestriction: &cloudfront.DistributionRestrictionsGeoRestrictionArgs{
+//						RestrictionType: pulumi.String("whitelist"),
+//						Locations: pulumi.StringArray{
+//							pulumi.String("US"),
+//							pulumi.String("CA"),
+//							pulumi.String("GB"),
+//							pulumi.String("DE"),
+//						},
+//					},
+//				},
+//				ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
+//					CloudfrontDefaultCertificate: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// CloudFront Distributions can be imported using the `id`, e.g.,
+// Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
 //
 // ```sh
 //
@@ -37,6 +331,8 @@ type Distribution struct {
 	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId pulumi.StringPtrOutput `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -73,6 +369,8 @@ type Distribution struct {
 	Restrictions DistributionRestrictionsOutput `pulumi:"restrictions"`
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrOutput `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrOutput `pulumi:"staging"`
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -113,6 +411,7 @@ func NewDistribution(ctx *pulumi.Context,
 	if args.ViewerCertificate == nil {
 		return nil, errors.New("invalid value for required argument 'ViewerCertificate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Distribution
 	err := ctx.RegisterResource("aws:cloudfront/distribution:Distribution", name, args, &resource, opts...)
 	if err != nil {
@@ -143,6 +442,8 @@ type distributionState struct {
 	CallerReference *string `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -179,6 +480,8 @@ type distributionState struct {
 	Restrictions *DistributionRestrictions `pulumi:"restrictions"`
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete *bool `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging *bool `pulumi:"staging"`
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -206,6 +509,8 @@ type DistributionState struct {
 	CallerReference pulumi.StringPtrInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId pulumi.StringPtrInput
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayInput
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -242,6 +547,8 @@ type DistributionState struct {
 	Restrictions DistributionRestrictionsPtrInput
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrInput
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrInput
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -269,6 +576,8 @@ type distributionArgs struct {
 	Aliases []string `pulumi:"aliases"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -295,6 +604,8 @@ type distributionArgs struct {
 	Restrictions DistributionRestrictions `pulumi:"restrictions"`
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete *bool `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging *bool `pulumi:"staging"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The SSL configuration for this distribution (maximum one).
@@ -311,6 +622,8 @@ type DistributionArgs struct {
 	Aliases pulumi.StringArrayInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId pulumi.StringPtrInput
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayInput
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -337,6 +650,8 @@ type DistributionArgs struct {
 	Restrictions DistributionRestrictionsInput
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrInput
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The SSL configuration for this distribution (maximum one).
@@ -370,6 +685,12 @@ func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) Dist
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOutput)
 }
 
+func (i *Distribution) ToOutput(ctx context.Context) pulumix.Output[*Distribution] {
+	return pulumix.Output[*Distribution]{
+		OutputState: i.ToDistributionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionArrayInput is an input type that accepts DistributionArray and DistributionArrayOutput values.
 // You can construct a concrete instance of `DistributionArrayInput` via:
 //
@@ -393,6 +714,12 @@ func (i DistributionArray) ToDistributionArrayOutput() DistributionArrayOutput {
 
 func (i DistributionArray) ToDistributionArrayOutputWithContext(ctx context.Context) DistributionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionArrayOutput)
+}
+
+func (i DistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Distribution] {
+	return pulumix.Output[[]*Distribution]{
+		OutputState: i.ToDistributionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DistributionMapInput is an input type that accepts DistributionMap and DistributionMapOutput values.
@@ -420,6 +747,12 @@ func (i DistributionMap) ToDistributionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionMapOutput)
 }
 
+func (i DistributionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Distribution] {
+	return pulumix.Output[map[string]*Distribution]{
+		OutputState: i.ToDistributionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionOutput struct{ *pulumi.OutputState }
 
 func (DistributionOutput) ElementType() reflect.Type {
@@ -432,6 +765,12 @@ func (o DistributionOutput) ToDistributionOutput() DistributionOutput {
 
 func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
 	return o
+}
+
+func (o DistributionOutput) ToOutput(ctx context.Context) pulumix.Output[*Distribution] {
+	return pulumix.Output[*Distribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Extra CNAMEs (alternate domain names), if any, for this distribution.
@@ -452,6 +791,11 @@ func (o DistributionOutput) CallerReference() pulumi.StringOutput {
 // Any comments you want to include about the distribution.
 func (o DistributionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+func (o DistributionOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.ContinuousDeploymentPolicyId }).(pulumi.StringPtrOutput)
 }
 
 // One or more custom error response elements (multiples allowed).
@@ -544,6 +888,11 @@ func (o DistributionOutput) RetainOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.RetainOnDelete }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+func (o DistributionOutput) Staging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.Staging }).(pulumi.BoolPtrOutput)
+}
+
 // Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 func (o DistributionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
@@ -598,6 +947,12 @@ func (o DistributionArrayOutput) ToDistributionArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o DistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Distribution] {
+	return pulumix.Output[[]*Distribution]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DistributionArrayOutput) Index(i pulumi.IntInput) DistributionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Distribution {
 		return vs[0].([]*Distribution)[vs[1].(int)]
@@ -616,6 +971,12 @@ func (o DistributionMapOutput) ToDistributionMapOutput() DistributionMapOutput {
 
 func (o DistributionMapOutput) ToDistributionMapOutputWithContext(ctx context.Context) DistributionMapOutput {
 	return o
+}
+
+func (o DistributionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Distribution] {
+	return pulumix.Output[map[string]*Distribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionMapOutput) MapIndex(k pulumi.StringInput) DistributionOutput {

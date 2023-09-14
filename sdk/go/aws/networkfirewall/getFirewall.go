@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a firewall.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +72,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,6 +92,7 @@ import (
 //
 // ```
 func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallResult
 	err := ctx.Invoke("aws:networkfirewall/getFirewall:getFirewall", args, &rv, opts...)
 	if err != nil {
@@ -180,6 +183,12 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutput() LookupFirewal
 
 func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx context.Context) LookupFirewallResultOutput {
 	return o
+}
+
+func (o LookupFirewallResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFirewallResult] {
+	return pulumix.Output[LookupFirewallResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the firewall.

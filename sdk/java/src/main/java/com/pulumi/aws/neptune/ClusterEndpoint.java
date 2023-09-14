@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
+ * Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint

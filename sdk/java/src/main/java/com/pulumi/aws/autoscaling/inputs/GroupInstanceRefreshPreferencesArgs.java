@@ -19,14 +19,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     public static final GroupInstanceRefreshPreferencesArgs Empty = new GroupInstanceRefreshPreferencesArgs();
 
     /**
-     * Automatically rollback if instance refresh fails. Defaults to `false`.
+     * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
      */
     @Import(name="autoRollback")
     private @Nullable Output<Boolean> autoRollback;
 
     /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`.
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
      */
     public Optional<Output<Boolean>> autoRollback() {
@@ -94,6 +94,21 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
+     * Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    @Import(name="scaleInProtectedInstances")
+    private @Nullable Output<String> scaleInProtectedInstances;
+
+    /**
+     * @return Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    public Optional<Output<String>> scaleInProtectedInstances() {
+        return Optional.ofNullable(this.scaleInProtectedInstances);
+    }
+
+    /**
      * Replace instances that already have your desired configuration. Defaults to `false`.
      * 
      */
@@ -108,6 +123,21 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         return Optional.ofNullable(this.skipMatching);
     }
 
+    /**
+     * Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    @Import(name="standbyInstances")
+    private @Nullable Output<String> standbyInstances;
+
+    /**
+     * @return Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    public Optional<Output<String>> standbyInstances() {
+        return Optional.ofNullable(this.standbyInstances);
+    }
+
     private GroupInstanceRefreshPreferencesArgs() {}
 
     private GroupInstanceRefreshPreferencesArgs(GroupInstanceRefreshPreferencesArgs $) {
@@ -116,7 +146,9 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         this.checkpointPercentages = $.checkpointPercentages;
         this.instanceWarmup = $.instanceWarmup;
         this.minHealthyPercentage = $.minHealthyPercentage;
+        this.scaleInProtectedInstances = $.scaleInProtectedInstances;
         this.skipMatching = $.skipMatching;
+        this.standbyInstances = $.standbyInstances;
     }
 
     public static Builder builder() {
@@ -138,7 +170,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`.
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
          * 
          * @return builder
          * 
@@ -149,7 +181,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`.
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
          * 
          * @return builder
          * 
@@ -253,6 +285,27 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
+         * @param scaleInProtectedInstances Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scaleInProtectedInstances(@Nullable Output<String> scaleInProtectedInstances) {
+            $.scaleInProtectedInstances = scaleInProtectedInstances;
+            return this;
+        }
+
+        /**
+         * @param scaleInProtectedInstances Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scaleInProtectedInstances(String scaleInProtectedInstances) {
+            return scaleInProtectedInstances(Output.of(scaleInProtectedInstances));
+        }
+
+        /**
          * @param skipMatching Replace instances that already have your desired configuration. Defaults to `false`.
          * 
          * @return builder
@@ -271,6 +324,27 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
          */
         public Builder skipMatching(Boolean skipMatching) {
             return skipMatching(Output.of(skipMatching));
+        }
+
+        /**
+         * @param standbyInstances Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder standbyInstances(@Nullable Output<String> standbyInstances) {
+            $.standbyInstances = standbyInstances;
+            return this;
+        }
+
+        /**
+         * @param standbyInstances Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder standbyInstances(String standbyInstances) {
+            return standbyInstances(Output.of(standbyInstances));
         }
 
         public GroupInstanceRefreshPreferencesArgs build() {

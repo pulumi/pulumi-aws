@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an environment member to an AWS Cloud9 development environment.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +56,11 @@ import (
 //
 // ## Import
 //
-// Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
+// In TODO v1.5.0 and later, use an `import` block to import Cloud9 environment membership using the `environment-id#user-arn`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_cloud9_environment_membership.test
 //
-//	$ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-//
-// ```
+//	id = "environment-id#user-arn" } Using `TODO import`, import Cloud9 environment membership using the `environment-id#user-arn`. For exampleconsole % TODO import aws_cloud9_environment_membership.test environment-id#user-arn
 type EnvironmentMembership struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +90,7 @@ func NewEnvironmentMembership(ctx *pulumi.Context,
 	if args.UserArn == nil {
 		return nil, errors.New("invalid value for required argument 'UserArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentMembership
 	err := ctx.RegisterResource("aws:cloud9/environmentMembership:EnvironmentMembership", name, args, &resource, opts...)
 	if err != nil {
@@ -179,6 +180,12 @@ func (i *EnvironmentMembership) ToEnvironmentMembershipOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMembershipOutput)
 }
 
+func (i *EnvironmentMembership) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentMembership] {
+	return pulumix.Output[*EnvironmentMembership]{
+		OutputState: i.ToEnvironmentMembershipOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentMembershipArrayInput is an input type that accepts EnvironmentMembershipArray and EnvironmentMembershipArrayOutput values.
 // You can construct a concrete instance of `EnvironmentMembershipArrayInput` via:
 //
@@ -202,6 +209,12 @@ func (i EnvironmentMembershipArray) ToEnvironmentMembershipArrayOutput() Environ
 
 func (i EnvironmentMembershipArray) ToEnvironmentMembershipArrayOutputWithContext(ctx context.Context) EnvironmentMembershipArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMembershipArrayOutput)
+}
+
+func (i EnvironmentMembershipArray) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentMembership] {
+	return pulumix.Output[[]*EnvironmentMembership]{
+		OutputState: i.ToEnvironmentMembershipArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnvironmentMembershipMapInput is an input type that accepts EnvironmentMembershipMap and EnvironmentMembershipMapOutput values.
@@ -229,6 +242,12 @@ func (i EnvironmentMembershipMap) ToEnvironmentMembershipMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMembershipMapOutput)
 }
 
+func (i EnvironmentMembershipMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentMembership] {
+	return pulumix.Output[map[string]*EnvironmentMembership]{
+		OutputState: i.ToEnvironmentMembershipMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentMembershipOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentMembershipOutput) ElementType() reflect.Type {
@@ -241,6 +260,12 @@ func (o EnvironmentMembershipOutput) ToEnvironmentMembershipOutput() Environment
 
 func (o EnvironmentMembershipOutput) ToEnvironmentMembershipOutputWithContext(ctx context.Context) EnvironmentMembershipOutput {
 	return o
+}
+
+func (o EnvironmentMembershipOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentMembership] {
+	return pulumix.Output[*EnvironmentMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the environment that contains the environment member you want to add.
@@ -277,6 +302,12 @@ func (o EnvironmentMembershipArrayOutput) ToEnvironmentMembershipArrayOutputWith
 	return o
 }
 
+func (o EnvironmentMembershipArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentMembership] {
+	return pulumix.Output[[]*EnvironmentMembership]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentMembershipArrayOutput) Index(i pulumi.IntInput) EnvironmentMembershipOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentMembership {
 		return vs[0].([]*EnvironmentMembership)[vs[1].(int)]
@@ -295,6 +326,12 @@ func (o EnvironmentMembershipMapOutput) ToEnvironmentMembershipMapOutput() Envir
 
 func (o EnvironmentMembershipMapOutput) ToEnvironmentMembershipMapOutputWithContext(ctx context.Context) EnvironmentMembershipMapOutput {
 	return o
+}
+
+func (o EnvironmentMembershipMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentMembership] {
+	return pulumix.Output[map[string]*EnvironmentMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentMembershipMapOutput) MapIndex(k pulumi.StringInput) EnvironmentMembershipOutput {

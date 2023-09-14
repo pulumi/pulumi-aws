@@ -269,7 +269,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.,
+        Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
 
         ```sh
          $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
@@ -351,7 +351,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.,
+        Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
 
         ```sh
          $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf

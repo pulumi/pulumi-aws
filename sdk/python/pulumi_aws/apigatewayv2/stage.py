@@ -39,6 +39,8 @@ class StageArgs:
         :param pulumi.Input[str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[str] name: Name of the stage. Must be between 1 and 128 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -156,6 +158,8 @@ class StageArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the stage. Must be between 1 and 128 characters in length.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -236,6 +240,8 @@ class _StageState:
         :param pulumi.Input[str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[str] name: Name of the stage. Must be between 1 and 128 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -402,6 +408,8 @@ class _StageState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the stage. Must be between 1 and 128 characters in length.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -491,11 +499,12 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
         ```
+         -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -509,6 +518,8 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[str] name: Name of the stage. Must be between 1 and 128 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -535,11 +546,12 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
         ```
+         -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.
@@ -641,6 +653,8 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[str] name: Name of the stage. Must be between 1 and 128 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -757,6 +771,8 @@ class Stage(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the stage. Must be between 1 and 128 characters in length.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

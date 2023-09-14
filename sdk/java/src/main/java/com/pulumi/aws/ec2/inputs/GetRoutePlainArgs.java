@@ -182,12 +182,16 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * ID of the specific Route Table containing the Route entry.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="routeTableId", required=true)
     private String routeTableId;
 
     /**
      * @return ID of the specific Route Table containing the Route entry.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String routeTableId() {
@@ -384,6 +388,8 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param routeTableId ID of the specific Route Table containing the Route entry.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

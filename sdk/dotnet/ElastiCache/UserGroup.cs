@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// ElastiCache user groups can be imported using the `user_group_id`, e.g.,
+    /// Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
@@ -84,6 +84,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The ID of the user group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userGroupId")]
         public Output<string> UserGroupId { get; private set; } = null!;
@@ -160,6 +162,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The ID of the user group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userGroupId", required: true)]
         public Input<string> UserGroupId { get; set; } = null!;
@@ -222,6 +226,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The ID of the user group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userGroupId")]
         public Input<string>? UserGroupId { get; set; }

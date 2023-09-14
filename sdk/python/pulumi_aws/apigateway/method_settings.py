@@ -170,6 +170,9 @@ class MethodSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### End-to-end
+        ### Basic Usage
+
         ```python
         import pulumi
         import hashlib
@@ -221,10 +224,75 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        ### CloudWatch Logging and Tracing
+
+        The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+        ### Off
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="OFF",
+            ))
+        ```
+        ### Errors Only
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="ERROR",
+                metrics_enabled=True,
+                data_trace_enabled=False,
+            ))
+        ```
+        ### Errors and Info Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="INFO",
+                metrics_enabled=True,
+                data_trace_enabled=False,
+            ))
+        ```
+        ### Full Request and Response Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="INFO",
+                metrics_enabled=True,
+                data_trace_enabled=True,
+            ))
+        ```
 
         ## Import
 
-        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+        Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 
         ```sh
          $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
@@ -250,6 +318,9 @@ class MethodSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### End-to-end
+        ### Basic Usage
+
         ```python
         import pulumi
         import hashlib
@@ -301,10 +372,75 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        ### CloudWatch Logging and Tracing
+
+        The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+        ### Off
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="OFF",
+            ))
+        ```
+        ### Errors Only
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="ERROR",
+                metrics_enabled=True,
+                data_trace_enabled=False,
+            ))
+        ```
+        ### Errors and Info Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="INFO",
+                metrics_enabled=True,
+                data_trace_enabled=False,
+            ))
+        ```
+        ### Full Request and Response Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            stage_name=aws_api_gateway_stage["example"]["stage_name"],
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                logging_level="INFO",
+                metrics_enabled=True,
+                data_trace_enabled=True,
+            ))
+        ```
 
         ## Import
 
-        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+        Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 
         ```sh
          $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET

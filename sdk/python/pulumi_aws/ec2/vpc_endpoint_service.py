@@ -443,7 +443,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.,
+        Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
@@ -499,7 +499,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.,
+        Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc

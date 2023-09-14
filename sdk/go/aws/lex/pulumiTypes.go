@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type BotAbortStatement struct {
 	Messages []BotAbortStatementMessage `pulumi:"messages"`
@@ -53,6 +57,12 @@ func (i BotAbortStatementArgs) ToBotAbortStatementOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementOutput)
 }
 
+func (i BotAbortStatementArgs) ToOutput(ctx context.Context) pulumix.Output[BotAbortStatement] {
+	return pulumix.Output[BotAbortStatement]{
+		OutputState: i.ToBotAbortStatementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotAbortStatementArgs) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
 	return i.ToBotAbortStatementPtrOutputWithContext(context.Background())
 }
@@ -94,6 +104,12 @@ func (i *botAbortStatementPtrType) ToBotAbortStatementPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementPtrOutput)
 }
 
+func (i *botAbortStatementPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotAbortStatement] {
+	return pulumix.Output[*BotAbortStatement]{
+		OutputState: i.ToBotAbortStatementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAbortStatementOutput struct{ *pulumi.OutputState }
 
 func (BotAbortStatementOutput) ElementType() reflect.Type {
@@ -116,6 +132,12 @@ func (o BotAbortStatementOutput) ToBotAbortStatementPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAbortStatement) *BotAbortStatement {
 		return &v
 	}).(BotAbortStatementPtrOutput)
+}
+
+func (o BotAbortStatementOutput) ToOutput(ctx context.Context) pulumix.Output[BotAbortStatement] {
+	return pulumix.Output[BotAbortStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAbortStatementOutput) Messages() BotAbortStatementMessageArrayOutput {
@@ -143,6 +165,12 @@ func (o BotAbortStatementPtrOutput) ToBotAbortStatementPtrOutput() BotAbortState
 
 func (o BotAbortStatementPtrOutput) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
 	return o
+}
+
+func (o BotAbortStatementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAbortStatement] {
+	return pulumix.Output[*BotAbortStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAbortStatementPtrOutput) Elem() BotAbortStatementOutput {
@@ -221,6 +249,12 @@ func (i BotAbortStatementMessageArgs) ToBotAbortStatementMessageOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementMessageOutput)
 }
 
+func (i BotAbortStatementMessageArgs) ToOutput(ctx context.Context) pulumix.Output[BotAbortStatementMessage] {
+	return pulumix.Output[BotAbortStatementMessage]{
+		OutputState: i.ToBotAbortStatementMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAbortStatementMessageArrayInput is an input type that accepts BotAbortStatementMessageArray and BotAbortStatementMessageArrayOutput values.
 // You can construct a concrete instance of `BotAbortStatementMessageArrayInput` via:
 //
@@ -246,6 +280,12 @@ func (i BotAbortStatementMessageArray) ToBotAbortStatementMessageArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementMessageArrayOutput)
 }
 
+func (i BotAbortStatementMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]BotAbortStatementMessage] {
+	return pulumix.Output[[]BotAbortStatementMessage]{
+		OutputState: i.ToBotAbortStatementMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAbortStatementMessageOutput struct{ *pulumi.OutputState }
 
 func (BotAbortStatementMessageOutput) ElementType() reflect.Type {
@@ -258,6 +298,12 @@ func (o BotAbortStatementMessageOutput) ToBotAbortStatementMessageOutput() BotAb
 
 func (o BotAbortStatementMessageOutput) ToBotAbortStatementMessageOutputWithContext(ctx context.Context) BotAbortStatementMessageOutput {
 	return o
+}
+
+func (o BotAbortStatementMessageOutput) ToOutput(ctx context.Context) pulumix.Output[BotAbortStatementMessage] {
+	return pulumix.Output[BotAbortStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message.
@@ -288,6 +334,12 @@ func (o BotAbortStatementMessageArrayOutput) ToBotAbortStatementMessageArrayOutp
 
 func (o BotAbortStatementMessageArrayOutput) ToBotAbortStatementMessageArrayOutputWithContext(ctx context.Context) BotAbortStatementMessageArrayOutput {
 	return o
+}
+
+func (o BotAbortStatementMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotAbortStatementMessage] {
+	return pulumix.Output[[]BotAbortStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAbortStatementMessageArrayOutput) Index(i pulumi.IntInput) BotAbortStatementMessageOutput {
@@ -333,6 +385,12 @@ func (i BotAliasConversationLogsArgs) ToBotAliasConversationLogsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsOutput)
 }
 
+func (i BotAliasConversationLogsArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasConversationLogs] {
+	return pulumix.Output[BotAliasConversationLogs]{
+		OutputState: i.ToBotAliasConversationLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotAliasConversationLogsArgs) ToBotAliasConversationLogsPtrOutput() BotAliasConversationLogsPtrOutput {
 	return i.ToBotAliasConversationLogsPtrOutputWithContext(context.Background())
 }
@@ -374,6 +432,12 @@ func (i *botAliasConversationLogsPtrType) ToBotAliasConversationLogsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsPtrOutput)
 }
 
+func (i *botAliasConversationLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotAliasConversationLogs] {
+	return pulumix.Output[*BotAliasConversationLogs]{
+		OutputState: i.ToBotAliasConversationLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAliasConversationLogsOutput struct{ *pulumi.OutputState }
 
 func (BotAliasConversationLogsOutput) ElementType() reflect.Type {
@@ -398,6 +462,12 @@ func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsPtrOutputWithC
 	}).(BotAliasConversationLogsPtrOutput)
 }
 
+func (o BotAliasConversationLogsOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasConversationLogs] {
+	return pulumix.Output[BotAliasConversationLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 func (o BotAliasConversationLogsOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasConversationLogs) string { return v.IamRoleArn }).(pulumi.StringOutput)
@@ -420,6 +490,12 @@ func (o BotAliasConversationLogsPtrOutput) ToBotAliasConversationLogsPtrOutput()
 
 func (o BotAliasConversationLogsPtrOutput) ToBotAliasConversationLogsPtrOutputWithContext(ctx context.Context) BotAliasConversationLogsPtrOutput {
 	return o
+}
+
+func (o BotAliasConversationLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAliasConversationLogs] {
+	return pulumix.Output[*BotAliasConversationLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasConversationLogsPtrOutput) Elem() BotAliasConversationLogsOutput {
@@ -501,6 +577,12 @@ func (i BotAliasConversationLogsLogSettingArgs) ToBotAliasConversationLogsLogSet
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsLogSettingOutput)
 }
 
+func (i BotAliasConversationLogsLogSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasConversationLogsLogSetting] {
+	return pulumix.Output[BotAliasConversationLogsLogSetting]{
+		OutputState: i.ToBotAliasConversationLogsLogSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAliasConversationLogsLogSettingArrayInput is an input type that accepts BotAliasConversationLogsLogSettingArray and BotAliasConversationLogsLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAliasConversationLogsLogSettingArrayInput` via:
 //
@@ -526,6 +608,12 @@ func (i BotAliasConversationLogsLogSettingArray) ToBotAliasConversationLogsLogSe
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsLogSettingArrayOutput)
 }
 
+func (i BotAliasConversationLogsLogSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasConversationLogsLogSetting] {
+	return pulumix.Output[[]BotAliasConversationLogsLogSetting]{
+		OutputState: i.ToBotAliasConversationLogsLogSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAliasConversationLogsLogSettingOutput struct{ *pulumi.OutputState }
 
 func (BotAliasConversationLogsLogSettingOutput) ElementType() reflect.Type {
@@ -538,6 +626,12 @@ func (o BotAliasConversationLogsLogSettingOutput) ToBotAliasConversationLogsLogS
 
 func (o BotAliasConversationLogsLogSettingOutput) ToBotAliasConversationLogsLogSettingOutputWithContext(ctx context.Context) BotAliasConversationLogsLogSettingOutput {
 	return o
+}
+
+func (o BotAliasConversationLogsLogSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasConversationLogsLogSetting] {
+	return pulumix.Output[BotAliasConversationLogsLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
@@ -577,6 +671,12 @@ func (o BotAliasConversationLogsLogSettingArrayOutput) ToBotAliasConversationLog
 
 func (o BotAliasConversationLogsLogSettingArrayOutput) ToBotAliasConversationLogsLogSettingArrayOutputWithContext(ctx context.Context) BotAliasConversationLogsLogSettingArrayOutput {
 	return o
+}
+
+func (o BotAliasConversationLogsLogSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasConversationLogsLogSetting] {
+	return pulumix.Output[[]BotAliasConversationLogsLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasConversationLogsLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasConversationLogsLogSettingOutput {
@@ -632,6 +732,12 @@ func (i BotClarificationPromptArgs) ToBotClarificationPromptOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptOutput)
 }
 
+func (i BotClarificationPromptArgs) ToOutput(ctx context.Context) pulumix.Output[BotClarificationPrompt] {
+	return pulumix.Output[BotClarificationPrompt]{
+		OutputState: i.ToBotClarificationPromptOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotClarificationPromptArgs) ToBotClarificationPromptPtrOutput() BotClarificationPromptPtrOutput {
 	return i.ToBotClarificationPromptPtrOutputWithContext(context.Background())
 }
@@ -673,6 +779,12 @@ func (i *botClarificationPromptPtrType) ToBotClarificationPromptPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptPtrOutput)
 }
 
+func (i *botClarificationPromptPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotClarificationPrompt] {
+	return pulumix.Output[*BotClarificationPrompt]{
+		OutputState: i.ToBotClarificationPromptPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotClarificationPromptOutput struct{ *pulumi.OutputState }
 
 func (BotClarificationPromptOutput) ElementType() reflect.Type {
@@ -695,6 +807,12 @@ func (o BotClarificationPromptOutput) ToBotClarificationPromptPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotClarificationPrompt) *BotClarificationPrompt {
 		return &v
 	}).(BotClarificationPromptPtrOutput)
+}
+
+func (o BotClarificationPromptOutput) ToOutput(ctx context.Context) pulumix.Output[BotClarificationPrompt] {
+	return pulumix.Output[BotClarificationPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of times to prompt the user for information.
@@ -727,6 +845,12 @@ func (o BotClarificationPromptPtrOutput) ToBotClarificationPromptPtrOutput() Bot
 
 func (o BotClarificationPromptPtrOutput) ToBotClarificationPromptPtrOutputWithContext(ctx context.Context) BotClarificationPromptPtrOutput {
 	return o
+}
+
+func (o BotClarificationPromptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotClarificationPrompt] {
+	return pulumix.Output[*BotClarificationPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotClarificationPromptPtrOutput) Elem() BotClarificationPromptOutput {
@@ -815,6 +939,12 @@ func (i BotClarificationPromptMessageArgs) ToBotClarificationPromptMessageOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptMessageOutput)
 }
 
+func (i BotClarificationPromptMessageArgs) ToOutput(ctx context.Context) pulumix.Output[BotClarificationPromptMessage] {
+	return pulumix.Output[BotClarificationPromptMessage]{
+		OutputState: i.ToBotClarificationPromptMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotClarificationPromptMessageArrayInput is an input type that accepts BotClarificationPromptMessageArray and BotClarificationPromptMessageArrayOutput values.
 // You can construct a concrete instance of `BotClarificationPromptMessageArrayInput` via:
 //
@@ -840,6 +970,12 @@ func (i BotClarificationPromptMessageArray) ToBotClarificationPromptMessageArray
 	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptMessageArrayOutput)
 }
 
+func (i BotClarificationPromptMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]BotClarificationPromptMessage] {
+	return pulumix.Output[[]BotClarificationPromptMessage]{
+		OutputState: i.ToBotClarificationPromptMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotClarificationPromptMessageOutput struct{ *pulumi.OutputState }
 
 func (BotClarificationPromptMessageOutput) ElementType() reflect.Type {
@@ -852,6 +988,12 @@ func (o BotClarificationPromptMessageOutput) ToBotClarificationPromptMessageOutp
 
 func (o BotClarificationPromptMessageOutput) ToBotClarificationPromptMessageOutputWithContext(ctx context.Context) BotClarificationPromptMessageOutput {
 	return o
+}
+
+func (o BotClarificationPromptMessageOutput) ToOutput(ctx context.Context) pulumix.Output[BotClarificationPromptMessage] {
+	return pulumix.Output[BotClarificationPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message.
@@ -882,6 +1024,12 @@ func (o BotClarificationPromptMessageArrayOutput) ToBotClarificationPromptMessag
 
 func (o BotClarificationPromptMessageArrayOutput) ToBotClarificationPromptMessageArrayOutputWithContext(ctx context.Context) BotClarificationPromptMessageArrayOutput {
 	return o
+}
+
+func (o BotClarificationPromptMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotClarificationPromptMessage] {
+	return pulumix.Output[[]BotClarificationPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotClarificationPromptMessageArrayOutput) Index(i pulumi.IntInput) BotClarificationPromptMessageOutput {
@@ -927,6 +1075,12 @@ func (i BotIntentArgs) ToBotIntentOutputWithContext(ctx context.Context) BotInte
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentOutput)
 }
 
+func (i BotIntentArgs) ToOutput(ctx context.Context) pulumix.Output[BotIntent] {
+	return pulumix.Output[BotIntent]{
+		OutputState: i.ToBotIntentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotIntentArrayInput is an input type that accepts BotIntentArray and BotIntentArrayOutput values.
 // You can construct a concrete instance of `BotIntentArrayInput` via:
 //
@@ -952,6 +1106,12 @@ func (i BotIntentArray) ToBotIntentArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentArrayOutput)
 }
 
+func (i BotIntentArray) ToOutput(ctx context.Context) pulumix.Output[[]BotIntent] {
+	return pulumix.Output[[]BotIntent]{
+		OutputState: i.ToBotIntentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotIntentOutput struct{ *pulumi.OutputState }
 
 func (BotIntentOutput) ElementType() reflect.Type {
@@ -964,6 +1124,12 @@ func (o BotIntentOutput) ToBotIntentOutput() BotIntentOutput {
 
 func (o BotIntentOutput) ToBotIntentOutputWithContext(ctx context.Context) BotIntentOutput {
 	return o
+}
+
+func (o BotIntentOutput) ToOutput(ctx context.Context) pulumix.Output[BotIntent] {
+	return pulumix.Output[BotIntent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the intent. Must be less than or equal to 100 characters in length.
@@ -988,6 +1154,12 @@ func (o BotIntentArrayOutput) ToBotIntentArrayOutput() BotIntentArrayOutput {
 
 func (o BotIntentArrayOutput) ToBotIntentArrayOutputWithContext(ctx context.Context) BotIntentArrayOutput {
 	return o
+}
+
+func (o BotIntentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotIntent] {
+	return pulumix.Output[[]BotIntent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotIntentArrayOutput) Index(i pulumi.IntInput) BotIntentOutput {
@@ -1043,6 +1215,12 @@ func (i IntentConclusionStatementArgs) ToIntentConclusionStatementOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementOutput)
 }
 
+func (i IntentConclusionStatementArgs) ToOutput(ctx context.Context) pulumix.Output[IntentConclusionStatement] {
+	return pulumix.Output[IntentConclusionStatement]{
+		OutputState: i.ToIntentConclusionStatementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentConclusionStatementArgs) ToIntentConclusionStatementPtrOutput() IntentConclusionStatementPtrOutput {
 	return i.ToIntentConclusionStatementPtrOutputWithContext(context.Background())
 }
@@ -1084,6 +1262,12 @@ func (i *intentConclusionStatementPtrType) ToIntentConclusionStatementPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementPtrOutput)
 }
 
+func (i *intentConclusionStatementPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentConclusionStatement] {
+	return pulumix.Output[*IntentConclusionStatement]{
+		OutputState: i.ToIntentConclusionStatementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentConclusionStatementOutput struct{ *pulumi.OutputState }
 
 func (IntentConclusionStatementOutput) ElementType() reflect.Type {
@@ -1106,6 +1290,12 @@ func (o IntentConclusionStatementOutput) ToIntentConclusionStatementPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentConclusionStatement) *IntentConclusionStatement {
 		return &v
 	}).(IntentConclusionStatementPtrOutput)
+}
+
+func (o IntentConclusionStatementOutput) ToOutput(ctx context.Context) pulumix.Output[IntentConclusionStatement] {
+	return pulumix.Output[IntentConclusionStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentConclusionStatementOutput) Messages() IntentConclusionStatementMessageArrayOutput {
@@ -1135,6 +1325,12 @@ func (o IntentConclusionStatementPtrOutput) ToIntentConclusionStatementPtrOutput
 
 func (o IntentConclusionStatementPtrOutput) ToIntentConclusionStatementPtrOutputWithContext(ctx context.Context) IntentConclusionStatementPtrOutput {
 	return o
+}
+
+func (o IntentConclusionStatementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentConclusionStatement] {
+	return pulumix.Output[*IntentConclusionStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentConclusionStatementPtrOutput) Elem() IntentConclusionStatementOutput {
@@ -1215,6 +1411,12 @@ func (i IntentConclusionStatementMessageArgs) ToIntentConclusionStatementMessage
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementMessageOutput)
 }
 
+func (i IntentConclusionStatementMessageArgs) ToOutput(ctx context.Context) pulumix.Output[IntentConclusionStatementMessage] {
+	return pulumix.Output[IntentConclusionStatementMessage]{
+		OutputState: i.ToIntentConclusionStatementMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntentConclusionStatementMessageArrayInput is an input type that accepts IntentConclusionStatementMessageArray and IntentConclusionStatementMessageArrayOutput values.
 // You can construct a concrete instance of `IntentConclusionStatementMessageArrayInput` via:
 //
@@ -1240,6 +1442,12 @@ func (i IntentConclusionStatementMessageArray) ToIntentConclusionStatementMessag
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementMessageArrayOutput)
 }
 
+func (i IntentConclusionStatementMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]IntentConclusionStatementMessage] {
+	return pulumix.Output[[]IntentConclusionStatementMessage]{
+		OutputState: i.ToIntentConclusionStatementMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentConclusionStatementMessageOutput struct{ *pulumi.OutputState }
 
 func (IntentConclusionStatementMessageOutput) ElementType() reflect.Type {
@@ -1252,6 +1460,12 @@ func (o IntentConclusionStatementMessageOutput) ToIntentConclusionStatementMessa
 
 func (o IntentConclusionStatementMessageOutput) ToIntentConclusionStatementMessageOutputWithContext(ctx context.Context) IntentConclusionStatementMessageOutput {
 	return o
+}
+
+func (o IntentConclusionStatementMessageOutput) ToOutput(ctx context.Context) pulumix.Output[IntentConclusionStatementMessage] {
+	return pulumix.Output[IntentConclusionStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message. Must be less than or equal to 1000 characters in length.
@@ -1282,6 +1496,12 @@ func (o IntentConclusionStatementMessageArrayOutput) ToIntentConclusionStatement
 
 func (o IntentConclusionStatementMessageArrayOutput) ToIntentConclusionStatementMessageArrayOutputWithContext(ctx context.Context) IntentConclusionStatementMessageArrayOutput {
 	return o
+}
+
+func (o IntentConclusionStatementMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntentConclusionStatementMessage] {
+	return pulumix.Output[[]IntentConclusionStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentConclusionStatementMessageArrayOutput) Index(i pulumi.IntInput) IntentConclusionStatementMessageOutput {
@@ -1341,6 +1561,12 @@ func (i IntentConfirmationPromptArgs) ToIntentConfirmationPromptOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptOutput)
 }
 
+func (i IntentConfirmationPromptArgs) ToOutput(ctx context.Context) pulumix.Output[IntentConfirmationPrompt] {
+	return pulumix.Output[IntentConfirmationPrompt]{
+		OutputState: i.ToIntentConfirmationPromptOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentConfirmationPromptArgs) ToIntentConfirmationPromptPtrOutput() IntentConfirmationPromptPtrOutput {
 	return i.ToIntentConfirmationPromptPtrOutputWithContext(context.Background())
 }
@@ -1382,6 +1608,12 @@ func (i *intentConfirmationPromptPtrType) ToIntentConfirmationPromptPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptPtrOutput)
 }
 
+func (i *intentConfirmationPromptPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentConfirmationPrompt] {
+	return pulumix.Output[*IntentConfirmationPrompt]{
+		OutputState: i.ToIntentConfirmationPromptPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentConfirmationPromptOutput struct{ *pulumi.OutputState }
 
 func (IntentConfirmationPromptOutput) ElementType() reflect.Type {
@@ -1404,6 +1636,12 @@ func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentConfirmationPrompt) *IntentConfirmationPrompt {
 		return &v
 	}).(IntentConfirmationPromptPtrOutput)
+}
+
+func (o IntentConfirmationPromptOutput) ToOutput(ctx context.Context) pulumix.Output[IntentConfirmationPrompt] {
+	return pulumix.Output[IntentConfirmationPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
@@ -1438,6 +1676,12 @@ func (o IntentConfirmationPromptPtrOutput) ToIntentConfirmationPromptPtrOutput()
 
 func (o IntentConfirmationPromptPtrOutput) ToIntentConfirmationPromptPtrOutputWithContext(ctx context.Context) IntentConfirmationPromptPtrOutput {
 	return o
+}
+
+func (o IntentConfirmationPromptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentConfirmationPrompt] {
+	return pulumix.Output[*IntentConfirmationPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentConfirmationPromptPtrOutput) Elem() IntentConfirmationPromptOutput {
@@ -1528,6 +1772,12 @@ func (i IntentConfirmationPromptMessageArgs) ToIntentConfirmationPromptMessageOu
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptMessageOutput)
 }
 
+func (i IntentConfirmationPromptMessageArgs) ToOutput(ctx context.Context) pulumix.Output[IntentConfirmationPromptMessage] {
+	return pulumix.Output[IntentConfirmationPromptMessage]{
+		OutputState: i.ToIntentConfirmationPromptMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntentConfirmationPromptMessageArrayInput is an input type that accepts IntentConfirmationPromptMessageArray and IntentConfirmationPromptMessageArrayOutput values.
 // You can construct a concrete instance of `IntentConfirmationPromptMessageArrayInput` via:
 //
@@ -1553,6 +1803,12 @@ func (i IntentConfirmationPromptMessageArray) ToIntentConfirmationPromptMessageA
 	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptMessageArrayOutput)
 }
 
+func (i IntentConfirmationPromptMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]IntentConfirmationPromptMessage] {
+	return pulumix.Output[[]IntentConfirmationPromptMessage]{
+		OutputState: i.ToIntentConfirmationPromptMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentConfirmationPromptMessageOutput struct{ *pulumi.OutputState }
 
 func (IntentConfirmationPromptMessageOutput) ElementType() reflect.Type {
@@ -1565,6 +1821,12 @@ func (o IntentConfirmationPromptMessageOutput) ToIntentConfirmationPromptMessage
 
 func (o IntentConfirmationPromptMessageOutput) ToIntentConfirmationPromptMessageOutputWithContext(ctx context.Context) IntentConfirmationPromptMessageOutput {
 	return o
+}
+
+func (o IntentConfirmationPromptMessageOutput) ToOutput(ctx context.Context) pulumix.Output[IntentConfirmationPromptMessage] {
+	return pulumix.Output[IntentConfirmationPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message. Must be less than or equal to 1000 characters in length.
@@ -1595,6 +1857,12 @@ func (o IntentConfirmationPromptMessageArrayOutput) ToIntentConfirmationPromptMe
 
 func (o IntentConfirmationPromptMessageArrayOutput) ToIntentConfirmationPromptMessageArrayOutputWithContext(ctx context.Context) IntentConfirmationPromptMessageArrayOutput {
 	return o
+}
+
+func (o IntentConfirmationPromptMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntentConfirmationPromptMessage] {
+	return pulumix.Output[[]IntentConfirmationPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentConfirmationPromptMessageArrayOutput) Index(i pulumi.IntInput) IntentConfirmationPromptMessageOutput {
@@ -1644,6 +1912,12 @@ func (i IntentDialogCodeHookArgs) ToIntentDialogCodeHookOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IntentDialogCodeHookOutput)
 }
 
+func (i IntentDialogCodeHookArgs) ToOutput(ctx context.Context) pulumix.Output[IntentDialogCodeHook] {
+	return pulumix.Output[IntentDialogCodeHook]{
+		OutputState: i.ToIntentDialogCodeHookOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentDialogCodeHookArgs) ToIntentDialogCodeHookPtrOutput() IntentDialogCodeHookPtrOutput {
 	return i.ToIntentDialogCodeHookPtrOutputWithContext(context.Background())
 }
@@ -1685,6 +1959,12 @@ func (i *intentDialogCodeHookPtrType) ToIntentDialogCodeHookPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntentDialogCodeHookPtrOutput)
 }
 
+func (i *intentDialogCodeHookPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentDialogCodeHook] {
+	return pulumix.Output[*IntentDialogCodeHook]{
+		OutputState: i.ToIntentDialogCodeHookPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentDialogCodeHookOutput struct{ *pulumi.OutputState }
 
 func (IntentDialogCodeHookOutput) ElementType() reflect.Type {
@@ -1707,6 +1987,12 @@ func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentDialogCodeHook) *IntentDialogCodeHook {
 		return &v
 	}).(IntentDialogCodeHookPtrOutput)
+}
+
+func (o IntentDialogCodeHookOutput) ToOutput(ctx context.Context) pulumix.Output[IntentDialogCodeHook] {
+	return pulumix.Output[IntentDialogCodeHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The version of the request-response that you want Amazon Lex to use
@@ -1733,6 +2019,12 @@ func (o IntentDialogCodeHookPtrOutput) ToIntentDialogCodeHookPtrOutput() IntentD
 
 func (o IntentDialogCodeHookPtrOutput) ToIntentDialogCodeHookPtrOutputWithContext(ctx context.Context) IntentDialogCodeHookPtrOutput {
 	return o
+}
+
+func (o IntentDialogCodeHookPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentDialogCodeHook] {
+	return pulumix.Output[*IntentDialogCodeHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentDialogCodeHookPtrOutput) Elem() IntentDialogCodeHookOutput {
@@ -1808,6 +2100,12 @@ func (i IntentFollowUpPromptArgs) ToIntentFollowUpPromptOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptOutput)
 }
 
+func (i IntentFollowUpPromptArgs) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPrompt] {
+	return pulumix.Output[IntentFollowUpPrompt]{
+		OutputState: i.ToIntentFollowUpPromptOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentFollowUpPromptArgs) ToIntentFollowUpPromptPtrOutput() IntentFollowUpPromptPtrOutput {
 	return i.ToIntentFollowUpPromptPtrOutputWithContext(context.Background())
 }
@@ -1849,6 +2147,12 @@ func (i *intentFollowUpPromptPtrType) ToIntentFollowUpPromptPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPtrOutput)
 }
 
+func (i *intentFollowUpPromptPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentFollowUpPrompt] {
+	return pulumix.Output[*IntentFollowUpPrompt]{
+		OutputState: i.ToIntentFollowUpPromptPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentFollowUpPromptOutput struct{ *pulumi.OutputState }
 
 func (IntentFollowUpPromptOutput) ElementType() reflect.Type {
@@ -1871,6 +2175,12 @@ func (o IntentFollowUpPromptOutput) ToIntentFollowUpPromptPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFollowUpPrompt) *IntentFollowUpPrompt {
 		return &v
 	}).(IntentFollowUpPromptPtrOutput)
+}
+
+func (o IntentFollowUpPromptOutput) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPrompt] {
+	return pulumix.Output[IntentFollowUpPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Prompts for information from the user. Attributes are documented under prompt.
@@ -1897,6 +2207,12 @@ func (o IntentFollowUpPromptPtrOutput) ToIntentFollowUpPromptPtrOutput() IntentF
 
 func (o IntentFollowUpPromptPtrOutput) ToIntentFollowUpPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPtrOutput {
 	return o
+}
+
+func (o IntentFollowUpPromptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentFollowUpPrompt] {
+	return pulumix.Output[*IntentFollowUpPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFollowUpPromptPtrOutput) Elem() IntentFollowUpPromptOutput {
@@ -1980,6 +2296,12 @@ func (i IntentFollowUpPromptPromptArgs) ToIntentFollowUpPromptPromptOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptOutput)
 }
 
+func (i IntentFollowUpPromptPromptArgs) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptPrompt] {
+	return pulumix.Output[IntentFollowUpPromptPrompt]{
+		OutputState: i.ToIntentFollowUpPromptPromptOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentFollowUpPromptPromptArgs) ToIntentFollowUpPromptPromptPtrOutput() IntentFollowUpPromptPromptPtrOutput {
 	return i.ToIntentFollowUpPromptPromptPtrOutputWithContext(context.Background())
 }
@@ -2021,6 +2343,12 @@ func (i *intentFollowUpPromptPromptPtrType) ToIntentFollowUpPromptPromptPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptPtrOutput)
 }
 
+func (i *intentFollowUpPromptPromptPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentFollowUpPromptPrompt] {
+	return pulumix.Output[*IntentFollowUpPromptPrompt]{
+		OutputState: i.ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentFollowUpPromptPromptOutput struct{ *pulumi.OutputState }
 
 func (IntentFollowUpPromptPromptOutput) ElementType() reflect.Type {
@@ -2043,6 +2371,12 @@ func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFollowUpPromptPrompt) *IntentFollowUpPromptPrompt {
 		return &v
 	}).(IntentFollowUpPromptPromptPtrOutput)
+}
+
+func (o IntentFollowUpPromptPromptOutput) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptPrompt] {
+	return pulumix.Output[IntentFollowUpPromptPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
@@ -2076,6 +2410,12 @@ func (o IntentFollowUpPromptPromptPtrOutput) ToIntentFollowUpPromptPromptPtrOutp
 
 func (o IntentFollowUpPromptPromptPtrOutput) ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptPtrOutput {
 	return o
+}
+
+func (o IntentFollowUpPromptPromptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentFollowUpPromptPrompt] {
+	return pulumix.Output[*IntentFollowUpPromptPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFollowUpPromptPromptPtrOutput) Elem() IntentFollowUpPromptPromptOutput {
@@ -2165,6 +2505,12 @@ func (i IntentFollowUpPromptPromptMessageArgs) ToIntentFollowUpPromptPromptMessa
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptMessageOutput)
 }
 
+func (i IntentFollowUpPromptPromptMessageArgs) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptPromptMessage] {
+	return pulumix.Output[IntentFollowUpPromptPromptMessage]{
+		OutputState: i.ToIntentFollowUpPromptPromptMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntentFollowUpPromptPromptMessageArrayInput is an input type that accepts IntentFollowUpPromptPromptMessageArray and IntentFollowUpPromptPromptMessageArrayOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptPromptMessageArrayInput` via:
 //
@@ -2190,6 +2536,12 @@ func (i IntentFollowUpPromptPromptMessageArray) ToIntentFollowUpPromptPromptMess
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptMessageArrayOutput)
 }
 
+func (i IntentFollowUpPromptPromptMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]IntentFollowUpPromptPromptMessage] {
+	return pulumix.Output[[]IntentFollowUpPromptPromptMessage]{
+		OutputState: i.ToIntentFollowUpPromptPromptMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentFollowUpPromptPromptMessageOutput struct{ *pulumi.OutputState }
 
 func (IntentFollowUpPromptPromptMessageOutput) ElementType() reflect.Type {
@@ -2202,6 +2554,12 @@ func (o IntentFollowUpPromptPromptMessageOutput) ToIntentFollowUpPromptPromptMes
 
 func (o IntentFollowUpPromptPromptMessageOutput) ToIntentFollowUpPromptPromptMessageOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptMessageOutput {
 	return o
+}
+
+func (o IntentFollowUpPromptPromptMessageOutput) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptPromptMessage] {
+	return pulumix.Output[IntentFollowUpPromptPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message. Must be less than or equal to 1000 characters in length.
@@ -2232,6 +2590,12 @@ func (o IntentFollowUpPromptPromptMessageArrayOutput) ToIntentFollowUpPromptProm
 
 func (o IntentFollowUpPromptPromptMessageArrayOutput) ToIntentFollowUpPromptPromptMessageArrayOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptMessageArrayOutput {
 	return o
+}
+
+func (o IntentFollowUpPromptPromptMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntentFollowUpPromptPromptMessage] {
+	return pulumix.Output[[]IntentFollowUpPromptPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFollowUpPromptPromptMessageArrayOutput) Index(i pulumi.IntInput) IntentFollowUpPromptPromptMessageOutput {
@@ -2287,6 +2651,12 @@ func (i IntentFollowUpPromptRejectionStatementArgs) ToIntentFollowUpPromptReject
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementOutput)
 }
 
+func (i IntentFollowUpPromptRejectionStatementArgs) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptRejectionStatement] {
+	return pulumix.Output[IntentFollowUpPromptRejectionStatement]{
+		OutputState: i.ToIntentFollowUpPromptRejectionStatementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentFollowUpPromptRejectionStatementArgs) ToIntentFollowUpPromptRejectionStatementPtrOutput() IntentFollowUpPromptRejectionStatementPtrOutput {
 	return i.ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(context.Background())
 }
@@ -2328,6 +2698,12 @@ func (i *intentFollowUpPromptRejectionStatementPtrType) ToIntentFollowUpPromptRe
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementPtrOutput)
 }
 
+func (i *intentFollowUpPromptRejectionStatementPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentFollowUpPromptRejectionStatement] {
+	return pulumix.Output[*IntentFollowUpPromptRejectionStatement]{
+		OutputState: i.ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentFollowUpPromptRejectionStatementOutput struct{ *pulumi.OutputState }
 
 func (IntentFollowUpPromptRejectionStatementOutput) ElementType() reflect.Type {
@@ -2350,6 +2726,12 @@ func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptReje
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFollowUpPromptRejectionStatement) *IntentFollowUpPromptRejectionStatement {
 		return &v
 	}).(IntentFollowUpPromptRejectionStatementPtrOutput)
+}
+
+func (o IntentFollowUpPromptRejectionStatementOutput) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptRejectionStatement] {
+	return pulumix.Output[IntentFollowUpPromptRejectionStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFollowUpPromptRejectionStatementOutput) Messages() IntentFollowUpPromptRejectionStatementMessageArrayOutput {
@@ -2381,6 +2763,12 @@ func (o IntentFollowUpPromptRejectionStatementPtrOutput) ToIntentFollowUpPromptR
 
 func (o IntentFollowUpPromptRejectionStatementPtrOutput) ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementPtrOutput {
 	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentFollowUpPromptRejectionStatement] {
+	return pulumix.Output[*IntentFollowUpPromptRejectionStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFollowUpPromptRejectionStatementPtrOutput) Elem() IntentFollowUpPromptRejectionStatementOutput {
@@ -2461,6 +2849,12 @@ func (i IntentFollowUpPromptRejectionStatementMessageArgs) ToIntentFollowUpPromp
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementMessageOutput)
 }
 
+func (i IntentFollowUpPromptRejectionStatementMessageArgs) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptRejectionStatementMessage] {
+	return pulumix.Output[IntentFollowUpPromptRejectionStatementMessage]{
+		OutputState: i.ToIntentFollowUpPromptRejectionStatementMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntentFollowUpPromptRejectionStatementMessageArrayInput is an input type that accepts IntentFollowUpPromptRejectionStatementMessageArray and IntentFollowUpPromptRejectionStatementMessageArrayOutput values.
 // You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementMessageArrayInput` via:
 //
@@ -2486,6 +2880,12 @@ func (i IntentFollowUpPromptRejectionStatementMessageArray) ToIntentFollowUpProm
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementMessageArrayOutput)
 }
 
+func (i IntentFollowUpPromptRejectionStatementMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]IntentFollowUpPromptRejectionStatementMessage] {
+	return pulumix.Output[[]IntentFollowUpPromptRejectionStatementMessage]{
+		OutputState: i.ToIntentFollowUpPromptRejectionStatementMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentFollowUpPromptRejectionStatementMessageOutput struct{ *pulumi.OutputState }
 
 func (IntentFollowUpPromptRejectionStatementMessageOutput) ElementType() reflect.Type {
@@ -2498,6 +2898,12 @@ func (o IntentFollowUpPromptRejectionStatementMessageOutput) ToIntentFollowUpPro
 
 func (o IntentFollowUpPromptRejectionStatementMessageOutput) ToIntentFollowUpPromptRejectionStatementMessageOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementMessageOutput {
 	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementMessageOutput) ToOutput(ctx context.Context) pulumix.Output[IntentFollowUpPromptRejectionStatementMessage] {
+	return pulumix.Output[IntentFollowUpPromptRejectionStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message. Must be less than or equal to 1000 characters in length.
@@ -2528,6 +2934,12 @@ func (o IntentFollowUpPromptRejectionStatementMessageArrayOutput) ToIntentFollow
 
 func (o IntentFollowUpPromptRejectionStatementMessageArrayOutput) ToIntentFollowUpPromptRejectionStatementMessageArrayOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementMessageArrayOutput {
 	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntentFollowUpPromptRejectionStatementMessage] {
+	return pulumix.Output[[]IntentFollowUpPromptRejectionStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFollowUpPromptRejectionStatementMessageArrayOutput) Index(i pulumi.IntInput) IntentFollowUpPromptRejectionStatementMessageOutput {
@@ -2577,6 +2989,12 @@ func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityOutput)
 }
 
+func (i IntentFulfillmentActivityArgs) ToOutput(ctx context.Context) pulumix.Output[IntentFulfillmentActivity] {
+	return pulumix.Output[IntentFulfillmentActivity]{
+		OutputState: i.ToIntentFulfillmentActivityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
 	return i.ToIntentFulfillmentActivityPtrOutputWithContext(context.Background())
 }
@@ -2618,6 +3036,12 @@ func (i *intentFulfillmentActivityPtrType) ToIntentFulfillmentActivityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityPtrOutput)
 }
 
+func (i *intentFulfillmentActivityPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentFulfillmentActivity] {
+	return pulumix.Output[*IntentFulfillmentActivity]{
+		OutputState: i.ToIntentFulfillmentActivityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentFulfillmentActivityOutput struct{ *pulumi.OutputState }
 
 func (IntentFulfillmentActivityOutput) ElementType() reflect.Type {
@@ -2640,6 +3064,12 @@ func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFulfillmentActivity) *IntentFulfillmentActivity {
 		return &v
 	}).(IntentFulfillmentActivityPtrOutput)
+}
+
+func (o IntentFulfillmentActivityOutput) ToOutput(ctx context.Context) pulumix.Output[IntentFulfillmentActivity] {
+	return pulumix.Output[IntentFulfillmentActivity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description of the Lambda function that is run to fulfill the intent.
@@ -2666,6 +3096,12 @@ func (o IntentFulfillmentActivityPtrOutput) ToIntentFulfillmentActivityPtrOutput
 
 func (o IntentFulfillmentActivityPtrOutput) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
 	return o
+}
+
+func (o IntentFulfillmentActivityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentFulfillmentActivity] {
+	return pulumix.Output[*IntentFulfillmentActivity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFulfillmentActivityPtrOutput) Elem() IntentFulfillmentActivityOutput {
@@ -2741,6 +3177,12 @@ func (i IntentFulfillmentActivityCodeHookArgs) ToIntentFulfillmentActivityCodeHo
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityCodeHookOutput)
 }
 
+func (i IntentFulfillmentActivityCodeHookArgs) ToOutput(ctx context.Context) pulumix.Output[IntentFulfillmentActivityCodeHook] {
+	return pulumix.Output[IntentFulfillmentActivityCodeHook]{
+		OutputState: i.ToIntentFulfillmentActivityCodeHookOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentFulfillmentActivityCodeHookArgs) ToIntentFulfillmentActivityCodeHookPtrOutput() IntentFulfillmentActivityCodeHookPtrOutput {
 	return i.ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(context.Background())
 }
@@ -2782,6 +3224,12 @@ func (i *intentFulfillmentActivityCodeHookPtrType) ToIntentFulfillmentActivityCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityCodeHookPtrOutput)
 }
 
+func (i *intentFulfillmentActivityCodeHookPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentFulfillmentActivityCodeHook] {
+	return pulumix.Output[*IntentFulfillmentActivityCodeHook]{
+		OutputState: i.ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentFulfillmentActivityCodeHookOutput struct{ *pulumi.OutputState }
 
 func (IntentFulfillmentActivityCodeHookOutput) ElementType() reflect.Type {
@@ -2804,6 +3252,12 @@ func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCode
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFulfillmentActivityCodeHook) *IntentFulfillmentActivityCodeHook {
 		return &v
 	}).(IntentFulfillmentActivityCodeHookPtrOutput)
+}
+
+func (o IntentFulfillmentActivityCodeHookOutput) ToOutput(ctx context.Context) pulumix.Output[IntentFulfillmentActivityCodeHook] {
+	return pulumix.Output[IntentFulfillmentActivityCodeHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The version of the request-response that you want Amazon Lex to use
@@ -2830,6 +3284,12 @@ func (o IntentFulfillmentActivityCodeHookPtrOutput) ToIntentFulfillmentActivityC
 
 func (o IntentFulfillmentActivityCodeHookPtrOutput) ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookPtrOutput {
 	return o
+}
+
+func (o IntentFulfillmentActivityCodeHookPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentFulfillmentActivityCodeHook] {
+	return pulumix.Output[*IntentFulfillmentActivityCodeHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentFulfillmentActivityCodeHookPtrOutput) Elem() IntentFulfillmentActivityCodeHookOutput {
@@ -2911,6 +3371,12 @@ func (i IntentRejectionStatementArgs) ToIntentRejectionStatementOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementOutput)
 }
 
+func (i IntentRejectionStatementArgs) ToOutput(ctx context.Context) pulumix.Output[IntentRejectionStatement] {
+	return pulumix.Output[IntentRejectionStatement]{
+		OutputState: i.ToIntentRejectionStatementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentRejectionStatementArgs) ToIntentRejectionStatementPtrOutput() IntentRejectionStatementPtrOutput {
 	return i.ToIntentRejectionStatementPtrOutputWithContext(context.Background())
 }
@@ -2952,6 +3418,12 @@ func (i *intentRejectionStatementPtrType) ToIntentRejectionStatementPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementPtrOutput)
 }
 
+func (i *intentRejectionStatementPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentRejectionStatement] {
+	return pulumix.Output[*IntentRejectionStatement]{
+		OutputState: i.ToIntentRejectionStatementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentRejectionStatementOutput struct{ *pulumi.OutputState }
 
 func (IntentRejectionStatementOutput) ElementType() reflect.Type {
@@ -2974,6 +3446,12 @@ func (o IntentRejectionStatementOutput) ToIntentRejectionStatementPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentRejectionStatement) *IntentRejectionStatement {
 		return &v
 	}).(IntentRejectionStatementPtrOutput)
+}
+
+func (o IntentRejectionStatementOutput) ToOutput(ctx context.Context) pulumix.Output[IntentRejectionStatement] {
+	return pulumix.Output[IntentRejectionStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentRejectionStatementOutput) Messages() IntentRejectionStatementMessageArrayOutput {
@@ -3003,6 +3481,12 @@ func (o IntentRejectionStatementPtrOutput) ToIntentRejectionStatementPtrOutput()
 
 func (o IntentRejectionStatementPtrOutput) ToIntentRejectionStatementPtrOutputWithContext(ctx context.Context) IntentRejectionStatementPtrOutput {
 	return o
+}
+
+func (o IntentRejectionStatementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentRejectionStatement] {
+	return pulumix.Output[*IntentRejectionStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentRejectionStatementPtrOutput) Elem() IntentRejectionStatementOutput {
@@ -3083,6 +3567,12 @@ func (i IntentRejectionStatementMessageArgs) ToIntentRejectionStatementMessageOu
 	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementMessageOutput)
 }
 
+func (i IntentRejectionStatementMessageArgs) ToOutput(ctx context.Context) pulumix.Output[IntentRejectionStatementMessage] {
+	return pulumix.Output[IntentRejectionStatementMessage]{
+		OutputState: i.ToIntentRejectionStatementMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntentRejectionStatementMessageArrayInput is an input type that accepts IntentRejectionStatementMessageArray and IntentRejectionStatementMessageArrayOutput values.
 // You can construct a concrete instance of `IntentRejectionStatementMessageArrayInput` via:
 //
@@ -3108,6 +3598,12 @@ func (i IntentRejectionStatementMessageArray) ToIntentRejectionStatementMessageA
 	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementMessageArrayOutput)
 }
 
+func (i IntentRejectionStatementMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]IntentRejectionStatementMessage] {
+	return pulumix.Output[[]IntentRejectionStatementMessage]{
+		OutputState: i.ToIntentRejectionStatementMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentRejectionStatementMessageOutput struct{ *pulumi.OutputState }
 
 func (IntentRejectionStatementMessageOutput) ElementType() reflect.Type {
@@ -3120,6 +3616,12 @@ func (o IntentRejectionStatementMessageOutput) ToIntentRejectionStatementMessage
 
 func (o IntentRejectionStatementMessageOutput) ToIntentRejectionStatementMessageOutputWithContext(ctx context.Context) IntentRejectionStatementMessageOutput {
 	return o
+}
+
+func (o IntentRejectionStatementMessageOutput) ToOutput(ctx context.Context) pulumix.Output[IntentRejectionStatementMessage] {
+	return pulumix.Output[IntentRejectionStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message. Must be less than or equal to 1000 characters in length.
@@ -3150,6 +3652,12 @@ func (o IntentRejectionStatementMessageArrayOutput) ToIntentRejectionStatementMe
 
 func (o IntentRejectionStatementMessageArrayOutput) ToIntentRejectionStatementMessageArrayOutputWithContext(ctx context.Context) IntentRejectionStatementMessageArrayOutput {
 	return o
+}
+
+func (o IntentRejectionStatementMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntentRejectionStatementMessage] {
+	return pulumix.Output[[]IntentRejectionStatementMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentRejectionStatementMessageArrayOutput) Index(i pulumi.IntInput) IntentRejectionStatementMessageOutput {
@@ -3241,6 +3749,12 @@ func (i IntentSlotArgs) ToIntentSlotOutputWithContext(ctx context.Context) Inten
 	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotOutput)
 }
 
+func (i IntentSlotArgs) ToOutput(ctx context.Context) pulumix.Output[IntentSlot] {
+	return pulumix.Output[IntentSlot]{
+		OutputState: i.ToIntentSlotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntentSlotArrayInput is an input type that accepts IntentSlotArray and IntentSlotArrayOutput values.
 // You can construct a concrete instance of `IntentSlotArrayInput` via:
 //
@@ -3266,6 +3780,12 @@ func (i IntentSlotArray) ToIntentSlotArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotArrayOutput)
 }
 
+func (i IntentSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]IntentSlot] {
+	return pulumix.Output[[]IntentSlot]{
+		OutputState: i.ToIntentSlotArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentSlotOutput struct{ *pulumi.OutputState }
 
 func (IntentSlotOutput) ElementType() reflect.Type {
@@ -3278,6 +3798,12 @@ func (o IntentSlotOutput) ToIntentSlotOutput() IntentSlotOutput {
 
 func (o IntentSlotOutput) ToIntentSlotOutputWithContext(ctx context.Context) IntentSlotOutput {
 	return o
+}
+
+func (o IntentSlotOutput) ToOutput(ctx context.Context) pulumix.Output[IntentSlot] {
+	return pulumix.Output[IntentSlot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description of the bot. Must be less than or equal to 200 characters in length.
@@ -3348,6 +3874,12 @@ func (o IntentSlotArrayOutput) ToIntentSlotArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o IntentSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntentSlot] {
+	return pulumix.Output[[]IntentSlot]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntentSlotArrayOutput) Index(i pulumi.IntInput) IntentSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentSlot {
 		return vs[0].([]IntentSlot)[vs[1].(int)]
@@ -3405,6 +3937,12 @@ func (i IntentSlotValueElicitationPromptArgs) ToIntentSlotValueElicitationPrompt
 	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptOutput)
 }
 
+func (i IntentSlotValueElicitationPromptArgs) ToOutput(ctx context.Context) pulumix.Output[IntentSlotValueElicitationPrompt] {
+	return pulumix.Output[IntentSlotValueElicitationPrompt]{
+		OutputState: i.ToIntentSlotValueElicitationPromptOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IntentSlotValueElicitationPromptArgs) ToIntentSlotValueElicitationPromptPtrOutput() IntentSlotValueElicitationPromptPtrOutput {
 	return i.ToIntentSlotValueElicitationPromptPtrOutputWithContext(context.Background())
 }
@@ -3446,6 +3984,12 @@ func (i *intentSlotValueElicitationPromptPtrType) ToIntentSlotValueElicitationPr
 	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptPtrOutput)
 }
 
+func (i *intentSlotValueElicitationPromptPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntentSlotValueElicitationPrompt] {
+	return pulumix.Output[*IntentSlotValueElicitationPrompt]{
+		OutputState: i.ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentSlotValueElicitationPromptOutput struct{ *pulumi.OutputState }
 
 func (IntentSlotValueElicitationPromptOutput) ElementType() reflect.Type {
@@ -3468,6 +4012,12 @@ func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationProm
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentSlotValueElicitationPrompt) *IntentSlotValueElicitationPrompt {
 		return &v
 	}).(IntentSlotValueElicitationPromptPtrOutput)
+}
+
+func (o IntentSlotValueElicitationPromptOutput) ToOutput(ctx context.Context) pulumix.Output[IntentSlotValueElicitationPrompt] {
+	return pulumix.Output[IntentSlotValueElicitationPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
@@ -3502,6 +4052,12 @@ func (o IntentSlotValueElicitationPromptPtrOutput) ToIntentSlotValueElicitationP
 
 func (o IntentSlotValueElicitationPromptPtrOutput) ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptPtrOutput {
 	return o
+}
+
+func (o IntentSlotValueElicitationPromptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntentSlotValueElicitationPrompt] {
+	return pulumix.Output[*IntentSlotValueElicitationPrompt]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentSlotValueElicitationPromptPtrOutput) Elem() IntentSlotValueElicitationPromptOutput {
@@ -3592,6 +4148,12 @@ func (i IntentSlotValueElicitationPromptMessageArgs) ToIntentSlotValueElicitatio
 	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptMessageOutput)
 }
 
+func (i IntentSlotValueElicitationPromptMessageArgs) ToOutput(ctx context.Context) pulumix.Output[IntentSlotValueElicitationPromptMessage] {
+	return pulumix.Output[IntentSlotValueElicitationPromptMessage]{
+		OutputState: i.ToIntentSlotValueElicitationPromptMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntentSlotValueElicitationPromptMessageArrayInput is an input type that accepts IntentSlotValueElicitationPromptMessageArray and IntentSlotValueElicitationPromptMessageArrayOutput values.
 // You can construct a concrete instance of `IntentSlotValueElicitationPromptMessageArrayInput` via:
 //
@@ -3617,6 +4179,12 @@ func (i IntentSlotValueElicitationPromptMessageArray) ToIntentSlotValueElicitati
 	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptMessageArrayOutput)
 }
 
+func (i IntentSlotValueElicitationPromptMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]IntentSlotValueElicitationPromptMessage] {
+	return pulumix.Output[[]IntentSlotValueElicitationPromptMessage]{
+		OutputState: i.ToIntentSlotValueElicitationPromptMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntentSlotValueElicitationPromptMessageOutput struct{ *pulumi.OutputState }
 
 func (IntentSlotValueElicitationPromptMessageOutput) ElementType() reflect.Type {
@@ -3629,6 +4197,12 @@ func (o IntentSlotValueElicitationPromptMessageOutput) ToIntentSlotValueElicitat
 
 func (o IntentSlotValueElicitationPromptMessageOutput) ToIntentSlotValueElicitationPromptMessageOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptMessageOutput {
 	return o
+}
+
+func (o IntentSlotValueElicitationPromptMessageOutput) ToOutput(ctx context.Context) pulumix.Output[IntentSlotValueElicitationPromptMessage] {
+	return pulumix.Output[IntentSlotValueElicitationPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text of the message. Must be less than or equal to 1000 characters in length.
@@ -3659,6 +4233,12 @@ func (o IntentSlotValueElicitationPromptMessageArrayOutput) ToIntentSlotValueEli
 
 func (o IntentSlotValueElicitationPromptMessageArrayOutput) ToIntentSlotValueElicitationPromptMessageArrayOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptMessageArrayOutput {
 	return o
+}
+
+func (o IntentSlotValueElicitationPromptMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntentSlotValueElicitationPromptMessage] {
+	return pulumix.Output[[]IntentSlotValueElicitationPromptMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntentSlotValueElicitationPromptMessageArrayOutput) Index(i pulumi.IntInput) IntentSlotValueElicitationPromptMessageOutput {
@@ -3704,6 +4284,12 @@ func (i SlotTypeEnumerationValueArgs) ToSlotTypeEnumerationValueOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeEnumerationValueOutput)
 }
 
+func (i SlotTypeEnumerationValueArgs) ToOutput(ctx context.Context) pulumix.Output[SlotTypeEnumerationValue] {
+	return pulumix.Output[SlotTypeEnumerationValue]{
+		OutputState: i.ToSlotTypeEnumerationValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SlotTypeEnumerationValueArrayInput is an input type that accepts SlotTypeEnumerationValueArray and SlotTypeEnumerationValueArrayOutput values.
 // You can construct a concrete instance of `SlotTypeEnumerationValueArrayInput` via:
 //
@@ -3729,6 +4315,12 @@ func (i SlotTypeEnumerationValueArray) ToSlotTypeEnumerationValueArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeEnumerationValueArrayOutput)
 }
 
+func (i SlotTypeEnumerationValueArray) ToOutput(ctx context.Context) pulumix.Output[[]SlotTypeEnumerationValue] {
+	return pulumix.Output[[]SlotTypeEnumerationValue]{
+		OutputState: i.ToSlotTypeEnumerationValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SlotTypeEnumerationValueOutput struct{ *pulumi.OutputState }
 
 func (SlotTypeEnumerationValueOutput) ElementType() reflect.Type {
@@ -3741,6 +4333,12 @@ func (o SlotTypeEnumerationValueOutput) ToSlotTypeEnumerationValueOutput() SlotT
 
 func (o SlotTypeEnumerationValueOutput) ToSlotTypeEnumerationValueOutputWithContext(ctx context.Context) SlotTypeEnumerationValueOutput {
 	return o
+}
+
+func (o SlotTypeEnumerationValueOutput) ToOutput(ctx context.Context) pulumix.Output[SlotTypeEnumerationValue] {
+	return pulumix.Output[SlotTypeEnumerationValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
@@ -3765,6 +4363,12 @@ func (o SlotTypeEnumerationValueArrayOutput) ToSlotTypeEnumerationValueArrayOutp
 
 func (o SlotTypeEnumerationValueArrayOutput) ToSlotTypeEnumerationValueArrayOutputWithContext(ctx context.Context) SlotTypeEnumerationValueArrayOutput {
 	return o
+}
+
+func (o SlotTypeEnumerationValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SlotTypeEnumerationValue] {
+	return pulumix.Output[[]SlotTypeEnumerationValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SlotTypeEnumerationValueArrayOutput) Index(i pulumi.IntInput) SlotTypeEnumerationValueOutput {
@@ -3806,6 +4410,12 @@ func (i GetSlotTypeEnumerationValueArgs) ToGetSlotTypeEnumerationValueOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetSlotTypeEnumerationValueOutput)
 }
 
+func (i GetSlotTypeEnumerationValueArgs) ToOutput(ctx context.Context) pulumix.Output[GetSlotTypeEnumerationValue] {
+	return pulumix.Output[GetSlotTypeEnumerationValue]{
+		OutputState: i.ToGetSlotTypeEnumerationValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSlotTypeEnumerationValueArrayInput is an input type that accepts GetSlotTypeEnumerationValueArray and GetSlotTypeEnumerationValueArrayOutput values.
 // You can construct a concrete instance of `GetSlotTypeEnumerationValueArrayInput` via:
 //
@@ -3831,6 +4441,12 @@ func (i GetSlotTypeEnumerationValueArray) ToGetSlotTypeEnumerationValueArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetSlotTypeEnumerationValueArrayOutput)
 }
 
+func (i GetSlotTypeEnumerationValueArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSlotTypeEnumerationValue] {
+	return pulumix.Output[[]GetSlotTypeEnumerationValue]{
+		OutputState: i.ToGetSlotTypeEnumerationValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSlotTypeEnumerationValueOutput struct{ *pulumi.OutputState }
 
 func (GetSlotTypeEnumerationValueOutput) ElementType() reflect.Type {
@@ -3843,6 +4459,12 @@ func (o GetSlotTypeEnumerationValueOutput) ToGetSlotTypeEnumerationValueOutput()
 
 func (o GetSlotTypeEnumerationValueOutput) ToGetSlotTypeEnumerationValueOutputWithContext(ctx context.Context) GetSlotTypeEnumerationValueOutput {
 	return o
+}
+
+func (o GetSlotTypeEnumerationValueOutput) ToOutput(ctx context.Context) pulumix.Output[GetSlotTypeEnumerationValue] {
+	return pulumix.Output[GetSlotTypeEnumerationValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSlotTypeEnumerationValueOutput) Synonyms() pulumi.StringArrayOutput {
@@ -3865,6 +4487,12 @@ func (o GetSlotTypeEnumerationValueArrayOutput) ToGetSlotTypeEnumerationValueArr
 
 func (o GetSlotTypeEnumerationValueArrayOutput) ToGetSlotTypeEnumerationValueArrayOutputWithContext(ctx context.Context) GetSlotTypeEnumerationValueArrayOutput {
 	return o
+}
+
+func (o GetSlotTypeEnumerationValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSlotTypeEnumerationValue] {
+	return pulumix.Output[[]GetSlotTypeEnumerationValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSlotTypeEnumerationValueArrayOutput) Index(i pulumi.IntInput) GetSlotTypeEnumerationValueOutput {

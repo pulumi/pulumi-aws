@@ -12,7 +12,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -80,29 +79,6 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> budgetType() {
         return Optional.ofNullable(this.budgetType);
-    }
-
-    /**
-     * Map of CostFilters key/value pairs to apply to the budget.
-     * 
-     * @deprecated
-     * Use the attribute &#34;cost_filter&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""cost_filter"" instead. */
-    @Import(name="costFilterLegacy")
-    private @Nullable Output<Map<String,String>> costFilterLegacy;
-
-    /**
-     * @return Map of CostFilters key/value pairs to apply to the budget.
-     * 
-     * @deprecated
-     * Use the attribute &#34;cost_filter&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""cost_filter"" instead. */
-    public Optional<Output<Map<String,String>>> costFilterLegacy() {
-        return Optional.ofNullable(this.costFilterLegacy);
     }
 
     /**
@@ -277,7 +253,6 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.autoAdjustData = $.autoAdjustData;
         this.budgetType = $.budgetType;
-        this.costFilterLegacy = $.costFilterLegacy;
         this.costFilters = $.costFilters;
         this.costTypes = $.costTypes;
         this.limitAmount = $.limitAmount;
@@ -391,35 +366,6 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder budgetType(String budgetType) {
             return budgetType(Output.of(budgetType));
-        }
-
-        /**
-         * @param costFilterLegacy Map of CostFilters key/value pairs to apply to the budget.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the attribute &#34;cost_filter&#34; instead.
-         * 
-         */
-        @Deprecated /* Use the attribute ""cost_filter"" instead. */
-        public Builder costFilterLegacy(@Nullable Output<Map<String,String>> costFilterLegacy) {
-            $.costFilterLegacy = costFilterLegacy;
-            return this;
-        }
-
-        /**
-         * @param costFilterLegacy Map of CostFilters key/value pairs to apply to the budget.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the attribute &#34;cost_filter&#34; instead.
-         * 
-         */
-        @Deprecated /* Use the attribute ""cost_filter"" instead. */
-        public Builder costFilterLegacy(Map<String,String> costFilterLegacy) {
-            return costFilterLegacy(Output.of(costFilterLegacy));
         }
 
         /**

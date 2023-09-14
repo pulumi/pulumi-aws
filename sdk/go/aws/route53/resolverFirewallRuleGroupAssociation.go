@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver DNS Firewall rule group association resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Route 53 Resolver DNS Firewall rule group associations can be imported using the Route 53 Resolver DNS Firewall rule group association ID, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_firewall_rule_group_association.example
 //
-//	$ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-//
-// ```
+//	id = "rslvr-frgassoc-0123456789abcdef" } Using `TODO import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef
 type ResolverFirewallRuleGroupAssociation struct {
 	pulumi.CustomResourceState
 
@@ -67,7 +67,7 @@ type ResolverFirewallRuleGroupAssociation struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -91,6 +91,7 @@ func NewResolverFirewallRuleGroupAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverFirewallRuleGroupAssociation
 	err := ctx.RegisterResource("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -123,7 +124,7 @@ type resolverFirewallRuleGroupAssociationState struct {
 	Name *string `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority *int `pulumi:"priority"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -142,7 +143,7 @@ type ResolverFirewallRuleGroupAssociationState struct {
 	Name pulumi.StringPtrInput
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority pulumi.IntPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -163,7 +164,7 @@ type resolverFirewallRuleGroupAssociationArgs struct {
 	Name *string `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority int `pulumi:"priority"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The unique identifier of the VPC that you want to associate with the rule group.
 	VpcId string `pulumi:"vpcId"`
@@ -179,7 +180,7 @@ type ResolverFirewallRuleGroupAssociationArgs struct {
 	Name pulumi.StringPtrInput
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority pulumi.IntInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The unique identifier of the VPC that you want to associate with the rule group.
 	VpcId pulumi.StringInput
@@ -208,6 +209,12 @@ func (i *ResolverFirewallRuleGroupAssociation) ToResolverFirewallRuleGroupAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationOutput)
 }
 
+func (i *ResolverFirewallRuleGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[*ResolverFirewallRuleGroupAssociation]{
+		OutputState: i.ToResolverFirewallRuleGroupAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverFirewallRuleGroupAssociationArrayInput is an input type that accepts ResolverFirewallRuleGroupAssociationArray and ResolverFirewallRuleGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallRuleGroupAssociationArrayInput` via:
 //
@@ -231,6 +238,12 @@ func (i ResolverFirewallRuleGroupAssociationArray) ToResolverFirewallRuleGroupAs
 
 func (i ResolverFirewallRuleGroupAssociationArray) ToResolverFirewallRuleGroupAssociationArrayOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationArrayOutput)
+}
+
+func (i ResolverFirewallRuleGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[[]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: i.ToResolverFirewallRuleGroupAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverFirewallRuleGroupAssociationMapInput is an input type that accepts ResolverFirewallRuleGroupAssociationMap and ResolverFirewallRuleGroupAssociationMapOutput values.
@@ -258,6 +271,12 @@ func (i ResolverFirewallRuleGroupAssociationMap) ToResolverFirewallRuleGroupAsso
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationMapOutput)
 }
 
+func (i ResolverFirewallRuleGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: i.ToResolverFirewallRuleGroupAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverFirewallRuleGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRuleGroupAssociationOutput) ElementType() reflect.Type {
@@ -270,6 +289,12 @@ func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupA
 
 func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupAssociationOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationOutput {
 	return o
+}
+
+func (o ResolverFirewallRuleGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[*ResolverFirewallRuleGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon Resource Name) of the firewall rule group association.
@@ -297,7 +322,7 @@ func (o ResolverFirewallRuleGroupAssociationOutput) Priority() pulumi.IntOutput 
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallRuleGroupAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -326,6 +351,12 @@ func (o ResolverFirewallRuleGroupAssociationArrayOutput) ToResolverFirewallRuleG
 	return o
 }
 
+func (o ResolverFirewallRuleGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[[]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverFirewallRuleGroupAssociationArrayOutput) Index(i pulumi.IntInput) ResolverFirewallRuleGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallRuleGroupAssociation {
 		return vs[0].([]*ResolverFirewallRuleGroupAssociation)[vs[1].(int)]
@@ -344,6 +375,12 @@ func (o ResolverFirewallRuleGroupAssociationMapOutput) ToResolverFirewallRuleGro
 
 func (o ResolverFirewallRuleGroupAssociationMapOutput) ToResolverFirewallRuleGroupAssociationMapOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationMapOutput {
 	return o
+}
+
+func (o ResolverFirewallRuleGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverFirewallRuleGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallRuleGroupAssociationOutput {

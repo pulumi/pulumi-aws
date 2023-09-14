@@ -76,6 +76,14 @@ export interface GetConnectPeerResult {
      * BGP ASN number assigned customer device
      */
     readonly bgpAsn: string;
+    /**
+     * The IP address assigned to customer device, which is used as BGP IP address.
+     */
+    readonly bgpPeerAddress: string;
+    /**
+     * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     */
+    readonly bgpTransitGatewayAddresses: string[];
     readonly filters?: outputs.ec2transitgateway.GetConnectPeerFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.

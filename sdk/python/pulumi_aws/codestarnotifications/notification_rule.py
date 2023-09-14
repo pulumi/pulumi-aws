@@ -31,7 +31,7 @@ class NotificationRuleArgs:
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         pulumi.set(__self__, "detail_type", detail_type)
@@ -111,7 +111,7 @@ class NotificationRuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -153,7 +153,7 @@ class _NotificationRuleState:
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
@@ -253,7 +253,7 @@ class _NotificationRuleState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -332,11 +332,11 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Import
 
-        CodeStar notification rule can be imported using the ARN, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-        ```
+         to = aws_codestarnotifications_notification_rule.foo
+
+         id = "arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b" } Using `TODO import`, import CodeStar notification rule using the ARN. For exampleconsole % TODO import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,7 +346,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         ...
@@ -388,11 +388,11 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Import
 
-        CodeStar notification rule can be imported using the ARN, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-        ```
+         to = aws_codestarnotifications_notification_rule.foo
+
+         id = "arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b" } Using `TODO import`, import CodeStar notification rule using the ARN. For exampleconsole % TODO import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 
         :param str resource_name: The name of the resource.
         :param NotificationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -473,7 +473,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
@@ -545,7 +545,7 @@ class NotificationRule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

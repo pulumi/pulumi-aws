@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Location Geofence Collection.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Location Geofence Collection can be imported using the `collection_name`, e.g.,
+// Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
 //
 // ```sh
 //
@@ -54,6 +56,8 @@ type GeofenceCollection struct {
 	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn pulumi.StringOutput `pulumi:"collectionArn"`
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName pulumi.StringOutput `pulumi:"collectionName"`
 	// The timestamp for when the geofence collection resource was created in ISO 8601 format.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
@@ -78,6 +82,7 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 	if args.CollectionName == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeofenceCollection
 	err := ctx.RegisterResource("aws:location/geofenceCollection:GeofenceCollection", name, args, &resource, opts...)
 	if err != nil {
@@ -103,6 +108,8 @@ type geofenceCollectionState struct {
 	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn *string `pulumi:"collectionArn"`
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName *string `pulumi:"collectionName"`
 	// The timestamp for when the geofence collection resource was created in ISO 8601 format.
 	CreateTime *string `pulumi:"createTime"`
@@ -121,6 +128,8 @@ type GeofenceCollectionState struct {
 	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn pulumi.StringPtrInput
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName pulumi.StringPtrInput
 	// The timestamp for when the geofence collection resource was created in ISO 8601 format.
 	CreateTime pulumi.StringPtrInput
@@ -141,6 +150,8 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 
 type geofenceCollectionArgs struct {
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName string `pulumi:"collectionName"`
 	// The optional description for the geofence collection.
 	Description *string `pulumi:"description"`
@@ -153,6 +164,8 @@ type geofenceCollectionArgs struct {
 // The set of arguments for constructing a GeofenceCollection resource.
 type GeofenceCollectionArgs struct {
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName pulumi.StringInput
 	// The optional description for the geofence collection.
 	Description pulumi.StringPtrInput
@@ -185,6 +198,12 @@ func (i *GeofenceCollection) ToGeofenceCollectionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GeofenceCollectionOutput)
 }
 
+func (i *GeofenceCollection) ToOutput(ctx context.Context) pulumix.Output[*GeofenceCollection] {
+	return pulumix.Output[*GeofenceCollection]{
+		OutputState: i.ToGeofenceCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GeofenceCollectionArrayInput is an input type that accepts GeofenceCollectionArray and GeofenceCollectionArrayOutput values.
 // You can construct a concrete instance of `GeofenceCollectionArrayInput` via:
 //
@@ -208,6 +227,12 @@ func (i GeofenceCollectionArray) ToGeofenceCollectionArrayOutput() GeofenceColle
 
 func (i GeofenceCollectionArray) ToGeofenceCollectionArrayOutputWithContext(ctx context.Context) GeofenceCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GeofenceCollectionArrayOutput)
+}
+
+func (i GeofenceCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*GeofenceCollection] {
+	return pulumix.Output[[]*GeofenceCollection]{
+		OutputState: i.ToGeofenceCollectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GeofenceCollectionMapInput is an input type that accepts GeofenceCollectionMap and GeofenceCollectionMapOutput values.
@@ -235,6 +260,12 @@ func (i GeofenceCollectionMap) ToGeofenceCollectionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GeofenceCollectionMapOutput)
 }
 
+func (i GeofenceCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GeofenceCollection] {
+	return pulumix.Output[map[string]*GeofenceCollection]{
+		OutputState: i.ToGeofenceCollectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GeofenceCollectionOutput struct{ *pulumi.OutputState }
 
 func (GeofenceCollectionOutput) ElementType() reflect.Type {
@@ -249,12 +280,20 @@ func (o GeofenceCollectionOutput) ToGeofenceCollectionOutputWithContext(ctx cont
 	return o
 }
 
+func (o GeofenceCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*GeofenceCollection] {
+	return pulumix.Output[*GeofenceCollection]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
 func (o GeofenceCollectionOutput) CollectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionArn }).(pulumi.StringOutput)
 }
 
 // The name of the geofence collection.
+//
+// The following arguments are optional:
 func (o GeofenceCollectionOutput) CollectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionName }).(pulumi.StringOutput)
 }
@@ -302,6 +341,12 @@ func (o GeofenceCollectionArrayOutput) ToGeofenceCollectionArrayOutputWithContex
 	return o
 }
 
+func (o GeofenceCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GeofenceCollection] {
+	return pulumix.Output[[]*GeofenceCollection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GeofenceCollectionArrayOutput) Index(i pulumi.IntInput) GeofenceCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GeofenceCollection {
 		return vs[0].([]*GeofenceCollection)[vs[1].(int)]
@@ -320,6 +365,12 @@ func (o GeofenceCollectionMapOutput) ToGeofenceCollectionMapOutput() GeofenceCol
 
 func (o GeofenceCollectionMapOutput) ToGeofenceCollectionMapOutputWithContext(ctx context.Context) GeofenceCollectionMapOutput {
 	return o
+}
+
+func (o GeofenceCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GeofenceCollection] {
+	return pulumix.Output[map[string]*GeofenceCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GeofenceCollectionMapOutput) MapIndex(k pulumi.StringInput) GeofenceCollectionOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS CloudWatch Observability Access Manager Sink.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupSink(ctx *pulumi.Context, args *LookupSinkArgs, opts ...pulumi.InvokeOption) (*LookupSinkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSinkResult
 	err := ctx.Invoke("aws:oam/getSink:getSink", args, &rv, opts...)
 	if err != nil {
@@ -108,6 +111,12 @@ func (o LookupSinkResultOutput) ToLookupSinkResultOutput() LookupSinkResultOutpu
 
 func (o LookupSinkResultOutput) ToLookupSinkResultOutputWithContext(ctx context.Context) LookupSinkResultOutput {
 	return o
+}
+
+func (o LookupSinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSinkResult] {
+	return pulumix.Output[LookupSinkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the sink.

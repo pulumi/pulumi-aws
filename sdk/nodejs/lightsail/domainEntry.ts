@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+ * Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
  *
  * ```sh
  *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1

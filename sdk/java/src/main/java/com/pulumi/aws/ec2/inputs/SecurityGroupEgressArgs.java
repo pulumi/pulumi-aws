@@ -141,12 +141,20 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
     /**
      * End range port (or ICMP code if protocol is `icmp`).
      * 
+     * The following arguments are optional:
+     * 
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
+     * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
      * @return End range port (or ICMP code if protocol is `icmp`).
+     * 
+     * The following arguments are optional:
+     * 
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
      * 
      */
     public Output<Integer> toPort() {
@@ -396,6 +404,10 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
         /**
          * @param toPort End range port (or ICMP code if protocol is `icmp`).
          * 
+         * The following arguments are optional:
+         * 
+         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
+         * 
          * @return builder
          * 
          */
@@ -406,6 +418,10 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
 
         /**
          * @param toPort End range port (or ICMP code if protocol is `icmp`).
+         * 
+         * The following arguments are optional:
+         * 
+         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
          * 
          * @return builder
          * 

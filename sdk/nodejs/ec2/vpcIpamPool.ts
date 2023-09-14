@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * });
  * const parentTest = new aws.ec2.VpcIpamPoolCidr("parentTest", {
  *     ipamPoolId: parent.id,
- *     cidr: "172.2.0.0/16",
+ *     cidr: "172.20.0.0/16",
  * });
  * const child = new aws.ec2.VpcIpamPool("child", {
  *     addressFamily: "ipv4",
@@ -52,13 +52,13 @@ import * as utilities from "../utilities";
  * });
  * const childTest = new aws.ec2.VpcIpamPoolCidr("childTest", {
  *     ipamPoolId: child.id,
- *     cidr: "172.2.0.0/24",
+ *     cidr: "172.20.0.0/24",
  * });
  * ```
  *
  * ## Import
  *
- * IPAMs can be imported using the `ipam pool id`, e.g.
+ * Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e

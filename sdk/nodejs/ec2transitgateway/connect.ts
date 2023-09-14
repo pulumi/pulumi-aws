@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
@@ -61,7 +61,7 @@ export class Connect extends pulumi.CustomResource {
     }
 
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class Connect extends pulumi.CustomResource {
  */
 export interface ConnectState {
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface ConnectState {
  */
 export interface ConnectArgs {
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
     protocol?: pulumi.Input<string>;
     /**

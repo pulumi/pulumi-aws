@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue Classifiers can be imported using their name, e.g.,
+ * Using `pulumi import`, import Glue Classifiers using their name. For example:
  *
  * ```sh
  *  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier

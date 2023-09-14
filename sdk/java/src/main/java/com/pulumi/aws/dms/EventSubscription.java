@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Event subscriptions can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import event subscriptions using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription

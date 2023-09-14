@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppSync Type.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,9 +36,16 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewType(ctx, "exampleType", &appsync.TypeArgs{
-//				ApiId:      exampleGraphQLApi.ID(),
-//				Format:     pulumi.String("SDL"),
-//				Definition: pulumi.String("type Mutation\n\n{\nputPost(id: ID!,title: String! ): Post\n\n}\n"),
+//				ApiId:  exampleGraphQLApi.ID(),
+//				Format: pulumi.String("SDL"),
+//				Definition: pulumi.String(`type Mutation
+//
+// {
+// putPost(id: ID!,title: String! ): Post
+//
+// }
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +58,7 @@ import (
 //
 // ## Import
 //
-// Appsync Types can be imported using the `id` e.g.,
+// Using `pulumi import`, import Appsync Types using the `id`. For example:
 //
 // ```sh
 //
@@ -89,6 +98,7 @@ func NewType(ctx *pulumi.Context,
 	if args.Format == nil {
 		return nil, errors.New("invalid value for required argument 'Format'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Type
 	err := ctx.RegisterResource("aws:appsync/type:Type", name, args, &resource, opts...)
 	if err != nil {
@@ -186,6 +196,12 @@ func (i *Type) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TypeOutput)
 }
 
+func (i *Type) ToOutput(ctx context.Context) pulumix.Output[*Type] {
+	return pulumix.Output[*Type]{
+		OutputState: i.ToTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TypeArrayInput is an input type that accepts TypeArray and TypeArrayOutput values.
 // You can construct a concrete instance of `TypeArrayInput` via:
 //
@@ -209,6 +225,12 @@ func (i TypeArray) ToTypeArrayOutput() TypeArrayOutput {
 
 func (i TypeArray) ToTypeArrayOutputWithContext(ctx context.Context) TypeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TypeArrayOutput)
+}
+
+func (i TypeArray) ToOutput(ctx context.Context) pulumix.Output[[]*Type] {
+	return pulumix.Output[[]*Type]{
+		OutputState: i.ToTypeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TypeMapInput is an input type that accepts TypeMap and TypeMapOutput values.
@@ -236,6 +258,12 @@ func (i TypeMap) ToTypeMapOutputWithContext(ctx context.Context) TypeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TypeMapOutput)
 }
 
+func (i TypeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Type] {
+	return pulumix.Output[map[string]*Type]{
+		OutputState: i.ToTypeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TypeOutput struct{ *pulumi.OutputState }
 
 func (TypeOutput) ElementType() reflect.Type {
@@ -248,6 +276,12 @@ func (o TypeOutput) ToTypeOutput() TypeOutput {
 
 func (o TypeOutput) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
 	return o
+}
+
+func (o TypeOutput) ToOutput(ctx context.Context) pulumix.Output[*Type] {
+	return pulumix.Output[*Type]{
+		OutputState: o.OutputState,
+	}
 }
 
 // GraphQL API ID.
@@ -294,6 +328,12 @@ func (o TypeArrayOutput) ToTypeArrayOutputWithContext(ctx context.Context) TypeA
 	return o
 }
 
+func (o TypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Type] {
+	return pulumix.Output[[]*Type]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TypeArrayOutput) Index(i pulumi.IntInput) TypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Type {
 		return vs[0].([]*Type)[vs[1].(int)]
@@ -312,6 +352,12 @@ func (o TypeMapOutput) ToTypeMapOutput() TypeMapOutput {
 
 func (o TypeMapOutput) ToTypeMapOutputWithContext(ctx context.Context) TypeMapOutput {
 	return o
+}
+
+func (o TypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Type] {
+	return pulumix.Output[map[string]*Type]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TypeMapOutput) MapIndex(k pulumi.StringInput) TypeOutput {

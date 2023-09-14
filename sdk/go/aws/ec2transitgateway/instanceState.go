@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 instance state resource. This allows managing an instance power state.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +80,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 //
 // ```sh
 //
@@ -93,6 +95,8 @@ type InstanceState struct {
 	// ID of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State pulumi.StringOutput `pulumi:"state"`
 }
 
@@ -109,6 +113,7 @@ func NewInstanceState(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceState
 	err := ctx.RegisterResource("aws:ec2transitgateway/instanceState:InstanceState", name, args, &resource, opts...)
 	if err != nil {
@@ -136,6 +141,8 @@ type instanceStateState struct {
 	// ID of the instance.
 	InstanceId *string `pulumi:"instanceId"`
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State *string `pulumi:"state"`
 }
 
@@ -145,6 +152,8 @@ type InstanceStateState struct {
 	// ID of the instance.
 	InstanceId pulumi.StringPtrInput
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State pulumi.StringPtrInput
 }
 
@@ -158,6 +167,8 @@ type instanceStateArgs struct {
 	// ID of the instance.
 	InstanceId string `pulumi:"instanceId"`
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State string `pulumi:"state"`
 }
 
@@ -168,6 +179,8 @@ type InstanceStateArgs struct {
 	// ID of the instance.
 	InstanceId pulumi.StringInput
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State pulumi.StringInput
 }
 
@@ -192,6 +205,12 @@ func (i *InstanceState) ToInstanceStateOutput() InstanceStateOutput {
 
 func (i *InstanceState) ToInstanceStateOutputWithContext(ctx context.Context) InstanceStateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStateOutput)
+}
+
+func (i *InstanceState) ToOutput(ctx context.Context) pulumix.Output[*InstanceState] {
+	return pulumix.Output[*InstanceState]{
+		OutputState: i.ToInstanceStateOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceStateArrayInput is an input type that accepts InstanceStateArray and InstanceStateArrayOutput values.
@@ -219,6 +238,12 @@ func (i InstanceStateArray) ToInstanceStateArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStateArrayOutput)
 }
 
+func (i InstanceStateArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceState] {
+	return pulumix.Output[[]*InstanceState]{
+		OutputState: i.ToInstanceStateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceStateMapInput is an input type that accepts InstanceStateMap and InstanceStateMapOutput values.
 // You can construct a concrete instance of `InstanceStateMapInput` via:
 //
@@ -244,6 +269,12 @@ func (i InstanceStateMap) ToInstanceStateMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStateMapOutput)
 }
 
+func (i InstanceStateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceState] {
+	return pulumix.Output[map[string]*InstanceState]{
+		OutputState: i.ToInstanceStateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceStateOutput struct{ *pulumi.OutputState }
 
 func (InstanceStateOutput) ElementType() reflect.Type {
@@ -258,6 +289,12 @@ func (o InstanceStateOutput) ToInstanceStateOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o InstanceStateOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceState] {
+	return pulumix.Output[*InstanceState]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
 func (o InstanceStateOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
@@ -269,6 +306,8 @@ func (o InstanceStateOutput) InstanceId() pulumi.StringOutput {
 }
 
 // State of the instance. Valid values are `stopped`, `running`.
+//
+// The following arguments are optional:
 func (o InstanceStateOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
@@ -285,6 +324,12 @@ func (o InstanceStateArrayOutput) ToInstanceStateArrayOutput() InstanceStateArra
 
 func (o InstanceStateArrayOutput) ToInstanceStateArrayOutputWithContext(ctx context.Context) InstanceStateArrayOutput {
 	return o
+}
+
+func (o InstanceStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceState] {
+	return pulumix.Output[[]*InstanceState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStateArrayOutput) Index(i pulumi.IntInput) InstanceStateOutput {
@@ -305,6 +350,12 @@ func (o InstanceStateMapOutput) ToInstanceStateMapOutput() InstanceStateMapOutpu
 
 func (o InstanceStateMapOutput) ToInstanceStateMapOutputWithContext(ctx context.Context) InstanceStateMapOutput {
 	return o
+}
+
+func (o InstanceStateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceState] {
+	return pulumix.Output[map[string]*InstanceState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStateMapOutput) MapIndex(k pulumi.StringInput) InstanceStateOutput {

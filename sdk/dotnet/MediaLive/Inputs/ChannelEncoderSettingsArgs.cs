@@ -30,6 +30,36 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("availBlanking")]
         public Input<Inputs.ChannelEncoderSettingsAvailBlankingArgs>? AvailBlanking { get; set; }
 
+        [Input("captionDescriptions")]
+        private InputList<Inputs.ChannelEncoderSettingsCaptionDescriptionArgs>? _captionDescriptions;
+
+        /// <summary>
+        /// Caption Descriptions. See Caption Descriptions for more details.
+        /// </summary>
+        public InputList<Inputs.ChannelEncoderSettingsCaptionDescriptionArgs> CaptionDescriptions
+        {
+            get => _captionDescriptions ?? (_captionDescriptions = new InputList<Inputs.ChannelEncoderSettingsCaptionDescriptionArgs>());
+            set => _captionDescriptions = value;
+        }
+
+        /// <summary>
+        /// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        /// </summary>
+        [Input("globalConfiguration")]
+        public Input<Inputs.ChannelEncoderSettingsGlobalConfigurationArgs>? GlobalConfiguration { get; set; }
+
+        /// <summary>
+        /// Settings for motion graphics. See Motion Graphics Configuration for more details.
+        /// </summary>
+        [Input("motionGraphicsConfiguration")]
+        public Input<Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationArgs>? MotionGraphicsConfiguration { get; set; }
+
+        /// <summary>
+        /// Nielsen configuration settings. See Nielsen Configuration for more details.
+        /// </summary>
+        [Input("nielsenConfiguration")]
+        public Input<Inputs.ChannelEncoderSettingsNielsenConfigurationArgs>? NielsenConfiguration { get; set; }
+
         [Input("outputGroups", required: true)]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupArgs>? _outputGroups;
 

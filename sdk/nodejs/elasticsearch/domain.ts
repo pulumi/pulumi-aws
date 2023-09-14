@@ -103,8 +103,11 @@ import {PolicyDocument} from "../iam";
  *         Name: vpc,
  *     },
  * });
- * const selectedSubnetIds = selectedVpc.then(selectedVpc => aws.ec2.getSubnetIds({
- *     vpcId: selectedVpc.id,
+ * const selectedSubnets = selectedVpc.then(selectedVpc => aws.ec2.getSubnets({
+ *     filters: [{
+ *         name: "vpc-id",
+ *         values: [selectedVpc.id],
+ *     }],
  *     tags: {
  *         Tier: "private",
  *     },
@@ -130,8 +133,8 @@ import {PolicyDocument} from "../iam";
  *     },
  *     vpcOptions: {
  *         subnetIds: [
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?.[0]),
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?.[1]),
+ *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[0]),
+ *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[1]),
  *         ],
  *         securityGroupIds: [esSecurityGroup.id],
  *     },
@@ -160,7 +163,7 @@ import {PolicyDocument} from "../iam";
  *
  * ## Import
  *
- * Elasticsearch domains can be imported using the `domain_name`, e.g.,
+ * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
@@ -232,6 +235,8 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly domainId!: pulumi.Output<string>;
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -386,6 +391,8 @@ export interface DomainState {
     domainId?: pulumi.Input<string>;
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -470,6 +477,8 @@ export interface DomainArgs {
     domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptions>;
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName?: pulumi.Input<string>;
     /**

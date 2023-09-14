@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['JobQueueArgs', 'JobQueue']
 
@@ -19,7 +21,8 @@ class JobQueueArgs:
                  state: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a JobQueue resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: Specifies the set of compute environments
@@ -41,6 +44,8 @@ class JobQueueArgs:
             pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter(name="computeEnvironments")
@@ -117,6 +122,15 @@ class JobQueueArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Optional[pulumi.Input['JobQueueTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: Optional[pulumi.Input['JobQueueTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
+
 
 @pulumi.input_type
 class _JobQueueState:
@@ -128,7 +142,8 @@ class _JobQueueState:
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering JobQueue resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the job queue.
@@ -159,6 +174,8 @@ class _JobQueueState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -259,6 +276,15 @@ class _JobQueueState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Optional[pulumi.Input['JobQueueTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: Optional[pulumi.Input['JobQueueTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
+
 
 class JobQueue(pulumi.CustomResource):
     @overload
@@ -271,6 +297,7 @@ class JobQueue(pulumi.CustomResource):
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None,
                  __props__=None):
         """
         Provides a Batch Job Queue resource.
@@ -316,7 +343,7 @@ class JobQueue(pulumi.CustomResource):
 
         ## Import
 
-        Batch Job Queue can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
@@ -384,7 +411,7 @@ class JobQueue(pulumi.CustomResource):
 
         ## Import
 
-        Batch Job Queue can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
@@ -411,6 +438,7 @@ class JobQueue(pulumi.CustomResource):
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -432,6 +460,7 @@ class JobQueue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(JobQueue, __self__).__init__(
@@ -451,7 +480,8 @@ class JobQueue(pulumi.CustomResource):
             scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'JobQueue':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None) -> 'JobQueue':
         """
         Get an existing JobQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -483,6 +513,7 @@ class JobQueue(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["timeouts"] = timeouts
         return JobQueue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -551,4 +582,9 @@ class JobQueue(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> pulumi.Output[Optional['outputs.JobQueueTimeouts']]:
+        return pulumi.get(self, "timeouts")
 

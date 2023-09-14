@@ -18,14 +18,14 @@ public final class RegionSettingsArgs extends com.pulumi.resources.ResourceArgs 
     public static final RegionSettingsArgs Empty = new RegionSettingsArgs();
 
     /**
-     * A map of services along with the management preferences for the Region.
+     * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
     @Import(name="resourceTypeManagementPreference")
     private @Nullable Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
-     * @return A map of services along with the management preferences for the Region.
+     * @return A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
     public Optional<Output<Map<String,Boolean>>> resourceTypeManagementPreference() {
@@ -73,7 +73,7 @@ public final class RegionSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceTypeManagementPreference A map of services along with the management preferences for the Region.
+         * @param resourceTypeManagementPreference A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RegionSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceTypeManagementPreference A map of services along with the management preferences for the Region.
+         * @param resourceTypeManagementPreference A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
          * 
          * @return builder
          * 

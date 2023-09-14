@@ -15,5 +15,6 @@ from .notification import *
 from .policy import *
 from .schedule import *
 from .tag import *
+from .traffic_source_attachment import *
 from ._inputs import *
 from . import outputs

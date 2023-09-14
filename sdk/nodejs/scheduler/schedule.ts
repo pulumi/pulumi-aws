@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hour)",
+ *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: aws_sqs_queue.example.arn,
  *         roleArn: aws_iam_role.example.arn,
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hour)",
+ *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
  *         roleArn: aws_iam_role.example.arn,
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Schedules can be imported using the combination `group_name/name`. For example
+ * Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
@@ -142,6 +142,8 @@ export class Schedule extends pulumi.CustomResource {
     public readonly state!: pulumi.Output<string | undefined>;
     /**
      * Configures the target of the schedule. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly target!: pulumi.Output<outputs.scheduler.ScheduleTarget>;
 
@@ -255,6 +257,8 @@ export interface ScheduleState {
     state?: pulumi.Input<string>;
     /**
      * Configures the target of the schedule. Detailed below.
+     *
+     * The following arguments are optional:
      */
     target?: pulumi.Input<inputs.scheduler.ScheduleTarget>;
 }
@@ -309,6 +313,8 @@ export interface ScheduleArgs {
     state?: pulumi.Input<string>;
     /**
      * Configures the target of the schedule. Detailed below.
+     *
+     * The following arguments are optional:
      */
     target: pulumi.Input<inputs.scheduler.ScheduleTarget>;
 }

@@ -43,6 +43,8 @@ __all__ = [
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration',
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor',
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter',
+    'FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration',
+    'FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig',
     'FirehoseDeliveryStreamExtendedS3Configuration',
     'FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions',
@@ -69,12 +71,16 @@ __all__ = [
     'FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter',
     'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration',
     'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamKinesisSourceConfiguration',
     'FirehoseDeliveryStreamOpensearchConfiguration',
     'FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration',
     'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor',
     'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter',
+    'FirehoseDeliveryStreamOpensearchConfigurationS3Configuration',
+    'FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamOpensearchConfigurationVpcConfig',
     'FirehoseDeliveryStreamRedshiftConfiguration',
     'FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions',
@@ -83,14 +89,16 @@ __all__ = [
     'FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter',
     'FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration',
     'FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions',
-    'FirehoseDeliveryStreamS3Configuration',
-    'FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions',
+    'FirehoseDeliveryStreamRedshiftConfigurationS3Configuration',
+    'FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamServerSideEncryption',
     'FirehoseDeliveryStreamSplunkConfiguration',
     'FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter',
+    'FirehoseDeliveryStreamSplunkConfigurationS3Configuration',
+    'FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions',
     'StreamStreamModeDetails',
     'GetStreamStreamModeDetailResult',
 ]
@@ -1543,6 +1551,8 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
             suggest = "index_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
         elif key == "bufferingInterval":
             suggest = "buffering_interval"
         elif key == "bufferingSize":
@@ -1580,6 +1590,7 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
     def __init__(__self__, *,
                  index_name: str,
                  role_arn: str,
+                 s3_configuration: 'outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration',
                  buffering_interval: Optional[int] = None,
                  buffering_size: Optional[int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions'] = None,
@@ -1594,6 +1605,7 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
         """
         :param str index_name: The Elasticsearch index name.
         :param str role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        :param 'FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs' s3_configuration: The S3 Configuration. See s3_configuration for more details.
         :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param 'FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
@@ -1608,6 +1620,7 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_interval is not None:
             pulumi.set(__self__, "buffering_interval", buffering_interval)
         if buffering_size is not None:
@@ -1646,6 +1659,14 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
         The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration':
+        """
+        The S3 Configuration. See s3_configuration for more details.
+        """
+        return pulumi.get(self, "s3_configuration")
 
     @property
     @pulumi.getter(name="bufferingInterval")
@@ -1886,6 +1907,8 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
         """
         :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -1903,8 +1926,220 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
     def parameter_value(self) -> str:
         """
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 role_arn: str,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
+                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions'] = None,
+                 compression_format: Optional[str] = None,
+                 error_output_prefix: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket_arn: The ARN of the S3 bucket
+        :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        :param 'FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param str error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param str kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param str prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if compression_format is not None:
+            pulumi.set(__self__, "compression_format", compression_format)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        """
+        The ARN of the S3 bucket
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that provides access to the source Kinesis stream.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
+        """
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions']:
+        """
+        The CloudWatch Logging Options for the delivery stream. More details are given below
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @property
+    @pulumi.getter(name="compressionFormat")
+    def compression_format(self) -> Optional[str]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
+        return pulumi.get(self, "compression_format")
+
+    @property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[str]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_group_name: Optional[str] = None,
+                 log_stream_name: Optional[str] = None):
+        """
+        :param bool enabled: Enables or disables the logging. Defaults to `false`.
+        :param str log_group_name: The CloudWatch group name for logging. This value is required if `enabled` is true.
+        :param str log_stream_name: The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables the logging. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        The CloudWatch group name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[str]:
+        """
+        The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_stream_name")
 
 
 @pulumi.output_type
@@ -1987,10 +2222,10 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
             suggest = "bucket_arn"
         elif key == "roleArn":
             suggest = "role_arn"
-        elif key == "bufferInterval":
-            suggest = "buffer_interval"
-        elif key == "bufferSize":
-            suggest = "buffer_size"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
         elif key == "cloudwatchLoggingOptions":
             suggest = "cloudwatch_logging_options"
         elif key == "compressionFormat":
@@ -2024,8 +2259,8 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
-                 buffer_interval: Optional[int] = None,
-                 buffer_size: Optional[int] = None,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions'] = None,
                  compression_format: Optional[str] = None,
                  data_format_conversion_configuration: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration'] = None,
@@ -2039,8 +2274,8 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
         """
         :param str bucket_arn: The ARN of the S3 bucket
         :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
-        :param int buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param int buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param 'FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -2056,10 +2291,10 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
-        if buffer_interval is not None:
-            pulumi.set(__self__, "buffer_interval", buffer_interval)
-        if buffer_size is not None:
-            pulumi.set(__self__, "buffer_size", buffer_size)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if compression_format is not None:
@@ -2098,21 +2333,21 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
         """
-        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         """
-        return pulumi.get(self, "buffer_interval")
+        return pulumi.get(self, "buffering_interval")
 
     @property
-    @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
         """
-        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
-        return pulumi.get(self, "buffer_size")
+        return pulumi.get(self, "buffering_size")
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -2957,6 +3192,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurat
         """
         :param bool enabled: Enables or disables dynamic partitioning. Defaults to `false`.
         :param int retry_duration: Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+               
+               > **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2976,6 +3213,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurat
     def retry_duration(self) -> Optional[int]:
         """
         Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+
+        > **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
         """
         return pulumi.get(self, "retry_duration")
 
@@ -3068,6 +3307,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
         """
         :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -3085,6 +3326,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
     def parameter_value(self) -> str:
         """
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         return pulumi.get(self, "parameter_value")
 
@@ -3098,10 +3341,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(dict):
             suggest = "bucket_arn"
         elif key == "roleArn":
             suggest = "role_arn"
-        elif key == "bufferInterval":
-            suggest = "buffer_interval"
-        elif key == "bufferSize":
-            suggest = "buffer_size"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
         elif key == "cloudwatchLoggingOptions":
             suggest = "cloudwatch_logging_options"
         elif key == "compressionFormat":
@@ -3125,8 +3368,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(dict):
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
-                 buffer_interval: Optional[int] = None,
-                 buffer_size: Optional[int] = None,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions'] = None,
                  compression_format: Optional[str] = None,
                  error_output_prefix: Optional[str] = None,
@@ -3135,8 +3378,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(dict):
         """
         :param str bucket_arn: The ARN of the S3 bucket
         :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
-        :param int buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param int buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param 'FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -3147,10 +3390,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(dict):
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
-        if buffer_interval is not None:
-            pulumi.set(__self__, "buffer_interval", buffer_interval)
-        if buffer_size is not None:
-            pulumi.set(__self__, "buffer_size", buffer_size)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if compression_format is not None:
@@ -3179,21 +3422,21 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
         """
-        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         """
-        return pulumi.get(self, "buffer_interval")
+        return pulumi.get(self, "buffering_interval")
 
     @property
-    @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
         """
-        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
-        return pulumi.get(self, "buffer_size")
+        return pulumi.get(self, "buffering_size")
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -3304,7 +3547,9 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "accessKey":
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "accessKey":
             suggest = "access_key"
         elif key == "bufferingInterval":
             suggest = "buffering_interval"
@@ -3335,6 +3580,7 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 s3_configuration: 'outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration',
                  url: str,
                  access_key: Optional[str] = None,
                  buffering_interval: Optional[int] = None,
@@ -3347,6 +3593,7 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
                  role_arn: Optional[str] = None,
                  s3_backup_mode: Optional[str] = None):
         """
+        :param 'FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs' s3_configuration: The S3 Configuration. See s3_configuration for more details.
         :param str url: The HTTP endpoint URL to which Kinesis Firehose sends your data.
         :param str access_key: The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
         :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
@@ -3359,6 +3606,7 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
         :param str role_arn: Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
         :param str s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         """
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "url", url)
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
@@ -3380,6 +3628,14 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
             pulumi.set(__self__, "role_arn", role_arn)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration':
+        """
+        The S3 Configuration. See s3_configuration for more details.
+        """
+        return pulumi.get(self, "s3_configuration")
 
     @property
     @pulumi.getter
@@ -3620,6 +3876,8 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
         """
         :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -3637,6 +3895,8 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
     def parameter_value(self) -> str:
         """
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         return pulumi.get(self, "parameter_value")
 
@@ -3721,6 +3981,216 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonA
 
 
 @pulumi.output_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 role_arn: str,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
+                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions'] = None,
+                 compression_format: Optional[str] = None,
+                 error_output_prefix: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket_arn: The ARN of the S3 bucket
+        :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        :param 'FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param str error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param str kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param str prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if compression_format is not None:
+            pulumi.set(__self__, "compression_format", compression_format)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        """
+        The ARN of the S3 bucket
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that provides access to the source Kinesis stream.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
+        """
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions']:
+        """
+        The CloudWatch Logging Options for the delivery stream. More details are given below
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @property
+    @pulumi.getter(name="compressionFormat")
+    def compression_format(self) -> Optional[str]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
+        return pulumi.get(self, "compression_format")
+
+    @property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[str]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_group_name: Optional[str] = None,
+                 log_stream_name: Optional[str] = None):
+        """
+        :param bool enabled: Enables or disables the logging. Defaults to `false`.
+        :param str log_group_name: The CloudWatch group name for logging. This value is required if `enabled` is true.
+        :param str log_stream_name: The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables the logging. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        The CloudWatch group name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[str]:
+        """
+        The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_stream_name")
+
+
+@pulumi.output_type
 class FirehoseDeliveryStreamKinesisSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3777,6 +4247,8 @@ class FirehoseDeliveryStreamOpensearchConfiguration(dict):
             suggest = "index_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
         elif key == "bufferingInterval":
             suggest = "buffering_interval"
         elif key == "bufferingSize":
@@ -3814,6 +4286,7 @@ class FirehoseDeliveryStreamOpensearchConfiguration(dict):
     def __init__(__self__, *,
                  index_name: str,
                  role_arn: str,
+                 s3_configuration: 'outputs.FirehoseDeliveryStreamOpensearchConfigurationS3Configuration',
                  buffering_interval: Optional[int] = None,
                  buffering_size: Optional[int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions'] = None,
@@ -3828,6 +4301,7 @@ class FirehoseDeliveryStreamOpensearchConfiguration(dict):
         """
         :param str index_name: The Opensearch index name.
         :param str role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        :param 'FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs' s3_configuration: The S3 Configuration. See s3_configuration for more details.
         :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param 'FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
@@ -3842,6 +4316,7 @@ class FirehoseDeliveryStreamOpensearchConfiguration(dict):
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_interval is not None:
             pulumi.set(__self__, "buffering_interval", buffering_interval)
         if buffering_size is not None:
@@ -3880,6 +4355,14 @@ class FirehoseDeliveryStreamOpensearchConfiguration(dict):
         The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.FirehoseDeliveryStreamOpensearchConfigurationS3Configuration':
+        """
+        The S3 Configuration. See s3_configuration for more details.
+        """
+        return pulumi.get(self, "s3_configuration")
 
     @property
     @pulumi.getter(name="bufferingInterval")
@@ -4120,6 +4603,8 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProces
         """
         :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -4137,8 +4622,220 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProces
     def parameter_value(self) -> str:
         """
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamOpensearchConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamOpensearchConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamOpensearchConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamOpensearchConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 role_arn: str,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
+                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions'] = None,
+                 compression_format: Optional[str] = None,
+                 error_output_prefix: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket_arn: The ARN of the S3 bucket
+        :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        :param 'FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param str error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param str kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param str prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if compression_format is not None:
+            pulumi.set(__self__, "compression_format", compression_format)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        """
+        The ARN of the S3 bucket
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that provides access to the source Kinesis stream.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
+        """
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions']:
+        """
+        The CloudWatch Logging Options for the delivery stream. More details are given below
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @property
+    @pulumi.getter(name="compressionFormat")
+    def compression_format(self) -> Optional[str]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
+        return pulumi.get(self, "compression_format")
+
+    @property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[str]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_group_name: Optional[str] = None,
+                 log_stream_name: Optional[str] = None):
+        """
+        :param bool enabled: Enables or disables the logging. Defaults to `false`.
+        :param str log_group_name: The CloudWatch group name for logging. This value is required if `enabled` is true.
+        :param str log_stream_name: The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables the logging. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        The CloudWatch group name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[str]:
+        """
+        The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_stream_name")
 
 
 @pulumi.output_type
@@ -4223,6 +4920,8 @@ class FirehoseDeliveryStreamRedshiftConfiguration(dict):
             suggest = "data_table_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
         elif key == "cloudwatchLoggingOptions":
             suggest = "cloudwatch_logging_options"
         elif key == "copyOptions":
@@ -4254,6 +4953,7 @@ class FirehoseDeliveryStreamRedshiftConfiguration(dict):
                  data_table_name: str,
                  password: str,
                  role_arn: str,
+                 s3_configuration: 'outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration',
                  username: str,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions'] = None,
                  copy_options: Optional[str] = None,
@@ -4267,6 +4967,7 @@ class FirehoseDeliveryStreamRedshiftConfiguration(dict):
         :param str data_table_name: The name of the table in the redshift cluster that the s3 bucket will copy to.
         :param str password: The password for the username above.
         :param str role_arn: The arn of the role the stream assumes.
+        :param 'FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs' s3_configuration: The S3 Configuration. See s3_configuration for more details.
         :param str username: The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
         :param 'FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param str copy_options: Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
@@ -4280,6 +4981,7 @@ class FirehoseDeliveryStreamRedshiftConfiguration(dict):
         pulumi.set(__self__, "data_table_name", data_table_name)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "username", username)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
@@ -4327,6 +5029,14 @@ class FirehoseDeliveryStreamRedshiftConfiguration(dict):
         The arn of the role the stream assumes.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration':
+        """
+        The S3 Configuration. See s3_configuration for more details.
+        """
+        return pulumi.get(self, "s3_configuration")
 
     @property
     @pulumi.getter
@@ -4543,6 +5253,8 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
         """
         :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -4560,6 +5272,8 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
     def parameter_value(self) -> str:
         """
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         return pulumi.get(self, "parameter_value")
 
@@ -4573,10 +5287,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(dict):
             suggest = "bucket_arn"
         elif key == "roleArn":
             suggest = "role_arn"
-        elif key == "bufferInterval":
-            suggest = "buffer_interval"
-        elif key == "bufferSize":
-            suggest = "buffer_size"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
         elif key == "cloudwatchLoggingOptions":
             suggest = "cloudwatch_logging_options"
         elif key == "compressionFormat":
@@ -4600,8 +5314,8 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(dict):
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
-                 buffer_interval: Optional[int] = None,
-                 buffer_size: Optional[int] = None,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions'] = None,
                  compression_format: Optional[str] = None,
                  error_output_prefix: Optional[str] = None,
@@ -4610,8 +5324,8 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(dict):
         """
         :param str bucket_arn: The ARN of the S3 bucket
         :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
-        :param int buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param int buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param 'FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -4622,10 +5336,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(dict):
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
-        if buffer_interval is not None:
-            pulumi.set(__self__, "buffer_interval", buffer_interval)
-        if buffer_size is not None:
-            pulumi.set(__self__, "buffer_size", buffer_size)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if compression_format is not None:
@@ -4654,21 +5368,21 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
         """
-        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         """
-        return pulumi.get(self, "buffer_interval")
+        return pulumi.get(self, "buffering_interval")
 
     @property
-    @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
         """
-        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
-        return pulumi.get(self, "buffer_size")
+        return pulumi.get(self, "buffering_size")
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -4775,7 +5489,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatch
 
 
 @pulumi.output_type
-class FirehoseDeliveryStreamS3Configuration(dict):
+class FirehoseDeliveryStreamRedshiftConfigurationS3Configuration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4783,10 +5497,10 @@ class FirehoseDeliveryStreamS3Configuration(dict):
             suggest = "bucket_arn"
         elif key == "roleArn":
             suggest = "role_arn"
-        elif key == "bufferInterval":
-            suggest = "buffer_interval"
-        elif key == "bufferSize":
-            suggest = "buffer_size"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
         elif key == "cloudwatchLoggingOptions":
             suggest = "cloudwatch_logging_options"
         elif key == "compressionFormat":
@@ -4797,22 +5511,22 @@ class FirehoseDeliveryStreamS3Configuration(dict):
             suggest = "kms_key_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamS3Configuration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamRedshiftConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FirehoseDeliveryStreamS3Configuration.__key_warning(key)
+        FirehoseDeliveryStreamRedshiftConfigurationS3Configuration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FirehoseDeliveryStreamS3Configuration.__key_warning(key)
+        FirehoseDeliveryStreamRedshiftConfigurationS3Configuration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
-                 buffer_interval: Optional[int] = None,
-                 buffer_size: Optional[int] = None,
-                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions'] = None,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
+                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions'] = None,
                  compression_format: Optional[str] = None,
                  error_output_prefix: Optional[str] = None,
                  kms_key_arn: Optional[str] = None,
@@ -4820,10 +5534,10 @@ class FirehoseDeliveryStreamS3Configuration(dict):
         """
         :param str bucket_arn: The ARN of the S3 bucket
         :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
-        :param int buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param int buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        :param 'FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param 'FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param str error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         :param str kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
@@ -4832,10 +5546,10 @@ class FirehoseDeliveryStreamS3Configuration(dict):
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
-        if buffer_interval is not None:
-            pulumi.set(__self__, "buffer_interval", buffer_interval)
-        if buffer_size is not None:
-            pulumi.set(__self__, "buffer_size", buffer_size)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if compression_format is not None:
@@ -4864,25 +5578,25 @@ class FirehoseDeliveryStreamS3Configuration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
         """
-        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         """
-        return pulumi.get(self, "buffer_interval")
+        return pulumi.get(self, "buffering_interval")
 
     @property
-    @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[int]:
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
         """
-        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         """
-        return pulumi.get(self, "buffer_size")
+        return pulumi.get(self, "buffering_size")
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
-    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions']:
+    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions']:
         """
         The CloudWatch Logging Options for the delivery stream. More details are given below
         """
@@ -4923,7 +5637,7 @@ class FirehoseDeliveryStreamS3Configuration(dict):
 
 
 @pulumi.output_type
-class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(dict):
+class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4933,14 +5647,14 @@ class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(dict):
             suggest = "log_stream_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5012,6 +5726,8 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
         """
         :param bool enabled: Whether to enable encryption at rest. Default is `false`.
         :param str key_arn: Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+               
+               The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
         :param str key_type: Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
         """
         if enabled is not None:
@@ -5034,6 +5750,8 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
     def key_arn(self) -> Optional[str]:
         """
         Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+
+        The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
         """
         return pulumi.get(self, "key_arn")
 
@@ -5055,6 +5773,8 @@ class FirehoseDeliveryStreamSplunkConfiguration(dict):
             suggest = "hec_endpoint"
         elif key == "hecToken":
             suggest = "hec_token"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
         elif key == "cloudwatchLoggingOptions":
             suggest = "cloudwatch_logging_options"
         elif key == "hecAcknowledgmentTimeout":
@@ -5082,6 +5802,7 @@ class FirehoseDeliveryStreamSplunkConfiguration(dict):
     def __init__(__self__, *,
                  hec_endpoint: str,
                  hec_token: str,
+                 s3_configuration: 'outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration',
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions'] = None,
                  hec_acknowledgment_timeout: Optional[int] = None,
                  hec_endpoint_type: Optional[str] = None,
@@ -5091,6 +5812,7 @@ class FirehoseDeliveryStreamSplunkConfiguration(dict):
         """
         :param str hec_endpoint: The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
         :param str hec_token: The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+        :param 'FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs' s3_configuration: The S3 Configuration. See s3_configuration for more details.
         :param 'FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below.
         :param int hec_acknowledgment_timeout: The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         :param str hec_endpoint_type: The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
@@ -5100,6 +5822,7 @@ class FirehoseDeliveryStreamSplunkConfiguration(dict):
         """
         pulumi.set(__self__, "hec_endpoint", hec_endpoint)
         pulumi.set(__self__, "hec_token", hec_token)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if hec_acknowledgment_timeout is not None:
@@ -5128,6 +5851,14 @@ class FirehoseDeliveryStreamSplunkConfiguration(dict):
         The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         """
         return pulumi.get(self, "hec_token")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration':
+        """
+        The S3 Configuration. See s3_configuration for more details.
+        """
+        return pulumi.get(self, "s3_configuration")
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -5328,6 +6059,8 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
         """
         :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -5345,8 +6078,220 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
     def parameter_value(self) -> str:
         """
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSplunkConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSplunkConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 role_arn: str,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
+                 cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions'] = None,
+                 compression_format: Optional[str] = None,
+                 error_output_prefix: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket_arn: The ARN of the S3 bucket
+        :param str role_arn: The ARN of the role that provides access to the source Kinesis stream.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        :param 'FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param str error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param str kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param str prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if compression_format is not None:
+            pulumi.set(__self__, "compression_format", compression_format)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        """
+        The ARN of the S3 bucket
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that provides access to the source Kinesis stream.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
+        """
+        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional['outputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions']:
+        """
+        The CloudWatch Logging Options for the delivery stream. More details are given below
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @property
+    @pulumi.getter(name="compressionFormat")
+    def compression_format(self) -> Optional[str]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
+        return pulumi.get(self, "compression_format")
+
+    @property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[str]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_group_name: Optional[str] = None,
+                 log_stream_name: Optional[str] = None):
+        """
+        :param bool enabled: Enables or disables the logging. Defaults to `false`.
+        :param str log_group_name: The CloudWatch group name for logging. This value is required if `enabled` is true.
+        :param str log_stream_name: The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables the logging. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        The CloudWatch group name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[str]:
+        """
+        The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_stream_name")
 
 
 @pulumi.output_type

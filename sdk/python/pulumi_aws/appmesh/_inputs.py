@@ -20,6 +20,7 @@ __all__ = [
     'GatewayRouteSpecHttp2RouteActionArgs',
     'GatewayRouteSpecHttp2RouteActionRewriteArgs',
     'GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs',
+    'GatewayRouteSpecHttp2RouteActionRewritePathArgs',
     'GatewayRouteSpecHttp2RouteActionRewritePrefixArgs',
     'GatewayRouteSpecHttp2RouteActionTargetArgs',
     'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs',
@@ -35,6 +36,7 @@ __all__ = [
     'GatewayRouteSpecHttpRouteActionArgs',
     'GatewayRouteSpecHttpRouteActionRewriteArgs',
     'GatewayRouteSpecHttpRouteActionRewriteHostnameArgs',
+    'GatewayRouteSpecHttpRouteActionRewritePathArgs',
     'GatewayRouteSpecHttpRouteActionRewritePrefixArgs',
     'GatewayRouteSpecHttpRouteActionTargetArgs',
     'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs',
@@ -520,13 +522,17 @@ class GatewayRouteSpecHttp2RouteActionArgs:
 class GatewayRouteSpecHttp2RouteActionRewriteArgs:
     def __init__(__self__, *,
                  hostname: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs']] = None,
+                 path: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs']] = None,
                  prefix: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePrefixArgs']] = None):
         """
         :param pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs'] hostname: Host name to rewrite.
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs'] path: Exact path to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePrefixArgs'] prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
 
@@ -541,6 +547,18 @@ class GatewayRouteSpecHttp2RouteActionRewriteArgs:
     @hostname.setter
     def hostname(self, value: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs']]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs']]:
+        """
+        Exact path to rewrite.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs']]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter
@@ -575,6 +593,28 @@ class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs:
     @default_target_hostname.setter
     def default_target_hostname(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_target_hostname", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttp2RouteActionRewritePathArgs:
+    def __init__(__self__, *,
+                 exact: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] exact: The exact path to match on.
+        """
+        pulumi.set(__self__, "exact", exact)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> pulumi.Input[str]:
+        """
+        The exact path to match on.
+        """
+        return pulumi.get(self, "exact")
+
+    @exact.setter
+    def exact(self, value: pulumi.Input[str]):
+        pulumi.set(self, "exact", value)
 
 
 @pulumi.input_type
@@ -688,7 +728,7 @@ class GatewayRouteSpecHttp2RouteMatchArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderArgs']]] headers: Client request headers to match on.
         :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchHostnameArgs'] hostname: Host name to rewrite.
-        :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgs'] path: Client request path to match on.
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgs'] path: Exact path to rewrite.
         :param pulumi.Input[int] port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterArgs']]] query_parameters: Client request query parameters to match on.
@@ -734,7 +774,7 @@ class GatewayRouteSpecHttp2RouteMatchArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgs']]:
         """
-        Client request path to match on.
+        Exact path to rewrite.
         """
         return pulumi.get(self, "path")
 
@@ -842,7 +882,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
@@ -863,7 +903,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 
@@ -1078,7 +1118,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1087,7 +1127,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 
@@ -1175,13 +1215,17 @@ class GatewayRouteSpecHttpRouteActionArgs:
 class GatewayRouteSpecHttpRouteActionRewriteArgs:
     def __init__(__self__, *,
                  hostname: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgs']] = None,
+                 path: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs']] = None,
                  prefix: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePrefixArgs']] = None):
         """
         :param pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgs'] hostname: Host name to rewrite.
+        :param pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs'] path: Exact path to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePrefixArgs'] prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
 
@@ -1196,6 +1240,18 @@ class GatewayRouteSpecHttpRouteActionRewriteArgs:
     @hostname.setter
     def hostname(self, value: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgs']]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs']]:
+        """
+        Exact path to rewrite.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs']]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter
@@ -1230,6 +1286,28 @@ class GatewayRouteSpecHttpRouteActionRewriteHostnameArgs:
     @default_target_hostname.setter
     def default_target_hostname(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_target_hostname", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttpRouteActionRewritePathArgs:
+    def __init__(__self__, *,
+                 exact: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] exact: The exact path to match on.
+        """
+        pulumi.set(__self__, "exact", exact)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> pulumi.Input[str]:
+        """
+        The exact path to match on.
+        """
+        return pulumi.get(self, "exact")
+
+    @exact.setter
+    def exact(self, value: pulumi.Input[str]):
+        pulumi.set(self, "exact", value)
 
 
 @pulumi.input_type
@@ -1343,7 +1421,7 @@ class GatewayRouteSpecHttpRouteMatchArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderArgs']]] headers: Client request headers to match on.
         :param pulumi.Input['GatewayRouteSpecHttpRouteMatchHostnameArgs'] hostname: Host name to rewrite.
-        :param pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgs'] path: Client request path to match on.
+        :param pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgs'] path: Exact path to rewrite.
         :param pulumi.Input[int] port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterArgs']]] query_parameters: Client request query parameters to match on.
@@ -1389,7 +1467,7 @@ class GatewayRouteSpecHttpRouteMatchArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgs']]:
         """
-        Client request path to match on.
+        Exact path to rewrite.
         """
         return pulumi.get(self, "path")
 
@@ -1497,7 +1575,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
@@ -1518,7 +1596,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 
@@ -1733,7 +1811,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1742,7 +1820,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 
@@ -2321,6 +2399,9 @@ class RouteSpecGrpcRouteRetryPolicyArgs:
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -2387,6 +2468,9 @@ class RouteSpecGrpcRouteRetryPolicyArgs:
     def tcp_retry_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -3106,6 +3190,9 @@ class RouteSpecHttp2RouteRetryPolicyArgs:
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -3157,6 +3244,9 @@ class RouteSpecHttp2RouteRetryPolicyArgs:
     def tcp_retry_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -3876,6 +3966,9 @@ class RouteSpecHttpRouteRetryPolicyArgs:
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -3927,6 +4020,9 @@ class RouteSpecHttpRouteRetryPolicyArgs:
     def tcp_retry_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -4302,15 +4398,15 @@ class RouteSpecTcpRouteTimeoutIdleArgs:
 @pulumi.input_type
 class VirtualGatewaySpecArgs:
     def __init__(__self__, *,
-                 listener: pulumi.Input['VirtualGatewaySpecListenerArgs'],
+                 listeners: pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]],
                  backend_defaults: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs']] = None,
                  logging: Optional[pulumi.Input['VirtualGatewaySpecLoggingArgs']] = None):
         """
-        :param pulumi.Input['VirtualGatewaySpecListenerArgs'] listener: Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]] listeners: Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
         :param pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs'] backend_defaults: Defaults for backends.
         :param pulumi.Input['VirtualGatewaySpecLoggingArgs'] logging: Inbound and outbound access logging information for the virtual gateway.
         """
-        pulumi.set(__self__, "listener", listener)
+        pulumi.set(__self__, "listeners", listeners)
         if backend_defaults is not None:
             pulumi.set(__self__, "backend_defaults", backend_defaults)
         if logging is not None:
@@ -4318,15 +4414,15 @@ class VirtualGatewaySpecArgs:
 
     @property
     @pulumi.getter
-    def listener(self) -> pulumi.Input['VirtualGatewaySpecListenerArgs']:
+    def listeners(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]]:
         """
         Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
         """
-        return pulumi.get(self, "listener")
+        return pulumi.get(self, "listeners")
 
-    @listener.setter
-    def listener(self, value: pulumi.Input['VirtualGatewaySpecListenerArgs']):
-        pulumi.set(self, "listener", value)
+    @listeners.setter
+    def listeners(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]]):
+        pulumi.set(self, "listeners", value)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -4947,6 +5043,8 @@ class VirtualGatewaySpecListenerConnectionPoolHttpArgs:
         """
         :param pulumi.Input[int] max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         :param pulumi.Input[int] max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+               
+               The `http2` connection pool object supports the following:
         """
         pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
@@ -4969,6 +5067,8 @@ class VirtualGatewaySpecListenerConnectionPoolHttpArgs:
     def max_pending_requests(self) -> Optional[pulumi.Input[int]]:
         """
         Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+
+        The `http2` connection pool object supports the following:
         """
         return pulumi.get(self, "max_pending_requests")
 
@@ -5647,13 +5747,13 @@ class VirtualNodeSpecArgs:
     def __init__(__self__, *,
                  backend_defaults: Optional[pulumi.Input['VirtualNodeSpecBackendDefaultsArgs']] = None,
                  backends: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecBackendArgs']]]] = None,
-                 listener: Optional[pulumi.Input['VirtualNodeSpecListenerArgs']] = None,
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]]] = None,
                  logging: Optional[pulumi.Input['VirtualNodeSpecLoggingArgs']] = None,
                  service_discovery: Optional[pulumi.Input['VirtualNodeSpecServiceDiscoveryArgs']] = None):
         """
         :param pulumi.Input['VirtualNodeSpecBackendDefaultsArgs'] backend_defaults: Defaults for backends.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecBackendArgs']]] backends: Backends to which the virtual node is expected to send outbound traffic.
-        :param pulumi.Input['VirtualNodeSpecListenerArgs'] listener: Listeners from which the virtual node is expected to receive inbound traffic.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]] listeners: Listeners from which the virtual node is expected to receive inbound traffic.
         :param pulumi.Input['VirtualNodeSpecLoggingArgs'] logging: Inbound and outbound access logging information for the virtual node.
         :param pulumi.Input['VirtualNodeSpecServiceDiscoveryArgs'] service_discovery: Service discovery information for the virtual node.
         """
@@ -5661,8 +5761,8 @@ class VirtualNodeSpecArgs:
             pulumi.set(__self__, "backend_defaults", backend_defaults)
         if backends is not None:
             pulumi.set(__self__, "backends", backends)
-        if listener is not None:
-            pulumi.set(__self__, "listener", listener)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
         if service_discovery is not None:
@@ -5694,15 +5794,15 @@ class VirtualNodeSpecArgs:
 
     @property
     @pulumi.getter
-    def listener(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerArgs']]:
+    def listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]]]:
         """
         Listeners from which the virtual node is expected to receive inbound traffic.
         """
-        return pulumi.get(self, "listener")
+        return pulumi.get(self, "listeners")
 
-    @listener.setter
-    def listener(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerArgs']]):
-        pulumi.set(self, "listener", value)
+    @listeners.setter
+    def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]]]):
+        pulumi.set(self, "listeners", value)
 
     @property
     @pulumi.getter
@@ -6706,23 +6806,23 @@ class VirtualNodeSpecListenerArgs:
 class VirtualNodeSpecListenerConnectionPoolArgs:
     def __init__(__self__, *,
                  grpc: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs']] = None,
-                 http: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']] = None,
-                 http2: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']] = None,
-                 tcp: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']] = None):
+                 http2s: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]]] = None,
+                 https: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]]] = None,
+                 tcps: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]]] = None):
         """
         :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs'] grpc: Connection pool information for gRPC listeners.
-        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs'] http: Connection pool information for HTTP listeners.
-        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args'] http2: Connection pool information for HTTP2 listeners.
-        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs'] tcp: Connection pool information for TCP listeners.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]] http2s: Connection pool information for HTTP2 listeners.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]] https: Connection pool information for HTTP listeners.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]] tcps: Connection pool information for TCP listeners.
         """
         if grpc is not None:
             pulumi.set(__self__, "grpc", grpc)
-        if http is not None:
-            pulumi.set(__self__, "http", http)
-        if http2 is not None:
-            pulumi.set(__self__, "http2", http2)
-        if tcp is not None:
-            pulumi.set(__self__, "tcp", tcp)
+        if http2s is not None:
+            pulumi.set(__self__, "http2s", http2s)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
+        if tcps is not None:
+            pulumi.set(__self__, "tcps", tcps)
 
     @property
     @pulumi.getter
@@ -6738,39 +6838,39 @@ class VirtualNodeSpecListenerConnectionPoolArgs:
 
     @property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]:
-        """
-        Connection pool information for HTTP listeners.
-        """
-        return pulumi.get(self, "http")
-
-    @http.setter
-    def http(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]):
-        pulumi.set(self, "http", value)
-
-    @property
-    @pulumi.getter
-    def http2(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]:
+    def http2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]]]:
         """
         Connection pool information for HTTP2 listeners.
         """
-        return pulumi.get(self, "http2")
+        return pulumi.get(self, "http2s")
 
-    @http2.setter
-    def http2(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]):
-        pulumi.set(self, "http2", value)
+    @http2s.setter
+    def http2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]]]):
+        pulumi.set(self, "http2s", value)
 
     @property
     @pulumi.getter
-    def tcp(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]:
+    def https(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]]]:
+        """
+        Connection pool information for HTTP listeners.
+        """
+        return pulumi.get(self, "https")
+
+    @https.setter
+    def https(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]]]):
+        pulumi.set(self, "https", value)
+
+    @property
+    @pulumi.getter
+    def tcps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]]]:
         """
         Connection pool information for TCP listeners.
         """
-        return pulumi.get(self, "tcp")
+        return pulumi.get(self, "tcps")
 
-    @tcp.setter
-    def tcp(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]):
-        pulumi.set(self, "tcp", value)
+    @tcps.setter
+    def tcps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]]]):
+        pulumi.set(self, "tcps", value)
 
 
 @pulumi.input_type
@@ -6825,6 +6925,8 @@ class VirtualNodeSpecListenerConnectionPoolHttpArgs:
         """
         :param pulumi.Input[int] max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         :param pulumi.Input[int] max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+               
+               The `http2` connection pool object supports the following:
         """
         pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
@@ -6847,6 +6949,8 @@ class VirtualNodeSpecListenerConnectionPoolHttpArgs:
     def max_pending_requests(self) -> Optional[pulumi.Input[int]]:
         """
         Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+
+        The `http2` connection pool object supports the following:
         """
         return pulumi.get(self, "max_pending_requests")
 
@@ -8306,26 +8410,26 @@ class VirtualNodeSpecServiceDiscoveryDnsArgs:
 @pulumi.input_type
 class VirtualRouterSpecArgs:
     def __init__(__self__, *,
-                 listener: Optional[pulumi.Input['VirtualRouterSpecListenerArgs']] = None):
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]]] = None):
         """
-        :param pulumi.Input['VirtualRouterSpecListenerArgs'] listener: Listeners that the virtual router is expected to receive inbound traffic from.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]] listeners: Listeners that the virtual router is expected to receive inbound traffic from.
                Currently only one listener is supported per virtual router.
         """
-        if listener is not None:
-            pulumi.set(__self__, "listener", listener)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
 
     @property
     @pulumi.getter
-    def listener(self) -> Optional[pulumi.Input['VirtualRouterSpecListenerArgs']]:
+    def listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]]]:
         """
         Listeners that the virtual router is expected to receive inbound traffic from.
         Currently only one listener is supported per virtual router.
         """
-        return pulumi.get(self, "listener")
+        return pulumi.get(self, "listeners")
 
-    @listener.setter
-    def listener(self, value: Optional[pulumi.Input['VirtualRouterSpecListenerArgs']]):
-        pulumi.set(self, "listener", value)
+    @listeners.setter
+    def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]]]):
+        pulumi.set(self, "listeners", value)
 
 
 @pulumi.input_type

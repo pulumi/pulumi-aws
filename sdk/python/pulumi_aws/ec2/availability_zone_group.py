@@ -115,7 +115,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         ## Import
 
-        EC2 Availability Zone Groups can be imported using the group name, e.g.,
+        Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
 
         ```sh
          $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
@@ -150,7 +150,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         ## Import
 
-        EC2 Availability Zone Groups can be imported using the group name, e.g.,
+        Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
 
         ```sh
          $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1

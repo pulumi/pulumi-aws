@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SNS Data Protection Topic Policy can be imported using the topic ARN, e.g.,
+ * Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example

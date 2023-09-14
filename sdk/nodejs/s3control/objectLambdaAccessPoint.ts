@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+ * Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
  *
  * ```sh
  *  $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
@@ -73,6 +73,10 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * Alias for the S3 Object Lambda Access Point.
+     */
+    public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ObjectLambdaAccessPointState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -110,6 +115,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -125,6 +131,10 @@ export interface ObjectLambdaAccessPointState {
      * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * Alias for the S3 Object Lambda Access Point.
+     */
+    alias?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      */

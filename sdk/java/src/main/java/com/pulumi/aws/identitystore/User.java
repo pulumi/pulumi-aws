@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An Identity Store User can be imported using the combination `identity_store_id/user_id`. For example
+ * Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
@@ -240,12 +240,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
      * @return A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {

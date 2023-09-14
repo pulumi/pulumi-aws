@@ -143,13 +143,13 @@ def get_application(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:serverlessrepository/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        application_id=__ret__.application_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        required_capabilities=__ret__.required_capabilities,
-        semantic_version=__ret__.semantic_version,
-        source_code_url=__ret__.source_code_url,
-        template_url=__ret__.template_url)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        required_capabilities=pulumi.get(__ret__, 'required_capabilities'),
+        semantic_version=pulumi.get(__ret__, 'semantic_version'),
+        source_code_url=pulumi.get(__ret__, 'source_code_url'),
+        template_url=pulumi.get(__ret__, 'template_url'))
 
 
 @_utilities.lift_output_func(get_application)

@@ -23,6 +23,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         public readonly string Key;
         /// <summary>
         /// Value from the possible values for the LF-tag.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         public readonly string Value;
 

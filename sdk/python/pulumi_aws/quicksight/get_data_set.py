@@ -162,6 +162,9 @@ class GetDataSetResult:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Mapping[str, str]:
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "tags_all")
 
 
@@ -194,6 +197,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
                  column_level_permission_rules: Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArgs']]] = None,
                  data_set_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
+                 tags_all: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
     Data source for managing a QuickSight Data Set.
@@ -211,33 +215,36 @@ def get_data_set(aws_account_id: Optional[str] = None,
 
     :param str aws_account_id: AWS account ID.
     :param str data_set_id: Identifier for the data set.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['columnLevelPermissionRules'] = column_level_permission_rules
     __args__['dataSetId'] = data_set_id
     __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getDataSet:getDataSet', __args__, opts=opts, typ=GetDataSetResult).value
 
     return AwaitableGetDataSetResult(
-        arn=__ret__.arn,
-        aws_account_id=__ret__.aws_account_id,
-        column_groups=__ret__.column_groups,
-        column_level_permission_rules=__ret__.column_level_permission_rules,
-        data_set_id=__ret__.data_set_id,
-        data_set_usage_configurations=__ret__.data_set_usage_configurations,
-        field_folders=__ret__.field_folders,
-        id=__ret__.id,
-        import_mode=__ret__.import_mode,
-        logical_table_maps=__ret__.logical_table_maps,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        physical_table_maps=__ret__.physical_table_maps,
-        row_level_permission_data_sets=__ret__.row_level_permission_data_sets,
-        row_level_permission_tag_configurations=__ret__.row_level_permission_tag_configurations,
-        tags=__ret__.tags,
-        tags_all=__ret__.tags_all)
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
+        column_groups=pulumi.get(__ret__, 'column_groups'),
+        column_level_permission_rules=pulumi.get(__ret__, 'column_level_permission_rules'),
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        data_set_usage_configurations=pulumi.get(__ret__, 'data_set_usage_configurations'),
+        field_folders=pulumi.get(__ret__, 'field_folders'),
+        id=pulumi.get(__ret__, 'id'),
+        import_mode=pulumi.get(__ret__, 'import_mode'),
+        logical_table_maps=pulumi.get(__ret__, 'logical_table_maps'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        physical_table_maps=pulumi.get(__ret__, 'physical_table_maps'),
+        row_level_permission_data_sets=pulumi.get(__ret__, 'row_level_permission_data_sets'),
+        row_level_permission_tag_configurations=pulumi.get(__ret__, 'row_level_permission_tag_configurations'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tags_all=pulumi.get(__ret__, 'tags_all'))
 
 
 @_utilities.lift_output_func(get_data_set)
@@ -245,6 +252,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
                         column_level_permission_rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArgs']]]]] = None,
                         data_set_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        tags_all: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
     """
     Data source for managing a QuickSight Data Set.
@@ -262,5 +270,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
 
     :param str aws_account_id: AWS account ID.
     :param str data_set_id: Identifier for the data set.
+           
+           The following arguments are optional:
     """
     ...

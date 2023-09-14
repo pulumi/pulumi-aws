@@ -35,6 +35,8 @@ class UserArgs:
         :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
         :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+               
+               The following arguments are optional:
         :param pulumi.Input['UserAddressesArgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
         :param pulumi.Input['UserEmailsArgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
         :param pulumi.Input[str] locale: The user's geographical region or location.
@@ -102,6 +104,8 @@ class UserArgs:
     def user_name(self) -> pulumi.Input[str]:
         """
         A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -278,6 +282,8 @@ class _UserState:
         :param pulumi.Input[str] title: The user's title.
         :param pulumi.Input[str] user_id: The identifier for this user in the identity store.
         :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] user_type: The user type.
         """
         if addresses is not None:
@@ -486,6 +492,8 @@ class _UserState:
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
         A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -538,7 +546,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        An Identity Store User can be imported using the combination `identity_store_id/user_id`. For example
+        Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 
         ```sh
          $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
@@ -559,6 +567,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] timezone: The user's time zone.
         :param pulumi.Input[str] title: The user's title.
         :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] user_type: The user type.
         """
         ...
@@ -579,7 +589,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        An Identity Store User can be imported using the combination `identity_store_id/user_id`. For example
+        Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 
         ```sh
          $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
@@ -693,6 +703,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] title: The user's title.
         :param pulumi.Input[str] user_id: The identifier for this user in the identity store.
         :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] user_type: The user type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -834,6 +846,8 @@ class User(pulumi.CustomResource):
     def user_name(self) -> pulumi.Output[str]:
         """
         A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 

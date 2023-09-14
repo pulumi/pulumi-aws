@@ -49,7 +49,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// ## Import
     /// 
-    /// WAFv2 Regex Pattern Sets can be imported using `ID/name/scope` e.g.,
+    /// Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+        /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         /// </summary>
         [Output("regularExpressions")]
         public Output<ImmutableArray<Outputs.RegexPatternSetRegularExpression>> RegularExpressions { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.RegexPatternSetRegularExpressionArgs>? _regularExpressions;
 
         /// <summary>
-        /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+        /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         /// </summary>
         public InputList<Inputs.RegexPatternSetRegularExpressionArgs> RegularExpressions
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.RegexPatternSetRegularExpressionGetArgs>? _regularExpressions;
 
         /// <summary>
-        /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+        /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         /// </summary>
         public InputList<Inputs.RegexPatternSetRegularExpressionGetArgs> RegularExpressions
         {

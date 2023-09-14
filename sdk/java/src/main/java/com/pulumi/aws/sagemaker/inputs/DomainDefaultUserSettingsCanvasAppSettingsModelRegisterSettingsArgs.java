@@ -31,14 +31,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettin
     }
 
     /**
-     * Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+     * Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -92,7 +92,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettin
         }
 
         /**
-         * @param status Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+         * @param status Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettin
         }
 
         /**
-         * @param status Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+         * @param status Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 

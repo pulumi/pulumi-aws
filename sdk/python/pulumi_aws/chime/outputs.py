@@ -10,12 +10,145 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'SdkvoiceGlobalSettingsVoiceConnector',
+    'SdkvoiceSipMediaApplicationEndpoints',
+    'SdkvoiceSipRuleTargetApplication',
     'SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration',
     'VoiceConnectorGroupConnector',
     'VoiceConnectorOrganizationRoute',
     'VoiceConnectorStreamingMediaInsightsConfiguration',
     'VoiceConnectorTerminationCredentialsCredential',
 ]
+
+@pulumi.output_type
+class SdkvoiceGlobalSettingsVoiceConnector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cdrBucket":
+            suggest = "cdr_bucket"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SdkvoiceGlobalSettingsVoiceConnector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SdkvoiceGlobalSettingsVoiceConnector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SdkvoiceGlobalSettingsVoiceConnector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cdr_bucket: Optional[str] = None):
+        """
+        :param str cdr_bucket: The S3 bucket that stores the Voice Connector's call detail records.
+        """
+        if cdr_bucket is not None:
+            pulumi.set(__self__, "cdr_bucket", cdr_bucket)
+
+    @property
+    @pulumi.getter(name="cdrBucket")
+    def cdr_bucket(self) -> Optional[str]:
+        """
+        The S3 bucket that stores the Voice Connector's call detail records.
+        """
+        return pulumi.get(self, "cdr_bucket")
+
+
+@pulumi.output_type
+class SdkvoiceSipMediaApplicationEndpoints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SdkvoiceSipMediaApplicationEndpoints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SdkvoiceSipMediaApplicationEndpoints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SdkvoiceSipMediaApplicationEndpoints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: str):
+        """
+        :param str lambda_arn: Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+
+@pulumi.output_type
+class SdkvoiceSipRuleTargetApplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "sipMediaApplicationId":
+            suggest = "sip_media_application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SdkvoiceSipRuleTargetApplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SdkvoiceSipRuleTargetApplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SdkvoiceSipRuleTargetApplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: str,
+                 priority: int,
+                 sip_media_application_id: str):
+        """
+        :param str aws_region: The AWS Region of the target application.
+        :param int priority: Priority of the SIP media application in the target list.
+        :param str sip_media_application_id: The SIP media application ID.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "sip_media_application_id", sip_media_application_id)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        """
+        The AWS Region of the target application.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority of the SIP media application in the target list.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="sipMediaApplicationId")
+    def sip_media_application_id(self) -> str:
+        """
+        The SIP media application ID.
+        """
+        return pulumi.get(self, "sip_media_application_id")
+
 
 @pulumi.output_type
 class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
@@ -40,6 +173,8 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
                  kms_key_arn: str):
         """
         :param str kms_key_arn: ARN for KMS Key.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
@@ -48,6 +183,8 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
     def kms_key_arn(self) -> str:
         """
         ARN for KMS Key.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "kms_key_arn")
 

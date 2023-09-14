@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Kendra Thesaurus.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+// Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 //
 // ```sh
 //
@@ -70,6 +72,8 @@ type Thesaurus struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -96,6 +100,7 @@ func NewThesaurus(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Thesaurus
 	err := ctx.RegisterResource("aws:kendra/thesaurus:Thesaurus", name, args, &resource, opts...)
 	if err != nil {
@@ -129,6 +134,8 @@ type thesaurusState struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
 	Status *string `pulumi:"status"`
@@ -151,6 +158,8 @@ type ThesaurusState struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringPtrInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathPtrInput
 	// The current status of the thesaurus.
 	Status pulumi.StringPtrInput
@@ -175,6 +184,8 @@ type thesaurusArgs struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -191,6 +202,8 @@ type ThesaurusArgs struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -219,6 +232,12 @@ func (i *Thesaurus) ToThesaurusOutputWithContext(ctx context.Context) ThesaurusO
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusOutput)
 }
 
+func (i *Thesaurus) ToOutput(ctx context.Context) pulumix.Output[*Thesaurus] {
+	return pulumix.Output[*Thesaurus]{
+		OutputState: i.ToThesaurusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThesaurusArrayInput is an input type that accepts ThesaurusArray and ThesaurusArrayOutput values.
 // You can construct a concrete instance of `ThesaurusArrayInput` via:
 //
@@ -242,6 +261,12 @@ func (i ThesaurusArray) ToThesaurusArrayOutput() ThesaurusArrayOutput {
 
 func (i ThesaurusArray) ToThesaurusArrayOutputWithContext(ctx context.Context) ThesaurusArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusArrayOutput)
+}
+
+func (i ThesaurusArray) ToOutput(ctx context.Context) pulumix.Output[[]*Thesaurus] {
+	return pulumix.Output[[]*Thesaurus]{
+		OutputState: i.ToThesaurusArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ThesaurusMapInput is an input type that accepts ThesaurusMap and ThesaurusMapOutput values.
@@ -269,6 +294,12 @@ func (i ThesaurusMap) ToThesaurusMapOutputWithContext(ctx context.Context) Thesa
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusMapOutput)
 }
 
+func (i ThesaurusMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Thesaurus] {
+	return pulumix.Output[map[string]*Thesaurus]{
+		OutputState: i.ToThesaurusMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThesaurusOutput struct{ *pulumi.OutputState }
 
 func (ThesaurusOutput) ElementType() reflect.Type {
@@ -281,6 +312,12 @@ func (o ThesaurusOutput) ToThesaurusOutput() ThesaurusOutput {
 
 func (o ThesaurusOutput) ToThesaurusOutputWithContext(ctx context.Context) ThesaurusOutput {
 	return o
+}
+
+func (o ThesaurusOutput) ToOutput(ctx context.Context) pulumix.Output[*Thesaurus] {
+	return pulumix.Output[*Thesaurus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the thesaurus.
@@ -309,6 +346,8 @@ func (o ThesaurusOutput) RoleArn() pulumi.StringOutput {
 }
 
 // The S3 path where your thesaurus file sits in S3. Detailed below.
+//
+// The `sourceS3Path` configuration block supports the following arguments:
 func (o ThesaurusOutput) SourceS3Path() ThesaurusSourceS3PathOutput {
 	return o.ApplyT(func(v *Thesaurus) ThesaurusSourceS3PathOutput { return v.SourceS3Path }).(ThesaurusSourceS3PathOutput)
 }
@@ -346,6 +385,12 @@ func (o ThesaurusArrayOutput) ToThesaurusArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ThesaurusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Thesaurus] {
+	return pulumix.Output[[]*Thesaurus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ThesaurusArrayOutput) Index(i pulumi.IntInput) ThesaurusOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Thesaurus {
 		return vs[0].([]*Thesaurus)[vs[1].(int)]
@@ -364,6 +409,12 @@ func (o ThesaurusMapOutput) ToThesaurusMapOutput() ThesaurusMapOutput {
 
 func (o ThesaurusMapOutput) ToThesaurusMapOutputWithContext(ctx context.Context) ThesaurusMapOutput {
 	return o
+}
+
+func (o ThesaurusMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Thesaurus] {
+	return pulumix.Output[map[string]*Thesaurus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThesaurusMapOutput) MapIndex(k pulumi.StringInput) ThesaurusOutput {

@@ -40,6 +40,12 @@ public final class GetObjectsResult {
      */
     private List<String> owners;
     private @Nullable String prefix;
+    /**
+     * @return If present, indicates that the requester was successfully charged for the request.
+     * 
+     */
+    private String requestCharged;
+    private @Nullable String requestPayer;
     private @Nullable String startAfter;
 
     private GetObjectsResult() {}
@@ -89,6 +95,16 @@ public final class GetObjectsResult {
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
+    /**
+     * @return If present, indicates that the requester was successfully charged for the request.
+     * 
+     */
+    public String requestCharged() {
+        return this.requestCharged;
+    }
+    public Optional<String> requestPayer() {
+        return Optional.ofNullable(this.requestPayer);
+    }
     public Optional<String> startAfter() {
         return Optional.ofNullable(this.startAfter);
     }
@@ -112,6 +128,8 @@ public final class GetObjectsResult {
         private @Nullable Integer maxKeys;
         private List<String> owners;
         private @Nullable String prefix;
+        private String requestCharged;
+        private @Nullable String requestPayer;
         private @Nullable String startAfter;
         public Builder() {}
         public Builder(GetObjectsResult defaults) {
@@ -126,6 +144,8 @@ public final class GetObjectsResult {
     	      this.maxKeys = defaults.maxKeys;
     	      this.owners = defaults.owners;
     	      this.prefix = defaults.prefix;
+    	      this.requestCharged = defaults.requestCharged;
+    	      this.requestPayer = defaults.requestPayer;
     	      this.startAfter = defaults.startAfter;
         }
 
@@ -189,6 +209,16 @@ public final class GetObjectsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder requestCharged(String requestCharged) {
+            this.requestCharged = Objects.requireNonNull(requestCharged);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder requestPayer(@Nullable String requestPayer) {
+            this.requestPayer = requestPayer;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startAfter(@Nullable String startAfter) {
             this.startAfter = startAfter;
             return this;
@@ -205,6 +235,8 @@ public final class GetObjectsResult {
             o.maxKeys = maxKeys;
             o.owners = owners;
             o.prefix = prefix;
+            o.requestCharged = requestCharged;
+            o.requestPayer = requestPayer;
             o.startAfter = startAfter;
             return o;
         }

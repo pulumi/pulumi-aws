@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Import SSM Contact Plan using the Contact ARN. For example
+ * Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}

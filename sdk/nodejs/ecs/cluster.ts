@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an ECS cluster.
  *
- * > **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `aws.ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws.ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -45,30 +43,10 @@ import * as utilities from "../utilities";
  *     },
  * }});
  * ```
- * ### Example with Capacity Providers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.ecs.Cluster("exampleCluster", {});
- * const exampleCapacityProvider = new aws.ecs.CapacityProvider("exampleCapacityProvider", {autoScalingGroupProvider: {
- *     autoScalingGroupArn: aws_autoscaling_group.example.arn,
- * }});
- * const exampleClusterCapacityProviders = new aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", {
- *     clusterName: exampleCluster.name,
- *     capacityProviders: [exampleCapacityProvider.name],
- *     defaultCapacityProviderStrategies: [{
- *         base: 1,
- *         weight: 100,
- *         capacityProvider: exampleCapacityProvider.name,
- *     }],
- * });
- * ```
  *
  * ## Import
  *
- * ECS clusters can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import ECS clusters using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
@@ -107,21 +85,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     *
-     * @deprecated Use the aws_ecs_cluster_capacity_providers resource instead
-     */
-    public readonly capacityProviders!: pulumi.Output<string[]>;
-    /**
      * The execute command configuration for the cluster. Detailed below.
      */
     public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
-    /**
-     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     *
-     * @deprecated Use the aws_ecs_cluster_capacity_providers resource instead
-     */
-    public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ecs.ClusterDefaultCapacityProviderStrategy[]>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
@@ -157,9 +123,7 @@ export class Cluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["capacityProviders"] = state ? state.capacityProviders : undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["defaultCapacityProviderStrategies"] = state ? state.defaultCapacityProviderStrategies : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["serviceConnectDefaults"] = state ? state.serviceConnectDefaults : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
@@ -167,9 +131,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["serviceConnectDefaults"] = args ? args.serviceConnectDefaults : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
@@ -191,21 +153,9 @@ export interface ClusterState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     *
-     * @deprecated Use the aws_ecs_cluster_capacity_providers resource instead
-     */
-    capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The execute command configuration for the cluster. Detailed below.
      */
     configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
-    /**
-     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     *
-     * @deprecated Use the aws_ecs_cluster_capacity_providers resource instead
-     */
-    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
@@ -233,21 +183,9 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     *
-     * @deprecated Use the aws_ecs_cluster_capacity_providers resource instead
-     */
-    capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The execute command configuration for the cluster. Detailed below.
      */
     configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
-    /**
-     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     *
-     * @deprecated Use the aws_ecs_cluster_capacity_providers resource instead
-     */
-    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */

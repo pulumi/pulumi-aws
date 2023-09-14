@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network Interfaces can be imported using the `id`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
- * ```
+ *  to = aws_network_interface.test
+ * 
+ *  id = &#34;eni-e5aa89a3&#34; } Using `TODO import`, import Network Interfaces using the `id`. For exampleconsole % TODO import aws_network_interface.test eni-e5aa89a3
  * 
  */
 @ResourceType(type="aws:ec2/networkInterface:NetworkInterface")
@@ -395,12 +395,16 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * Subnet ID to create the ENI in.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
      * @return Subnet ID to create the ENI in.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> subnetId() {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an AWS Cloudwatch Log Group
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulumi.InvokeOption) (*LookupLogGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLogGroupResult
 	err := ctx.Invoke("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, opts...)
 	if err != nil {
@@ -109,6 +112,12 @@ func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutput() LookupLogGrou
 
 func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx context.Context) LookupLogGroupResultOutput {
 	return o
+}
+
+func (o LookupLogGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLogGroupResult] {
+	return pulumix.Output[LookupLogGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.

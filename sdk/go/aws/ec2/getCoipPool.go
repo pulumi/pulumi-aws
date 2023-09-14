@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific EC2 Customer-Owned IP Pool.
@@ -16,6 +18,7 @@ import (
 // an input variable and needs to, for example, determine the CIDR block of that
 // COIP Pool.
 func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoipPoolResult
 	err := ctx.Invoke("aws:ec2/getCoipPool:getCoipPool", args, &rv, opts...)
 	if err != nil {
@@ -33,6 +36,9 @@ type GetCoipPoolArgs struct {
 	PoolId *string `pulumi:"poolId"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -72,6 +78,9 @@ type GetCoipPoolOutputArgs struct {
 	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -92,6 +101,12 @@ func (o GetCoipPoolResultOutput) ToGetCoipPoolResultOutput() GetCoipPoolResultOu
 
 func (o GetCoipPoolResultOutput) ToGetCoipPoolResultOutputWithContext(ctx context.Context) GetCoipPoolResultOutput {
 	return o
+}
+
+func (o GetCoipPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoipPoolResult] {
+	return pulumix.Output[GetCoipPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the COIP pool

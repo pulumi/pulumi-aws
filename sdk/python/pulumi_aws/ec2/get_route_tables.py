@@ -96,6 +96,9 @@ def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTables
     :param Sequence[pulumi.InputType['GetRouteTablesFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired route tables.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
@@ -106,11 +109,11 @@ def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTables
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRouteTables:getRouteTables', __args__, opts=opts, typ=GetRouteTablesResult).value
 
     return AwaitableGetRouteTablesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_route_tables)
@@ -125,6 +128,9 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     :param Sequence[pulumi.InputType['GetRouteTablesFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired route tables.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     ...

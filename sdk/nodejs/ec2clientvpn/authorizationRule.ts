@@ -23,11 +23,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS Client VPN authorization rules can be imported using the endpoint ID and target network CIDR. If there is a specific group name that is included as well. All values are separated by a `,`.
+ * Using the endpoint ID and target network CIDR:
+ *
+ * Using the endpoint ID, target network CIDR, and group name:
+ *
+ * __Using `pulumi import` to import__ AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
+ *
+ * Using the endpoint ID and target network CIDR:
  *
  * ```sh
  *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
  * ```
+ *  Using the endpoint ID, target network CIDR, and group name:
  *
  * ```sh
  *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a

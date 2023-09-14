@@ -91,6 +91,8 @@ def get_resolver_firewall_config(resource_id: Optional[str] = None,
 
 
     :param str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
+           
+           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
@@ -98,10 +100,10 @@ def get_resolver_firewall_config(resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallConfig:getResolverFirewallConfig', __args__, opts=opts, typ=GetResolverFirewallConfigResult).value
 
     return AwaitableGetResolverFirewallConfigResult(
-        firewall_fail_open=__ret__.firewall_fail_open,
-        id=__ret__.id,
-        owner_id=__ret__.owner_id,
-        resource_id=__ret__.resource_id)
+        firewall_fail_open=pulumi.get(__ret__, 'firewall_fail_open'),
+        id=pulumi.get(__ret__, 'id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        resource_id=pulumi.get(__ret__, 'resource_id'))
 
 
 @_utilities.lift_output_func(get_resolver_firewall_config)
@@ -125,5 +127,7 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[str]]
 
 
     :param str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
+           
+           The following attribute is additionally exported:
     """
     ...

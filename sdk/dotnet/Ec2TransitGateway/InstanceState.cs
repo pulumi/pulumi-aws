@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+    /// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
@@ -96,6 +96,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -160,6 +162,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -186,6 +190,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

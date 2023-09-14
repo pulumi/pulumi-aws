@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  *  $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
@@ -110,12 +110,16 @@ public class SecretPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Secret ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
     /**
      * @return Secret ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> secretArn() {

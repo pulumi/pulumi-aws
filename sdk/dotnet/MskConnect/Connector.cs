@@ -96,7 +96,7 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ## Import
     /// 
-    /// MSK Connect Connector can be imported using the connector's `arn`, e.g.,
+    /// Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Load Balancer resource.
@@ -15,6 +17,76 @@ import (
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 //
 // ## Example Usage
+// ### Application Load Balancer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
+//				Internal:         pulumi.Bool(false),
+//				LoadBalancerType: pulumi.String("application"),
+//				SecurityGroups: pulumi.StringArray{
+//					aws_security_group.Lb_sg.Id,
+//				},
+//				Subnets:                  "TODO: For expression",
+//				EnableDeletionProtection: pulumi.Bool(true),
+//				AccessLogs: &lb.LoadBalancerAccessLogsArgs{
+//					Bucket:  pulumi.Any(aws_s3_bucket.Lb_logs.Id),
+//					Prefix:  pulumi.String("test-lb"),
+//					Enabled: pulumi.Bool(true),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Network Load Balancer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
+//				Internal:                 pulumi.Bool(false),
+//				LoadBalancerType:         pulumi.String("network"),
+//				Subnets:                  "TODO: For expression",
+//				EnableDeletionProtection: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Specifying Elastic IPs
 //
 // ```go
@@ -22,7 +94,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +129,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,7 +160,7 @@ import (
 //
 // ## Import
 //
-// LBs can be imported using their ARN, e.g.,
+// Using `pulumi import`, import LBs using their ARN. For example:
 //
 // ```sh
 //
@@ -140,7 +212,7 @@ type LoadBalancer struct {
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
@@ -172,6 +244,7 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:alb/loadBalancer:LoadBalancer", name, args, &resource, opts...)
 	if err != nil {
@@ -236,7 +309,7 @@ type loadBalancerState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
@@ -298,7 +371,7 @@ type LoadBalancerState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
@@ -358,7 +431,7 @@ type loadBalancerArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
@@ -410,7 +483,7 @@ type LoadBalancerArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
@@ -447,6 +520,12 @@ func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) Load
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerOutput)
 }
 
+func (i *LoadBalancer) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancer] {
+	return pulumix.Output[*LoadBalancer]{
+		OutputState: i.ToLoadBalancerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoadBalancerArrayInput is an input type that accepts LoadBalancerArray and LoadBalancerArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerArrayInput` via:
 //
@@ -470,6 +549,12 @@ func (i LoadBalancerArray) ToLoadBalancerArrayOutput() LoadBalancerArrayOutput {
 
 func (i LoadBalancerArray) ToLoadBalancerArrayOutputWithContext(ctx context.Context) LoadBalancerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerArrayOutput)
+}
+
+func (i LoadBalancerArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancer] {
+	return pulumix.Output[[]*LoadBalancer]{
+		OutputState: i.ToLoadBalancerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LoadBalancerMapInput is an input type that accepts LoadBalancerMap and LoadBalancerMapOutput values.
@@ -497,6 +582,12 @@ func (i LoadBalancerMap) ToLoadBalancerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMapOutput)
 }
 
+func (i LoadBalancerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancer] {
+	return pulumix.Output[map[string]*LoadBalancer]{
+		OutputState: i.ToLoadBalancerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerOutput) ElementType() reflect.Type {
@@ -509,6 +600,12 @@ func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {
 
 func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
 	return o
+}
+
+func (o LoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancer] {
+	return pulumix.Output[*LoadBalancer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An Access Logs block. Access Logs documented below.
@@ -613,7 +710,7 @@ func (o LoadBalancerOutput) PreserveHostHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.PreserveHostHeader }).(pulumi.BoolPtrOutput)
 }
 
-// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -668,6 +765,12 @@ func (o LoadBalancerArrayOutput) ToLoadBalancerArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o LoadBalancerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancer] {
+	return pulumix.Output[[]*LoadBalancer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoadBalancerArrayOutput) Index(i pulumi.IntInput) LoadBalancerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancer {
 		return vs[0].([]*LoadBalancer)[vs[1].(int)]
@@ -686,6 +789,12 @@ func (o LoadBalancerMapOutput) ToLoadBalancerMapOutput() LoadBalancerMapOutput {
 
 func (o LoadBalancerMapOutput) ToLoadBalancerMapOutputWithContext(ctx context.Context) LoadBalancerMapOutput {
 	return o
+}
+
+func (o LoadBalancerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancer] {
+	return pulumix.Output[map[string]*LoadBalancer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerOutput {

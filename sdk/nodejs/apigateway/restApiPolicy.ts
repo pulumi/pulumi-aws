@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
+ * Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde

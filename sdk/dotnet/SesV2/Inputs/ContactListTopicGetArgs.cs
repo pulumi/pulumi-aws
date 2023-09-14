@@ -32,6 +32,8 @@ namespace Pulumi.Aws.SesV2.Inputs
 
         /// <summary>
         /// The name of the topic.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("topicName", required: true)]
         public Input<string> TopicName { get; set; } = null!;

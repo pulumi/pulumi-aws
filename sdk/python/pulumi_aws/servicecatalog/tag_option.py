@@ -21,6 +21,8 @@ class TagOptionArgs:
         The set of arguments for constructing a TagOption resource.
         :param pulumi.Input[str] key: Tag option key.
         :param pulumi.Input[str] value: Tag option value.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
         """
         pulumi.set(__self__, "key", key)
@@ -45,6 +47,8 @@ class TagOptionArgs:
     def value(self) -> pulumi.Input[str]:
         """
         Tag option value.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "value")
 
@@ -77,6 +81,8 @@ class _TagOptionState:
         :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
         :param pulumi.Input[str] key: Tag option key.
         :param pulumi.Input[str] value: Tag option value.
+               
+               The following arguments are optional:
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -125,6 +131,8 @@ class _TagOptionState:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Tag option value.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "value")
 
@@ -159,7 +167,7 @@ class TagOption(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
@@ -170,6 +178,8 @@ class TagOption(pulumi.CustomResource):
         :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
         :param pulumi.Input[str] key: Tag option key.
         :param pulumi.Input[str] value: Tag option value.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -194,7 +204,7 @@ class TagOption(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
@@ -259,6 +269,8 @@ class TagOption(pulumi.CustomResource):
         :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
         :param pulumi.Input[str] key: Tag option key.
         :param pulumi.Input[str] value: Tag option value.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -296,6 +308,8 @@ class TagOption(pulumi.CustomResource):
     def value(self) -> pulumi.Output[str]:
         """
         Tag option value.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "value")
 

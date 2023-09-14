@@ -215,7 +215,7 @@ class Configuration(pulumi.CustomResource):
 
         ## Import
 
-        MSK configurations can be imported using the configuration ARN, e.g.,
+        Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
 
         ```sh
          $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -253,7 +253,7 @@ class Configuration(pulumi.CustomResource):
 
         ## Import
 
-        MSK configurations can be imported using the configuration ARN, e.g.,
+        Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
 
         ```sh
          $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3

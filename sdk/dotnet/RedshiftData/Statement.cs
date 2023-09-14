@@ -55,7 +55,7 @@ namespace Pulumi.Aws.RedshiftData
     /// 
     /// ## Import
     /// 
-    /// Redshift Data Statements can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:redshiftdata/statement:Statement example example
@@ -93,6 +93,8 @@ namespace Pulumi.Aws.RedshiftData
 
         /// <summary>
         /// The SQL statement text to run.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("sql")]
         public Output<string> Sql { get; private set; } = null!;
@@ -195,6 +197,8 @@ namespace Pulumi.Aws.RedshiftData
 
         /// <summary>
         /// The SQL statement text to run.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sql", required: true)]
         public Input<string> Sql { get; set; } = null!;
@@ -259,6 +263,8 @@ namespace Pulumi.Aws.RedshiftData
 
         /// <summary>
         /// The SQL statement text to run.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sql")]
         public Input<string>? Sql { get; set; }

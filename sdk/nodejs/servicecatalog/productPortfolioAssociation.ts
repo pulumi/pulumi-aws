@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
@@ -66,6 +66,8 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
     public readonly portfolioId!: pulumi.Output<string>;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     public readonly productId!: pulumi.Output<string>;
     /**
@@ -122,6 +124,8 @@ export interface ProductPortfolioAssociationState {
     portfolioId?: pulumi.Input<string>;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     productId?: pulumi.Input<string>;
     /**
@@ -144,6 +148,8 @@ export interface ProductPortfolioAssociationArgs {
     portfolioId: pulumi.Input<string>;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     productId: pulumi.Input<string>;
     /**

@@ -227,6 +227,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
      * import java.util.List;
@@ -296,6 +297,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
      * import java.util.List;
@@ -365,6 +367,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
      * import java.util.List;
@@ -434,6 +437,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
      * import java.util.List;
@@ -666,6 +670,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
      * import java.util.List;
@@ -739,6 +744,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
      * import java.util.List;
@@ -812,6 +818,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
      * import java.util.List;
@@ -885,6 +892,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
      * import java.util.List;
@@ -1260,6 +1268,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
      * import java.util.List;
@@ -1331,6 +1340,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
      * import java.util.List;
@@ -1402,6 +1412,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
      * import java.util.List;
@@ -1473,6 +1484,7 @@ public final class AppmeshFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
      * import java.util.List;

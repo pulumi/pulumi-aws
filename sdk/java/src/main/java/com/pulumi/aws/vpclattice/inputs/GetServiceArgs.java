@@ -17,18 +17,33 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServiceArgs Empty = new GetServiceArgs();
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service network
+     * Service name.
      * 
      */
-    @Import(name="serviceIdentifier", required=true)
-    private Output<String> serviceIdentifier;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network
+     * @return Service name.
      * 
      */
-    public Output<String> serviceIdentifier() {
-        return this.serviceIdentifier;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * ID or Amazon Resource Name (ARN) of the service network.
+     * 
+     */
+    @Import(name="serviceIdentifier")
+    private @Nullable Output<String> serviceIdentifier;
+
+    /**
+     * @return ID or Amazon Resource Name (ARN) of the service network.
+     * 
+     */
+    public Optional<Output<String>> serviceIdentifier() {
+        return Optional.ofNullable(this.serviceIdentifier);
     }
 
     /**
@@ -49,6 +64,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     private GetServiceArgs() {}
 
     private GetServiceArgs(GetServiceArgs $) {
+        this.name = $.name;
         this.serviceIdentifier = $.serviceIdentifier;
         this.tags = $.tags;
     }
@@ -72,18 +88,39 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network
+         * @param name Service name.
          * 
          * @return builder
          * 
          */
-        public Builder serviceIdentifier(Output<String> serviceIdentifier) {
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Service name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
+        }
+
+        /**
+         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceIdentifier(@Nullable Output<String> serviceIdentifier) {
             $.serviceIdentifier = serviceIdentifier;
             return this;
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network
+         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network.
          * 
          * @return builder
          * 
@@ -114,7 +151,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetServiceArgs build() {
-            $.serviceIdentifier = Objects.requireNonNull($.serviceIdentifier, "expected parameter 'serviceIdentifier' to be non-null");
             return $;
         }
     }

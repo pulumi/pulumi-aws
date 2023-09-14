@@ -31,6 +31,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         public readonly ImmutableArray<string> ExcludedColumnNames;
         /// <summary>
         /// Name of the table resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
         /// <summary>

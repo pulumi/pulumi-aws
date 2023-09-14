@@ -113,11 +113,11 @@ def get_local_disk(disk_node: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts, typ=GetLocalDiskResult).value
 
     return AwaitableGetLocalDiskResult(
-        disk_id=__ret__.disk_id,
-        disk_node=__ret__.disk_node,
-        disk_path=__ret__.disk_path,
-        gateway_arn=__ret__.gateway_arn,
-        id=__ret__.id)
+        disk_id=pulumi.get(__ret__, 'disk_id'),
+        disk_node=pulumi.get(__ret__, 'disk_node'),
+        disk_path=pulumi.get(__ret__, 'disk_path'),
+        gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_local_disk)

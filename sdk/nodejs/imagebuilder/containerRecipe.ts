@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_imagebuilder_container_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
  *  $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
@@ -154,6 +154,8 @@ export class ContainerRecipe extends pulumi.CustomResource {
     public readonly targetRepository!: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
+     *
+     * The following attributes are optional:
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -315,6 +317,8 @@ export interface ContainerRecipeState {
     targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
+     *
+     * The following attributes are optional:
      */
     version?: pulumi.Input<string>;
     /**
@@ -377,6 +381,8 @@ export interface ContainerRecipeArgs {
     targetRepository: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
+     *
+     * The following attributes are optional:
      */
     version: pulumi.Input<string>;
     /**

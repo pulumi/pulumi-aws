@@ -16,11 +16,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int> CaptionChannel { get; set; } = null!;
 
         /// <summary>
-        /// When specified this field indicates the three letter language code of the caption track to extract from the source.
+        /// Selects a specific three-letter language code from within an audio source.
         /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
 
+        /// <summary>
+        /// Human readable information to indicate captions available for players (eg. English, or Spanish).
+        /// </summary>
         [Input("languageDescription", required: true)]
         public Input<string> LanguageDescription { get; set; } = null!;
 

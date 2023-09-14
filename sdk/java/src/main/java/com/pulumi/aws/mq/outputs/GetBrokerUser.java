@@ -13,6 +13,7 @@ import java.util.Objects;
 public final class GetBrokerUser {
     private Boolean consoleAccess;
     private List<String> groups;
+    private Boolean replicationUser;
     private String username;
 
     private GetBrokerUser() {}
@@ -21,6 +22,9 @@ public final class GetBrokerUser {
     }
     public List<String> groups() {
         return this.groups;
+    }
+    public Boolean replicationUser() {
+        return this.replicationUser;
     }
     public String username() {
         return this.username;
@@ -37,12 +41,14 @@ public final class GetBrokerUser {
     public static final class Builder {
         private Boolean consoleAccess;
         private List<String> groups;
+        private Boolean replicationUser;
         private String username;
         public Builder() {}
         public Builder(GetBrokerUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consoleAccess = defaults.consoleAccess;
     	      this.groups = defaults.groups;
+    	      this.replicationUser = defaults.replicationUser;
     	      this.username = defaults.username;
         }
 
@@ -60,6 +66,11 @@ public final class GetBrokerUser {
             return groups(List.of(groups));
         }
         @CustomType.Setter
+        public Builder replicationUser(Boolean replicationUser) {
+            this.replicationUser = Objects.requireNonNull(replicationUser);
+            return this;
+        }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
@@ -68,6 +79,7 @@ public final class GetBrokerUser {
             final var o = new GetBrokerUser();
             o.consoleAccess = consoleAccess;
             o.groups = groups;
+            o.replicationUser = replicationUser;
             o.username = username;
             return o;
         }

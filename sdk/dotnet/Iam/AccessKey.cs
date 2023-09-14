@@ -92,12 +92,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Access Keys can be imported using the identifier, e.g.,
+    /// Using `pulumi import`, import IAM Access Keys using the identifier. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
     /// ```
-    /// 
     ///  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
     /// </summary>
     [AwsResourceType("aws:iam/accessKey:AccessKey")]

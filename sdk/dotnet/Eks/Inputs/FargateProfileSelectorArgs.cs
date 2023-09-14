@@ -26,6 +26,8 @@ namespace Pulumi.Aws.Eks.Inputs
 
         /// <summary>
         /// Kubernetes namespace for selection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;

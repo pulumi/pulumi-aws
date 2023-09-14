@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Contact Flow.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +70,7 @@ import (
 //
 // ```
 func LookupContactFlow(ctx *pulumi.Context, args *LookupContactFlowArgs, opts ...pulumi.InvokeOption) (*LookupContactFlowResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactFlowResult
 	err := ctx.Invoke("aws:connect/getContactFlow:getContactFlow", args, &rv, opts...)
 	if err != nil {
@@ -153,6 +156,12 @@ func (o LookupContactFlowResultOutput) ToLookupContactFlowResultOutput() LookupC
 
 func (o LookupContactFlowResultOutput) ToLookupContactFlowResultOutputWithContext(ctx context.Context) LookupContactFlowResultOutput {
 	return o
+}
+
+func (o LookupContactFlowResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContactFlowResult] {
+	return pulumix.Output[LookupContactFlowResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Contact Flow.

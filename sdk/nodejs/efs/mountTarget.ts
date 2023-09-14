@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The EFS mount targets can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import the EFS mount targets using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb

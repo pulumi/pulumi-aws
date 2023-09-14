@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("publicAccess")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessGetArgs>? PublicAccess { get; set; }
 
+        /// <summary>
+        /// VPC connectivity access control for brokers. See below.
+        /// </summary>
+        [Input("vpcConnectivity")]
+        public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityGetArgs>? VpcConnectivity { get; set; }
+
         public ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs()
         {
         }

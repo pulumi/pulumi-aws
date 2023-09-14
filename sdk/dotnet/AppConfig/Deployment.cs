@@ -41,7 +41,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,
+    /// Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1

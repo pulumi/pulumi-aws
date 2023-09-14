@@ -80,12 +80,16 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
      * @return Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -255,6 +259,8 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetIds Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -266,6 +272,8 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetIds Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -275,6 +283,8 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subnetIds Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

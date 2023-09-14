@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a new Amazon Redshift Serverless Workgroup.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+// Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 //
 // ```sh
 //
@@ -77,6 +79,8 @@ type Workgroup struct {
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringOutput `pulumi:"workgroupId"`
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
 }
 
@@ -93,6 +97,7 @@ func NewWorkgroup(ctx *pulumi.Context,
 	if args.WorkgroupName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkgroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:redshiftserverless/workgroup:Workgroup", name, args, &resource, opts...)
 	if err != nil {
@@ -140,6 +145,8 @@ type workgroupState struct {
 	// The Redshift Workgroup ID.
 	WorkgroupId *string `pulumi:"workgroupId"`
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
@@ -169,6 +176,8 @@ type WorkgroupState struct {
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringPtrInput
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName pulumi.StringPtrInput
 }
 
@@ -194,6 +203,8 @@ type workgroupArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName string `pulumi:"workgroupName"`
 }
 
@@ -216,6 +227,8 @@ type WorkgroupArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName pulumi.StringInput
 }
 
@@ -240,6 +253,12 @@ func (i *Workgroup) ToWorkgroupOutput() WorkgroupOutput {
 
 func (i *Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupOutput)
+}
+
+func (i *Workgroup) ToOutput(ctx context.Context) pulumix.Output[*Workgroup] {
+	return pulumix.Output[*Workgroup]{
+		OutputState: i.ToWorkgroupOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkgroupArrayInput is an input type that accepts WorkgroupArray and WorkgroupArrayOutput values.
@@ -267,6 +286,12 @@ func (i WorkgroupArray) ToWorkgroupArrayOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupArrayOutput)
 }
 
+func (i WorkgroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workgroup] {
+	return pulumix.Output[[]*Workgroup]{
+		OutputState: i.ToWorkgroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkgroupMapInput is an input type that accepts WorkgroupMap and WorkgroupMapOutput values.
 // You can construct a concrete instance of `WorkgroupMapInput` via:
 //
@@ -292,6 +317,12 @@ func (i WorkgroupMap) ToWorkgroupMapOutputWithContext(ctx context.Context) Workg
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupMapOutput)
 }
 
+func (i WorkgroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workgroup] {
+	return pulumix.Output[map[string]*Workgroup]{
+		OutputState: i.ToWorkgroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkgroupOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupOutput) ElementType() reflect.Type {
@@ -304,6 +335,12 @@ func (o WorkgroupOutput) ToWorkgroupOutput() WorkgroupOutput {
 
 func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
 	return o
+}
+
+func (o WorkgroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Workgroup] {
+	return pulumix.Output[*Workgroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
@@ -367,6 +404,8 @@ func (o WorkgroupOutput) WorkgroupId() pulumi.StringOutput {
 }
 
 // The name of the workgroup.
+//
+// The following arguments are optional:
 func (o WorkgroupOutput) WorkgroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.WorkgroupName }).(pulumi.StringOutput)
 }
@@ -383,6 +422,12 @@ func (o WorkgroupArrayOutput) ToWorkgroupArrayOutput() WorkgroupArrayOutput {
 
 func (o WorkgroupArrayOutput) ToWorkgroupArrayOutputWithContext(ctx context.Context) WorkgroupArrayOutput {
 	return o
+}
+
+func (o WorkgroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workgroup] {
+	return pulumix.Output[[]*Workgroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupArrayOutput) Index(i pulumi.IntInput) WorkgroupOutput {
@@ -403,6 +448,12 @@ func (o WorkgroupMapOutput) ToWorkgroupMapOutput() WorkgroupMapOutput {
 
 func (o WorkgroupMapOutput) ToWorkgroupMapOutputWithContext(ctx context.Context) WorkgroupMapOutput {
 	return o
+}
+
+func (o WorkgroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workgroup] {
+	return pulumix.Output[map[string]*Workgroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupMapOutput) MapIndex(k pulumi.StringInput) WorkgroupOutput {

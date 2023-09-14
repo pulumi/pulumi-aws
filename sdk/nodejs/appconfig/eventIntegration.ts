@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amazon AppIntegrations Event Integrations can be imported using the `name` e.g.,
+ * Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name

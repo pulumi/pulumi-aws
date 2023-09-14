@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a Managed IAM Policy to an IAM user
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +57,11 @@ import (
 //
 // ## Import
 //
-// IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+// In TODO v1.5.0 and later, use an `import` block to import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_iam_user_policy_attachment.test-attach
 //
-//	$ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
-// ```
+//	id = "test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `TODO import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleconsole % TODO import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 type UserPolicyAttachment struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +84,7 @@ func NewUserPolicyAttachment(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPolicyAttachment
 	err := ctx.RegisterResource("aws:iam/userPolicyAttachment:UserPolicyAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -161,6 +162,12 @@ func (i *UserPolicyAttachment) ToUserPolicyAttachmentOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyAttachmentOutput)
 }
 
+func (i *UserPolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*UserPolicyAttachment] {
+	return pulumix.Output[*UserPolicyAttachment]{
+		OutputState: i.ToUserPolicyAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserPolicyAttachmentArrayInput is an input type that accepts UserPolicyAttachmentArray and UserPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `UserPolicyAttachmentArrayInput` via:
 //
@@ -184,6 +191,12 @@ func (i UserPolicyAttachmentArray) ToUserPolicyAttachmentArrayOutput() UserPolic
 
 func (i UserPolicyAttachmentArray) ToUserPolicyAttachmentArrayOutputWithContext(ctx context.Context) UserPolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyAttachmentArrayOutput)
+}
+
+func (i UserPolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserPolicyAttachment] {
+	return pulumix.Output[[]*UserPolicyAttachment]{
+		OutputState: i.ToUserPolicyAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserPolicyAttachmentMapInput is an input type that accepts UserPolicyAttachmentMap and UserPolicyAttachmentMapOutput values.
@@ -211,6 +224,12 @@ func (i UserPolicyAttachmentMap) ToUserPolicyAttachmentMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyAttachmentMapOutput)
 }
 
+func (i UserPolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPolicyAttachment] {
+	return pulumix.Output[map[string]*UserPolicyAttachment]{
+		OutputState: i.ToUserPolicyAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyAttachmentOutput) ElementType() reflect.Type {
@@ -223,6 +242,12 @@ func (o UserPolicyAttachmentOutput) ToUserPolicyAttachmentOutput() UserPolicyAtt
 
 func (o UserPolicyAttachmentOutput) ToUserPolicyAttachmentOutputWithContext(ctx context.Context) UserPolicyAttachmentOutput {
 	return o
+}
+
+func (o UserPolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPolicyAttachment] {
+	return pulumix.Output[*UserPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the policy you want to apply
@@ -249,6 +274,12 @@ func (o UserPolicyAttachmentArrayOutput) ToUserPolicyAttachmentArrayOutputWithCo
 	return o
 }
 
+func (o UserPolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserPolicyAttachment] {
+	return pulumix.Output[[]*UserPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserPolicyAttachmentArrayOutput) Index(i pulumi.IntInput) UserPolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPolicyAttachment {
 		return vs[0].([]*UserPolicyAttachment)[vs[1].(int)]
@@ -267,6 +298,12 @@ func (o UserPolicyAttachmentMapOutput) ToUserPolicyAttachmentMapOutput() UserPol
 
 func (o UserPolicyAttachmentMapOutput) ToUserPolicyAttachmentMapOutputWithContext(ctx context.Context) UserPolicyAttachmentMapOutput {
 	return o
+}
+
+func (o UserPolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPolicyAttachment] {
+	return pulumix.Output[map[string]*UserPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) UserPolicyAttachmentOutput {

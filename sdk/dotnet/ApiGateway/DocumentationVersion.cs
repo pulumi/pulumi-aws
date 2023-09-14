@@ -52,7 +52,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.,
+    /// Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version

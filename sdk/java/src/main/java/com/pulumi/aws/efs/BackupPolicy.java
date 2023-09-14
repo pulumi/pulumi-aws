@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The EFS backup policies can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import the EFS backup policies using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6

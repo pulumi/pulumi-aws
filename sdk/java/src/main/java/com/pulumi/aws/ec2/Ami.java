@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ami` can be imported using the ID of the AMI, e.g.,
+ * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/ami:Ami example ami-12345678

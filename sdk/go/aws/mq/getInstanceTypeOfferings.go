@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a MQ Broker Instance Offerings.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +64,7 @@ import (
 //
 // ```
 func GetInstanceTypeOfferings(ctx *pulumi.Context, args *GetInstanceTypeOfferingsArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeOfferingsResult
 	err := ctx.Invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, &rv, opts...)
 	if err != nil {
@@ -134,6 +137,12 @@ func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOu
 
 func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsResultOutput {
 	return o
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeOfferingsResult] {
+	return pulumix.Output[GetInstanceTypeOfferingsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Option for host instance type. See Broker Instance Options below.

@@ -29,9 +29,11 @@ namespace Pulumi.Aws.Lambda
         public static Runtime Java8 { get; } = new Runtime("java8");
         public static Runtime Java8AL2 { get; } = new Runtime("java8.al2");
         public static Runtime Java11 { get; } = new Runtime("java11");
+        public static Runtime Java17 { get; } = new Runtime("java17");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Ruby2d5 { get; } = new Runtime("ruby2.5");
         public static Runtime Ruby2d7 { get; } = new Runtime("ruby2.7");
+        public static Runtime Ruby3d2 { get; } = new Runtime("ruby3.2");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime NodeJS10dX { get; } = new Runtime("nodejs10.x");
         public static Runtime NodeJS12dX { get; } = new Runtime("nodejs12.x");
@@ -46,6 +48,7 @@ namespace Pulumi.Aws.Lambda
         public static Runtime Python3d8 { get; } = new Runtime("python3.8");
         public static Runtime Python3d9 { get; } = new Runtime("python3.9");
         public static Runtime Python3d10 { get; } = new Runtime("python3.10");
+        public static Runtime Python3d11 { get; } = new Runtime("python3.11");
         public static Runtime Custom { get; } = new Runtime("provided");
         public static Runtime CustomAL2 { get; } = new Runtime("provided.al2");
 

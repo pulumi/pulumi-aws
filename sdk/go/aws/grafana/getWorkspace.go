@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Managed Grafana workspace data source.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("aws:grafana/getWorkspace:getWorkspace", args, &rv, opts...)
 	if err != nil {
@@ -137,6 +140,12 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorks
 
 func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
 	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkspaceResult] {
+	return pulumix.Output[LookupWorkspaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.

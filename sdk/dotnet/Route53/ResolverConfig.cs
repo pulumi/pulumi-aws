@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route 53 Resolver configs can be imported using the Route 53 Resolver config ID, e.g.,
+    /// Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7

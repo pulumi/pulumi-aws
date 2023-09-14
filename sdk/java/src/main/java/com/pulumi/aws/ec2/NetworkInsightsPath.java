@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network Insights Paths can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Network Insights Paths using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
@@ -77,18 +77,32 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
     /**
-     * @return ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * @return ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     public Output<String> destination() {
         return this.destination;
+    }
+    /**
+     * ARN of the destination.
+     * 
+     */
+    @Export(name="destinationArn", refs={String.class}, tree="[0]")
+    private Output<String> destinationArn;
+
+    /**
+     * @return ARN of the destination.
+     * 
+     */
+    public Output<String> destinationArn() {
+        return this.destinationArn;
     }
     /**
      * IP address of the destination resource.
@@ -121,6 +135,8 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
@@ -128,23 +144,39 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
     /**
      * @return Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> protocol() {
         return this.protocol;
     }
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
-     * @return ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * @return ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     public Output<String> source() {
         return this.source;
+    }
+    /**
+     * ARN of the source.
+     * 
+     */
+    @Export(name="sourceArn", refs={String.class}, tree="[0]")
+    private Output<String> sourceArn;
+
+    /**
+     * @return ARN of the source.
+     * 
+     */
+    public Output<String> sourceArn() {
+        return this.sourceArn;
     }
     /**
      * IP address of the source resource.

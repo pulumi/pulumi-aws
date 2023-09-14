@@ -22,7 +22,7 @@ class GetAcceleratorResult:
     """
     A collection of values returned by getAccelerator.
     """
-    def __init__(__self__, arn=None, attributes=None, dns_name=None, enabled=None, hosted_zone_id=None, id=None, ip_address_type=None, ip_sets=None, name=None, tags=None):
+    def __init__(__self__, arn=None, attributes=None, dns_name=None, dual_stack_dns_name=None, enabled=None, hosted_zone_id=None, id=None, ip_address_type=None, ip_sets=None, name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,6 +32,9 @@ class GetAcceleratorResult:
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
+        if dual_stack_dns_name and not isinstance(dual_stack_dns_name, str):
+            raise TypeError("Expected argument 'dual_stack_dns_name' to be a str")
+        pulumi.set(__self__, "dual_stack_dns_name", dual_stack_dns_name)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -70,6 +73,11 @@ class GetAcceleratorResult:
         return pulumi.get(self, "dns_name")
 
     @property
+    @pulumi.getter(name="dualStackDnsName")
+    def dual_stack_dns_name(self) -> str:
+        return pulumi.get(self, "dual_stack_dns_name")
+
+    @property
     @pulumi.getter
     def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
@@ -82,9 +90,6 @@ class GetAcceleratorResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -117,6 +122,7 @@ class AwaitableGetAcceleratorResult(GetAcceleratorResult):
             arn=self.arn,
             attributes=self.attributes,
             dns_name=self.dns_name,
+            dual_stack_dns_name=self.dual_stack_dns_name,
             enabled=self.enabled,
             hosted_zone_id=self.hosted_zone_id,
             id=self.id,
@@ -127,8 +133,8 @@ class AwaitableGetAcceleratorResult(GetAcceleratorResult):
 
 
 def get_accelerator(arn: Optional[str] = None,
+                    id: Optional[str] = None,
                     name: Optional[str] = None,
-                    tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAcceleratorResult:
     """
     Provides information about a Global Accelerator accelerator.
@@ -153,31 +159,34 @@ def get_accelerator(arn: Optional[str] = None,
 
     :param str arn: Full ARN of the Global Accelerator.
     :param str name: Unique name of the Global Accelerator.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['id'] = id
     __args__['name'] = name
-    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:globalaccelerator/getAccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult).value
 
     return AwaitableGetAcceleratorResult(
-        arn=__ret__.arn,
-        attributes=__ret__.attributes,
-        dns_name=__ret__.dns_name,
-        enabled=__ret__.enabled,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        ip_address_type=__ret__.ip_address_type,
-        ip_sets=__ret__.ip_sets,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        attributes=pulumi.get(__ret__, 'attributes'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        dual_stack_dns_name=pulumi.get(__ret__, 'dual_stack_dns_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        ip_sets=pulumi.get(__ret__, 'ip_sets'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_accelerator)
 def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                           id: Optional[pulumi.Input[Optional[str]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
     Provides information about a Global Accelerator accelerator.
@@ -202,5 +211,7 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str arn: Full ARN of the Global Accelerator.
     :param str name: Unique name of the Global Accelerator.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     """
     ...

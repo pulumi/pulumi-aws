@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint APNs VoIP Sandbox Channel resource.
     /// 
+    /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -37,11 +38,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
-    /// ```
+    ///  to = aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox
+    /// 
+    ///  id = "application-id" } Using `TODO import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")]
     public partial class ApnsVoipSandboxChannel : global::Pulumi.CustomResource
@@ -69,6 +70,10 @@ namespace Pulumi.Aws.Pinpoint
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+        /// 
+        /// One of the following sets of credentials is also required.
+        /// 
+        /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
         [Output("defaultAuthenticationMethod")]
         public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
@@ -81,6 +86,8 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
+        /// 
+        /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
@@ -201,6 +208,10 @@ namespace Pulumi.Aws.Pinpoint
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+        /// 
+        /// One of the following sets of credentials is also required.
+        /// 
+        /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
@@ -216,6 +227,8 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
+        /// 
+        /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -326,6 +339,10 @@ namespace Pulumi.Aws.Pinpoint
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+        /// 
+        /// One of the following sets of credentials is also required.
+        /// 
+        /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
@@ -341,6 +358,8 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
+        /// 
+        /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
         public Input<string>? PrivateKey
         {

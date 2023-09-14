@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+    /// Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -123,6 +123,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name for the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -259,6 +261,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name for the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -387,6 +391,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name for the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -7,12 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a security group resource.
 //
-// > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `awsVpcSecurityGroupEgressRule` and `awsVpcSecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `awsVpcSecurityGroupEgressRule` and `awsVpcSecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+// > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
 //
 // > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 //
@@ -28,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,7 +129,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -160,6 +162,35 @@ import (
 // ```
 //
 // You can also find a specific Prefix List using the `ec2.getPrefixList` data source.
+// ### Removing All Ingress and Egress Rules
+//
+// The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				VpcId:   pulumi.Any(aws_vpc.Example.Id),
+//				Ingress: ec2.SecurityGroupIngressArray{},
+//				Egress:  ec2.SecurityGroupEgressArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Recreating a Security Group
 //
 // A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `namePrefix`, or `vpcId` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -182,7 +213,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -209,7 +240,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -245,7 +276,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -264,7 +295,7 @@ import (
 //
 // ## Import
 //
-// Security Groups can be imported using the `security group id`, e.g.,
+// Using `pulumi import`, import Security Groups using the security group `id`. For example:
 //
 // ```sh
 //
@@ -308,6 +339,7 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroup
 	err := ctx.RegisterResource("aws:ec2/securityGroup:SecurityGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -445,6 +477,12 @@ func (i *SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupOutput)
 }
 
+func (i *SecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroup] {
+	return pulumix.Output[*SecurityGroup]{
+		OutputState: i.ToSecurityGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityGroupArrayInput is an input type that accepts SecurityGroupArray and SecurityGroupArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupArrayInput` via:
 //
@@ -468,6 +506,12 @@ func (i SecurityGroupArray) ToSecurityGroupArrayOutput() SecurityGroupArrayOutpu
 
 func (i SecurityGroupArray) ToSecurityGroupArrayOutputWithContext(ctx context.Context) SecurityGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupArrayOutput)
+}
+
+func (i SecurityGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroup] {
+	return pulumix.Output[[]*SecurityGroup]{
+		OutputState: i.ToSecurityGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityGroupMapInput is an input type that accepts SecurityGroupMap and SecurityGroupMapOutput values.
@@ -495,6 +539,12 @@ func (i SecurityGroupMap) ToSecurityGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupMapOutput)
 }
 
+func (i SecurityGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroup] {
+	return pulumix.Output[map[string]*SecurityGroup]{
+		OutputState: i.ToSecurityGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupOutput) ElementType() reflect.Type {
@@ -507,6 +557,12 @@ func (o SecurityGroupOutput) ToSecurityGroupOutput() SecurityGroupOutput {
 
 func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
 	return o
+}
+
+func (o SecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroup] {
+	return pulumix.Output[*SecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the security group.
@@ -578,6 +634,12 @@ func (o SecurityGroupArrayOutput) ToSecurityGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o SecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroup] {
+	return pulumix.Output[[]*SecurityGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityGroupArrayOutput) Index(i pulumi.IntInput) SecurityGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityGroup {
 		return vs[0].([]*SecurityGroup)[vs[1].(int)]
@@ -596,6 +658,12 @@ func (o SecurityGroupMapOutput) ToSecurityGroupMapOutput() SecurityGroupMapOutpu
 
 func (o SecurityGroupMapOutput) ToSecurityGroupMapOutputWithContext(ctx context.Context) SecurityGroupMapOutput {
 	return o
+}
+
+func (o SecurityGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroup] {
+	return pulumix.Output[map[string]*SecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityGroupMapOutput) MapIndex(k pulumi.StringInput) SecurityGroupOutput {

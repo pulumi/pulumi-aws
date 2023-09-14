@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Notebook Instances can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance

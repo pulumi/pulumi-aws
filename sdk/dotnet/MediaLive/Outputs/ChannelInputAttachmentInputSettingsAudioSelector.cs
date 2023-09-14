@@ -15,8 +15,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     {
         /// <summary>
         /// Name of the Channel.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The audio selector settings. See Audio Selector Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings? SelectorSettings;
 
         [OutputConstructor]

@@ -34,12 +34,16 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
      * 
+     * In addition to all arguments above, the following attributes are exported:
+     * 
      */
     @Import(name="withDecryption")
     private @Nullable Output<Boolean> withDecryption;
 
     /**
      * @return Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * 
+     * In addition to all arguments above, the following attributes are exported:
      * 
      */
     public Optional<Output<Boolean>> withDecryption() {
@@ -95,6 +99,8 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
          * 
+         * In addition to all arguments above, the following attributes are exported:
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
+         * 
+         * In addition to all arguments above, the following attributes are exported:
          * 
          * @return builder
          * 

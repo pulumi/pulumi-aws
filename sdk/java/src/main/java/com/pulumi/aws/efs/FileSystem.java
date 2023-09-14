@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The EFS file systems can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import the EFS file systems using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -215,6 +215,20 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<FileSystemLifecyclePolicy>>> lifecyclePolicies() {
         return Codegen.optional(this.lifecyclePolicies);
+    }
+    /**
+     * The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
+    private Output<String> name;
+
+    /**
+     * @return The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
     }
     /**
      * The current number of mount targets that the file system has.

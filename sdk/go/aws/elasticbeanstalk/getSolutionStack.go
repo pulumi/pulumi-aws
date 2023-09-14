@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the name of a elastic beanstalk solution stack.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...pulumi.InvokeOption) (*GetSolutionStackResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSolutionStackResult
 	err := ctx.Invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, &rv, opts...)
 	if err != nil {
@@ -55,6 +58,10 @@ type GetSolutionStackArgs struct {
 	// Regex string to apply to the solution stack list returned
 	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
 	// AWS documentation for reference solution stack names.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single solution stack, or use `mostRecent` to choose the most recent one.
 	NameRegex string `pulumi:"nameRegex"`
 }
 
@@ -89,6 +96,10 @@ type GetSolutionStackOutputArgs struct {
 	// Regex string to apply to the solution stack list returned
 	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
 	// AWS documentation for reference solution stack names.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single solution stack, or use `mostRecent` to choose the most recent one.
 	NameRegex pulumi.StringInput `pulumi:"nameRegex"`
 }
 
@@ -109,6 +120,12 @@ func (o GetSolutionStackResultOutput) ToGetSolutionStackResultOutput() GetSoluti
 
 func (o GetSolutionStackResultOutput) ToGetSolutionStackResultOutputWithContext(ctx context.Context) GetSolutionStackResultOutput {
 	return o
+}
+
+func (o GetSolutionStackResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSolutionStackResult] {
+	return pulumix.Output[GetSolutionStackResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

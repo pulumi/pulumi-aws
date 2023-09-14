@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CE Cost Category.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // ## Import
 //
-// `aws_ce_cost_category` can be imported using the id, e.g.
+// Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 //
 // ```sh
 //
@@ -102,6 +104,8 @@ type CostCategory struct {
 	// Effective end data of your Cost Category.
 	EffectiveEnd pulumi.StringOutput `pulumi:"effectiveEnd"`
 	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	//
+	// The following arguments are optional:
 	EffectiveStart pulumi.StringOutput `pulumi:"effectiveStart"`
 	// Unique name for the Cost Category.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -130,6 +134,7 @@ func NewCostCategory(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CostCategory
 	err := ctx.RegisterResource("aws:costexplorer/costCategory:CostCategory", name, args, &resource, opts...)
 	if err != nil {
@@ -159,6 +164,8 @@ type costCategoryState struct {
 	// Effective end data of your Cost Category.
 	EffectiveEnd *string `pulumi:"effectiveEnd"`
 	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	//
+	// The following arguments are optional:
 	EffectiveStart *string `pulumi:"effectiveStart"`
 	// Unique name for the Cost Category.
 	Name *string `pulumi:"name"`
@@ -182,6 +189,8 @@ type CostCategoryState struct {
 	// Effective end data of your Cost Category.
 	EffectiveEnd pulumi.StringPtrInput
 	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	//
+	// The following arguments are optional:
 	EffectiveStart pulumi.StringPtrInput
 	// Unique name for the Cost Category.
 	Name pulumi.StringPtrInput
@@ -205,6 +214,8 @@ type costCategoryArgs struct {
 	// Default value for the cost category.
 	DefaultValue *string `pulumi:"defaultValue"`
 	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	//
+	// The following arguments are optional:
 	EffectiveStart *string `pulumi:"effectiveStart"`
 	// Unique name for the Cost Category.
 	Name *string `pulumi:"name"`
@@ -223,6 +234,8 @@ type CostCategoryArgs struct {
 	// Default value for the cost category.
 	DefaultValue pulumi.StringPtrInput
 	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	//
+	// The following arguments are optional:
 	EffectiveStart pulumi.StringPtrInput
 	// Unique name for the Cost Category.
 	Name pulumi.StringPtrInput
@@ -259,6 +272,12 @@ func (i *CostCategory) ToCostCategoryOutputWithContext(ctx context.Context) Cost
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryOutput)
 }
 
+func (i *CostCategory) ToOutput(ctx context.Context) pulumix.Output[*CostCategory] {
+	return pulumix.Output[*CostCategory]{
+		OutputState: i.ToCostCategoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CostCategoryArrayInput is an input type that accepts CostCategoryArray and CostCategoryArrayOutput values.
 // You can construct a concrete instance of `CostCategoryArrayInput` via:
 //
@@ -282,6 +301,12 @@ func (i CostCategoryArray) ToCostCategoryArrayOutput() CostCategoryArrayOutput {
 
 func (i CostCategoryArray) ToCostCategoryArrayOutputWithContext(ctx context.Context) CostCategoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryArrayOutput)
+}
+
+func (i CostCategoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*CostCategory] {
+	return pulumix.Output[[]*CostCategory]{
+		OutputState: i.ToCostCategoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CostCategoryMapInput is an input type that accepts CostCategoryMap and CostCategoryMapOutput values.
@@ -309,6 +334,12 @@ func (i CostCategoryMap) ToCostCategoryMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryMapOutput)
 }
 
+func (i CostCategoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CostCategory] {
+	return pulumix.Output[map[string]*CostCategory]{
+		OutputState: i.ToCostCategoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CostCategoryOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryOutput) ElementType() reflect.Type {
@@ -321,6 +352,12 @@ func (o CostCategoryOutput) ToCostCategoryOutput() CostCategoryOutput {
 
 func (o CostCategoryOutput) ToCostCategoryOutputWithContext(ctx context.Context) CostCategoryOutput {
 	return o
+}
+
+func (o CostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategory] {
+	return pulumix.Output[*CostCategory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the cost category.
@@ -339,6 +376,8 @@ func (o CostCategoryOutput) EffectiveEnd() pulumi.StringOutput {
 }
 
 // The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+//
+// The following arguments are optional:
 func (o CostCategoryOutput) EffectiveStart() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.EffectiveStart }).(pulumi.StringOutput)
 }
@@ -387,6 +426,12 @@ func (o CostCategoryArrayOutput) ToCostCategoryArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o CostCategoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CostCategory] {
+	return pulumix.Output[[]*CostCategory]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CostCategoryArrayOutput) Index(i pulumi.IntInput) CostCategoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CostCategory {
 		return vs[0].([]*CostCategory)[vs[1].(int)]
@@ -405,6 +450,12 @@ func (o CostCategoryMapOutput) ToCostCategoryMapOutput() CostCategoryMapOutput {
 
 func (o CostCategoryMapOutput) ToCostCategoryMapOutputWithContext(ctx context.Context) CostCategoryMapOutput {
 	return o
+}
+
+func (o CostCategoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CostCategory] {
+	return pulumix.Output[map[string]*CostCategory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CostCategoryMapOutput) MapIndex(k pulumi.StringInput) CostCategoryOutput {

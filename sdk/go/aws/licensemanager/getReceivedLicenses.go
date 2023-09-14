@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be used to get a set of license ARNs matching a filter.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +49,7 @@ import (
 //
 // ```
 func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicensesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicensesResult
 	err := ctx.Invoke("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args, &rv, opts...)
 	if err != nil {
@@ -58,6 +61,9 @@ func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opt
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
 }
 
@@ -86,6 +92,9 @@ func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutp
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetReceivedLicensesFilterArrayInput `pulumi:"filters"`
 }
 
@@ -106,6 +115,12 @@ func (o GetReceivedLicensesResultOutput) ToGetReceivedLicensesResultOutput() Get
 
 func (o GetReceivedLicensesResultOutput) ToGetReceivedLicensesResultOutputWithContext(ctx context.Context) GetReceivedLicensesResultOutput {
 	return o
+}
+
+func (o GetReceivedLicensesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicensesResult] {
+	return pulumix.Output[GetReceivedLicensesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of all the license ARNs found.

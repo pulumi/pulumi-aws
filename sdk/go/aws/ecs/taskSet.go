@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // ## Import
 //
-// ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
+// Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:
 //
 // ```sh
 //
@@ -95,6 +97,8 @@ type TaskSet struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
 	// The ID of the task set.
 	TaskSetId pulumi.StringOutput `pulumi:"taskSetId"`
@@ -120,6 +124,7 @@ func NewTaskSet(ctx *pulumi.Context,
 	if args.TaskDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'TaskDefinition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskSet
 	err := ctx.RegisterResource("aws:ecs/taskSet:TaskSet", name, args, &resource, opts...)
 	if err != nil {
@@ -175,6 +180,8 @@ type taskSetState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// The ID of the task set.
 	TaskSetId *string `pulumi:"taskSetId"`
@@ -218,6 +225,8 @@ type TaskSetState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringPtrInput
 	// The ID of the task set.
 	TaskSetId pulumi.StringPtrInput
@@ -257,6 +266,8 @@ type taskSetArgs struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition string `pulumi:"taskDefinition"`
 	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable *bool `pulumi:"waitUntilStable"`
@@ -291,6 +302,8 @@ type TaskSetArgs struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringInput
 	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable pulumi.BoolPtrInput
@@ -321,6 +334,12 @@ func (i *TaskSet) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetOutput)
 }
 
+func (i *TaskSet) ToOutput(ctx context.Context) pulumix.Output[*TaskSet] {
+	return pulumix.Output[*TaskSet]{
+		OutputState: i.ToTaskSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaskSetArrayInput is an input type that accepts TaskSetArray and TaskSetArrayOutput values.
 // You can construct a concrete instance of `TaskSetArrayInput` via:
 //
@@ -344,6 +363,12 @@ func (i TaskSetArray) ToTaskSetArrayOutput() TaskSetArrayOutput {
 
 func (i TaskSetArray) ToTaskSetArrayOutputWithContext(ctx context.Context) TaskSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetArrayOutput)
+}
+
+func (i TaskSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*TaskSet] {
+	return pulumix.Output[[]*TaskSet]{
+		OutputState: i.ToTaskSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TaskSetMapInput is an input type that accepts TaskSetMap and TaskSetMapOutput values.
@@ -371,6 +396,12 @@ func (i TaskSetMap) ToTaskSetMapOutputWithContext(ctx context.Context) TaskSetMa
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetMapOutput)
 }
 
+func (i TaskSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskSet] {
+	return pulumix.Output[map[string]*TaskSet]{
+		OutputState: i.ToTaskSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskSetOutput struct{ *pulumi.OutputState }
 
 func (TaskSetOutput) ElementType() reflect.Type {
@@ -383,6 +414,12 @@ func (o TaskSetOutput) ToTaskSetOutput() TaskSetOutput {
 
 func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput {
 	return o
+}
+
+func (o TaskSetOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSet] {
+	return pulumix.Output[*TaskSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that identifies the task set.
@@ -466,6 +503,8 @@ func (o TaskSetOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+//
+// The following arguments are optional:
 func (o TaskSetOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.TaskDefinition }).(pulumi.StringOutput)
 }
@@ -499,6 +538,12 @@ func (o TaskSetArrayOutput) ToTaskSetArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o TaskSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TaskSet] {
+	return pulumix.Output[[]*TaskSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskSetArrayOutput) Index(i pulumi.IntInput) TaskSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TaskSet {
 		return vs[0].([]*TaskSet)[vs[1].(int)]
@@ -517,6 +562,12 @@ func (o TaskSetMapOutput) ToTaskSetMapOutput() TaskSetMapOutput {
 
 func (o TaskSetMapOutput) ToTaskSetMapOutputWithContext(ctx context.Context) TaskSetMapOutput {
 	return o
+}
+
+func (o TaskSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskSet] {
+	return pulumix.Output[map[string]*TaskSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskSetMapOutput) MapIndex(k pulumi.StringInput) TaskSetOutput {

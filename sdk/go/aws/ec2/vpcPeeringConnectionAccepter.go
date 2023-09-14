@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage the accepter's side of a VPC Peering Connection.
@@ -27,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,7 +90,7 @@ import (
 //
 // ## Import
 //
-// VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.,
+// Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
 //
 // ```sh
 //
@@ -96,17 +98,7 @@ import (
 //
 // ```
 //
-//	Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the provider configuration on an imported resource, this provder will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_vpc_peering_connection_accepter" "example" {
-//
-// # ... other configuration ...
-//
-// # There is no AWS EC2 API for reading auto_accept
-//
-//	lifecycle {
-//
-//	ignore_changes = [auto_accept]
-//
-//	} }
+//	Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 type VpcPeeringConnectionAccepter struct {
 	pulumi.CustomResourceState
 
@@ -146,6 +138,7 @@ func NewVpcPeeringConnectionAccepter(ctx *pulumi.Context,
 	if args.VpcPeeringConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcPeeringConnectionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcPeeringConnectionAccepter
 	err := ctx.RegisterResource("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -279,6 +272,12 @@ func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterOutput)
 }
 
+func (i *VpcPeeringConnectionAccepter) ToOutput(ctx context.Context) pulumix.Output[*VpcPeeringConnectionAccepter] {
+	return pulumix.Output[*VpcPeeringConnectionAccepter]{
+		OutputState: i.ToVpcPeeringConnectionAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcPeeringConnectionAccepterArrayInput is an input type that accepts VpcPeeringConnectionAccepterArray and VpcPeeringConnectionAccepterArrayOutput values.
 // You can construct a concrete instance of `VpcPeeringConnectionAccepterArrayInput` via:
 //
@@ -302,6 +301,12 @@ func (i VpcPeeringConnectionAccepterArray) ToVpcPeeringConnectionAccepterArrayOu
 
 func (i VpcPeeringConnectionAccepterArray) ToVpcPeeringConnectionAccepterArrayOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterArrayOutput)
+}
+
+func (i VpcPeeringConnectionAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcPeeringConnectionAccepter] {
+	return pulumix.Output[[]*VpcPeeringConnectionAccepter]{
+		OutputState: i.ToVpcPeeringConnectionAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcPeeringConnectionAccepterMapInput is an input type that accepts VpcPeeringConnectionAccepterMap and VpcPeeringConnectionAccepterMapOutput values.
@@ -329,6 +334,12 @@ func (i VpcPeeringConnectionAccepterMap) ToVpcPeeringConnectionAccepterMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterMapOutput)
 }
 
+func (i VpcPeeringConnectionAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcPeeringConnectionAccepter] {
+	return pulumix.Output[map[string]*VpcPeeringConnectionAccepter]{
+		OutputState: i.ToVpcPeeringConnectionAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcPeeringConnectionAccepterOutput struct{ *pulumi.OutputState }
 
 func (VpcPeeringConnectionAccepterOutput) ElementType() reflect.Type {
@@ -341,6 +352,12 @@ func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutput
 
 func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
 	return o
+}
+
+func (o VpcPeeringConnectionAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcPeeringConnectionAccepter] {
+	return pulumix.Output[*VpcPeeringConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The status of the VPC Peering Connection request.
@@ -414,6 +431,12 @@ func (o VpcPeeringConnectionAccepterArrayOutput) ToVpcPeeringConnectionAccepterA
 	return o
 }
 
+func (o VpcPeeringConnectionAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcPeeringConnectionAccepter] {
+	return pulumix.Output[[]*VpcPeeringConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcPeeringConnectionAccepterArrayOutput) Index(i pulumi.IntInput) VpcPeeringConnectionAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcPeeringConnectionAccepter {
 		return vs[0].([]*VpcPeeringConnectionAccepter)[vs[1].(int)]
@@ -432,6 +455,12 @@ func (o VpcPeeringConnectionAccepterMapOutput) ToVpcPeeringConnectionAccepterMap
 
 func (o VpcPeeringConnectionAccepterMapOutput) ToVpcPeeringConnectionAccepterMapOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterMapOutput {
 	return o
+}
+
+func (o VpcPeeringConnectionAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcPeeringConnectionAccepter] {
+	return pulumix.Output[map[string]*VpcPeeringConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcPeeringConnectionAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcPeeringConnectionAccepterOutput {

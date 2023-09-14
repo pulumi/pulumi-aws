@@ -27,14 +27,17 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.VpcLattice.GetService.Invoke();
+        ///     var example = Aws.VpcLattice.GetService.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
         /// 
         /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
+        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:vpclattice/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
@@ -53,14 +56,17 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.VpcLattice.GetService.Invoke();
+        ///     var example = Aws.VpcLattice.GetService.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
         /// 
         /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:vpclattice/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
@@ -68,10 +74,16 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network
+        /// Service name.
         /// </summary>
-        [Input("serviceIdentifier", required: true)]
-        public string ServiceIdentifier { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// ID or Amazon Resource Name (ARN) of the service network.
+        /// </summary>
+        [Input("serviceIdentifier")]
+        public string? ServiceIdentifier { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -94,10 +106,16 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network
+        /// Service name.
         /// </summary>
-        [Input("serviceIdentifier", required: true)]
-        public Input<string> ServiceIdentifier { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// ID or Amazon Resource Name (ARN) of the service network.
+        /// </summary>
+        [Input("serviceIdentifier")]
+        public Input<string>? ServiceIdentifier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

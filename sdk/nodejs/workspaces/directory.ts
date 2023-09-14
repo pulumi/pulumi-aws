@@ -124,7 +124,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Workspaces directory can be imported using the directory ID, e.g.,
+ * Using `pulumi import`, import Workspaces directory using the directory ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:workspaces/directory:Directory main d-4444444444

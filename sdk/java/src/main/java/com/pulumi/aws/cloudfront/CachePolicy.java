@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * The following example below creates a CloudFront cache policy.
+ * Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
  * ```java
  * package generated_program;
  * 
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudfront Cache Policies can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
@@ -91,98 +91,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/cachePolicy:CachePolicy")
 public class CachePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * A comment to describe the cache policy.
+     * Description for the cache policy.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return A comment to describe the cache policy.
+     * @return Description for the cache policy.
      * 
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
      * 
      */
     @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> defaultTtl;
 
     /**
-     * @return The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * @return Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
      * 
      */
     public Output<Optional<Integer>> defaultTtl() {
         return Codegen.optional(this.defaultTtl);
     }
     /**
-     * The current version of the cache policy.
+     * Current version of the cache policy.
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
-     * @return The current version of the cache policy.
+     * @return Current version of the cache policy.
      * 
      */
     public Output<String> etag() {
         return this.etag;
     }
     /**
-     * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
     @Export(name="maxTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxTtl;
 
     /**
-     * @return The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * @return Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
     public Output<Optional<Integer>> maxTtl() {
         return Codegen.optional(this.maxTtl);
     }
     /**
-     * The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
      * 
      */
     @Export(name="minTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minTtl;
 
     /**
-     * @return The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * @return Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
      * 
      */
     public Output<Optional<Integer>> minTtl() {
         return Codegen.optional(this.minTtl);
     }
     /**
-     * A unique name to identify the cache policy.
+     * Unique name used to identify the cache policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A unique name to identify the cache policy.
+     * @return Unique name used to identify the cache policy.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+     * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
      * 
      */
     @Export(name="parametersInCacheKeyAndForwardedToOrigin", refs={CachePolicyParametersInCacheKeyAndForwardedToOrigin.class}, tree="[0]")
     private Output<CachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigin;
 
     /**
-     * @return The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+     * @return Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
      * 
      */
     public Output<CachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigin() {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an EC2 Dedicated Host.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,6 +48,7 @@ import (
 //
 // ```
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedHostResult
 	err := ctx.Invoke("aws:ec2/getDedicatedHost:getDedicatedHost", args, &rv, opts...)
 	if err != nil {
@@ -67,6 +70,8 @@ type LookupDedicatedHostArgs struct {
 type LookupDedicatedHostResult struct {
 	// ARN of the Dedicated Host.
 	Arn string `pulumi:"arn"`
+	// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+	AssetId string `pulumi:"assetId"`
 	// Whether auto-placement is on or off.
 	AutoPlacement string `pulumi:"autoPlacement"`
 	// Availability Zone of the Dedicated Host.
@@ -135,9 +140,20 @@ func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutputWithCo
 	return o
 }
 
+func (o LookupDedicatedHostResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDedicatedHostResult] {
+	return pulumix.Output[LookupDedicatedHostResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+func (o LookupDedicatedHostResultOutput) AssetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.AssetId }).(pulumi.StringOutput)
 }
 
 // Whether auto-placement is on or off.

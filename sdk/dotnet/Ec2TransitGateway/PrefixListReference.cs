@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
+    /// Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
@@ -86,6 +86,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("transitGatewayRouteTableId")]
         public Output<string> TransitGatewayRouteTableId { get; private set; } = null!;
@@ -156,6 +158,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
@@ -191,6 +195,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId")]
         public Input<string>? TransitGatewayRouteTableId { get; set; }

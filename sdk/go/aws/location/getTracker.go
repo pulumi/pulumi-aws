@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Tracker.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.InvokeOption) (*LookupTrackerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrackerResult
 	err := ctx.Invoke("aws:location/getTracker:getTracker", args, &rv, opts...)
 	if err != nil {
@@ -113,6 +116,12 @@ func (o LookupTrackerResultOutput) ToLookupTrackerResultOutput() LookupTrackerRe
 
 func (o LookupTrackerResultOutput) ToLookupTrackerResultOutputWithContext(ctx context.Context) LookupTrackerResultOutput {
 	return o
+}
+
+func (o LookupTrackerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrackerResult] {
+	return pulumix.Output[LookupTrackerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Timestamp for when the tracker resource was created in ISO 8601 format.

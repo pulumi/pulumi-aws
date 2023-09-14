@@ -66,10 +66,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Parameter Groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
+ *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-TODO
  * ```
  * 
  */
@@ -148,12 +148,16 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

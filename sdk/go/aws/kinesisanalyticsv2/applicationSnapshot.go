@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kinesis Analytics v2 Application Snapshot.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesisanalyticsv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+// Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
 //
 // ```sh
 //
@@ -76,6 +78,7 @@ func NewApplicationSnapshot(ctx *pulumi.Context,
 	if args.SnapshotName == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationSnapshot
 	err := ctx.RegisterResource("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot", name, args, &resource, opts...)
 	if err != nil {
@@ -161,6 +164,12 @@ func (i *ApplicationSnapshot) ToApplicationSnapshotOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotOutput)
 }
 
+func (i *ApplicationSnapshot) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSnapshot] {
+	return pulumix.Output[*ApplicationSnapshot]{
+		OutputState: i.ToApplicationSnapshotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationSnapshotArrayInput is an input type that accepts ApplicationSnapshotArray and ApplicationSnapshotArrayOutput values.
 // You can construct a concrete instance of `ApplicationSnapshotArrayInput` via:
 //
@@ -184,6 +193,12 @@ func (i ApplicationSnapshotArray) ToApplicationSnapshotArrayOutput() Application
 
 func (i ApplicationSnapshotArray) ToApplicationSnapshotArrayOutputWithContext(ctx context.Context) ApplicationSnapshotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotArrayOutput)
+}
+
+func (i ApplicationSnapshotArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSnapshot] {
+	return pulumix.Output[[]*ApplicationSnapshot]{
+		OutputState: i.ToApplicationSnapshotArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApplicationSnapshotMapInput is an input type that accepts ApplicationSnapshotMap and ApplicationSnapshotMapOutput values.
@@ -211,6 +226,12 @@ func (i ApplicationSnapshotMap) ToApplicationSnapshotMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotMapOutput)
 }
 
+func (i ApplicationSnapshotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSnapshot] {
+	return pulumix.Output[map[string]*ApplicationSnapshot]{
+		OutputState: i.ToApplicationSnapshotMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationSnapshotOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSnapshotOutput) ElementType() reflect.Type {
@@ -223,6 +244,12 @@ func (o ApplicationSnapshotOutput) ToApplicationSnapshotOutput() ApplicationSnap
 
 func (o ApplicationSnapshotOutput) ToApplicationSnapshotOutputWithContext(ctx context.Context) ApplicationSnapshotOutput {
 	return o
+}
+
+func (o ApplicationSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSnapshot] {
+	return pulumix.Output[*ApplicationSnapshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
@@ -259,6 +286,12 @@ func (o ApplicationSnapshotArrayOutput) ToApplicationSnapshotArrayOutputWithCont
 	return o
 }
 
+func (o ApplicationSnapshotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSnapshot] {
+	return pulumix.Output[[]*ApplicationSnapshot]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationSnapshotArrayOutput) Index(i pulumi.IntInput) ApplicationSnapshotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationSnapshot {
 		return vs[0].([]*ApplicationSnapshot)[vs[1].(int)]
@@ -277,6 +310,12 @@ func (o ApplicationSnapshotMapOutput) ToApplicationSnapshotMapOutput() Applicati
 
 func (o ApplicationSnapshotMapOutput) ToApplicationSnapshotMapOutputWithContext(ctx context.Context) ApplicationSnapshotMapOutput {
 	return o
+}
+
+func (o ApplicationSnapshotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSnapshot] {
+	return pulumix.Output[map[string]*ApplicationSnapshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationSnapshotMapOutput) MapIndex(k pulumi.StringInput) ApplicationSnapshotOutput {

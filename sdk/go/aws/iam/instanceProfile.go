@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM instance profile.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +70,7 @@ import (
 //
 // ## Import
 //
-// Instance Profiles can be imported using the `name`, e.g.,
+// Using `pulumi import`, import Instance Profiles using the `name`. For example:
 //
 // ```sh
 //
@@ -105,6 +107,7 @@ func NewInstanceProfile(ctx *pulumi.Context,
 		args = &InstanceProfileArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceProfile
 	err := ctx.RegisterResource("aws:iam/instanceProfile:InstanceProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -222,6 +225,12 @@ func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileOutput)
 }
 
+func (i *InstanceProfile) ToOutput(ctx context.Context) pulumix.Output[*InstanceProfile] {
+	return pulumix.Output[*InstanceProfile]{
+		OutputState: i.ToInstanceProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceProfileArrayInput is an input type that accepts InstanceProfileArray and InstanceProfileArrayOutput values.
 // You can construct a concrete instance of `InstanceProfileArrayInput` via:
 //
@@ -245,6 +254,12 @@ func (i InstanceProfileArray) ToInstanceProfileArrayOutput() InstanceProfileArra
 
 func (i InstanceProfileArray) ToInstanceProfileArrayOutputWithContext(ctx context.Context) InstanceProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileArrayOutput)
+}
+
+func (i InstanceProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceProfile] {
+	return pulumix.Output[[]*InstanceProfile]{
+		OutputState: i.ToInstanceProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceProfileMapInput is an input type that accepts InstanceProfileMap and InstanceProfileMapOutput values.
@@ -272,6 +287,12 @@ func (i InstanceProfileMap) ToInstanceProfileMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileMapOutput)
 }
 
+func (i InstanceProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceProfile] {
+	return pulumix.Output[map[string]*InstanceProfile]{
+		OutputState: i.ToInstanceProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceProfileOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileOutput) ElementType() reflect.Type {
@@ -284,6 +305,12 @@ func (o InstanceProfileOutput) ToInstanceProfileOutput() InstanceProfileOutput {
 
 func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
 	return o
+}
+
+func (o InstanceProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceProfile] {
+	return pulumix.Output[*InstanceProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN assigned by AWS to the instance profile.
@@ -345,6 +372,12 @@ func (o InstanceProfileArrayOutput) ToInstanceProfileArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o InstanceProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceProfile] {
+	return pulumix.Output[[]*InstanceProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceProfileArrayOutput) Index(i pulumi.IntInput) InstanceProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceProfile {
 		return vs[0].([]*InstanceProfile)[vs[1].(int)]
@@ -363,6 +396,12 @@ func (o InstanceProfileMapOutput) ToInstanceProfileMapOutput() InstanceProfileMa
 
 func (o InstanceProfileMapOutput) ToInstanceProfileMapOutputWithContext(ctx context.Context) InstanceProfileMapOutput {
 	return o
+}
+
+func (o InstanceProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceProfile] {
+	return pulumix.Output[map[string]*InstanceProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceProfileMapOutput) MapIndex(k pulumi.StringInput) InstanceProfileOutput {

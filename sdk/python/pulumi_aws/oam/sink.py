@@ -19,6 +19,8 @@ class SinkArgs:
         """
         The set of arguments for constructing a Sink resource.
         :param pulumi.Input[str] name: Name for the sink.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
@@ -31,6 +33,8 @@ class SinkArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name for the sink.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -63,6 +67,8 @@ class _SinkState:
         Input properties used for looking up and filtering Sink resources.
         :param pulumi.Input[str] arn: ARN of the Sink.
         :param pulumi.Input[str] name: Name for the sink.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] sink_id: ID string that AWS generated as part of the sink ARN.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -94,6 +100,8 @@ class _SinkState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name for the sink.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -160,7 +168,7 @@ class Sink(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Observability Access Manager Sink can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
@@ -169,6 +177,8 @@ class Sink(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the sink.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -194,7 +204,7 @@ class Sink(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Observability Access Manager Sink can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
@@ -255,6 +265,8 @@ class Sink(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Sink.
         :param pulumi.Input[str] name: Name for the sink.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] sink_id: ID string that AWS generated as part of the sink ARN.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -282,6 +294,8 @@ class Sink(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name for the sink.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

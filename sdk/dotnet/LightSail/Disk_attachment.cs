@@ -63,7 +63,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
+    /// Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance

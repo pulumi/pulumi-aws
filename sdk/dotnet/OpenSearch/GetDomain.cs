@@ -77,6 +77,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// Off Peak update options
+        /// </summary>
+        [Input("offPeakWindowOptions")]
+        public Inputs.GetDomainOffPeakWindowOptionsArgs? OffPeakWindowOptions { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -102,6 +108,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// Off Peak update options
+        /// </summary>
+        [Input("offPeakWindowOptions")]
+        public Input<Inputs.GetDomainOffPeakWindowOptionsInputArgs>? OffPeakWindowOptions { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -191,7 +203,7 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         /// </summary>
         public readonly string KibanaEndpoint;
         /// <summary>
@@ -203,6 +215,10 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> NodeToNodeEncryptions;
         /// <summary>
+        /// Off Peak update options
+        /// </summary>
+        public readonly Outputs.GetDomainOffPeakWindowOptionsResult? OffPeakWindowOptions;
+        /// <summary>
         /// Status of a configuration change in the domain.
         /// </summary>
         public readonly bool Processing;
@@ -210,6 +226,10 @@ namespace Pulumi.Aws.OpenSearch
         /// Domain snapshot related options.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionResult> SnapshotOptions;
+        /// <summary>
+        /// Software update options for the domain
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainSoftwareUpdateOptionResult> SoftwareUpdateOptions;
         /// <summary>
         /// Tags assigned to the domain.
         /// </summary>
@@ -261,9 +281,13 @@ namespace Pulumi.Aws.OpenSearch
 
             ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> nodeToNodeEncryptions,
 
+            Outputs.GetDomainOffPeakWindowOptionsResult? offPeakWindowOptions,
+
             bool processing,
 
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
+
+            ImmutableArray<Outputs.GetDomainSoftwareUpdateOptionResult> softwareUpdateOptions,
 
             ImmutableDictionary<string, string> tags,
 
@@ -289,8 +313,10 @@ namespace Pulumi.Aws.OpenSearch
             KibanaEndpoint = kibanaEndpoint;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptions = nodeToNodeEncryptions;
+            OffPeakWindowOptions = offPeakWindowOptions;
             Processing = processing;
             SnapshotOptions = snapshotOptions;
+            SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;
             VpcOptions = vpcOptions;
         }

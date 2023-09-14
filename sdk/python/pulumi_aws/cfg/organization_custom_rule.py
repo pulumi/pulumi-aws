@@ -441,7 +441,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
         ## Import
 
-        Config Organization Custom Rules can be imported using the name, e.g.,
+        Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
 
         ```sh
          $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
@@ -498,7 +498,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
         ## Import
 
-        Config Organization Custom Rules can be imported using the name, e.g.,
+        Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
 
         ```sh
          $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example

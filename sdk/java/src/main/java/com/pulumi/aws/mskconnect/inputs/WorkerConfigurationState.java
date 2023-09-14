@@ -79,12 +79,16 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
     /**
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="propertiesFileContent")
     private @Nullable Output<String> propertiesFileContent;
 
     /**
      * @return Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> propertiesFileContent() {
@@ -206,6 +210,8 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
         /**
          * @param propertiesFileContent Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -216,6 +222,8 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
 
         /**
          * @param propertiesFileContent Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -209,7 +209,7 @@ class VpcLink(pulumi.CustomResource):
 
         example = aws.apigatewayv2.VpcLink("example",
             security_group_ids=[data["aws_security_group"]["example"]["id"]],
-            subnet_ids=data["aws_subnet_ids"]["example"]["ids"],
+            subnet_ids=data["aws_subnets"]["example"]["ids"],
             tags={
                 "Usage": "example",
             })
@@ -217,7 +217,7 @@ class VpcLink(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
@@ -250,7 +250,7 @@ class VpcLink(pulumi.CustomResource):
 
         example = aws.apigatewayv2.VpcLink("example",
             security_group_ids=[data["aws_security_group"]["example"]["id"]],
-            subnet_ids=data["aws_subnet_ids"]["example"]["ids"],
+            subnet_ids=data["aws_subnets"]["example"]["ids"],
             tags={
                 "Usage": "example",
             })
@@ -258,7 +258,7 @@ class VpcLink(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee

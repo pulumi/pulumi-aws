@@ -12,7 +12,9 @@ import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
 import com.pulumi.aws.opensearch.inputs.DomainLogPublishingOptionArgs;
 import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+import com.pulumi.aws.opensearch.inputs.DomainOffPeakWindowOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainSnapshotOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.DomainSoftwareUpdateOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -136,12 +138,16 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the domain.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
      * @return Name of the domain.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -179,14 +185,18 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -224,6 +234,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     * 
+     */
+    @Import(name="offPeakWindowOptions")
+    private @Nullable Output<DomainOffPeakWindowOptionsArgs> offPeakWindowOptions;
+
+    /**
+     * @return Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     * 
+     */
+    public Optional<Output<DomainOffPeakWindowOptionsArgs>> offPeakWindowOptions() {
+        return Optional.ofNullable(this.offPeakWindowOptions);
+    }
+
+    /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      * 
      */
@@ -236,6 +261,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DomainSnapshotOptionsArgs>> snapshotOptions() {
         return Optional.ofNullable(this.snapshotOptions);
+    }
+
+    /**
+     * Software update options for the domain. Detailed below.
+     * 
+     */
+    @Import(name="softwareUpdateOptions")
+    private @Nullable Output<DomainSoftwareUpdateOptionsArgs> softwareUpdateOptions;
+
+    /**
+     * @return Software update options for the domain. Detailed below.
+     * 
+     */
+    public Optional<Output<DomainSoftwareUpdateOptionsArgs>> softwareUpdateOptions() {
+        return Optional.ofNullable(this.softwareUpdateOptions);
     }
 
     /**
@@ -284,7 +324,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.engineVersion = $.engineVersion;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
+        this.offPeakWindowOptions = $.offPeakWindowOptions;
         this.snapshotOptions = $.snapshotOptions;
+        this.softwareUpdateOptions = $.softwareUpdateOptions;
         this.tags = $.tags;
         this.vpcOptions = $.vpcOptions;
     }
@@ -457,6 +499,8 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param domainName Name of the domain.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -467,6 +511,8 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param domainName Name of the domain.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -518,7 +564,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+         * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+         * Defaults to the lastest version of OpenSearch.
          * 
          * @return builder
          * 
@@ -529,7 +577,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+         * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+         * Defaults to the lastest version of OpenSearch.
          * 
          * @return builder
          * 
@@ -591,6 +641,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param offPeakWindowOptions Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offPeakWindowOptions(@Nullable Output<DomainOffPeakWindowOptionsArgs> offPeakWindowOptions) {
+            $.offPeakWindowOptions = offPeakWindowOptions;
+            return this;
+        }
+
+        /**
+         * @param offPeakWindowOptions Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offPeakWindowOptions(DomainOffPeakWindowOptionsArgs offPeakWindowOptions) {
+            return offPeakWindowOptions(Output.of(offPeakWindowOptions));
+        }
+
+        /**
          * @param snapshotOptions Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
          * 
          * @return builder
@@ -609,6 +680,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder snapshotOptions(DomainSnapshotOptionsArgs snapshotOptions) {
             return snapshotOptions(Output.of(snapshotOptions));
+        }
+
+        /**
+         * @param softwareUpdateOptions Software update options for the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softwareUpdateOptions(@Nullable Output<DomainSoftwareUpdateOptionsArgs> softwareUpdateOptions) {
+            $.softwareUpdateOptions = softwareUpdateOptions;
+            return this;
+        }
+
+        /**
+         * @param softwareUpdateOptions Software update options for the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softwareUpdateOptions(DomainSoftwareUpdateOptionsArgs softwareUpdateOptions) {
+            return softwareUpdateOptions(Output.of(softwareUpdateOptions));
         }
 
         /**

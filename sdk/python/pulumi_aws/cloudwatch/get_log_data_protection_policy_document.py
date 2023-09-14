@@ -155,6 +155,10 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
 
     :param str name: The name of the data protection policy document.
     :param Sequence[pulumi.InputType['GetLogDataProtectionPolicyDocumentStatementArgs']] statements: Configures the data protection policy.
+           
+           > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['description'] = description
@@ -165,12 +169,12 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument', __args__, opts=opts, typ=GetLogDataProtectionPolicyDocumentResult).value
 
     return AwaitableGetLogDataProtectionPolicyDocumentResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        json=__ret__.json,
-        name=__ret__.name,
-        statements=__ret__.statements,
-        version=__ret__.version)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        name=pulumi.get(__ret__, 'name'),
+        statements=pulumi.get(__ret__, 'statements'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_log_data_protection_policy_document)
@@ -235,5 +239,9 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
 
     :param str name: The name of the data protection policy document.
     :param Sequence[pulumi.InputType['GetLogDataProtectionPolicyDocumentStatementArgs']] statements: Configures the data protection policy.
+           
+           > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+           
+           The following arguments are optional:
     """
     ...

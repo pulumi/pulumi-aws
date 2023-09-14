@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.,
+ * Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
  * 
  * ```sh
  *  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github

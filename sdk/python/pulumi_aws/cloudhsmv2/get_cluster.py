@@ -143,13 +143,13 @@ def get_cluster(cluster_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_certificates=__ret__.cluster_certificates,
-        cluster_id=__ret__.cluster_id,
-        cluster_state=__ret__.cluster_state,
-        id=__ret__.id,
-        security_group_id=__ret__.security_group_id,
-        subnet_ids=__ret__.subnet_ids,
-        vpc_id=__ret__.vpc_id)
+        cluster_certificates=pulumi.get(__ret__, 'cluster_certificates'),
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        cluster_state=pulumi.get(__ret__, 'cluster_state'),
+        id=pulumi.get(__ret__, 'id'),
+        security_group_id=pulumi.get(__ret__, 'security_group_id'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_cluster)

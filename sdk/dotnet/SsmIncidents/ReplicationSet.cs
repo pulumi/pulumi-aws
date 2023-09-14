@@ -131,7 +131,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// ## Import
     /// 
-    /// Use the following command to import an Incident Manager replication set
+    /// Using `pulumi import`, import an Incident Manager replication. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
@@ -176,6 +176,8 @@ namespace Pulumi.Aws.SsmIncidents
 
         /// <summary>
         /// Tags applied to the replication set.
+        /// 
+        /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -245,6 +247,8 @@ namespace Pulumi.Aws.SsmIncidents
 
         /// <summary>
         /// Tags applied to the replication set.
+        /// 
+        /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -304,6 +308,8 @@ namespace Pulumi.Aws.SsmIncidents
 
         /// <summary>
         /// Tags applied to the replication set.
+        /// 
+        /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         /// </summary>
         public InputMap<string> Tags
         {

@@ -41,12 +41,16 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
 
         /// <summary>
         /// The identifier for a user in the Identity Store.
+        /// 
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
         /// </summary>
         [Input("userId")]
         public string? UserId { get; set; }
@@ -73,12 +77,16 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
 
         /// <summary>
         /// The identifier for a user in the Identity Store.
+        /// 
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeArtifact Domains Permissions Policy Resource.
@@ -20,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +82,7 @@ import (
 //
 // ## Import
 //
-// CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
+// Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 //
 // ```sh
 //
@@ -115,6 +117,7 @@ func NewDomainPermissions(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainPermissions
 	err := ctx.RegisterResource("aws:codeartifact/domainPermissions:DomainPermissions", name, args, &resource, opts...)
 	if err != nil {
@@ -212,6 +215,12 @@ func (i *DomainPermissions) ToDomainPermissionsOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsOutput)
 }
 
+func (i *DomainPermissions) ToOutput(ctx context.Context) pulumix.Output[*DomainPermissions] {
+	return pulumix.Output[*DomainPermissions]{
+		OutputState: i.ToDomainPermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainPermissionsArrayInput is an input type that accepts DomainPermissionsArray and DomainPermissionsArrayOutput values.
 // You can construct a concrete instance of `DomainPermissionsArrayInput` via:
 //
@@ -235,6 +244,12 @@ func (i DomainPermissionsArray) ToDomainPermissionsArrayOutput() DomainPermissio
 
 func (i DomainPermissionsArray) ToDomainPermissionsArrayOutputWithContext(ctx context.Context) DomainPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsArrayOutput)
+}
+
+func (i DomainPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainPermissions] {
+	return pulumix.Output[[]*DomainPermissions]{
+		OutputState: i.ToDomainPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainPermissionsMapInput is an input type that accepts DomainPermissionsMap and DomainPermissionsMapOutput values.
@@ -262,6 +277,12 @@ func (i DomainPermissionsMap) ToDomainPermissionsMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPermissionsMapOutput)
 }
 
+func (i DomainPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainPermissions] {
+	return pulumix.Output[map[string]*DomainPermissions]{
+		OutputState: i.ToDomainPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainPermissionsOutput struct{ *pulumi.OutputState }
 
 func (DomainPermissionsOutput) ElementType() reflect.Type {
@@ -274,6 +295,12 @@ func (o DomainPermissionsOutput) ToDomainPermissionsOutput() DomainPermissionsOu
 
 func (o DomainPermissionsOutput) ToDomainPermissionsOutputWithContext(ctx context.Context) DomainPermissionsOutput {
 	return o
+}
+
+func (o DomainPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainPermissions] {
+	return pulumix.Output[*DomainPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the domain on which to set the resource policy.
@@ -315,6 +342,12 @@ func (o DomainPermissionsArrayOutput) ToDomainPermissionsArrayOutputWithContext(
 	return o
 }
 
+func (o DomainPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainPermissions] {
+	return pulumix.Output[[]*DomainPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainPermissionsArrayOutput) Index(i pulumi.IntInput) DomainPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainPermissions {
 		return vs[0].([]*DomainPermissions)[vs[1].(int)]
@@ -333,6 +366,12 @@ func (o DomainPermissionsMapOutput) ToDomainPermissionsMapOutput() DomainPermiss
 
 func (o DomainPermissionsMapOutput) ToDomainPermissionsMapOutputWithContext(ctx context.Context) DomainPermissionsMapOutput {
 	return o
+}
+
+func (o DomainPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainPermissions] {
+	return pulumix.Output[map[string]*DomainPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainPermissionsMapOutput) MapIndex(k pulumi.StringInput) DomainPermissionsOutput {

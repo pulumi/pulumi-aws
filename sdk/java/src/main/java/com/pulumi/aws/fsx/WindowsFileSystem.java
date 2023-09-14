@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.WindowsFileSystemArgs;
 import com.pulumi.aws.fsx.inputs.WindowsFileSystemState;
 import com.pulumi.aws.fsx.outputs.WindowsFileSystemAuditLogConfiguration;
+import com.pulumi.aws.fsx.outputs.WindowsFileSystemDiskIopsConfiguration;
 import com.pulumi.aws.fsx.outputs.WindowsFileSystemSelfManagedActiveDirectory;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -107,25 +108,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * FSx File Systems can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import FSx File Systems using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
  * ```
- * 
- *  Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the provider configuration on an imported resource, the povider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource &#34;aws_fsx_windows_file_system&#34; &#34;example&#34; {
- * 
- * # ... other configuration ...
- * 
- *  security_group_ids = [aws_security_group.example.id]
- * 
- * # There is no FSx API for reading security_group_ids
- * 
- *  lifecycle {
- * 
- *  ignore_changes = [security_group_ids]
- * 
- *  } }
+ *  Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:fsx/windowsFileSystem:WindowsFileSystem")
@@ -173,14 +161,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      * 
      */
     @Export(name="auditLogConfiguration", refs={WindowsFileSystemAuditLogConfiguration.class}, tree="[0]")
     private Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration;
 
     /**
-     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      * 
      */
     public Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration() {
@@ -255,6 +243,20 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> deploymentType() {
         return Codegen.optional(this.deploymentType);
+    }
+    /**
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * 
+     */
+    @Export(name="diskIopsConfiguration", refs={WindowsFileSystemDiskIopsConfiguration.class}, tree="[0]")
+    private Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
+
+    /**
+     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * 
+     */
+    public Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
+        return this.diskIopsConfiguration;
     }
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
@@ -369,14 +371,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
      * 
      */
     @Export(name="selfManagedActiveDirectory", refs={WindowsFileSystemSelfManagedActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ WindowsFileSystemSelfManagedActiveDirectory> selfManagedActiveDirectory;
 
     /**
-     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
+     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
      * 
      */
     public Output<Optional<WindowsFileSystemSelfManagedActiveDirectory>> selfManagedActiveDirectory() {
@@ -469,12 +471,16 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughputCapacity;
 
     /**
      * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> throughputCapacity() {

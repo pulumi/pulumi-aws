@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RoleAssociation(&#34;example&#34;, RoleAssociationArgs.builder()        
- *             .dbInstanceIdentifier(aws_db_instance.example().id())
+ *             .dbInstanceIdentifier(aws_db_instance.example().identifier())
  *             .featureName(&#34;S3_INTEGRATION&#34;)
  *             .roleArn(aws_iam_role.example().arn())
  *             .build());
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+ * Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role

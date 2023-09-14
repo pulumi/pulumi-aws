@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
+ * Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
  *
  * ```sh
  *  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
@@ -73,7 +73,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
-     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+     * No longer supported by the AWS API.
+     * Always returns `auto`.
+     *
+     * @deprecated This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
     public readonly aquaConfigurationStatus!: pulumi.Output<string>;
     /**
@@ -97,6 +101,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     */
+    public /*out*/ readonly clusterNamespaceArn!: pulumi.Output<string>;
+    /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */
     public /*out*/ readonly clusterNodes!: pulumi.Output<outputs.redshift.ClusterClusterNode[]>;
@@ -112,12 +120,6 @@ export class Cluster extends pulumi.CustomResource {
      * The specific revision number of the database in the cluster
      */
     public readonly clusterRevisionNumber!: pulumi.Output<string>;
-    /**
-     * A list of security groups to be associated with this cluster.
-     *
-     * @deprecated With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly clusterSecurityGroups!: pulumi.Output<string[]>;
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */
@@ -272,11 +274,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["availabilityZoneRelocationEnabled"] = state ? state.availabilityZoneRelocationEnabled : undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["clusterNamespaceArn"] = state ? state.clusterNamespaceArn : undefined;
             resourceInputs["clusterNodes"] = state ? state.clusterNodes : undefined;
             resourceInputs["clusterParameterGroupName"] = state ? state.clusterParameterGroupName : undefined;
             resourceInputs["clusterPublicKey"] = state ? state.clusterPublicKey : undefined;
             resourceInputs["clusterRevisionNumber"] = state ? state.clusterRevisionNumber : undefined;
-            resourceInputs["clusterSecurityGroups"] = state ? state.clusterSecurityGroups : undefined;
             resourceInputs["clusterSubnetGroupName"] = state ? state.clusterSubnetGroupName : undefined;
             resourceInputs["clusterType"] = state ? state.clusterType : undefined;
             resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
@@ -326,7 +328,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
             resourceInputs["clusterPublicKey"] = args ? args.clusterPublicKey : undefined;
             resourceInputs["clusterRevisionNumber"] = args ? args.clusterRevisionNumber : undefined;
-            resourceInputs["clusterSecurityGroups"] = args ? args.clusterSecurityGroups : undefined;
             resourceInputs["clusterSubnetGroupName"] = args ? args.clusterSubnetGroupName : undefined;
             resourceInputs["clusterType"] = args ? args.clusterType : undefined;
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
@@ -357,6 +358,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["clusterNodes"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -381,7 +383,11 @@ export interface ClusterState {
      */
     applyImmediately?: pulumi.Input<boolean>;
     /**
-     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+     * No longer supported by the AWS API.
+     * Always returns `auto`.
+     *
+     * @deprecated This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
     aquaConfigurationStatus?: pulumi.Input<string>;
     /**
@@ -405,6 +411,10 @@ export interface ClusterState {
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     */
+    clusterNamespaceArn?: pulumi.Input<string>;
+    /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */
     clusterNodes?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterClusterNode>[]>;
@@ -420,12 +430,6 @@ export interface ClusterState {
      * The specific revision number of the database in the cluster
      */
     clusterRevisionNumber?: pulumi.Input<string>;
-    /**
-     * A list of security groups to be associated with this cluster.
-     *
-     * @deprecated With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    clusterSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */
@@ -573,7 +577,11 @@ export interface ClusterArgs {
      */
     applyImmediately?: pulumi.Input<boolean>;
     /**
-     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+     * No longer supported by the AWS API.
+     * Always returns `auto`.
+     *
+     * @deprecated This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
     aquaConfigurationStatus?: pulumi.Input<string>;
     /**
@@ -604,12 +612,6 @@ export interface ClusterArgs {
      * The specific revision number of the database in the cluster
      */
     clusterRevisionNumber?: pulumi.Input<string>;
-    /**
-     * A list of security groups to be associated with this cluster.
-     *
-     * @deprecated With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    clusterSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */

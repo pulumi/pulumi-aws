@@ -180,16 +180,20 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      * 
+     * The following arguments are optional:
+     * 
      */
-    @Import(name="physicalTableMaps", required=true)
-    private Output<List<DataSetPhysicalTableMapArgs>> physicalTableMaps;
+    @Import(name="physicalTableMaps")
+    private @Nullable Output<List<DataSetPhysicalTableMapArgs>> physicalTableMaps;
 
     /**
      * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      * 
+     * The following arguments are optional:
+     * 
      */
-    public Output<List<DataSetPhysicalTableMapArgs>> physicalTableMaps() {
-        return this.physicalTableMaps;
+    public Optional<Output<List<DataSetPhysicalTableMapArgs>>> physicalTableMaps() {
+        return Optional.ofNullable(this.physicalTableMaps);
     }
 
     /**
@@ -553,16 +557,20 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
-        public Builder physicalTableMaps(Output<List<DataSetPhysicalTableMapArgs>> physicalTableMaps) {
+        public Builder physicalTableMaps(@Nullable Output<List<DataSetPhysicalTableMapArgs>> physicalTableMaps) {
             $.physicalTableMaps = physicalTableMaps;
             return this;
         }
 
         /**
          * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -573,6 +581,8 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -668,7 +678,6 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         public DataSetArgs build() {
             $.dataSetId = Objects.requireNonNull($.dataSetId, "expected parameter 'dataSetId' to be non-null");
             $.importMode = Objects.requireNonNull($.importMode, "expected parameter 'importMode' to be non-null");
-            $.physicalTableMaps = Objects.requireNonNull($.physicalTableMaps, "expected parameter 'physicalTableMaps' to be non-null");
             return $;
         }
     }

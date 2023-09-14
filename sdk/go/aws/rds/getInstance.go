@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an RDS instance
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -27,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.LookupInstance(ctx, &rds.LookupInstanceArgs{
-//				DbInstanceIdentifier: "my-test-database",
+//				DbInstanceIdentifier: pulumi.StringRef("my-test-database"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceResult
 	err := ctx.Invoke("aws:rds/getInstance:getInstance", args, &rv, opts...)
 	if err != nil {
@@ -48,9 +51,10 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 
 // A collection of arguments for invoking getInstance.
 type LookupInstanceArgs struct {
-	// Name of the RDS instance
-	DbInstanceIdentifier string            `pulumi:"dbInstanceIdentifier"`
-	Tags                 map[string]string `pulumi:"tags"`
+	// Name of the RDS instance.
+	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
+	// Map of tags, each pair of which must exactly match a pair on the desired instance.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
@@ -80,10 +84,6 @@ type LookupInstanceResult struct {
 	DbName string `pulumi:"dbName"`
 	// Provides the list of DB parameter groups applied to this DB instance.
 	DbParameterGroups []string `pulumi:"dbParameterGroups"`
-	// Provides List of DB security groups associated to this DB instance.
-	//
-	// Deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-	DbSecurityGroups []string `pulumi:"dbSecurityGroups"`
 	// Name of the subnet group associated with the DB instance.
 	DbSubnetGroup string `pulumi:"dbSubnetGroup"`
 	// List of log types to export to cloudwatch.
@@ -108,6 +108,8 @@ type LookupInstanceResult struct {
 	MasterUserSecrets []GetInstanceMasterUserSecret `pulumi:"masterUserSecrets"`
 	// Contains the master username for the DB instance.
 	MasterUsername string `pulumi:"masterUsername"`
+	// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+	MaxAllocatedStorage int `pulumi:"maxAllocatedStorage"`
 	// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	MonitoringInterval int `pulumi:"monitoringInterval"`
 	// ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
@@ -118,7 +120,7 @@ type LookupInstanceResult struct {
 	NetworkType string `pulumi:"networkType"`
 	// Provides the list of option group memberships for this DB instance.
 	OptionGroupMemberships []string `pulumi:"optionGroupMemberships"`
-	// Database port.
+	// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
 	Port int `pulumi:"port"`
 	// Specifies the daily time range during which automated backups are created.
 	PreferredBackupWindow string `pulumi:"preferredBackupWindow"`
@@ -158,9 +160,10 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 
 // A collection of arguments for invoking getInstance.
 type LookupInstanceOutputArgs struct {
-	// Name of the RDS instance
-	DbInstanceIdentifier pulumi.StringInput    `pulumi:"dbInstanceIdentifier"`
-	Tags                 pulumi.StringMapInput `pulumi:"tags"`
+	// Name of the RDS instance.
+	DbInstanceIdentifier pulumi.StringPtrInput `pulumi:"dbInstanceIdentifier"`
+	// Map of tags, each pair of which must exactly match a pair on the desired instance.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupInstanceOutputArgs) ElementType() reflect.Type {
@@ -180,6 +183,12 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutput() LookupInstanc
 
 func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx context.Context) LookupInstanceResultOutput {
 	return o
+}
+
+func (o LookupInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceResult] {
+	return pulumix.Output[LookupInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Hostname of the RDS instance. See also `endpoint` and `port`.
@@ -246,13 +255,6 @@ func (o LookupInstanceResultOutput) DbParameterGroups() pulumi.StringArrayOutput
 	return o.ApplyT(func(v LookupInstanceResult) []string { return v.DbParameterGroups }).(pulumi.StringArrayOutput)
 }
 
-// Provides List of DB security groups associated to this DB instance.
-//
-// Deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-func (o LookupInstanceResultOutput) DbSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupInstanceResult) []string { return v.DbSecurityGroups }).(pulumi.StringArrayOutput)
-}
-
 // Name of the subnet group associated with the DB instance.
 func (o LookupInstanceResultOutput) DbSubnetGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbSubnetGroup }).(pulumi.StringOutput)
@@ -313,6 +315,11 @@ func (o LookupInstanceResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.MasterUsername }).(pulumi.StringOutput)
 }
 
+// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+func (o LookupInstanceResultOutput) MaxAllocatedStorage() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.MaxAllocatedStorage }).(pulumi.IntOutput)
+}
+
 // Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 func (o LookupInstanceResultOutput) MonitoringInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.MonitoringInterval }).(pulumi.IntOutput)
@@ -338,7 +345,7 @@ func (o LookupInstanceResultOutput) OptionGroupMemberships() pulumi.StringArrayO
 	return o.ApplyT(func(v LookupInstanceResult) []string { return v.OptionGroupMemberships }).(pulumi.StringArrayOutput)
 }
 
-// Database port.
+// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
 func (o LookupInstanceResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.Port }).(pulumi.IntOutput)
 }

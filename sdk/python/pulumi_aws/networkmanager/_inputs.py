@@ -76,6 +76,8 @@ class ConnectPeerConfigurationArgs:
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
         :param pulumi.Input[str] peer_address: The Connect peer address.
+               
+               The following arguments are optional:
         """
         if bgp_configurations is not None:
             pulumi.set(__self__, "bgp_configurations", bgp_configurations)
@@ -126,6 +128,8 @@ class ConnectPeerConfigurationArgs:
     def peer_address(self) -> Optional[pulumi.Input[str]]:
         """
         The Connect peer address.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "peer_address")
 
@@ -153,6 +157,8 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
         """
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[str] peer_address: The Connect peer address.
+               
+               The following arguments are optional:
         """
         if core_network_address is not None:
             pulumi.set(__self__, "core_network_address", core_network_address)
@@ -189,6 +195,8 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
     def peer_address(self) -> Optional[pulumi.Input[str]]:
         """
         The Connect peer address.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "peer_address")
 

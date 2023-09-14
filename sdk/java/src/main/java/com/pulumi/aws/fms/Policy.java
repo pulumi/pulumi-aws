@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
  * 
+ * &gt; **NOTE:** Due to limitations with testing, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -83,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Firewall Manager policies can be imported using the policy ID, e.g.,
+ * Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a

@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Grafana Workspace can be imported using the workspace's `id`, e.g.,
+ * Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
@@ -101,7 +101,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      */
     public readonly grafanaVersion!: pulumi.Output<string>;
     /**
@@ -126,6 +126,8 @@ export class Workspace extends pulumi.CustomResource {
     public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     *
+     * The following arguments are optional:
      */
     public readonly permissionType!: pulumi.Output<string>;
     /**
@@ -253,7 +255,7 @@ export interface WorkspaceState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      */
     grafanaVersion?: pulumi.Input<string>;
     /**
@@ -278,6 +280,8 @@ export interface WorkspaceState {
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     *
+     * The following arguments are optional:
      */
     permissionType?: pulumi.Input<string>;
     /**
@@ -328,7 +332,7 @@ export interface WorkspaceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      */
     grafanaVersion?: pulumi.Input<string>;
     /**
@@ -353,6 +357,8 @@ export interface WorkspaceArgs {
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     *
+     * The following arguments are optional:
      */
     permissionType: pulumi.Input<string>;
     /**

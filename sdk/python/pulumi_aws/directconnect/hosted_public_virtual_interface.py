@@ -426,7 +426,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
+        Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
 
         ```sh
          $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
@@ -476,7 +476,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
+        Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
 
         ```sh
          $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd

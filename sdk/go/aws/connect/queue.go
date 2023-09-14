@@ -8,13 +8,13 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Queue resource. For more information see
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// > **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
 //
 // ## Example Usage
 // ### Basic
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -118,7 +118,7 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -146,8 +146,6 @@ type Queue struct {
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds pulumi.StringArrayOutput `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -169,6 +167,7 @@ func NewQueue(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:connect/queue:Queue", name, args, &resource, opts...)
 	if err != nil {
@@ -209,8 +208,6 @@ type queueState struct {
 	QueueId *string `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds []string `pulumi:"quickConnectIds"`
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds []string `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -238,8 +235,6 @@ type QueueState struct {
 	QueueId pulumi.StringPtrInput
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayInput
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds pulumi.StringArrayInput
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -318,6 +313,12 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
+func (i *Queue) ToOutput(ctx context.Context) pulumix.Output[*Queue] {
+	return pulumix.Output[*Queue]{
+		OutputState: i.ToQueueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
 // You can construct a concrete instance of `QueueArrayInput` via:
 //
@@ -341,6 +342,12 @@ func (i QueueArray) ToQueueArrayOutput() QueueArrayOutput {
 
 func (i QueueArray) ToQueueArrayOutputWithContext(ctx context.Context) QueueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueArrayOutput)
+}
+
+func (i QueueArray) ToOutput(ctx context.Context) pulumix.Output[[]*Queue] {
+	return pulumix.Output[[]*Queue]{
+		OutputState: i.ToQueueArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // QueueMapInput is an input type that accepts QueueMap and QueueMapOutput values.
@@ -368,6 +375,12 @@ func (i QueueMap) ToQueueMapOutputWithContext(ctx context.Context) QueueMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(QueueMapOutput)
 }
 
+func (i QueueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Queue] {
+	return pulumix.Output[map[string]*Queue]{
+		OutputState: i.ToQueueMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueueOutput struct{ *pulumi.OutputState }
 
 func (QueueOutput) ElementType() reflect.Type {
@@ -380,6 +393,12 @@ func (o QueueOutput) ToQueueOutput() QueueOutput {
 
 func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
+}
+
+func (o QueueOutput) ToOutput(ctx context.Context) pulumix.Output[*Queue] {
+	return pulumix.Output[*Queue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Queue.
@@ -427,11 +446,6 @@ func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIds }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: Use the quick_connect_ids instead
-func (o QueueOutput) QuickConnectIdsAssociateds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIdsAssociateds }).(pulumi.StringArrayOutput)
-}
-
 // Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 func (o QueueOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
@@ -461,6 +475,12 @@ func (o QueueArrayOutput) ToQueueArrayOutputWithContext(ctx context.Context) Que
 	return o
 }
 
+func (o QueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Queue] {
+	return pulumix.Output[[]*Queue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QueueArrayOutput) Index(i pulumi.IntInput) QueueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Queue {
 		return vs[0].([]*Queue)[vs[1].(int)]
@@ -479,6 +499,12 @@ func (o QueueMapOutput) ToQueueMapOutput() QueueMapOutput {
 
 func (o QueueMapOutput) ToQueueMapOutputWithContext(ctx context.Context) QueueMapOutput {
 	return o
+}
+
+func (o QueueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Queue] {
+	return pulumix.Output[map[string]*Queue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueMapOutput) MapIndex(k pulumi.StringInput) QueueOutput {

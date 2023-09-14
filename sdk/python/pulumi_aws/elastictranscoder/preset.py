@@ -438,7 +438,7 @@ class Preset(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Transcoder presets can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
 
         ```sh
          $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
@@ -528,7 +528,7 @@ class Preset(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Transcoder presets can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
 
         ```sh
          $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b

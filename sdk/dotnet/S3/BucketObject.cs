@@ -155,16 +155,21 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+    /// Import using the `id`, which is the bucket name and the key together:
+    /// 
+    /// Import using S3 URL syntax:
+    /// 
+    /// __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
+    /// 
+    /// Import using the `id`, which is the bucket name and the key together:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
+    ///  $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
     /// ```
-    /// 
-    ///  Additionally, s3 url syntax can be used, e.g.,
+    ///  Import using S3 URL syntax:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
+    ///  $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObject:BucketObject")]
@@ -244,6 +249,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name of the object once it is in the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -322,6 +329,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        /// 
+        /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         /// </summary>
         [Output("websiteRedirect")]
         public Output<string?> WebsiteRedirect { get; private set; } = null!;
@@ -446,6 +455,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name of the object once it is in the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -524,6 +535,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        /// 
+        /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         /// </summary>
         [Input("websiteRedirect")]
         public Input<string>? WebsiteRedirect { get; set; }
@@ -610,6 +623,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name of the object once it is in the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -706,6 +721,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        /// 
+        /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         /// </summary>
         [Input("websiteRedirect")]
         public Input<string>? WebsiteRedirect { get; set; }

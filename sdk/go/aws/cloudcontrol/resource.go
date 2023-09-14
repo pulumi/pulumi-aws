@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
@@ -22,7 +24,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudcontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudcontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +68,8 @@ type Resource struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringOutput `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrOutput `pulumi:"typeVersionId"`
@@ -91,6 +95,7 @@ func NewResource(ctx *pulumi.Context,
 		"schema",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resource
 	err := ctx.RegisterResource("aws:cloudcontrol/resource:Resource", name, args, &resource, opts...)
 	if err != nil {
@@ -122,6 +127,8 @@ type resourceState struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName *string `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -137,6 +144,8 @@ type ResourceState struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringPtrInput
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrInput
@@ -154,6 +163,8 @@ type resourceArgs struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName string `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -168,6 +179,8 @@ type ResourceArgs struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringInput
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrInput
@@ -196,6 +209,12 @@ func (i *Resource) ToResourceOutputWithContext(ctx context.Context) ResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceOutput)
 }
 
+func (i *Resource) ToOutput(ctx context.Context) pulumix.Output[*Resource] {
+	return pulumix.Output[*Resource]{
+		OutputState: i.ToResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceArrayInput is an input type that accepts ResourceArray and ResourceArrayOutput values.
 // You can construct a concrete instance of `ResourceArrayInput` via:
 //
@@ -219,6 +238,12 @@ func (i ResourceArray) ToResourceArrayOutput() ResourceArrayOutput {
 
 func (i ResourceArray) ToResourceArrayOutputWithContext(ctx context.Context) ResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceArrayOutput)
+}
+
+func (i ResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Resource] {
+	return pulumix.Output[[]*Resource]{
+		OutputState: i.ToResourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceMapInput is an input type that accepts ResourceMap and ResourceMapOutput values.
@@ -246,6 +271,12 @@ func (i ResourceMap) ToResourceMapOutputWithContext(ctx context.Context) Resourc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMapOutput)
 }
 
+func (i ResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resource] {
+	return pulumix.Output[map[string]*Resource]{
+		OutputState: i.ToResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceOutput) ElementType() reflect.Type {
@@ -258,6 +289,12 @@ func (o ResourceOutput) ToResourceOutput() ResourceOutput {
 
 func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) ResourceOutput {
 	return o
+}
+
+func (o ResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*Resource] {
+	return pulumix.Output[*Resource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // JSON string matching the CloudFormation resource type schema with desired configuration.
@@ -281,6 +318,8 @@ func (o ResourceOutput) Schema() pulumi.StringOutput {
 }
 
 // CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+//
+// The following arguments are optional:
 func (o ResourceOutput) TypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.TypeName }).(pulumi.StringOutput)
 }
@@ -304,6 +343,12 @@ func (o ResourceArrayOutput) ToResourceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Resource] {
+	return pulumix.Output[[]*Resource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceArrayOutput) Index(i pulumi.IntInput) ResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Resource {
 		return vs[0].([]*Resource)[vs[1].(int)]
@@ -322,6 +367,12 @@ func (o ResourceMapOutput) ToResourceMapOutput() ResourceMapOutput {
 
 func (o ResourceMapOutput) ToResourceMapOutputWithContext(ctx context.Context) ResourceMapOutput {
 	return o
+}
+
+func (o ResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resource] {
+	return pulumix.Output[map[string]*Resource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceMapOutput) MapIndex(k pulumi.StringInput) ResourceOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 record resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -115,8 +117,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -168,7 +170,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -211,7 +213,13 @@ import (
 //
 // ## Import
 //
-// Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
+// Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
+//
+// If the record also contains a set identifier, append it:
+//
+// __Using `pulumi import` to import__ Route53 Records using the ID of the record, record name, record type, and set identifier. For example:
+//
+// Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
 //
 // ```sh
 //
@@ -219,7 +227,7 @@ import (
 //
 // ```
 //
-//	If the record also contains a set identifier, it should be appended
+//	If the record also contains a set identifier, append it:
 //
 // ```sh
 //
@@ -233,6 +241,8 @@ type Record struct {
 	// Documented below.
 	Aliases RecordAliasArrayOutput `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolOutput `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrOutput `pulumi:"cidrRoutingPolicy"`
@@ -280,6 +290,7 @@ func NewRecord(ctx *pulumi.Context,
 	if args.ZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Record
 	err := ctx.RegisterResource("aws:route53/record:Record", name, args, &resource, opts...)
 	if err != nil {
@@ -306,6 +317,8 @@ type recordState struct {
 	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
@@ -342,6 +355,8 @@ type RecordState struct {
 	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolPtrInput
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
@@ -382,6 +397,8 @@ type recordArgs struct {
 	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
@@ -417,6 +434,8 @@ type RecordArgs struct {
 	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolPtrInput
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
@@ -469,6 +488,12 @@ func (i *Record) ToRecordOutputWithContext(ctx context.Context) RecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecordOutput)
 }
 
+func (i *Record) ToOutput(ctx context.Context) pulumix.Output[*Record] {
+	return pulumix.Output[*Record]{
+		OutputState: i.ToRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecordArrayInput is an input type that accepts RecordArray and RecordArrayOutput values.
 // You can construct a concrete instance of `RecordArrayInput` via:
 //
@@ -492,6 +517,12 @@ func (i RecordArray) ToRecordArrayOutput() RecordArrayOutput {
 
 func (i RecordArray) ToRecordArrayOutputWithContext(ctx context.Context) RecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecordArrayOutput)
+}
+
+func (i RecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*Record] {
+	return pulumix.Output[[]*Record]{
+		OutputState: i.ToRecordArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RecordMapInput is an input type that accepts RecordMap and RecordMapOutput values.
@@ -519,6 +550,12 @@ func (i RecordMap) ToRecordMapOutputWithContext(ctx context.Context) RecordMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordMapOutput)
 }
 
+func (i RecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Record] {
+	return pulumix.Output[map[string]*Record]{
+		OutputState: i.ToRecordMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordOutput struct{ *pulumi.OutputState }
 
 func (RecordOutput) ElementType() reflect.Type {
@@ -533,6 +570,12 @@ func (o RecordOutput) ToRecordOutputWithContext(ctx context.Context) RecordOutpu
 	return o
 }
 
+func (o RecordOutput) ToOutput(ctx context.Context) pulumix.Output[*Record] {
+	return pulumix.Output[*Record]{
+		OutputState: o.OutputState,
+	}
+}
+
 // An alias block. Conflicts with `ttl` & `records`.
 // Documented below.
 func (o RecordOutput) Aliases() RecordAliasArrayOutput {
@@ -540,6 +583,8 @@ func (o RecordOutput) Aliases() RecordAliasArrayOutput {
 }
 
 // Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+//
+// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 func (o RecordOutput) AllowOverwrite() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Record) pulumi.BoolOutput { return v.AllowOverwrite }).(pulumi.BoolOutput)
 }
@@ -628,6 +673,12 @@ func (o RecordArrayOutput) ToRecordArrayOutputWithContext(ctx context.Context) R
 	return o
 }
 
+func (o RecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Record] {
+	return pulumix.Output[[]*Record]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecordArrayOutput) Index(i pulumi.IntInput) RecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Record {
 		return vs[0].([]*Record)[vs[1].(int)]
@@ -646,6 +697,12 @@ func (o RecordMapOutput) ToRecordMapOutput() RecordMapOutput {
 
 func (o RecordMapOutput) ToRecordMapOutputWithContext(ctx context.Context) RecordMapOutput {
 	return o
+}
+
+func (o RecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Record] {
+	return pulumix.Output[map[string]*Record]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordMapOutput) MapIndex(k pulumi.StringInput) RecordOutput {

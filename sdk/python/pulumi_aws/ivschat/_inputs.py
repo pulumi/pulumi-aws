@@ -122,6 +122,8 @@ class LoggingConfigurationDestinationConfigurationS3Args:
                  bucket_name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket where chat activity will be logged.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
@@ -130,6 +132,8 @@ class LoggingConfigurationDestinationConfigurationS3Args:
     def bucket_name(self) -> pulumi.Input[str]:
         """
         Name of the Amazon S3 bucket where chat activity will be logged.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "bucket_name")
 

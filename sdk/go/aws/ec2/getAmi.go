@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ID of a registered AMI for use in other
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +68,7 @@ import (
 //
 // ```
 func LookupAmi(ctx *pulumi.Context, args *LookupAmiArgs, opts ...pulumi.InvokeOption) (*LookupAmiResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAmiResult
 	err := ctx.Invoke("aws:ec2/getAmi:getAmi", args, &rv, opts...)
 	if err != nil {
@@ -93,6 +96,11 @@ type LookupAmiArgs struct {
 	// filtering is done locally on what AWS returns, and could have a performance
 	// impact if the result is large. Combine this with other
 	// options to narrow down the list AWS returns.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single AMI ID only, or use `mostRecent` to choose the most recent one. If
+	// you want to match multiple AMIs, use the `ec2.getAmiIds` data source instead.
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
@@ -223,6 +231,11 @@ type LookupAmiOutputArgs struct {
 	// filtering is done locally on what AWS returns, and could have a performance
 	// impact if the result is large. Combine this with other
 	// options to narrow down the list AWS returns.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single AMI ID only, or use `mostRecent` to choose the most recent one. If
+	// you want to match multiple AMIs, use the `ec2.getAmiIds` data source instead.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
@@ -249,6 +262,12 @@ func (o LookupAmiResultOutput) ToLookupAmiResultOutput() LookupAmiResultOutput {
 
 func (o LookupAmiResultOutput) ToLookupAmiResultOutputWithContext(ctx context.Context) LookupAmiResultOutput {
 	return o
+}
+
+func (o LookupAmiResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAmiResult] {
+	return pulumix.Output[LookupAmiResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // OS architecture of the AMI (ie: `i386` or `x8664`).

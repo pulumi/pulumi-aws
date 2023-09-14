@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AppConfig Extensions can be imported using their extension ID, e.g.,
+ * Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:appconfig/extension:Extension example 71rxuzt

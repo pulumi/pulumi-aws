@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch;
 
+import com.pulumi.aws.cloudwatch.inputs.InternetMonitorHealthEventsConfigArgs;
 import com.pulumi.aws.cloudwatch.inputs.InternetMonitorInternetMeasurementsLogDeliveryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InternetMonitorArgs Empty = new InternetMonitorArgs();
+
+    /**
+     * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+     * 
+     */
+    @Import(name="healthEventsConfig")
+    private @Nullable Output<InternetMonitorHealthEventsConfigArgs> healthEventsConfig;
+
+    /**
+     * @return Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+     * 
+     */
+    public Optional<Output<InternetMonitorHealthEventsConfigArgs>> healthEventsConfig() {
+        return Optional.ofNullable(this.healthEventsConfig);
+    }
 
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
@@ -52,12 +68,16 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The name of the monitor.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="monitorName", required=true)
     private Output<String> monitorName;
 
     /**
      * @return The name of the monitor.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> monitorName() {
@@ -127,6 +147,7 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
     private InternetMonitorArgs() {}
 
     private InternetMonitorArgs(InternetMonitorArgs $) {
+        this.healthEventsConfig = $.healthEventsConfig;
         this.internetMeasurementsLogDelivery = $.internetMeasurementsLogDelivery;
         this.maxCityNetworksToMonitor = $.maxCityNetworksToMonitor;
         this.monitorName = $.monitorName;
@@ -152,6 +173,27 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(InternetMonitorArgs defaults) {
             $ = new InternetMonitorArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param healthEventsConfig Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder healthEventsConfig(@Nullable Output<InternetMonitorHealthEventsConfigArgs> healthEventsConfig) {
+            $.healthEventsConfig = healthEventsConfig;
+            return this;
+        }
+
+        /**
+         * @param healthEventsConfig Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder healthEventsConfig(InternetMonitorHealthEventsConfigArgs healthEventsConfig) {
+            return healthEventsConfig(Output.of(healthEventsConfig));
         }
 
         /**
@@ -199,6 +241,8 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param monitorName The name of the monitor.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -209,6 +253,8 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param monitorName The name of the monitor.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

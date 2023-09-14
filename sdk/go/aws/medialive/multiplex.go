@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS MediaLive Multiplex.
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +64,7 @@ import (
 //
 // ## Import
 //
-// MediaLive Multiplex can be imported using the `id`, e.g.,
+// Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 //
 // ```sh
 //
@@ -79,6 +81,8 @@ type Multiplex struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrOutput `pulumi:"multiplexSettings"`
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrOutput `pulumi:"startMultiplex"`
@@ -97,6 +101,7 @@ func NewMultiplex(ctx *pulumi.Context,
 	if args.AvailabilityZones == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZones'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Multiplex
 	err := ctx.RegisterResource("aws:medialive/multiplex:Multiplex", name, args, &resource, opts...)
 	if err != nil {
@@ -126,6 +131,8 @@ type multiplexState struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings *MultiplexMultiplexSettings `pulumi:"multiplexSettings"`
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
@@ -142,6 +149,8 @@ type MultiplexState struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrInput
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
@@ -160,6 +169,8 @@ type multiplexArgs struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings *MultiplexMultiplexSettings `pulumi:"multiplexSettings"`
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
@@ -174,6 +185,8 @@ type MultiplexArgs struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrInput
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
@@ -204,6 +217,12 @@ func (i *Multiplex) ToMultiplexOutputWithContext(ctx context.Context) MultiplexO
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexOutput)
 }
 
+func (i *Multiplex) ToOutput(ctx context.Context) pulumix.Output[*Multiplex] {
+	return pulumix.Output[*Multiplex]{
+		OutputState: i.ToMultiplexOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MultiplexArrayInput is an input type that accepts MultiplexArray and MultiplexArrayOutput values.
 // You can construct a concrete instance of `MultiplexArrayInput` via:
 //
@@ -227,6 +246,12 @@ func (i MultiplexArray) ToMultiplexArrayOutput() MultiplexArrayOutput {
 
 func (i MultiplexArray) ToMultiplexArrayOutputWithContext(ctx context.Context) MultiplexArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexArrayOutput)
+}
+
+func (i MultiplexArray) ToOutput(ctx context.Context) pulumix.Output[[]*Multiplex] {
+	return pulumix.Output[[]*Multiplex]{
+		OutputState: i.ToMultiplexArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MultiplexMapInput is an input type that accepts MultiplexMap and MultiplexMapOutput values.
@@ -254,6 +279,12 @@ func (i MultiplexMap) ToMultiplexMapOutputWithContext(ctx context.Context) Multi
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexMapOutput)
 }
 
+func (i MultiplexMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Multiplex] {
+	return pulumix.Output[map[string]*Multiplex]{
+		OutputState: i.ToMultiplexMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MultiplexOutput struct{ *pulumi.OutputState }
 
 func (MultiplexOutput) ElementType() reflect.Type {
@@ -266,6 +297,12 @@ func (o MultiplexOutput) ToMultiplexOutput() MultiplexOutput {
 
 func (o MultiplexOutput) ToMultiplexOutputWithContext(ctx context.Context) MultiplexOutput {
 	return o
+}
+
+func (o MultiplexOutput) ToOutput(ctx context.Context) pulumix.Output[*Multiplex] {
+	return pulumix.Output[*Multiplex]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Multiplex.
@@ -284,6 +321,8 @@ func (o MultiplexOutput) MultiplexSettings() MultiplexMultiplexSettingsPtrOutput
 }
 
 // name of Multiplex.
+//
+// The following arguments are optional:
 func (o MultiplexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -316,6 +355,12 @@ func (o MultiplexArrayOutput) ToMultiplexArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o MultiplexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Multiplex] {
+	return pulumix.Output[[]*Multiplex]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MultiplexArrayOutput) Index(i pulumi.IntInput) MultiplexOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Multiplex {
 		return vs[0].([]*Multiplex)[vs[1].(int)]
@@ -334,6 +379,12 @@ func (o MultiplexMapOutput) ToMultiplexMapOutput() MultiplexMapOutput {
 
 func (o MultiplexMapOutput) ToMultiplexMapOutputWithContext(ctx context.Context) MultiplexMapOutput {
 	return o
+}
+
+func (o MultiplexMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Multiplex] {
+	return pulumix.Output[map[string]*Multiplex]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MultiplexMapOutput) MapIndex(k pulumi.StringInput) MultiplexOutput {

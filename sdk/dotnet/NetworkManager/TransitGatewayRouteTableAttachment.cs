@@ -33,7 +33,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// `aws_networkmanager_transit_gateway_route_table_attachment` can be imported using the attachment ID, e.g.
+    /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8

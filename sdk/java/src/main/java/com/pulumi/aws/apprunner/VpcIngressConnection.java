@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Runner VPC Ingress Connection can be imported by using the `arn`, e.g.,
+ * Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example &#34;arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa&#34;

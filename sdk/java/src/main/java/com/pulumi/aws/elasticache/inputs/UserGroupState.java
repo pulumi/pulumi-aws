@@ -80,12 +80,16 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the user group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userGroupId")
     private @Nullable Output<String> userGroupId;
 
     /**
      * @return The ID of the user group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> userGroupId() {
@@ -223,6 +227,8 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userGroupId The ID of the user group.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -233,6 +239,8 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userGroupId The ID of the user group.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

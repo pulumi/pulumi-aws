@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  *                     .type(&#34;*&#34;)
  *                     .identifiers(&#34;*&#34;)
  *                     .build())
- *                 .actions(&#34;codeartifact:CreateRepository&#34;)
- *                 .resources(exampleDomain.arn())
+ *                 .actions(&#34;codeartifact:ReadFromRepository&#34;)
+ *                 .resources(exampleRepository.arn())
  *                 .build())
  *             .build());
  * 
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.,
+ * Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763

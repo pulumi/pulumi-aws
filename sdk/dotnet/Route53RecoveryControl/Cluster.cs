@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.,
+    /// Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea

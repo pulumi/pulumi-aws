@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get an existing AWS Customer Gateway.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,6 +63,7 @@ import (
 //
 // ```
 func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs, opts ...pulumi.InvokeOption) (*LookupCustomerGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomerGatewayResult
 	err := ctx.Invoke("aws:ec2/getCustomerGateway:getCustomerGateway", args, &rv, opts...)
 	if err != nil {
@@ -72,6 +75,8 @@ func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs,
 // A collection of arguments for invoking getCustomerGateway.
 type LookupCustomerGatewayArgs struct {
 	// One or more [name-value pairs][dcg-filters] to filter by.
+	//
+	// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
 	// ID of the gateway.
 	Id *string `pulumi:"id"`
@@ -115,6 +120,8 @@ func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGateway
 // A collection of arguments for invoking getCustomerGateway.
 type LookupCustomerGatewayOutputArgs struct {
 	// One or more [name-value pairs][dcg-filters] to filter by.
+	//
+	// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
 	Filters GetCustomerGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the gateway.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -139,6 +146,12 @@ func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutput()
 
 func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutputWithContext(ctx context.Context) LookupCustomerGatewayResultOutput {
 	return o
+}
+
+func (o LookupCustomerGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomerGatewayResult] {
+	return pulumix.Output[LookupCustomerGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the customer gateway.

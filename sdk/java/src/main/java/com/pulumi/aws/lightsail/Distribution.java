@@ -242,7 +242,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lightsail Distribution can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
@@ -296,12 +296,16 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     /**
      * An object that describes the cache behavior settings of the distribution. Detailed below
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="cacheBehaviorSettings", refs={DistributionCacheBehaviorSettings.class}, tree="[0]")
     private Output</* @Nullable */ DistributionCacheBehaviorSettings> cacheBehaviorSettings;
 
     /**
      * @return An object that describes the cache behavior settings of the distribution. Detailed below
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Optional<DistributionCacheBehaviorSettings>> cacheBehaviorSettings() {

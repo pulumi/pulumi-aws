@@ -112,7 +112,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MWAA Environment can be imported using `Name` e.g.,
+ * Using `pulumi import`, import MWAA Environment using `Name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment

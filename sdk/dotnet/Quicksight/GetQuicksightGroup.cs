@@ -85,6 +85,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// The name of the group that you want to match.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("groupName", required: true)]
         public string GroupName { get; set; } = null!;
@@ -111,6 +113,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// The name of the group that you want to match.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;

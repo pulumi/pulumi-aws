@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Hosts can be imported using the host `id`, e.g.,
+ * Using `pulumi import`, import hosts using the host `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
@@ -63,6 +63,10 @@ export class DedicatedHost extends pulumi.CustomResource {
      * The ARN of the Dedicated Host.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+     */
+    public readonly assetId!: pulumi.Output<string>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */
@@ -114,6 +118,7 @@ export class DedicatedHost extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assetId"] = state ? state.assetId : undefined;
             resourceInputs["autoPlacement"] = state ? state.autoPlacement : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["hostRecovery"] = state ? state.hostRecovery : undefined;
@@ -128,6 +133,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
+            resourceInputs["assetId"] = args ? args.assetId : undefined;
             resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
@@ -152,6 +158,10 @@ export interface DedicatedHostState {
      * The ARN of the Dedicated Host.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+     */
+    assetId?: pulumi.Input<string>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */
@@ -194,6 +204,10 @@ export interface DedicatedHostState {
  * The set of arguments for constructing a DedicatedHost resource.
  */
 export interface DedicatedHostArgs {
+    /**
+     * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+     */
+    assetId?: pulumi.Input<string>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */

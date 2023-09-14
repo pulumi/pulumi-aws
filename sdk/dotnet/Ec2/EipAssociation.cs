@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var example = new Aws.Ec2.Eip("example", new()
     ///     {
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///     });
     /// 
     ///     var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new()
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// EIP Assocations can be imported using their association ID.
+    /// Using `pulumi import`, import EIP Assocations using their association IDs. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345

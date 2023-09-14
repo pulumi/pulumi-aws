@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic MapReduce Cluster, a web service that makes it easy to process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/) for more information.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,30 +36,74 @@ import (
 //				Applications: pulumi.StringArray{
 //					pulumi.String("Spark"),
 //				},
-//				AdditionalInfo:              pulumi.String("{\n  \"instanceAwsClientConfiguration\": {\n    \"proxyPort\": 8099,\n    \"proxyHost\": \"myproxy.example.com\"\n  }\n}\n"),
-//				TerminationProtection:       pulumi.Bool(false),
-//				KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
-//				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//					SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
-//					EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
-//					EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
-//					InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
-//				},
-//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-//					InstanceType: pulumi.String("m4.large"),
-//				},
-//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
-//					InstanceType:  pulumi.String("c4.large"),
-//					InstanceCount: pulumi.Int(1),
-//					EbsConfigs: emr.ClusterCoreInstanceGroupEbsConfigArray{
-//						&emr.ClusterCoreInstanceGroupEbsConfigArgs{
-//							Size:               pulumi.Int(40),
-//							Type:               pulumi.String("gp2"),
-//							VolumesPerInstance: pulumi.Int(1),
-//						},
-//					},
-//					BidPrice:          pulumi.String("0.30"),
-//					AutoscalingPolicy: pulumi.String("{\n\"Constraints\": {\n  \"MinCapacity\": 1,\n  \"MaxCapacity\": 2\n},\n\"Rules\": [\n  {\n    \"Name\": \"ScaleOutMemoryPercentage\",\n    \"Description\": \"Scale out if YARNMemoryAvailablePercentage is less than 15\",\n    \"Action\": {\n      \"SimpleScalingPolicyConfiguration\": {\n        \"AdjustmentType\": \"CHANGE_IN_CAPACITY\",\n        \"ScalingAdjustment\": 1,\n        \"CoolDown\": 300\n      }\n    },\n    \"Trigger\": {\n      \"CloudWatchAlarmDefinition\": {\n        \"ComparisonOperator\": \"LESS_THAN\",\n        \"EvaluationPeriods\": 1,\n        \"MetricName\": \"YARNMemoryAvailablePercentage\",\n        \"Namespace\": \"AWS/ElasticMapReduce\",\n        \"Period\": 300,\n        \"Statistic\": \"AVERAGE\",\n        \"Threshold\": 15.0,\n        \"Unit\": \"PERCENT\"\n      }\n    }\n  }\n]\n}\n"),
+//				AdditionalInfo: pulumi.String(`{
+//	  "instanceAwsClientConfiguration": {
+//	    "proxyPort": 8099,
+//	    "proxyHost": "myproxy.example.com"
+//	  }
+//	}
+//
+// `),
+//
+//	TerminationProtection:       pulumi.Bool(false),
+//	KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
+//	Ec2Attributes: &emr.ClusterEc2AttributesArgs{
+//		SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
+//		EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
+//		EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
+//		InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
+//	},
+//	MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//		InstanceType: pulumi.String("m4.large"),
+//	},
+//	CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
+//		InstanceType:  pulumi.String("c4.large"),
+//		InstanceCount: pulumi.Int(1),
+//		EbsConfigs: emr.ClusterCoreInstanceGroupEbsConfigArray{
+//			&emr.ClusterCoreInstanceGroupEbsConfigArgs{
+//				Size:               pulumi.Int(40),
+//				Type:               pulumi.String("gp2"),
+//				VolumesPerInstance: pulumi.Int(1),
+//			},
+//		},
+//		BidPrice: pulumi.String("0.30"),
+//		AutoscalingPolicy: pulumi.String(`{
+//
+//	"Constraints": {
+//	  "MinCapacity": 1,
+//	  "MaxCapacity": 2
+//	},
+//
+// "Rules": [
+//
+//	{
+//	  "Name": "ScaleOutMemoryPercentage",
+//	  "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+//	  "Action": {
+//	    "SimpleScalingPolicyConfiguration": {
+//	      "AdjustmentType": "CHANGE_IN_CAPACITY",
+//	      "ScalingAdjustment": 1,
+//	      "CoolDown": 300
+//	    }
+//	  },
+//	  "Trigger": {
+//	    "CloudWatchAlarmDefinition": {
+//	      "ComparisonOperator": "LESS_THAN",
+//	      "EvaluationPeriods": 1,
+//	      "MetricName": "YARNMemoryAvailablePercentage",
+//	      "Namespace": "AWS/ElasticMapReduce",
+//	      "Period": 300,
+//	      "Statistic": "AVERAGE",
+//	      "Threshold": 15.0,
+//	      "Unit": "PERCENT"
+//	    }
+//	  }
+//	}
+//
+// ]
+// }
+// `),
+//
 //				},
 //				EbsRootVolumeSize: pulumi.Int(100),
 //				Tags: pulumi.StringMap{
@@ -74,8 +120,36 @@ import (
 //						},
 //					},
 //				},
-//				ConfigurationsJson: pulumi.String("  [\n    {\n      \"Classification\": \"hadoop-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    },\n    {\n      \"Classification\": \"spark-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    }\n  ]\n"),
-//				ServiceRole:        pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
+//				ConfigurationsJson: pulumi.String(`  [
+//	    {
+//	      "Classification": "hadoop-env",
+//	      "Configurations": [
+//	        {
+//	          "Classification": "export",
+//	          "Properties": {
+//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          }
+//	        }
+//	      ],
+//	      "Properties": {}
+//	    },
+//	    {
+//	      "Classification": "spark-env",
+//	      "Configurations": [
+//	        {
+//	          "Classification": "export",
+//	          "Properties": {
+//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          }
+//	        }
+//	      ],
+//	      "Properties": {}
+//	    }
+//	  ]
+//
+// `),
+//
+//				ServiceRole: pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -96,7 +170,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -227,7 +301,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -265,8 +339,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -301,7 +375,7 @@ import (
 //
 // ## Import
 //
-// EMR clusters can be imported using the `id`, e.g.,
+// Using `pulumi import`, import EMR clusters using the `id`. For example:
 //
 // ```sh
 //
@@ -309,17 +383,7 @@ import (
 //
 // ```
 //
-//	Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
-//
-// `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
-//
-// # ... other configuration ...
-//
-//	lifecycle {
-//
-//	ignore_changes = [kerberos_attributes]
-//
-//	} }
+//	Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -339,6 +403,44 @@ type Cluster struct {
 	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrOutput `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
+	//
+	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson pulumi.StringPtrOutput `pulumi:"configurationsJson"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet ClusterCoreInstanceFleetOutput `pulumi:"coreInstanceFleet"`
@@ -377,6 +479,8 @@ type Cluster struct {
 	// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+	//
+	// The following arguments are optional:
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
 	StepConcurrencyLevel pulumi.IntPtrOutput `pulumi:"stepConcurrencyLevel"`
@@ -405,6 +509,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ServiceRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRole'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:emr/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {
@@ -443,6 +548,44 @@ type clusterState struct {
 	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations *string `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
+	//
+	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet *ClusterCoreInstanceFleet `pulumi:"coreInstanceFleet"`
@@ -481,6 +624,8 @@ type clusterState struct {
 	// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+	//
+	// The following arguments are optional:
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
 	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
@@ -513,6 +658,44 @@ type ClusterState struct {
 	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrInput
 	// JSON string for supplying list of configurations for the EMR cluster.
+	//
+	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson pulumi.StringPtrInput
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet ClusterCoreInstanceFleetPtrInput
@@ -551,6 +734,8 @@ type ClusterState struct {
 	// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
 	SecurityConfiguration pulumi.StringPtrInput
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+	//
+	// The following arguments are optional:
 	ServiceRole pulumi.StringPtrInput
 	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
 	StepConcurrencyLevel pulumi.IntPtrInput
@@ -584,6 +769,44 @@ type clusterArgs struct {
 	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations *string `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
+	//
+	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet *ClusterCoreInstanceFleet `pulumi:"coreInstanceFleet"`
@@ -620,6 +843,8 @@ type clusterArgs struct {
 	// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+	//
+	// The following arguments are optional:
 	ServiceRole string `pulumi:"serviceRole"`
 	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
 	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
@@ -648,6 +873,44 @@ type ClusterArgs struct {
 	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrInput
 	// JSON string for supplying list of configurations for the EMR cluster.
+	//
+	// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson pulumi.StringPtrInput
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
 	CoreInstanceFleet ClusterCoreInstanceFleetPtrInput
@@ -684,6 +947,8 @@ type ClusterArgs struct {
 	// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
 	SecurityConfiguration pulumi.StringPtrInput
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+	//
+	// The following arguments are optional:
 	ServiceRole pulumi.StringInput
 	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
 	StepConcurrencyLevel pulumi.IntPtrInput
@@ -720,6 +985,12 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
+func (i *Cluster) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: i.ToClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
@@ -743,6 +1014,12 @@ func (i ClusterArray) ToClusterArrayOutput() ClusterArrayOutput {
 
 func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) ClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterArrayOutput)
+}
+
+func (i ClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: i.ToClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
@@ -770,6 +1047,12 @@ func (i ClusterMap) ToClusterMapOutputWithContext(ctx context.Context) ClusterMa
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMapOutput)
 }
 
+func (i ClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: i.ToClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
@@ -782,6 +1065,12 @@ func (o ClusterOutput) ToClusterOutput() ClusterOutput {
 
 func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return o
+}
+
+func (o ClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
@@ -824,6 +1113,49 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 }
 
 // JSON string for supplying list of configurations for the EMR cluster.
+//
+// > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+//				ConfigurationsJson: pulumi.String(`[
+//
+// {
+// "Classification": "hadoop-env",
+// "Configurations": [
+// {
+// "Classification": "export",
+// "Properties": {
+// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+// }
+// }
+// ],
+// "Properties": {}
+// }
+// ]
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o ClusterOutput) ConfigurationsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ConfigurationsJson }).(pulumi.StringPtrOutput)
 }
@@ -919,6 +1251,8 @@ func (o ClusterOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 }
 
 // IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+//
+// The following arguments are optional:
 func (o ClusterOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
 }
@@ -967,6 +1301,12 @@ func (o ClusterArrayOutput) ToClusterArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterArrayOutput) Index(i pulumi.IntInput) ClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cluster {
 		return vs[0].([]*Cluster)[vs[1].(int)]
@@ -985,6 +1325,12 @@ func (o ClusterMapOutput) ToClusterMapOutput() ClusterMapOutput {
 
 func (o ClusterMapOutput) ToClusterMapOutputWithContext(ctx context.Context) ClusterMapOutput {
 	return o
+}
+
+func (o ClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterMapOutput) MapIndex(k pulumi.StringInput) ClusterOutput {

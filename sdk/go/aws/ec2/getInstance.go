@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +54,7 @@ import (
 //
 // ```
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceResult
 	err := ctx.Invoke("aws:ec2/getInstance:getInstance", args, &rv, opts...)
 	if err != nil {
@@ -69,6 +72,12 @@ type LookupInstanceArgs struct {
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
 	// Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
+	//
+	// > **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
+	//
+	// > **NOTE:** If anything other than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single Instance ID only.
 	GetUserData *bool `pulumi:"getUserData"`
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId *string `pulumi:"instanceId"`
@@ -194,6 +203,12 @@ type LookupInstanceOutputArgs struct {
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput `pulumi:"getPasswordData"`
 	// Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
+	//
+	// > **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
+	//
+	// > **NOTE:** If anything other than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single Instance ID only.
 	GetUserData pulumi.BoolPtrInput `pulumi:"getUserData"`
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
@@ -221,6 +236,12 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutput() LookupInstanc
 
 func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx context.Context) LookupInstanceResultOutput {
 	return o
+}
+
+func (o LookupInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceResult] {
+	return pulumix.Output[LookupInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the AMI used to launch the instance.

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
     /**
-     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
+     * @return The statements to combine.
      * 
      */
-    private List<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements;
+    private List<WebAclRuleStatement> statements;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement() {}
     /**
-     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
+     * @return The statements to combine.
      * 
      */
-    public List<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements() {
+    public List<WebAclRuleStatement> statements() {
         return this.statements;
     }
 
@@ -34,7 +34,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements;
+        private List<WebAclRuleStatement> statements;
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,11 +42,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
         }
 
         @CustomType.Setter
-        public Builder statements(List<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements) {
+        public Builder statements(List<WebAclRuleStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
-        public Builder statements(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement... statements) {
+        public Builder statements(WebAclRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement build() {

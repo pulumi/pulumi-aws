@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_location_place_index` resources can be imported using the place index name, e.g.
+ * Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:location/placeIndex:PlaceIndex example example
@@ -134,12 +134,16 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
     /**
      * The name of the place index resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="indexName", refs={String.class}, tree="[0]")
     private Output<String> indexName;
 
     /**
      * @return The name of the place index resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> indexName() {

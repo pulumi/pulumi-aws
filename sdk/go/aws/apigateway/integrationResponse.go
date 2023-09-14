@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an HTTP Method Integration Response for an API Gateway Resource.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +79,16 @@ import (
 //				HttpMethod: myDemoMethod.HttpMethod,
 //				StatusCode: response200.StatusCode,
 //				ResponseTemplates: pulumi.StringMap{
-//					"application/xml": pulumi.String("#set($inputRoot = $input.path('$'))\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message>\n    $inputRoot.body\n</message>\n"),
+//					"application/xml": pulumi.String(`#set($inputRoot = $input.path('$'))
+//
+// <?xml version="1.0" encoding="UTF-8"?>
+// <message>
+//
+//	$inputRoot.body
+//
+// </message>
+// `),
+//
 //				},
 //			})
 //			if err != nil {
@@ -91,7 +102,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_integration_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+// Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 //
 // ```sh
 //
@@ -116,6 +127,8 @@ type IntegrationResponse struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrOutput `pulumi:"selectionPattern"`
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode pulumi.StringOutput `pulumi:"statusCode"`
 }
 
@@ -138,6 +151,7 @@ func NewIntegrationResponse(ctx *pulumi.Context,
 	if args.StatusCode == nil {
 		return nil, errors.New("invalid value for required argument 'StatusCode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationResponse
 	err := ctx.RegisterResource("aws:apigateway/integrationResponse:IntegrationResponse", name, args, &resource, opts...)
 	if err != nil {
@@ -175,6 +189,8 @@ type integrationResponseState struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode *string `pulumi:"statusCode"`
 }
 
@@ -194,6 +210,8 @@ type IntegrationResponseState struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode pulumi.StringPtrInput
 }
 
@@ -217,6 +235,8 @@ type integrationResponseArgs struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode string `pulumi:"statusCode"`
 }
 
@@ -237,6 +257,8 @@ type IntegrationResponseArgs struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode pulumi.StringInput
 }
 
@@ -261,6 +283,12 @@ func (i *IntegrationResponse) ToIntegrationResponseOutput() IntegrationResponseO
 
 func (i *IntegrationResponse) ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseOutput)
+}
+
+func (i *IntegrationResponse) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResponse] {
+	return pulumix.Output[*IntegrationResponse]{
+		OutputState: i.ToIntegrationResponseOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationResponseArrayInput is an input type that accepts IntegrationResponseArray and IntegrationResponseArrayOutput values.
@@ -288,6 +316,12 @@ func (i IntegrationResponseArray) ToIntegrationResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseArrayOutput)
 }
 
+func (i IntegrationResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationResponse] {
+	return pulumix.Output[[]*IntegrationResponse]{
+		OutputState: i.ToIntegrationResponseArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationResponseMapInput is an input type that accepts IntegrationResponseMap and IntegrationResponseMapOutput values.
 // You can construct a concrete instance of `IntegrationResponseMapInput` via:
 //
@@ -313,6 +347,12 @@ func (i IntegrationResponseMap) ToIntegrationResponseMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseMapOutput)
 }
 
+func (i IntegrationResponseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationResponse] {
+	return pulumix.Output[map[string]*IntegrationResponse]{
+		OutputState: i.ToIntegrationResponseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseOutput) ElementType() reflect.Type {
@@ -325,6 +365,12 @@ func (o IntegrationResponseOutput) ToIntegrationResponseOutput() IntegrationResp
 
 func (o IntegrationResponseOutput) ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput {
 	return o
+}
+
+func (o IntegrationResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResponse] {
+	return pulumix.Output[*IntegrationResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
@@ -363,6 +409,8 @@ func (o IntegrationResponseOutput) SelectionPattern() pulumi.StringPtrOutput {
 }
 
 // HTTP status code.
+//
+// The following arguments are optional:
 func (o IntegrationResponseOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -379,6 +427,12 @@ func (o IntegrationResponseArrayOutput) ToIntegrationResponseArrayOutput() Integ
 
 func (o IntegrationResponseArrayOutput) ToIntegrationResponseArrayOutputWithContext(ctx context.Context) IntegrationResponseArrayOutput {
 	return o
+}
+
+func (o IntegrationResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationResponse] {
+	return pulumix.Output[[]*IntegrationResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationResponseArrayOutput) Index(i pulumi.IntInput) IntegrationResponseOutput {
@@ -399,6 +453,12 @@ func (o IntegrationResponseMapOutput) ToIntegrationResponseMapOutput() Integrati
 
 func (o IntegrationResponseMapOutput) ToIntegrationResponseMapOutputWithContext(ctx context.Context) IntegrationResponseMapOutput {
 	return o
+}
+
+func (o IntegrationResponseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationResponse] {
+	return pulumix.Output[map[string]*IntegrationResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationResponseMapOutput) MapIndex(k pulumi.StringInput) IntegrationResponseOutput {

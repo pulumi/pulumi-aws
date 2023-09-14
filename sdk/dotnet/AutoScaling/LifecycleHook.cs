@@ -76,7 +76,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
-    /// AutoScaling Lifecycle Hooks can be imported using the role autoscaling_group_name and name separated by `/`.
+    /// Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name

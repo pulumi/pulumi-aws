@@ -86,6 +86,9 @@ def get_subnets(filters: Optional[Sequence[pulumi.InputType['GetSubnetsFilterArg
     :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -94,10 +97,10 @@ def get_subnets(filters: Optional[Sequence[pulumi.InputType['GetSubnetsFilterArg
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnets:getSubnets', __args__, opts=opts, typ=GetSubnetsResult).value
 
     return AwaitableGetSubnetsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_subnets)
@@ -111,5 +114,8 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

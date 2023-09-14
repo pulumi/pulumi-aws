@@ -234,29 +234,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * **Deprecated** The current state of the Client VPN endpoint.
-     * 
-     * @deprecated
-     * This attribute has been deprecated.
-     * 
-     */
-    @Deprecated /* This attribute has been deprecated. */
-    @Import(name="status")
-    private @Nullable Output<String> status;
-
-    /**
-     * @return **Deprecated** The current state of the Client VPN endpoint.
-     * 
-     * @deprecated
-     * This attribute has been deprecated.
-     * 
-     */
-    @Deprecated /* This attribute has been deprecated. */
-    public Optional<Output<String>> status() {
-        return Optional.ofNullable(this.status);
-    }
-
-    /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -348,7 +325,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.serverCertificateArn = $.serverCertificateArn;
         this.sessionTimeoutHours = $.sessionTimeoutHours;
         this.splitTunnel = $.splitTunnel;
-        this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.transportProtocol = $.transportProtocol;
@@ -696,35 +672,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder splitTunnel(Boolean splitTunnel) {
             return splitTunnel(Output.of(splitTunnel));
-        }
-
-        /**
-         * @param status **Deprecated** The current state of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This attribute has been deprecated.
-         * 
-         */
-        @Deprecated /* This attribute has been deprecated. */
-        public Builder status(@Nullable Output<String> status) {
-            $.status = status;
-            return this;
-        }
-
-        /**
-         * @param status **Deprecated** The current state of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This attribute has been deprecated.
-         * 
-         */
-        @Deprecated /* This attribute has been deprecated. */
-        public Builder status(String status) {
-            return status(Output.of(status));
         }
 
         /**

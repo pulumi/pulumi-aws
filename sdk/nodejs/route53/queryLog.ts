@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 query logging configurations can be imported using their ID, e.g.,
+ * Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

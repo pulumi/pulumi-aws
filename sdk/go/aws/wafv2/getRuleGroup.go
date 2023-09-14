@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves the summary of a WAFv2 Rule Group.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pulumi.InvokeOption) (*LookupRuleGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRuleGroupResult
 	err := ctx.Invoke("aws:wafv2/getRuleGroup:getRuleGroup", args, &rv, opts...)
 	if err != nil {
@@ -105,6 +108,12 @@ func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutput() LookupRuleG
 
 func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutputWithContext(ctx context.Context) LookupRuleGroupResultOutput {
 	return o
+}
+
+func (o LookupRuleGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRuleGroupResult] {
+	return pulumix.Output[LookupRuleGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the entity.

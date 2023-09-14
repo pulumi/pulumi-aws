@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
+ * Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot

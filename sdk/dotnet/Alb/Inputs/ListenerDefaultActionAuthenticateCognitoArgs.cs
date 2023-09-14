@@ -62,6 +62,8 @@ namespace Pulumi.Aws.Alb.Inputs
 
         /// <summary>
         /// Domain prefix or fully-qualified domain name of the Cognito user pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userPoolDomain", required: true)]
         public Input<string> UserPoolDomain { get; set; } = null!;

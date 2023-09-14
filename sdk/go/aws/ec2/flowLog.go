@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
@@ -21,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,8 +111,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -142,8 +144,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -175,7 +177,7 @@ import (
 //
 // ## Import
 //
-// Flow Logs can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Flow Logs using the `id`. For example:
 //
 // ```sh
 //
@@ -201,7 +203,7 @@ type FlowLog struct {
 	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
@@ -233,6 +235,7 @@ func NewFlowLog(ctx *pulumi.Context,
 		args = &FlowLogArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowLog
 	err := ctx.RegisterResource("aws:ec2/flowLog:FlowLog", name, args, &resource, opts...)
 	if err != nil {
@@ -271,7 +274,7 @@ type flowLogState struct {
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -313,7 +316,7 @@ type FlowLogState struct {
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
@@ -357,7 +360,7 @@ type flowLogArgs struct {
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -396,7 +399,7 @@ type FlowLogArgs struct {
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
@@ -442,6 +445,12 @@ func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
 }
 
+func (i *FlowLog) ToOutput(ctx context.Context) pulumix.Output[*FlowLog] {
+	return pulumix.Output[*FlowLog]{
+		OutputState: i.ToFlowLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FlowLogArrayInput is an input type that accepts FlowLogArray and FlowLogArrayOutput values.
 // You can construct a concrete instance of `FlowLogArrayInput` via:
 //
@@ -465,6 +474,12 @@ func (i FlowLogArray) ToFlowLogArrayOutput() FlowLogArrayOutput {
 
 func (i FlowLogArray) ToFlowLogArrayOutputWithContext(ctx context.Context) FlowLogArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogArrayOutput)
+}
+
+func (i FlowLogArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlowLog] {
+	return pulumix.Output[[]*FlowLog]{
+		OutputState: i.ToFlowLogArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FlowLogMapInput is an input type that accepts FlowLogMap and FlowLogMapOutput values.
@@ -492,6 +507,12 @@ func (i FlowLogMap) ToFlowLogMapOutputWithContext(ctx context.Context) FlowLogMa
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogMapOutput)
 }
 
+func (i FlowLogMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlowLog] {
+	return pulumix.Output[map[string]*FlowLog]{
+		OutputState: i.ToFlowLogMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlowLogOutput struct{ *pulumi.OutputState }
 
 func (FlowLogOutput) ElementType() reflect.Type {
@@ -504,6 +525,12 @@ func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {
 
 func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
 	return o
+}
+
+func (o FlowLogOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLog] {
+	return pulumix.Output[*FlowLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Flow Log.
@@ -546,7 +573,7 @@ func (o FlowLogOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 //
 // Deprecated: use 'log_destination' argument instead
 func (o FlowLogOutput) LogGroupName() pulumi.StringOutput {
@@ -610,6 +637,12 @@ func (o FlowLogArrayOutput) ToFlowLogArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o FlowLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlowLog] {
+	return pulumix.Output[[]*FlowLog]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogArrayOutput) Index(i pulumi.IntInput) FlowLogOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlowLog {
 		return vs[0].([]*FlowLog)[vs[1].(int)]
@@ -628,6 +661,12 @@ func (o FlowLogMapOutput) ToFlowLogMapOutput() FlowLogMapOutput {
 
 func (o FlowLogMapOutput) ToFlowLogMapOutputWithContext(ctx context.Context) FlowLogMapOutput {
 	return o
+}
+
+func (o FlowLogMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlowLog] {
+	return pulumix.Output[map[string]*FlowLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowLogMapOutput) MapIndex(k pulumi.StringInput) FlowLogOutput {

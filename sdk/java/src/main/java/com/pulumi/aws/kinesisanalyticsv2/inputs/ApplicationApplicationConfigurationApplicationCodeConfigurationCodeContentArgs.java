@@ -34,12 +34,16 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     /**
      * The text-format code for the application.
      * 
+     * The `s3_content_location` object supports the following:
+     * 
      */
     @Import(name="textContent")
     private @Nullable Output<String> textContent;
 
     /**
      * @return The text-format code for the application.
+     * 
+     * The `s3_content_location` object supports the following:
      * 
      */
     public Optional<Output<String>> textContent() {
@@ -95,6 +99,8 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         /**
          * @param textContent The text-format code for the application.
          * 
+         * The `s3_content_location` object supports the following:
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
 
         /**
          * @param textContent The text-format code for the application.
+         * 
+         * The `s3_content_location` object supports the following:
          * 
          * @return builder
          * 

@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket metric configurations can be imported using `bucket:metric`, e.g.,
+ * Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RolePolicyAttachment{}
 	case "aws:iam/samlProvider:SamlProvider":
 		r = &SamlProvider{}
+	case "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences":
+		r = &SecurityTokenServicePreferences{}
 	case "aws:iam/serverCertificate:ServerCertificate":
 		r = &ServerCertificate{}
 	case "aws:iam/serviceLinkedRole:ServiceLinkedRole":
@@ -82,7 +84,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -159,6 +161,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/samlProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/securityTokenServicePreferences",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

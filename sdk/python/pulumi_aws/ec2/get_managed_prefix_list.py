@@ -194,16 +194,16 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
     __ret__ = pulumi.runtime.invoke('aws:ec2/getManagedPrefixList:getManagedPrefixList', __args__, opts=opts, typ=GetManagedPrefixListResult).value
 
     return AwaitableGetManagedPrefixListResult(
-        address_family=__ret__.address_family,
-        arn=__ret__.arn,
-        entries=__ret__.entries,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        max_entries=__ret__.max_entries,
-        name=__ret__.name,
-        owner_id=__ret__.owner_id,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        address_family=pulumi.get(__ret__, 'address_family'),
+        arn=pulumi.get(__ret__, 'arn'),
+        entries=pulumi.get(__ret__, 'entries'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        max_entries=pulumi.get(__ret__, 'max_entries'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_managed_prefix_list)

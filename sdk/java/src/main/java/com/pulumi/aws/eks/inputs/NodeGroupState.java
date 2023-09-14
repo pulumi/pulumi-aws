@@ -146,14 +146,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with Launch Template settings. Detailed below.
+     * Configuration block with Launch Template settings. See `launch_template` below for details.
      * 
      */
     @Import(name="launchTemplate")
     private @Nullable Output<NodeGroupLaunchTemplateArgs> launchTemplate;
 
     /**
-     * @return Configuration block with Launch Template settings. Detailed below.
+     * @return Configuration block with Launch Template settings. See `launch_template` below for details.
      * 
      */
     public Optional<Output<NodeGroupLaunchTemplateArgs>> launchTemplate() {
@@ -221,14 +221,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with remote access settings. Detailed below.
+     * Configuration block with remote access settings. See `remote_access` below for details.
      * 
      */
     @Import(name="remoteAccess")
     private @Nullable Output<NodeGroupRemoteAccessArgs> remoteAccess;
 
     /**
-     * @return Configuration block with remote access settings. Detailed below.
+     * @return Configuration block with remote access settings. See `remote_access` below for details.
      * 
      */
     public Optional<Output<NodeGroupRemoteAccessArgs>> remoteAccess() {
@@ -251,14 +251,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with scaling settings. Detailed below.
+     * Configuration block with scaling settings. See `scaling_config` below for details.
      * 
      */
     @Import(name="scalingConfig")
     private @Nullable Output<NodeGroupScalingConfigArgs> scalingConfig;
 
     /**
-     * @return Configuration block with scaling settings. Detailed below.
+     * @return Configuration block with scaling settings. See `scaling_config` below for details.
      * 
      */
     public Optional<Output<NodeGroupScalingConfigArgs>> scalingConfig() {
@@ -281,14 +281,18 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     * Identifiers of EC2 Subnets to associate with the EKS Node Group.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     * @return Identifiers of EC2 Subnets to associate with the EKS Node Group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -326,23 +330,31 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+     * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      * 
      */
     @Import(name="taints")
     private @Nullable Output<List<NodeGroupTaintArgs>> taints;
 
     /**
-     * @return The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+     * @return The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      * 
      */
     public Optional<Output<List<NodeGroupTaintArgs>>> taints() {
         return Optional.ofNullable(this.taints);
     }
 
+    /**
+     * Configuration block with update settings. See `update_config` below for details.
+     * 
+     */
     @Import(name="updateConfig")
     private @Nullable Output<NodeGroupUpdateConfigArgs> updateConfig;
 
+    /**
+     * @return Configuration block with update settings. See `update_config` below for details.
+     * 
+     */
     public Optional<Output<NodeGroupUpdateConfigArgs>> updateConfig() {
         return Optional.ofNullable(this.updateConfig);
     }
@@ -587,7 +599,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Configuration block with Launch Template settings. Detailed below.
+         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details.
          * 
          * @return builder
          * 
@@ -598,7 +610,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Configuration block with Launch Template settings. Detailed below.
+         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details.
          * 
          * @return builder
          * 
@@ -692,7 +704,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteAccess Configuration block with remote access settings. Detailed below.
+         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details.
          * 
          * @return builder
          * 
@@ -703,7 +715,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteAccess Configuration block with remote access settings. Detailed below.
+         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details.
          * 
          * @return builder
          * 
@@ -744,7 +756,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfig Configuration block with scaling settings. Detailed below.
+         * @param scalingConfig Configuration block with scaling settings. See `scaling_config` below for details.
          * 
          * @return builder
          * 
@@ -755,7 +767,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfig Configuration block with scaling settings. Detailed below.
+         * @param scalingConfig Configuration block with scaling settings. See `scaling_config` below for details.
          * 
          * @return builder
          * 
@@ -786,7 +798,9 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+         * @param subnetIds Identifiers of EC2 Subnets to associate with the EKS Node Group.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -797,7 +811,9 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+         * @param subnetIds Identifiers of EC2 Subnets to associate with the EKS Node Group.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -807,7 +823,9 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+         * @param subnetIds Identifiers of EC2 Subnets to associate with the EKS Node Group.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -859,7 +877,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taints The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+         * @param taints The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
          * 
          * @return builder
          * 
@@ -870,7 +888,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taints The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+         * @param taints The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
          * 
          * @return builder
          * 
@@ -880,7 +898,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taints The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+         * @param taints The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
          * 
          * @return builder
          * 
@@ -889,11 +907,23 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
             return taints(List.of(taints));
         }
 
+        /**
+         * @param updateConfig Configuration block with update settings. See `update_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updateConfig(@Nullable Output<NodeGroupUpdateConfigArgs> updateConfig) {
             $.updateConfig = updateConfig;
             return this;
         }
 
+        /**
+         * @param updateConfig Configuration block with update settings. See `update_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updateConfig(NodeGroupUpdateConfigArgs updateConfig) {
             return updateConfig(Output.of(updateConfig));
         }

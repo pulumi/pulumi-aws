@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? HttpEndpoint { get; set; }
 
         /// <summary>
+        /// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        /// </summary>
+        [Input("httpProtocolIpv6")]
+        public Input<string>? HttpProtocolIpv6 { get; set; }
+
+        /// <summary>
         /// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         /// </summary>
         [Input("httpPutResponseHopLimit")]
@@ -32,6 +38,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+        /// 
+        /// For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         /// </summary>
         [Input("instanceMetadataTags")]
         public Input<string>? InstanceMetadataTags { get; set; }

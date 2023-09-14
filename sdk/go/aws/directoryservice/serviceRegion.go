@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a replicated Region and directory for Multi-Region replication.
@@ -16,7 +18,7 @@ import (
 //
 // ## Import
 //
-// Replicated Regions can be imported using directory ID,Region name e.g.,
+// Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 //
 // ```sh
 //
@@ -56,6 +58,7 @@ func NewServiceRegion(ctx *pulumi.Context,
 	if args.VpcSettings == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSettings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceRegion
 	err := ctx.RegisterResource("aws:directoryservice/serviceRegion:ServiceRegion", name, args, &resource, opts...)
 	if err != nil {
@@ -161,6 +164,12 @@ func (i *ServiceRegion) ToServiceRegionOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionOutput)
 }
 
+func (i *ServiceRegion) ToOutput(ctx context.Context) pulumix.Output[*ServiceRegion] {
+	return pulumix.Output[*ServiceRegion]{
+		OutputState: i.ToServiceRegionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceRegionArrayInput is an input type that accepts ServiceRegionArray and ServiceRegionArrayOutput values.
 // You can construct a concrete instance of `ServiceRegionArrayInput` via:
 //
@@ -184,6 +193,12 @@ func (i ServiceRegionArray) ToServiceRegionArrayOutput() ServiceRegionArrayOutpu
 
 func (i ServiceRegionArray) ToServiceRegionArrayOutputWithContext(ctx context.Context) ServiceRegionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionArrayOutput)
+}
+
+func (i ServiceRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceRegion] {
+	return pulumix.Output[[]*ServiceRegion]{
+		OutputState: i.ToServiceRegionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceRegionMapInput is an input type that accepts ServiceRegionMap and ServiceRegionMapOutput values.
@@ -211,6 +226,12 @@ func (i ServiceRegionMap) ToServiceRegionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionMapOutput)
 }
 
+func (i ServiceRegionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceRegion] {
+	return pulumix.Output[map[string]*ServiceRegion]{
+		OutputState: i.ToServiceRegionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceRegionOutput struct{ *pulumi.OutputState }
 
 func (ServiceRegionOutput) ElementType() reflect.Type {
@@ -223,6 +244,12 @@ func (o ServiceRegionOutput) ToServiceRegionOutput() ServiceRegionOutput {
 
 func (o ServiceRegionOutput) ToServiceRegionOutputWithContext(ctx context.Context) ServiceRegionOutput {
 	return o
+}
+
+func (o ServiceRegionOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceRegion] {
+	return pulumix.Output[*ServiceRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of domain controllers desired in the replicated directory. Minimum value of `2`.
@@ -269,6 +296,12 @@ func (o ServiceRegionArrayOutput) ToServiceRegionArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ServiceRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceRegion] {
+	return pulumix.Output[[]*ServiceRegion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceRegionArrayOutput) Index(i pulumi.IntInput) ServiceRegionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceRegion {
 		return vs[0].([]*ServiceRegion)[vs[1].(int)]
@@ -287,6 +320,12 @@ func (o ServiceRegionMapOutput) ToServiceRegionMapOutput() ServiceRegionMapOutpu
 
 func (o ServiceRegionMapOutput) ToServiceRegionMapOutputWithContext(ctx context.Context) ServiceRegionMapOutput {
 	return o
+}
+
+func (o ServiceRegionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceRegion] {
+	return pulumix.Output[map[string]*ServiceRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceRegionMapOutput) MapIndex(k pulumi.StringInput) ServiceRegionOutput {

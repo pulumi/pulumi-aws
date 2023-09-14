@@ -171,16 +171,16 @@ def get_workgroup(workgroup_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:redshiftserverless/getWorkgroup:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult).value
 
     return AwaitableGetWorkgroupResult(
-        arn=__ret__.arn,
-        endpoints=__ret__.endpoints,
-        enhanced_vpc_routing=__ret__.enhanced_vpc_routing,
-        id=__ret__.id,
-        namespace_name=__ret__.namespace_name,
-        publicly_accessible=__ret__.publicly_accessible,
-        security_group_ids=__ret__.security_group_ids,
-        subnet_ids=__ret__.subnet_ids,
-        workgroup_id=__ret__.workgroup_id,
-        workgroup_name=__ret__.workgroup_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        endpoints=pulumi.get(__ret__, 'endpoints'),
+        enhanced_vpc_routing=pulumi.get(__ret__, 'enhanced_vpc_routing'),
+        id=pulumi.get(__ret__, 'id'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        workgroup_id=pulumi.get(__ret__, 'workgroup_id'),
+        workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
 
 
 @_utilities.lift_output_func(get_workgroup)

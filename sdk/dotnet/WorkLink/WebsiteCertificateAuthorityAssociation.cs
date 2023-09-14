@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// ## Import
     /// 
-    /// WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+    /// Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk

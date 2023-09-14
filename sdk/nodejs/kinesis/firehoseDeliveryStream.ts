@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     extendedS3Configuration: {
  *         roleArn: aws_iam_role.firehose_role.arn,
  *         bucketArn: aws_s3_bucket.bucket.arn,
- *         bufferSize: 64,
+ *         bufferingSize: 64,
  *         dynamicPartitioningConfiguration: {
  *             enabled: true,
  *         },
@@ -120,33 +120,42 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### S3 Destination (deprecated)
+ *
+ * Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameterValue`.
+ *
+ * The following example adds the Dynamic Partitioning Keys: `storeId` and `customerId` to the S3 prefix.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
- *     bucket: bucket.id,
- *     acl: "private",
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["firehose.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
- *     destination: "s3",
- *     s3Configuration: {
- *         roleArn: firehoseRole.arn,
- *         bucketArn: bucket.arn,
+ * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extendedS3Stream", {
+ *     destination: "extended_s3",
+ *     extendedS3Configuration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *         bufferingSize: 64,
+ *         dynamicPartitioningConfiguration: {
+ *             enabled: true,
+ *         },
+ *         prefix: "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+ *         errorOutputPrefix: "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+ *         processingConfiguration: {
+ *             enabled: true,
+ *             processors: [{
+ *                 type: "MetadataExtraction",
+ *                 parameters: [
+ *                     {
+ *                         parameterName: "JsonParsingEngine",
+ *                         parameterValue: "JQ-1.6",
+ *                     },
+ *                     {
+ *                         parameterName: "MetadataExtractionQuery",
+ *                         parameterValue: "{store_id:.store_id,customer_id:.customer_id}",
+ *                     },
+ *                 ],
+ *             }],
+ *         },
  *     },
  * });
  * ```
@@ -166,13 +175,6 @@ import * as utilities from "../utilities";
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "redshift",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose_role.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *         bufferSize: 10,
- *         bufferInterval: 400,
- *         compressionFormat: "GZIP",
- *     },
  *     redshiftConfiguration: {
  *         roleArn: aws_iam_role.firehose_role.arn,
  *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
@@ -182,11 +184,18 @@ import * as utilities from "../utilities";
  *         copyOptions: "delimiter '|'",
  *         dataTableColumns: "test-col",
  *         s3BackupMode: "Enabled",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose_role.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *         s3BackupConfiguration: {
  *             roleArn: aws_iam_role.firehose_role.arn,
  *             bucketArn: aws_s3_bucket.bucket.arn,
- *             bufferSize: 15,
- *             bufferInterval: 300,
+ *             bufferingSize: 15,
+ *             bufferingInterval: 300,
  *             compressionFormat: "GZIP",
  *         },
  *     },
@@ -201,18 +210,18 @@ import * as utilities from "../utilities";
  * const testCluster = new aws.elasticsearch.Domain("testCluster", {});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "elasticsearch",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose_role.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *         bufferSize: 10,
- *         bufferInterval: 400,
- *         compressionFormat: "GZIP",
- *     },
  *     elasticsearchConfiguration: {
  *         domainArn: testCluster.arn,
  *         roleArn: aws_iam_role.firehose_role.arn,
  *         indexName: "test",
  *         typeName: "test",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose_role.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *         processingConfiguration: {
  *             enabled: true,
  *             processors: [{
@@ -282,15 +291,15 @@ import * as utilities from "../utilities";
  * });
  * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
  *     destination: "elasticsearch",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *     },
  *     elasticsearchConfiguration: {
  *         domainArn: testCluster.arn,
  *         roleArn: aws_iam_role.firehose.arn,
  *         indexName: "test",
  *         typeName: "test",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *         },
  *         vpcConfig: {
  *             subnetIds: [
  *                 aws_subnet.first.id,
@@ -313,17 +322,17 @@ import * as utilities from "../utilities";
  * const testCluster = new aws.opensearch.Domain("testCluster", {});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "opensearch",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose_role.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *         bufferSize: 10,
- *         bufferInterval: 400,
- *         compressionFormat: "GZIP",
- *     },
  *     opensearchConfiguration: {
  *         domainArn: testCluster.arn,
  *         roleArn: aws_iam_role.firehose_role.arn,
  *         indexName: "test",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose_role.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *         processingConfiguration: {
  *             enabled: true,
  *             processors: [{
@@ -398,14 +407,14 @@ import * as utilities from "../utilities";
  * });
  * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
  *     destination: "opensearch",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *     },
  *     opensearchConfiguration: {
  *         domainArn: testCluster.arn,
  *         roleArn: aws_iam_role.firehose.arn,
  *         indexName: "test",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *         },
  *         vpcConfig: {
  *             subnetIds: [
  *                 aws_subnet.first.id,
@@ -427,19 +436,19 @@ import * as utilities from "../utilities";
  *
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "splunk",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *         bufferSize: 10,
- *         bufferInterval: 400,
- *         compressionFormat: "GZIP",
- *     },
  *     splunkConfiguration: {
  *         hecEndpoint: "https://http-inputs-mydomain.splunkcloud.com:443",
  *         hecToken: "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
  *         hecAcknowledgmentTimeout: 600,
  *         hecEndpointType: "Event",
  *         s3BackupMode: "FailedEventsOnly",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *     },
  * });
  * ```
@@ -451,13 +460,6 @@ import * as utilities from "../utilities";
  *
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "http_endpoint",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *         bufferSize: 10,
- *         bufferInterval: 400,
- *         compressionFormat: "GZIP",
- *     },
  *     httpEndpointConfiguration: {
  *         url: "https://aws-api.newrelic.com/firehose/v1",
  *         name: "New Relic",
@@ -466,6 +468,13 @@ import * as utilities from "../utilities";
  *         bufferingInterval: 600,
  *         roleArn: aws_iam_role.firehose.arn,
  *         s3BackupMode: "FailedDataOnly",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *         requestConfiguration: {
  *             contentEncoding: "GZIP",
  *             commonAttributes: [
@@ -485,12 +494,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
+ * Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
  * ```
- *
  *  NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
  */
 export class FirehoseDeliveryStream extends pulumi.CustomResource {
@@ -527,6 +535,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     public readonly arn!: pulumi.Output<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+     * is redshift). More details are given below.
      */
     public readonly destination!: pulumi.Output<string>;
     public readonly destinationId!: pulumi.Output<string>;
@@ -560,11 +569,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      * `s3Configuration` block. More details are given below.
      */
     public readonly redshiftConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration | undefined>;
-    /**
-     * Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-     * is redshift). More details are given below.
-     */
-    public readonly s3Configuration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamS3Configuration | undefined>;
     /**
      * Encrypt at rest options.
      * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
@@ -610,7 +614,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["opensearchConfiguration"] = state ? state.opensearchConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
-            resourceInputs["s3Configuration"] = state ? state.s3Configuration : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -631,7 +634,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["opensearchConfiguration"] = args ? args.opensearchConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
-            resourceInputs["s3Configuration"] = args ? args.s3Configuration : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -653,6 +655,7 @@ export interface FirehoseDeliveryStreamState {
     arn?: pulumi.Input<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+     * is redshift). More details are given below.
      */
     destination?: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
@@ -687,11 +690,6 @@ export interface FirehoseDeliveryStreamState {
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
     /**
-     * Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-     * is redshift). More details are given below.
-     */
-    s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
-    /**
      * Encrypt at rest options.
      * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
@@ -724,6 +722,7 @@ export interface FirehoseDeliveryStreamArgs {
     arn?: pulumi.Input<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+     * is redshift). More details are given below.
      */
     destination: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
@@ -757,11 +756,6 @@ export interface FirehoseDeliveryStreamArgs {
      * `s3Configuration` block. More details are given below.
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
-    /**
-     * Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-     * is redshift). More details are given below.
-     */
-    s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
     /**
      * Encrypt at rest options.
      * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.

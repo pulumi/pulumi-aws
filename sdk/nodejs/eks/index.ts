@@ -42,7 +42,8 @@ utilities.lazyLoad(exports, ["getClusterAuth","getClusterAuthOutput"], () => req
 
 export { GetClustersResult } from "./getClusters";
 export const getClusters: typeof import("./getClusters").getClusters = null as any;
-utilities.lazyLoad(exports, ["getClusters"], () => require("./getClusters"));
+export const getClustersOutput: typeof import("./getClusters").getClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getClusters","getClustersOutput"], () => require("./getClusters"));
 
 export { GetNodeGroupArgs, GetNodeGroupResult, GetNodeGroupOutputArgs } from "./getNodeGroup";
 export const getNodeGroup: typeof import("./getNodeGroup").getNodeGroup = null as any;

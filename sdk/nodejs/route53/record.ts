@@ -114,13 +114,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
+ * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
+ *
+ * If the record also contains a set identifier, append it:
+ *
+ * __Using `pulumi import` to import__ Route53 Records using the ID of the record, record name, record type, and set identifier. For example:
+ *
+ * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
  *
  * ```sh
  *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
  * ```
- *
- *  If the record also contains a set identifier, it should be appended
+ *  If the record also contains a set identifier, append it:
  *
  * ```sh
  *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
@@ -161,6 +166,8 @@ export class Record extends pulumi.CustomResource {
     public readonly aliases!: pulumi.Output<outputs.route53.RecordAlias[] | undefined>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     *
+     * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
     public readonly allowOverwrite!: pulumi.Output<boolean>;
     /**
@@ -293,6 +300,8 @@ export interface RecordState {
     aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     *
+     * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
     allowOverwrite?: pulumi.Input<boolean>;
     /**
@@ -364,6 +373,8 @@ export interface RecordArgs {
     aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     *
+     * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
     allowOverwrite?: pulumi.Input<boolean>;
     /**

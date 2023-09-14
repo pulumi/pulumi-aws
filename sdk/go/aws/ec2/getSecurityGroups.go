@@ -7,11 +7,78 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.GetSecurityGroups(ctx, &ec2.GetSecurityGroupsArgs{
+//				Tags: map[string]interface{}{
+//					"Application": "k8s",
+//					"Environment": "dev",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2.GetSecurityGroups(ctx, &ec2.GetSecurityGroupsArgs{
+// Filters: []ec2.GetSecurityGroupsFilter{
+// {
+// Name: "group-name",
+// Values: []string{
+// "*nodes*",
+// },
+// },
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// _var.Vpc_id,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityGroupsResult
 	err := ctx.Invoke("aws:ec2/getSecurityGroups:getSecurityGroups", args, &rv, opts...)
 	if err != nil {
@@ -80,6 +147,12 @@ func (o GetSecurityGroupsResultOutput) ToGetSecurityGroupsResultOutput() GetSecu
 
 func (o GetSecurityGroupsResultOutput) ToGetSecurityGroupsResultOutputWithContext(ctx context.Context) GetSecurityGroupsResultOutput {
 	return o
+}
+
+func (o GetSecurityGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupsResult] {
+	return pulumix.Output[GetSecurityGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARNs of the matched security groups.

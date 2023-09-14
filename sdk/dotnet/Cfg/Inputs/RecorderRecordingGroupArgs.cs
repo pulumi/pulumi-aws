@@ -18,11 +18,35 @@ namespace Pulumi.Aws.Cfg.Inputs
         [Input("allSupported")]
         public Input<bool>? AllSupported { get; set; }
 
+        [Input("exclusionByResourceTypes")]
+        private InputList<Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs>? _exclusionByResourceTypes;
+
+        /// <summary>
+        /// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+        /// </summary>
+        public InputList<Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs> ExclusionByResourceTypes
+        {
+            get => _exclusionByResourceTypes ?? (_exclusionByResourceTypes = new InputList<Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs>());
+            set => _exclusionByResourceTypes = value;
+        }
+
         /// <summary>
         /// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         /// </summary>
         [Input("includeGlobalResourceTypes")]
         public Input<bool>? IncludeGlobalResourceTypes { get; set; }
+
+        [Input("recordingStrategies")]
+        private InputList<Inputs.RecorderRecordingGroupRecordingStrategyArgs>? _recordingStrategies;
+
+        /// <summary>
+        /// Recording Strategy - see below..
+        /// </summary>
+        public InputList<Inputs.RecorderRecordingGroupRecordingStrategyArgs> RecordingStrategies
+        {
+            get => _recordingStrategies ?? (_recordingStrategies = new InputList<Inputs.RecorderRecordingGroupRecordingStrategyArgs>());
+            set => _recordingStrategies = value;
+        }
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;

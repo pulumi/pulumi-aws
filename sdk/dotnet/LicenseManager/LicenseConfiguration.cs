@@ -12,7 +12,7 @@ namespace Pulumi.Aws.LicenseManager
     /// <summary>
     /// Provides a License Manager license configuration resource.
     /// 
-    /// &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
+    /// &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.&lt;id&gt;` to recreate the resource instead.
     /// 
     /// ## Example Usage
     /// 
@@ -56,11 +56,11 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Import
     /// 
-    /// License configurations can be imported using the `id`, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-    /// ```
+    ///  to = aws_licensemanager_license_configuration.example
+    /// 
+    ///  id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
     /// </summary>
     [AwsResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]
     public partial class LicenseConfiguration : global::Pulumi.CustomResource
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.LicenseManager
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.LicenseManager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.LicenseManager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

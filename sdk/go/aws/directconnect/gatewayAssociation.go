@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a Direct Connect Gateway with a VGW or transit gateway.
@@ -25,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,8 +72,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,8 +113,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,7 +158,7 @@ import (
 //
 // ## Import
 //
-// Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.,
+// Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
 //
 // ```sh
 //
@@ -199,6 +201,7 @@ func NewGatewayAssociation(ctx *pulumi.Context,
 	if args.DxGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'DxGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayAssociation
 	err := ctx.RegisterResource("aws:directconnect/gatewayAssociation:GatewayAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -332,6 +335,12 @@ func (i *GatewayAssociation) ToGatewayAssociationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationOutput)
 }
 
+func (i *GatewayAssociation) ToOutput(ctx context.Context) pulumix.Output[*GatewayAssociation] {
+	return pulumix.Output[*GatewayAssociation]{
+		OutputState: i.ToGatewayAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayAssociationArrayInput is an input type that accepts GatewayAssociationArray and GatewayAssociationArrayOutput values.
 // You can construct a concrete instance of `GatewayAssociationArrayInput` via:
 //
@@ -355,6 +364,12 @@ func (i GatewayAssociationArray) ToGatewayAssociationArrayOutput() GatewayAssoci
 
 func (i GatewayAssociationArray) ToGatewayAssociationArrayOutputWithContext(ctx context.Context) GatewayAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationArrayOutput)
+}
+
+func (i GatewayAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayAssociation] {
+	return pulumix.Output[[]*GatewayAssociation]{
+		OutputState: i.ToGatewayAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GatewayAssociationMapInput is an input type that accepts GatewayAssociationMap and GatewayAssociationMapOutput values.
@@ -382,6 +397,12 @@ func (i GatewayAssociationMap) ToGatewayAssociationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationMapOutput)
 }
 
+func (i GatewayAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayAssociation] {
+	return pulumix.Output[map[string]*GatewayAssociation]{
+		OutputState: i.ToGatewayAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayAssociationOutput struct{ *pulumi.OutputState }
 
 func (GatewayAssociationOutput) ElementType() reflect.Type {
@@ -394,6 +415,12 @@ func (o GatewayAssociationOutput) ToGatewayAssociationOutput() GatewayAssociatio
 
 func (o GatewayAssociationOutput) ToGatewayAssociationOutputWithContext(ctx context.Context) GatewayAssociationOutput {
 	return o
+}
+
+func (o GatewayAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayAssociation] {
+	return pulumix.Output[*GatewayAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -458,6 +485,12 @@ func (o GatewayAssociationArrayOutput) ToGatewayAssociationArrayOutputWithContex
 	return o
 }
 
+func (o GatewayAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayAssociation] {
+	return pulumix.Output[[]*GatewayAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayAssociationArrayOutput) Index(i pulumi.IntInput) GatewayAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GatewayAssociation {
 		return vs[0].([]*GatewayAssociation)[vs[1].(int)]
@@ -476,6 +509,12 @@ func (o GatewayAssociationMapOutput) ToGatewayAssociationMapOutput() GatewayAsso
 
 func (o GatewayAssociationMapOutput) ToGatewayAssociationMapOutputWithContext(ctx context.Context) GatewayAssociationMapOutput {
 	return o
+}
+
+func (o GatewayAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayAssociation] {
+	return pulumix.Output[map[string]*GatewayAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayAssociationMapOutput) MapIndex(k pulumi.StringInput) GatewayAssociationOutput {

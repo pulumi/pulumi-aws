@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Lists the provisioning artifacts for the specified product.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetProvisioningArtifacts(ctx *pulumi.Context, args *GetProvisioningArtifactsArgs, opts ...pulumi.InvokeOption) (*GetProvisioningArtifactsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProvisioningArtifactsResult
 	err := ctx.Invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, &rv, opts...)
 	if err != nil {
@@ -52,6 +55,8 @@ type GetProvisioningArtifactsArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId string `pulumi:"productId"`
 }
 
@@ -83,6 +88,8 @@ type GetProvisioningArtifactsOutputArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringInput `pulumi:"productId"`
 }
 
@@ -103,6 +110,12 @@ func (o GetProvisioningArtifactsResultOutput) ToGetProvisioningArtifactsResultOu
 
 func (o GetProvisioningArtifactsResultOutput) ToGetProvisioningArtifactsResultOutputWithContext(ctx context.Context) GetProvisioningArtifactsResultOutput {
 	return o
+}
+
+func (o GetProvisioningArtifactsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetProvisioningArtifactsResult] {
+	return pulumix.Output[GetProvisioningArtifactsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetProvisioningArtifactsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

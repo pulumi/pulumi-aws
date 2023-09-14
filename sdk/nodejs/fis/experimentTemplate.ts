@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * FIS Experiment Templates can be imported using the `id`, e.g.
+ * Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
@@ -91,11 +91,17 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
+     * The configuration for experiment logging. See below.
+     */
+    public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * When an ongoing experiment should be stopped. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
     /**
@@ -123,6 +129,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             const state = argsOrState as ExperimentTemplateState | undefined;
             resourceInputs["actions"] = state ? state.actions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stopConditions"] = state ? state.stopConditions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -144,6 +151,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -168,11 +176,17 @@ export interface ExperimentTemplateState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The configuration for experiment logging. See below.
+     */
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
     roleArn?: pulumi.Input<string>;
     /**
      * When an ongoing experiment should be stopped. See below.
+     *
+     * The following arguments are optional:
      */
     stopConditions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
     /**
@@ -199,11 +213,17 @@ export interface ExperimentTemplateArgs {
      */
     description: pulumi.Input<string>;
     /**
+     * The configuration for experiment logging. See below.
+     */
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**
      * When an ongoing experiment should be stopped. See below.
+     *
+     * The following arguments are optional:
      */
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
     /**

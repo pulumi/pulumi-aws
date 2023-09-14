@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ConnectionAliasArgs, ConnectionAliasState } from "./connectionAlias";
+export type ConnectionAlias = import("./connectionAlias").ConnectionAlias;
+export const ConnectionAlias: typeof import("./connectionAlias").ConnectionAlias = null as any;
+utilities.lazyLoad(exports, ["ConnectionAlias"], () => require("./connectionAlias"));
+
 export { DirectoryArgs, DirectoryState } from "./directory";
 export type Directory = import("./directory").Directory;
 export const Directory: typeof import("./directory").Directory = null as any;
@@ -45,6 +50,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:workspaces/connectionAlias:ConnectionAlias":
+                return new ConnectionAlias(name, <any>undefined, { urn })
             case "aws:workspaces/directory:Directory":
                 return new Directory(name, <any>undefined, { urn })
             case "aws:workspaces/ipGroup:IpGroup":
@@ -56,6 +63,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "workspaces/connectionAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/directory", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/ipGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/workspace", _module)

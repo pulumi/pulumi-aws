@@ -8,15 +8,82 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to set a policy of an SQS Queue
 // while referencing ARN of the queue within the policy.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// queue, err := sqs.NewQueue(ctx, "queue", nil)
+// if err != nil {
+// return err
+// }
+// testPolicyDocument := queue.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: "First",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "*",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "sqs:SendMessage",
+// },
+// Resources: []string{
+// arn,
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "ArnEquals",
+// Variable: "aws:SourceArn",
+// Values: interface{}{
+// aws_sns_topic.Example.Arn,
+// },
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sqs.NewQueuePolicy(ctx, "testQueuePolicy", &sqs.QueuePolicyArgs{
+// QueueUrl: queue.ID(),
+// Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &testPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// SQS Queue Policies can be imported using the queue URL, e.g.,
+// Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
 //
 // ```sh
 //
@@ -45,6 +112,7 @@ func NewQueuePolicy(ctx *pulumi.Context,
 	if args.QueueUrl == nil {
 		return nil, errors.New("invalid value for required argument 'QueueUrl'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QueuePolicy
 	err := ctx.RegisterResource("aws:sqs/queuePolicy:QueuePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -122,6 +190,12 @@ func (i *QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueueP
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyOutput)
 }
 
+func (i *QueuePolicy) ToOutput(ctx context.Context) pulumix.Output[*QueuePolicy] {
+	return pulumix.Output[*QueuePolicy]{
+		OutputState: i.ToQueuePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // QueuePolicyArrayInput is an input type that accepts QueuePolicyArray and QueuePolicyArrayOutput values.
 // You can construct a concrete instance of `QueuePolicyArrayInput` via:
 //
@@ -145,6 +219,12 @@ func (i QueuePolicyArray) ToQueuePolicyArrayOutput() QueuePolicyArrayOutput {
 
 func (i QueuePolicyArray) ToQueuePolicyArrayOutputWithContext(ctx context.Context) QueuePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyArrayOutput)
+}
+
+func (i QueuePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*QueuePolicy] {
+	return pulumix.Output[[]*QueuePolicy]{
+		OutputState: i.ToQueuePolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // QueuePolicyMapInput is an input type that accepts QueuePolicyMap and QueuePolicyMapOutput values.
@@ -172,6 +252,12 @@ func (i QueuePolicyMap) ToQueuePolicyMapOutputWithContext(ctx context.Context) Q
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyMapOutput)
 }
 
+func (i QueuePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueuePolicy] {
+	return pulumix.Output[map[string]*QueuePolicy]{
+		OutputState: i.ToQueuePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueuePolicyOutput struct{ *pulumi.OutputState }
 
 func (QueuePolicyOutput) ElementType() reflect.Type {
@@ -184,6 +270,12 @@ func (o QueuePolicyOutput) ToQueuePolicyOutput() QueuePolicyOutput {
 
 func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
 	return o
+}
+
+func (o QueuePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*QueuePolicy] {
+	return pulumix.Output[*QueuePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The JSON policy for the SQS queue.
@@ -210,6 +302,12 @@ func (o QueuePolicyArrayOutput) ToQueuePolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o QueuePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*QueuePolicy] {
+	return pulumix.Output[[]*QueuePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QueuePolicyArrayOutput) Index(i pulumi.IntInput) QueuePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QueuePolicy {
 		return vs[0].([]*QueuePolicy)[vs[1].(int)]
@@ -228,6 +326,12 @@ func (o QueuePolicyMapOutput) ToQueuePolicyMapOutput() QueuePolicyMapOutput {
 
 func (o QueuePolicyMapOutput) ToQueuePolicyMapOutputWithContext(ctx context.Context) QueuePolicyMapOutput {
 	return o
+}
+
+func (o QueuePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueuePolicy] {
+	return pulumix.Output[map[string]*QueuePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueuePolicyMapOutput) MapIndex(k pulumi.StringInput) QueuePolicyOutput {

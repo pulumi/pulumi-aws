@@ -100,10 +100,10 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPoolClients:getUserPoolClients', __args__, opts=opts, typ=GetUserPoolClientsResult).value
 
     return AwaitableGetUserPoolClientsResult(
-        client_ids=__ret__.client_ids,
-        client_names=__ret__.client_names,
-        id=__ret__.id,
-        user_pool_id=__ret__.user_pool_id)
+        client_ids=pulumi.get(__ret__, 'client_ids'),
+        client_names=pulumi.get(__ret__, 'client_names'),
+        id=pulumi.get(__ret__, 'id'),
+        user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
 
 
 @_utilities.lift_output_func(get_user_pool_clients)

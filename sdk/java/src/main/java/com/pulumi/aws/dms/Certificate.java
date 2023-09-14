@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Certificates can be imported using the `certificate_id`, e.g.,
+ * Using `pulumi import`, import certificates using the `certificate_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
@@ -79,12 +79,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The certificate identifier.
      * 
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
+     * 
      */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
      * @return The certificate identifier.
+     * 
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      * 
      */
     public Output<String> certificateId() {

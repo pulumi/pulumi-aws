@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -22,7 +24,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +63,7 @@ import (
 //
 // ## Import
 //
-// CloudFront Key Group can be imported using the `id`, e.g.,
+// Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 //
 // ```sh
 //
@@ -91,6 +93,7 @@ func NewKeyGroup(ctx *pulumi.Context,
 	if args.Items == nil {
 		return nil, errors.New("invalid value for required argument 'Items'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyGroup
 	err := ctx.RegisterResource("aws:cloudfront/keyGroup:KeyGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -180,6 +183,12 @@ func (i *KeyGroup) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupOutput)
 }
 
+func (i *KeyGroup) ToOutput(ctx context.Context) pulumix.Output[*KeyGroup] {
+	return pulumix.Output[*KeyGroup]{
+		OutputState: i.ToKeyGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KeyGroupArrayInput is an input type that accepts KeyGroupArray and KeyGroupArrayOutput values.
 // You can construct a concrete instance of `KeyGroupArrayInput` via:
 //
@@ -203,6 +212,12 @@ func (i KeyGroupArray) ToKeyGroupArrayOutput() KeyGroupArrayOutput {
 
 func (i KeyGroupArray) ToKeyGroupArrayOutputWithContext(ctx context.Context) KeyGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupArrayOutput)
+}
+
+func (i KeyGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*KeyGroup] {
+	return pulumix.Output[[]*KeyGroup]{
+		OutputState: i.ToKeyGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KeyGroupMapInput is an input type that accepts KeyGroupMap and KeyGroupMapOutput values.
@@ -230,6 +245,12 @@ func (i KeyGroupMap) ToKeyGroupMapOutputWithContext(ctx context.Context) KeyGrou
 	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupMapOutput)
 }
 
+func (i KeyGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyGroup] {
+	return pulumix.Output[map[string]*KeyGroup]{
+		OutputState: i.ToKeyGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyGroupOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupOutput) ElementType() reflect.Type {
@@ -242,6 +263,12 @@ func (o KeyGroupOutput) ToKeyGroupOutput() KeyGroupOutput {
 
 func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutput {
 	return o
+}
+
+func (o KeyGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyGroup] {
+	return pulumix.Output[*KeyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A comment to describe the key group..
@@ -278,6 +305,12 @@ func (o KeyGroupArrayOutput) ToKeyGroupArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o KeyGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KeyGroup] {
+	return pulumix.Output[[]*KeyGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyGroupArrayOutput) Index(i pulumi.IntInput) KeyGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeyGroup {
 		return vs[0].([]*KeyGroup)[vs[1].(int)]
@@ -296,6 +329,12 @@ func (o KeyGroupMapOutput) ToKeyGroupMapOutput() KeyGroupMapOutput {
 
 func (o KeyGroupMapOutput) ToKeyGroupMapOutputWithContext(ctx context.Context) KeyGroupMapOutput {
 	return o
+}
+
+func (o KeyGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyGroup] {
+	return pulumix.Output[map[string]*KeyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyGroupMapOutput) MapIndex(k pulumi.StringInput) KeyGroupOutput {

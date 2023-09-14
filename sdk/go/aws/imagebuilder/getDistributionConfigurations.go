@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,6 +47,7 @@ import (
 //
 // ```
 func GetDistributionConfigurations(ctx *pulumi.Context, args *GetDistributionConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetDistributionConfigurationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDistributionConfigurationsResult
 	err := ctx.Invoke("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, &rv, opts...)
 	if err != nil {
@@ -106,6 +109,12 @@ func (o GetDistributionConfigurationsResultOutput) ToGetDistributionConfiguratio
 
 func (o GetDistributionConfigurationsResultOutput) ToGetDistributionConfigurationsResultOutputWithContext(ctx context.Context) GetDistributionConfigurationsResultOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationsResult] {
+	return pulumix.Output[GetDistributionConfigurationsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of ARNs of the matched Image Builder Distribution Configurations.

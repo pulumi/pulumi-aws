@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
@@ -21,24 +23,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
+//			exampleTransitGatewayRouteTables, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", data.Aws_ec2_transit_gateway_route_table.Example.Ids)
+//			ctx.Export("example", exampleTransitGatewayRouteTables.Ids)
 //			return nil
 //		})
 //	}
 //
 // ```
 func GetTransitGatewayRouteTables(ctx *pulumi.Context, args *GetTransitGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetTransitGatewayRouteTablesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTransitGatewayRouteTablesResult
 	err := ctx.Invoke("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args, &rv, opts...)
 	if err != nil {
@@ -53,6 +56,9 @@ type GetTransitGatewayRouteTablesArgs struct {
 	Filters []GetTransitGatewayRouteTablesFilter `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired transit gateway route table.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -85,6 +91,9 @@ type GetTransitGatewayRouteTablesOutputArgs struct {
 	Filters GetTransitGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired transit gateway route table.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -105,6 +114,12 @@ func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTables
 
 func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTablesResultOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesResultOutput {
 	return o
+}
+
+func (o GetTransitGatewayRouteTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayRouteTablesResult] {
+	return pulumix.Output[GetTransitGatewayRouteTablesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTransitGatewayRouteTablesResultOutput) Filters() GetTransitGatewayRouteTablesFilterArrayOutput {

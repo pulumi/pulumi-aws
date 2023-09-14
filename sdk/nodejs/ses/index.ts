@@ -10,11 +10,6 @@ export type ActiveReceiptRuleSet = import("./activeReceiptRuleSet").ActiveReceip
 export const ActiveReceiptRuleSet: typeof import("./activeReceiptRuleSet").ActiveReceiptRuleSet = null as any;
 utilities.lazyLoad(exports, ["ActiveReceiptRuleSet"], () => require("./activeReceiptRuleSet"));
 
-export { ConfgurationSetArgs, ConfgurationSetState } from "./confgurationSet";
-export type ConfgurationSet = import("./confgurationSet").ConfgurationSet;
-export const ConfgurationSet: typeof import("./confgurationSet").ConfgurationSet = null as any;
-utilities.lazyLoad(exports, ["ConfgurationSet"], () => require("./confgurationSet"));
-
 export { ConfigurationSetArgs, ConfigurationSetState } from "./configurationSet";
 export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
 export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
@@ -47,7 +42,8 @@ utilities.lazyLoad(exports, ["EventDestination"], () => require("./eventDestinat
 
 export { GetActiveReceiptRuleSetResult } from "./getActiveReceiptRuleSet";
 export const getActiveReceiptRuleSet: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSet = null as any;
-utilities.lazyLoad(exports, ["getActiveReceiptRuleSet"], () => require("./getActiveReceiptRuleSet"));
+export const getActiveReceiptRuleSetOutput: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getActiveReceiptRuleSet","getActiveReceiptRuleSetOutput"], () => require("./getActiveReceiptRuleSet"));
 
 export { GetDomainIdentityArgs, GetDomainIdentityResult, GetDomainIdentityOutputArgs } from "./getDomainIdentity";
 export const getDomainIdentity: typeof import("./getDomainIdentity").getDomainIdentity = null as any;
@@ -101,8 +97,6 @@ const _module = {
         switch (type) {
             case "aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet":
                 return new ActiveReceiptRuleSet(name, <any>undefined, { urn })
-            case "aws:ses/confgurationSet:ConfgurationSet":
-                return new ConfgurationSet(name, <any>undefined, { urn })
             case "aws:ses/configurationSet:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
             case "aws:ses/domainDkim:DomainDkim":
@@ -135,7 +129,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ses/activeReceiptRuleSet", _module)
-pulumi.runtime.registerResourceModule("aws", "ses/confgurationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ses/configurationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ses/domainDkim", _module)
 pulumi.runtime.registerResourceModule("aws", "ses/domainIdentity", _module)

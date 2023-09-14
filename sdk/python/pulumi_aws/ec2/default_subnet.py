@@ -32,6 +32,8 @@ class DefaultSubnetArgs:
         :param pulumi.Input[str] availability_zone: is required
                * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
                * The default value for `map_public_ip_on_launch` is `true`
+               
+               This resource supports the following additional arguments:
         :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -67,6 +69,8 @@ class DefaultSubnetArgs:
         is required
         * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         * The default value for `map_public_ip_on_launch` is `true`
+
+        This resource supports the following additional arguments:
         """
         return pulumi.get(self, "availability_zone")
 
@@ -217,6 +221,8 @@ class _DefaultSubnetState:
         :param pulumi.Input[str] availability_zone: is required
                * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
                * The default value for `map_public_ip_on_launch` is `true`
+               
+               This resource supports the following additional arguments:
         :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
@@ -294,6 +300,8 @@ class _DefaultSubnetState:
         is required
         * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         * The default value for `map_public_ip_on_launch` is `true`
+
+        This resource supports the following additional arguments:
         """
         return pulumi.get(self, "availability_zone")
 
@@ -538,7 +546,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
         ## Import
 
-        Subnets can be imported using the `subnet id`, e.g.,
+        Using `pulumi import`, import subnets using the subnet `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
@@ -549,6 +557,8 @@ class DefaultSubnet(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: is required
                * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
                * The default value for `map_public_ip_on_launch` is `true`
+               
+               This resource supports the following additional arguments:
         :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
         """
         ...
@@ -582,7 +592,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
         ## Import
 
-        Subnets can be imported using the `subnet id`, e.g.,
+        Using `pulumi import`, import subnets using the subnet `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
@@ -693,6 +703,8 @@ class DefaultSubnet(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: is required
                * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
                * The default value for `map_public_ip_on_launch` is `true`
+               
+               This resource supports the following additional arguments:
         :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
@@ -744,6 +756,8 @@ class DefaultSubnet(pulumi.CustomResource):
         is required
         * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         * The default value for `map_public_ip_on_launch` is `true`
+
+        This resource supports the following additional arguments:
         """
         return pulumi.get(self, "availability_zone")
 

@@ -290,7 +290,6 @@ class _EndpointState:
                  server_certificate_arn: Optional[pulumi.Input[str]] = None,
                  session_timeout_hours: Optional[pulumi.Input[int]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None,
@@ -312,7 +311,6 @@ class _EndpointState:
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-        :param pulumi.Input[str] status: **Deprecated** The current state of the Client VPN endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
@@ -347,11 +345,6 @@ class _EndpointState:
             pulumi.set(__self__, "session_timeout_hours", session_timeout_hours)
         if split_tunnel is not None:
             pulumi.set(__self__, "split_tunnel", split_tunnel)
-        if status is not None:
-            warnings.warn("""This attribute has been deprecated.""", DeprecationWarning)
-            pulumi.log.warn("""status is deprecated: This attribute has been deprecated.""")
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -533,18 +526,6 @@ class _EndpointState:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        **Deprecated** The current state of the Client VPN endpoint.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -630,8 +611,6 @@ class Endpoint(pulumi.CustomResource):
         Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
-        > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
-
         ## Example Usage
 
         ```python
@@ -655,7 +634,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
+        Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 
         ```sh
          $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
@@ -690,8 +669,6 @@ class Endpoint(pulumi.CustomResource):
         Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
-        > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
-
         ## Example Usage
 
         ```python
@@ -715,7 +692,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
+        Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 
         ```sh
          $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
@@ -787,7 +764,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["vpn_port"] = vpn_port
             __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
-            __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
         super(Endpoint, __self__).__init__(
             'aws:ec2clientvpn/endpoint:Endpoint',
@@ -813,7 +789,6 @@ class Endpoint(pulumi.CustomResource):
             server_certificate_arn: Optional[pulumi.Input[str]] = None,
             session_timeout_hours: Optional[pulumi.Input[int]] = None,
             split_tunnel: Optional[pulumi.Input[bool]] = None,
-            status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transport_protocol: Optional[pulumi.Input[str]] = None,
@@ -840,7 +815,6 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-        :param pulumi.Input[str] status: **Deprecated** The current state of the Client VPN endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
@@ -865,7 +839,6 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["server_certificate_arn"] = server_certificate_arn
         __props__.__dict__["session_timeout_hours"] = session_timeout_hours
         __props__.__dict__["split_tunnel"] = split_tunnel
-        __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transport_protocol"] = transport_protocol
@@ -984,14 +957,6 @@ class Endpoint(pulumi.CustomResource):
         Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         """
         return pulumi.get(self, "split_tunnel")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        """
-        **Deprecated** The current state of the Client VPN endpoint.
-        """
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter

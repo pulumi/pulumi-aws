@@ -172,12 +172,16 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="nodeType", required=true)
     private Output<String> nodeType;
 
     /**
      * @return The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> nodeType() {
@@ -639,6 +643,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param nodeType The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -649,6 +655,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param nodeType The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -7,12 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ECS cluster.
-//
-// > **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
 //
 // ## Example Usage
 //
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,9 +51,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,57 +91,10 @@ import (
 //	}
 //
 // ```
-// ### Example with Capacity Providers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCapacityProvider, err := ecs.NewCapacityProvider(ctx, "exampleCapacityProvider", &ecs.CapacityProviderArgs{
-//				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn: pulumi.Any(aws_autoscaling_group.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
-//				ClusterName: exampleCluster.Name,
-//				CapacityProviders: pulumi.StringArray{
-//					exampleCapacityProvider.Name,
-//				},
-//				DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
-//					&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
-//						Base:             pulumi.Int(1),
-//						Weight:           pulumi.Int(100),
-//						CapacityProvider: exampleCapacityProvider.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
-// ECS clusters can be imported using the `name`, e.g.,
+// Using `pulumi import`, import ECS clusters using the `name`. For example:
 //
 // ```sh
 //
@@ -153,16 +106,8 @@ type Cluster struct {
 
 	// ARN that identifies the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
-	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configures a default Service Connect namespace. Detailed below.
@@ -182,6 +127,7 @@ func NewCluster(ctx *pulumi.Context,
 		args = &ClusterArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:ecs/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {
@@ -206,16 +152,8 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// ARN that identifies the cluster.
 	Arn *string `pulumi:"arn"`
-	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	CapacityProviders []string `pulumi:"capacityProviders"`
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
-	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name *string `pulumi:"name"`
 	// Configures a default Service Connect namespace. Detailed below.
@@ -231,16 +169,8 @@ type clusterState struct {
 type ClusterState struct {
 	// ARN that identifies the cluster.
 	Arn pulumi.StringPtrInput
-	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	CapacityProviders pulumi.StringArrayInput
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration ClusterConfigurationPtrInput
-	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringPtrInput
 	// Configures a default Service Connect namespace. Detailed below.
@@ -258,16 +188,8 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	CapacityProviders []string `pulumi:"capacityProviders"`
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
-	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name *string `pulumi:"name"`
 	// Configures a default Service Connect namespace. Detailed below.
@@ -280,16 +202,8 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	CapacityProviders pulumi.StringArrayInput
 	// The execute command configuration for the cluster. Detailed below.
 	Configuration ClusterConfigurationPtrInput
-	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-	//
-	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringPtrInput
 	// Configures a default Service Connect namespace. Detailed below.
@@ -323,6 +237,12 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
+func (i *Cluster) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: i.ToClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
@@ -346,6 +266,12 @@ func (i ClusterArray) ToClusterArrayOutput() ClusterArrayOutput {
 
 func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) ClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterArrayOutput)
+}
+
+func (i ClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: i.ToClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
@@ -373,6 +299,12 @@ func (i ClusterMap) ToClusterMapOutputWithContext(ctx context.Context) ClusterMa
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMapOutput)
 }
 
+func (i ClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: i.ToClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
@@ -387,30 +319,20 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+func (o ClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN that identifies the cluster.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-//
-// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-func (o ClusterOutput) CapacityProviders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.CapacityProviders }).(pulumi.StringArrayOutput)
-}
-
 // The execute command configuration for the cluster. Detailed below.
 func (o ClusterOutput) Configuration() ClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterConfigurationPtrOutput { return v.Configuration }).(ClusterConfigurationPtrOutput)
-}
-
-// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-//
-// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
-func (o ClusterOutput) DefaultCapacityProviderStrategies() ClusterDefaultCapacityProviderStrategyArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterDefaultCapacityProviderStrategyArrayOutput {
-		return v.DefaultCapacityProviderStrategies
-	}).(ClusterDefaultCapacityProviderStrategyArrayOutput)
 }
 
 // Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -452,6 +374,12 @@ func (o ClusterArrayOutput) ToClusterArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterArrayOutput) Index(i pulumi.IntInput) ClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cluster {
 		return vs[0].([]*Cluster)[vs[1].(int)]
@@ -470,6 +398,12 @@ func (o ClusterMapOutput) ToClusterMapOutput() ClusterMapOutput {
 
 func (o ClusterMapOutput) ToClusterMapOutputWithContext(ctx context.Context) ClusterMapOutput {
 	return o
+}
+
+func (o ClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterMapOutput) MapIndex(k pulumi.StringInput) ClusterOutput {

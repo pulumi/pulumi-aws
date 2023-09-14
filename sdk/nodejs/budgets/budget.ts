@@ -163,10 +163,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Budgets can be imported using `AccountID:BudgetName`, e.g.,
+ * Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For example:
  *
  * ```sh
- *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`
+ *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
  * ```
  */
 export class Budget extends pulumi.CustomResource {
@@ -213,12 +213,6 @@ export class Budget extends pulumi.CustomResource {
      * Whether this budget tracks monetary cost or usage.
      */
     public readonly budgetType!: pulumi.Output<string>;
-    /**
-     * Map of CostFilters key/value pairs to apply to the budget.
-     *
-     * @deprecated Use the attribute "cost_filter" instead.
-     */
-    public readonly costFilterLegacy!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
@@ -281,7 +275,6 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoAdjustData"] = state ? state.autoAdjustData : undefined;
             resourceInputs["budgetType"] = state ? state.budgetType : undefined;
-            resourceInputs["costFilterLegacy"] = state ? state.costFilterLegacy : undefined;
             resourceInputs["costFilters"] = state ? state.costFilters : undefined;
             resourceInputs["costTypes"] = state ? state.costTypes : undefined;
             resourceInputs["limitAmount"] = state ? state.limitAmount : undefined;
@@ -304,7 +297,6 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["autoAdjustData"] = args ? args.autoAdjustData : undefined;
             resourceInputs["budgetType"] = args ? args.budgetType : undefined;
-            resourceInputs["costFilterLegacy"] = args ? args.costFilterLegacy : undefined;
             resourceInputs["costFilters"] = args ? args.costFilters : undefined;
             resourceInputs["costTypes"] = args ? args.costTypes : undefined;
             resourceInputs["limitAmount"] = args ? args.limitAmount : undefined;
@@ -343,12 +335,6 @@ export interface BudgetState {
      * Whether this budget tracks monetary cost or usage.
      */
     budgetType?: pulumi.Input<string>;
-    /**
-     * Map of CostFilters key/value pairs to apply to the budget.
-     *
-     * @deprecated Use the attribute "cost_filter" instead.
-     */
-    costFilterLegacy?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
@@ -411,12 +397,6 @@ export interface BudgetArgs {
      * Whether this budget tracks monetary cost or usage.
      */
     budgetType: pulumi.Input<string>;
-    /**
-     * Map of CostFilters key/value pairs to apply to the budget.
-     *
-     * @deprecated Use the attribute "cost_filter" instead.
-     */
-    costFilterLegacy?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */

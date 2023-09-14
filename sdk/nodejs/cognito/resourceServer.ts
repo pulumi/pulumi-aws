@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+ * Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
  *
  * ```sh
  *  $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"

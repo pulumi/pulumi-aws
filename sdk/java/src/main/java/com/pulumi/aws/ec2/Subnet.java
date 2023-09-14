@@ -83,12 +83,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
  *             .vpcId(aws_vpc.main().id())
- *             .cidrBlock(&#34;172.2.0.0/16&#34;)
+ *             .cidrBlock(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *         var inSecondaryCidr = new Subnet(&#34;inSecondaryCidr&#34;, SubnetArgs.builder()        
  *             .vpcId(secondaryCidr.vpcId())
- *             .cidrBlock(&#34;172.2.0.0/24&#34;)
+ *             .cidrBlock(&#34;172.20.0.0/24&#34;)
  *             .build());
  * 
  *     }
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Subnets can be imported using the `subnet id`, e.g.,
+ * Using `pulumi import`, import subnets using the subnet `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c

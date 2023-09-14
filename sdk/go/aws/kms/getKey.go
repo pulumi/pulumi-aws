@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get detailed information about
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +61,7 @@ import (
 //
 // ```
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyResult
 	err := ctx.Invoke("aws:kms/getKey:getKey", args, &rv, opts...)
 	if err != nil {
@@ -169,6 +172,12 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutput() LookupKeyResultOutput {
 
 func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Context) LookupKeyResultOutput {
 	return o
+}
+
+func (o LookupKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeyResult] {
+	return pulumix.Output[LookupKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key ARN of a primary or replica key of a multi-Region key.

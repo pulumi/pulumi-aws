@@ -16,14 +16,14 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs extend
     public static final GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs Empty = new GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs();
 
     /**
-     * Header value sent by the client must match the specified value exactly.
+     * Value used to replace matched path.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Header value sent by the client must match the specified value exactly.
+     * @return Value used to replace matched path.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -55,7 +55,7 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs extend
         }
 
         /**
-         * @param exact Header value sent by the client must match the specified value exactly.
+         * @param exact Value used to replace matched path.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs extend
         }
 
         /**
-         * @param exact Header value sent by the client must match the specified value exactly.
+         * @param exact Value used to replace matched path.
          * 
          * @return builder
          * 

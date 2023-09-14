@@ -149,6 +149,8 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
+           
+           In addition to all arguments above, the following attributes are exported:
     :param str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     __args__ = dict()
@@ -158,15 +160,15 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverEndpoint:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult).value
 
     return AwaitableGetResolverEndpointResult(
-        arn=__ret__.arn,
-        direction=__ret__.direction,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ip_addresses=__ret__.ip_addresses,
-        name=__ret__.name,
-        resolver_endpoint_id=__ret__.resolver_endpoint_id,
-        status=__ret__.status,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        direction=pulumi.get(__ret__, 'direction'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
+        name=pulumi.get(__ret__, 'name'),
+        resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
+        status=pulumi.get(__ret__, 'status'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_resolver_endpoint)
@@ -201,6 +203,8 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
+           
+           In addition to all arguments above, the following attributes are exported:
     :param str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     ...

@@ -28,7 +28,7 @@ public final class ModelContainer {
      * @return The registry path where the inference code image is stored in Amazon ECR.
      * 
      */
-    private String image;
+    private @Nullable String image;
     /**
      * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
      * 
@@ -44,6 +44,11 @@ public final class ModelContainer {
      * 
      */
     private @Nullable String modelDataUrl;
+    /**
+     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * 
+     */
+    private @Nullable String modelPackageName;
 
     private ModelContainer() {}
     /**
@@ -65,8 +70,8 @@ public final class ModelContainer {
      * @return The registry path where the inference code image is stored in Amazon ECR.
      * 
      */
-    public String image() {
-        return this.image;
+    public Optional<String> image() {
+        return Optional.ofNullable(this.image);
     }
     /**
      * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
@@ -89,6 +94,13 @@ public final class ModelContainer {
     public Optional<String> modelDataUrl() {
         return Optional.ofNullable(this.modelDataUrl);
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * 
+     */
+    public Optional<String> modelPackageName() {
+        return Optional.ofNullable(this.modelPackageName);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -101,10 +113,11 @@ public final class ModelContainer {
     public static final class Builder {
         private @Nullable String containerHostname;
         private @Nullable Map<String,String> environment;
-        private String image;
+        private @Nullable String image;
         private @Nullable ModelContainerImageConfig imageConfig;
         private @Nullable String mode;
         private @Nullable String modelDataUrl;
+        private @Nullable String modelPackageName;
         public Builder() {}
         public Builder(ModelContainer defaults) {
     	      Objects.requireNonNull(defaults);
@@ -114,6 +127,7 @@ public final class ModelContainer {
     	      this.imageConfig = defaults.imageConfig;
     	      this.mode = defaults.mode;
     	      this.modelDataUrl = defaults.modelDataUrl;
+    	      this.modelPackageName = defaults.modelPackageName;
         }
 
         @CustomType.Setter
@@ -127,8 +141,8 @@ public final class ModelContainer {
             return this;
         }
         @CustomType.Setter
-        public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+        public Builder image(@Nullable String image) {
+            this.image = image;
             return this;
         }
         @CustomType.Setter
@@ -146,6 +160,11 @@ public final class ModelContainer {
             this.modelDataUrl = modelDataUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder modelPackageName(@Nullable String modelPackageName) {
+            this.modelPackageName = modelPackageName;
+            return this;
+        }
         public ModelContainer build() {
             final var o = new ModelContainer();
             o.containerHostname = containerHostname;
@@ -154,6 +173,7 @@ public final class ModelContainer {
             o.imageConfig = imageConfig;
             o.mode = mode;
             o.modelDataUrl = modelDataUrl;
+            o.modelPackageName = modelPackageName;
             return o;
         }
     }

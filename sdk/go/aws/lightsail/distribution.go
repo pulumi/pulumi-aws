@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Lightsail Distribution.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,8 +81,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -149,8 +151,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -219,7 +221,7 @@ import (
 //
 // ## Import
 //
-// Lightsail Distribution can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 //
 // ```sh
 //
@@ -236,6 +238,8 @@ type Distribution struct {
 	// Bundle ID to use for the distribution.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrOutput `pulumi:"cacheBehaviorSettings"`
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors DistributionCacheBehaviorArrayOutput `pulumi:"cacheBehaviors"`
@@ -290,6 +294,7 @@ func NewDistribution(ctx *pulumi.Context,
 	if args.Origin == nil {
 		return nil, errors.New("invalid value for required argument 'Origin'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Distribution
 	err := ctx.RegisterResource("aws:lightsail/distribution:Distribution", name, args, &resource, opts...)
 	if err != nil {
@@ -319,6 +324,8 @@ type distributionState struct {
 	// Bundle ID to use for the distribution.
 	BundleId *string `pulumi:"bundleId"`
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings *DistributionCacheBehaviorSettings `pulumi:"cacheBehaviorSettings"`
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
@@ -365,6 +372,8 @@ type DistributionState struct {
 	// Bundle ID to use for the distribution.
 	BundleId pulumi.StringPtrInput
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrInput
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors DistributionCacheBehaviorArrayInput
@@ -411,6 +420,8 @@ type distributionArgs struct {
 	// Bundle ID to use for the distribution.
 	BundleId string `pulumi:"bundleId"`
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings *DistributionCacheBehaviorSettings `pulumi:"cacheBehaviorSettings"`
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
@@ -438,6 +449,8 @@ type DistributionArgs struct {
 	// Bundle ID to use for the distribution.
 	BundleId pulumi.StringInput
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrInput
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors DistributionCacheBehaviorArrayInput
@@ -483,6 +496,12 @@ func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) Dist
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOutput)
 }
 
+func (i *Distribution) ToOutput(ctx context.Context) pulumix.Output[*Distribution] {
+	return pulumix.Output[*Distribution]{
+		OutputState: i.ToDistributionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionArrayInput is an input type that accepts DistributionArray and DistributionArrayOutput values.
 // You can construct a concrete instance of `DistributionArrayInput` via:
 //
@@ -506,6 +525,12 @@ func (i DistributionArray) ToDistributionArrayOutput() DistributionArrayOutput {
 
 func (i DistributionArray) ToDistributionArrayOutputWithContext(ctx context.Context) DistributionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionArrayOutput)
+}
+
+func (i DistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Distribution] {
+	return pulumix.Output[[]*Distribution]{
+		OutputState: i.ToDistributionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DistributionMapInput is an input type that accepts DistributionMap and DistributionMapOutput values.
@@ -533,6 +558,12 @@ func (i DistributionMap) ToDistributionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionMapOutput)
 }
 
+func (i DistributionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Distribution] {
+	return pulumix.Output[map[string]*Distribution]{
+		OutputState: i.ToDistributionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionOutput struct{ *pulumi.OutputState }
 
 func (DistributionOutput) ElementType() reflect.Type {
@@ -545,6 +576,12 @@ func (o DistributionOutput) ToDistributionOutput() DistributionOutput {
 
 func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
 	return o
+}
+
+func (o DistributionOutput) ToOutput(ctx context.Context) pulumix.Output[*Distribution] {
+	return pulumix.Output[*Distribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The alternate domain names of the distribution.
@@ -563,6 +600,8 @@ func (o DistributionOutput) BundleId() pulumi.StringOutput {
 }
 
 // An object that describes the cache behavior settings of the distribution. Detailed below
+//
+// The following arguments are optional:
 func (o DistributionOutput) CacheBehaviorSettings() DistributionCacheBehaviorSettingsPtrOutput {
 	return o.ApplyT(func(v *Distribution) DistributionCacheBehaviorSettingsPtrOutput { return v.CacheBehaviorSettings }).(DistributionCacheBehaviorSettingsPtrOutput)
 }
@@ -664,6 +703,12 @@ func (o DistributionArrayOutput) ToDistributionArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o DistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Distribution] {
+	return pulumix.Output[[]*Distribution]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DistributionArrayOutput) Index(i pulumi.IntInput) DistributionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Distribution {
 		return vs[0].([]*Distribution)[vs[1].(int)]
@@ -682,6 +727,12 @@ func (o DistributionMapOutput) ToDistributionMapOutput() DistributionMapOutput {
 
 func (o DistributionMapOutput) ToDistributionMapOutputWithContext(ctx context.Context) DistributionMapOutput {
 	return o
+}
+
+func (o DistributionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Distribution] {
+	return pulumix.Output[map[string]*Distribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionMapOutput) MapIndex(k pulumi.StringInput) DistributionOutput {

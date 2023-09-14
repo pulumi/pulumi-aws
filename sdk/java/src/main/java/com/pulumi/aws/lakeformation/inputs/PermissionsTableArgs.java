@@ -64,12 +64,16 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
     /**
      * Whether to use a wildcard representing every table under a database. Defaults to `false`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
     /**
      * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Boolean>> wildcard() {
@@ -169,6 +173,8 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param wildcard Whether to use a wildcard representing every table under a database. Defaults to `false`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param wildcard Whether to use a wildcard representing every table under a database. Defaults to `false`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

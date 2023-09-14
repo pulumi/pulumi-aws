@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Network Firewall Firewall Policy Resource
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,10 +57,65 @@ import (
 //	}
 //
 // ```
+// ## Policy with a HOME_NET Override
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					PolicyVariables: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs{
+//						RuleVariables: networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{
+//							&networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{
+//								Key: pulumi.String("HOME_NET"),
+//								IpSet: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("10.0.0.0/16"),
+//										pulumi.String("10.1.0.0/24"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
+//							Priority:    pulumi.Int(1),
+//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Network Firewall Policies can be imported using their `ARN`.
+// Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
 //
 // ```sh
 //
@@ -96,6 +153,7 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 	if args.FirewallPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallPolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallPolicy
 	err := ctx.RegisterResource("aws:networkfirewall/firewallPolicy:FirewallPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -209,6 +267,12 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyOutput)
 }
 
+func (i *FirewallPolicy) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicy] {
+	return pulumix.Output[*FirewallPolicy]{
+		OutputState: i.ToFirewallPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyArrayInput is an input type that accepts FirewallPolicyArray and FirewallPolicyArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyArrayInput` via:
 //
@@ -232,6 +296,12 @@ func (i FirewallPolicyArray) ToFirewallPolicyArrayOutput() FirewallPolicyArrayOu
 
 func (i FirewallPolicyArray) ToFirewallPolicyArrayOutputWithContext(ctx context.Context) FirewallPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyArrayOutput)
+}
+
+func (i FirewallPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallPolicy] {
+	return pulumix.Output[[]*FirewallPolicy]{
+		OutputState: i.ToFirewallPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FirewallPolicyMapInput is an input type that accepts FirewallPolicyMap and FirewallPolicyMapOutput values.
@@ -259,6 +329,12 @@ func (i FirewallPolicyMap) ToFirewallPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyMapOutput)
 }
 
+func (i FirewallPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallPolicy] {
+	return pulumix.Output[map[string]*FirewallPolicy]{
+		OutputState: i.ToFirewallPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyOutput) ElementType() reflect.Type {
@@ -271,6 +347,12 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutput() FirewallPolicyOutput {
 
 func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput {
 	return o
+}
+
+func (o FirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicy] {
+	return pulumix.Output[*FirewallPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that identifies the firewall policy.
@@ -329,6 +411,12 @@ func (o FirewallPolicyArrayOutput) ToFirewallPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o FirewallPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallPolicy] {
+	return pulumix.Output[[]*FirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyArrayOutput) Index(i pulumi.IntInput) FirewallPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirewallPolicy {
 		return vs[0].([]*FirewallPolicy)[vs[1].(int)]
@@ -347,6 +435,12 @@ func (o FirewallPolicyMapOutput) ToFirewallPolicyMapOutput() FirewallPolicyMapOu
 
 func (o FirewallPolicyMapOutput) ToFirewallPolicyMapOutputWithContext(ctx context.Context) FirewallPolicyMapOutput {
 	return o
+}
+
+func (o FirewallPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallPolicy] {
+	return pulumix.Output[map[string]*FirewallPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyMapOutput) MapIndex(k pulumi.StringInput) FirewallPolicyOutput {

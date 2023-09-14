@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// ## Import
     /// 
-    /// IVS (Interactive Video) Recording Configuration can be imported using the ARN, e.g.,
+    /// Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47

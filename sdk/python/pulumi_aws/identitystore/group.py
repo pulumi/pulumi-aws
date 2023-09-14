@@ -23,6 +23,8 @@ class GroupArgs:
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: A string containing the description of the group.
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -47,6 +49,8 @@ class GroupArgs:
     def identity_store_id(self) -> pulumi.Input[str]:
         """
         The globally unique identifier for the identity store.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "identity_store_id")
 
@@ -82,6 +86,8 @@ class _GroupState:
         :param pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         :param pulumi.Input[str] group_id: The identifier of the newly created group in the identity store.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
+               
+               The following arguments are optional:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -147,6 +153,8 @@ class _GroupState:
     def identity_store_id(self) -> Optional[pulumi.Input[str]]:
         """
         The globally unique identifier for the identity store.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "identity_store_id")
 
@@ -171,7 +179,7 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+        Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 
         ```sh
          $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
@@ -182,6 +190,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A string containing the description of the group.
         :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -196,7 +206,7 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+        Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 
         ```sh
          $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
@@ -265,6 +275,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExternalIdArgs']]]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         :param pulumi.Input[str] group_id: The identifier of the newly created group in the identity store.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -314,6 +326,8 @@ class Group(pulumi.CustomResource):
     def identity_store_id(self) -> pulumi.Output[str]:
         """
         The globally unique identifier for the identity store.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "identity_store_id")
 

@@ -546,11 +546,11 @@ class StageCanarySettings(dict):
 
     def __init__(__self__, *,
                  percent_traffic: Optional[float] = None,
-                 stage_variable_overrides: Optional[Mapping[str, Any]] = None,
+                 stage_variable_overrides: Optional[Mapping[str, str]] = None,
                  use_stage_cache: Optional[bool] = None):
         """
         :param float percent_traffic: Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-        :param Mapping[str, Any] stage_variable_overrides: Map of overridden stage `variables` (including new variables) for the canary deployment.
+        :param Mapping[str, str] stage_variable_overrides: Map of overridden stage `variables` (including new variables) for the canary deployment.
         :param bool use_stage_cache: Whether the canary deployment uses the stage cache. Defaults to false.
         """
         if percent_traffic is not None:
@@ -570,7 +570,7 @@ class StageCanarySettings(dict):
 
     @property
     @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[Mapping[str, Any]]:
+    def stage_variable_overrides(self) -> Optional[Mapping[str, str]]:
         """
         Map of overridden stage `variables` (including new variables) for the canary deployment.
         """

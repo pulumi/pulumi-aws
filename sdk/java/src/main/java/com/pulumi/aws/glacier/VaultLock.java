@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
+ * Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault

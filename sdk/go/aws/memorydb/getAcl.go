@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a MemoryDB ACL.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupAcl(ctx *pulumi.Context, args *LookupAclArgs, opts ...pulumi.InvokeOption) (*LookupAclResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAclResult
 	err := ctx.Invoke("aws:memorydb/getAcl:getAcl", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o LookupAclResultOutput) ToLookupAclResultOutput() LookupAclResultOutput {
 
 func (o LookupAclResultOutput) ToLookupAclResultOutputWithContext(ctx context.Context) LookupAclResultOutput {
 	return o
+}
+
+func (o LookupAclResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAclResult] {
+	return pulumix.Output[LookupAclResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the ACL.

@@ -8,14 +8,57 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			var splat0 []interface{}
+//			for _, val0 := range aws_subnet.Test {
+//				splat0 = append(splat0, val0.Id)
+//			}
+//			_, err := rds.NewProxyEndpoint(ctx, "example", &rds.ProxyEndpointArgs{
+//				DbProxyName:         pulumi.Any(aws_db_proxy.Test.Name),
+//				DbProxyEndpointName: pulumi.String("example"),
+//				VpcSubnetIds:        toPulumiAnyArray(splat0),
+//				TargetRole:          pulumi.String("READ_ONLY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
+//		var pulumiArr pulumi.AnyArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.Any(v))
+//		}
+//		return pulumiArr
+//	}
+//
+// ```
+//
 // ## Import
 //
-// DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+// Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
 //
 // ```sh
 //
@@ -64,6 +107,7 @@ func NewProxyEndpoint(ctx *pulumi.Context,
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyEndpoint
 	err := ctx.RegisterResource("aws:rds/proxyEndpoint:ProxyEndpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -191,6 +235,12 @@ func (i *ProxyEndpoint) ToProxyEndpointOutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyEndpointOutput)
 }
 
+func (i *ProxyEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ProxyEndpoint] {
+	return pulumix.Output[*ProxyEndpoint]{
+		OutputState: i.ToProxyEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProxyEndpointArrayInput is an input type that accepts ProxyEndpointArray and ProxyEndpointArrayOutput values.
 // You can construct a concrete instance of `ProxyEndpointArrayInput` via:
 //
@@ -214,6 +264,12 @@ func (i ProxyEndpointArray) ToProxyEndpointArrayOutput() ProxyEndpointArrayOutpu
 
 func (i ProxyEndpointArray) ToProxyEndpointArrayOutputWithContext(ctx context.Context) ProxyEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyEndpointArrayOutput)
+}
+
+func (i ProxyEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyEndpoint] {
+	return pulumix.Output[[]*ProxyEndpoint]{
+		OutputState: i.ToProxyEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProxyEndpointMapInput is an input type that accepts ProxyEndpointMap and ProxyEndpointMapOutput values.
@@ -241,6 +297,12 @@ func (i ProxyEndpointMap) ToProxyEndpointMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyEndpointMapOutput)
 }
 
+func (i ProxyEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyEndpoint] {
+	return pulumix.Output[map[string]*ProxyEndpoint]{
+		OutputState: i.ToProxyEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProxyEndpointOutput struct{ *pulumi.OutputState }
 
 func (ProxyEndpointOutput) ElementType() reflect.Type {
@@ -253,6 +315,12 @@ func (o ProxyEndpointOutput) ToProxyEndpointOutput() ProxyEndpointOutput {
 
 func (o ProxyEndpointOutput) ToProxyEndpointOutputWithContext(ctx context.Context) ProxyEndpointOutput {
 	return o
+}
+
+func (o ProxyEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ProxyEndpoint] {
+	return pulumix.Output[*ProxyEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the proxy endpoint.
@@ -323,6 +391,12 @@ func (o ProxyEndpointArrayOutput) ToProxyEndpointArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ProxyEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyEndpoint] {
+	return pulumix.Output[[]*ProxyEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProxyEndpointArrayOutput) Index(i pulumi.IntInput) ProxyEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProxyEndpoint {
 		return vs[0].([]*ProxyEndpoint)[vs[1].(int)]
@@ -341,6 +415,12 @@ func (o ProxyEndpointMapOutput) ToProxyEndpointMapOutput() ProxyEndpointMapOutpu
 
 func (o ProxyEndpointMapOutput) ToProxyEndpointMapOutputWithContext(ctx context.Context) ProxyEndpointMapOutput {
 	return o
+}
+
+func (o ProxyEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyEndpoint] {
+	return pulumix.Output[map[string]*ProxyEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProxyEndpointMapOutput) MapIndex(k pulumi.StringInput) ProxyEndpointOutput {

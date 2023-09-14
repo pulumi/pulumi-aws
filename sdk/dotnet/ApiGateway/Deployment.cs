@@ -162,13 +162,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_deployment` can be imported using `REST-API-ID/DEPLOYMENT-ID`, e.g.,
+    /// Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
     /// ```
+    ///  The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
     /// 
-    ///  The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
+    /// The `triggers` argument cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigateway/deployment:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

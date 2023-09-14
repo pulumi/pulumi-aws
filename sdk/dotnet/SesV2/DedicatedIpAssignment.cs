@@ -36,7 +36,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Import
     /// 
-    /// SESv2 (Simple Email V2) Dedicated IP Assignment can be imported using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`, e.g.,
+    /// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Assignment using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example "0.0.0.0,my-pool"

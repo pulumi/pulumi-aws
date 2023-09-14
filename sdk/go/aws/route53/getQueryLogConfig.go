@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,6 +77,7 @@ import (
 //
 // ```
 func GetQueryLogConfig(ctx *pulumi.Context, args *GetQueryLogConfigArgs, opts ...pulumi.InvokeOption) (*GetQueryLogConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQueryLogConfigResult
 	err := ctx.Invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", args, &rv, opts...)
 	if err != nil {
@@ -88,12 +91,16 @@ type GetQueryLogConfigArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Filters []GetQueryLogConfigFilter `pulumi:"filters"`
 	// The name of the query logging configuration.
 	Name *string `pulumi:"name"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
+	//
+	// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -129,12 +136,16 @@ type GetQueryLogConfigOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Filters GetQueryLogConfigFilterArrayInput `pulumi:"filters"`
 	// The name of the query logging configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId pulumi.StringPtrInput `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
+	//
+	// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -155,6 +166,12 @@ func (o GetQueryLogConfigResultOutput) ToGetQueryLogConfigResultOutput() GetQuer
 
 func (o GetQueryLogConfigResultOutput) ToGetQueryLogConfigResultOutputWithContext(ctx context.Context) GetQueryLogConfigResultOutput {
 	return o
+}
+
+func (o GetQueryLogConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQueryLogConfigResult] {
+	return pulumix.Output[GetQueryLogConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetQueryLogConfigResultOutput) Arn() pulumi.StringOutput {

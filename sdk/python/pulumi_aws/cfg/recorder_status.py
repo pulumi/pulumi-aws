@@ -141,7 +141,7 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+        Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
 
         ```sh
          $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
@@ -201,7 +201,7 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+        Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
 
         ```sh
          $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example

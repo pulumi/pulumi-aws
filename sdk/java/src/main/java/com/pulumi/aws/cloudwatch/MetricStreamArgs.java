@@ -114,12 +114,16 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="outputFormat", required=true)
     private Output<String> outputFormat;
 
     /**
      * @return Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> outputFormat() {
@@ -353,6 +357,8 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param outputFormat Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -363,6 +369,8 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param outputFormat Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

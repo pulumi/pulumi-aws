@@ -34,7 +34,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// `aws_networkmanager_site_to_site_vpn_attachment` can be imported using the attachment ID, e.g.
+    /// Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
@@ -117,6 +117,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the site-to-site VPN connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpnConnectionArn")]
         public Output<string> VpnConnectionArn { get; private set; } = null!;
@@ -187,6 +189,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the site-to-site VPN connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpnConnectionArn", required: true)]
         public Input<string> VpnConnectionArn { get; set; } = null!;
@@ -285,6 +289,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the site-to-site VPN connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpnConnectionArn")]
         public Input<string>? VpnConnectionArn { get; set; }

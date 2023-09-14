@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_lb_attachment` can be imported by using the name attribute, e.g.,
+ * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance

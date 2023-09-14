@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a S3 bucket resource.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,7 +94,7 @@ import (
 //
 // ## Import
 //
-// S3 bucket can be imported using the `bucket`, e.g.,
+// Using `pulumi import`, import S3 bucket using the `bucket`. For example:
 //
 // ```sh
 //
@@ -119,7 +121,7 @@ type BucketV2 struct {
 	BucketDomainName pulumi.StringOutput `pulumi:"bucketDomainName"`
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix pulumi.StringOutput `pulumi:"bucketPrefix"`
-	// Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+	// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
 	BucketRegionalDomainName pulumi.StringOutput `pulumi:"bucketRegionalDomainName"`
 	// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
@@ -179,6 +181,8 @@ type BucketV2 struct {
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations BucketV2ServerSideEncryptionConfigurationArrayOutput `pulumi:"serverSideEncryptionConfigurations"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are deprecated, and will be removed in a future major version:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -214,6 +218,7 @@ func NewBucketV2(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketV2
 	err := ctx.RegisterResource("aws:s3/bucketV2:BucketV2", name, args, &resource, opts...)
 	if err != nil {
@@ -253,7 +258,7 @@ type bucketV2State struct {
 	BucketDomainName *string `pulumi:"bucketDomainName"`
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+	// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
 	BucketRegionalDomainName *string `pulumi:"bucketRegionalDomainName"`
 	// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
@@ -313,6 +318,8 @@ type bucketV2State struct {
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations []BucketV2ServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfigurations"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are deprecated, and will be removed in a future major version:
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -353,7 +360,7 @@ type BucketV2State struct {
 	BucketDomainName pulumi.StringPtrInput
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix pulumi.StringPtrInput
-	// Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+	// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
 	BucketRegionalDomainName pulumi.StringPtrInput
 	// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
@@ -413,6 +420,8 @@ type BucketV2State struct {
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations BucketV2ServerSideEncryptionConfigurationArrayInput
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are deprecated, and will be removed in a future major version:
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -507,6 +516,8 @@ type bucketV2Args struct {
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations []BucketV2ServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfigurations"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are deprecated, and will be removed in a future major version:
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
 	//
@@ -588,6 +599,8 @@ type BucketV2Args struct {
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations BucketV2ServerSideEncryptionConfigurationArrayInput
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are deprecated, and will be removed in a future major version:
 	Tags pulumi.StringMapInput
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
 	//
@@ -623,6 +636,12 @@ func (i *BucketV2) ToBucketV2OutputWithContext(ctx context.Context) BucketV2Outp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2Output)
 }
 
+func (i *BucketV2) ToOutput(ctx context.Context) pulumix.Output[*BucketV2] {
+	return pulumix.Output[*BucketV2]{
+		OutputState: i.ToBucketV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ArrayInput is an input type that accepts BucketV2Array and BucketV2ArrayOutput values.
 // You can construct a concrete instance of `BucketV2ArrayInput` via:
 //
@@ -646,6 +665,12 @@ func (i BucketV2Array) ToBucketV2ArrayOutput() BucketV2ArrayOutput {
 
 func (i BucketV2Array) ToBucketV2ArrayOutputWithContext(ctx context.Context) BucketV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ArrayOutput)
+}
+
+func (i BucketV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketV2] {
+	return pulumix.Output[[]*BucketV2]{
+		OutputState: i.ToBucketV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketV2MapInput is an input type that accepts BucketV2Map and BucketV2MapOutput values.
@@ -673,6 +698,12 @@ func (i BucketV2Map) ToBucketV2MapOutputWithContext(ctx context.Context) BucketV
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2MapOutput)
 }
 
+func (i BucketV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketV2] {
+	return pulumix.Output[map[string]*BucketV2]{
+		OutputState: i.ToBucketV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2Output struct{ *pulumi.OutputState }
 
 func (BucketV2Output) ElementType() reflect.Type {
@@ -685,6 +716,12 @@ func (o BucketV2Output) ToBucketV2Output() BucketV2Output {
 
 func (o BucketV2Output) ToBucketV2OutputWithContext(ctx context.Context) BucketV2Output {
 	return o
+}
+
+func (o BucketV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketV2] {
+	return pulumix.Output[*BucketV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
@@ -722,7 +759,7 @@ func (o BucketV2Output) BucketPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.BucketPrefix }).(pulumi.StringOutput)
 }
 
-// Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
 func (o BucketV2Output) BucketRegionalDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.BucketRegionalDomainName }).(pulumi.StringOutput)
 }
@@ -826,6 +863,8 @@ func (o BucketV2Output) ServerSideEncryptionConfigurations() BucketV2ServerSideE
 }
 
 // Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following arguments are deprecated, and will be removed in a future major version:
 func (o BucketV2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -878,6 +917,12 @@ func (o BucketV2ArrayOutput) ToBucketV2ArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o BucketV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketV2] {
+	return pulumix.Output[[]*BucketV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketV2ArrayOutput) Index(i pulumi.IntInput) BucketV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketV2 {
 		return vs[0].([]*BucketV2)[vs[1].(int)]
@@ -896,6 +941,12 @@ func (o BucketV2MapOutput) ToBucketV2MapOutput() BucketV2MapOutput {
 
 func (o BucketV2MapOutput) ToBucketV2MapOutputWithContext(ctx context.Context) BucketV2MapOutput {
 	return o
+}
+
+func (o BucketV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketV2] {
+	return pulumix.Output[map[string]*BucketV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2MapOutput) MapIndex(k pulumi.StringInput) BucketV2Output {

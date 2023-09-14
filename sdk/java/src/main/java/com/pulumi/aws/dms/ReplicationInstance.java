@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Replication instances can be imported using the `replication_instance_id`, e.g.,
+ * Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
@@ -239,7 +239,26 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
         return this.multiAz;
     }
     /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    @Export(name="networkType", refs={String.class}, tree="[0]")
+    private Output<String> networkType;
+
+    /**
+     * @return The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
+    }
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     * 
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
@@ -247,6 +266,11 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     * 
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      * 
      */
     public Output<String> preferredMaintenanceWindow() {
@@ -297,12 +321,22 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
+     * 
      */
     @Export(name="replicationInstanceId", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceId;
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
+     * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Output<String> replicationInstanceId() {

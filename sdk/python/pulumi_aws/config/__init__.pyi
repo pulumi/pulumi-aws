@@ -79,11 +79,17 @@ region: Optional[str]
 The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 """
 
-s3ForcePathStyle: Optional[bool]
+retryMode: Optional[str]
 """
-Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-Specific to the Amazon S3 service.
+Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+`AWS_RETRY_MODE` environment variable.
+"""
+
+s3UsEast1RegionalEndpoint: Optional[str]
+"""
+Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
 """
 
 s3UsePathStyle: Optional[bool]
@@ -103,11 +109,6 @@ sharedConfigFiles: Optional[str]
 List of paths to shared config files. If not set, defaults to [~/.aws/config].
 """
 
-sharedCredentialsFile: Optional[str]
-"""
-The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-"""
-
 sharedCredentialsFiles: Optional[str]
 """
 List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
@@ -117,11 +118,6 @@ skipCredentialsValidation: bool
 """
 Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 available/implemented.
-"""
-
-skipGetEc2Platforms: Optional[bool]
-"""
-Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 """
 
 skipMetadataApiCheck: bool

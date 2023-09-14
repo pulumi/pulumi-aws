@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Workforces can be imported using the `workforce_name`, e.g.,
+    /// Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/workforce:Workforce example example

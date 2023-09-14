@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARN of a State Machine in AWS Step
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts ...pulumi.InvokeOption) (*LookupStateMachineResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStateMachineResult
 	err := ctx.Invoke("aws:sfn/getStateMachine:getStateMachine", args, &rv, opts...)
 	if err != nil {
@@ -61,10 +64,13 @@ type LookupStateMachineResult struct {
 	// Date the state machine was created.
 	CreationDate string `pulumi:"creationDate"`
 	// Set to the state machine definition.
-	Definition string `pulumi:"definition"`
+	Definition  string `pulumi:"definition"`
+	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+	// The revision identifier for the state machine.
+	RevisionId string `pulumi:"revisionId"`
 	// Set to the roleArn used by the state function.
 	RoleArn string `pulumi:"roleArn"`
 	// Set to the current status of the state machine.
@@ -109,6 +115,12 @@ func (o LookupStateMachineResultOutput) ToLookupStateMachineResultOutputWithCont
 	return o
 }
 
+func (o LookupStateMachineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStateMachineResult] {
+	return pulumix.Output[LookupStateMachineResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Set to the arn of the state function.
 func (o LookupStateMachineResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Arn }).(pulumi.StringOutput)
@@ -124,6 +136,10 @@ func (o LookupStateMachineResultOutput) Definition() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Definition }).(pulumi.StringOutput)
 }
 
+func (o LookupStateMachineResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupStateMachineResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Id }).(pulumi.StringOutput)
@@ -131,6 +147,11 @@ func (o LookupStateMachineResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupStateMachineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The revision identifier for the state machine.
+func (o LookupStateMachineResultOutput) RevisionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) string { return v.RevisionId }).(pulumi.StringOutput)
 }
 
 // Set to the roleArn used by the state function.

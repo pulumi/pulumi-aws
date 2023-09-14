@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -18,13 +20,14 @@ import (
 // > **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,6 +47,75 @@ import (
 //	}
 //
 // ```
+// ### Example IAM Setup in Target Account
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: interface{}{
+// aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
+// },
+// Type: "AWS",
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "aWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json),
+// })
+// if err != nil {
+// return err
+// }
+// aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "cloudformation:*",
+// "s3:*",
+// "sns:*",
+// },
+// Effect: pulumi.StringRef("Allow"),
+// Resources: []string{
+// "*",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
+// Policy: *pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Json),
+// Role: aWSCloudFormationStackSetExecutionRole.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 // ### Example Deployment across Organizations account
 //
 // ```go
@@ -51,7 +123,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +150,13 @@ import (
 //
 // ## Import
 //
-// CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+// In TODO v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
+//
+// Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
+//
+// Import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+//
+// Using `TODO import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
 //
 // ```sh
 //
@@ -86,11 +164,19 @@ import (
 //
 // ```
 //
-//	CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+//	Using `TODO import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+//
+// ```
+//
+//	Using `TODO import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
 //
 // ```
 type StackSetInstance struct {
@@ -104,7 +190,7 @@ type StackSetInstance struct {
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrOutput `pulumi:"deploymentTargets"`
 	// Preferences for how AWS CloudFormation performs a stack set operation.
 	OperationPreferences StackSetInstanceOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
-	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	// Organizational unit ID in which the stack is deployed.
 	OrganizationalUnitId pulumi.StringOutput `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
@@ -112,8 +198,10 @@ type StackSetInstance struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack pulumi.BoolPtrOutput `pulumi:"retainStack"`
-	// Stack identifier
+	// Stack identifier.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayOutput `pulumi:"stackInstanceSummaries"`
 	// Name of the StackSet.
 	StackSetName pulumi.StringOutput `pulumi:"stackSetName"`
 }
@@ -128,6 +216,7 @@ func NewStackSetInstance(ctx *pulumi.Context,
 	if args.StackSetName == nil {
 		return nil, errors.New("invalid value for required argument 'StackSetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StackSetInstance
 	err := ctx.RegisterResource("aws:cloudformation/stackSetInstance:StackSetInstance", name, args, &resource, opts...)
 	if err != nil {
@@ -158,7 +247,7 @@ type stackSetInstanceState struct {
 	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
 	// Preferences for how AWS CloudFormation performs a stack set operation.
 	OperationPreferences *StackSetInstanceOperationPreferences `pulumi:"operationPreferences"`
-	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	// Organizational unit ID in which the stack is deployed.
 	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
@@ -166,8 +255,10 @@ type stackSetInstanceState struct {
 	Region *string `pulumi:"region"`
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack *bool `pulumi:"retainStack"`
-	// Stack identifier
+	// Stack identifier.
 	StackId *string `pulumi:"stackId"`
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackInstanceSummaries []StackSetInstanceStackInstanceSummary `pulumi:"stackInstanceSummaries"`
 	// Name of the StackSet.
 	StackSetName *string `pulumi:"stackSetName"`
 }
@@ -181,7 +272,7 @@ type StackSetInstanceState struct {
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
 	// Preferences for how AWS CloudFormation performs a stack set operation.
 	OperationPreferences StackSetInstanceOperationPreferencesPtrInput
-	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	// Organizational unit ID in which the stack is deployed.
 	OrganizationalUnitId pulumi.StringPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapInput
@@ -189,8 +280,10 @@ type StackSetInstanceState struct {
 	Region pulumi.StringPtrInput
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack pulumi.BoolPtrInput
-	// Stack identifier
+	// Stack identifier.
 	StackId pulumi.StringPtrInput
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayInput
 	// Name of the StackSet.
 	StackSetName pulumi.StringPtrInput
 }
@@ -261,6 +354,12 @@ func (i *StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOutput)
 }
 
+func (i *StackSetInstance) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstance] {
+	return pulumix.Output[*StackSetInstance]{
+		OutputState: i.ToStackSetInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackSetInstanceArrayInput is an input type that accepts StackSetInstanceArray and StackSetInstanceArrayOutput values.
 // You can construct a concrete instance of `StackSetInstanceArrayInput` via:
 //
@@ -284,6 +383,12 @@ func (i StackSetInstanceArray) ToStackSetInstanceArrayOutput() StackSetInstanceA
 
 func (i StackSetInstanceArray) ToStackSetInstanceArrayOutputWithContext(ctx context.Context) StackSetInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceArrayOutput)
+}
+
+func (i StackSetInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*StackSetInstance] {
+	return pulumix.Output[[]*StackSetInstance]{
+		OutputState: i.ToStackSetInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StackSetInstanceMapInput is an input type that accepts StackSetInstanceMap and StackSetInstanceMapOutput values.
@@ -311,6 +416,12 @@ func (i StackSetInstanceMap) ToStackSetInstanceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceMapOutput)
 }
 
+func (i StackSetInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSetInstance] {
+	return pulumix.Output[map[string]*StackSetInstance]{
+		OutputState: i.ToStackSetInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetInstanceOutput struct{ *pulumi.OutputState }
 
 func (StackSetInstanceOutput) ElementType() reflect.Type {
@@ -323,6 +434,12 @@ func (o StackSetInstanceOutput) ToStackSetInstanceOutput() StackSetInstanceOutpu
 
 func (o StackSetInstanceOutput) ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput {
 	return o
+}
+
+func (o StackSetInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstance] {
+	return pulumix.Output[*StackSetInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
@@ -345,7 +462,7 @@ func (o StackSetInstanceOutput) OperationPreferences() StackSetInstanceOperation
 	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceOperationPreferencesPtrOutput { return v.OperationPreferences }).(StackSetInstanceOperationPreferencesPtrOutput)
 }
 
-// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+// Organizational unit ID in which the stack is deployed.
 func (o StackSetInstanceOutput) OrganizationalUnitId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.OrganizationalUnitId }).(pulumi.StringOutput)
 }
@@ -365,9 +482,16 @@ func (o StackSetInstanceOutput) RetainStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.BoolPtrOutput { return v.RetainStack }).(pulumi.BoolPtrOutput)
 }
 
-// Stack identifier
+// Stack identifier.
 func (o StackSetInstanceOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
+}
+
+// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+func (o StackSetInstanceOutput) StackInstanceSummaries() StackSetInstanceStackInstanceSummaryArrayOutput {
+	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceStackInstanceSummaryArrayOutput {
+		return v.StackInstanceSummaries
+	}).(StackSetInstanceStackInstanceSummaryArrayOutput)
 }
 
 // Name of the StackSet.
@@ -389,6 +513,12 @@ func (o StackSetInstanceArrayOutput) ToStackSetInstanceArrayOutputWithContext(ct
 	return o
 }
 
+func (o StackSetInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StackSetInstance] {
+	return pulumix.Output[[]*StackSetInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StackSetInstanceArrayOutput) Index(i pulumi.IntInput) StackSetInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StackSetInstance {
 		return vs[0].([]*StackSetInstance)[vs[1].(int)]
@@ -407,6 +537,12 @@ func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutput() StackSetInstanc
 
 func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutputWithContext(ctx context.Context) StackSetInstanceMapOutput {
 	return o
+}
+
+func (o StackSetInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSetInstance] {
+	return pulumix.Output[map[string]*StackSetInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetInstanceMapOutput) MapIndex(k pulumi.StringInput) StackSetInstanceOutput {

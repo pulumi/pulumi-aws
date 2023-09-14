@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Alb.Inputs
     {
         /// <summary>
         /// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;

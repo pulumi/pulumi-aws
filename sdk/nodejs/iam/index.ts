@@ -28,7 +28,8 @@ utilities.lazyLoad(exports, ["getAccessKeys","getAccessKeysOutput"], () => requi
 
 export { GetAccountAliasResult } from "./getAccountAlias";
 export const getAccountAlias: typeof import("./getAccountAlias").getAccountAlias = null as any;
-utilities.lazyLoad(exports, ["getAccountAlias"], () => require("./getAccountAlias"));
+export const getAccountAliasOutput: typeof import("./getAccountAlias").getAccountAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountAlias","getAccountAliasOutput"], () => require("./getAccountAlias"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
@@ -45,10 +46,10 @@ export const getInstanceProfiles: typeof import("./getInstanceProfiles").getInst
 export const getInstanceProfilesOutput: typeof import("./getInstanceProfiles").getInstanceProfilesOutput = null as any;
 utilities.lazyLoad(exports, ["getInstanceProfiles","getInstanceProfilesOutput"], () => require("./getInstanceProfiles"));
 
-export { GetOpenidConnectProviderArgs, GetOpenidConnectProviderResult, GetOpenidConnectProviderOutputArgs } from "./getOpenidConnectProvider";
-export const getOpenidConnectProvider: typeof import("./getOpenidConnectProvider").getOpenidConnectProvider = null as any;
-export const getOpenidConnectProviderOutput: typeof import("./getOpenidConnectProvider").getOpenidConnectProviderOutput = null as any;
-utilities.lazyLoad(exports, ["getOpenidConnectProvider","getOpenidConnectProviderOutput"], () => require("./getOpenidConnectProvider"));
+export { GetOpenIdConnectProviderArgs, GetOpenIdConnectProviderResult, GetOpenIdConnectProviderOutputArgs } from "./getOpenIdConnectProvider";
+export const getOpenIdConnectProvider: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProvider = null as any;
+export const getOpenIdConnectProviderOutput: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenIdConnectProvider","getOpenIdConnectProviderOutput"], () => require("./getOpenIdConnectProvider"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
@@ -59,6 +60,11 @@ export { GetPolicyDocumentArgs, GetPolicyDocumentResult, GetPolicyDocumentOutput
 export const getPolicyDocument: typeof import("./getPolicyDocument").getPolicyDocument = null as any;
 export const getPolicyDocumentOutput: typeof import("./getPolicyDocument").getPolicyDocumentOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyDocument","getPolicyDocumentOutput"], () => require("./getPolicyDocument"));
+
+export { GetPrincipalPolicySimulationArgs, GetPrincipalPolicySimulationResult, GetPrincipalPolicySimulationOutputArgs } from "./getPrincipalPolicySimulation";
+export const getPrincipalPolicySimulation: typeof import("./getPrincipalPolicySimulation").getPrincipalPolicySimulation = null as any;
+export const getPrincipalPolicySimulationOutput: typeof import("./getPrincipalPolicySimulation").getPrincipalPolicySimulationOutput = null as any;
+utilities.lazyLoad(exports, ["getPrincipalPolicySimulation","getPrincipalPolicySimulationOutput"], () => require("./getPrincipalPolicySimulation"));
 
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
@@ -162,6 +168,11 @@ export type SamlProvider = import("./samlProvider").SamlProvider;
 export const SamlProvider: typeof import("./samlProvider").SamlProvider = null as any;
 utilities.lazyLoad(exports, ["SamlProvider"], () => require("./samlProvider"));
 
+export { SecurityTokenServicePreferencesArgs, SecurityTokenServicePreferencesState } from "./securityTokenServicePreferences";
+export type SecurityTokenServicePreferences = import("./securityTokenServicePreferences").SecurityTokenServicePreferences;
+export const SecurityTokenServicePreferences: typeof import("./securityTokenServicePreferences").SecurityTokenServicePreferences = null as any;
+utilities.lazyLoad(exports, ["SecurityTokenServicePreferences"], () => require("./securityTokenServicePreferences"));
+
 export { ServerCertificateArgs, ServerCertificateState } from "./serverCertificate";
 export type ServerCertificate = import("./serverCertificate").ServerCertificate;
 export const ServerCertificate: typeof import("./serverCertificate").ServerCertificate = null as any;
@@ -255,6 +266,8 @@ const _module = {
                 return new RolePolicyAttachment(name, <any>undefined, { urn })
             case "aws:iam/samlProvider:SamlProvider":
                 return new SamlProvider(name, <any>undefined, { urn })
+            case "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences":
+                return new SecurityTokenServicePreferences(name, <any>undefined, { urn })
             case "aws:iam/serverCertificate:ServerCertificate":
                 return new ServerCertificate(name, <any>undefined, { urn })
             case "aws:iam/serviceLinkedRole:ServiceLinkedRole":
@@ -297,6 +310,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/role", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/samlProvider", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/securityTokenServicePreferences", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serverCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serviceLinkedRole", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serviceSpecificCredential", _module)

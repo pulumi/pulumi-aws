@@ -534,7 +534,7 @@ class Trigger(pulumi.CustomResource):
 
         ## Import
 
-        Glue Triggers can be imported using `name`, e.g.,
+        Using `pulumi import`, import Glue Triggers using `name`. For example:
 
         ```sh
          $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
@@ -650,7 +650,7 @@ class Trigger(pulumi.CustomResource):
 
         ## Import
 
-        Glue Triggers can be imported using `name`, e.g.,
+        Using `pulumi import`, import Glue Triggers using `name`. For example:
 
         ```sh
          $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger

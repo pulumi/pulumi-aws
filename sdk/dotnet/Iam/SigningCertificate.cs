@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Signing Certificates can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name

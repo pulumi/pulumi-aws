@@ -231,7 +231,7 @@ class Hsm(pulumi.CustomResource):
 
         ## Import
 
-        HSM modules can be imported using their HSM ID, e.g.,
+        Using `pulumi import`, import HSM modules using their HSM ID. For example:
 
         ```sh
          $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
@@ -269,7 +269,7 @@ class Hsm(pulumi.CustomResource):
 
         ## Import
 
-        HSM modules can be imported using their HSM ID, e.g.,
+        Using `pulumi import`, import HSM modules using their HSM ID. For example:
 
         ```sh
          $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca

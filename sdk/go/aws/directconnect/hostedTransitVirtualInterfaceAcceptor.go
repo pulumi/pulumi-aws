@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage the accepter's side of a Direct Connect hosted transit virtual interface.
@@ -23,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +77,7 @@ import (
 //
 // ## Import
 //
-// Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.,
+// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
 //
@@ -110,6 +112,7 @@ func NewHostedTransitVirtualInterfaceAcceptor(ctx *pulumi.Context,
 	if args.VirtualInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedTransitVirtualInterfaceAcceptor
 	err := ctx.RegisterResource("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, args, &resource, opts...)
 	if err != nil {
@@ -203,6 +206,12 @@ func (i *HostedTransitVirtualInterfaceAcceptor) ToHostedTransitVirtualInterfaceA
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorOutput)
 }
 
+func (i *HostedTransitVirtualInterfaceAcceptor) ToOutput(ctx context.Context) pulumix.Output[*HostedTransitVirtualInterfaceAcceptor] {
+	return pulumix.Output[*HostedTransitVirtualInterfaceAcceptor]{
+		OutputState: i.ToHostedTransitVirtualInterfaceAcceptorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostedTransitVirtualInterfaceAcceptorArrayInput is an input type that accepts HostedTransitVirtualInterfaceAcceptorArray and HostedTransitVirtualInterfaceAcceptorArrayOutput values.
 // You can construct a concrete instance of `HostedTransitVirtualInterfaceAcceptorArrayInput` via:
 //
@@ -226,6 +235,12 @@ func (i HostedTransitVirtualInterfaceAcceptorArray) ToHostedTransitVirtualInterf
 
 func (i HostedTransitVirtualInterfaceAcceptorArray) ToHostedTransitVirtualInterfaceAcceptorArrayOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorArrayOutput)
+}
+
+func (i HostedTransitVirtualInterfaceAcceptorArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedTransitVirtualInterfaceAcceptor] {
+	return pulumix.Output[[]*HostedTransitVirtualInterfaceAcceptor]{
+		OutputState: i.ToHostedTransitVirtualInterfaceAcceptorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostedTransitVirtualInterfaceAcceptorMapInput is an input type that accepts HostedTransitVirtualInterfaceAcceptorMap and HostedTransitVirtualInterfaceAcceptorMapOutput values.
@@ -253,6 +268,12 @@ func (i HostedTransitVirtualInterfaceAcceptorMap) ToHostedTransitVirtualInterfac
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorMapOutput)
 }
 
+func (i HostedTransitVirtualInterfaceAcceptorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedTransitVirtualInterfaceAcceptor] {
+	return pulumix.Output[map[string]*HostedTransitVirtualInterfaceAcceptor]{
+		OutputState: i.ToHostedTransitVirtualInterfaceAcceptorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostedTransitVirtualInterfaceAcceptorOutput struct{ *pulumi.OutputState }
 
 func (HostedTransitVirtualInterfaceAcceptorOutput) ElementType() reflect.Type {
@@ -265,6 +286,12 @@ func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInter
 
 func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInterfaceAcceptorOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorOutput {
 	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedTransitVirtualInterfaceAcceptor] {
+	return pulumix.Output[*HostedTransitVirtualInterfaceAcceptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the virtual interface.
@@ -306,6 +333,12 @@ func (o HostedTransitVirtualInterfaceAcceptorArrayOutput) ToHostedTransitVirtual
 	return o
 }
 
+func (o HostedTransitVirtualInterfaceAcceptorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedTransitVirtualInterfaceAcceptor] {
+	return pulumix.Output[[]*HostedTransitVirtualInterfaceAcceptor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostedTransitVirtualInterfaceAcceptorArrayOutput) Index(i pulumi.IntInput) HostedTransitVirtualInterfaceAcceptorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedTransitVirtualInterfaceAcceptor {
 		return vs[0].([]*HostedTransitVirtualInterfaceAcceptor)[vs[1].(int)]
@@ -324,6 +357,12 @@ func (o HostedTransitVirtualInterfaceAcceptorMapOutput) ToHostedTransitVirtualIn
 
 func (o HostedTransitVirtualInterfaceAcceptorMapOutput) ToHostedTransitVirtualInterfaceAcceptorMapOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorMapOutput {
 	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedTransitVirtualInterfaceAcceptor] {
+	return pulumix.Output[map[string]*HostedTransitVirtualInterfaceAcceptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostedTransitVirtualInterfaceAcceptorMapOutput) MapIndex(k pulumi.StringInput) HostedTransitVirtualInterfaceAcceptorOutput {

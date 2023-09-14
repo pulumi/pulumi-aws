@@ -211,7 +211,7 @@ class DataSet(pulumi.CustomResource):
 
         ## Import
 
-        DataExchange DataSets can be imported by their arn
+        Using `pulumi import`, import DataExchange DataSets using their ARN. For example:
 
         ```sh
          $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
@@ -246,7 +246,7 @@ class DataSet(pulumi.CustomResource):
 
         ## Import
 
-        DataExchange DataSets can be imported by their arn
+        Using `pulumi import`, import DataExchange DataSets using their ARN. For example:
 
         ```sh
          $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1

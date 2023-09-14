@@ -81,12 +81,16 @@ public final class GetVpcEndpointServiceArgs extends com.pulumi.resources.Invoke
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      * 
+     * &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don&#39;t follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+     * 
+     * &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don&#39;t follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -218,6 +222,8 @@ public final class GetVpcEndpointServiceArgs extends com.pulumi.resources.Invoke
         /**
          * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
          * 
+         * &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don&#39;t follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
+         * 
          * @return builder
          * 
          */
@@ -228,6 +234,8 @@ public final class GetVpcEndpointServiceArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+         * 
+         * &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don&#39;t follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
          * 
          * @return builder
          * 

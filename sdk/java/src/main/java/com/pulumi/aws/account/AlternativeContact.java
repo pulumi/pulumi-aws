@@ -52,13 +52,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The Alternate Contact for the current account can be imported using the `alternate_contact_type`, e.g.,
+ * Import the Alternate Contact for the current account:
+ * 
+ * Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+ * 
+ * __Using `pulumi import` to import__ the Alternate Contact for the current or another account using the `alternate_contact_type`. For example:
+ * 
+ * Import the Alternate Contact for the current account:
  * 
  * ```sh
  *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
  * ```
- * 
- *  If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
+ *  Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
  * 
  * ```sh
  *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS

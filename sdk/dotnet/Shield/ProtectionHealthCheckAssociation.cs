@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Shield
     /// 
     ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
     ///     {
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ## Import
     /// 
-    /// Shield protection health check association resources can be imported by specifying the `shield_protection_id` and `health_check_arn` e.g.,
+    /// Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b

@@ -340,7 +340,7 @@ class PhoneNumber(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Phone Numbers can be imported using its `id` e.g.,
+        Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 
         ```sh
          $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
@@ -407,7 +407,7 @@ class PhoneNumber(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Phone Numbers can be imported using its `id` e.g.,
+        Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 
         ```sh
          $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab

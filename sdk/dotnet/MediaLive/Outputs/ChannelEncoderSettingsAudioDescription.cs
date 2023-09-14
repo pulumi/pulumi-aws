@@ -38,7 +38,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings? CodecSettings;
         /// <summary>
-        /// When specified this field indicates the three letter language code of the caption track to extract from the source.
+        /// Selects a specific three-letter language code from within an audio source.
         /// </summary>
         public readonly string? LanguageCode;
         public readonly string? LanguageCodeControl;

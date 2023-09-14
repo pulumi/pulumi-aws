@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Projects can be imported using the `project_name`, e.g.,
+ * Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/project:Project example example

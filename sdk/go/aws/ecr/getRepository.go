@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryResult
 	err := ctx.Invoke("aws:ecr/getRepository:getRepository", args, &rv, opts...)
 	if err != nil {
@@ -118,6 +121,12 @@ func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutput() LookupRep
 
 func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(ctx context.Context) LookupRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRepositoryResult] {
+	return pulumix.Output[LookupRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Full ARN of the repository.

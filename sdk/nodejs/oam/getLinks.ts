@@ -37,3 +37,19 @@ export interface GetLinksResult {
      */
     readonly id: string;
 }
+/**
+ * Data source for managing an AWS CloudWatch Observability Access Manager Links.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.oam.getLinks({});
+ * ```
+ */
+export function getLinksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
+    return pulumi.output(getLinks(opts))
+}

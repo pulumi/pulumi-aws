@@ -62,13 +62,18 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route 53 Hosted Zone Associations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+    /// The VPC is in the same region where you have configured the TODO AWS Provider:
+    /// 
+    /// The VPC is _not_ in the same region where you have configured the TODO AWS Provider:
+    /// 
+    /// __Using `pulumi import` to import__ Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
+    /// 
+    /// The VPC is in the same region where you have configured the TODO AWS Provider:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
     /// ```
-    /// 
-    ///  If the VPC is in a different region than the provider region configuration, the VPC Region can be added to the end. e.g.
+    ///  The VPC is _not_ in the same region where you have configured the TODO AWS Provider:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2

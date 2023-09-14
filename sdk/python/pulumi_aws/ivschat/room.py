@@ -316,7 +316,7 @@ class Room(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+        Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
 
         ```sh
          $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
@@ -373,7 +373,7 @@ class Room(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+        Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
 
         ```sh
          $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb

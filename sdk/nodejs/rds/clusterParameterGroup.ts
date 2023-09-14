@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * RDS Cluster Parameter Groups can be imported using the `name`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
- * ```
+ *  to = aws_rds_cluster_parameter_group.cluster_pg
+ *
+ *  id = "production-pg-1" } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
  */
 export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
@@ -76,7 +76,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     * The description of the DB cluster parameter group. Defaults to "Managed by TODO".
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.rds.ClusterParameterGroupParameter[] | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -153,7 +153,7 @@ export interface ClusterParameterGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     * The description of the DB cluster parameter group. Defaults to "Managed by TODO".
      */
     description?: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface ClusterParameterGroupState {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -187,7 +187,7 @@ export interface ClusterParameterGroupState {
  */
 export interface ClusterParameterGroupArgs {
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     * The description of the DB cluster parameter group. Defaults to "Managed by TODO".
      */
     description?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface ClusterParameterGroupArgs {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

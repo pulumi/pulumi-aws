@@ -32,6 +32,8 @@ class OrganizationCustomPolicyRuleArgs:
         :param pulumi.Input[str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
         :param pulumi.Input[str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] debug_log_delivery_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
@@ -96,6 +98,8 @@ class OrganizationCustomPolicyRuleArgs:
     def trigger_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "trigger_types")
 
@@ -257,6 +261,8 @@ class _OrganizationCustomPolicyRuleState:
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -448,6 +454,8 @@ class _OrganizationCustomPolicyRuleState:
     def trigger_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "trigger_types")
 
@@ -509,7 +517,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
 
         ## Import
 
-        A Config Organization Custom Policy Rule can be imported using the `name` argument, e.g.,
+        Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
 
         ```sh
          $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
@@ -530,6 +538,8 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -571,7 +581,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
 
         ## Import
 
-        A Config Organization Custom Policy Rule can be imported using the `name` argument, e.g.,
+        Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
 
         ```sh
          $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
@@ -679,6 +689,8 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -809,6 +821,8 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     def trigger_types(self) -> pulumi.Output[Sequence[str]]:
         """
         List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "trigger_types")
 

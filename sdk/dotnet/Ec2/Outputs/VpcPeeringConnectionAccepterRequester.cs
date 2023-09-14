@@ -14,32 +14,15 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class VpcPeeringConnectionAccepterRequester
     {
         /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        public readonly bool? AllowClassicLinkToRemoteVpc;
-        /// <summary>
         /// Indicates whether a local VPC can resolve public DNS hostnames to
         /// private IP addresses when queried from instances in a peer VPC.
         /// </summary>
         public readonly bool? AllowRemoteVpcDnsResolution;
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        public readonly bool? AllowVpcToRemoteClassicLink;
 
         [OutputConstructor]
-        private VpcPeeringConnectionAccepterRequester(
-            bool? allowClassicLinkToRemoteVpc,
-
-            bool? allowRemoteVpcDnsResolution,
-
-            bool? allowVpcToRemoteClassicLink)
+        private VpcPeeringConnectionAccepterRequester(bool? allowRemoteVpcDnsResolution)
         {
-            AllowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
             AllowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            AllowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
         }
     }
 }

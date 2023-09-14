@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the id and rootResourceId of a REST API in
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.InvokeOption) (*LookupRestApiResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRestApiResult
 	err := ctx.Invoke("aws:apigateway/getRestApi:getRestApi", args, &rv, opts...)
 	if err != nil {
@@ -74,7 +77,7 @@ type LookupRestApiResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Minimum response size to compress for the REST API.
-	MinimumCompressionSize int    `pulumi:"minimumCompressionSize"`
+	MinimumCompressionSize string `pulumi:"minimumCompressionSize"`
 	Name                   string `pulumi:"name"`
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
@@ -124,6 +127,12 @@ func (o LookupRestApiResultOutput) ToLookupRestApiResultOutputWithContext(ctx co
 	return o
 }
 
+func (o LookupRestApiResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRestApiResult] {
+	return pulumix.Output[LookupRestApiResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Source of the API key for requests.
 func (o LookupRestApiResultOutput) ApiKeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.ApiKeySource }).(pulumi.StringOutput)
@@ -160,8 +169,8 @@ func (o LookupRestApiResultOutput) Id() pulumi.StringOutput {
 }
 
 // Minimum response size to compress for the REST API.
-func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupRestApiResult) int { return v.MinimumCompressionSize }).(pulumi.IntOutput)
+func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRestApiResult) string { return v.MinimumCompressionSize }).(pulumi.StringOutput)
 }
 
 func (o LookupRestApiResultOutput) Name() pulumi.StringOutput {

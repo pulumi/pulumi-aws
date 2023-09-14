@@ -23,6 +23,8 @@ class LinkArgs:
         :param pulumi.Input[str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[str] sink_identifier: Identifier of the sink to use to create this link.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "label_template", label_template)
@@ -60,6 +62,8 @@ class LinkArgs:
     def sink_identifier(self) -> pulumi.Input[str]:
         """
         Identifier of the sink to use to create this link.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "sink_identifier")
 
@@ -101,6 +105,8 @@ class _LinkState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[str] sink_arn: ARN of the sink that is used for this link.
         :param pulumi.Input[str] sink_identifier: Identifier of the sink to use to create this link.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
@@ -199,6 +205,8 @@ class _LinkState:
     def sink_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of the sink to use to create this link.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "sink_identifier")
 
@@ -259,7 +267,7 @@ class Link(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Observability Access Manager Link can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
@@ -270,6 +278,8 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[str] sink_identifier: Identifier of the sink to use to create this link.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -299,7 +309,7 @@ class Link(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Observability Access Manager Link can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
@@ -381,6 +391,8 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[str] sink_arn: ARN of the sink that is used for this link.
         :param pulumi.Input[str] sink_identifier: Identifier of the sink to use to create this link.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -451,6 +463,8 @@ class Link(pulumi.CustomResource):
     def sink_identifier(self) -> pulumi.Output[str]:
         """
         Identifier of the sink to use to create this link.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "sink_identifier")
 

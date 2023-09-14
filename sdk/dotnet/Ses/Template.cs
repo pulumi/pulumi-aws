@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// SES templates can be imported using the template name, e.g.,
+    /// Using `pulumi import`, import SES templates using the template name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate

@@ -54,8 +54,11 @@ class LoadBalancerArgs:
         :param pulumi.Input[str] source_security_group: The name of the security group that you can use as
                part of your inbound rules for your load balancer's back-end application
                instances. Use this for Classic or Default VPC only.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         """
         pulumi.set(__self__, "listeners", listeners)
         if access_logs is not None:
@@ -279,7 +282,7 @@ class LoadBalancerArgs:
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of subnet IDs to attach to the ELB.
+        A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         """
         return pulumi.get(self, "subnets")
 
@@ -292,6 +295,9 @@ class LoadBalancerArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        Exactly one of `availability_zones` or `subnets` must be specified: this
+        determines if the ELB exists in a VPC or in EC2-classic.
         """
         return pulumi.get(self, "tags")
 
@@ -351,8 +357,11 @@ class _LoadBalancerState:
         :param pulumi.Input[str] source_security_group_id: The ID of the security group that you can use as
                part of your inbound rules for your load balancer's back-end application
                instances. Only available on ELBs launched in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         """
@@ -627,7 +636,7 @@ class _LoadBalancerState:
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of subnet IDs to attach to the ELB.
+        A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         """
         return pulumi.get(self, "subnets")
 
@@ -640,6 +649,9 @@ class _LoadBalancerState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        Exactly one of `availability_zones` or `subnets` must be specified: this
+        determines if the ELB exists in a VPC or in EC2-classic.
         """
         return pulumi.get(self, "tags")
 
@@ -766,7 +778,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Import
 
-        ELBs can be imported using the `name`, e.g.,
+        Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
          $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
@@ -793,8 +805,11 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] source_security_group: The name of the security group that you can use as
                part of your inbound rules for your load balancer's back-end application
                instances. Use this for Classic or Default VPC only.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         """
         ...
     @overload
@@ -873,7 +888,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Import
 
-        ELBs can be imported using the `name`, e.g.,
+        Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
          $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
@@ -1009,8 +1024,11 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] source_security_group_id: The ID of the security group that you can use as
                part of your inbound rules for your load balancer's back-end application
                instances. Only available on ELBs launched in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         """
@@ -1196,7 +1214,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of subnet IDs to attach to the ELB.
+        A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         """
         return pulumi.get(self, "subnets")
 
@@ -1205,6 +1223,9 @@ class LoadBalancer(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        Exactly one of `availability_zones` or `subnets` must be specified: this
+        determines if the ELB exists in a VPC or in EC2-classic.
         """
         return pulumi.get(self, "tags")
 

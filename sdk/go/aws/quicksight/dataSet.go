@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a QuickSight Data Set.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +66,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,7 +119,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -169,7 +171,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -224,7 +226,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -274,7 +276,7 @@ import (
 //
 // ## Import
 //
-// A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+// Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
 //
 // ```sh
 //
@@ -308,6 +310,8 @@ type DataSet struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayOutput `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayOutput `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrOutput `pulumi:"refreshProperties"`
@@ -334,9 +338,7 @@ func NewDataSet(ctx *pulumi.Context,
 	if args.ImportMode == nil {
 		return nil, errors.New("invalid value for required argument 'ImportMode'")
 	}
-	if args.PhysicalTableMaps == nil {
-		return nil, errors.New("invalid value for required argument 'PhysicalTableMaps'")
-	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSet
 	err := ctx.RegisterResource("aws:quicksight/dataSet:DataSet", name, args, &resource, opts...)
 	if err != nil {
@@ -383,6 +385,8 @@ type dataSetState struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
@@ -421,6 +425,8 @@ type DataSetState struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
@@ -460,6 +466,8 @@ type dataSetArgs struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
@@ -494,6 +502,8 @@ type DataSetArgs struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
@@ -528,6 +538,12 @@ func (i *DataSet) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutput)
 }
 
+func (i *DataSet) ToOutput(ctx context.Context) pulumix.Output[*DataSet] {
+	return pulumix.Output[*DataSet]{
+		OutputState: i.ToDataSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataSetArrayInput is an input type that accepts DataSetArray and DataSetArrayOutput values.
 // You can construct a concrete instance of `DataSetArrayInput` via:
 //
@@ -551,6 +567,12 @@ func (i DataSetArray) ToDataSetArrayOutput() DataSetArrayOutput {
 
 func (i DataSetArray) ToDataSetArrayOutputWithContext(ctx context.Context) DataSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetArrayOutput)
+}
+
+func (i DataSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataSet] {
+	return pulumix.Output[[]*DataSet]{
+		OutputState: i.ToDataSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataSetMapInput is an input type that accepts DataSetMap and DataSetMapOutput values.
@@ -578,6 +600,12 @@ func (i DataSetMap) ToDataSetMapOutputWithContext(ctx context.Context) DataSetMa
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetMapOutput)
 }
 
+func (i DataSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSet] {
+	return pulumix.Output[map[string]*DataSet]{
+		OutputState: i.ToDataSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSetOutput struct{ *pulumi.OutputState }
 
 func (DataSetOutput) ElementType() reflect.Type {
@@ -590,6 +618,12 @@ func (o DataSetOutput) ToDataSetOutput() DataSetOutput {
 
 func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput {
 	return o
+}
+
+func (o DataSetOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSet] {
+	return pulumix.Output[*DataSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the dataset that contains permissions for RLS.
@@ -652,6 +686,8 @@ func (o DataSetOutput) Permissions() DataSetPermissionArrayOutput {
 }
 
 // Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+//
+// The following arguments are optional:
 func (o DataSetOutput) PhysicalTableMaps() DataSetPhysicalTableMapArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapArrayOutput { return v.PhysicalTableMaps }).(DataSetPhysicalTableMapArrayOutput)
 }
@@ -697,6 +733,12 @@ func (o DataSetArrayOutput) ToDataSetArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o DataSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataSet] {
+	return pulumix.Output[[]*DataSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSetArrayOutput) Index(i pulumi.IntInput) DataSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSet {
 		return vs[0].([]*DataSet)[vs[1].(int)]
@@ -715,6 +757,12 @@ func (o DataSetMapOutput) ToDataSetMapOutput() DataSetMapOutput {
 
 func (o DataSetMapOutput) ToDataSetMapOutputWithContext(ctx context.Context) DataSetMapOutput {
 	return o
+}
+
+func (o DataSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSet] {
+	return pulumix.Output[map[string]*DataSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSetMapOutput) MapIndex(k pulumi.StringInput) DataSetOutput {

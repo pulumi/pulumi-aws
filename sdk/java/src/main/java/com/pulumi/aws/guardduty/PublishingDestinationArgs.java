@@ -33,12 +33,16 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
     /**
      * Currently there is only &#34;S3&#34; available as destination type which is also the default value
      * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     * 
      */
     @Import(name="destinationType")
     private @Nullable Output<String> destinationType;
 
     /**
      * @return Currently there is only &#34;S3&#34; available as destination type which is also the default value
+     * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      * 
      */
     public Optional<Output<String>> destinationType() {
@@ -126,6 +130,8 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         /**
          * @param destinationType Currently there is only &#34;S3&#34; available as destination type which is also the default value
          * 
+         * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+         * 
          * @return builder
          * 
          */
@@ -136,6 +142,8 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
 
         /**
          * @param destinationType Currently there is only &#34;S3&#34; available as destination type which is also the default value
+         * 
+         * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
          * 
          * @return builder
          * 

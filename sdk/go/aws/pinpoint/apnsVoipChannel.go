@@ -8,11 +8,14 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint APNs VoIP Channel resource.
 //
+// > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 // ## Example Usage
 //
 // ```go
@@ -22,7 +25,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +60,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Channel using the `application-id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_pinpoint_apns_voip_channel.apns_voip
 //
-//	$ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
-//
-// ```
+//	id = "application-id" } Using `TODO import`, import Pinpoint APNs VoIP Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_voip_channel.apns_voip application-id
 type ApnsVoipChannel struct {
 	pulumi.CustomResourceState
 
@@ -77,10 +78,16 @@ type ApnsVoipChannel struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrOutput `pulumi:"teamId"`
@@ -127,6 +134,7 @@ func NewApnsVoipChannel(ctx *pulumi.Context,
 		"tokenKeyId",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApnsVoipChannel
 	err := ctx.RegisterResource("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, args, &resource, opts...)
 	if err != nil {
@@ -159,10 +167,16 @@ type apnsVoipChannelState struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -183,10 +197,16 @@ type ApnsVoipChannelState struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -211,10 +231,16 @@ type apnsVoipChannelArgs struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -236,10 +262,16 @@ type ApnsVoipChannelArgs struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -272,6 +304,12 @@ func (i *ApnsVoipChannel) ToApnsVoipChannelOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelOutput)
 }
 
+func (i *ApnsVoipChannel) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipChannel] {
+	return pulumix.Output[*ApnsVoipChannel]{
+		OutputState: i.ToApnsVoipChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApnsVoipChannelArrayInput is an input type that accepts ApnsVoipChannelArray and ApnsVoipChannelArrayOutput values.
 // You can construct a concrete instance of `ApnsVoipChannelArrayInput` via:
 //
@@ -295,6 +333,12 @@ func (i ApnsVoipChannelArray) ToApnsVoipChannelArrayOutput() ApnsVoipChannelArra
 
 func (i ApnsVoipChannelArray) ToApnsVoipChannelArrayOutputWithContext(ctx context.Context) ApnsVoipChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelArrayOutput)
+}
+
+func (i ApnsVoipChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsVoipChannel] {
+	return pulumix.Output[[]*ApnsVoipChannel]{
+		OutputState: i.ToApnsVoipChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApnsVoipChannelMapInput is an input type that accepts ApnsVoipChannelMap and ApnsVoipChannelMapOutput values.
@@ -322,6 +366,12 @@ func (i ApnsVoipChannelMap) ToApnsVoipChannelMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelMapOutput)
 }
 
+func (i ApnsVoipChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsVoipChannel] {
+	return pulumix.Output[map[string]*ApnsVoipChannel]{
+		OutputState: i.ToApnsVoipChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApnsVoipChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsVoipChannelOutput) ElementType() reflect.Type {
@@ -334,6 +384,12 @@ func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutput() ApnsVoipChannelOutput {
 
 func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutputWithContext(ctx context.Context) ApnsVoipChannelOutput {
 	return o
+}
+
+func (o ApnsVoipChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipChannel] {
+	return pulumix.Output[*ApnsVoipChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application ID.
@@ -355,6 +411,10 @@ func (o ApnsVoipChannelOutput) Certificate() pulumi.StringPtrOutput {
 // __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 // You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 // If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+//
+// One of the following sets of credentials is also required.
+//
+// If you choose to use __Certificate credentials__ you will have to provide:
 func (o ApnsVoipChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
 }
@@ -365,6 +425,8 @@ func (o ApnsVoipChannelOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The Certificate Private Key file (ie. `.key` file).
+//
+// If you choose to use __Key credentials__ you will have to provide:
 func (o ApnsVoipChannelOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
@@ -398,6 +460,12 @@ func (o ApnsVoipChannelArrayOutput) ToApnsVoipChannelArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ApnsVoipChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsVoipChannel] {
+	return pulumix.Output[[]*ApnsVoipChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApnsVoipChannelArrayOutput) Index(i pulumi.IntInput) ApnsVoipChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApnsVoipChannel {
 		return vs[0].([]*ApnsVoipChannel)[vs[1].(int)]
@@ -416,6 +484,12 @@ func (o ApnsVoipChannelMapOutput) ToApnsVoipChannelMapOutput() ApnsVoipChannelMa
 
 func (o ApnsVoipChannelMapOutput) ToApnsVoipChannelMapOutputWithContext(ctx context.Context) ApnsVoipChannelMapOutput {
 	return o
+}
+
+func (o ApnsVoipChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsVoipChannel] {
+	return pulumix.Output[map[string]*ApnsVoipChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApnsVoipChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsVoipChannelOutput {

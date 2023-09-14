@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
+ * Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
@@ -227,12 +227,16 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      * 
+     * Traffic mirror port range support following attributes:
+     * 
      */
     @Export(name="trafficDirection", refs={String.class}, tree="[0]")
     private Output<String> trafficDirection;
 
     /**
      * @return Direction of traffic to be captured. Valid values are `ingress` and `egress`
+     * 
+     * Traffic mirror port range support following attributes:
      * 
      */
     public Output<String> trafficDirection() {

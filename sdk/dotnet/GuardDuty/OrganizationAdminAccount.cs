@@ -49,7 +49,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Import
     /// 
-    /// GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.,
+    /// Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012

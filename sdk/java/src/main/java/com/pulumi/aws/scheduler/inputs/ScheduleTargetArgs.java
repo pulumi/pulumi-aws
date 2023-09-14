@@ -130,12 +130,16 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
      * @return ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> roleArn() {
@@ -355,6 +359,8 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param roleArn ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -365,6 +371,8 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param roleArn ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

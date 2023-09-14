@@ -9,72 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafV2
 {
-    /// <summary>
-    /// Creates a WAFv2 Rule Group resource.
-    /// 
-    /// ## Example Usage
-    /// ### Simple
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WafV2.RuleGroup("example", new()
-    ///     {
-    ///         Capacity = 2,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Allow = null,
-    ///                 },
-    ///                 Name = "rule-1",
-    ///                 Priority = 1,
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
-    ///                     {
-    ///                         CountryCodes = new[]
-    ///                         {
-    ///                             "US",
-    ///                             "NL",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = false,
-    ///                     MetricName = "friendly-rule-metric-name",
-    ///                     SampledRequestsEnabled = false,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Scope = "REGIONAL",
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:wafv2/ruleGroup:RuleGroup")]
     public partial class RuleGroup : global::Pulumi.CustomResource
     {
@@ -110,6 +44,9 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("namePrefix")]
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
@@ -217,6 +154,9 @@ namespace Pulumi.Aws.WafV2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleArgs>? _rules;
 
@@ -299,6 +239,9 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleGetArgs>? _rules;

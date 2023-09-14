@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigAutoRollbackConfiguration;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigBlueGreenUpdatePolicy;
+import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigRollingUpdatePolicy;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,10 +19,15 @@ public final class EndpointDeploymentConfig {
      */
     private @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration;
     /**
-     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
      * 
      */
-    private EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
+    private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
+    /**
+     * @return Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+     * 
+     */
+    private @Nullable EndpointDeploymentConfigRollingUpdatePolicy rollingUpdatePolicy;
 
     private EndpointDeploymentConfig() {}
     /**
@@ -32,11 +38,18 @@ public final class EndpointDeploymentConfig {
         return Optional.ofNullable(this.autoRollbackConfiguration);
     }
     /**
-     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
      * 
      */
-    public EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy() {
-        return this.blueGreenUpdatePolicy;
+    public Optional<EndpointDeploymentConfigBlueGreenUpdatePolicy> blueGreenUpdatePolicy() {
+        return Optional.ofNullable(this.blueGreenUpdatePolicy);
+    }
+    /**
+     * @return Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+     * 
+     */
+    public Optional<EndpointDeploymentConfigRollingUpdatePolicy> rollingUpdatePolicy() {
+        return Optional.ofNullable(this.rollingUpdatePolicy);
     }
 
     public static Builder builder() {
@@ -49,12 +62,14 @@ public final class EndpointDeploymentConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration;
-        private EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
+        private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
+        private @Nullable EndpointDeploymentConfigRollingUpdatePolicy rollingUpdatePolicy;
         public Builder() {}
         public Builder(EndpointDeploymentConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRollbackConfiguration = defaults.autoRollbackConfiguration;
     	      this.blueGreenUpdatePolicy = defaults.blueGreenUpdatePolicy;
+    	      this.rollingUpdatePolicy = defaults.rollingUpdatePolicy;
         }
 
         @CustomType.Setter
@@ -63,14 +78,20 @@ public final class EndpointDeploymentConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder blueGreenUpdatePolicy(EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy) {
-            this.blueGreenUpdatePolicy = Objects.requireNonNull(blueGreenUpdatePolicy);
+        public Builder blueGreenUpdatePolicy(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy) {
+            this.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rollingUpdatePolicy(@Nullable EndpointDeploymentConfigRollingUpdatePolicy rollingUpdatePolicy) {
+            this.rollingUpdatePolicy = rollingUpdatePolicy;
             return this;
         }
         public EndpointDeploymentConfig build() {
             final var o = new EndpointDeploymentConfig();
             o.autoRollbackConfiguration = autoRollbackConfiguration;
             o.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
+            o.rollingUpdatePolicy = rollingUpdatePolicy;
             return o;
         }
     }

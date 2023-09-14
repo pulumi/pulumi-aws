@@ -21,6 +21,8 @@ class VpcEndpointConnectionNotificationArgs:
         """
         The set of arguments for constructing a VpcEndpointConnectionNotification resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+               
+               > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
@@ -37,6 +39,8 @@ class VpcEndpointConnectionNotificationArgs:
     def connection_events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+
+        > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         """
         return pulumi.get(self, "connection_events")
 
@@ -93,6 +97,8 @@ class _VpcEndpointConnectionNotificationState:
         """
         Input properties used for looking up and filtering VpcEndpointConnectionNotification resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+               
+               > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[str] notification_type: The type of notification.
         :param pulumi.Input[str] state: The state of the notification.
@@ -117,6 +123,8 @@ class _VpcEndpointConnectionNotificationState:
     def connection_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+
+        > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         """
         return pulumi.get(self, "connection_events")
 
@@ -229,7 +237,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
+        Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
@@ -238,6 +246,8 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+               
+               > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
@@ -282,7 +292,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
+        Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
@@ -350,6 +360,8 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+               
+               > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[str] notification_type: The type of notification.
         :param pulumi.Input[str] state: The state of the notification.
@@ -373,6 +385,8 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
     def connection_events(self) -> pulumi.Output[Sequence[str]]:
         """
         One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+
+        > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         """
         return pulumi.get(self, "connection_events")
 

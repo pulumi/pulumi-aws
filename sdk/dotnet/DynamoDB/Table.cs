@@ -139,7 +139,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Import
     /// 
-    /// DynamoDB tables can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import DynamoDB tables using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
@@ -192,6 +192,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// Unique within a region name of the table.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -402,6 +404,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// Unique within a region name of the table.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -574,6 +578,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// Unique within a region name of the table.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

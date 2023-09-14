@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a Network Interface.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInterfaceResult
 	err := ctx.Invoke("aws:ec2/getNetworkInterface:getNetworkInterface", args, &rv, opts...)
 	if err != nil {
@@ -137,6 +140,12 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 
 func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceResultOutput {
 	return o
+}
+
+func (o LookupNetworkInterfaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInterfaceResult] {
+	return pulumix.Output[LookupNetworkInterfaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the network interface.

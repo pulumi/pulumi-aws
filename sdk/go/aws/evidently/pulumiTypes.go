@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type FeatureEvaluationRule struct {
 	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
@@ -47,6 +51,12 @@ func (i FeatureEvaluationRuleArgs) ToFeatureEvaluationRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureEvaluationRuleOutput)
 }
 
+func (i FeatureEvaluationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[FeatureEvaluationRule] {
+	return pulumix.Output[FeatureEvaluationRule]{
+		OutputState: i.ToFeatureEvaluationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FeatureEvaluationRuleArrayInput is an input type that accepts FeatureEvaluationRuleArray and FeatureEvaluationRuleArrayOutput values.
 // You can construct a concrete instance of `FeatureEvaluationRuleArrayInput` via:
 //
@@ -72,6 +82,12 @@ func (i FeatureEvaluationRuleArray) ToFeatureEvaluationRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureEvaluationRuleArrayOutput)
 }
 
+func (i FeatureEvaluationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]FeatureEvaluationRule] {
+	return pulumix.Output[[]FeatureEvaluationRule]{
+		OutputState: i.ToFeatureEvaluationRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeatureEvaluationRuleOutput struct{ *pulumi.OutputState }
 
 func (FeatureEvaluationRuleOutput) ElementType() reflect.Type {
@@ -84,6 +100,12 @@ func (o FeatureEvaluationRuleOutput) ToFeatureEvaluationRuleOutput() FeatureEval
 
 func (o FeatureEvaluationRuleOutput) ToFeatureEvaluationRuleOutputWithContext(ctx context.Context) FeatureEvaluationRuleOutput {
 	return o
+}
+
+func (o FeatureEvaluationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureEvaluationRule] {
+	return pulumix.Output[FeatureEvaluationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name for the new feature. Minimum length of `1`. Maximum length of `127`.
@@ -108,6 +130,12 @@ func (o FeatureEvaluationRuleArrayOutput) ToFeatureEvaluationRuleArrayOutput() F
 
 func (o FeatureEvaluationRuleArrayOutput) ToFeatureEvaluationRuleArrayOutputWithContext(ctx context.Context) FeatureEvaluationRuleArrayOutput {
 	return o
+}
+
+func (o FeatureEvaluationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FeatureEvaluationRule] {
+	return pulumix.Output[[]FeatureEvaluationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeatureEvaluationRuleArrayOutput) Index(i pulumi.IntInput) FeatureEvaluationRuleOutput {
@@ -153,6 +181,12 @@ func (i FeatureVariationArgs) ToFeatureVariationOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureVariationOutput)
 }
 
+func (i FeatureVariationArgs) ToOutput(ctx context.Context) pulumix.Output[FeatureVariation] {
+	return pulumix.Output[FeatureVariation]{
+		OutputState: i.ToFeatureVariationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FeatureVariationArrayInput is an input type that accepts FeatureVariationArray and FeatureVariationArrayOutput values.
 // You can construct a concrete instance of `FeatureVariationArrayInput` via:
 //
@@ -178,6 +212,12 @@ func (i FeatureVariationArray) ToFeatureVariationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureVariationArrayOutput)
 }
 
+func (i FeatureVariationArray) ToOutput(ctx context.Context) pulumix.Output[[]FeatureVariation] {
+	return pulumix.Output[[]FeatureVariation]{
+		OutputState: i.ToFeatureVariationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeatureVariationOutput struct{ *pulumi.OutputState }
 
 func (FeatureVariationOutput) ElementType() reflect.Type {
@@ -190,6 +230,12 @@ func (o FeatureVariationOutput) ToFeatureVariationOutput() FeatureVariationOutpu
 
 func (o FeatureVariationOutput) ToFeatureVariationOutputWithContext(ctx context.Context) FeatureVariationOutput {
 	return o
+}
+
+func (o FeatureVariationOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureVariation] {
+	return pulumix.Output[FeatureVariation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the variation. Minimum length of `1`. Maximum length of `127`.
@@ -214,6 +260,12 @@ func (o FeatureVariationArrayOutput) ToFeatureVariationArrayOutput() FeatureVari
 
 func (o FeatureVariationArrayOutput) ToFeatureVariationArrayOutputWithContext(ctx context.Context) FeatureVariationArrayOutput {
 	return o
+}
+
+func (o FeatureVariationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FeatureVariation] {
+	return pulumix.Output[[]FeatureVariation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeatureVariationArrayOutput) Index(i pulumi.IntInput) FeatureVariationOutput {
@@ -267,6 +319,12 @@ func (i FeatureVariationValueArgs) ToFeatureVariationValueOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureVariationValueOutput)
 }
 
+func (i FeatureVariationValueArgs) ToOutput(ctx context.Context) pulumix.Output[FeatureVariationValue] {
+	return pulumix.Output[FeatureVariationValue]{
+		OutputState: i.ToFeatureVariationValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeatureVariationValueOutput struct{ *pulumi.OutputState }
 
 func (FeatureVariationValueOutput) ElementType() reflect.Type {
@@ -279,6 +337,12 @@ func (o FeatureVariationValueOutput) ToFeatureVariationValueOutput() FeatureVari
 
 func (o FeatureVariationValueOutput) ToFeatureVariationValueOutputWithContext(ctx context.Context) FeatureVariationValueOutput {
 	return o
+}
+
+func (o FeatureVariationValueOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureVariationValue] {
+	return pulumix.Output[FeatureVariationValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
@@ -338,6 +402,12 @@ func (i LaunchExecutionArgs) ToLaunchExecutionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchExecutionOutput)
 }
 
+func (i LaunchExecutionArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchExecution] {
+	return pulumix.Output[LaunchExecution]{
+		OutputState: i.ToLaunchExecutionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LaunchExecutionArrayInput is an input type that accepts LaunchExecutionArray and LaunchExecutionArrayOutput values.
 // You can construct a concrete instance of `LaunchExecutionArrayInput` via:
 //
@@ -363,6 +433,12 @@ func (i LaunchExecutionArray) ToLaunchExecutionArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchExecutionArrayOutput)
 }
 
+func (i LaunchExecutionArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchExecution] {
+	return pulumix.Output[[]LaunchExecution]{
+		OutputState: i.ToLaunchExecutionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchExecutionOutput struct{ *pulumi.OutputState }
 
 func (LaunchExecutionOutput) ElementType() reflect.Type {
@@ -375,6 +451,12 @@ func (o LaunchExecutionOutput) ToLaunchExecutionOutput() LaunchExecutionOutput {
 
 func (o LaunchExecutionOutput) ToLaunchExecutionOutputWithContext(ctx context.Context) LaunchExecutionOutput {
 	return o
+}
+
+func (o LaunchExecutionOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchExecution] {
+	return pulumix.Output[LaunchExecution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The date and time that the launch ended.
@@ -399,6 +481,12 @@ func (o LaunchExecutionArrayOutput) ToLaunchExecutionArrayOutput() LaunchExecuti
 
 func (o LaunchExecutionArrayOutput) ToLaunchExecutionArrayOutputWithContext(ctx context.Context) LaunchExecutionArrayOutput {
 	return o
+}
+
+func (o LaunchExecutionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchExecution] {
+	return pulumix.Output[[]LaunchExecution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchExecutionArrayOutput) Index(i pulumi.IntInput) LaunchExecutionOutput {
@@ -452,6 +540,12 @@ func (i LaunchGroupArgs) ToLaunchGroupOutputWithContext(ctx context.Context) Lau
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchGroupOutput)
 }
 
+func (i LaunchGroupArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchGroup] {
+	return pulumix.Output[LaunchGroup]{
+		OutputState: i.ToLaunchGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LaunchGroupArrayInput is an input type that accepts LaunchGroupArray and LaunchGroupArrayOutput values.
 // You can construct a concrete instance of `LaunchGroupArrayInput` via:
 //
@@ -477,6 +571,12 @@ func (i LaunchGroupArray) ToLaunchGroupArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchGroupArrayOutput)
 }
 
+func (i LaunchGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchGroup] {
+	return pulumix.Output[[]LaunchGroup]{
+		OutputState: i.ToLaunchGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchGroupOutput struct{ *pulumi.OutputState }
 
 func (LaunchGroupOutput) ElementType() reflect.Type {
@@ -489,6 +589,12 @@ func (o LaunchGroupOutput) ToLaunchGroupOutput() LaunchGroupOutput {
 
 func (o LaunchGroupOutput) ToLaunchGroupOutputWithContext(ctx context.Context) LaunchGroupOutput {
 	return o
+}
+
+func (o LaunchGroupOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchGroup] {
+	return pulumix.Output[LaunchGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the description of the launch group.
@@ -523,6 +629,12 @@ func (o LaunchGroupArrayOutput) ToLaunchGroupArrayOutput() LaunchGroupArrayOutpu
 
 func (o LaunchGroupArrayOutput) ToLaunchGroupArrayOutputWithContext(ctx context.Context) LaunchGroupArrayOutput {
 	return o
+}
+
+func (o LaunchGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchGroup] {
+	return pulumix.Output[[]LaunchGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchGroupArrayOutput) Index(i pulumi.IntInput) LaunchGroupOutput {
@@ -564,6 +676,12 @@ func (i LaunchMetricMonitorArgs) ToLaunchMetricMonitorOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchMetricMonitorOutput)
 }
 
+func (i LaunchMetricMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchMetricMonitor] {
+	return pulumix.Output[LaunchMetricMonitor]{
+		OutputState: i.ToLaunchMetricMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LaunchMetricMonitorArrayInput is an input type that accepts LaunchMetricMonitorArray and LaunchMetricMonitorArrayOutput values.
 // You can construct a concrete instance of `LaunchMetricMonitorArrayInput` via:
 //
@@ -589,6 +707,12 @@ func (i LaunchMetricMonitorArray) ToLaunchMetricMonitorArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchMetricMonitorArrayOutput)
 }
 
+func (i LaunchMetricMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchMetricMonitor] {
+	return pulumix.Output[[]LaunchMetricMonitor]{
+		OutputState: i.ToLaunchMetricMonitorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchMetricMonitorOutput struct{ *pulumi.OutputState }
 
 func (LaunchMetricMonitorOutput) ElementType() reflect.Type {
@@ -601,6 +725,12 @@ func (o LaunchMetricMonitorOutput) ToLaunchMetricMonitorOutput() LaunchMetricMon
 
 func (o LaunchMetricMonitorOutput) ToLaunchMetricMonitorOutputWithContext(ctx context.Context) LaunchMetricMonitorOutput {
 	return o
+}
+
+func (o LaunchMetricMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchMetricMonitor] {
+	return pulumix.Output[LaunchMetricMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that defines the metric. Detailed below.
@@ -620,6 +750,12 @@ func (o LaunchMetricMonitorArrayOutput) ToLaunchMetricMonitorArrayOutput() Launc
 
 func (o LaunchMetricMonitorArrayOutput) ToLaunchMetricMonitorArrayOutputWithContext(ctx context.Context) LaunchMetricMonitorArrayOutput {
 	return o
+}
+
+func (o LaunchMetricMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchMetricMonitor] {
+	return pulumix.Output[[]LaunchMetricMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchMetricMonitorArrayOutput) Index(i pulumi.IntInput) LaunchMetricMonitorOutput {
@@ -677,6 +813,12 @@ func (i LaunchMetricMonitorMetricDefinitionArgs) ToLaunchMetricMonitorMetricDefi
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchMetricMonitorMetricDefinitionOutput)
 }
 
+func (i LaunchMetricMonitorMetricDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchMetricMonitorMetricDefinition] {
+	return pulumix.Output[LaunchMetricMonitorMetricDefinition]{
+		OutputState: i.ToLaunchMetricMonitorMetricDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchMetricMonitorMetricDefinitionOutput struct{ *pulumi.OutputState }
 
 func (LaunchMetricMonitorMetricDefinitionOutput) ElementType() reflect.Type {
@@ -689,6 +831,12 @@ func (o LaunchMetricMonitorMetricDefinitionOutput) ToLaunchMetricMonitorMetricDe
 
 func (o LaunchMetricMonitorMetricDefinitionOutput) ToLaunchMetricMonitorMetricDefinitionOutputWithContext(ctx context.Context) LaunchMetricMonitorMetricDefinitionOutput {
 	return o
+}
+
+func (o LaunchMetricMonitorMetricDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchMetricMonitorMetricDefinition] {
+	return pulumix.Output[LaunchMetricMonitorMetricDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
@@ -749,6 +897,12 @@ func (i LaunchScheduledSplitsConfigArgs) ToLaunchScheduledSplitsConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigOutput)
 }
 
+func (i LaunchScheduledSplitsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchScheduledSplitsConfig] {
+	return pulumix.Output[LaunchScheduledSplitsConfig]{
+		OutputState: i.ToLaunchScheduledSplitsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LaunchScheduledSplitsConfigArgs) ToLaunchScheduledSplitsConfigPtrOutput() LaunchScheduledSplitsConfigPtrOutput {
 	return i.ToLaunchScheduledSplitsConfigPtrOutputWithContext(context.Background())
 }
@@ -790,6 +944,12 @@ func (i *launchScheduledSplitsConfigPtrType) ToLaunchScheduledSplitsConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigPtrOutput)
 }
 
+func (i *launchScheduledSplitsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchScheduledSplitsConfig] {
+	return pulumix.Output[*LaunchScheduledSplitsConfig]{
+		OutputState: i.ToLaunchScheduledSplitsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchScheduledSplitsConfigOutput struct{ *pulumi.OutputState }
 
 func (LaunchScheduledSplitsConfigOutput) ElementType() reflect.Type {
@@ -814,6 +974,12 @@ func (o LaunchScheduledSplitsConfigOutput) ToLaunchScheduledSplitsConfigPtrOutpu
 	}).(LaunchScheduledSplitsConfigPtrOutput)
 }
 
+func (o LaunchScheduledSplitsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchScheduledSplitsConfig] {
+	return pulumix.Output[LaunchScheduledSplitsConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
 func (o LaunchScheduledSplitsConfigOutput) Steps() LaunchScheduledSplitsConfigStepArrayOutput {
 	return o.ApplyT(func(v LaunchScheduledSplitsConfig) []LaunchScheduledSplitsConfigStep { return v.Steps }).(LaunchScheduledSplitsConfigStepArrayOutput)
@@ -831,6 +997,12 @@ func (o LaunchScheduledSplitsConfigPtrOutput) ToLaunchScheduledSplitsConfigPtrOu
 
 func (o LaunchScheduledSplitsConfigPtrOutput) ToLaunchScheduledSplitsConfigPtrOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigPtrOutput {
 	return o
+}
+
+func (o LaunchScheduledSplitsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchScheduledSplitsConfig] {
+	return pulumix.Output[*LaunchScheduledSplitsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchScheduledSplitsConfigPtrOutput) Elem() LaunchScheduledSplitsConfigOutput {
@@ -894,6 +1066,12 @@ func (i LaunchScheduledSplitsConfigStepArgs) ToLaunchScheduledSplitsConfigStepOu
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepOutput)
 }
 
+func (i LaunchScheduledSplitsConfigStepArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchScheduledSplitsConfigStep] {
+	return pulumix.Output[LaunchScheduledSplitsConfigStep]{
+		OutputState: i.ToLaunchScheduledSplitsConfigStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LaunchScheduledSplitsConfigStepArrayInput is an input type that accepts LaunchScheduledSplitsConfigStepArray and LaunchScheduledSplitsConfigStepArrayOutput values.
 // You can construct a concrete instance of `LaunchScheduledSplitsConfigStepArrayInput` via:
 //
@@ -919,6 +1097,12 @@ func (i LaunchScheduledSplitsConfigStepArray) ToLaunchScheduledSplitsConfigStepA
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepArrayOutput)
 }
 
+func (i LaunchScheduledSplitsConfigStepArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchScheduledSplitsConfigStep] {
+	return pulumix.Output[[]LaunchScheduledSplitsConfigStep]{
+		OutputState: i.ToLaunchScheduledSplitsConfigStepArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchScheduledSplitsConfigStepOutput struct{ *pulumi.OutputState }
 
 func (LaunchScheduledSplitsConfigStepOutput) ElementType() reflect.Type {
@@ -931,6 +1115,12 @@ func (o LaunchScheduledSplitsConfigStepOutput) ToLaunchScheduledSplitsConfigStep
 
 func (o LaunchScheduledSplitsConfigStepOutput) ToLaunchScheduledSplitsConfigStepOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepOutput {
 	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchScheduledSplitsConfigStep] {
+	return pulumix.Output[LaunchScheduledSplitsConfigStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
@@ -962,6 +1152,12 @@ func (o LaunchScheduledSplitsConfigStepArrayOutput) ToLaunchScheduledSplitsConfi
 
 func (o LaunchScheduledSplitsConfigStepArrayOutput) ToLaunchScheduledSplitsConfigStepArrayOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepArrayOutput {
 	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchScheduledSplitsConfigStep] {
+	return pulumix.Output[[]LaunchScheduledSplitsConfigStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchScheduledSplitsConfigStepArrayOutput) Index(i pulumi.IntInput) LaunchScheduledSplitsConfigStepOutput {
@@ -1011,6 +1207,12 @@ func (i LaunchScheduledSplitsConfigStepSegmentOverrideArgs) ToLaunchScheduledSpl
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepSegmentOverrideOutput)
 }
 
+func (i LaunchScheduledSplitsConfigStepSegmentOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchScheduledSplitsConfigStepSegmentOverride] {
+	return pulumix.Output[LaunchScheduledSplitsConfigStepSegmentOverride]{
+		OutputState: i.ToLaunchScheduledSplitsConfigStepSegmentOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LaunchScheduledSplitsConfigStepSegmentOverrideArrayInput is an input type that accepts LaunchScheduledSplitsConfigStepSegmentOverrideArray and LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput values.
 // You can construct a concrete instance of `LaunchScheduledSplitsConfigStepSegmentOverrideArrayInput` via:
 //
@@ -1036,6 +1238,12 @@ func (i LaunchScheduledSplitsConfigStepSegmentOverrideArray) ToLaunchScheduledSp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput)
 }
 
+func (i LaunchScheduledSplitsConfigStepSegmentOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchScheduledSplitsConfigStepSegmentOverride] {
+	return pulumix.Output[[]LaunchScheduledSplitsConfigStepSegmentOverride]{
+		OutputState: i.ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchScheduledSplitsConfigStepSegmentOverrideOutput struct{ *pulumi.OutputState }
 
 func (LaunchScheduledSplitsConfigStepSegmentOverrideOutput) ElementType() reflect.Type {
@@ -1048,6 +1256,12 @@ func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) ToLaunchScheduledS
 
 func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) ToLaunchScheduledSplitsConfigStepSegmentOverrideOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideOutput {
 	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchScheduledSplitsConfigStepSegmentOverride] {
+	return pulumix.Output[LaunchScheduledSplitsConfigStepSegmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
@@ -1077,6 +1291,12 @@ func (o LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) ToLaunchSched
 
 func (o LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput {
 	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchScheduledSplitsConfigStepSegmentOverride] {
+	return pulumix.Output[[]LaunchScheduledSplitsConfigStepSegmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) Index(i pulumi.IntInput) LaunchScheduledSplitsConfigStepSegmentOverrideOutput {
@@ -1122,6 +1342,12 @@ func (i ProjectDataDeliveryArgs) ToProjectDataDeliveryOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectDataDeliveryOutput)
 }
 
+func (i ProjectDataDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectDataDelivery] {
+	return pulumix.Output[ProjectDataDelivery]{
+		OutputState: i.ToProjectDataDeliveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectDataDeliveryArgs) ToProjectDataDeliveryPtrOutput() ProjectDataDeliveryPtrOutput {
 	return i.ToProjectDataDeliveryPtrOutputWithContext(context.Background())
 }
@@ -1163,6 +1389,12 @@ func (i *projectDataDeliveryPtrType) ToProjectDataDeliveryPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectDataDeliveryPtrOutput)
 }
 
+func (i *projectDataDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectDataDelivery] {
+	return pulumix.Output[*ProjectDataDelivery]{
+		OutputState: i.ToProjectDataDeliveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectDataDeliveryOutput struct{ *pulumi.OutputState }
 
 func (ProjectDataDeliveryOutput) ElementType() reflect.Type {
@@ -1187,6 +1419,12 @@ func (o ProjectDataDeliveryOutput) ToProjectDataDeliveryPtrOutputWithContext(ctx
 	}).(ProjectDataDeliveryPtrOutput)
 }
 
+func (o ProjectDataDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectDataDelivery] {
+	return pulumix.Output[ProjectDataDelivery]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
 func (o ProjectDataDeliveryOutput) CloudwatchLogs() ProjectDataDeliveryCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v ProjectDataDelivery) *ProjectDataDeliveryCloudwatchLogs { return v.CloudwatchLogs }).(ProjectDataDeliveryCloudwatchLogsPtrOutput)
@@ -1209,6 +1447,12 @@ func (o ProjectDataDeliveryPtrOutput) ToProjectDataDeliveryPtrOutput() ProjectDa
 
 func (o ProjectDataDeliveryPtrOutput) ToProjectDataDeliveryPtrOutputWithContext(ctx context.Context) ProjectDataDeliveryPtrOutput {
 	return o
+}
+
+func (o ProjectDataDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectDataDelivery] {
+	return pulumix.Output[*ProjectDataDelivery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectDataDeliveryPtrOutput) Elem() ProjectDataDeliveryOutput {
@@ -1243,6 +1487,8 @@ func (o ProjectDataDeliveryPtrOutput) S3Destination() ProjectDataDeliveryS3Desti
 
 type ProjectDataDeliveryCloudwatchLogs struct {
 	// The name of the log group where the project stores evaluation events.
+	//
+	// The `s3Destination` block supports the following arguments:
 	LogGroup *string `pulumi:"logGroup"`
 }
 
@@ -1259,6 +1505,8 @@ type ProjectDataDeliveryCloudwatchLogsInput interface {
 
 type ProjectDataDeliveryCloudwatchLogsArgs struct {
 	// The name of the log group where the project stores evaluation events.
+	//
+	// The `s3Destination` block supports the following arguments:
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
 }
 
@@ -1272,6 +1520,12 @@ func (i ProjectDataDeliveryCloudwatchLogsArgs) ToProjectDataDeliveryCloudwatchLo
 
 func (i ProjectDataDeliveryCloudwatchLogsArgs) ToProjectDataDeliveryCloudwatchLogsOutputWithContext(ctx context.Context) ProjectDataDeliveryCloudwatchLogsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectDataDeliveryCloudwatchLogsOutput)
+}
+
+func (i ProjectDataDeliveryCloudwatchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectDataDeliveryCloudwatchLogs] {
+	return pulumix.Output[ProjectDataDeliveryCloudwatchLogs]{
+		OutputState: i.ToProjectDataDeliveryCloudwatchLogsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProjectDataDeliveryCloudwatchLogsArgs) ToProjectDataDeliveryCloudwatchLogsPtrOutput() ProjectDataDeliveryCloudwatchLogsPtrOutput {
@@ -1315,6 +1569,12 @@ func (i *projectDataDeliveryCloudwatchLogsPtrType) ToProjectDataDeliveryCloudwat
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectDataDeliveryCloudwatchLogsPtrOutput)
 }
 
+func (i *projectDataDeliveryCloudwatchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectDataDeliveryCloudwatchLogs] {
+	return pulumix.Output[*ProjectDataDeliveryCloudwatchLogs]{
+		OutputState: i.ToProjectDataDeliveryCloudwatchLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectDataDeliveryCloudwatchLogsOutput struct{ *pulumi.OutputState }
 
 func (ProjectDataDeliveryCloudwatchLogsOutput) ElementType() reflect.Type {
@@ -1339,7 +1599,15 @@ func (o ProjectDataDeliveryCloudwatchLogsOutput) ToProjectDataDeliveryCloudwatch
 	}).(ProjectDataDeliveryCloudwatchLogsPtrOutput)
 }
 
+func (o ProjectDataDeliveryCloudwatchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectDataDeliveryCloudwatchLogs] {
+	return pulumix.Output[ProjectDataDeliveryCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the log group where the project stores evaluation events.
+//
+// The `s3Destination` block supports the following arguments:
 func (o ProjectDataDeliveryCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -1358,6 +1626,12 @@ func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) ToProjectDataDeliveryCloudwa
 	return o
 }
 
+func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectDataDeliveryCloudwatchLogs] {
+	return pulumix.Output[*ProjectDataDeliveryCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) Elem() ProjectDataDeliveryCloudwatchLogsOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryCloudwatchLogs) ProjectDataDeliveryCloudwatchLogs {
 		if v != nil {
@@ -1369,6 +1643,8 @@ func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) Elem() ProjectDataDeliveryCl
 }
 
 // The name of the log group where the project stores evaluation events.
+//
+// The `s3Destination` block supports the following arguments:
 func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryCloudwatchLogs) *string {
 		if v == nil {
@@ -1415,6 +1691,12 @@ func (i ProjectDataDeliveryS3DestinationArgs) ToProjectDataDeliveryS3Destination
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectDataDeliveryS3DestinationOutput)
 }
 
+func (i ProjectDataDeliveryS3DestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectDataDeliveryS3Destination] {
+	return pulumix.Output[ProjectDataDeliveryS3Destination]{
+		OutputState: i.ToProjectDataDeliveryS3DestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProjectDataDeliveryS3DestinationArgs) ToProjectDataDeliveryS3DestinationPtrOutput() ProjectDataDeliveryS3DestinationPtrOutput {
 	return i.ToProjectDataDeliveryS3DestinationPtrOutputWithContext(context.Background())
 }
@@ -1456,6 +1738,12 @@ func (i *projectDataDeliveryS3DestinationPtrType) ToProjectDataDeliveryS3Destina
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectDataDeliveryS3DestinationPtrOutput)
 }
 
+func (i *projectDataDeliveryS3DestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectDataDeliveryS3Destination] {
+	return pulumix.Output[*ProjectDataDeliveryS3Destination]{
+		OutputState: i.ToProjectDataDeliveryS3DestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectDataDeliveryS3DestinationOutput struct{ *pulumi.OutputState }
 
 func (ProjectDataDeliveryS3DestinationOutput) ElementType() reflect.Type {
@@ -1480,6 +1768,12 @@ func (o ProjectDataDeliveryS3DestinationOutput) ToProjectDataDeliveryS3Destinati
 	}).(ProjectDataDeliveryS3DestinationPtrOutput)
 }
 
+func (o ProjectDataDeliveryS3DestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectDataDeliveryS3Destination] {
+	return pulumix.Output[ProjectDataDeliveryS3Destination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the bucket in which Evidently stores evaluation events.
 func (o ProjectDataDeliveryS3DestinationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryS3Destination) *string { return v.Bucket }).(pulumi.StringPtrOutput)
@@ -1502,6 +1796,12 @@ func (o ProjectDataDeliveryS3DestinationPtrOutput) ToProjectDataDeliveryS3Destin
 
 func (o ProjectDataDeliveryS3DestinationPtrOutput) ToProjectDataDeliveryS3DestinationPtrOutputWithContext(ctx context.Context) ProjectDataDeliveryS3DestinationPtrOutput {
 	return o
+}
+
+func (o ProjectDataDeliveryS3DestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectDataDeliveryS3Destination] {
+	return pulumix.Output[*ProjectDataDeliveryS3Destination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectDataDeliveryS3DestinationPtrOutput) Elem() ProjectDataDeliveryS3DestinationOutput {

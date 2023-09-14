@@ -49,11 +49,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// RDS Cluster Parameter Groups can be imported using the `name`, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
-    /// ```
+    ///  to = aws_rds_cluster_parameter_group.cluster_pg
+    /// 
+    ///  id = "production-pg-1" } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
     /// </summary>
     [AwsResourceType("aws:rds/clusterParameterGroup:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : global::Pulumi.CustomResource
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        /// The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<Outputs.ClusterParameterGroupParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        /// The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        /// The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

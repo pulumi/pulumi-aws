@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
@@ -24,7 +26,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,17 +113,15 @@ import (
 // ```
 // ### Managing the API Logging CloudWatch Log Group
 //
-// API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.
-//
-// > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+// API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -160,7 +160,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.,
+// Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
 //
 // ```sh
 //
@@ -227,6 +227,7 @@ func NewStage(ctx *pulumi.Context,
 	if args.StageName == nil {
 		return nil, errors.New("invalid value for required argument 'StageName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stage
 	err := ctx.RegisterResource("aws:apigateway/stage:Stage", name, args, &resource, opts...)
 	if err != nil {
@@ -418,6 +419,12 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
 }
 
+func (i *Stage) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
+	return pulumix.Output[*Stage]{
+		OutputState: i.ToStageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StageArrayInput is an input type that accepts StageArray and StageArrayOutput values.
 // You can construct a concrete instance of `StageArrayInput` via:
 //
@@ -441,6 +448,12 @@ func (i StageArray) ToStageArrayOutput() StageArrayOutput {
 
 func (i StageArray) ToStageArrayOutputWithContext(ctx context.Context) StageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageArrayOutput)
+}
+
+func (i StageArray) ToOutput(ctx context.Context) pulumix.Output[[]*Stage] {
+	return pulumix.Output[[]*Stage]{
+		OutputState: i.ToStageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StageMapInput is an input type that accepts StageMap and StageMapOutput values.
@@ -468,6 +481,12 @@ func (i StageMap) ToStageMapOutputWithContext(ctx context.Context) StageMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StageMapOutput)
 }
 
+func (i StageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stage] {
+	return pulumix.Output[map[string]*Stage]{
+		OutputState: i.ToStageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StageOutput struct{ *pulumi.OutputState }
 
 func (StageOutput) ElementType() reflect.Type {
@@ -480,6 +499,12 @@ func (o StageOutput) ToStageOutput() StageOutput {
 
 func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
+}
+
+func (o StageOutput) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
+	return pulumix.Output[*Stage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables access logs for the API stage. See Access Log Settings below.
@@ -589,6 +614,12 @@ func (o StageArrayOutput) ToStageArrayOutputWithContext(ctx context.Context) Sta
 	return o
 }
 
+func (o StageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Stage] {
+	return pulumix.Output[[]*Stage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StageArrayOutput) Index(i pulumi.IntInput) StageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stage {
 		return vs[0].([]*Stage)[vs[1].(int)]
@@ -607,6 +638,12 @@ func (o StageMapOutput) ToStageMapOutput() StageMapOutput {
 
 func (o StageMapOutput) ToStageMapOutputWithContext(ctx context.Context) StageMapOutput {
 	return o
+}
+
+func (o StageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stage] {
+	return pulumix.Output[map[string]*Stage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StageMapOutput) MapIndex(k pulumi.StringInput) StageOutput {

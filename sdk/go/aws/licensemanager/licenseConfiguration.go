@@ -8,12 +8,14 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a License Manager license configuration resource.
 //
-// > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
+// > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
 //
 // ## Example Usage
 //
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +65,11 @@ import (
 //
 // ## Import
 //
-// License configurations can be imported using the `id`, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_licensemanager_license_configuration.example
 //
-//	$ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
-// ```
+//	id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -89,7 +89,7 @@ type LicenseConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -105,6 +105,7 @@ func NewLicenseConfiguration(ctx *pulumi.Context,
 	if args.LicenseCountingType == nil {
 		return nil, errors.New("invalid value for required argument 'LicenseCountingType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseConfiguration
 	err := ctx.RegisterResource("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -143,7 +144,7 @@ type licenseConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -166,7 +167,7 @@ type LicenseConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -189,7 +190,7 @@ type licenseConfigurationArgs struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -207,7 +208,7 @@ type LicenseConfigurationArgs struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -232,6 +233,12 @@ func (i *LicenseConfiguration) ToLicenseConfigurationOutput() LicenseConfigurati
 
 func (i *LicenseConfiguration) ToLicenseConfigurationOutputWithContext(ctx context.Context) LicenseConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationOutput)
+}
+
+func (i *LicenseConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LicenseConfiguration] {
+	return pulumix.Output[*LicenseConfiguration]{
+		OutputState: i.ToLicenseConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LicenseConfigurationArrayInput is an input type that accepts LicenseConfigurationArray and LicenseConfigurationArrayOutput values.
@@ -259,6 +266,12 @@ func (i LicenseConfigurationArray) ToLicenseConfigurationArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationArrayOutput)
 }
 
+func (i LicenseConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseConfiguration] {
+	return pulumix.Output[[]*LicenseConfiguration]{
+		OutputState: i.ToLicenseConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LicenseConfigurationMapInput is an input type that accepts LicenseConfigurationMap and LicenseConfigurationMapOutput values.
 // You can construct a concrete instance of `LicenseConfigurationMapInput` via:
 //
@@ -284,6 +297,12 @@ func (i LicenseConfigurationMap) ToLicenseConfigurationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationMapOutput)
 }
 
+func (i LicenseConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseConfiguration] {
+	return pulumix.Output[map[string]*LicenseConfiguration]{
+		OutputState: i.ToLicenseConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseConfigurationOutput) ElementType() reflect.Type {
@@ -296,6 +315,12 @@ func (o LicenseConfigurationOutput) ToLicenseConfigurationOutput() LicenseConfig
 
 func (o LicenseConfigurationOutput) ToLicenseConfigurationOutputWithContext(ctx context.Context) LicenseConfigurationOutput {
 	return o
+}
+
+func (o LicenseConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseConfiguration] {
+	return pulumix.Output[*LicenseConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The license configuration ARN.
@@ -338,7 +363,7 @@ func (o LicenseConfigurationOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LicenseConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -362,6 +387,12 @@ func (o LicenseConfigurationArrayOutput) ToLicenseConfigurationArrayOutputWithCo
 	return o
 }
 
+func (o LicenseConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseConfiguration] {
+	return pulumix.Output[[]*LicenseConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LicenseConfigurationArrayOutput) Index(i pulumi.IntInput) LicenseConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LicenseConfiguration {
 		return vs[0].([]*LicenseConfiguration)[vs[1].(int)]
@@ -380,6 +411,12 @@ func (o LicenseConfigurationMapOutput) ToLicenseConfigurationMapOutput() License
 
 func (o LicenseConfigurationMapOutput) ToLicenseConfigurationMapOutputWithContext(ctx context.Context) LicenseConfigurationMapOutput {
 	return o
+}
+
+func (o LicenseConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseConfiguration] {
+	return pulumix.Output[map[string]*LicenseConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseConfigurationMapOutput) MapIndex(k pulumi.StringInput) LicenseConfigurationOutput {

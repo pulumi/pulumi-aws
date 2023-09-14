@@ -164,11 +164,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
-        ```
+         to = aws_securityhub_account.example
+
+         id = "123456789012" } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_account.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,11 +198,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
-        ```
+         to = aws_securityhub_account.example
+
+         id = "123456789012" } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_account.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -289,7 +289,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="controlFindingGenerator")
-    def control_finding_generator(self) -> pulumi.Output[Optional[str]]:
+    def control_finding_generator(self) -> pulumi.Output[str]:
         """
         Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         """

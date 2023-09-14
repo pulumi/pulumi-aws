@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IPAMs can be imported using the `scope_id`, e.g.
+ * Using `pulumi import`, import IPAMs using the `scope_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb

@@ -103,10 +103,10 @@ def get_sites(global_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getSites:getSites', __args__, opts=opts, typ=GetSitesResult).value
 
     return AwaitableGetSitesResult(
-        global_network_id=__ret__.global_network_id,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        global_network_id=pulumi.get(__ret__, 'global_network_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_sites)

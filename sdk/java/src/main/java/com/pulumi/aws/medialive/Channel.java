@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MediaLive Channel can be imported using the `channel_id`, e.g.,
+ * Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:medialive/channel:Channel example 1234567
@@ -276,12 +276,16 @@ public class Channel extends com.pulumi.resources.CustomResource {
     /**
      * Name of the Channel.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the Channel.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

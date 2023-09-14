@@ -43,13 +43,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.acmpca);
     }
 
-    @Import(name="alexaforbusiness")
-    private @Nullable Output<String> alexaforbusiness;
-
-    public Optional<Output<String>> alexaforbusiness() {
-        return Optional.ofNullable(this.alexaforbusiness);
-    }
-
     @Import(name="amg")
     private @Nullable Output<String> amg;
 
@@ -71,32 +64,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.amplify);
     }
 
-    @Import(name="amplifybackend")
-    private @Nullable Output<String> amplifybackend;
-
-    public Optional<Output<String>> amplifybackend() {
-        return Optional.ofNullable(this.amplifybackend);
-    }
-
-    @Import(name="amplifyuibuilder")
-    private @Nullable Output<String> amplifyuibuilder;
-
-    public Optional<Output<String>> amplifyuibuilder() {
-        return Optional.ofNullable(this.amplifyuibuilder);
-    }
-
     @Import(name="apigateway")
     private @Nullable Output<String> apigateway;
 
     public Optional<Output<String>> apigateway() {
         return Optional.ofNullable(this.apigateway);
-    }
-
-    @Import(name="apigatewaymanagementapi")
-    private @Nullable Output<String> apigatewaymanagementapi;
-
-    public Optional<Output<String>> apigatewaymanagementapi() {
-        return Optional.ofNullable(this.apigatewaymanagementapi);
     }
 
     @Import(name="apigatewayv2")
@@ -118,13 +90,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> appconfig() {
         return Optional.ofNullable(this.appconfig);
-    }
-
-    @Import(name="appconfigdata")
-    private @Nullable Output<String> appconfigdata;
-
-    public Optional<Output<String>> appconfigdata() {
-        return Optional.ofNullable(this.appconfigdata);
     }
 
     @Import(name="appflow")
@@ -155,27 +120,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.applicationautoscaling);
     }
 
-    @Import(name="applicationcostprofiler")
-    private @Nullable Output<String> applicationcostprofiler;
-
-    public Optional<Output<String>> applicationcostprofiler() {
-        return Optional.ofNullable(this.applicationcostprofiler);
-    }
-
-    @Import(name="applicationdiscovery")
-    private @Nullable Output<String> applicationdiscovery;
-
-    public Optional<Output<String>> applicationdiscovery() {
-        return Optional.ofNullable(this.applicationdiscovery);
-    }
-
-    @Import(name="applicationdiscoveryservice")
-    private @Nullable Output<String> applicationdiscoveryservice;
-
-    public Optional<Output<String>> applicationdiscoveryservice() {
-        return Optional.ofNullable(this.applicationdiscoveryservice);
-    }
-
     @Import(name="applicationinsights")
     private @Nullable Output<String> applicationinsights;
 
@@ -188,13 +132,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> appmesh() {
         return Optional.ofNullable(this.appmesh);
-    }
-
-    @Import(name="appregistry")
-    private @Nullable Output<String> appregistry;
-
-    public Optional<Output<String>> appregistry() {
-        return Optional.ofNullable(this.appregistry);
     }
 
     @Import(name="apprunner")
@@ -232,13 +169,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.auditmanager);
     }
 
-    @Import(name="augmentedairuntime")
-    private @Nullable Output<String> augmentedairuntime;
-
-    public Optional<Output<String>> augmentedairuntime() {
-        return Optional.ofNullable(this.augmentedairuntime);
-    }
-
     @Import(name="autoscaling")
     private @Nullable Output<String> autoscaling;
 
@@ -260,13 +190,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.backup);
     }
 
-    @Import(name="backupgateway")
-    private @Nullable Output<String> backupgateway;
-
-    public Optional<Output<String>> backupgateway() {
-        return Optional.ofNullable(this.backupgateway);
-    }
-
     @Import(name="batch")
     private @Nullable Output<String> batch;
 
@@ -279,20 +202,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> beanstalk() {
         return Optional.ofNullable(this.beanstalk);
-    }
-
-    @Import(name="billingconductor")
-    private @Nullable Output<String> billingconductor;
-
-    public Optional<Output<String>> billingconductor() {
-        return Optional.ofNullable(this.billingconductor);
-    }
-
-    @Import(name="braket")
-    private @Nullable Output<String> braket;
-
-    public Optional<Output<String>> braket() {
-        return Optional.ofNullable(this.braket);
     }
 
     @Import(name="budgets")
@@ -316,32 +225,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.chime);
     }
 
-    @Import(name="chimesdkidentity")
-    private @Nullable Output<String> chimesdkidentity;
-
-    public Optional<Output<String>> chimesdkidentity() {
-        return Optional.ofNullable(this.chimesdkidentity);
-    }
-
     @Import(name="chimesdkmediapipelines")
     private @Nullable Output<String> chimesdkmediapipelines;
 
     public Optional<Output<String>> chimesdkmediapipelines() {
         return Optional.ofNullable(this.chimesdkmediapipelines);
-    }
-
-    @Import(name="chimesdkmeetings")
-    private @Nullable Output<String> chimesdkmeetings;
-
-    public Optional<Output<String>> chimesdkmeetings() {
-        return Optional.ofNullable(this.chimesdkmeetings);
-    }
-
-    @Import(name="chimesdkmessaging")
-    private @Nullable Output<String> chimesdkmessaging;
-
-    public Optional<Output<String>> chimesdkmessaging() {
-        return Optional.ofNullable(this.chimesdkmessaging);
     }
 
     @Import(name="chimesdkvoice")
@@ -379,13 +267,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.cloudcontrolapi);
     }
 
-    @Import(name="clouddirectory")
-    private @Nullable Output<String> clouddirectory;
-
-    public Optional<Output<String>> clouddirectory() {
-        return Optional.ofNullable(this.clouddirectory);
-    }
-
     @Import(name="cloudformation")
     private @Nullable Output<String> cloudformation;
 
@@ -419,13 +300,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> cloudsearch() {
         return Optional.ofNullable(this.cloudsearch);
-    }
-
-    @Import(name="cloudsearchdomain")
-    private @Nullable Output<String> cloudsearchdomain;
-
-    public Optional<Output<String>> cloudsearchdomain() {
-        return Optional.ofNullable(this.cloudsearchdomain);
     }
 
     @Import(name="cloudtrail")
@@ -498,6 +372,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.codebuild);
     }
 
+    @Import(name="codecatalyst")
+    private @Nullable Output<String> codecatalyst;
+
+    public Optional<Output<String>> codecatalyst() {
+        return Optional.ofNullable(this.codecatalyst);
+    }
+
     @Import(name="codecommit")
     private @Nullable Output<String> codecommit;
 
@@ -512,13 +393,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.codedeploy);
     }
 
-    @Import(name="codeguruprofiler")
-    private @Nullable Output<String> codeguruprofiler;
-
-    public Optional<Output<String>> codeguruprofiler() {
-        return Optional.ofNullable(this.codeguruprofiler);
-    }
-
     @Import(name="codegurureviewer")
     private @Nullable Output<String> codegurureviewer;
 
@@ -531,13 +405,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> codepipeline() {
         return Optional.ofNullable(this.codepipeline);
-    }
-
-    @Import(name="codestar")
-    private @Nullable Output<String> codestar;
-
-    public Optional<Output<String>> codestar() {
-        return Optional.ofNullable(this.codestar);
     }
 
     @Import(name="codestarconnections")
@@ -575,25 +442,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.cognitoidp);
     }
 
-    @Import(name="cognitosync")
-    private @Nullable Output<String> cognitosync;
-
-    public Optional<Output<String>> cognitosync() {
-        return Optional.ofNullable(this.cognitosync);
-    }
-
     @Import(name="comprehend")
     private @Nullable Output<String> comprehend;
 
     public Optional<Output<String>> comprehend() {
         return Optional.ofNullable(this.comprehend);
-    }
-
-    @Import(name="comprehendmedical")
-    private @Nullable Output<String> comprehendmedical;
-
-    public Optional<Output<String>> comprehendmedical() {
-        return Optional.ofNullable(this.comprehendmedical);
     }
 
     @Import(name="computeoptimizer")
@@ -624,27 +477,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.connect);
     }
 
-    @Import(name="connectcontactlens")
-    private @Nullable Output<String> connectcontactlens;
-
-    public Optional<Output<String>> connectcontactlens() {
-        return Optional.ofNullable(this.connectcontactlens);
-    }
-
-    @Import(name="connectparticipant")
-    private @Nullable Output<String> connectparticipant;
-
-    public Optional<Output<String>> connectparticipant() {
-        return Optional.ofNullable(this.connectparticipant);
-    }
-
-    @Import(name="connectwisdomservice")
-    private @Nullable Output<String> connectwisdomservice;
-
-    public Optional<Output<String>> connectwisdomservice() {
-        return Optional.ofNullable(this.connectwisdomservice);
-    }
-
     @Import(name="controltower")
     private @Nullable Output<String> controltower;
 
@@ -673,13 +505,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.cur);
     }
 
-    @Import(name="customerprofiles")
-    private @Nullable Output<String> customerprofiles;
-
-    public Optional<Output<String>> customerprofiles() {
-        return Optional.ofNullable(this.customerprofiles);
-    }
-
     @Import(name="databasemigration")
     private @Nullable Output<String> databasemigration;
 
@@ -692,13 +517,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> databasemigrationservice() {
         return Optional.ofNullable(this.databasemigrationservice);
-    }
-
-    @Import(name="databrew")
-    private @Nullable Output<String> databrew;
-
-    public Optional<Output<String>> databrew() {
-        return Optional.ofNullable(this.databrew);
     }
 
     @Import(name="dataexchange")
@@ -750,13 +568,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.devicefarm);
     }
 
-    @Import(name="devopsguru")
-    private @Nullable Output<String> devopsguru;
-
-    public Optional<Output<String>> devopsguru() {
-        return Optional.ofNullable(this.devopsguru);
-    }
-
     @Import(name="directconnect")
     private @Nullable Output<String> directconnect;
 
@@ -769,13 +580,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> directoryservice() {
         return Optional.ofNullable(this.directoryservice);
-    }
-
-    @Import(name="discovery")
-    private @Nullable Output<String> discovery;
-
-    public Optional<Output<String>> discovery() {
-        return Optional.ofNullable(this.discovery);
     }
 
     @Import(name="dlm")
@@ -806,13 +610,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.docdbelastic);
     }
 
-    @Import(name="drs")
-    private @Nullable Output<String> drs;
-
-    public Optional<Output<String>> drs() {
-        return Optional.ofNullable(this.drs);
-    }
-
     @Import(name="ds")
     private @Nullable Output<String> ds;
 
@@ -827,32 +624,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.dynamodb);
     }
 
-    @Import(name="dynamodbstreams")
-    private @Nullable Output<String> dynamodbstreams;
-
-    public Optional<Output<String>> dynamodbstreams() {
-        return Optional.ofNullable(this.dynamodbstreams);
-    }
-
-    @Import(name="ebs")
-    private @Nullable Output<String> ebs;
-
-    public Optional<Output<String>> ebs() {
-        return Optional.ofNullable(this.ebs);
-    }
-
     @Import(name="ec2")
     private @Nullable Output<String> ec2;
 
     public Optional<Output<String>> ec2() {
         return Optional.ofNullable(this.ec2);
-    }
-
-    @Import(name="ec2instanceconnect")
-    private @Nullable Output<String> ec2instanceconnect;
-
-    public Optional<Output<String>> ec2instanceconnect() {
-        return Optional.ofNullable(this.ec2instanceconnect);
     }
 
     @Import(name="ecr")
@@ -902,13 +678,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> elasticbeanstalk() {
         return Optional.ofNullable(this.elasticbeanstalk);
-    }
-
-    @Import(name="elasticinference")
-    private @Nullable Output<String> elasticinference;
-
-    public Optional<Output<String>> elasticinference() {
-        return Optional.ofNullable(this.elasticinference);
     }
 
     @Import(name="elasticloadbalancing")
@@ -1016,13 +785,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.finspace);
     }
 
-    @Import(name="finspacedata")
-    private @Nullable Output<String> finspacedata;
-
-    public Optional<Output<String>> finspacedata() {
-        return Optional.ofNullable(this.finspacedata);
-    }
-
     @Import(name="firehose")
     private @Nullable Output<String> firehose;
 
@@ -1042,41 +804,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> fms() {
         return Optional.ofNullable(this.fms);
-    }
-
-    @Import(name="forecast")
-    private @Nullable Output<String> forecast;
-
-    public Optional<Output<String>> forecast() {
-        return Optional.ofNullable(this.forecast);
-    }
-
-    @Import(name="forecastquery")
-    private @Nullable Output<String> forecastquery;
-
-    public Optional<Output<String>> forecastquery() {
-        return Optional.ofNullable(this.forecastquery);
-    }
-
-    @Import(name="forecastqueryservice")
-    private @Nullable Output<String> forecastqueryservice;
-
-    public Optional<Output<String>> forecastqueryservice() {
-        return Optional.ofNullable(this.forecastqueryservice);
-    }
-
-    @Import(name="forecastservice")
-    private @Nullable Output<String> forecastservice;
-
-    public Optional<Output<String>> forecastservice() {
-        return Optional.ofNullable(this.forecastservice);
-    }
-
-    @Import(name="frauddetector")
-    private @Nullable Output<String> frauddetector;
-
-    public Optional<Output<String>> frauddetector() {
-        return Optional.ofNullable(this.frauddetector);
     }
 
     @Import(name="fsx")
@@ -1114,13 +841,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.glue);
     }
 
-    @Import(name="gluedatabrew")
-    private @Nullable Output<String> gluedatabrew;
-
-    public Optional<Output<String>> gluedatabrew() {
-        return Optional.ofNullable(this.gluedatabrew);
-    }
-
     @Import(name="grafana")
     private @Nullable Output<String> grafana;
 
@@ -1135,20 +855,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.greengrass);
     }
 
-    @Import(name="greengrassv2")
-    private @Nullable Output<String> greengrassv2;
-
-    public Optional<Output<String>> greengrassv2() {
-        return Optional.ofNullable(this.greengrassv2);
-    }
-
-    @Import(name="groundstation")
-    private @Nullable Output<String> groundstation;
-
-    public Optional<Output<String>> groundstation() {
-        return Optional.ofNullable(this.groundstation);
-    }
-
     @Import(name="guardduty")
     private @Nullable Output<String> guardduty;
 
@@ -1156,25 +862,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.guardduty);
     }
 
-    @Import(name="health")
-    private @Nullable Output<String> health;
-
-    public Optional<Output<String>> health() {
-        return Optional.ofNullable(this.health);
-    }
-
     @Import(name="healthlake")
     private @Nullable Output<String> healthlake;
 
     public Optional<Output<String>> healthlake() {
         return Optional.ofNullable(this.healthlake);
-    }
-
-    @Import(name="honeycode")
-    private @Nullable Output<String> honeycode;
-
-    public Optional<Output<String>> honeycode() {
-        return Optional.ofNullable(this.honeycode);
     }
 
     @Import(name="iam")
@@ -1233,27 +925,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.iot);
     }
 
-    @Import(name="iot1clickdevices")
-    private @Nullable Output<String> iot1clickdevices;
-
-    public Optional<Output<String>> iot1clickdevices() {
-        return Optional.ofNullable(this.iot1clickdevices);
-    }
-
-    @Import(name="iot1clickdevicesservice")
-    private @Nullable Output<String> iot1clickdevicesservice;
-
-    public Optional<Output<String>> iot1clickdevicesservice() {
-        return Optional.ofNullable(this.iot1clickdevicesservice);
-    }
-
-    @Import(name="iot1clickprojects")
-    private @Nullable Output<String> iot1clickprojects;
-
-    public Optional<Output<String>> iot1clickprojects() {
-        return Optional.ofNullable(this.iot1clickprojects);
-    }
-
     @Import(name="iotanalytics")
     private @Nullable Output<String> iotanalytics;
 
@@ -1261,95 +932,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.iotanalytics);
     }
 
-    @Import(name="iotdata")
-    private @Nullable Output<String> iotdata;
-
-    public Optional<Output<String>> iotdata() {
-        return Optional.ofNullable(this.iotdata);
-    }
-
-    @Import(name="iotdataplane")
-    private @Nullable Output<String> iotdataplane;
-
-    public Optional<Output<String>> iotdataplane() {
-        return Optional.ofNullable(this.iotdataplane);
-    }
-
-    @Import(name="iotdeviceadvisor")
-    private @Nullable Output<String> iotdeviceadvisor;
-
-    public Optional<Output<String>> iotdeviceadvisor() {
-        return Optional.ofNullable(this.iotdeviceadvisor);
-    }
-
     @Import(name="iotevents")
     private @Nullable Output<String> iotevents;
 
     public Optional<Output<String>> iotevents() {
         return Optional.ofNullable(this.iotevents);
-    }
-
-    @Import(name="ioteventsdata")
-    private @Nullable Output<String> ioteventsdata;
-
-    public Optional<Output<String>> ioteventsdata() {
-        return Optional.ofNullable(this.ioteventsdata);
-    }
-
-    @Import(name="iotfleethub")
-    private @Nullable Output<String> iotfleethub;
-
-    public Optional<Output<String>> iotfleethub() {
-        return Optional.ofNullable(this.iotfleethub);
-    }
-
-    @Import(name="iotjobsdata")
-    private @Nullable Output<String> iotjobsdata;
-
-    public Optional<Output<String>> iotjobsdata() {
-        return Optional.ofNullable(this.iotjobsdata);
-    }
-
-    @Import(name="iotjobsdataplane")
-    private @Nullable Output<String> iotjobsdataplane;
-
-    public Optional<Output<String>> iotjobsdataplane() {
-        return Optional.ofNullable(this.iotjobsdataplane);
-    }
-
-    @Import(name="iotsecuretunneling")
-    private @Nullable Output<String> iotsecuretunneling;
-
-    public Optional<Output<String>> iotsecuretunneling() {
-        return Optional.ofNullable(this.iotsecuretunneling);
-    }
-
-    @Import(name="iotsitewise")
-    private @Nullable Output<String> iotsitewise;
-
-    public Optional<Output<String>> iotsitewise() {
-        return Optional.ofNullable(this.iotsitewise);
-    }
-
-    @Import(name="iotthingsgraph")
-    private @Nullable Output<String> iotthingsgraph;
-
-    public Optional<Output<String>> iotthingsgraph() {
-        return Optional.ofNullable(this.iotthingsgraph);
-    }
-
-    @Import(name="iottwinmaker")
-    private @Nullable Output<String> iottwinmaker;
-
-    public Optional<Output<String>> iottwinmaker() {
-        return Optional.ofNullable(this.iottwinmaker);
-    }
-
-    @Import(name="iotwireless")
-    private @Nullable Output<String> iotwireless;
-
-    public Optional<Output<String>> iotwireless() {
-        return Optional.ofNullable(this.iotwireless);
     }
 
     @Import(name="ivs")
@@ -1422,34 +1009,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.kinesisvideo);
     }
 
-    @Import(name="kinesisvideoarchivedmedia")
-    private @Nullable Output<String> kinesisvideoarchivedmedia;
-
-    public Optional<Output<String>> kinesisvideoarchivedmedia() {
-        return Optional.ofNullable(this.kinesisvideoarchivedmedia);
-    }
-
-    @Import(name="kinesisvideomedia")
-    private @Nullable Output<String> kinesisvideomedia;
-
-    public Optional<Output<String>> kinesisvideomedia() {
-        return Optional.ofNullable(this.kinesisvideomedia);
-    }
-
-    @Import(name="kinesisvideosignaling")
-    private @Nullable Output<String> kinesisvideosignaling;
-
-    public Optional<Output<String>> kinesisvideosignaling() {
-        return Optional.ofNullable(this.kinesisvideosignaling);
-    }
-
-    @Import(name="kinesisvideosignalingchannels")
-    private @Nullable Output<String> kinesisvideosignalingchannels;
-
-    public Optional<Output<String>> kinesisvideosignalingchannels() {
-        return Optional.ofNullable(this.kinesisvideosignalingchannels);
-    }
-
     @Import(name="kms")
     private @Nullable Output<String> kms;
 
@@ -1506,39 +1065,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.lexmodelsv2);
     }
 
-    @Import(name="lexruntime")
-    private @Nullable Output<String> lexruntime;
-
-    public Optional<Output<String>> lexruntime() {
-        return Optional.ofNullable(this.lexruntime);
-    }
-
-    @Import(name="lexruntimeservice")
-    private @Nullable Output<String> lexruntimeservice;
-
-    public Optional<Output<String>> lexruntimeservice() {
-        return Optional.ofNullable(this.lexruntimeservice);
-    }
-
-    @Import(name="lexruntimev2")
-    private @Nullable Output<String> lexruntimev2;
-
-    public Optional<Output<String>> lexruntimev2() {
-        return Optional.ofNullable(this.lexruntimev2);
-    }
-
     @Import(name="lexv2models")
     private @Nullable Output<String> lexv2models;
 
     public Optional<Output<String>> lexv2models() {
         return Optional.ofNullable(this.lexv2models);
-    }
-
-    @Import(name="lexv2runtime")
-    private @Nullable Output<String> lexv2runtime;
-
-    public Optional<Output<String>> lexv2runtime() {
-        return Optional.ofNullable(this.lexv2runtime);
     }
 
     @Import(name="licensemanager")
@@ -1576,48 +1107,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.logs);
     }
 
-    @Import(name="lookoutequipment")
-    private @Nullable Output<String> lookoutequipment;
-
-    public Optional<Output<String>> lookoutequipment() {
-        return Optional.ofNullable(this.lookoutequipment);
-    }
-
-    @Import(name="lookoutforvision")
-    private @Nullable Output<String> lookoutforvision;
-
-    public Optional<Output<String>> lookoutforvision() {
-        return Optional.ofNullable(this.lookoutforvision);
-    }
-
-    @Import(name="lookoutmetrics")
-    private @Nullable Output<String> lookoutmetrics;
-
-    public Optional<Output<String>> lookoutmetrics() {
-        return Optional.ofNullable(this.lookoutmetrics);
-    }
-
-    @Import(name="lookoutvision")
-    private @Nullable Output<String> lookoutvision;
-
-    public Optional<Output<String>> lookoutvision() {
-        return Optional.ofNullable(this.lookoutvision);
-    }
-
-    @Import(name="machinelearning")
-    private @Nullable Output<String> machinelearning;
-
-    public Optional<Output<String>> machinelearning() {
-        return Optional.ofNullable(this.machinelearning);
-    }
-
-    @Import(name="macie")
-    private @Nullable Output<String> macie;
-
-    public Optional<Output<String>> macie() {
-        return Optional.ofNullable(this.macie);
-    }
-
     @Import(name="macie2")
     private @Nullable Output<String> macie2;
 
@@ -1625,53 +1114,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.macie2);
     }
 
-    @Import(name="managedblockchain")
-    private @Nullable Output<String> managedblockchain;
-
-    public Optional<Output<String>> managedblockchain() {
-        return Optional.ofNullable(this.managedblockchain);
-    }
-
     @Import(name="managedgrafana")
     private @Nullable Output<String> managedgrafana;
 
     public Optional<Output<String>> managedgrafana() {
         return Optional.ofNullable(this.managedgrafana);
-    }
-
-    @Import(name="marketplacecatalog")
-    private @Nullable Output<String> marketplacecatalog;
-
-    public Optional<Output<String>> marketplacecatalog() {
-        return Optional.ofNullable(this.marketplacecatalog);
-    }
-
-    @Import(name="marketplacecommerceanalytics")
-    private @Nullable Output<String> marketplacecommerceanalytics;
-
-    public Optional<Output<String>> marketplacecommerceanalytics() {
-        return Optional.ofNullable(this.marketplacecommerceanalytics);
-    }
-
-    @Import(name="marketplaceentitlement")
-    private @Nullable Output<String> marketplaceentitlement;
-
-    public Optional<Output<String>> marketplaceentitlement() {
-        return Optional.ofNullable(this.marketplaceentitlement);
-    }
-
-    @Import(name="marketplaceentitlementservice")
-    private @Nullable Output<String> marketplaceentitlementservice;
-
-    public Optional<Output<String>> marketplaceentitlementservice() {
-        return Optional.ofNullable(this.marketplaceentitlementservice);
-    }
-
-    @Import(name="marketplacemetering")
-    private @Nullable Output<String> marketplacemetering;
-
-    public Optional<Output<String>> marketplacemetering() {
-        return Optional.ofNullable(this.marketplacemetering);
     }
 
     @Import(name="mediaconnect")
@@ -1702,13 +1149,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.mediapackage);
     }
 
-    @Import(name="mediapackagevod")
-    private @Nullable Output<String> mediapackagevod;
-
-    public Optional<Output<String>> mediapackagevod() {
-        return Optional.ofNullable(this.mediapackagevod);
-    }
-
     @Import(name="mediastore")
     private @Nullable Output<String> mediastore;
 
@@ -1716,88 +1156,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.mediastore);
     }
 
-    @Import(name="mediastoredata")
-    private @Nullable Output<String> mediastoredata;
-
-    public Optional<Output<String>> mediastoredata() {
-        return Optional.ofNullable(this.mediastoredata);
-    }
-
-    @Import(name="mediatailor")
-    private @Nullable Output<String> mediatailor;
-
-    public Optional<Output<String>> mediatailor() {
-        return Optional.ofNullable(this.mediatailor);
-    }
-
     @Import(name="memorydb")
     private @Nullable Output<String> memorydb;
 
     public Optional<Output<String>> memorydb() {
         return Optional.ofNullable(this.memorydb);
-    }
-
-    @Import(name="meteringmarketplace")
-    private @Nullable Output<String> meteringmarketplace;
-
-    public Optional<Output<String>> meteringmarketplace() {
-        return Optional.ofNullable(this.meteringmarketplace);
-    }
-
-    @Import(name="mgh")
-    private @Nullable Output<String> mgh;
-
-    public Optional<Output<String>> mgh() {
-        return Optional.ofNullable(this.mgh);
-    }
-
-    @Import(name="mgn")
-    private @Nullable Output<String> mgn;
-
-    public Optional<Output<String>> mgn() {
-        return Optional.ofNullable(this.mgn);
-    }
-
-    @Import(name="migrationhub")
-    private @Nullable Output<String> migrationhub;
-
-    public Optional<Output<String>> migrationhub() {
-        return Optional.ofNullable(this.migrationhub);
-    }
-
-    @Import(name="migrationhubconfig")
-    private @Nullable Output<String> migrationhubconfig;
-
-    public Optional<Output<String>> migrationhubconfig() {
-        return Optional.ofNullable(this.migrationhubconfig);
-    }
-
-    @Import(name="migrationhubrefactorspaces")
-    private @Nullable Output<String> migrationhubrefactorspaces;
-
-    public Optional<Output<String>> migrationhubrefactorspaces() {
-        return Optional.ofNullable(this.migrationhubrefactorspaces);
-    }
-
-    @Import(name="migrationhubstrategy")
-    private @Nullable Output<String> migrationhubstrategy;
-
-    public Optional<Output<String>> migrationhubstrategy() {
-        return Optional.ofNullable(this.migrationhubstrategy);
-    }
-
-    @Import(name="migrationhubstrategyrecommendations")
-    private @Nullable Output<String> migrationhubstrategyrecommendations;
-
-    public Optional<Output<String>> migrationhubstrategyrecommendations() {
-        return Optional.ofNullable(this.migrationhubstrategyrecommendations);
-    }
-
-    @Import(name="mobile")
-    private @Nullable Output<String> mobile;
-
-    public Optional<Output<String>> mobile() {
-        return Optional.ofNullable(this.mobile);
     }
 
     @Import(name="mq")
@@ -1812,13 +1175,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> msk() {
         return Optional.ofNullable(this.msk);
-    }
-
-    @Import(name="mturk")
-    private @Nullable Output<String> mturk;
-
-    public Optional<Output<String>> mturk() {
-        return Optional.ofNullable(this.mturk);
     }
 
     @Import(name="mwaa")
@@ -1847,20 +1203,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> networkmanager() {
         return Optional.ofNullable(this.networkmanager);
-    }
-
-    @Import(name="nimble")
-    private @Nullable Output<String> nimble;
-
-    public Optional<Output<String>> nimble() {
-        return Optional.ofNullable(this.nimble);
-    }
-
-    @Import(name="nimblestudio")
-    private @Nullable Output<String> nimblestudio;
-
-    public Optional<Output<String>> nimblestudio() {
-        return Optional.ofNullable(this.nimblestudio);
     }
 
     @Import(name="oam")
@@ -1898,13 +1240,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.opsworks);
     }
 
-    @Import(name="opsworkscm")
-    private @Nullable Output<String> opsworkscm;
-
-    public Optional<Output<String>> opsworkscm() {
-        return Optional.ofNullable(this.opsworkscm);
-    }
-
     @Import(name="organizations")
     private @Nullable Output<String> organizations;
 
@@ -1919,41 +1254,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.outposts);
     }
 
-    @Import(name="panorama")
-    private @Nullable Output<String> panorama;
-
-    public Optional<Output<String>> panorama() {
-        return Optional.ofNullable(this.panorama);
-    }
-
-    @Import(name="personalize")
-    private @Nullable Output<String> personalize;
-
-    public Optional<Output<String>> personalize() {
-        return Optional.ofNullable(this.personalize);
-    }
-
-    @Import(name="personalizeevents")
-    private @Nullable Output<String> personalizeevents;
-
-    public Optional<Output<String>> personalizeevents() {
-        return Optional.ofNullable(this.personalizeevents);
-    }
-
-    @Import(name="personalizeruntime")
-    private @Nullable Output<String> personalizeruntime;
-
-    public Optional<Output<String>> personalizeruntime() {
-        return Optional.ofNullable(this.personalizeruntime);
-    }
-
-    @Import(name="pi")
-    private @Nullable Output<String> pi;
-
-    public Optional<Output<String>> pi() {
-        return Optional.ofNullable(this.pi);
-    }
-
     @Import(name="pinpoint")
     private @Nullable Output<String> pinpoint;
 
@@ -1961,32 +1261,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.pinpoint);
     }
 
-    @Import(name="pinpointemail")
-    private @Nullable Output<String> pinpointemail;
-
-    public Optional<Output<String>> pinpointemail() {
-        return Optional.ofNullable(this.pinpointemail);
-    }
-
-    @Import(name="pinpointsmsvoice")
-    private @Nullable Output<String> pinpointsmsvoice;
-
-    public Optional<Output<String>> pinpointsmsvoice() {
-        return Optional.ofNullable(this.pinpointsmsvoice);
-    }
-
     @Import(name="pipes")
     private @Nullable Output<String> pipes;
 
     public Optional<Output<String>> pipes() {
         return Optional.ofNullable(this.pipes);
-    }
-
-    @Import(name="polly")
-    private @Nullable Output<String> polly;
-
-    public Optional<Output<String>> polly() {
-        return Optional.ofNullable(this.polly);
     }
 
     @Import(name="pricing")
@@ -2010,25 +1289,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.prometheusservice);
     }
 
-    @Import(name="proton")
-    private @Nullable Output<String> proton;
-
-    public Optional<Output<String>> proton() {
-        return Optional.ofNullable(this.proton);
-    }
-
     @Import(name="qldb")
     private @Nullable Output<String> qldb;
 
     public Optional<Output<String>> qldb() {
         return Optional.ofNullable(this.qldb);
-    }
-
-    @Import(name="qldbsession")
-    private @Nullable Output<String> qldbsession;
-
-    public Optional<Output<String>> qldbsession() {
-        return Optional.ofNullable(this.qldbsession);
     }
 
     @Import(name="quicksight")
@@ -2057,20 +1322,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> rds() {
         return Optional.ofNullable(this.rds);
-    }
-
-    @Import(name="rdsdata")
-    private @Nullable Output<String> rdsdata;
-
-    public Optional<Output<String>> rdsdata() {
-        return Optional.ofNullable(this.rdsdata);
-    }
-
-    @Import(name="rdsdataservice")
-    private @Nullable Output<String> rdsdataservice;
-
-    public Optional<Output<String>> rdsdataservice() {
-        return Optional.ofNullable(this.rdsdataservice);
     }
 
     @Import(name="recyclebin")
@@ -2108,20 +1359,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.redshiftserverless);
     }
 
-    @Import(name="rekognition")
-    private @Nullable Output<String> rekognition;
-
-    public Optional<Output<String>> rekognition() {
-        return Optional.ofNullable(this.rekognition);
-    }
-
-    @Import(name="resiliencehub")
-    private @Nullable Output<String> resiliencehub;
-
-    public Optional<Output<String>> resiliencehub() {
-        return Optional.ofNullable(this.resiliencehub);
-    }
-
     @Import(name="resourceexplorer2")
     private @Nullable Output<String> resourceexplorer2;
 
@@ -2150,13 +1387,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.resourcegroupstaggingapi);
     }
 
-    @Import(name="robomaker")
-    private @Nullable Output<String> robomaker;
-
-    public Optional<Output<String>> robomaker() {
-        return Optional.ofNullable(this.robomaker);
-    }
-
     @Import(name="rolesanywhere")
     private @Nullable Output<String> rolesanywhere;
 
@@ -2176,13 +1406,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> route53domains() {
         return Optional.ofNullable(this.route53domains);
-    }
-
-    @Import(name="route53recoverycluster")
-    private @Nullable Output<String> route53recoverycluster;
-
-    public Optional<Output<String>> route53recoverycluster() {
-        return Optional.ofNullable(this.route53recoverycluster);
     }
 
     @Import(name="route53recoverycontrolconfig")
@@ -2246,48 +1469,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> sagemaker() {
         return Optional.ofNullable(this.sagemaker);
-    }
-
-    @Import(name="sagemakera2iruntime")
-    private @Nullable Output<String> sagemakera2iruntime;
-
-    public Optional<Output<String>> sagemakera2iruntime() {
-        return Optional.ofNullable(this.sagemakera2iruntime);
-    }
-
-    @Import(name="sagemakeredge")
-    private @Nullable Output<String> sagemakeredge;
-
-    public Optional<Output<String>> sagemakeredge() {
-        return Optional.ofNullable(this.sagemakeredge);
-    }
-
-    @Import(name="sagemakeredgemanager")
-    private @Nullable Output<String> sagemakeredgemanager;
-
-    public Optional<Output<String>> sagemakeredgemanager() {
-        return Optional.ofNullable(this.sagemakeredgemanager);
-    }
-
-    @Import(name="sagemakerfeaturestoreruntime")
-    private @Nullable Output<String> sagemakerfeaturestoreruntime;
-
-    public Optional<Output<String>> sagemakerfeaturestoreruntime() {
-        return Optional.ofNullable(this.sagemakerfeaturestoreruntime);
-    }
-
-    @Import(name="sagemakerruntime")
-    private @Nullable Output<String> sagemakerruntime;
-
-    public Optional<Output<String>> sagemakerruntime() {
-        return Optional.ofNullable(this.sagemakerruntime);
-    }
-
-    @Import(name="savingsplans")
-    private @Nullable Output<String> savingsplans;
-
-    public Optional<Output<String>> savingsplans() {
-        return Optional.ofNullable(this.savingsplans);
     }
 
     @Import(name="scheduler")
@@ -2360,13 +1541,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.servicecatalog);
     }
 
-    @Import(name="servicecatalogappregistry")
-    private @Nullable Output<String> servicecatalogappregistry;
-
-    public Optional<Output<String>> servicecatalogappregistry() {
-        return Optional.ofNullable(this.servicecatalogappregistry);
-    }
-
     @Import(name="servicediscovery")
     private @Nullable Output<String> servicediscovery;
 
@@ -2423,27 +1597,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.simpledb);
     }
 
-    @Import(name="sms")
-    private @Nullable Output<String> sms;
-
-    public Optional<Output<String>> sms() {
-        return Optional.ofNullable(this.sms);
-    }
-
-    @Import(name="snowball")
-    private @Nullable Output<String> snowball;
-
-    public Optional<Output<String>> snowball() {
-        return Optional.ofNullable(this.snowball);
-    }
-
-    @Import(name="snowdevicemanagement")
-    private @Nullable Output<String> snowdevicemanagement;
-
-    public Optional<Output<String>> snowdevicemanagement() {
-        return Optional.ofNullable(this.snowdevicemanagement);
-    }
-
     @Import(name="sns")
     private @Nullable Output<String> sns;
 
@@ -2479,25 +1632,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.ssmincidents);
     }
 
-    @Import(name="sso")
-    private @Nullable Output<String> sso;
-
-    public Optional<Output<String>> sso() {
-        return Optional.ofNullable(this.sso);
-    }
-
     @Import(name="ssoadmin")
     private @Nullable Output<String> ssoadmin;
 
     public Optional<Output<String>> ssoadmin() {
         return Optional.ofNullable(this.ssoadmin);
-    }
-
-    @Import(name="ssooidc")
-    private @Nullable Output<String> ssooidc;
-
-    public Optional<Output<String>> ssooidc() {
-        return Optional.ofNullable(this.ssooidc);
     }
 
     @Import(name="stepfunctions")
@@ -2521,13 +1660,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.sts);
     }
 
-    @Import(name="support")
-    private @Nullable Output<String> support;
-
-    public Optional<Output<String>> support() {
-        return Optional.ofNullable(this.support);
-    }
-
     @Import(name="swf")
     private @Nullable Output<String> swf;
 
@@ -2540,20 +1672,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> synthetics() {
         return Optional.ofNullable(this.synthetics);
-    }
-
-    @Import(name="textract")
-    private @Nullable Output<String> textract;
-
-    public Optional<Output<String>> textract() {
-        return Optional.ofNullable(this.textract);
-    }
-
-    @Import(name="timestreamquery")
-    private @Nullable Output<String> timestreamquery;
-
-    public Optional<Output<String>> timestreamquery() {
-        return Optional.ofNullable(this.timestreamquery);
     }
 
     @Import(name="timestreamwrite")
@@ -2577,20 +1695,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.transcribeservice);
     }
 
-    @Import(name="transcribestreaming")
-    private @Nullable Output<String> transcribestreaming;
-
-    public Optional<Output<String>> transcribestreaming() {
-        return Optional.ofNullable(this.transcribestreaming);
-    }
-
-    @Import(name="transcribestreamingservice")
-    private @Nullable Output<String> transcribestreamingservice;
-
-    public Optional<Output<String>> transcribestreamingservice() {
-        return Optional.ofNullable(this.transcribestreamingservice);
-    }
-
     @Import(name="transfer")
     private @Nullable Output<String> transfer;
 
@@ -2598,18 +1702,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.transfer);
     }
 
-    @Import(name="translate")
-    private @Nullable Output<String> translate;
+    @Import(name="verifiedpermissions")
+    private @Nullable Output<String> verifiedpermissions;
 
-    public Optional<Output<String>> translate() {
-        return Optional.ofNullable(this.translate);
-    }
-
-    @Import(name="voiceid")
-    private @Nullable Output<String> voiceid;
-
-    public Optional<Output<String>> voiceid() {
-        return Optional.ofNullable(this.voiceid);
+    public Optional<Output<String>> verifiedpermissions() {
+        return Optional.ofNullable(this.verifiedpermissions);
     }
 
     @Import(name="vpclattice")
@@ -2640,27 +1737,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.wafv2);
     }
 
-    @Import(name="wellarchitected")
-    private @Nullable Output<String> wellarchitected;
-
-    public Optional<Output<String>> wellarchitected() {
-        return Optional.ofNullable(this.wellarchitected);
-    }
-
-    @Import(name="wisdom")
-    private @Nullable Output<String> wisdom;
-
-    public Optional<Output<String>> wisdom() {
-        return Optional.ofNullable(this.wisdom);
-    }
-
-    @Import(name="workdocs")
-    private @Nullable Output<String> workdocs;
-
-    public Optional<Output<String>> workdocs() {
-        return Optional.ofNullable(this.workdocs);
-    }
-
     @Import(name="worklink")
     private @Nullable Output<String> worklink;
 
@@ -2668,32 +1744,11 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.worklink);
     }
 
-    @Import(name="workmail")
-    private @Nullable Output<String> workmail;
-
-    public Optional<Output<String>> workmail() {
-        return Optional.ofNullable(this.workmail);
-    }
-
-    @Import(name="workmailmessageflow")
-    private @Nullable Output<String> workmailmessageflow;
-
-    public Optional<Output<String>> workmailmessageflow() {
-        return Optional.ofNullable(this.workmailmessageflow);
-    }
-
     @Import(name="workspaces")
     private @Nullable Output<String> workspaces;
 
     public Optional<Output<String>> workspaces() {
         return Optional.ofNullable(this.workspaces);
-    }
-
-    @Import(name="workspacesweb")
-    private @Nullable Output<String> workspacesweb;
-
-    public Optional<Output<String>> workspacesweb() {
-        return Optional.ofNullable(this.workspacesweb);
     }
 
     @Import(name="xray")
@@ -2710,61 +1765,43 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.account = $.account;
         this.acm = $.acm;
         this.acmpca = $.acmpca;
-        this.alexaforbusiness = $.alexaforbusiness;
         this.amg = $.amg;
         this.amp = $.amp;
         this.amplify = $.amplify;
-        this.amplifybackend = $.amplifybackend;
-        this.amplifyuibuilder = $.amplifyuibuilder;
         this.apigateway = $.apigateway;
-        this.apigatewaymanagementapi = $.apigatewaymanagementapi;
         this.apigatewayv2 = $.apigatewayv2;
         this.appautoscaling = $.appautoscaling;
         this.appconfig = $.appconfig;
-        this.appconfigdata = $.appconfigdata;
         this.appflow = $.appflow;
         this.appintegrations = $.appintegrations;
         this.appintegrationsservice = $.appintegrationsservice;
         this.applicationautoscaling = $.applicationautoscaling;
-        this.applicationcostprofiler = $.applicationcostprofiler;
-        this.applicationdiscovery = $.applicationdiscovery;
-        this.applicationdiscoveryservice = $.applicationdiscoveryservice;
         this.applicationinsights = $.applicationinsights;
         this.appmesh = $.appmesh;
-        this.appregistry = $.appregistry;
         this.apprunner = $.apprunner;
         this.appstream = $.appstream;
         this.appsync = $.appsync;
         this.athena = $.athena;
         this.auditmanager = $.auditmanager;
-        this.augmentedairuntime = $.augmentedairuntime;
         this.autoscaling = $.autoscaling;
         this.autoscalingplans = $.autoscalingplans;
         this.backup = $.backup;
-        this.backupgateway = $.backupgateway;
         this.batch = $.batch;
         this.beanstalk = $.beanstalk;
-        this.billingconductor = $.billingconductor;
-        this.braket = $.braket;
         this.budgets = $.budgets;
         this.ce = $.ce;
         this.chime = $.chime;
-        this.chimesdkidentity = $.chimesdkidentity;
         this.chimesdkmediapipelines = $.chimesdkmediapipelines;
-        this.chimesdkmeetings = $.chimesdkmeetings;
-        this.chimesdkmessaging = $.chimesdkmessaging;
         this.chimesdkvoice = $.chimesdkvoice;
         this.cleanrooms = $.cleanrooms;
         this.cloud9 = $.cloud9;
         this.cloudcontrol = $.cloudcontrol;
         this.cloudcontrolapi = $.cloudcontrolapi;
-        this.clouddirectory = $.clouddirectory;
         this.cloudformation = $.cloudformation;
         this.cloudfront = $.cloudfront;
         this.cloudhsm = $.cloudhsm;
         this.cloudhsmv2 = $.cloudhsmv2;
         this.cloudsearch = $.cloudsearch;
-        this.cloudsearchdomain = $.cloudsearchdomain;
         this.cloudtrail = $.cloudtrail;
         this.cloudwatch = $.cloudwatch;
         this.cloudwatchevents = $.cloudwatchevents;
@@ -2775,35 +1812,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.cloudwatchrum = $.cloudwatchrum;
         this.codeartifact = $.codeartifact;
         this.codebuild = $.codebuild;
+        this.codecatalyst = $.codecatalyst;
         this.codecommit = $.codecommit;
         this.codedeploy = $.codedeploy;
-        this.codeguruprofiler = $.codeguruprofiler;
         this.codegurureviewer = $.codegurureviewer;
         this.codepipeline = $.codepipeline;
-        this.codestar = $.codestar;
         this.codestarconnections = $.codestarconnections;
         this.codestarnotifications = $.codestarnotifications;
         this.cognitoidentity = $.cognitoidentity;
         this.cognitoidentityprovider = $.cognitoidentityprovider;
         this.cognitoidp = $.cognitoidp;
-        this.cognitosync = $.cognitosync;
         this.comprehend = $.comprehend;
-        this.comprehendmedical = $.comprehendmedical;
         this.computeoptimizer = $.computeoptimizer;
         this.config = $.config;
         this.configservice = $.configservice;
         this.connect = $.connect;
-        this.connectcontactlens = $.connectcontactlens;
-        this.connectparticipant = $.connectparticipant;
-        this.connectwisdomservice = $.connectwisdomservice;
         this.controltower = $.controltower;
         this.costandusagereportservice = $.costandusagereportservice;
         this.costexplorer = $.costexplorer;
         this.cur = $.cur;
-        this.customerprofiles = $.customerprofiles;
         this.databasemigration = $.databasemigration;
         this.databasemigrationservice = $.databasemigrationservice;
-        this.databrew = $.databrew;
         this.dataexchange = $.dataexchange;
         this.datapipeline = $.datapipeline;
         this.datasync = $.datasync;
@@ -2811,21 +1840,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.deploy = $.deploy;
         this.detective = $.detective;
         this.devicefarm = $.devicefarm;
-        this.devopsguru = $.devopsguru;
         this.directconnect = $.directconnect;
         this.directoryservice = $.directoryservice;
-        this.discovery = $.discovery;
         this.dlm = $.dlm;
         this.dms = $.dms;
         this.docdb = $.docdb;
         this.docdbelastic = $.docdbelastic;
-        this.drs = $.drs;
         this.ds = $.ds;
         this.dynamodb = $.dynamodb;
-        this.dynamodbstreams = $.dynamodbstreams;
-        this.ebs = $.ebs;
         this.ec2 = $.ec2;
-        this.ec2instanceconnect = $.ec2instanceconnect;
         this.ecr = $.ecr;
         this.ecrpublic = $.ecrpublic;
         this.ecs = $.ecs;
@@ -2833,7 +1856,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.eks = $.eks;
         this.elasticache = $.elasticache;
         this.elasticbeanstalk = $.elasticbeanstalk;
-        this.elasticinference = $.elasticinference;
         this.elasticloadbalancing = $.elasticloadbalancing;
         this.elasticloadbalancingv2 = $.elasticloadbalancingv2;
         this.elasticsearch = $.elasticsearch;
@@ -2849,29 +1871,18 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.events = $.events;
         this.evidently = $.evidently;
         this.finspace = $.finspace;
-        this.finspacedata = $.finspacedata;
         this.firehose = $.firehose;
         this.fis = $.fis;
         this.fms = $.fms;
-        this.forecast = $.forecast;
-        this.forecastquery = $.forecastquery;
-        this.forecastqueryservice = $.forecastqueryservice;
-        this.forecastservice = $.forecastservice;
-        this.frauddetector = $.frauddetector;
         this.fsx = $.fsx;
         this.gamelift = $.gamelift;
         this.glacier = $.glacier;
         this.globalaccelerator = $.globalaccelerator;
         this.glue = $.glue;
-        this.gluedatabrew = $.gluedatabrew;
         this.grafana = $.grafana;
         this.greengrass = $.greengrass;
-        this.greengrassv2 = $.greengrassv2;
-        this.groundstation = $.groundstation;
         this.guardduty = $.guardduty;
-        this.health = $.health;
         this.healthlake = $.healthlake;
-        this.honeycode = $.honeycode;
         this.iam = $.iam;
         this.identitystore = $.identitystore;
         this.imagebuilder = $.imagebuilder;
@@ -2880,23 +1891,8 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.inspectorv2 = $.inspectorv2;
         this.internetmonitor = $.internetmonitor;
         this.iot = $.iot;
-        this.iot1clickdevices = $.iot1clickdevices;
-        this.iot1clickdevicesservice = $.iot1clickdevicesservice;
-        this.iot1clickprojects = $.iot1clickprojects;
         this.iotanalytics = $.iotanalytics;
-        this.iotdata = $.iotdata;
-        this.iotdataplane = $.iotdataplane;
-        this.iotdeviceadvisor = $.iotdeviceadvisor;
         this.iotevents = $.iotevents;
-        this.ioteventsdata = $.ioteventsdata;
-        this.iotfleethub = $.iotfleethub;
-        this.iotjobsdata = $.iotjobsdata;
-        this.iotjobsdataplane = $.iotjobsdataplane;
-        this.iotsecuretunneling = $.iotsecuretunneling;
-        this.iotsitewise = $.iotsitewise;
-        this.iotthingsgraph = $.iotthingsgraph;
-        this.iottwinmaker = $.iottwinmaker;
-        this.iotwireless = $.iotwireless;
         this.ivs = $.ivs;
         this.ivschat = $.ivschat;
         this.kafka = $.kafka;
@@ -2907,10 +1903,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.kinesisanalytics = $.kinesisanalytics;
         this.kinesisanalyticsv2 = $.kinesisanalyticsv2;
         this.kinesisvideo = $.kinesisvideo;
-        this.kinesisvideoarchivedmedia = $.kinesisvideoarchivedmedia;
-        this.kinesisvideomedia = $.kinesisvideomedia;
-        this.kinesisvideosignaling = $.kinesisvideosignaling;
-        this.kinesisvideosignalingchannels = $.kinesisvideosignalingchannels;
         this.kms = $.kms;
         this.lakeformation = $.lakeformation;
         this.lambda = $.lambda;
@@ -2919,103 +1911,55 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.lexmodelbuildingservice = $.lexmodelbuildingservice;
         this.lexmodels = $.lexmodels;
         this.lexmodelsv2 = $.lexmodelsv2;
-        this.lexruntime = $.lexruntime;
-        this.lexruntimeservice = $.lexruntimeservice;
-        this.lexruntimev2 = $.lexruntimev2;
         this.lexv2models = $.lexv2models;
-        this.lexv2runtime = $.lexv2runtime;
         this.licensemanager = $.licensemanager;
         this.lightsail = $.lightsail;
         this.location = $.location;
         this.locationservice = $.locationservice;
         this.logs = $.logs;
-        this.lookoutequipment = $.lookoutequipment;
-        this.lookoutforvision = $.lookoutforvision;
-        this.lookoutmetrics = $.lookoutmetrics;
-        this.lookoutvision = $.lookoutvision;
-        this.machinelearning = $.machinelearning;
-        this.macie = $.macie;
         this.macie2 = $.macie2;
-        this.managedblockchain = $.managedblockchain;
         this.managedgrafana = $.managedgrafana;
-        this.marketplacecatalog = $.marketplacecatalog;
-        this.marketplacecommerceanalytics = $.marketplacecommerceanalytics;
-        this.marketplaceentitlement = $.marketplaceentitlement;
-        this.marketplaceentitlementservice = $.marketplaceentitlementservice;
-        this.marketplacemetering = $.marketplacemetering;
         this.mediaconnect = $.mediaconnect;
         this.mediaconvert = $.mediaconvert;
         this.medialive = $.medialive;
         this.mediapackage = $.mediapackage;
-        this.mediapackagevod = $.mediapackagevod;
         this.mediastore = $.mediastore;
-        this.mediastoredata = $.mediastoredata;
-        this.mediatailor = $.mediatailor;
         this.memorydb = $.memorydb;
-        this.meteringmarketplace = $.meteringmarketplace;
-        this.mgh = $.mgh;
-        this.mgn = $.mgn;
-        this.migrationhub = $.migrationhub;
-        this.migrationhubconfig = $.migrationhubconfig;
-        this.migrationhubrefactorspaces = $.migrationhubrefactorspaces;
-        this.migrationhubstrategy = $.migrationhubstrategy;
-        this.migrationhubstrategyrecommendations = $.migrationhubstrategyrecommendations;
-        this.mobile = $.mobile;
         this.mq = $.mq;
         this.msk = $.msk;
-        this.mturk = $.mturk;
         this.mwaa = $.mwaa;
         this.neptune = $.neptune;
         this.networkfirewall = $.networkfirewall;
         this.networkmanager = $.networkmanager;
-        this.nimble = $.nimble;
-        this.nimblestudio = $.nimblestudio;
         this.oam = $.oam;
         this.opensearch = $.opensearch;
         this.opensearchserverless = $.opensearchserverless;
         this.opensearchservice = $.opensearchservice;
         this.opsworks = $.opsworks;
-        this.opsworkscm = $.opsworkscm;
         this.organizations = $.organizations;
         this.outposts = $.outposts;
-        this.panorama = $.panorama;
-        this.personalize = $.personalize;
-        this.personalizeevents = $.personalizeevents;
-        this.personalizeruntime = $.personalizeruntime;
-        this.pi = $.pi;
         this.pinpoint = $.pinpoint;
-        this.pinpointemail = $.pinpointemail;
-        this.pinpointsmsvoice = $.pinpointsmsvoice;
         this.pipes = $.pipes;
-        this.polly = $.polly;
         this.pricing = $.pricing;
         this.prometheus = $.prometheus;
         this.prometheusservice = $.prometheusservice;
-        this.proton = $.proton;
         this.qldb = $.qldb;
-        this.qldbsession = $.qldbsession;
         this.quicksight = $.quicksight;
         this.ram = $.ram;
         this.rbin = $.rbin;
         this.rds = $.rds;
-        this.rdsdata = $.rdsdata;
-        this.rdsdataservice = $.rdsdataservice;
         this.recyclebin = $.recyclebin;
         this.redshift = $.redshift;
         this.redshiftdata = $.redshiftdata;
         this.redshiftdataapiservice = $.redshiftdataapiservice;
         this.redshiftserverless = $.redshiftserverless;
-        this.rekognition = $.rekognition;
-        this.resiliencehub = $.resiliencehub;
         this.resourceexplorer2 = $.resourceexplorer2;
         this.resourcegroups = $.resourcegroups;
         this.resourcegroupstagging = $.resourcegroupstagging;
         this.resourcegroupstaggingapi = $.resourcegroupstaggingapi;
-        this.robomaker = $.robomaker;
         this.rolesanywhere = $.rolesanywhere;
         this.route53 = $.route53;
         this.route53domains = $.route53domains;
-        this.route53recoverycluster = $.route53recoverycluster;
         this.route53recoverycontrolconfig = $.route53recoverycontrolconfig;
         this.route53recoveryreadiness = $.route53recoveryreadiness;
         this.route53resolver = $.route53resolver;
@@ -3025,12 +1969,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.s3control = $.s3control;
         this.s3outposts = $.s3outposts;
         this.sagemaker = $.sagemaker;
-        this.sagemakera2iruntime = $.sagemakera2iruntime;
-        this.sagemakeredge = $.sagemakeredge;
-        this.sagemakeredgemanager = $.sagemakeredgemanager;
-        this.sagemakerfeaturestoreruntime = $.sagemakerfeaturestoreruntime;
-        this.sagemakerruntime = $.sagemakerruntime;
-        this.savingsplans = $.savingsplans;
         this.scheduler = $.scheduler;
         this.schemas = $.schemas;
         this.sdb = $.sdb;
@@ -3041,7 +1979,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.serverlessapprepo = $.serverlessapprepo;
         this.serverlessrepo = $.serverlessrepo;
         this.servicecatalog = $.servicecatalog;
-        this.servicecatalogappregistry = $.servicecatalogappregistry;
         this.servicediscovery = $.servicediscovery;
         this.servicequotas = $.servicequotas;
         this.ses = $.ses;
@@ -3050,45 +1987,28 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.shield = $.shield;
         this.signer = $.signer;
         this.simpledb = $.simpledb;
-        this.sms = $.sms;
-        this.snowball = $.snowball;
-        this.snowdevicemanagement = $.snowdevicemanagement;
         this.sns = $.sns;
         this.sqs = $.sqs;
         this.ssm = $.ssm;
         this.ssmcontacts = $.ssmcontacts;
         this.ssmincidents = $.ssmincidents;
-        this.sso = $.sso;
         this.ssoadmin = $.ssoadmin;
-        this.ssooidc = $.ssooidc;
         this.stepfunctions = $.stepfunctions;
         this.storagegateway = $.storagegateway;
         this.sts = $.sts;
-        this.support = $.support;
         this.swf = $.swf;
         this.synthetics = $.synthetics;
-        this.textract = $.textract;
-        this.timestreamquery = $.timestreamquery;
         this.timestreamwrite = $.timestreamwrite;
         this.transcribe = $.transcribe;
         this.transcribeservice = $.transcribeservice;
-        this.transcribestreaming = $.transcribestreaming;
-        this.transcribestreamingservice = $.transcribestreamingservice;
         this.transfer = $.transfer;
-        this.translate = $.translate;
-        this.voiceid = $.voiceid;
+        this.verifiedpermissions = $.verifiedpermissions;
         this.vpclattice = $.vpclattice;
         this.waf = $.waf;
         this.wafregional = $.wafregional;
         this.wafv2 = $.wafv2;
-        this.wellarchitected = $.wellarchitected;
-        this.wisdom = $.wisdom;
-        this.workdocs = $.workdocs;
         this.worklink = $.worklink;
-        this.workmail = $.workmail;
-        this.workmailmessageflow = $.workmailmessageflow;
         this.workspaces = $.workspaces;
-        this.workspacesweb = $.workspacesweb;
         this.xray = $.xray;
     }
 
@@ -3146,15 +2066,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return acmpca(Output.of(acmpca));
         }
 
-        public Builder alexaforbusiness(@Nullable Output<String> alexaforbusiness) {
-            $.alexaforbusiness = alexaforbusiness;
-            return this;
-        }
-
-        public Builder alexaforbusiness(String alexaforbusiness) {
-            return alexaforbusiness(Output.of(alexaforbusiness));
-        }
-
         public Builder amg(@Nullable Output<String> amg) {
             $.amg = amg;
             return this;
@@ -3182,24 +2093,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return amplify(Output.of(amplify));
         }
 
-        public Builder amplifybackend(@Nullable Output<String> amplifybackend) {
-            $.amplifybackend = amplifybackend;
-            return this;
-        }
-
-        public Builder amplifybackend(String amplifybackend) {
-            return amplifybackend(Output.of(amplifybackend));
-        }
-
-        public Builder amplifyuibuilder(@Nullable Output<String> amplifyuibuilder) {
-            $.amplifyuibuilder = amplifyuibuilder;
-            return this;
-        }
-
-        public Builder amplifyuibuilder(String amplifyuibuilder) {
-            return amplifyuibuilder(Output.of(amplifyuibuilder));
-        }
-
         public Builder apigateway(@Nullable Output<String> apigateway) {
             $.apigateway = apigateway;
             return this;
@@ -3207,15 +2100,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder apigateway(String apigateway) {
             return apigateway(Output.of(apigateway));
-        }
-
-        public Builder apigatewaymanagementapi(@Nullable Output<String> apigatewaymanagementapi) {
-            $.apigatewaymanagementapi = apigatewaymanagementapi;
-            return this;
-        }
-
-        public Builder apigatewaymanagementapi(String apigatewaymanagementapi) {
-            return apigatewaymanagementapi(Output.of(apigatewaymanagementapi));
         }
 
         public Builder apigatewayv2(@Nullable Output<String> apigatewayv2) {
@@ -3243,15 +2127,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder appconfig(String appconfig) {
             return appconfig(Output.of(appconfig));
-        }
-
-        public Builder appconfigdata(@Nullable Output<String> appconfigdata) {
-            $.appconfigdata = appconfigdata;
-            return this;
-        }
-
-        public Builder appconfigdata(String appconfigdata) {
-            return appconfigdata(Output.of(appconfigdata));
         }
 
         public Builder appflow(@Nullable Output<String> appflow) {
@@ -3290,33 +2165,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return applicationautoscaling(Output.of(applicationautoscaling));
         }
 
-        public Builder applicationcostprofiler(@Nullable Output<String> applicationcostprofiler) {
-            $.applicationcostprofiler = applicationcostprofiler;
-            return this;
-        }
-
-        public Builder applicationcostprofiler(String applicationcostprofiler) {
-            return applicationcostprofiler(Output.of(applicationcostprofiler));
-        }
-
-        public Builder applicationdiscovery(@Nullable Output<String> applicationdiscovery) {
-            $.applicationdiscovery = applicationdiscovery;
-            return this;
-        }
-
-        public Builder applicationdiscovery(String applicationdiscovery) {
-            return applicationdiscovery(Output.of(applicationdiscovery));
-        }
-
-        public Builder applicationdiscoveryservice(@Nullable Output<String> applicationdiscoveryservice) {
-            $.applicationdiscoveryservice = applicationdiscoveryservice;
-            return this;
-        }
-
-        public Builder applicationdiscoveryservice(String applicationdiscoveryservice) {
-            return applicationdiscoveryservice(Output.of(applicationdiscoveryservice));
-        }
-
         public Builder applicationinsights(@Nullable Output<String> applicationinsights) {
             $.applicationinsights = applicationinsights;
             return this;
@@ -3333,15 +2181,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder appmesh(String appmesh) {
             return appmesh(Output.of(appmesh));
-        }
-
-        public Builder appregistry(@Nullable Output<String> appregistry) {
-            $.appregistry = appregistry;
-            return this;
-        }
-
-        public Builder appregistry(String appregistry) {
-            return appregistry(Output.of(appregistry));
         }
 
         public Builder apprunner(@Nullable Output<String> apprunner) {
@@ -3389,15 +2228,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return auditmanager(Output.of(auditmanager));
         }
 
-        public Builder augmentedairuntime(@Nullable Output<String> augmentedairuntime) {
-            $.augmentedairuntime = augmentedairuntime;
-            return this;
-        }
-
-        public Builder augmentedairuntime(String augmentedairuntime) {
-            return augmentedairuntime(Output.of(augmentedairuntime));
-        }
-
         public Builder autoscaling(@Nullable Output<String> autoscaling) {
             $.autoscaling = autoscaling;
             return this;
@@ -3425,15 +2255,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return backup(Output.of(backup));
         }
 
-        public Builder backupgateway(@Nullable Output<String> backupgateway) {
-            $.backupgateway = backupgateway;
-            return this;
-        }
-
-        public Builder backupgateway(String backupgateway) {
-            return backupgateway(Output.of(backupgateway));
-        }
-
         public Builder batch(@Nullable Output<String> batch) {
             $.batch = batch;
             return this;
@@ -3450,24 +2271,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder beanstalk(String beanstalk) {
             return beanstalk(Output.of(beanstalk));
-        }
-
-        public Builder billingconductor(@Nullable Output<String> billingconductor) {
-            $.billingconductor = billingconductor;
-            return this;
-        }
-
-        public Builder billingconductor(String billingconductor) {
-            return billingconductor(Output.of(billingconductor));
-        }
-
-        public Builder braket(@Nullable Output<String> braket) {
-            $.braket = braket;
-            return this;
-        }
-
-        public Builder braket(String braket) {
-            return braket(Output.of(braket));
         }
 
         public Builder budgets(@Nullable Output<String> budgets) {
@@ -3497,15 +2300,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return chime(Output.of(chime));
         }
 
-        public Builder chimesdkidentity(@Nullable Output<String> chimesdkidentity) {
-            $.chimesdkidentity = chimesdkidentity;
-            return this;
-        }
-
-        public Builder chimesdkidentity(String chimesdkidentity) {
-            return chimesdkidentity(Output.of(chimesdkidentity));
-        }
-
         public Builder chimesdkmediapipelines(@Nullable Output<String> chimesdkmediapipelines) {
             $.chimesdkmediapipelines = chimesdkmediapipelines;
             return this;
@@ -3513,24 +2307,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder chimesdkmediapipelines(String chimesdkmediapipelines) {
             return chimesdkmediapipelines(Output.of(chimesdkmediapipelines));
-        }
-
-        public Builder chimesdkmeetings(@Nullable Output<String> chimesdkmeetings) {
-            $.chimesdkmeetings = chimesdkmeetings;
-            return this;
-        }
-
-        public Builder chimesdkmeetings(String chimesdkmeetings) {
-            return chimesdkmeetings(Output.of(chimesdkmeetings));
-        }
-
-        public Builder chimesdkmessaging(@Nullable Output<String> chimesdkmessaging) {
-            $.chimesdkmessaging = chimesdkmessaging;
-            return this;
-        }
-
-        public Builder chimesdkmessaging(String chimesdkmessaging) {
-            return chimesdkmessaging(Output.of(chimesdkmessaging));
         }
 
         public Builder chimesdkvoice(@Nullable Output<String> chimesdkvoice) {
@@ -3578,15 +2354,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return cloudcontrolapi(Output.of(cloudcontrolapi));
         }
 
-        public Builder clouddirectory(@Nullable Output<String> clouddirectory) {
-            $.clouddirectory = clouddirectory;
-            return this;
-        }
-
-        public Builder clouddirectory(String clouddirectory) {
-            return clouddirectory(Output.of(clouddirectory));
-        }
-
         public Builder cloudformation(@Nullable Output<String> cloudformation) {
             $.cloudformation = cloudformation;
             return this;
@@ -3630,15 +2397,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder cloudsearch(String cloudsearch) {
             return cloudsearch(Output.of(cloudsearch));
-        }
-
-        public Builder cloudsearchdomain(@Nullable Output<String> cloudsearchdomain) {
-            $.cloudsearchdomain = cloudsearchdomain;
-            return this;
-        }
-
-        public Builder cloudsearchdomain(String cloudsearchdomain) {
-            return cloudsearchdomain(Output.of(cloudsearchdomain));
         }
 
         public Builder cloudtrail(@Nullable Output<String> cloudtrail) {
@@ -3731,6 +2489,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return codebuild(Output.of(codebuild));
         }
 
+        public Builder codecatalyst(@Nullable Output<String> codecatalyst) {
+            $.codecatalyst = codecatalyst;
+            return this;
+        }
+
+        public Builder codecatalyst(String codecatalyst) {
+            return codecatalyst(Output.of(codecatalyst));
+        }
+
         public Builder codecommit(@Nullable Output<String> codecommit) {
             $.codecommit = codecommit;
             return this;
@@ -3749,15 +2516,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return codedeploy(Output.of(codedeploy));
         }
 
-        public Builder codeguruprofiler(@Nullable Output<String> codeguruprofiler) {
-            $.codeguruprofiler = codeguruprofiler;
-            return this;
-        }
-
-        public Builder codeguruprofiler(String codeguruprofiler) {
-            return codeguruprofiler(Output.of(codeguruprofiler));
-        }
-
         public Builder codegurureviewer(@Nullable Output<String> codegurureviewer) {
             $.codegurureviewer = codegurureviewer;
             return this;
@@ -3774,15 +2532,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder codepipeline(String codepipeline) {
             return codepipeline(Output.of(codepipeline));
-        }
-
-        public Builder codestar(@Nullable Output<String> codestar) {
-            $.codestar = codestar;
-            return this;
-        }
-
-        public Builder codestar(String codestar) {
-            return codestar(Output.of(codestar));
         }
 
         public Builder codestarconnections(@Nullable Output<String> codestarconnections) {
@@ -3830,15 +2579,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return cognitoidp(Output.of(cognitoidp));
         }
 
-        public Builder cognitosync(@Nullable Output<String> cognitosync) {
-            $.cognitosync = cognitosync;
-            return this;
-        }
-
-        public Builder cognitosync(String cognitosync) {
-            return cognitosync(Output.of(cognitosync));
-        }
-
         public Builder comprehend(@Nullable Output<String> comprehend) {
             $.comprehend = comprehend;
             return this;
@@ -3846,15 +2586,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder comprehend(String comprehend) {
             return comprehend(Output.of(comprehend));
-        }
-
-        public Builder comprehendmedical(@Nullable Output<String> comprehendmedical) {
-            $.comprehendmedical = comprehendmedical;
-            return this;
-        }
-
-        public Builder comprehendmedical(String comprehendmedical) {
-            return comprehendmedical(Output.of(comprehendmedical));
         }
 
         public Builder computeoptimizer(@Nullable Output<String> computeoptimizer) {
@@ -3893,33 +2624,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return connect(Output.of(connect));
         }
 
-        public Builder connectcontactlens(@Nullable Output<String> connectcontactlens) {
-            $.connectcontactlens = connectcontactlens;
-            return this;
-        }
-
-        public Builder connectcontactlens(String connectcontactlens) {
-            return connectcontactlens(Output.of(connectcontactlens));
-        }
-
-        public Builder connectparticipant(@Nullable Output<String> connectparticipant) {
-            $.connectparticipant = connectparticipant;
-            return this;
-        }
-
-        public Builder connectparticipant(String connectparticipant) {
-            return connectparticipant(Output.of(connectparticipant));
-        }
-
-        public Builder connectwisdomservice(@Nullable Output<String> connectwisdomservice) {
-            $.connectwisdomservice = connectwisdomservice;
-            return this;
-        }
-
-        public Builder connectwisdomservice(String connectwisdomservice) {
-            return connectwisdomservice(Output.of(connectwisdomservice));
-        }
-
         public Builder controltower(@Nullable Output<String> controltower) {
             $.controltower = controltower;
             return this;
@@ -3956,15 +2660,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return cur(Output.of(cur));
         }
 
-        public Builder customerprofiles(@Nullable Output<String> customerprofiles) {
-            $.customerprofiles = customerprofiles;
-            return this;
-        }
-
-        public Builder customerprofiles(String customerprofiles) {
-            return customerprofiles(Output.of(customerprofiles));
-        }
-
         public Builder databasemigration(@Nullable Output<String> databasemigration) {
             $.databasemigration = databasemigration;
             return this;
@@ -3981,15 +2676,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder databasemigrationservice(String databasemigrationservice) {
             return databasemigrationservice(Output.of(databasemigrationservice));
-        }
-
-        public Builder databrew(@Nullable Output<String> databrew) {
-            $.databrew = databrew;
-            return this;
-        }
-
-        public Builder databrew(String databrew) {
-            return databrew(Output.of(databrew));
         }
 
         public Builder dataexchange(@Nullable Output<String> dataexchange) {
@@ -4055,15 +2741,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return devicefarm(Output.of(devicefarm));
         }
 
-        public Builder devopsguru(@Nullable Output<String> devopsguru) {
-            $.devopsguru = devopsguru;
-            return this;
-        }
-
-        public Builder devopsguru(String devopsguru) {
-            return devopsguru(Output.of(devopsguru));
-        }
-
         public Builder directconnect(@Nullable Output<String> directconnect) {
             $.directconnect = directconnect;
             return this;
@@ -4080,15 +2757,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder directoryservice(String directoryservice) {
             return directoryservice(Output.of(directoryservice));
-        }
-
-        public Builder discovery(@Nullable Output<String> discovery) {
-            $.discovery = discovery;
-            return this;
-        }
-
-        public Builder discovery(String discovery) {
-            return discovery(Output.of(discovery));
         }
 
         public Builder dlm(@Nullable Output<String> dlm) {
@@ -4127,15 +2795,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return docdbelastic(Output.of(docdbelastic));
         }
 
-        public Builder drs(@Nullable Output<String> drs) {
-            $.drs = drs;
-            return this;
-        }
-
-        public Builder drs(String drs) {
-            return drs(Output.of(drs));
-        }
-
         public Builder ds(@Nullable Output<String> ds) {
             $.ds = ds;
             return this;
@@ -4154,24 +2813,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return dynamodb(Output.of(dynamodb));
         }
 
-        public Builder dynamodbstreams(@Nullable Output<String> dynamodbstreams) {
-            $.dynamodbstreams = dynamodbstreams;
-            return this;
-        }
-
-        public Builder dynamodbstreams(String dynamodbstreams) {
-            return dynamodbstreams(Output.of(dynamodbstreams));
-        }
-
-        public Builder ebs(@Nullable Output<String> ebs) {
-            $.ebs = ebs;
-            return this;
-        }
-
-        public Builder ebs(String ebs) {
-            return ebs(Output.of(ebs));
-        }
-
         public Builder ec2(@Nullable Output<String> ec2) {
             $.ec2 = ec2;
             return this;
@@ -4179,15 +2820,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder ec2(String ec2) {
             return ec2(Output.of(ec2));
-        }
-
-        public Builder ec2instanceconnect(@Nullable Output<String> ec2instanceconnect) {
-            $.ec2instanceconnect = ec2instanceconnect;
-            return this;
-        }
-
-        public Builder ec2instanceconnect(String ec2instanceconnect) {
-            return ec2instanceconnect(Output.of(ec2instanceconnect));
         }
 
         public Builder ecr(@Nullable Output<String> ecr) {
@@ -4251,15 +2883,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder elasticbeanstalk(String elasticbeanstalk) {
             return elasticbeanstalk(Output.of(elasticbeanstalk));
-        }
-
-        public Builder elasticinference(@Nullable Output<String> elasticinference) {
-            $.elasticinference = elasticinference;
-            return this;
-        }
-
-        public Builder elasticinference(String elasticinference) {
-            return elasticinference(Output.of(elasticinference));
         }
 
         public Builder elasticloadbalancing(@Nullable Output<String> elasticloadbalancing) {
@@ -4397,15 +3020,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return finspace(Output.of(finspace));
         }
 
-        public Builder finspacedata(@Nullable Output<String> finspacedata) {
-            $.finspacedata = finspacedata;
-            return this;
-        }
-
-        public Builder finspacedata(String finspacedata) {
-            return finspacedata(Output.of(finspacedata));
-        }
-
         public Builder firehose(@Nullable Output<String> firehose) {
             $.firehose = firehose;
             return this;
@@ -4431,51 +3045,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder fms(String fms) {
             return fms(Output.of(fms));
-        }
-
-        public Builder forecast(@Nullable Output<String> forecast) {
-            $.forecast = forecast;
-            return this;
-        }
-
-        public Builder forecast(String forecast) {
-            return forecast(Output.of(forecast));
-        }
-
-        public Builder forecastquery(@Nullable Output<String> forecastquery) {
-            $.forecastquery = forecastquery;
-            return this;
-        }
-
-        public Builder forecastquery(String forecastquery) {
-            return forecastquery(Output.of(forecastquery));
-        }
-
-        public Builder forecastqueryservice(@Nullable Output<String> forecastqueryservice) {
-            $.forecastqueryservice = forecastqueryservice;
-            return this;
-        }
-
-        public Builder forecastqueryservice(String forecastqueryservice) {
-            return forecastqueryservice(Output.of(forecastqueryservice));
-        }
-
-        public Builder forecastservice(@Nullable Output<String> forecastservice) {
-            $.forecastservice = forecastservice;
-            return this;
-        }
-
-        public Builder forecastservice(String forecastservice) {
-            return forecastservice(Output.of(forecastservice));
-        }
-
-        public Builder frauddetector(@Nullable Output<String> frauddetector) {
-            $.frauddetector = frauddetector;
-            return this;
-        }
-
-        public Builder frauddetector(String frauddetector) {
-            return frauddetector(Output.of(frauddetector));
         }
 
         public Builder fsx(@Nullable Output<String> fsx) {
@@ -4523,15 +3092,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return glue(Output.of(glue));
         }
 
-        public Builder gluedatabrew(@Nullable Output<String> gluedatabrew) {
-            $.gluedatabrew = gluedatabrew;
-            return this;
-        }
-
-        public Builder gluedatabrew(String gluedatabrew) {
-            return gluedatabrew(Output.of(gluedatabrew));
-        }
-
         public Builder grafana(@Nullable Output<String> grafana) {
             $.grafana = grafana;
             return this;
@@ -4550,24 +3110,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return greengrass(Output.of(greengrass));
         }
 
-        public Builder greengrassv2(@Nullable Output<String> greengrassv2) {
-            $.greengrassv2 = greengrassv2;
-            return this;
-        }
-
-        public Builder greengrassv2(String greengrassv2) {
-            return greengrassv2(Output.of(greengrassv2));
-        }
-
-        public Builder groundstation(@Nullable Output<String> groundstation) {
-            $.groundstation = groundstation;
-            return this;
-        }
-
-        public Builder groundstation(String groundstation) {
-            return groundstation(Output.of(groundstation));
-        }
-
         public Builder guardduty(@Nullable Output<String> guardduty) {
             $.guardduty = guardduty;
             return this;
@@ -4577,15 +3119,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return guardduty(Output.of(guardduty));
         }
 
-        public Builder health(@Nullable Output<String> health) {
-            $.health = health;
-            return this;
-        }
-
-        public Builder health(String health) {
-            return health(Output.of(health));
-        }
-
         public Builder healthlake(@Nullable Output<String> healthlake) {
             $.healthlake = healthlake;
             return this;
@@ -4593,15 +3126,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder healthlake(String healthlake) {
             return healthlake(Output.of(healthlake));
-        }
-
-        public Builder honeycode(@Nullable Output<String> honeycode) {
-            $.honeycode = honeycode;
-            return this;
-        }
-
-        public Builder honeycode(String honeycode) {
-            return honeycode(Output.of(honeycode));
         }
 
         public Builder iam(@Nullable Output<String> iam) {
@@ -4676,33 +3200,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return iot(Output.of(iot));
         }
 
-        public Builder iot1clickdevices(@Nullable Output<String> iot1clickdevices) {
-            $.iot1clickdevices = iot1clickdevices;
-            return this;
-        }
-
-        public Builder iot1clickdevices(String iot1clickdevices) {
-            return iot1clickdevices(Output.of(iot1clickdevices));
-        }
-
-        public Builder iot1clickdevicesservice(@Nullable Output<String> iot1clickdevicesservice) {
-            $.iot1clickdevicesservice = iot1clickdevicesservice;
-            return this;
-        }
-
-        public Builder iot1clickdevicesservice(String iot1clickdevicesservice) {
-            return iot1clickdevicesservice(Output.of(iot1clickdevicesservice));
-        }
-
-        public Builder iot1clickprojects(@Nullable Output<String> iot1clickprojects) {
-            $.iot1clickprojects = iot1clickprojects;
-            return this;
-        }
-
-        public Builder iot1clickprojects(String iot1clickprojects) {
-            return iot1clickprojects(Output.of(iot1clickprojects));
-        }
-
         public Builder iotanalytics(@Nullable Output<String> iotanalytics) {
             $.iotanalytics = iotanalytics;
             return this;
@@ -4712,33 +3209,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return iotanalytics(Output.of(iotanalytics));
         }
 
-        public Builder iotdata(@Nullable Output<String> iotdata) {
-            $.iotdata = iotdata;
-            return this;
-        }
-
-        public Builder iotdata(String iotdata) {
-            return iotdata(Output.of(iotdata));
-        }
-
-        public Builder iotdataplane(@Nullable Output<String> iotdataplane) {
-            $.iotdataplane = iotdataplane;
-            return this;
-        }
-
-        public Builder iotdataplane(String iotdataplane) {
-            return iotdataplane(Output.of(iotdataplane));
-        }
-
-        public Builder iotdeviceadvisor(@Nullable Output<String> iotdeviceadvisor) {
-            $.iotdeviceadvisor = iotdeviceadvisor;
-            return this;
-        }
-
-        public Builder iotdeviceadvisor(String iotdeviceadvisor) {
-            return iotdeviceadvisor(Output.of(iotdeviceadvisor));
-        }
-
         public Builder iotevents(@Nullable Output<String> iotevents) {
             $.iotevents = iotevents;
             return this;
@@ -4746,87 +3216,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder iotevents(String iotevents) {
             return iotevents(Output.of(iotevents));
-        }
-
-        public Builder ioteventsdata(@Nullable Output<String> ioteventsdata) {
-            $.ioteventsdata = ioteventsdata;
-            return this;
-        }
-
-        public Builder ioteventsdata(String ioteventsdata) {
-            return ioteventsdata(Output.of(ioteventsdata));
-        }
-
-        public Builder iotfleethub(@Nullable Output<String> iotfleethub) {
-            $.iotfleethub = iotfleethub;
-            return this;
-        }
-
-        public Builder iotfleethub(String iotfleethub) {
-            return iotfleethub(Output.of(iotfleethub));
-        }
-
-        public Builder iotjobsdata(@Nullable Output<String> iotjobsdata) {
-            $.iotjobsdata = iotjobsdata;
-            return this;
-        }
-
-        public Builder iotjobsdata(String iotjobsdata) {
-            return iotjobsdata(Output.of(iotjobsdata));
-        }
-
-        public Builder iotjobsdataplane(@Nullable Output<String> iotjobsdataplane) {
-            $.iotjobsdataplane = iotjobsdataplane;
-            return this;
-        }
-
-        public Builder iotjobsdataplane(String iotjobsdataplane) {
-            return iotjobsdataplane(Output.of(iotjobsdataplane));
-        }
-
-        public Builder iotsecuretunneling(@Nullable Output<String> iotsecuretunneling) {
-            $.iotsecuretunneling = iotsecuretunneling;
-            return this;
-        }
-
-        public Builder iotsecuretunneling(String iotsecuretunneling) {
-            return iotsecuretunneling(Output.of(iotsecuretunneling));
-        }
-
-        public Builder iotsitewise(@Nullable Output<String> iotsitewise) {
-            $.iotsitewise = iotsitewise;
-            return this;
-        }
-
-        public Builder iotsitewise(String iotsitewise) {
-            return iotsitewise(Output.of(iotsitewise));
-        }
-
-        public Builder iotthingsgraph(@Nullable Output<String> iotthingsgraph) {
-            $.iotthingsgraph = iotthingsgraph;
-            return this;
-        }
-
-        public Builder iotthingsgraph(String iotthingsgraph) {
-            return iotthingsgraph(Output.of(iotthingsgraph));
-        }
-
-        public Builder iottwinmaker(@Nullable Output<String> iottwinmaker) {
-            $.iottwinmaker = iottwinmaker;
-            return this;
-        }
-
-        public Builder iottwinmaker(String iottwinmaker) {
-            return iottwinmaker(Output.of(iottwinmaker));
-        }
-
-        public Builder iotwireless(@Nullable Output<String> iotwireless) {
-            $.iotwireless = iotwireless;
-            return this;
-        }
-
-        public Builder iotwireless(String iotwireless) {
-            return iotwireless(Output.of(iotwireless));
         }
 
         public Builder ivs(@Nullable Output<String> ivs) {
@@ -4919,42 +3308,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return kinesisvideo(Output.of(kinesisvideo));
         }
 
-        public Builder kinesisvideoarchivedmedia(@Nullable Output<String> kinesisvideoarchivedmedia) {
-            $.kinesisvideoarchivedmedia = kinesisvideoarchivedmedia;
-            return this;
-        }
-
-        public Builder kinesisvideoarchivedmedia(String kinesisvideoarchivedmedia) {
-            return kinesisvideoarchivedmedia(Output.of(kinesisvideoarchivedmedia));
-        }
-
-        public Builder kinesisvideomedia(@Nullable Output<String> kinesisvideomedia) {
-            $.kinesisvideomedia = kinesisvideomedia;
-            return this;
-        }
-
-        public Builder kinesisvideomedia(String kinesisvideomedia) {
-            return kinesisvideomedia(Output.of(kinesisvideomedia));
-        }
-
-        public Builder kinesisvideosignaling(@Nullable Output<String> kinesisvideosignaling) {
-            $.kinesisvideosignaling = kinesisvideosignaling;
-            return this;
-        }
-
-        public Builder kinesisvideosignaling(String kinesisvideosignaling) {
-            return kinesisvideosignaling(Output.of(kinesisvideosignaling));
-        }
-
-        public Builder kinesisvideosignalingchannels(@Nullable Output<String> kinesisvideosignalingchannels) {
-            $.kinesisvideosignalingchannels = kinesisvideosignalingchannels;
-            return this;
-        }
-
-        public Builder kinesisvideosignalingchannels(String kinesisvideosignalingchannels) {
-            return kinesisvideosignalingchannels(Output.of(kinesisvideosignalingchannels));
-        }
-
         public Builder kms(@Nullable Output<String> kms) {
             $.kms = kms;
             return this;
@@ -5027,33 +3380,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return lexmodelsv2(Output.of(lexmodelsv2));
         }
 
-        public Builder lexruntime(@Nullable Output<String> lexruntime) {
-            $.lexruntime = lexruntime;
-            return this;
-        }
-
-        public Builder lexruntime(String lexruntime) {
-            return lexruntime(Output.of(lexruntime));
-        }
-
-        public Builder lexruntimeservice(@Nullable Output<String> lexruntimeservice) {
-            $.lexruntimeservice = lexruntimeservice;
-            return this;
-        }
-
-        public Builder lexruntimeservice(String lexruntimeservice) {
-            return lexruntimeservice(Output.of(lexruntimeservice));
-        }
-
-        public Builder lexruntimev2(@Nullable Output<String> lexruntimev2) {
-            $.lexruntimev2 = lexruntimev2;
-            return this;
-        }
-
-        public Builder lexruntimev2(String lexruntimev2) {
-            return lexruntimev2(Output.of(lexruntimev2));
-        }
-
         public Builder lexv2models(@Nullable Output<String> lexv2models) {
             $.lexv2models = lexv2models;
             return this;
@@ -5061,15 +3387,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder lexv2models(String lexv2models) {
             return lexv2models(Output.of(lexv2models));
-        }
-
-        public Builder lexv2runtime(@Nullable Output<String> lexv2runtime) {
-            $.lexv2runtime = lexv2runtime;
-            return this;
-        }
-
-        public Builder lexv2runtime(String lexv2runtime) {
-            return lexv2runtime(Output.of(lexv2runtime));
         }
 
         public Builder licensemanager(@Nullable Output<String> licensemanager) {
@@ -5117,60 +3434,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return logs(Output.of(logs));
         }
 
-        public Builder lookoutequipment(@Nullable Output<String> lookoutequipment) {
-            $.lookoutequipment = lookoutequipment;
-            return this;
-        }
-
-        public Builder lookoutequipment(String lookoutequipment) {
-            return lookoutequipment(Output.of(lookoutequipment));
-        }
-
-        public Builder lookoutforvision(@Nullable Output<String> lookoutforvision) {
-            $.lookoutforvision = lookoutforvision;
-            return this;
-        }
-
-        public Builder lookoutforvision(String lookoutforvision) {
-            return lookoutforvision(Output.of(lookoutforvision));
-        }
-
-        public Builder lookoutmetrics(@Nullable Output<String> lookoutmetrics) {
-            $.lookoutmetrics = lookoutmetrics;
-            return this;
-        }
-
-        public Builder lookoutmetrics(String lookoutmetrics) {
-            return lookoutmetrics(Output.of(lookoutmetrics));
-        }
-
-        public Builder lookoutvision(@Nullable Output<String> lookoutvision) {
-            $.lookoutvision = lookoutvision;
-            return this;
-        }
-
-        public Builder lookoutvision(String lookoutvision) {
-            return lookoutvision(Output.of(lookoutvision));
-        }
-
-        public Builder machinelearning(@Nullable Output<String> machinelearning) {
-            $.machinelearning = machinelearning;
-            return this;
-        }
-
-        public Builder machinelearning(String machinelearning) {
-            return machinelearning(Output.of(machinelearning));
-        }
-
-        public Builder macie(@Nullable Output<String> macie) {
-            $.macie = macie;
-            return this;
-        }
-
-        public Builder macie(String macie) {
-            return macie(Output.of(macie));
-        }
-
         public Builder macie2(@Nullable Output<String> macie2) {
             $.macie2 = macie2;
             return this;
@@ -5180,15 +3443,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return macie2(Output.of(macie2));
         }
 
-        public Builder managedblockchain(@Nullable Output<String> managedblockchain) {
-            $.managedblockchain = managedblockchain;
-            return this;
-        }
-
-        public Builder managedblockchain(String managedblockchain) {
-            return managedblockchain(Output.of(managedblockchain));
-        }
-
         public Builder managedgrafana(@Nullable Output<String> managedgrafana) {
             $.managedgrafana = managedgrafana;
             return this;
@@ -5196,51 +3450,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder managedgrafana(String managedgrafana) {
             return managedgrafana(Output.of(managedgrafana));
-        }
-
-        public Builder marketplacecatalog(@Nullable Output<String> marketplacecatalog) {
-            $.marketplacecatalog = marketplacecatalog;
-            return this;
-        }
-
-        public Builder marketplacecatalog(String marketplacecatalog) {
-            return marketplacecatalog(Output.of(marketplacecatalog));
-        }
-
-        public Builder marketplacecommerceanalytics(@Nullable Output<String> marketplacecommerceanalytics) {
-            $.marketplacecommerceanalytics = marketplacecommerceanalytics;
-            return this;
-        }
-
-        public Builder marketplacecommerceanalytics(String marketplacecommerceanalytics) {
-            return marketplacecommerceanalytics(Output.of(marketplacecommerceanalytics));
-        }
-
-        public Builder marketplaceentitlement(@Nullable Output<String> marketplaceentitlement) {
-            $.marketplaceentitlement = marketplaceentitlement;
-            return this;
-        }
-
-        public Builder marketplaceentitlement(String marketplaceentitlement) {
-            return marketplaceentitlement(Output.of(marketplaceentitlement));
-        }
-
-        public Builder marketplaceentitlementservice(@Nullable Output<String> marketplaceentitlementservice) {
-            $.marketplaceentitlementservice = marketplaceentitlementservice;
-            return this;
-        }
-
-        public Builder marketplaceentitlementservice(String marketplaceentitlementservice) {
-            return marketplaceentitlementservice(Output.of(marketplaceentitlementservice));
-        }
-
-        public Builder marketplacemetering(@Nullable Output<String> marketplacemetering) {
-            $.marketplacemetering = marketplacemetering;
-            return this;
-        }
-
-        public Builder marketplacemetering(String marketplacemetering) {
-            return marketplacemetering(Output.of(marketplacemetering));
         }
 
         public Builder mediaconnect(@Nullable Output<String> mediaconnect) {
@@ -5279,15 +3488,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return mediapackage(Output.of(mediapackage));
         }
 
-        public Builder mediapackagevod(@Nullable Output<String> mediapackagevod) {
-            $.mediapackagevod = mediapackagevod;
-            return this;
-        }
-
-        public Builder mediapackagevod(String mediapackagevod) {
-            return mediapackagevod(Output.of(mediapackagevod));
-        }
-
         public Builder mediastore(@Nullable Output<String> mediastore) {
             $.mediastore = mediastore;
             return this;
@@ -5297,24 +3497,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return mediastore(Output.of(mediastore));
         }
 
-        public Builder mediastoredata(@Nullable Output<String> mediastoredata) {
-            $.mediastoredata = mediastoredata;
-            return this;
-        }
-
-        public Builder mediastoredata(String mediastoredata) {
-            return mediastoredata(Output.of(mediastoredata));
-        }
-
-        public Builder mediatailor(@Nullable Output<String> mediatailor) {
-            $.mediatailor = mediatailor;
-            return this;
-        }
-
-        public Builder mediatailor(String mediatailor) {
-            return mediatailor(Output.of(mediatailor));
-        }
-
         public Builder memorydb(@Nullable Output<String> memorydb) {
             $.memorydb = memorydb;
             return this;
@@ -5322,87 +3504,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder memorydb(String memorydb) {
             return memorydb(Output.of(memorydb));
-        }
-
-        public Builder meteringmarketplace(@Nullable Output<String> meteringmarketplace) {
-            $.meteringmarketplace = meteringmarketplace;
-            return this;
-        }
-
-        public Builder meteringmarketplace(String meteringmarketplace) {
-            return meteringmarketplace(Output.of(meteringmarketplace));
-        }
-
-        public Builder mgh(@Nullable Output<String> mgh) {
-            $.mgh = mgh;
-            return this;
-        }
-
-        public Builder mgh(String mgh) {
-            return mgh(Output.of(mgh));
-        }
-
-        public Builder mgn(@Nullable Output<String> mgn) {
-            $.mgn = mgn;
-            return this;
-        }
-
-        public Builder mgn(String mgn) {
-            return mgn(Output.of(mgn));
-        }
-
-        public Builder migrationhub(@Nullable Output<String> migrationhub) {
-            $.migrationhub = migrationhub;
-            return this;
-        }
-
-        public Builder migrationhub(String migrationhub) {
-            return migrationhub(Output.of(migrationhub));
-        }
-
-        public Builder migrationhubconfig(@Nullable Output<String> migrationhubconfig) {
-            $.migrationhubconfig = migrationhubconfig;
-            return this;
-        }
-
-        public Builder migrationhubconfig(String migrationhubconfig) {
-            return migrationhubconfig(Output.of(migrationhubconfig));
-        }
-
-        public Builder migrationhubrefactorspaces(@Nullable Output<String> migrationhubrefactorspaces) {
-            $.migrationhubrefactorspaces = migrationhubrefactorspaces;
-            return this;
-        }
-
-        public Builder migrationhubrefactorspaces(String migrationhubrefactorspaces) {
-            return migrationhubrefactorspaces(Output.of(migrationhubrefactorspaces));
-        }
-
-        public Builder migrationhubstrategy(@Nullable Output<String> migrationhubstrategy) {
-            $.migrationhubstrategy = migrationhubstrategy;
-            return this;
-        }
-
-        public Builder migrationhubstrategy(String migrationhubstrategy) {
-            return migrationhubstrategy(Output.of(migrationhubstrategy));
-        }
-
-        public Builder migrationhubstrategyrecommendations(@Nullable Output<String> migrationhubstrategyrecommendations) {
-            $.migrationhubstrategyrecommendations = migrationhubstrategyrecommendations;
-            return this;
-        }
-
-        public Builder migrationhubstrategyrecommendations(String migrationhubstrategyrecommendations) {
-            return migrationhubstrategyrecommendations(Output.of(migrationhubstrategyrecommendations));
-        }
-
-        public Builder mobile(@Nullable Output<String> mobile) {
-            $.mobile = mobile;
-            return this;
-        }
-
-        public Builder mobile(String mobile) {
-            return mobile(Output.of(mobile));
         }
 
         public Builder mq(@Nullable Output<String> mq) {
@@ -5421,15 +3522,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder msk(String msk) {
             return msk(Output.of(msk));
-        }
-
-        public Builder mturk(@Nullable Output<String> mturk) {
-            $.mturk = mturk;
-            return this;
-        }
-
-        public Builder mturk(String mturk) {
-            return mturk(Output.of(mturk));
         }
 
         public Builder mwaa(@Nullable Output<String> mwaa) {
@@ -5466,24 +3558,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder networkmanager(String networkmanager) {
             return networkmanager(Output.of(networkmanager));
-        }
-
-        public Builder nimble(@Nullable Output<String> nimble) {
-            $.nimble = nimble;
-            return this;
-        }
-
-        public Builder nimble(String nimble) {
-            return nimble(Output.of(nimble));
-        }
-
-        public Builder nimblestudio(@Nullable Output<String> nimblestudio) {
-            $.nimblestudio = nimblestudio;
-            return this;
-        }
-
-        public Builder nimblestudio(String nimblestudio) {
-            return nimblestudio(Output.of(nimblestudio));
         }
 
         public Builder oam(@Nullable Output<String> oam) {
@@ -5531,15 +3605,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return opsworks(Output.of(opsworks));
         }
 
-        public Builder opsworkscm(@Nullable Output<String> opsworkscm) {
-            $.opsworkscm = opsworkscm;
-            return this;
-        }
-
-        public Builder opsworkscm(String opsworkscm) {
-            return opsworkscm(Output.of(opsworkscm));
-        }
-
         public Builder organizations(@Nullable Output<String> organizations) {
             $.organizations = organizations;
             return this;
@@ -5558,51 +3623,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return outposts(Output.of(outposts));
         }
 
-        public Builder panorama(@Nullable Output<String> panorama) {
-            $.panorama = panorama;
-            return this;
-        }
-
-        public Builder panorama(String panorama) {
-            return panorama(Output.of(panorama));
-        }
-
-        public Builder personalize(@Nullable Output<String> personalize) {
-            $.personalize = personalize;
-            return this;
-        }
-
-        public Builder personalize(String personalize) {
-            return personalize(Output.of(personalize));
-        }
-
-        public Builder personalizeevents(@Nullable Output<String> personalizeevents) {
-            $.personalizeevents = personalizeevents;
-            return this;
-        }
-
-        public Builder personalizeevents(String personalizeevents) {
-            return personalizeevents(Output.of(personalizeevents));
-        }
-
-        public Builder personalizeruntime(@Nullable Output<String> personalizeruntime) {
-            $.personalizeruntime = personalizeruntime;
-            return this;
-        }
-
-        public Builder personalizeruntime(String personalizeruntime) {
-            return personalizeruntime(Output.of(personalizeruntime));
-        }
-
-        public Builder pi(@Nullable Output<String> pi) {
-            $.pi = pi;
-            return this;
-        }
-
-        public Builder pi(String pi) {
-            return pi(Output.of(pi));
-        }
-
         public Builder pinpoint(@Nullable Output<String> pinpoint) {
             $.pinpoint = pinpoint;
             return this;
@@ -5612,24 +3632,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return pinpoint(Output.of(pinpoint));
         }
 
-        public Builder pinpointemail(@Nullable Output<String> pinpointemail) {
-            $.pinpointemail = pinpointemail;
-            return this;
-        }
-
-        public Builder pinpointemail(String pinpointemail) {
-            return pinpointemail(Output.of(pinpointemail));
-        }
-
-        public Builder pinpointsmsvoice(@Nullable Output<String> pinpointsmsvoice) {
-            $.pinpointsmsvoice = pinpointsmsvoice;
-            return this;
-        }
-
-        public Builder pinpointsmsvoice(String pinpointsmsvoice) {
-            return pinpointsmsvoice(Output.of(pinpointsmsvoice));
-        }
-
         public Builder pipes(@Nullable Output<String> pipes) {
             $.pipes = pipes;
             return this;
@@ -5637,15 +3639,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder pipes(String pipes) {
             return pipes(Output.of(pipes));
-        }
-
-        public Builder polly(@Nullable Output<String> polly) {
-            $.polly = polly;
-            return this;
-        }
-
-        public Builder polly(String polly) {
-            return polly(Output.of(polly));
         }
 
         public Builder pricing(@Nullable Output<String> pricing) {
@@ -5675,15 +3668,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return prometheusservice(Output.of(prometheusservice));
         }
 
-        public Builder proton(@Nullable Output<String> proton) {
-            $.proton = proton;
-            return this;
-        }
-
-        public Builder proton(String proton) {
-            return proton(Output.of(proton));
-        }
-
         public Builder qldb(@Nullable Output<String> qldb) {
             $.qldb = qldb;
             return this;
@@ -5691,15 +3675,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder qldb(String qldb) {
             return qldb(Output.of(qldb));
-        }
-
-        public Builder qldbsession(@Nullable Output<String> qldbsession) {
-            $.qldbsession = qldbsession;
-            return this;
-        }
-
-        public Builder qldbsession(String qldbsession) {
-            return qldbsession(Output.of(qldbsession));
         }
 
         public Builder quicksight(@Nullable Output<String> quicksight) {
@@ -5736,24 +3711,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder rds(String rds) {
             return rds(Output.of(rds));
-        }
-
-        public Builder rdsdata(@Nullable Output<String> rdsdata) {
-            $.rdsdata = rdsdata;
-            return this;
-        }
-
-        public Builder rdsdata(String rdsdata) {
-            return rdsdata(Output.of(rdsdata));
-        }
-
-        public Builder rdsdataservice(@Nullable Output<String> rdsdataservice) {
-            $.rdsdataservice = rdsdataservice;
-            return this;
-        }
-
-        public Builder rdsdataservice(String rdsdataservice) {
-            return rdsdataservice(Output.of(rdsdataservice));
         }
 
         public Builder recyclebin(@Nullable Output<String> recyclebin) {
@@ -5801,24 +3758,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return redshiftserverless(Output.of(redshiftserverless));
         }
 
-        public Builder rekognition(@Nullable Output<String> rekognition) {
-            $.rekognition = rekognition;
-            return this;
-        }
-
-        public Builder rekognition(String rekognition) {
-            return rekognition(Output.of(rekognition));
-        }
-
-        public Builder resiliencehub(@Nullable Output<String> resiliencehub) {
-            $.resiliencehub = resiliencehub;
-            return this;
-        }
-
-        public Builder resiliencehub(String resiliencehub) {
-            return resiliencehub(Output.of(resiliencehub));
-        }
-
         public Builder resourceexplorer2(@Nullable Output<String> resourceexplorer2) {
             $.resourceexplorer2 = resourceexplorer2;
             return this;
@@ -5855,15 +3794,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return resourcegroupstaggingapi(Output.of(resourcegroupstaggingapi));
         }
 
-        public Builder robomaker(@Nullable Output<String> robomaker) {
-            $.robomaker = robomaker;
-            return this;
-        }
-
-        public Builder robomaker(String robomaker) {
-            return robomaker(Output.of(robomaker));
-        }
-
         public Builder rolesanywhere(@Nullable Output<String> rolesanywhere) {
             $.rolesanywhere = rolesanywhere;
             return this;
@@ -5889,15 +3819,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder route53domains(String route53domains) {
             return route53domains(Output.of(route53domains));
-        }
-
-        public Builder route53recoverycluster(@Nullable Output<String> route53recoverycluster) {
-            $.route53recoverycluster = route53recoverycluster;
-            return this;
-        }
-
-        public Builder route53recoverycluster(String route53recoverycluster) {
-            return route53recoverycluster(Output.of(route53recoverycluster));
         }
 
         public Builder route53recoverycontrolconfig(@Nullable Output<String> route53recoverycontrolconfig) {
@@ -5979,60 +3900,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder sagemaker(String sagemaker) {
             return sagemaker(Output.of(sagemaker));
-        }
-
-        public Builder sagemakera2iruntime(@Nullable Output<String> sagemakera2iruntime) {
-            $.sagemakera2iruntime = sagemakera2iruntime;
-            return this;
-        }
-
-        public Builder sagemakera2iruntime(String sagemakera2iruntime) {
-            return sagemakera2iruntime(Output.of(sagemakera2iruntime));
-        }
-
-        public Builder sagemakeredge(@Nullable Output<String> sagemakeredge) {
-            $.sagemakeredge = sagemakeredge;
-            return this;
-        }
-
-        public Builder sagemakeredge(String sagemakeredge) {
-            return sagemakeredge(Output.of(sagemakeredge));
-        }
-
-        public Builder sagemakeredgemanager(@Nullable Output<String> sagemakeredgemanager) {
-            $.sagemakeredgemanager = sagemakeredgemanager;
-            return this;
-        }
-
-        public Builder sagemakeredgemanager(String sagemakeredgemanager) {
-            return sagemakeredgemanager(Output.of(sagemakeredgemanager));
-        }
-
-        public Builder sagemakerfeaturestoreruntime(@Nullable Output<String> sagemakerfeaturestoreruntime) {
-            $.sagemakerfeaturestoreruntime = sagemakerfeaturestoreruntime;
-            return this;
-        }
-
-        public Builder sagemakerfeaturestoreruntime(String sagemakerfeaturestoreruntime) {
-            return sagemakerfeaturestoreruntime(Output.of(sagemakerfeaturestoreruntime));
-        }
-
-        public Builder sagemakerruntime(@Nullable Output<String> sagemakerruntime) {
-            $.sagemakerruntime = sagemakerruntime;
-            return this;
-        }
-
-        public Builder sagemakerruntime(String sagemakerruntime) {
-            return sagemakerruntime(Output.of(sagemakerruntime));
-        }
-
-        public Builder savingsplans(@Nullable Output<String> savingsplans) {
-            $.savingsplans = savingsplans;
-            return this;
-        }
-
-        public Builder savingsplans(String savingsplans) {
-            return savingsplans(Output.of(savingsplans));
         }
 
         public Builder scheduler(@Nullable Output<String> scheduler) {
@@ -6125,15 +3992,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return servicecatalog(Output.of(servicecatalog));
         }
 
-        public Builder servicecatalogappregistry(@Nullable Output<String> servicecatalogappregistry) {
-            $.servicecatalogappregistry = servicecatalogappregistry;
-            return this;
-        }
-
-        public Builder servicecatalogappregistry(String servicecatalogappregistry) {
-            return servicecatalogappregistry(Output.of(servicecatalogappregistry));
-        }
-
         public Builder servicediscovery(@Nullable Output<String> servicediscovery) {
             $.servicediscovery = servicediscovery;
             return this;
@@ -6206,33 +4064,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return simpledb(Output.of(simpledb));
         }
 
-        public Builder sms(@Nullable Output<String> sms) {
-            $.sms = sms;
-            return this;
-        }
-
-        public Builder sms(String sms) {
-            return sms(Output.of(sms));
-        }
-
-        public Builder snowball(@Nullable Output<String> snowball) {
-            $.snowball = snowball;
-            return this;
-        }
-
-        public Builder snowball(String snowball) {
-            return snowball(Output.of(snowball));
-        }
-
-        public Builder snowdevicemanagement(@Nullable Output<String> snowdevicemanagement) {
-            $.snowdevicemanagement = snowdevicemanagement;
-            return this;
-        }
-
-        public Builder snowdevicemanagement(String snowdevicemanagement) {
-            return snowdevicemanagement(Output.of(snowdevicemanagement));
-        }
-
         public Builder sns(@Nullable Output<String> sns) {
             $.sns = sns;
             return this;
@@ -6278,15 +4109,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return ssmincidents(Output.of(ssmincidents));
         }
 
-        public Builder sso(@Nullable Output<String> sso) {
-            $.sso = sso;
-            return this;
-        }
-
-        public Builder sso(String sso) {
-            return sso(Output.of(sso));
-        }
-
         public Builder ssoadmin(@Nullable Output<String> ssoadmin) {
             $.ssoadmin = ssoadmin;
             return this;
@@ -6294,15 +4116,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder ssoadmin(String ssoadmin) {
             return ssoadmin(Output.of(ssoadmin));
-        }
-
-        public Builder ssooidc(@Nullable Output<String> ssooidc) {
-            $.ssooidc = ssooidc;
-            return this;
-        }
-
-        public Builder ssooidc(String ssooidc) {
-            return ssooidc(Output.of(ssooidc));
         }
 
         public Builder stepfunctions(@Nullable Output<String> stepfunctions) {
@@ -6332,15 +4145,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return sts(Output.of(sts));
         }
 
-        public Builder support(@Nullable Output<String> support) {
-            $.support = support;
-            return this;
-        }
-
-        public Builder support(String support) {
-            return support(Output.of(support));
-        }
-
         public Builder swf(@Nullable Output<String> swf) {
             $.swf = swf;
             return this;
@@ -6357,24 +4161,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder synthetics(String synthetics) {
             return synthetics(Output.of(synthetics));
-        }
-
-        public Builder textract(@Nullable Output<String> textract) {
-            $.textract = textract;
-            return this;
-        }
-
-        public Builder textract(String textract) {
-            return textract(Output.of(textract));
-        }
-
-        public Builder timestreamquery(@Nullable Output<String> timestreamquery) {
-            $.timestreamquery = timestreamquery;
-            return this;
-        }
-
-        public Builder timestreamquery(String timestreamquery) {
-            return timestreamquery(Output.of(timestreamquery));
         }
 
         public Builder timestreamwrite(@Nullable Output<String> timestreamwrite) {
@@ -6404,24 +4190,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return transcribeservice(Output.of(transcribeservice));
         }
 
-        public Builder transcribestreaming(@Nullable Output<String> transcribestreaming) {
-            $.transcribestreaming = transcribestreaming;
-            return this;
-        }
-
-        public Builder transcribestreaming(String transcribestreaming) {
-            return transcribestreaming(Output.of(transcribestreaming));
-        }
-
-        public Builder transcribestreamingservice(@Nullable Output<String> transcribestreamingservice) {
-            $.transcribestreamingservice = transcribestreamingservice;
-            return this;
-        }
-
-        public Builder transcribestreamingservice(String transcribestreamingservice) {
-            return transcribestreamingservice(Output.of(transcribestreamingservice));
-        }
-
         public Builder transfer(@Nullable Output<String> transfer) {
             $.transfer = transfer;
             return this;
@@ -6431,22 +4199,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return transfer(Output.of(transfer));
         }
 
-        public Builder translate(@Nullable Output<String> translate) {
-            $.translate = translate;
+        public Builder verifiedpermissions(@Nullable Output<String> verifiedpermissions) {
+            $.verifiedpermissions = verifiedpermissions;
             return this;
         }
 
-        public Builder translate(String translate) {
-            return translate(Output.of(translate));
-        }
-
-        public Builder voiceid(@Nullable Output<String> voiceid) {
-            $.voiceid = voiceid;
-            return this;
-        }
-
-        public Builder voiceid(String voiceid) {
-            return voiceid(Output.of(voiceid));
+        public Builder verifiedpermissions(String verifiedpermissions) {
+            return verifiedpermissions(Output.of(verifiedpermissions));
         }
 
         public Builder vpclattice(@Nullable Output<String> vpclattice) {
@@ -6485,33 +4244,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return wafv2(Output.of(wafv2));
         }
 
-        public Builder wellarchitected(@Nullable Output<String> wellarchitected) {
-            $.wellarchitected = wellarchitected;
-            return this;
-        }
-
-        public Builder wellarchitected(String wellarchitected) {
-            return wellarchitected(Output.of(wellarchitected));
-        }
-
-        public Builder wisdom(@Nullable Output<String> wisdom) {
-            $.wisdom = wisdom;
-            return this;
-        }
-
-        public Builder wisdom(String wisdom) {
-            return wisdom(Output.of(wisdom));
-        }
-
-        public Builder workdocs(@Nullable Output<String> workdocs) {
-            $.workdocs = workdocs;
-            return this;
-        }
-
-        public Builder workdocs(String workdocs) {
-            return workdocs(Output.of(workdocs));
-        }
-
         public Builder worklink(@Nullable Output<String> worklink) {
             $.worklink = worklink;
             return this;
@@ -6521,24 +4253,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return worklink(Output.of(worklink));
         }
 
-        public Builder workmail(@Nullable Output<String> workmail) {
-            $.workmail = workmail;
-            return this;
-        }
-
-        public Builder workmail(String workmail) {
-            return workmail(Output.of(workmail));
-        }
-
-        public Builder workmailmessageflow(@Nullable Output<String> workmailmessageflow) {
-            $.workmailmessageflow = workmailmessageflow;
-            return this;
-        }
-
-        public Builder workmailmessageflow(String workmailmessageflow) {
-            return workmailmessageflow(Output.of(workmailmessageflow));
-        }
-
         public Builder workspaces(@Nullable Output<String> workspaces) {
             $.workspaces = workspaces;
             return this;
@@ -6546,15 +4260,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder workspaces(String workspaces) {
             return workspaces(Output.of(workspaces));
-        }
-
-        public Builder workspacesweb(@Nullable Output<String> workspacesweb) {
-            $.workspacesweb = workspacesweb;
-            return this;
-        }
-
-        public Builder workspacesweb(String workspacesweb) {
-            return workspacesweb(Output.of(workspacesweb));
         }
 
         public Builder xray(@Nullable Output<String> xray) {

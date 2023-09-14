@@ -201,7 +201,7 @@ class Type(pulumi.CustomResource):
 
         ## Import
 
-        Appsync Types can be imported using the `id` e.g.,
+        Using `pulumi import`, import Appsync Types using the `id`. For example:
 
         ```sh
          $ pulumi import aws:appsync/type:Type example api-id:format:name
@@ -243,7 +243,7 @@ class Type(pulumi.CustomResource):
 
         ## Import
 
-        Appsync Types can be imported using the `id` e.g.,
+        Using `pulumi import`, import Appsync Types using the `id`. For example:
 
         ```sh
          $ pulumi import aws:appsync/type:Type example api-id:format:name

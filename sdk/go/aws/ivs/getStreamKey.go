@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS IVS (Interactive Video) Stream Key.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.InvokeOption) (*GetStreamKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStreamKeyResult
 	err := ctx.Invoke("aws:ivs/getStreamKey:getStreamKey", args, &rv, opts...)
 	if err != nil {
@@ -106,6 +109,12 @@ func (o GetStreamKeyResultOutput) ToGetStreamKeyResultOutput() GetStreamKeyResul
 
 func (o GetStreamKeyResultOutput) ToGetStreamKeyResultOutputWithContext(ctx context.Context) GetStreamKeyResultOutput {
 	return o
+}
+
+func (o GetStreamKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetStreamKeyResult] {
+	return pulumix.Output[GetStreamKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Stream Key.

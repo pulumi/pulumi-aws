@@ -83,6 +83,8 @@ export class RoleAssociation extends pulumi.CustomResource {
     public readonly userIds!: pulumi.Output<string[] | undefined>;
     /**
      * The workspace id.
+     *
+     * The following arguments are optional:
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -139,6 +141,8 @@ export interface RoleAssociationState {
     userIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The workspace id.
+     *
+     * The following arguments are optional:
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -161,6 +165,8 @@ export interface RoleAssociationArgs {
     userIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The workspace id.
+     *
+     * The following arguments are optional:
      */
     workspaceId: pulumi.Input<string>;
 }

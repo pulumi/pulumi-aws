@@ -33,7 +33,7 @@ namespace Pulumi.Aws.AppStream
     ///         EnableDefaultInternetAccess = false,
     ///         FleetType = "ON_DEMAND",
     ///         IdleDisconnectTimeoutInSeconds = 60,
-    ///         ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.large",
     ///         MaxUserDurationInSeconds = 600,
     ///         Tags = 
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// `aws_appstream_fleet` can be imported using the id, e.g.,
+    /// Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -155,6 +155,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the fleet.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -312,6 +314,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the fleet.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -440,6 +444,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the fleet.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

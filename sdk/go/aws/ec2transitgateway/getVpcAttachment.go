@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway VPC Attachment.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupVpcAttachment(ctx *pulumi.Context, args *LookupVpcAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupVpcAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args, &rv, opts...)
 	if err != nil {
@@ -152,6 +155,12 @@ func (o LookupVpcAttachmentResultOutput) ToLookupVpcAttachmentResultOutput() Loo
 
 func (o LookupVpcAttachmentResultOutput) ToLookupVpcAttachmentResultOutputWithContext(ctx context.Context) LookupVpcAttachmentResultOutput {
 	return o
+}
+
+func (o LookupVpcAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcAttachmentResult] {
+	return pulumix.Output[LookupVpcAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Appliance Mode support is enabled.

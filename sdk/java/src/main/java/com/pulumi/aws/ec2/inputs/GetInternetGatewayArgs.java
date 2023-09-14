@@ -21,12 +21,18 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
     /**
      * Custom filter block as described below.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetInternetGatewayFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<List<GetInternetGatewayFilterArgs>>> filters() {
@@ -94,6 +100,9 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -105,6 +114,9 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -114,6 +126,9 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param filters Custom filter block as described below.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

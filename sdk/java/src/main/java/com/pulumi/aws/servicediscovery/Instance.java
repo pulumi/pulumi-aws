@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Service Discovery Instance can be imported using the service ID and instance ID, e.g.,
+ * Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123

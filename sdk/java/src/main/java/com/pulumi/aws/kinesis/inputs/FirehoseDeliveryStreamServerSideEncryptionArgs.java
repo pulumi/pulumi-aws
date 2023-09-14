@@ -34,12 +34,16 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
     /**
      * Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
      * 
+     * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
+     * 
      */
     @Import(name="keyArn")
     private @Nullable Output<String> keyArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+     * 
+     * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
      * 
      */
     public Optional<Output<String>> keyArn() {
@@ -111,6 +115,8 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
         /**
          * @param keyArn Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
          * 
+         * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
+         * 
          * @return builder
          * 
          */
@@ -121,6 +127,8 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
 
         /**
          * @param keyArn Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+         * 
+         * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
          * 
          * @return builder
          * 

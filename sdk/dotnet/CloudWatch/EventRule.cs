@@ -86,7 +86,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+    /// Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

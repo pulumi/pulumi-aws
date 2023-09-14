@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  * 
  *         var parentTest = new VpcIpamPoolCidr(&#34;parentTest&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(parent.id())
- *             .cidr(&#34;172.2.0.0/16&#34;)
+ *             .cidr(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *         var child = new VpcIpamPool(&#34;child&#34;, VpcIpamPoolArgs.builder()        
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  * 
  *         var childTest = new VpcIpamPoolCidr(&#34;childTest&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(child.id())
- *             .cidr(&#34;172.2.0.0/24&#34;)
+ *             .cidr(&#34;172.20.0.0/24&#34;)
  *             .build());
  * 
  *     }
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IPAMs can be imported using the `ipam pool id`, e.g.
+ * Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e

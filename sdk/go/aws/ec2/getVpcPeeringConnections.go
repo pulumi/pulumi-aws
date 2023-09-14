@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get IDs of Amazon VPC peering connections
@@ -15,7 +17,40 @@ import (
 //
 // Note: To use this data source in a count, the resources should exist before trying to access
 // the data source.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// pcs, err := ec2.GetVpcPeeringConnections(ctx, &ec2.GetVpcPeeringConnectionsArgs{
+// Filters: []ec2.GetVpcPeeringConnectionsFilter{
+// {
+// Name: "requester-vpc-info.vpc-id",
+// Values: interface{}{
+// aws_vpc.Foo.Id,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _ := "TODO: For expression";
+// return nil
+// })
+// }
+// ```
 func GetVpcPeeringConnections(ctx *pulumi.Context, args *GetVpcPeeringConnectionsArgs, opts ...pulumi.InvokeOption) (*GetVpcPeeringConnectionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcPeeringConnectionsResult
 	err := ctx.Invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args, &rv, opts...)
 	if err != nil {
@@ -30,6 +65,9 @@ type GetVpcPeeringConnectionsArgs struct {
 	Filters []GetVpcPeeringConnectionsFilter `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -62,6 +100,9 @@ type GetVpcPeeringConnectionsOutputArgs struct {
 	Filters GetVpcPeeringConnectionsFilterArrayInput `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -82,6 +123,12 @@ func (o GetVpcPeeringConnectionsResultOutput) ToGetVpcPeeringConnectionsResultOu
 
 func (o GetVpcPeeringConnectionsResultOutput) ToGetVpcPeeringConnectionsResultOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsResultOutput {
 	return o
+}
+
+func (o GetVpcPeeringConnectionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcPeeringConnectionsResult] {
+	return pulumix.Output[GetVpcPeeringConnectionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcPeeringConnectionsResultOutput) Filters() GetVpcPeeringConnectionsFilterArrayOutput {

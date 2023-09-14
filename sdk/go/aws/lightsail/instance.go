@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +60,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +88,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -168,7 +170,7 @@ import (
 //
 // ## Import
 //
-// Lightsail Instances can be imported using their name, e.g.,
+// Using `pulumi import`, import Lightsail Instances using their name. For example:
 //
 // ```sh
 //
@@ -195,10 +197,6 @@ type Instance struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-	//
-	// Deprecated: use `ipv6_addresses` attribute instead
-	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -240,6 +238,7 @@ func NewInstance(ctx *pulumi.Context,
 	if args.BundleId == nil {
 		return nil, errors.New("invalid value for required argument 'BundleId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws:lightsail/instance:Instance", name, args, &resource, opts...)
 	if err != nil {
@@ -279,10 +278,6 @@ type instanceState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-	//
-	// Deprecated: use `ipv6_addresses` attribute instead
-	Ipv6Address *string `pulumi:"ipv6Address"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -326,10 +321,6 @@ type InstanceState struct {
 	CreatedAt pulumi.StringPtrInput
 	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 	IpAddressType pulumi.StringPtrInput
-	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-	//
-	// Deprecated: use `ipv6_addresses` attribute instead
-	Ipv6Address pulumi.StringPtrInput
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayInput
 	// A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -429,6 +420,12 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceOutput)
 }
 
+func (i *Instance) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
+	return pulumix.Output[*Instance]{
+		OutputState: i.ToInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
@@ -452,6 +449,12 @@ func (i InstanceArray) ToInstanceArrayOutput() InstanceArrayOutput {
 
 func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) InstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceArrayOutput)
+}
+
+func (i InstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
+	return pulumix.Output[[]*Instance]{
+		OutputState: i.ToInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
@@ -479,6 +482,12 @@ func (i InstanceMap) ToInstanceMapOutputWithContext(ctx context.Context) Instanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMapOutput)
 }
 
+func (i InstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
+	return pulumix.Output[map[string]*Instance]{
+		OutputState: i.ToInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceOutput struct{ *pulumi.OutputState }
 
 func (InstanceOutput) ElementType() reflect.Type {
@@ -491,6 +500,12 @@ func (o InstanceOutput) ToInstanceOutput() InstanceOutput {
 
 func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) InstanceOutput {
 	return o
+}
+
+func (o InstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
+	return pulumix.Output[*Instance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The add on configuration for the instance. Detailed below.
@@ -532,13 +547,6 @@ func (o InstanceOutput) CreatedAt() pulumi.StringOutput {
 // The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 func (o InstanceOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
-}
-
-// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-//
-// Deprecated: use `ipv6_addresses` attribute instead
-func (o InstanceOutput) Ipv6Address() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Ipv6Address }).(pulumi.StringOutput)
 }
 
 // List of IPv6 addresses for the Lightsail instance.
@@ -611,6 +619,12 @@ func (o InstanceArrayOutput) ToInstanceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o InstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
+	return pulumix.Output[[]*Instance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceArrayOutput) Index(i pulumi.IntInput) InstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Instance {
 		return vs[0].([]*Instance)[vs[1].(int)]
@@ -629,6 +643,12 @@ func (o InstanceMapOutput) ToInstanceMapOutput() InstanceMapOutput {
 
 func (o InstanceMapOutput) ToInstanceMapOutputWithContext(ctx context.Context) InstanceMapOutput {
 	return o
+}
+
+func (o InstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
+	return pulumix.Output[map[string]*Instance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceMapOutput) MapIndex(k pulumi.StringInput) InstanceOutput {

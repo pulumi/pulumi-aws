@@ -171,7 +171,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
+ * Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master

@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.vpclattice.ServiceNetwork;
  * import com.pulumi.aws.vpclattice.ResourcePolicy;
  * import com.pulumi.aws.vpclattice.ResourcePolicyArgs;
@@ -75,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Resource Policy can be imported using the `resource_arn`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589

@@ -8,12 +8,116 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mytopic, err := sns.NewTopic(ctx, "mytopic", nil)
+// if err != nil {
+// return err
+// }
+// myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", nil)
+// if err != nil {
+// return err
+// }
+// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "iot.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
+// Description: pulumi.String("Example rule"),
+// Enabled: pulumi.Bool(true),
+// Sql: pulumi.String("SELECT * FROM 'topic/test'"),
+// SqlVersion: pulumi.String("2016-03-23"),
+// Sns: iot.TopicRuleSnsArray{
+// &iot.TopicRuleSnsArgs{
+// MessageFormat: pulumi.String("RAW"),
+// RoleArn: role.Arn,
+// TargetArn: mytopic.Arn,
+// },
+// },
+// ErrorAction: &iot.TopicRuleErrorActionArgs{
+// Sns: &iot.TopicRuleErrorActionSnsArgs{
+// MessageFormat: pulumi.String("RAW"),
+// RoleArn: role.Arn,
+// TargetArn: myerrortopic.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// iamPolicyForLambdaPolicyDocument := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "sns:Publish",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "iamPolicyForLambdaRolePolicy", &iam.RolePolicyArgs{
+// Role: role.ID(),
+// Policy: iamPolicyForLambdaPolicyDocument.ApplyT(func(iamPolicyForLambdaPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &iamPolicyForLambdaPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// IoT Topic Rules can be imported using the `name`, e.g.,
+// Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
 //
 // ```sh
 //
@@ -24,36 +128,36 @@ type TopicRule struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the topic rule
-	Arn              pulumi.StringOutput                `pulumi:"arn"`
-	CloudwatchAlarm  TopicRuleCloudwatchAlarmPtrOutput  `pulumi:"cloudwatchAlarm"`
-	CloudwatchLogs   TopicRuleCloudwatchLogArrayOutput  `pulumi:"cloudwatchLogs"`
-	CloudwatchMetric TopicRuleCloudwatchMetricPtrOutput `pulumi:"cloudwatchMetric"`
+	Arn               pulumi.StringOutput                  `pulumi:"arn"`
+	CloudwatchAlarms  TopicRuleCloudwatchAlarmArrayOutput  `pulumi:"cloudwatchAlarms"`
+	CloudwatchLogs    TopicRuleCloudwatchLogArrayOutput    `pulumi:"cloudwatchLogs"`
+	CloudwatchMetrics TopicRuleCloudwatchMetricArrayOutput `pulumi:"cloudwatchMetrics"`
 	// The description of the rule.
-	Description   pulumi.StringPtrOutput          `pulumi:"description"`
-	Dynamodb      TopicRuleDynamodbPtrOutput      `pulumi:"dynamodb"`
-	Dynamodbv2s   TopicRuleDynamodbv2ArrayOutput  `pulumi:"dynamodbv2s"`
-	Elasticsearch TopicRuleElasticsearchPtrOutput `pulumi:"elasticsearch"`
+	Description   pulumi.StringPtrOutput            `pulumi:"description"`
+	Dynamodbs     TopicRuleDynamodbArrayOutput      `pulumi:"dynamodbs"`
+	Dynamodbv2s   TopicRuleDynamodbv2ArrayOutput    `pulumi:"dynamodbv2s"`
+	Elasticsearch TopicRuleElasticsearchArrayOutput `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrOutput   `pulumi:"errorAction"`
-	Firehose     TopicRuleFirehosePtrOutput      `pulumi:"firehose"`
+	Firehoses    TopicRuleFirehoseArrayOutput    `pulumi:"firehoses"`
 	Https        TopicRuleHttpArrayOutput        `pulumi:"https"`
 	IotAnalytics TopicRuleIotAnalyticArrayOutput `pulumi:"iotAnalytics"`
 	IotEvents    TopicRuleIotEventArrayOutput    `pulumi:"iotEvents"`
 	Kafkas       TopicRuleKafkaArrayOutput       `pulumi:"kafkas"`
-	Kinesis      TopicRuleKinesisPtrOutput       `pulumi:"kinesis"`
-	Lambda       TopicRuleLambdaPtrOutput        `pulumi:"lambda"`
+	Kineses      TopicRuleKinesisArrayOutput     `pulumi:"kineses"`
+	Lambdas      TopicRuleLambdaArrayOutput      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name      pulumi.StringOutput         `pulumi:"name"`
-	Republish TopicRuleRepublishPtrOutput `pulumi:"republish"`
-	S3        TopicRuleS3PtrOutput        `pulumi:"s3"`
-	Sns       TopicRuleSnsPtrOutput       `pulumi:"sns"`
+	Name        pulumi.StringOutput           `pulumi:"name"`
+	Republishes TopicRuleRepublishArrayOutput `pulumi:"republishes"`
+	S3          TopicRuleS3ArrayOutput        `pulumi:"s3"`
+	Sns         TopicRuleSnsArrayOutput       `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringOutput `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion    pulumi.StringOutput              `pulumi:"sqlVersion"`
-	Sqs           TopicRuleSqsPtrOutput            `pulumi:"sqs"`
+	Sqs           TopicRuleSqsArrayOutput          `pulumi:"sqs"`
 	StepFunctions TopicRuleStepFunctionArrayOutput `pulumi:"stepFunctions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -78,6 +182,7 @@ func NewTopicRule(ctx *pulumi.Context,
 	if args.SqlVersion == nil {
 		return nil, errors.New("invalid value for required argument 'SqlVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicRule
 	err := ctx.RegisterResource("aws:iot/topicRule:TopicRule", name, args, &resource, opts...)
 	if err != nil {
@@ -101,36 +206,36 @@ func GetTopicRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TopicRule resources.
 type topicRuleState struct {
 	// The ARN of the topic rule
-	Arn              *string                    `pulumi:"arn"`
-	CloudwatchAlarm  *TopicRuleCloudwatchAlarm  `pulumi:"cloudwatchAlarm"`
-	CloudwatchLogs   []TopicRuleCloudwatchLog   `pulumi:"cloudwatchLogs"`
-	CloudwatchMetric *TopicRuleCloudwatchMetric `pulumi:"cloudwatchMetric"`
+	Arn               *string                     `pulumi:"arn"`
+	CloudwatchAlarms  []TopicRuleCloudwatchAlarm  `pulumi:"cloudwatchAlarms"`
+	CloudwatchLogs    []TopicRuleCloudwatchLog    `pulumi:"cloudwatchLogs"`
+	CloudwatchMetrics []TopicRuleCloudwatchMetric `pulumi:"cloudwatchMetrics"`
 	// The description of the rule.
-	Description   *string                 `pulumi:"description"`
-	Dynamodb      *TopicRuleDynamodb      `pulumi:"dynamodb"`
-	Dynamodbv2s   []TopicRuleDynamodbv2   `pulumi:"dynamodbv2s"`
-	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
+	Description   *string                  `pulumi:"description"`
+	Dynamodbs     []TopicRuleDynamodb      `pulumi:"dynamodbs"`
+	Dynamodbv2s   []TopicRuleDynamodbv2    `pulumi:"dynamodbv2s"`
+	Elasticsearch []TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
-	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
+	Firehoses    []TopicRuleFirehose    `pulumi:"firehoses"`
 	Https        []TopicRuleHttp        `pulumi:"https"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
 	Kafkas       []TopicRuleKafka       `pulumi:"kafkas"`
-	Kinesis      *TopicRuleKinesis      `pulumi:"kinesis"`
-	Lambda       *TopicRuleLambda       `pulumi:"lambda"`
+	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
+	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name      *string             `pulumi:"name"`
-	Republish *TopicRuleRepublish `pulumi:"republish"`
-	S3        *TopicRuleS3        `pulumi:"s3"`
-	Sns       *TopicRuleSns       `pulumi:"sns"`
+	Name        *string              `pulumi:"name"`
+	Republishes []TopicRuleRepublish `pulumi:"republishes"`
+	S3          []TopicRuleS3        `pulumi:"s3"`
+	Sns         []TopicRuleSns       `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql *string `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion    *string                 `pulumi:"sqlVersion"`
-	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
+	Sqs           []TopicRuleSqs          `pulumi:"sqs"`
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -141,36 +246,36 @@ type topicRuleState struct {
 
 type TopicRuleState struct {
 	// The ARN of the topic rule
-	Arn              pulumi.StringPtrInput
-	CloudwatchAlarm  TopicRuleCloudwatchAlarmPtrInput
-	CloudwatchLogs   TopicRuleCloudwatchLogArrayInput
-	CloudwatchMetric TopicRuleCloudwatchMetricPtrInput
+	Arn               pulumi.StringPtrInput
+	CloudwatchAlarms  TopicRuleCloudwatchAlarmArrayInput
+	CloudwatchLogs    TopicRuleCloudwatchLogArrayInput
+	CloudwatchMetrics TopicRuleCloudwatchMetricArrayInput
 	// The description of the rule.
 	Description   pulumi.StringPtrInput
-	Dynamodb      TopicRuleDynamodbPtrInput
+	Dynamodbs     TopicRuleDynamodbArrayInput
 	Dynamodbv2s   TopicRuleDynamodbv2ArrayInput
-	Elasticsearch TopicRuleElasticsearchPtrInput
+	Elasticsearch TopicRuleElasticsearchArrayInput
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolPtrInput
 	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrInput
-	Firehose     TopicRuleFirehosePtrInput
+	Firehoses    TopicRuleFirehoseArrayInput
 	Https        TopicRuleHttpArrayInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput
 	Kafkas       TopicRuleKafkaArrayInput
-	Kinesis      TopicRuleKinesisPtrInput
-	Lambda       TopicRuleLambdaPtrInput
+	Kineses      TopicRuleKinesisArrayInput
+	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
-	Name      pulumi.StringPtrInput
-	Republish TopicRuleRepublishPtrInput
-	S3        TopicRuleS3PtrInput
-	Sns       TopicRuleSnsPtrInput
+	Name        pulumi.StringPtrInput
+	Republishes TopicRuleRepublishArrayInput
+	S3          TopicRuleS3ArrayInput
+	Sns         TopicRuleSnsArrayInput
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringPtrInput
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion    pulumi.StringPtrInput
-	Sqs           TopicRuleSqsPtrInput
+	Sqs           TopicRuleSqsArrayInput
 	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -184,35 +289,35 @@ func (TopicRuleState) ElementType() reflect.Type {
 }
 
 type topicRuleArgs struct {
-	CloudwatchAlarm  *TopicRuleCloudwatchAlarm  `pulumi:"cloudwatchAlarm"`
-	CloudwatchLogs   []TopicRuleCloudwatchLog   `pulumi:"cloudwatchLogs"`
-	CloudwatchMetric *TopicRuleCloudwatchMetric `pulumi:"cloudwatchMetric"`
+	CloudwatchAlarms  []TopicRuleCloudwatchAlarm  `pulumi:"cloudwatchAlarms"`
+	CloudwatchLogs    []TopicRuleCloudwatchLog    `pulumi:"cloudwatchLogs"`
+	CloudwatchMetrics []TopicRuleCloudwatchMetric `pulumi:"cloudwatchMetrics"`
 	// The description of the rule.
-	Description   *string                 `pulumi:"description"`
-	Dynamodb      *TopicRuleDynamodb      `pulumi:"dynamodb"`
-	Dynamodbv2s   []TopicRuleDynamodbv2   `pulumi:"dynamodbv2s"`
-	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
+	Description   *string                  `pulumi:"description"`
+	Dynamodbs     []TopicRuleDynamodb      `pulumi:"dynamodbs"`
+	Dynamodbv2s   []TopicRuleDynamodbv2    `pulumi:"dynamodbv2s"`
+	Elasticsearch []TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
-	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
+	Firehoses    []TopicRuleFirehose    `pulumi:"firehoses"`
 	Https        []TopicRuleHttp        `pulumi:"https"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
 	Kafkas       []TopicRuleKafka       `pulumi:"kafkas"`
-	Kinesis      *TopicRuleKinesis      `pulumi:"kinesis"`
-	Lambda       *TopicRuleLambda       `pulumi:"lambda"`
+	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
+	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name      *string             `pulumi:"name"`
-	Republish *TopicRuleRepublish `pulumi:"republish"`
-	S3        *TopicRuleS3        `pulumi:"s3"`
-	Sns       *TopicRuleSns       `pulumi:"sns"`
+	Name        *string              `pulumi:"name"`
+	Republishes []TopicRuleRepublish `pulumi:"republishes"`
+	S3          []TopicRuleS3        `pulumi:"s3"`
+	Sns         []TopicRuleSns       `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql string `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion    string                  `pulumi:"sqlVersion"`
-	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
+	Sqs           []TopicRuleSqs          `pulumi:"sqs"`
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags        map[string]string     `pulumi:"tags"`
@@ -221,35 +326,35 @@ type topicRuleArgs struct {
 
 // The set of arguments for constructing a TopicRule resource.
 type TopicRuleArgs struct {
-	CloudwatchAlarm  TopicRuleCloudwatchAlarmPtrInput
-	CloudwatchLogs   TopicRuleCloudwatchLogArrayInput
-	CloudwatchMetric TopicRuleCloudwatchMetricPtrInput
+	CloudwatchAlarms  TopicRuleCloudwatchAlarmArrayInput
+	CloudwatchLogs    TopicRuleCloudwatchLogArrayInput
+	CloudwatchMetrics TopicRuleCloudwatchMetricArrayInput
 	// The description of the rule.
 	Description   pulumi.StringPtrInput
-	Dynamodb      TopicRuleDynamodbPtrInput
+	Dynamodbs     TopicRuleDynamodbArrayInput
 	Dynamodbv2s   TopicRuleDynamodbv2ArrayInput
-	Elasticsearch TopicRuleElasticsearchPtrInput
+	Elasticsearch TopicRuleElasticsearchArrayInput
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolInput
 	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrInput
-	Firehose     TopicRuleFirehosePtrInput
+	Firehoses    TopicRuleFirehoseArrayInput
 	Https        TopicRuleHttpArrayInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput
 	Kafkas       TopicRuleKafkaArrayInput
-	Kinesis      TopicRuleKinesisPtrInput
-	Lambda       TopicRuleLambdaPtrInput
+	Kineses      TopicRuleKinesisArrayInput
+	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
-	Name      pulumi.StringPtrInput
-	Republish TopicRuleRepublishPtrInput
-	S3        TopicRuleS3PtrInput
-	Sns       TopicRuleSnsPtrInput
+	Name        pulumi.StringPtrInput
+	Republishes TopicRuleRepublishArrayInput
+	S3          TopicRuleS3ArrayInput
+	Sns         TopicRuleSnsArrayInput
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringInput
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion    pulumi.StringInput
-	Sqs           TopicRuleSqsPtrInput
+	Sqs           TopicRuleSqsArrayInput
 	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags        pulumi.StringMapInput
@@ -279,6 +384,12 @@ func (i *TopicRule) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOutput)
 }
 
+func (i *TopicRule) ToOutput(ctx context.Context) pulumix.Output[*TopicRule] {
+	return pulumix.Output[*TopicRule]{
+		OutputState: i.ToTopicRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicRuleArrayInput is an input type that accepts TopicRuleArray and TopicRuleArrayOutput values.
 // You can construct a concrete instance of `TopicRuleArrayInput` via:
 //
@@ -302,6 +413,12 @@ func (i TopicRuleArray) ToTopicRuleArrayOutput() TopicRuleArrayOutput {
 
 func (i TopicRuleArray) ToTopicRuleArrayOutputWithContext(ctx context.Context) TopicRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleArrayOutput)
+}
+
+func (i TopicRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*TopicRule] {
+	return pulumix.Output[[]*TopicRule]{
+		OutputState: i.ToTopicRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicRuleMapInput is an input type that accepts TopicRuleMap and TopicRuleMapOutput values.
@@ -329,6 +446,12 @@ func (i TopicRuleMap) ToTopicRuleMapOutputWithContext(ctx context.Context) Topic
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleMapOutput)
 }
 
+func (i TopicRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicRule] {
+	return pulumix.Output[map[string]*TopicRule]{
+		OutputState: i.ToTopicRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleOutput) ElementType() reflect.Type {
@@ -343,21 +466,27 @@ func (o TopicRuleOutput) ToTopicRuleOutputWithContext(ctx context.Context) Topic
 	return o
 }
 
+func (o TopicRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRule] {
+	return pulumix.Output[*TopicRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the topic rule
 func (o TopicRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o TopicRuleOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleCloudwatchAlarmPtrOutput { return v.CloudwatchAlarm }).(TopicRuleCloudwatchAlarmPtrOutput)
+func (o TopicRuleOutput) CloudwatchAlarms() TopicRuleCloudwatchAlarmArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleCloudwatchAlarmArrayOutput { return v.CloudwatchAlarms }).(TopicRuleCloudwatchAlarmArrayOutput)
 }
 
 func (o TopicRuleOutput) CloudwatchLogs() TopicRuleCloudwatchLogArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleCloudwatchLogArrayOutput { return v.CloudwatchLogs }).(TopicRuleCloudwatchLogArrayOutput)
 }
 
-func (o TopicRuleOutput) CloudwatchMetric() TopicRuleCloudwatchMetricPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleCloudwatchMetricPtrOutput { return v.CloudwatchMetric }).(TopicRuleCloudwatchMetricPtrOutput)
+func (o TopicRuleOutput) CloudwatchMetrics() TopicRuleCloudwatchMetricArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleCloudwatchMetricArrayOutput { return v.CloudwatchMetrics }).(TopicRuleCloudwatchMetricArrayOutput)
 }
 
 // The description of the rule.
@@ -365,16 +494,16 @@ func (o TopicRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o TopicRuleOutput) Dynamodb() TopicRuleDynamodbPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleDynamodbPtrOutput { return v.Dynamodb }).(TopicRuleDynamodbPtrOutput)
+func (o TopicRuleOutput) Dynamodbs() TopicRuleDynamodbArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleDynamodbArrayOutput { return v.Dynamodbs }).(TopicRuleDynamodbArrayOutput)
 }
 
 func (o TopicRuleOutput) Dynamodbv2s() TopicRuleDynamodbv2ArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleDynamodbv2ArrayOutput { return v.Dynamodbv2s }).(TopicRuleDynamodbv2ArrayOutput)
 }
 
-func (o TopicRuleOutput) Elasticsearch() TopicRuleElasticsearchPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleElasticsearchPtrOutput { return v.Elasticsearch }).(TopicRuleElasticsearchPtrOutput)
+func (o TopicRuleOutput) Elasticsearch() TopicRuleElasticsearchArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleElasticsearchArrayOutput { return v.Elasticsearch }).(TopicRuleElasticsearchArrayOutput)
 }
 
 // Specifies whether the rule is enabled.
@@ -387,8 +516,8 @@ func (o TopicRuleOutput) ErrorAction() TopicRuleErrorActionPtrOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleErrorActionPtrOutput { return v.ErrorAction }).(TopicRuleErrorActionPtrOutput)
 }
 
-func (o TopicRuleOutput) Firehose() TopicRuleFirehosePtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleFirehosePtrOutput { return v.Firehose }).(TopicRuleFirehosePtrOutput)
+func (o TopicRuleOutput) Firehoses() TopicRuleFirehoseArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleFirehoseArrayOutput { return v.Firehoses }).(TopicRuleFirehoseArrayOutput)
 }
 
 func (o TopicRuleOutput) Https() TopicRuleHttpArrayOutput {
@@ -407,12 +536,12 @@ func (o TopicRuleOutput) Kafkas() TopicRuleKafkaArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleKafkaArrayOutput { return v.Kafkas }).(TopicRuleKafkaArrayOutput)
 }
 
-func (o TopicRuleOutput) Kinesis() TopicRuleKinesisPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleKinesisPtrOutput { return v.Kinesis }).(TopicRuleKinesisPtrOutput)
+func (o TopicRuleOutput) Kineses() TopicRuleKinesisArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleKinesisArrayOutput { return v.Kineses }).(TopicRuleKinesisArrayOutput)
 }
 
-func (o TopicRuleOutput) Lambda() TopicRuleLambdaPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleLambdaPtrOutput { return v.Lambda }).(TopicRuleLambdaPtrOutput)
+func (o TopicRuleOutput) Lambdas() TopicRuleLambdaArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleLambdaArrayOutput { return v.Lambdas }).(TopicRuleLambdaArrayOutput)
 }
 
 // The name of the rule.
@@ -420,16 +549,16 @@ func (o TopicRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o TopicRuleOutput) Republish() TopicRuleRepublishPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleRepublishPtrOutput { return v.Republish }).(TopicRuleRepublishPtrOutput)
+func (o TopicRuleOutput) Republishes() TopicRuleRepublishArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleRepublishArrayOutput { return v.Republishes }).(TopicRuleRepublishArrayOutput)
 }
 
-func (o TopicRuleOutput) S3() TopicRuleS3PtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleS3PtrOutput { return v.S3 }).(TopicRuleS3PtrOutput)
+func (o TopicRuleOutput) S3() TopicRuleS3ArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleS3ArrayOutput { return v.S3 }).(TopicRuleS3ArrayOutput)
 }
 
-func (o TopicRuleOutput) Sns() TopicRuleSnsPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleSnsPtrOutput { return v.Sns }).(TopicRuleSnsPtrOutput)
+func (o TopicRuleOutput) Sns() TopicRuleSnsArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleSnsArrayOutput { return v.Sns }).(TopicRuleSnsArrayOutput)
 }
 
 // The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
@@ -442,8 +571,8 @@ func (o TopicRuleOutput) SqlVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.SqlVersion }).(pulumi.StringOutput)
 }
 
-func (o TopicRuleOutput) Sqs() TopicRuleSqsPtrOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleSqsPtrOutput { return v.Sqs }).(TopicRuleSqsPtrOutput)
+func (o TopicRuleOutput) Sqs() TopicRuleSqsArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleSqsArrayOutput { return v.Sqs }).(TopicRuleSqsArrayOutput)
 }
 
 func (o TopicRuleOutput) StepFunctions() TopicRuleStepFunctionArrayOutput {
@@ -478,6 +607,12 @@ func (o TopicRuleArrayOutput) ToTopicRuleArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TopicRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TopicRule] {
+	return pulumix.Output[[]*TopicRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TopicRuleArrayOutput) Index(i pulumi.IntInput) TopicRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TopicRule {
 		return vs[0].([]*TopicRule)[vs[1].(int)]
@@ -496,6 +631,12 @@ func (o TopicRuleMapOutput) ToTopicRuleMapOutput() TopicRuleMapOutput {
 
 func (o TopicRuleMapOutput) ToTopicRuleMapOutputWithContext(ctx context.Context) TopicRuleMapOutput {
 	return o
+}
+
+func (o TopicRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicRule] {
+	return pulumix.Output[map[string]*TopicRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicRuleMapOutput) MapIndex(k pulumi.StringInput) TopicRuleOutput {

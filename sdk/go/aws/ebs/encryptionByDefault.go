@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the `ebs.DefaultKmsKey` resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Default EBS encryption state can be imported, e.g.,
+// Using `pulumi import`, import the default EBS encryption state. For example:
 //
 // ```sh
 //
@@ -63,6 +65,7 @@ func NewEncryptionByDefault(ctx *pulumi.Context,
 		args = &EncryptionByDefaultArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EncryptionByDefault
 	err := ctx.RegisterResource("aws:ebs/encryptionByDefault:EncryptionByDefault", name, args, &resource, opts...)
 	if err != nil {
@@ -132,6 +135,12 @@ func (i *EncryptionByDefault) ToEncryptionByDefaultOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultOutput)
 }
 
+func (i *EncryptionByDefault) ToOutput(ctx context.Context) pulumix.Output[*EncryptionByDefault] {
+	return pulumix.Output[*EncryptionByDefault]{
+		OutputState: i.ToEncryptionByDefaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EncryptionByDefaultArrayInput is an input type that accepts EncryptionByDefaultArray and EncryptionByDefaultArrayOutput values.
 // You can construct a concrete instance of `EncryptionByDefaultArrayInput` via:
 //
@@ -155,6 +164,12 @@ func (i EncryptionByDefaultArray) ToEncryptionByDefaultArrayOutput() EncryptionB
 
 func (i EncryptionByDefaultArray) ToEncryptionByDefaultArrayOutputWithContext(ctx context.Context) EncryptionByDefaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultArrayOutput)
+}
+
+func (i EncryptionByDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*EncryptionByDefault] {
+	return pulumix.Output[[]*EncryptionByDefault]{
+		OutputState: i.ToEncryptionByDefaultArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EncryptionByDefaultMapInput is an input type that accepts EncryptionByDefaultMap and EncryptionByDefaultMapOutput values.
@@ -182,6 +197,12 @@ func (i EncryptionByDefaultMap) ToEncryptionByDefaultMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultMapOutput)
 }
 
+func (i EncryptionByDefaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EncryptionByDefault] {
+	return pulumix.Output[map[string]*EncryptionByDefault]{
+		OutputState: i.ToEncryptionByDefaultMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EncryptionByDefaultOutput struct{ *pulumi.OutputState }
 
 func (EncryptionByDefaultOutput) ElementType() reflect.Type {
@@ -194,6 +215,12 @@ func (o EncryptionByDefaultOutput) ToEncryptionByDefaultOutput() EncryptionByDef
 
 func (o EncryptionByDefaultOutput) ToEncryptionByDefaultOutputWithContext(ctx context.Context) EncryptionByDefaultOutput {
 	return o
+}
+
+func (o EncryptionByDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[*EncryptionByDefault] {
+	return pulumix.Output[*EncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -215,6 +242,12 @@ func (o EncryptionByDefaultArrayOutput) ToEncryptionByDefaultArrayOutputWithCont
 	return o
 }
 
+func (o EncryptionByDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EncryptionByDefault] {
+	return pulumix.Output[[]*EncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EncryptionByDefaultArrayOutput) Index(i pulumi.IntInput) EncryptionByDefaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EncryptionByDefault {
 		return vs[0].([]*EncryptionByDefault)[vs[1].(int)]
@@ -233,6 +266,12 @@ func (o EncryptionByDefaultMapOutput) ToEncryptionByDefaultMapOutput() Encryptio
 
 func (o EncryptionByDefaultMapOutput) ToEncryptionByDefaultMapOutputWithContext(ctx context.Context) EncryptionByDefaultMapOutput {
 	return o
+}
+
+func (o EncryptionByDefaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EncryptionByDefault] {
+	return pulumix.Output[map[string]*EncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EncryptionByDefaultMapOutput) MapIndex(k pulumi.StringInput) EncryptionByDefaultOutput {

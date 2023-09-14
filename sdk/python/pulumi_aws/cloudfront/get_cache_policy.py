@@ -160,14 +160,14 @@ def get_cache_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getCachePolicy:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult).value
 
     return AwaitableGetCachePolicyResult(
-        comment=__ret__.comment,
-        default_ttl=__ret__.default_ttl,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        max_ttl=__ret__.max_ttl,
-        min_ttl=__ret__.min_ttl,
-        name=__ret__.name,
-        parameters_in_cache_key_and_forwarded_to_origins=__ret__.parameters_in_cache_key_and_forwarded_to_origins)
+        comment=pulumi.get(__ret__, 'comment'),
+        default_ttl=pulumi.get(__ret__, 'default_ttl'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        max_ttl=pulumi.get(__ret__, 'max_ttl'),
+        min_ttl=pulumi.get(__ret__, 'min_ttl'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters_in_cache_key_and_forwarded_to_origins=pulumi.get(__ret__, 'parameters_in_cache_key_and_forwarded_to_origins'))
 
 
 @_utilities.lift_output_func(get_cache_policy)

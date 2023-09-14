@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARN of an AWS Transfer Server for use in other
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult
 	err := ctx.Invoke("aws:transfer/getServer:getServer", args, &rv, opts...)
 	if err != nil {
@@ -78,6 +81,8 @@ type LookupServerResult struct {
 	// The name of the security policy that is attached to the server.
 	SecurityPolicyName string `pulumi:"securityPolicyName"`
 	ServerId           string `pulumi:"serverId"`
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url string `pulumi:"url"`
 }
@@ -118,6 +123,12 @@ func (o LookupServerResultOutput) ToLookupServerResultOutput() LookupServerResul
 
 func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx context.Context) LookupServerResultOutput {
 	return o
+}
+
+func (o LookupServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerResult] {
+	return pulumix.Output[LookupServerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of Transfer Server.
@@ -177,6 +188,11 @@ func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringOutput {
 
 func (o LookupServerResultOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.ServerId }).(pulumi.StringOutput)
+}
+
+// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+func (o LookupServerResultOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []string { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
 }
 
 // URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.

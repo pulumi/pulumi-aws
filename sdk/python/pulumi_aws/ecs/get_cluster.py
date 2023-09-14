@@ -177,16 +177,16 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        cluster_name=__ret__.cluster_name,
-        id=__ret__.id,
-        pending_tasks_count=__ret__.pending_tasks_count,
-        registered_container_instances_count=__ret__.registered_container_instances_count,
-        running_tasks_count=__ret__.running_tasks_count,
-        service_connect_defaults=__ret__.service_connect_defaults,
-        settings=__ret__.settings,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        cluster_name=pulumi.get(__ret__, 'cluster_name'),
+        id=pulumi.get(__ret__, 'id'),
+        pending_tasks_count=pulumi.get(__ret__, 'pending_tasks_count'),
+        registered_container_instances_count=pulumi.get(__ret__, 'registered_container_instances_count'),
+        running_tasks_count=pulumi.get(__ret__, 'running_tasks_count'),
+        service_connect_defaults=pulumi.get(__ret__, 'service_connect_defaults'),
+        settings=pulumi.get(__ret__, 'settings'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cluster)

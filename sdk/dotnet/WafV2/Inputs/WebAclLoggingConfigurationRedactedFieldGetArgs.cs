@@ -13,43 +13,25 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclLoggingConfigurationRedactedFieldGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Redact all query arguments.
-        /// </summary>
-        [Input("allQueryArguments")]
-        public Input<Inputs.WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsGetArgs>? AllQueryArguments { get; set; }
-
-        /// <summary>
-        /// Redact the request body, which immediately follows the request headers.
-        /// </summary>
-        [Input("body")]
-        public Input<Inputs.WebAclLoggingConfigurationRedactedFieldBodyGetArgs>? Body { get; set; }
-
-        /// <summary>
-        /// Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+        /// HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         [Input("method")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldMethodGetArgs>? Method { get; set; }
 
         /// <summary>
-        /// Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+        /// Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
         /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldQueryStringGetArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Redact a single header. See Single Header below for details.
+        /// "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
         /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderGetArgs>? SingleHeader { get; set; }
 
         /// <summary>
-        /// Redact a single query argument. See Single Query Argument below for details.
-        /// </summary>
-        [Input("singleQueryArgument")]
-        public Input<Inputs.WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentGetArgs>? SingleQueryArgument { get; set; }
-
-        /// <summary>
-        /// Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
         /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldUriPathGetArgs>? UriPath { get; set; }

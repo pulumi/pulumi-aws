@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Notebook Instance resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // ## Import
 //
-// SageMaker Notebook Instances can be imported using the `name`, e.g.,
+// Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 //
 // ```sh
 //
@@ -151,6 +153,7 @@ func NewNotebookInstance(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotebookInstance
 	err := ctx.RegisterResource("aws:sagemaker/notebookInstance:NotebookInstance", name, args, &resource, opts...)
 	if err != nil {
@@ -360,6 +363,12 @@ func (i *NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceOutput)
 }
 
+func (i *NotebookInstance) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstance] {
+	return pulumix.Output[*NotebookInstance]{
+		OutputState: i.ToNotebookInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotebookInstanceArrayInput is an input type that accepts NotebookInstanceArray and NotebookInstanceArrayOutput values.
 // You can construct a concrete instance of `NotebookInstanceArrayInput` via:
 //
@@ -383,6 +392,12 @@ func (i NotebookInstanceArray) ToNotebookInstanceArrayOutput() NotebookInstanceA
 
 func (i NotebookInstanceArray) ToNotebookInstanceArrayOutputWithContext(ctx context.Context) NotebookInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceArrayOutput)
+}
+
+func (i NotebookInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotebookInstance] {
+	return pulumix.Output[[]*NotebookInstance]{
+		OutputState: i.ToNotebookInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NotebookInstanceMapInput is an input type that accepts NotebookInstanceMap and NotebookInstanceMapOutput values.
@@ -410,6 +425,12 @@ func (i NotebookInstanceMap) ToNotebookInstanceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceMapOutput)
 }
 
+func (i NotebookInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotebookInstance] {
+	return pulumix.Output[map[string]*NotebookInstance]{
+		OutputState: i.ToNotebookInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotebookInstanceOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceOutput) ElementType() reflect.Type {
@@ -422,6 +443,12 @@ func (o NotebookInstanceOutput) ToNotebookInstanceOutput() NotebookInstanceOutpu
 
 func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput {
 	return o
+}
+
+func (o NotebookInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstance] {
+	return pulumix.Output[*NotebookInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
@@ -541,6 +568,12 @@ func (o NotebookInstanceArrayOutput) ToNotebookInstanceArrayOutputWithContext(ct
 	return o
 }
 
+func (o NotebookInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotebookInstance] {
+	return pulumix.Output[[]*NotebookInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotebookInstanceArrayOutput) Index(i pulumi.IntInput) NotebookInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotebookInstance {
 		return vs[0].([]*NotebookInstance)[vs[1].(int)]
@@ -559,6 +592,12 @@ func (o NotebookInstanceMapOutput) ToNotebookInstanceMapOutput() NotebookInstanc
 
 func (o NotebookInstanceMapOutput) ToNotebookInstanceMapOutputWithContext(ctx context.Context) NotebookInstanceMapOutput {
 	return o
+}
+
+func (o NotebookInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotebookInstance] {
+	return pulumix.Output[map[string]*NotebookInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotebookInstanceMapOutput) MapIndex(k pulumi.StringInput) NotebookInstanceOutput {

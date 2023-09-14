@@ -196,18 +196,18 @@ def get_certificate(certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:dms/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        certificate_arn=__ret__.certificate_arn,
-        certificate_creation_date=__ret__.certificate_creation_date,
-        certificate_id=__ret__.certificate_id,
-        certificate_owner=__ret__.certificate_owner,
-        certificate_pem=__ret__.certificate_pem,
-        certificate_wallet=__ret__.certificate_wallet,
-        id=__ret__.id,
-        key_length=__ret__.key_length,
-        signing_algorithm=__ret__.signing_algorithm,
-        tags=__ret__.tags,
-        valid_from_date=__ret__.valid_from_date,
-        valid_to_date=__ret__.valid_to_date)
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        certificate_creation_date=pulumi.get(__ret__, 'certificate_creation_date'),
+        certificate_id=pulumi.get(__ret__, 'certificate_id'),
+        certificate_owner=pulumi.get(__ret__, 'certificate_owner'),
+        certificate_pem=pulumi.get(__ret__, 'certificate_pem'),
+        certificate_wallet=pulumi.get(__ret__, 'certificate_wallet'),
+        id=pulumi.get(__ret__, 'id'),
+        key_length=pulumi.get(__ret__, 'key_length'),
+        signing_algorithm=pulumi.get(__ret__, 'signing_algorithm'),
+        tags=pulumi.get(__ret__, 'tags'),
+        valid_from_date=pulumi.get(__ret__, 'valid_from_date'),
+        valid_to_date=pulumi.get(__ret__, 'valid_to_date'))
 
 
 @_utilities.lift_output_func(get_certificate)

@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lightsail Container Service can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1

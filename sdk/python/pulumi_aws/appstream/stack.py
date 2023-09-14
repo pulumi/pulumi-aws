@@ -39,6 +39,8 @@ class StackArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
@@ -152,6 +154,8 @@ class StackArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the AppStream stack.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -254,6 +258,8 @@ class _StackState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
@@ -397,6 +403,8 @@ class _StackState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the AppStream stack.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -553,7 +561,7 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_stack` can be imported using the id, e.g.,
+        Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 
         ```sh
          $ pulumi import aws:appstream/stack:Stack example stackID
@@ -570,6 +578,8 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
@@ -643,7 +653,7 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_stack` can be imported using the id, e.g.,
+        Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 
         ```sh
          $ pulumi import aws:appstream/stack:Stack example stackID
@@ -743,6 +753,8 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
@@ -844,6 +856,8 @@ class Stack(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Unique name for the AppStream stack.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

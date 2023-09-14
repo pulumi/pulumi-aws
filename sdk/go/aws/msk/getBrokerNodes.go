@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK Broker Nodes.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerNodesResult
 	err := ctx.Invoke("aws:msk/getBrokerNodes:getBrokerNodes", args, &rv, opts...)
 	if err != nil {
@@ -96,6 +99,12 @@ func (o GetBrokerNodesResultOutput) ToGetBrokerNodesResultOutput() GetBrokerNode
 
 func (o GetBrokerNodesResultOutput) ToGetBrokerNodesResultOutputWithContext(ctx context.Context) GetBrokerNodesResultOutput {
 	return o
+}
+
+func (o GetBrokerNodesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerNodesResult] {
+	return pulumix.Output[GetBrokerNodesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBrokerNodesResultOutput) ClusterArn() pulumi.StringOutput {

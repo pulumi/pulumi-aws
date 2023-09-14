@@ -8,11 +8,14 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint APNs Sandbox Channel resource.
 //
+// > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 // ## Example Usage
 //
 // ```go
@@ -22,7 +25,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +60,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint APNs Sandbox Channel can be imported using the `application-id`, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs Sandbox Channel using the `application-id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_pinpoint_apns_sandbox_channel.apns_sandbox
 //
-//	$ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
-//
-// ```
+//	id = "application-id" } Using `TODO import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id
 type ApnsSandboxChannel struct {
 	pulumi.CustomResourceState
 
@@ -77,10 +78,16 @@ type ApnsSandboxChannel struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrOutput `pulumi:"teamId"`
@@ -127,6 +134,7 @@ func NewApnsSandboxChannel(ctx *pulumi.Context,
 		"tokenKeyId",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApnsSandboxChannel
 	err := ctx.RegisterResource("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, args, &resource, opts...)
 	if err != nil {
@@ -159,10 +167,16 @@ type apnsSandboxChannelState struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -183,10 +197,16 @@ type ApnsSandboxChannelState struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -211,10 +231,16 @@ type apnsSandboxChannelArgs struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -236,10 +262,16 @@ type ApnsSandboxChannelArgs struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -272,6 +304,12 @@ func (i *ApnsSandboxChannel) ToApnsSandboxChannelOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelOutput)
 }
 
+func (i *ApnsSandboxChannel) ToOutput(ctx context.Context) pulumix.Output[*ApnsSandboxChannel] {
+	return pulumix.Output[*ApnsSandboxChannel]{
+		OutputState: i.ToApnsSandboxChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApnsSandboxChannelArrayInput is an input type that accepts ApnsSandboxChannelArray and ApnsSandboxChannelArrayOutput values.
 // You can construct a concrete instance of `ApnsSandboxChannelArrayInput` via:
 //
@@ -295,6 +333,12 @@ func (i ApnsSandboxChannelArray) ToApnsSandboxChannelArrayOutput() ApnsSandboxCh
 
 func (i ApnsSandboxChannelArray) ToApnsSandboxChannelArrayOutputWithContext(ctx context.Context) ApnsSandboxChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelArrayOutput)
+}
+
+func (i ApnsSandboxChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsSandboxChannel] {
+	return pulumix.Output[[]*ApnsSandboxChannel]{
+		OutputState: i.ToApnsSandboxChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApnsSandboxChannelMapInput is an input type that accepts ApnsSandboxChannelMap and ApnsSandboxChannelMapOutput values.
@@ -322,6 +366,12 @@ func (i ApnsSandboxChannelMap) ToApnsSandboxChannelMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelMapOutput)
 }
 
+func (i ApnsSandboxChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsSandboxChannel] {
+	return pulumix.Output[map[string]*ApnsSandboxChannel]{
+		OutputState: i.ToApnsSandboxChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApnsSandboxChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsSandboxChannelOutput) ElementType() reflect.Type {
@@ -334,6 +384,12 @@ func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutput() ApnsSandboxChanne
 
 func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput {
 	return o
+}
+
+func (o ApnsSandboxChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*ApnsSandboxChannel] {
+	return pulumix.Output[*ApnsSandboxChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application ID.
@@ -355,6 +411,10 @@ func (o ApnsSandboxChannelOutput) Certificate() pulumi.StringPtrOutput {
 // __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 // You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 // If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+//
+// One of the following sets of credentials is also required.
+//
+// If you choose to use __Certificate credentials__ you will have to provide:
 func (o ApnsSandboxChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsSandboxChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
 }
@@ -365,6 +425,8 @@ func (o ApnsSandboxChannelOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The Certificate Private Key file (ie. `.key` file).
+//
+// If you choose to use __Key credentials__ you will have to provide:
 func (o ApnsSandboxChannelOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsSandboxChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
@@ -398,6 +460,12 @@ func (o ApnsSandboxChannelArrayOutput) ToApnsSandboxChannelArrayOutputWithContex
 	return o
 }
 
+func (o ApnsSandboxChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsSandboxChannel] {
+	return pulumix.Output[[]*ApnsSandboxChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApnsSandboxChannelArrayOutput) Index(i pulumi.IntInput) ApnsSandboxChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApnsSandboxChannel {
 		return vs[0].([]*ApnsSandboxChannel)[vs[1].(int)]
@@ -416,6 +484,12 @@ func (o ApnsSandboxChannelMapOutput) ToApnsSandboxChannelMapOutput() ApnsSandbox
 
 func (o ApnsSandboxChannelMapOutput) ToApnsSandboxChannelMapOutputWithContext(ctx context.Context) ApnsSandboxChannelMapOutput {
 	return o
+}
+
+func (o ApnsSandboxChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsSandboxChannel] {
+	return pulumix.Output[map[string]*ApnsSandboxChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApnsSandboxChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsSandboxChannelOutput {

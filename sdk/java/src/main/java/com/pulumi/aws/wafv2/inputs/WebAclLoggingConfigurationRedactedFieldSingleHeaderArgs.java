@@ -14,14 +14,14 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs exten
     public static final WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs Empty = new WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs();
 
     /**
-     * The name of the query header to redact. This setting must be provided as lower case characters.
+     * Name of the query header to redact. This setting must be provided in lowercase characters.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the query header to redact. This setting must be provided as lower case characters.
+     * @return Name of the query header to redact. This setting must be provided in lowercase characters.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs exten
         }
 
         /**
-         * @param name The name of the query header to redact. This setting must be provided as lower case characters.
+         * @param name Name of the query header to redact. This setting must be provided in lowercase characters.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs exten
         }
 
         /**
-         * @param name The name of the query header to redact. This setting must be provided as lower case characters.
+         * @param name Name of the query header to redact. This setting must be provided in lowercase characters.
          * 
          * @return builder
          * 

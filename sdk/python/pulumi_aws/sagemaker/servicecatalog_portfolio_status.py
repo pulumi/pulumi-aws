@@ -81,7 +81,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         ## Import
 
-        Models can be imported using the `id`, e.g.,
+        Using `pulumi import`, import models using the `id`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
@@ -113,7 +113,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         ## Import
 
-        Models can be imported using the `id`, e.g.,
+        Using `pulumi import`, import models using the `id`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1

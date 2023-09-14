@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight data source can be imported using the AWS account ID, and data source ID separated by a slash (`/`) e.g.,
+ * Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
  *
  * ```sh
  *  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
@@ -108,6 +108,8 @@ export class DataSource extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -215,6 +217,8 @@ export interface DataSourceState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
     /**
@@ -261,6 +265,8 @@ export interface DataSourceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
     /**

@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DetectorDatasources struct {
 	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
@@ -57,6 +61,12 @@ func (i DetectorDatasourcesArgs) ToDetectorDatasourcesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesOutput)
 }
 
+func (i DetectorDatasourcesArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasources] {
+	return pulumix.Output[DetectorDatasources]{
+		OutputState: i.ToDetectorDatasourcesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorDatasourcesArgs) ToDetectorDatasourcesPtrOutput() DetectorDatasourcesPtrOutput {
 	return i.ToDetectorDatasourcesPtrOutputWithContext(context.Background())
 }
@@ -98,6 +108,12 @@ func (i *detectorDatasourcesPtrType) ToDetectorDatasourcesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesPtrOutput)
 }
 
+func (i *detectorDatasourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasources] {
+	return pulumix.Output[*DetectorDatasources]{
+		OutputState: i.ToDetectorDatasourcesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorDatasourcesOutput struct{ *pulumi.OutputState }
 
 func (DetectorDatasourcesOutput) ElementType() reflect.Type {
@@ -120,6 +136,12 @@ func (o DetectorDatasourcesOutput) ToDetectorDatasourcesPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasources) *DetectorDatasources {
 		return &v
 	}).(DetectorDatasourcesPtrOutput)
+}
+
+func (o DetectorDatasourcesOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasources] {
+	return pulumix.Output[DetectorDatasources]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
@@ -152,6 +174,12 @@ func (o DetectorDatasourcesPtrOutput) ToDetectorDatasourcesPtrOutput() DetectorD
 
 func (o DetectorDatasourcesPtrOutput) ToDetectorDatasourcesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesPtrOutput {
 	return o
+}
+
+func (o DetectorDatasourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasources] {
+	return pulumix.Output[*DetectorDatasources]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorDatasourcesPtrOutput) Elem() DetectorDatasourcesOutput {
@@ -232,6 +260,12 @@ func (i DetectorDatasourcesKubernetesArgs) ToDetectorDatasourcesKubernetesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesOutput)
 }
 
+func (i DetectorDatasourcesKubernetesArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesKubernetes] {
+	return pulumix.Output[DetectorDatasourcesKubernetes]{
+		OutputState: i.ToDetectorDatasourcesKubernetesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorDatasourcesKubernetesArgs) ToDetectorDatasourcesKubernetesPtrOutput() DetectorDatasourcesKubernetesPtrOutput {
 	return i.ToDetectorDatasourcesKubernetesPtrOutputWithContext(context.Background())
 }
@@ -273,6 +307,12 @@ func (i *detectorDatasourcesKubernetesPtrType) ToDetectorDatasourcesKubernetesPt
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesPtrOutput)
 }
 
+func (i *detectorDatasourcesKubernetesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesKubernetes] {
+	return pulumix.Output[*DetectorDatasourcesKubernetes]{
+		OutputState: i.ToDetectorDatasourcesKubernetesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorDatasourcesKubernetesOutput struct{ *pulumi.OutputState }
 
 func (DetectorDatasourcesKubernetesOutput) ElementType() reflect.Type {
@@ -297,6 +337,12 @@ func (o DetectorDatasourcesKubernetesOutput) ToDetectorDatasourcesKubernetesPtrO
 	}).(DetectorDatasourcesKubernetesPtrOutput)
 }
 
+func (o DetectorDatasourcesKubernetesOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesKubernetes] {
+	return pulumix.Output[DetectorDatasourcesKubernetes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
 // See Kubernetes Audit Logs below for more details.
 func (o DetectorDatasourcesKubernetesOutput) AuditLogs() DetectorDatasourcesKubernetesAuditLogsOutput {
@@ -315,6 +361,12 @@ func (o DetectorDatasourcesKubernetesPtrOutput) ToDetectorDatasourcesKubernetesP
 
 func (o DetectorDatasourcesKubernetesPtrOutput) ToDetectorDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesPtrOutput {
 	return o
+}
+
+func (o DetectorDatasourcesKubernetesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesKubernetes] {
+	return pulumix.Output[*DetectorDatasourcesKubernetes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorDatasourcesKubernetesPtrOutput) Elem() DetectorDatasourcesKubernetesOutput {
@@ -373,6 +425,12 @@ func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToDetectorDatasourcesKuberne
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesAuditLogsOutput)
 }
 
+func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[DetectorDatasourcesKubernetesAuditLogs]{
+		OutputState: i.ToDetectorDatasourcesKubernetesAuditLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToDetectorDatasourcesKubernetesAuditLogsPtrOutput() DetectorDatasourcesKubernetesAuditLogsPtrOutput {
 	return i.ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
 }
@@ -414,6 +472,12 @@ func (i *detectorDatasourcesKubernetesAuditLogsPtrType) ToDetectorDatasourcesKub
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesAuditLogsPtrOutput)
 }
 
+func (i *detectorDatasourcesKubernetesAuditLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[*DetectorDatasourcesKubernetesAuditLogs]{
+		OutputState: i.ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorDatasourcesKubernetesAuditLogsOutput struct{ *pulumi.OutputState }
 
 func (DetectorDatasourcesKubernetesAuditLogsOutput) ElementType() reflect.Type {
@@ -438,6 +502,12 @@ func (o DetectorDatasourcesKubernetesAuditLogsOutput) ToDetectorDatasourcesKuber
 	}).(DetectorDatasourcesKubernetesAuditLogsPtrOutput)
 }
 
+func (o DetectorDatasourcesKubernetesAuditLogsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[DetectorDatasourcesKubernetesAuditLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
 // Defaults to `true`.
 func (o DetectorDatasourcesKubernetesAuditLogsOutput) Enable() pulumi.BoolOutput {
@@ -456,6 +526,12 @@ func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) ToDetectorDatasourcesKu
 
 func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesAuditLogsPtrOutput {
 	return o
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[*DetectorDatasourcesKubernetesAuditLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) Elem() DetectorDatasourcesKubernetesAuditLogsOutput {
@@ -514,6 +590,12 @@ func (i DetectorDatasourcesMalwareProtectionArgs) ToDetectorDatasourcesMalwarePr
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionOutput)
 }
 
+func (i DetectorDatasourcesMalwareProtectionArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesMalwareProtection] {
+	return pulumix.Output[DetectorDatasourcesMalwareProtection]{
+		OutputState: i.ToDetectorDatasourcesMalwareProtectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorDatasourcesMalwareProtectionArgs) ToDetectorDatasourcesMalwareProtectionPtrOutput() DetectorDatasourcesMalwareProtectionPtrOutput {
 	return i.ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
 }
@@ -555,6 +637,12 @@ func (i *detectorDatasourcesMalwareProtectionPtrType) ToDetectorDatasourcesMalwa
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionPtrOutput)
 }
 
+func (i *detectorDatasourcesMalwareProtectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesMalwareProtection] {
+	return pulumix.Output[*DetectorDatasourcesMalwareProtection]{
+		OutputState: i.ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorDatasourcesMalwareProtectionOutput struct{ *pulumi.OutputState }
 
 func (DetectorDatasourcesMalwareProtectionOutput) ElementType() reflect.Type {
@@ -579,6 +667,12 @@ func (o DetectorDatasourcesMalwareProtectionOutput) ToDetectorDatasourcesMalware
 	}).(DetectorDatasourcesMalwareProtectionPtrOutput)
 }
 
+func (o DetectorDatasourcesMalwareProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesMalwareProtection] {
+	return pulumix.Output[DetectorDatasourcesMalwareProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
 // See Scan EC2 instance with findings below for more details.
 func (o DetectorDatasourcesMalwareProtectionOutput) ScanEc2InstanceWithFindings() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
@@ -599,6 +693,12 @@ func (o DetectorDatasourcesMalwareProtectionPtrOutput) ToDetectorDatasourcesMalw
 
 func (o DetectorDatasourcesMalwareProtectionPtrOutput) ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionPtrOutput {
 	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesMalwareProtection] {
+	return pulumix.Output[*DetectorDatasourcesMalwareProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorDatasourcesMalwareProtectionPtrOutput) Elem() DetectorDatasourcesMalwareProtectionOutput {
@@ -657,6 +757,12 @@ func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToD
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
 }
 
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
 	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
 }
@@ -698,6 +804,12 @@ func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
 }
 
+func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput struct{ *pulumi.OutputState }
 
 func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ElementType() reflect.Type {
@@ -722,6 +834,12 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) T
 	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
 }
 
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
 // See EBS volumes below for more details.
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) EbsVolumes() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
@@ -742,6 +860,12 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput
 
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
 	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) Elem() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
@@ -800,6 +924,12 @@ func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
 }
 
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
 	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
 }
@@ -841,6 +971,12 @@ func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolum
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
 }
 
+func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput struct{ *pulumi.OutputState }
 
 func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ElementType() reflect.Type {
@@ -865,6 +1001,12 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
 }
 
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
 // Defaults to `true`.
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) Enable() pulumi.BoolOutput {
@@ -885,6 +1027,12 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
 	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) Elem() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
@@ -941,6 +1089,12 @@ func (i DetectorDatasourcesS3LogsArgs) ToDetectorDatasourcesS3LogsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesS3LogsOutput)
 }
 
+func (i DetectorDatasourcesS3LogsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesS3Logs] {
+	return pulumix.Output[DetectorDatasourcesS3Logs]{
+		OutputState: i.ToDetectorDatasourcesS3LogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DetectorDatasourcesS3LogsArgs) ToDetectorDatasourcesS3LogsPtrOutput() DetectorDatasourcesS3LogsPtrOutput {
 	return i.ToDetectorDatasourcesS3LogsPtrOutputWithContext(context.Background())
 }
@@ -982,6 +1136,12 @@ func (i *detectorDatasourcesS3LogsPtrType) ToDetectorDatasourcesS3LogsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesS3LogsPtrOutput)
 }
 
+func (i *detectorDatasourcesS3LogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesS3Logs] {
+	return pulumix.Output[*DetectorDatasourcesS3Logs]{
+		OutputState: i.ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorDatasourcesS3LogsOutput struct{ *pulumi.OutputState }
 
 func (DetectorDatasourcesS3LogsOutput) ElementType() reflect.Type {
@@ -1006,6 +1166,12 @@ func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutputWit
 	}).(DetectorDatasourcesS3LogsPtrOutput)
 }
 
+func (o DetectorDatasourcesS3LogsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorDatasourcesS3Logs] {
+	return pulumix.Output[DetectorDatasourcesS3Logs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 func (o DetectorDatasourcesS3LogsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorDatasourcesS3Logs) bool { return v.Enable }).(pulumi.BoolOutput)
@@ -1023,6 +1189,12 @@ func (o DetectorDatasourcesS3LogsPtrOutput) ToDetectorDatasourcesS3LogsPtrOutput
 
 func (o DetectorDatasourcesS3LogsPtrOutput) ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsPtrOutput {
 	return o
+}
+
+func (o DetectorDatasourcesS3LogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorDatasourcesS3Logs] {
+	return pulumix.Output[*DetectorDatasourcesS3Logs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorDatasourcesS3LogsPtrOutput) Elem() DetectorDatasourcesS3LogsOutput {
@@ -1076,6 +1248,12 @@ func (i FilterFindingCriteriaArgs) ToFilterFindingCriteriaOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FilterFindingCriteriaOutput)
 }
 
+func (i FilterFindingCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[FilterFindingCriteria] {
+	return pulumix.Output[FilterFindingCriteria]{
+		OutputState: i.ToFilterFindingCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FilterFindingCriteriaArgs) ToFilterFindingCriteriaPtrOutput() FilterFindingCriteriaPtrOutput {
 	return i.ToFilterFindingCriteriaPtrOutputWithContext(context.Background())
 }
@@ -1117,6 +1295,12 @@ func (i *filterFindingCriteriaPtrType) ToFilterFindingCriteriaPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FilterFindingCriteriaPtrOutput)
 }
 
+func (i *filterFindingCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*FilterFindingCriteria] {
+	return pulumix.Output[*FilterFindingCriteria]{
+		OutputState: i.ToFilterFindingCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -1141,6 +1325,12 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaPtrOutputWithContext
 	}).(FilterFindingCriteriaPtrOutput)
 }
 
+func (o FilterFindingCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[FilterFindingCriteria] {
+	return pulumix.Output[FilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterFindingCriteriaOutput) Criterions() FilterFindingCriteriaCriterionArrayOutput {
 	return o.ApplyT(func(v FilterFindingCriteria) []FilterFindingCriteriaCriterion { return v.Criterions }).(FilterFindingCriteriaCriterionArrayOutput)
 }
@@ -1157,6 +1347,12 @@ func (o FilterFindingCriteriaPtrOutput) ToFilterFindingCriteriaPtrOutput() Filte
 
 func (o FilterFindingCriteriaPtrOutput) ToFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FilterFindingCriteriaPtrOutput {
 	return o
+}
+
+func (o FilterFindingCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterFindingCriteria] {
+	return pulumix.Output[*FilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
@@ -1235,6 +1431,12 @@ func (i FilterFindingCriteriaCriterionArgs) ToFilterFindingCriteriaCriterionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FilterFindingCriteriaCriterionOutput)
 }
 
+func (i FilterFindingCriteriaCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[FilterFindingCriteriaCriterion] {
+	return pulumix.Output[FilterFindingCriteriaCriterion]{
+		OutputState: i.ToFilterFindingCriteriaCriterionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FilterFindingCriteriaCriterionArrayInput is an input type that accepts FilterFindingCriteriaCriterionArray and FilterFindingCriteriaCriterionArrayOutput values.
 // You can construct a concrete instance of `FilterFindingCriteriaCriterionArrayInput` via:
 //
@@ -1260,6 +1462,12 @@ func (i FilterFindingCriteriaCriterionArray) ToFilterFindingCriteriaCriterionArr
 	return pulumi.ToOutputWithContext(ctx, i).(FilterFindingCriteriaCriterionArrayOutput)
 }
 
+func (i FilterFindingCriteriaCriterionArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterFindingCriteriaCriterion] {
+	return pulumix.Output[[]FilterFindingCriteriaCriterion]{
+		OutputState: i.ToFilterFindingCriteriaCriterionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FilterFindingCriteriaCriterionOutput struct{ *pulumi.OutputState }
 
 func (FilterFindingCriteriaCriterionOutput) ElementType() reflect.Type {
@@ -1272,6 +1480,12 @@ func (o FilterFindingCriteriaCriterionOutput) ToFilterFindingCriteriaCriterionOu
 
 func (o FilterFindingCriteriaCriterionOutput) ToFilterFindingCriteriaCriterionOutputWithContext(ctx context.Context) FilterFindingCriteriaCriterionOutput {
 	return o
+}
+
+func (o FilterFindingCriteriaCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[FilterFindingCriteriaCriterion] {
+	return pulumix.Output[FilterFindingCriteriaCriterion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of string values to be evaluated.
@@ -1323,6 +1537,12 @@ func (o FilterFindingCriteriaCriterionArrayOutput) ToFilterFindingCriteriaCriter
 	return o
 }
 
+func (o FilterFindingCriteriaCriterionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterFindingCriteriaCriterion] {
+	return pulumix.Output[[]FilterFindingCriteriaCriterion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) FilterFindingCriteriaCriterionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFindingCriteriaCriterion {
 		return vs[0].([]FilterFindingCriteriaCriterion)[vs[1].(int)]
@@ -1370,6 +1590,12 @@ func (i OrganizationConfigurationDatasourcesArgs) ToOrganizationConfigurationDat
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesOutput)
 }
 
+func (i OrganizationConfigurationDatasourcesArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasources] {
+	return pulumix.Output[OrganizationConfigurationDatasources]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigurationDatasourcesArgs) ToOrganizationConfigurationDatasourcesPtrOutput() OrganizationConfigurationDatasourcesPtrOutput {
 	return i.ToOrganizationConfigurationDatasourcesPtrOutputWithContext(context.Background())
 }
@@ -1411,6 +1637,12 @@ func (i *organizationConfigurationDatasourcesPtrType) ToOrganizationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesPtrOutput)
 }
 
+func (i *organizationConfigurationDatasourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasources] {
+	return pulumix.Output[*OrganizationConfigurationDatasources]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationDatasourcesOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationDatasourcesOutput) ElementType() reflect.Type {
@@ -1433,6 +1665,12 @@ func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasources {
 		return &v
 	}).(OrganizationConfigurationDatasourcesPtrOutput)
+}
+
+func (o OrganizationConfigurationDatasourcesOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasources] {
+	return pulumix.Output[OrganizationConfigurationDatasources]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
@@ -1468,6 +1706,12 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) ToOrganizationConfigurati
 
 func (o OrganizationConfigurationDatasourcesPtrOutput) ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationDatasourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasources] {
+	return pulumix.Output[*OrganizationConfigurationDatasources]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationDatasourcesPtrOutput) Elem() OrganizationConfigurationDatasourcesOutput {
@@ -1545,6 +1789,12 @@ func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOrganizationConfig
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesOutput)
 }
 
+func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesKubernetes] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesKubernetes]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesKubernetesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOrganizationConfigurationDatasourcesKubernetesPtrOutput() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
 	return i.ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(context.Background())
 }
@@ -1586,6 +1836,12 @@ func (i *organizationConfigurationDatasourcesKubernetesPtrType) ToOrganizationCo
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
 }
 
+func (i *organizationConfigurationDatasourcesKubernetesPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesKubernetes] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesKubernetes]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationDatasourcesKubernetesOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationDatasourcesKubernetesOutput) ElementType() reflect.Type {
@@ -1610,6 +1866,12 @@ func (o OrganizationConfigurationDatasourcesKubernetesOutput) ToOrganizationConf
 	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
 }
 
+func (o OrganizationConfigurationDatasourcesKubernetesOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesKubernetes] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesKubernetes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
 // See Kubernetes Audit Logs below for more details.
 func (o OrganizationConfigurationDatasourcesKubernetesOutput) AuditLogs() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
@@ -1630,6 +1892,12 @@ func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) ToOrganizationC
 
 func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesKubernetes] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesKubernetes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) Elem() OrganizationConfigurationDatasourcesKubernetesOutput {
@@ -1688,6 +1956,12 @@ func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOrganizat
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput)
 }
 
+func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesKubernetesAuditLogs]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
 	return i.ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
 }
@@ -1729,6 +2003,12 @@ func (i *organizationConfigurationDatasourcesKubernetesAuditLogsPtrType) ToOrgan
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput)
 }
 
+func (i *organizationConfigurationDatasourcesKubernetesAuditLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesKubernetesAuditLogs]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ElementType() reflect.Type {
@@ -1753,6 +2033,12 @@ func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ToOrganiz
 	}).(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput)
 }
 
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesKubernetesAuditLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
 // Defaults to `true`.
 func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) Enable() pulumi.BoolOutput {
@@ -1771,6 +2057,12 @@ func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) ToOrga
 
 func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesKubernetesAuditLogs] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesKubernetesAuditLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) Elem() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
@@ -1829,6 +2121,12 @@ func (i OrganizationConfigurationDatasourcesMalwareProtectionArgs) ToOrganizatio
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionOutput)
 }
 
+func (i OrganizationConfigurationDatasourcesMalwareProtectionArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtection] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtection]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesMalwareProtectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigurationDatasourcesMalwareProtectionArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
 	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
 }
@@ -1870,6 +2168,12 @@ func (i *organizationConfigurationDatasourcesMalwareProtectionPtrType) ToOrganiz
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
 }
 
+func (i *organizationConfigurationDatasourcesMalwareProtectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtection] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtection]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationDatasourcesMalwareProtectionOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationDatasourcesMalwareProtectionOutput) ElementType() reflect.Type {
@@ -1894,6 +2198,12 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ToOrganizat
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
 }
 
+func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtection] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
 // See Scan EC2 instance with findings below for more details.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ScanEc2InstanceWithFindings() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
@@ -1914,6 +2224,12 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ToOrgani
 
 func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtection] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) Elem() OrganizationConfigurationDatasourcesMalwareProtectionOutput {
@@ -1972,6 +2288,12 @@ func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
 }
 
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
 	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
 }
@@ -2013,6 +2335,12 @@ func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWit
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
 }
 
+func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ElementType() reflect.Type {
@@ -2037,6 +2365,12 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
 }
 
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
 // See EBS volumes below for more details.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) EbsVolumes() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
@@ -2057,6 +2391,12 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) Elem() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
@@ -2115,6 +2455,12 @@ func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
 }
 
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
 	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
 }
@@ -2156,6 +2502,12 @@ func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWit
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
 }
 
+func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ElementType() reflect.Type {
@@ -2180,6 +2532,12 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
 }
 
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
 // Defaults to `true`.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) AutoEnable() pulumi.BoolOutput {
@@ -2200,6 +2558,12 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) Elem() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
@@ -2224,7 +2588,7 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 }
 
 type OrganizationConfigurationDatasourcesS3Logs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable bool `pulumi:"autoEnable"`
 }
 
@@ -2240,7 +2604,7 @@ type OrganizationConfigurationDatasourcesS3LogsInput interface {
 }
 
 type OrganizationConfigurationDatasourcesS3LogsArgs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
 }
 
@@ -2254,6 +2618,12 @@ func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurat
 
 func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurationDatasourcesS3LogsOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesS3LogsOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesS3Logs] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesS3Logs]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesS3LogsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurationDatasourcesS3LogsPtrOutput() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
@@ -2297,6 +2667,12 @@ func (i *organizationConfigurationDatasourcesS3LogsPtrType) ToOrganizationConfig
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
+func (i *organizationConfigurationDatasourcesS3LogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesS3Logs] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesS3Logs]{
+		OutputState: i.ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationDatasourcesS3LogsOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationDatasourcesS3LogsOutput) ElementType() reflect.Type {
@@ -2321,7 +2697,13 @@ func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigur
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
-// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationDatasourcesS3Logs] {
+	return pulumix.Output[OrganizationConfigurationDatasourcesS3Logs]{
+		OutputState: o.OutputState,
+	}
+}
+
+// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) bool { return v.AutoEnable }).(pulumi.BoolOutput)
 }
@@ -2340,6 +2722,12 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) ToOrganizationConfi
 	return o
 }
 
+func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationDatasourcesS3Logs] {
+	return pulumix.Output[*OrganizationConfigurationDatasourcesS3Logs]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() OrganizationConfigurationDatasourcesS3LogsOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) OrganizationConfigurationDatasourcesS3Logs {
 		if v != nil {
@@ -2350,7 +2738,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() Organization
 	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
 }
 
-// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) *bool {
 		if v == nil {

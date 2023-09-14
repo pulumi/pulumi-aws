@@ -38,9 +38,10 @@ class GlobalReplicationGroupArgs:
                When creating, by default the Global Replication Group inherits the version of the primary replication group.
                If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
                Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -123,9 +124,10 @@ class GlobalReplicationGroupArgs:
         When creating, by default the Global Replication Group inherits the version of the primary replication group.
         If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
         Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -210,9 +212,10 @@ class _GlobalReplicationGroupState:
                When creating, by default the Global Replication Group inherits the version of the primary replication group.
                If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
                Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]] global_node_groups: Set of node groups (shards) on the global replication group.
                Has the values:
@@ -358,9 +361,10 @@ class _GlobalReplicationGroupState:
         When creating, by default the Global Replication Group inherits the version of the primary replication group.
         If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
         Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -508,18 +512,18 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
-            replication_group_description="primary replication group",
+            description="primary replication group",
             engine="redis",
             engine_version="5.0.6",
             node_type="cache.m5.large",
-            number_cache_clusters=1)
+            num_cache_clusters=1)
         example = aws.elasticache.GlobalReplicationGroup("example",
             global_replication_group_id_suffix="example",
             primary_replication_group_id=primary.id)
         secondary = aws.elasticache.ReplicationGroup("secondary",
-            replication_group_description="secondary replication group",
+            description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            number_cache_clusters=1,
+            num_cache_clusters=1,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
         ```
         ### Managing Redis Engine Versions
@@ -541,25 +545,25 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
-            replication_group_description="primary replication group",
+            description="primary replication group",
             engine="redis",
             engine_version="6.0",
             node_type="cache.m5.large",
-            number_cache_clusters=1)
+            num_cache_clusters=1)
         example = aws.elasticache.GlobalReplicationGroup("example",
             global_replication_group_id_suffix="example",
             primary_replication_group_id=primary.id,
             engine_version="6.2")
         secondary = aws.elasticache.ReplicationGroup("secondary",
-            replication_group_description="secondary replication group",
+            description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            number_cache_clusters=1,
+            num_cache_clusters=1,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
         ```
 
         ## Import
 
-        ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+        Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For example:
 
         ```sh
          $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
@@ -577,9 +581,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                When creating, by default the Global Replication Group inherits the version of the primary replication group.
                If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
                Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[int] num_node_groups: The number of node groups (shards) on the global replication group.
@@ -608,18 +613,18 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
-            replication_group_description="primary replication group",
+            description="primary replication group",
             engine="redis",
             engine_version="5.0.6",
             node_type="cache.m5.large",
-            number_cache_clusters=1)
+            num_cache_clusters=1)
         example = aws.elasticache.GlobalReplicationGroup("example",
             global_replication_group_id_suffix="example",
             primary_replication_group_id=primary.id)
         secondary = aws.elasticache.ReplicationGroup("secondary",
-            replication_group_description="secondary replication group",
+            description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            number_cache_clusters=1,
+            num_cache_clusters=1,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
         ```
         ### Managing Redis Engine Versions
@@ -641,25 +646,25 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.elasticache.ReplicationGroup("primary",
-            replication_group_description="primary replication group",
+            description="primary replication group",
             engine="redis",
             engine_version="6.0",
             node_type="cache.m5.large",
-            number_cache_clusters=1)
+            num_cache_clusters=1)
         example = aws.elasticache.GlobalReplicationGroup("example",
             global_replication_group_id_suffix="example",
             primary_replication_group_id=primary.id,
             engine_version="6.2")
         secondary = aws.elasticache.ReplicationGroup("secondary",
-            replication_group_description="secondary replication group",
+            description="secondary replication group",
             global_replication_group_id=example.global_replication_group_id,
-            number_cache_clusters=1,
+            num_cache_clusters=1,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
         ```
 
         ## Import
 
-        ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+        Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For example:
 
         ```sh
          $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
@@ -767,9 +772,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                When creating, by default the Global Replication Group inherits the version of the primary replication group.
                If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
                Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArgs']]]] global_node_groups: Set of node groups (shards) on the global replication group.
                Has the values:
@@ -875,9 +881,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         When creating, by default the Global Replication Group inherits the version of the primary replication group.
         If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
         Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 

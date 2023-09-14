@@ -67,6 +67,8 @@ class S3EndpointArgs:
         :param pulumi.Input[str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
         :param pulumi.Input[bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] bucket_folder: S3 object prefix.
@@ -243,6 +245,8 @@ class S3EndpointArgs:
     def service_access_role_arn(self) -> pulumi.Input[str]:
         """
         ARN of the IAM role with permissions to the S3 Bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -869,6 +873,8 @@ class _S3EndpointState:
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
         :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[str] status: Status of the endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1515,6 +1521,8 @@ class _S3EndpointState:
     def service_access_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the IAM role with permissions to the S3 Bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -1743,7 +1751,7 @@ class S3Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `endpoint_id`, e.g.,
+        Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
          $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
@@ -1793,6 +1801,8 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
         :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
@@ -1888,7 +1898,7 @@ class S3Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `endpoint_id`, e.g.,
+        Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
          $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
@@ -2139,6 +2149,8 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
         :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[str] status: Status of the endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -2562,6 +2574,8 @@ class S3Endpoint(pulumi.CustomResource):
     def service_access_role_arn(self) -> pulumi.Output[str]:
         """
         ARN of the IAM role with permissions to the S3 Bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_access_role_arn")
 

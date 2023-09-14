@@ -5,9 +5,12 @@ package com.pulumi.aws.lambda;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -47,6 +50,8 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
     /**
      * Lambda Function version or Lambda Alias name.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="qualifier", required=true)
     private Output<String> qualifier;
@@ -54,9 +59,26 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
     /**
      * @return Lambda Function version or Lambda Alias name.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> qualifier() {
         return this.qualifier;
+    }
+
+    /**
+     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
     }
 
     private ProvisionedConcurrencyConfigArgs() {}
@@ -65,6 +87,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         this.functionName = $.functionName;
         this.provisionedConcurrentExecutions = $.provisionedConcurrentExecutions;
         this.qualifier = $.qualifier;
+        this.skipDestroy = $.skipDestroy;
     }
 
     public static Builder builder() {
@@ -130,6 +153,8 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         /**
          * @param qualifier Lambda Function version or Lambda Alias name.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -141,11 +166,34 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         /**
          * @param qualifier Lambda Function version or Lambda Alias name.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
+        }
+
+        /**
+         * @param skipDestroy Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         public ProvisionedConcurrencyConfigArgs build() {

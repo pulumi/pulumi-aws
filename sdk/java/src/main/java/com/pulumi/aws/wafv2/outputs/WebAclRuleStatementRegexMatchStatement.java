@@ -25,9 +25,7 @@ public final class WebAclRuleStatementRegexMatchStatement {
      */
     private String regexString;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     private List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations;
@@ -48,9 +46,7 @@ public final class WebAclRuleStatementRegexMatchStatement {
         return this.regexString;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     public List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations() {

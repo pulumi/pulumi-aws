@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,6 +69,7 @@ import (
 //
 // ```
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretVersionResult
 	err := ctx.Invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", args, &rv, opts...)
 	if err != nil {
@@ -142,6 +145,12 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutput() Loo
 
 func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithContext(ctx context.Context) LookupSecretVersionResultOutput {
 	return o
+}
+
+func (o LookupSecretVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecretVersionResult] {
+	return pulumix.Output[LookupSecretVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the secret.

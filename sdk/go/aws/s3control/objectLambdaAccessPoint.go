@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Object Lambda Access Point.
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,7 +69,7 @@ import (
 //
 // ## Import
 //
-// Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+// Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -79,6 +81,8 @@ type ObjectLambdaAccessPoint struct {
 
 	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Alias for the S3 Object Lambda Access Point.
+	Alias pulumi.StringOutput `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
@@ -97,6 +101,7 @@ func NewObjectLambdaAccessPoint(ctx *pulumi.Context,
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObjectLambdaAccessPoint
 	err := ctx.RegisterResource("aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint", name, args, &resource, opts...)
 	if err != nil {
@@ -121,6 +126,8 @@ func GetObjectLambdaAccessPoint(ctx *pulumi.Context,
 type objectLambdaAccessPointState struct {
 	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
+	// Alias for the S3 Object Lambda Access Point.
+	Alias *string `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
 	Arn *string `pulumi:"arn"`
 	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
@@ -132,6 +139,8 @@ type objectLambdaAccessPointState struct {
 type ObjectLambdaAccessPointState struct {
 	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
+	// Alias for the S3 Object Lambda Access Point.
+	Alias pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
 	Arn pulumi.StringPtrInput
 	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
@@ -186,6 +195,12 @@ func (i *ObjectLambdaAccessPoint) ToObjectLambdaAccessPointOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointOutput)
 }
 
+func (i *ObjectLambdaAccessPoint) ToOutput(ctx context.Context) pulumix.Output[*ObjectLambdaAccessPoint] {
+	return pulumix.Output[*ObjectLambdaAccessPoint]{
+		OutputState: i.ToObjectLambdaAccessPointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ObjectLambdaAccessPointArrayInput is an input type that accepts ObjectLambdaAccessPointArray and ObjectLambdaAccessPointArrayOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointArrayInput` via:
 //
@@ -209,6 +224,12 @@ func (i ObjectLambdaAccessPointArray) ToObjectLambdaAccessPointArrayOutput() Obj
 
 func (i ObjectLambdaAccessPointArray) ToObjectLambdaAccessPointArrayOutputWithContext(ctx context.Context) ObjectLambdaAccessPointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointArrayOutput)
+}
+
+func (i ObjectLambdaAccessPointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectLambdaAccessPoint] {
+	return pulumix.Output[[]*ObjectLambdaAccessPoint]{
+		OutputState: i.ToObjectLambdaAccessPointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ObjectLambdaAccessPointMapInput is an input type that accepts ObjectLambdaAccessPointMap and ObjectLambdaAccessPointMapOutput values.
@@ -236,6 +257,12 @@ func (i ObjectLambdaAccessPointMap) ToObjectLambdaAccessPointMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointMapOutput)
 }
 
+func (i ObjectLambdaAccessPointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectLambdaAccessPoint] {
+	return pulumix.Output[map[string]*ObjectLambdaAccessPoint]{
+		OutputState: i.ToObjectLambdaAccessPointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObjectLambdaAccessPointOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointOutput) ElementType() reflect.Type {
@@ -250,9 +277,20 @@ func (o ObjectLambdaAccessPointOutput) ToObjectLambdaAccessPointOutputWithContex
 	return o
 }
 
+func (o ObjectLambdaAccessPointOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectLambdaAccessPoint] {
+	return pulumix.Output[*ObjectLambdaAccessPoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o ObjectLambdaAccessPointOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Alias for the S3 Object Lambda Access Point.
+func (o ObjectLambdaAccessPointOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the Object Lambda Access Point.
@@ -284,6 +322,12 @@ func (o ObjectLambdaAccessPointArrayOutput) ToObjectLambdaAccessPointArrayOutput
 	return o
 }
 
+func (o ObjectLambdaAccessPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectLambdaAccessPoint] {
+	return pulumix.Output[[]*ObjectLambdaAccessPoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObjectLambdaAccessPointArrayOutput) Index(i pulumi.IntInput) ObjectLambdaAccessPointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObjectLambdaAccessPoint {
 		return vs[0].([]*ObjectLambdaAccessPoint)[vs[1].(int)]
@@ -302,6 +346,12 @@ func (o ObjectLambdaAccessPointMapOutput) ToObjectLambdaAccessPointMapOutput() O
 
 func (o ObjectLambdaAccessPointMapOutput) ToObjectLambdaAccessPointMapOutputWithContext(ctx context.Context) ObjectLambdaAccessPointMapOutput {
 	return o
+}
+
+func (o ObjectLambdaAccessPointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectLambdaAccessPoint] {
+	return pulumix.Output[map[string]*ObjectLambdaAccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObjectLambdaAccessPointMapOutput) MapIndex(k pulumi.StringInput) ObjectLambdaAccessPointOutput {

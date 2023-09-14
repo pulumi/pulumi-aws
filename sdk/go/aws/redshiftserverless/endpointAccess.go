@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a new Amazon Redshift Serverless Endpoint Access.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Redshift Serverless Endpoint Access can be imported using the `endpoint_name`, e.g.,
+// Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 //
 // ```sh
 //
@@ -86,6 +88,7 @@ func NewEndpointAccess(ctx *pulumi.Context,
 	if args.WorkgroupName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkgroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointAccess
 	err := ctx.RegisterResource("aws:redshiftserverless/endpointAccess:EndpointAccess", name, args, &resource, opts...)
 	if err != nil {
@@ -195,6 +198,12 @@ func (i *EndpointAccess) ToEndpointAccessOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessOutput)
 }
 
+func (i *EndpointAccess) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccess] {
+	return pulumix.Output[*EndpointAccess]{
+		OutputState: i.ToEndpointAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointAccessArrayInput is an input type that accepts EndpointAccessArray and EndpointAccessArrayOutput values.
 // You can construct a concrete instance of `EndpointAccessArrayInput` via:
 //
@@ -218,6 +227,12 @@ func (i EndpointAccessArray) ToEndpointAccessArrayOutput() EndpointAccessArrayOu
 
 func (i EndpointAccessArray) ToEndpointAccessArrayOutputWithContext(ctx context.Context) EndpointAccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessArrayOutput)
+}
+
+func (i EndpointAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointAccess] {
+	return pulumix.Output[[]*EndpointAccess]{
+		OutputState: i.ToEndpointAccessArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointAccessMapInput is an input type that accepts EndpointAccessMap and EndpointAccessMapOutput values.
@@ -245,6 +260,12 @@ func (i EndpointAccessMap) ToEndpointAccessMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessMapOutput)
 }
 
+func (i EndpointAccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointAccess] {
+	return pulumix.Output[map[string]*EndpointAccess]{
+		OutputState: i.ToEndpointAccessMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointAccessOutput struct{ *pulumi.OutputState }
 
 func (EndpointAccessOutput) ElementType() reflect.Type {
@@ -257,6 +278,12 @@ func (o EndpointAccessOutput) ToEndpointAccessOutput() EndpointAccessOutput {
 
 func (o EndpointAccessOutput) ToEndpointAccessOutputWithContext(ctx context.Context) EndpointAccessOutput {
 	return o
+}
+
+func (o EndpointAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccess] {
+	return pulumix.Output[*EndpointAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The DNS address of the VPC endpoint.
@@ -313,6 +340,12 @@ func (o EndpointAccessArrayOutput) ToEndpointAccessArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o EndpointAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointAccess] {
+	return pulumix.Output[[]*EndpointAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointAccessArrayOutput) Index(i pulumi.IntInput) EndpointAccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointAccess {
 		return vs[0].([]*EndpointAccess)[vs[1].(int)]
@@ -331,6 +364,12 @@ func (o EndpointAccessMapOutput) ToEndpointAccessMapOutput() EndpointAccessMapOu
 
 func (o EndpointAccessMapOutput) ToEndpointAccessMapOutputWithContext(ctx context.Context) EndpointAccessMapOutput {
 	return o
+}
+
+func (o EndpointAccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointAccess] {
+	return pulumix.Output[map[string]*EndpointAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointAccessMapOutput) MapIndex(k pulumi.StringInput) EndpointAccessOutput {

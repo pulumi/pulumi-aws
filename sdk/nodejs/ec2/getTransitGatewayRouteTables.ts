@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = data.aws_ec2_transit_gateway_route_table.example.ids;
+ * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
  * ```
  */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
@@ -43,6 +43,9 @@ export interface GetTransitGatewayRouteTablesArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: {[key: string]: string};
 }
@@ -74,7 +77,7 @@ export interface GetTransitGatewayRouteTablesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = data.aws_ec2_transit_gateway_route_table.example.ids;
+ * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
  * ```
  */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
@@ -92,6 +95,9 @@ export interface GetTransitGatewayRouteTablesOutputArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

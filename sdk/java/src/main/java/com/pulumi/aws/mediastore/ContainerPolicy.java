@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.mediastore.Container;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
@@ -78,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,
+ * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example

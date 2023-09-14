@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? KmsMasterKeyId;
         /// <summary>
-        /// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+        /// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
         /// </summary>
         public readonly string SseAlgorithm;
 

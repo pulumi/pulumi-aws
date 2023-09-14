@@ -222,12 +222,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Amplify App can be imported using Amplify App ID (appId), e.g.,
+ * Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
  * 
  * ```sh
  *  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
  * ```
- * 
  *  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
  * 
  */

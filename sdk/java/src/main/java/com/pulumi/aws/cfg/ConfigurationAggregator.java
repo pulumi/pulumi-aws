@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Configuration Aggregators can be imported using the name, e.g.,
+ * Using `pulumi import`, import Configuration Aggregators using the name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
@@ -187,12 +187,16 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

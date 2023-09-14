@@ -20,6 +20,8 @@ class WorkerConfigurationArgs:
         """
         The set of arguments for constructing a WorkerConfiguration resource.
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: A summary description of the worker configuration.
         :param pulumi.Input[str] name: The name of the worker configuration.
         """
@@ -34,6 +36,8 @@ class WorkerConfigurationArgs:
     def properties_file_content(self) -> pulumi.Input[str]:
         """
         Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "properties_file_content")
 
@@ -81,6 +85,8 @@ class _WorkerConfigurationState:
         :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
         :param pulumi.Input[str] name: The name of the worker configuration.
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -146,6 +152,8 @@ class _WorkerConfigurationState:
     def properties_file_content(self) -> Optional[pulumi.Input[str]]:
         """
         Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "properties_file_content")
 
@@ -181,7 +189,7 @@ class WorkerConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
+        Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
 
         ```sh
          $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
@@ -192,6 +200,8 @@ class WorkerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] description: A summary description of the worker configuration.
         :param pulumi.Input[str] name: The name of the worker configuration.
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -217,7 +227,7 @@ class WorkerConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
+        Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
 
         ```sh
          $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
@@ -284,6 +294,8 @@ class WorkerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
         :param pulumi.Input[str] name: The name of the worker configuration.
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -333,6 +345,8 @@ class WorkerConfiguration(pulumi.CustomResource):
     def properties_file_content(self) -> pulumi.Output[str]:
         """
         Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "properties_file_content")
 

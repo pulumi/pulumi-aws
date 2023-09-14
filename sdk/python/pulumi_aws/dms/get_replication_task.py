@@ -212,6 +212,11 @@ def get_replication_task(replication_task_id: Optional[str] = None,
 
 
     :param str replication_task_id: The replication task identifier.
+           
+           - Must contain from 1 to 255 alphanumeric characters or hyphens.
+           - First character must be a letter.
+           - Cannot end with a hyphen.
+           - Cannot contain two consecutive hyphens.
     """
     __args__ = dict()
     __args__['replicationTaskId'] = replication_task_id
@@ -220,20 +225,20 @@ def get_replication_task(replication_task_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:dms/getReplicationTask:getReplicationTask', __args__, opts=opts, typ=GetReplicationTaskResult).value
 
     return AwaitableGetReplicationTaskResult(
-        cdc_start_position=__ret__.cdc_start_position,
-        cdc_start_time=__ret__.cdc_start_time,
-        id=__ret__.id,
-        migration_type=__ret__.migration_type,
-        replication_instance_arn=__ret__.replication_instance_arn,
-        replication_task_arn=__ret__.replication_task_arn,
-        replication_task_id=__ret__.replication_task_id,
-        replication_task_settings=__ret__.replication_task_settings,
-        source_endpoint_arn=__ret__.source_endpoint_arn,
-        start_replication_task=__ret__.start_replication_task,
-        status=__ret__.status,
-        table_mappings=__ret__.table_mappings,
-        tags=__ret__.tags,
-        target_endpoint_arn=__ret__.target_endpoint_arn)
+        cdc_start_position=pulumi.get(__ret__, 'cdc_start_position'),
+        cdc_start_time=pulumi.get(__ret__, 'cdc_start_time'),
+        id=pulumi.get(__ret__, 'id'),
+        migration_type=pulumi.get(__ret__, 'migration_type'),
+        replication_instance_arn=pulumi.get(__ret__, 'replication_instance_arn'),
+        replication_task_arn=pulumi.get(__ret__, 'replication_task_arn'),
+        replication_task_id=pulumi.get(__ret__, 'replication_task_id'),
+        replication_task_settings=pulumi.get(__ret__, 'replication_task_settings'),
+        source_endpoint_arn=pulumi.get(__ret__, 'source_endpoint_arn'),
+        start_replication_task=pulumi.get(__ret__, 'start_replication_task'),
+        status=pulumi.get(__ret__, 'status'),
+        table_mappings=pulumi.get(__ret__, 'table_mappings'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_endpoint_arn=pulumi.get(__ret__, 'target_endpoint_arn'))
 
 
 @_utilities.lift_output_func(get_replication_task)
@@ -255,5 +260,10 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
 
 
     :param str replication_task_id: The replication task identifier.
+           
+           - Must contain from 1 to 255 alphanumeric characters or hyphens.
+           - First character must be a letter.
+           - Cannot end with a hyphen.
+           - Cannot contain two consecutive hyphens.
     """
     ...

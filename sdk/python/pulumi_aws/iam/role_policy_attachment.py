@@ -102,7 +102,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
 
-        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
+        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and TODO will show a permanent difference.
 
         ## Example Usage
 
@@ -134,11 +134,11 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
-        IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+        In TODO v1.5.0 and later, use an `import` block to import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
+         to = aws_iam_role_policy_attachment.test-attach
+
+         id = "test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `TODO import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleconsole % TODO import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
 
-        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
+        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and TODO will show a permanent difference.
 
         ## Example Usage
 
@@ -188,11 +188,11 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
-        IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+        In TODO v1.5.0 and later, use an `import` block to import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
+         to = aws_iam_role_policy_attachment.test-attach
+
+         id = "test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `TODO import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleconsole % TODO import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 
         :param str resource_name: The name of the resource.
         :param RolePolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

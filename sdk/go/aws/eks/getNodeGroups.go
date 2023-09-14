@@ -7,11 +7,41 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleNodeGroups, err := eks.GetNodeGroups(ctx, &eks.GetNodeGroupsArgs{
+//				ClusterName: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := "TODO: For expression"
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.InvokeOption) (*GetNodeGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNodeGroupsResult
 	err := ctx.Invoke("aws:eks/getNodeGroups:getNodeGroups", args, &rv, opts...)
 	if err != nil {
@@ -71,6 +101,12 @@ func (o GetNodeGroupsResultOutput) ToGetNodeGroupsResultOutput() GetNodeGroupsRe
 
 func (o GetNodeGroupsResultOutput) ToGetNodeGroupsResultOutputWithContext(ctx context.Context) GetNodeGroupsResultOutput {
 	return o
+}
+
+func (o GetNodeGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNodeGroupsResult] {
+	return pulumix.Output[GetNodeGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNodeGroupsResultOutput) ClusterName() pulumi.StringOutput {

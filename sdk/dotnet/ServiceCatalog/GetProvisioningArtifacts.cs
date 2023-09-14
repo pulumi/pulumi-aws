@@ -81,6 +81,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Product identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("productId", required: true)]
         public string ProductId { get; set; } = null!;
@@ -101,6 +103,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Product identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;

@@ -94,6 +94,8 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str product_id: Product identifier.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -102,10 +104,10 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts', __args__, opts=opts, typ=GetProvisioningArtifactsResult).value
 
     return AwaitableGetProvisioningArtifactsResult(
-        accept_language=__ret__.accept_language,
-        id=__ret__.id,
-        product_id=__ret__.product_id,
-        provisioning_artifact_details=__ret__.provisioning_artifact_details)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        id=pulumi.get(__ret__, 'id'),
+        product_id=pulumi.get(__ret__, 'product_id'),
+        provisioning_artifact_details=pulumi.get(__ret__, 'provisioning_artifact_details'))
 
 
 @_utilities.lift_output_func(get_provisioning_artifacts)
@@ -128,5 +130,7 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str product_id: Product identifier.
+           
+           The following arguments are optional:
     """
     ...

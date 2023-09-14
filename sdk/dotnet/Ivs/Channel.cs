@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// ## Import
     /// 
-    /// IVS (Interactive Video) Channel can be imported using the ARN, e.g.,
+    /// Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5

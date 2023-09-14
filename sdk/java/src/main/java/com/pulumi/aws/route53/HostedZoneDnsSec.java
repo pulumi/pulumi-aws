@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.route53.Zone;
@@ -105,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
+ * Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
@@ -117,12 +118,16 @@ public class HostedZoneDnsSec extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the Route 53 Hosted Zone.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
      * @return Identifier of the Route 53 Hosted Zone.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> hostedZoneId() {

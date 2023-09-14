@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for listing RDS Database Instances.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,35 @@ import (
 //	}
 //
 // ```
+// ### Using tags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.GetInstances(ctx, &rds.GetInstancesArgs{
+//				Tags: map[string]interface{}{
+//					"Env": "test",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:rds/getInstances:getInstances", args, &rv, opts...)
 	if err != nil {
@@ -56,8 +86,10 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
+	// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
+	// Map of tags, each pair of which must exactly match a pair on the desired instances.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstances.
@@ -68,7 +100,8 @@ type GetInstancesResult struct {
 	// ARNs of the matched RDS instances.
 	InstanceArns []string `pulumi:"instanceArns"`
 	// Identifiers of the matched RDS instances.
-	InstanceIdentifiers []string `pulumi:"instanceIdentifiers"`
+	InstanceIdentifiers []string          `pulumi:"instanceIdentifiers"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
@@ -86,8 +119,10 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
+	// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
+	// Map of tags, each pair of which must exactly match a pair on the desired instances.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetInstancesOutputArgs) ElementType() reflect.Type {
@@ -109,6 +144,12 @@ func (o GetInstancesResultOutput) ToGetInstancesResultOutputWithContext(ctx cont
 	return o
 }
 
+func (o GetInstancesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstancesResult] {
+	return pulumix.Output[GetInstancesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetInstancesResultOutput) Filters() GetInstancesFilterArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []GetInstancesFilter { return v.Filters }).(GetInstancesFilterArrayOutput)
 }
@@ -126,6 +167,10 @@ func (o GetInstancesResultOutput) InstanceArns() pulumi.StringArrayOutput {
 // Identifiers of the matched RDS instances.
 func (o GetInstancesResultOutput) InstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.InstanceIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstancesResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetInstancesResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

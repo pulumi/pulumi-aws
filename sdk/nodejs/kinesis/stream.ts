@@ -37,13 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Kinesis Streams can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kinesis/stream:Stream test_stream kinesis-test
+ *  $ pulumi import aws:kinesis/stream:Stream test_stream TODO-kinesis-test
  * ```
- *
- *  [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
  */
 export class Stream extends pulumi.CustomResource {
     /**

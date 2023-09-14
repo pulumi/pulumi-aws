@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about an Elastic File System (EFS) File System.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -52,6 +54,7 @@ import (
 //
 // ```
 func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupFileSystemResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFileSystemResult
 	err := ctx.Invoke("aws:efs/getFileSystem:getFileSystem", args, &rv, opts...)
 	if err != nil {
@@ -90,6 +93,8 @@ type LookupFileSystemResult struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 	LifecyclePolicy GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	// The value of the file system's `Name` tag.
+	Name string `pulumi:"name"`
 	// File system performance mode.
 	PerformanceMode string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
@@ -144,6 +149,12 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(
 	return o
 }
 
+func (o LookupFileSystemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFileSystemResult] {
+	return pulumix.Output[LookupFileSystemResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name of the file system.
 func (o LookupFileSystemResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Arn }).(pulumi.StringOutput)
@@ -190,6 +201,11 @@ func (o LookupFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 // File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyOutput)
+}
+
+// The value of the file system's `Name` tag.
+func (o LookupFileSystemResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // File system performance mode.

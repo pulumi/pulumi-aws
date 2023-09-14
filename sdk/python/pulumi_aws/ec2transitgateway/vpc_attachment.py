@@ -376,7 +376,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_vpc_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
@@ -417,7 +417,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_vpc_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
@@ -580,7 +580,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayDefaultRouteTableAssociation")
-    def transit_gateway_default_route_table_association(self) -> pulumi.Output[Optional[bool]]:
+    def transit_gateway_default_route_table_association(self) -> pulumi.Output[bool]:
         """
         Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         """
@@ -588,7 +588,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayDefaultRouteTablePropagation")
-    def transit_gateway_default_route_table_propagation(self) -> pulumi.Output[Optional[bool]]:
+    def transit_gateway_default_route_table_propagation(self) -> pulumi.Output[bool]:
         """
         Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         """

@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SES domain identities can be imported using the domain name.
+ * Using `pulumi import`, import SES domain identities using the domain name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com

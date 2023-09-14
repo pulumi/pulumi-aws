@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
  *
  * ```sh
  *  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
@@ -58,6 +58,8 @@ export class Cell extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Unique name describing the cell.
+     *
+     * The following arguments are optional:
      */
     public readonly cellName!: pulumi.Output<string>;
     /**
@@ -123,6 +125,8 @@ export interface CellState {
     arn?: pulumi.Input<string>;
     /**
      * Unique name describing the cell.
+     *
+     * The following arguments are optional:
      */
     cellName?: pulumi.Input<string>;
     /**
@@ -149,6 +153,8 @@ export interface CellState {
 export interface CellArgs {
     /**
      * Unique name describing the cell.
+     *
+     * The following arguments are optional:
      */
     cellName: pulumi.Input<string>;
     /**

@@ -194,7 +194,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Runner Services can be imported by using the `arn`, e.g.,
+ * Using `pulumi import`, import App Runner Services using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
@@ -346,12 +346,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="sourceConfiguration", refs={ServiceSourceConfiguration.class}, tree="[0]")
     private Output<ServiceSourceConfiguration> sourceConfiguration;
 
     /**
      * @return The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ServiceSourceConfiguration> sourceConfiguration() {

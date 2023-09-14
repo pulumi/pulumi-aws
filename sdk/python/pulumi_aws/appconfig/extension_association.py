@@ -201,7 +201,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Extension Associations can be imported using their extension association ID, e.g.,
+        Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
         ```sh
          $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
@@ -258,7 +258,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Extension Associations can be imported using their extension association ID, e.g.,
+        Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
         ```sh
          $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt

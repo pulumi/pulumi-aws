@@ -242,7 +242,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * API Gateway domain names can be imported using their `name`, e.g.,
+ * Using `pulumi import`, import API Gateway domain names using their `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
@@ -436,12 +436,16 @@ public class DomainName extends com.pulumi.resources.CustomResource {
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      * 
+     * When uploading a certificate, the following arguments are supported:
+     * 
      */
     @Export(name="regionalCertificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> regionalCertificateArn;
 
     /**
      * @return ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+     * 
+     * When uploading a certificate, the following arguments are supported:
      * 
      */
     public Output<Optional<String>> regionalCertificateArn() {
@@ -506,12 +510,16 @@ public class DomainName extends com.pulumi.resources.CustomResource {
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * When referencing an AWS-managed certificate, the following arguments are supported:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * When referencing an AWS-managed certificate, the following arguments are supported:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

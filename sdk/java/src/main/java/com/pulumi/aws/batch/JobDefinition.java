@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Batch Job Definition can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
@@ -343,12 +343,16 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
     /**
      * The type of job definition. Must be `container`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The type of job definition. Must be `container`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

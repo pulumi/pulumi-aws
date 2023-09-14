@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Default VPCs can be imported using the `vpc id`, e.g.,
+    /// Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
@@ -79,12 +79,6 @@ namespace Pulumi.Aws.Ec2
 
         [Output("dhcpOptionsId")]
         public Output<string> DhcpOptionsId { get; private set; } = null!;
-
-        [Output("enableClassiclink")]
-        public Output<bool> EnableClassiclink { get; private set; } = null!;
-
-        [Output("enableClassiclinkDnsSupport")]
-        public Output<bool> EnableClassiclinkDnsSupport { get; private set; } = null!;
 
         [Output("enableDnsHostnames")]
         public Output<bool?> EnableDnsHostnames { get; private set; } = null!;
@@ -186,12 +180,6 @@ namespace Pulumi.Aws.Ec2
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
 
-        [Input("enableClassiclink")]
-        public Input<bool>? EnableClassiclink { get; set; }
-
-        [Input("enableClassiclinkDnsSupport")]
-        public Input<bool>? EnableClassiclinkDnsSupport { get; set; }
-
         [Input("enableDnsHostnames")]
         public Input<bool>? EnableDnsHostnames { get; set; }
 
@@ -258,12 +246,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("dhcpOptionsId")]
         public Input<string>? DhcpOptionsId { get; set; }
-
-        [Input("enableClassiclink")]
-        public Input<bool>? EnableClassiclink { get; set; }
-
-        [Input("enableClassiclinkDnsSupport")]
-        public Input<bool>? EnableClassiclinkDnsSupport { get; set; }
 
         [Input("enableDnsHostnames")]
         public Input<bool>? EnableDnsHostnames { get; set; }

@@ -33,6 +33,8 @@ class TrafficMirrorFilterRuleArgs:
         :param pulumi.Input[int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[str] traffic_direction: Direction of traffic to be captured. Valid values are `ingress` and `egress`
+               
+               Traffic mirror port range support following attributes:
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to which this rule should be added
         :param pulumi.Input[str] description: Description of the traffic mirror filter rule.
         :param pulumi.Input['TrafficMirrorFilterRuleDestinationPortRangeArgs'] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
@@ -107,6 +109,8 @@ class TrafficMirrorFilterRuleArgs:
     def traffic_direction(self) -> pulumi.Input[str]:
         """
         Direction of traffic to be captured. Valid values are `ingress` and `egress`
+
+        Traffic mirror port range support following attributes:
         """
         return pulumi.get(self, "traffic_direction")
 
@@ -201,6 +205,8 @@ class _TrafficMirrorFilterRuleState:
         :param pulumi.Input[str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input['TrafficMirrorFilterRuleSourcePortRangeArgs'] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[str] traffic_direction: Direction of traffic to be captured. Valid values are `ingress` and `egress`
+               
+               Traffic mirror port range support following attributes:
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to which this rule should be added
         """
         if arn is not None:
@@ -339,6 +345,8 @@ class _TrafficMirrorFilterRuleState:
     def traffic_direction(self) -> Optional[pulumi.Input[str]]:
         """
         Direction of traffic to be captured. Valid values are `ingress` and `egress`
+
+        Traffic mirror port range support following attributes:
         """
         return pulumi.get(self, "traffic_direction")
 
@@ -419,7 +427,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
+        Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
@@ -436,6 +444,8 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleSourcePortRangeArgs']] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[str] traffic_direction: Direction of traffic to be captured. Valid values are `ingress` and `egress`
+               
+               Traffic mirror port range support following attributes:
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to which this rule should be added
         """
         ...
@@ -488,7 +498,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
+        Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
@@ -589,6 +599,8 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleSourcePortRangeArgs']] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[str] traffic_direction: Direction of traffic to be captured. Valid values are `ingress` and `egress`
+               
+               Traffic mirror port range support following attributes:
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to which this rule should be added
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -685,6 +697,8 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
     def traffic_direction(self) -> pulumi.Output[str]:
         """
         Direction of traffic to be captured. Valid values are `ingress` and `egress`
+
+        Traffic mirror port range support following attributes:
         """
         return pulumi.get(self, "traffic_direction")
 

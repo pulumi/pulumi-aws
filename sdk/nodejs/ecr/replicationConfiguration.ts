@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+ * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912

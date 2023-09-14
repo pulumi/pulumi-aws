@@ -124,12 +124,12 @@ def get_authorization_token(domain: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:codeartifact/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult).value
 
     return AwaitableGetAuthorizationTokenResult(
-        authorization_token=__ret__.authorization_token,
-        domain=__ret__.domain,
-        domain_owner=__ret__.domain_owner,
-        duration_seconds=__ret__.duration_seconds,
-        expiration=__ret__.expiration,
-        id=__ret__.id)
+        authorization_token=pulumi.get(__ret__, 'authorization_token'),
+        domain=pulumi.get(__ret__, 'domain'),
+        domain_owner=pulumi.get(__ret__, 'domain_owner'),
+        duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_authorization_token)

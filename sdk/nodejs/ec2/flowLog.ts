@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Flow Logs can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Flow Logs using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
@@ -156,7 +156,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logFormat!: pulumi.Output<string>;
     /**
-     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+     * **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
      *
      * @deprecated use 'log_destination' argument instead
      */
@@ -289,7 +289,7 @@ export interface FlowLogState {
      */
     logFormat?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+     * **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
      *
      * @deprecated use 'log_destination' argument instead
      */
@@ -364,7 +364,7 @@ export interface FlowLogArgs {
      */
     logFormat?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+     * **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
      *
      * @deprecated use 'log_destination' argument instead
      */

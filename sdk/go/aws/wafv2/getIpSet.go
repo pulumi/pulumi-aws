@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves the summary of a WAFv2 IP Set.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.InvokeOption) (*LookupIpSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIpSetResult
 	err := ctx.Invoke("aws:wafv2/getIpSet:getIpSet", args, &rv, opts...)
 	if err != nil {
@@ -57,7 +60,7 @@ type LookupIpSetArgs struct {
 
 // A collection of values returned by getIpSet.
 type LookupIpSetResult struct {
-	// An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+	// An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 	Addresses []string `pulumi:"addresses"`
 	// ARN of the entity.
 	Arn string `pulumi:"arn"`
@@ -111,7 +114,13 @@ func (o LookupIpSetResultOutput) ToLookupIpSetResultOutputWithContext(ctx contex
 	return o
 }
 
-// An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+func (o LookupIpSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIpSetResult] {
+	return pulumix.Output[LookupIpSetResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 func (o LookupIpSetResultOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIpSetResult) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }

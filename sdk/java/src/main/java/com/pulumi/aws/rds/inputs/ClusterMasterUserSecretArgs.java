@@ -16,14 +16,14 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
     public static final ClusterMasterUserSecretArgs Empty = new ClusterMasterUserSecretArgs();
 
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -31,14 +31,14 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the secret.
+     * Amazon Resource Name (ARN) of the secret.
      * 
      */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return Amazon Resource Name (ARN) of the secret.
      * 
      */
     public Optional<Output<String>> secretArn() {
@@ -46,14 +46,14 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     @Import(name="secretStatus")
     private @Nullable Output<String> secretStatus;
 
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     public Optional<Output<String>> secretStatus() {
@@ -87,7 +87,7 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret.
+         * @param secretArn Amazon Resource Name (ARN) of the secret.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret.
+         * @param secretArn Amazon Resource Name (ARN) of the secret.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secretStatus The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * @param secretStatus Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secretStatus The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * @param secretStatus Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          * 
          * @return builder
          * 

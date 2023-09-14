@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Glue.Outputs
         /// Name of the catalog database.
         /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Region of the target database.
+        /// </summary>
+        public readonly string? Region;
 
         [OutputConstructor]
         private CatalogDatabaseTargetDatabase(
             string catalogId,
 
-            string databaseName)
+            string databaseName,
+
+            string? region)
         {
             CatalogId = catalogId;
             DatabaseName = databaseName;
+            Region = region;
         }
     }
 }

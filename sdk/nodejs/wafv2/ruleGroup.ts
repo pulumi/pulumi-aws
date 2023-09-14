@@ -7,55 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a WAFv2 Rule Group resource.
- *
- * ## Example Usage
- * ### Simple
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.RuleGroup("example", {
- *     capacity: 2,
- *     rules: [{
- *         action: {
- *             allow: {},
- *         },
- *         name: "rule-1",
- *         priority: 1,
- *         statement: {
- *             geoMatchStatement: {
- *                 countryCodes: [
- *                     "US",
- *                     "NL",
- *                 ],
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     scope: "REGIONAL",
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
- */
 export class RuleGroup extends pulumi.CustomResource {
     /**
      * Get an existing RuleGroup resource's state with the given name, ID, and optional extra
@@ -105,6 +56,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * A friendly name of the rule group.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
@@ -145,6 +97,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["lockToken"] = state ? state.lockToken : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -165,6 +118,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -203,6 +157,7 @@ export interface RuleGroupState {
      * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
@@ -245,6 +200,7 @@ export interface RuleGroupArgs {
      * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */

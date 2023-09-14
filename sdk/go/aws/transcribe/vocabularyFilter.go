@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Transcribe VocabularyFilter.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // ## Import
 //
-// Transcribe VocabularyFilter can be imported using the `vocabulary_filter_name`, e.g.,
+// Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
 //
 // ```sh
 //
@@ -73,6 +75,8 @@ type VocabularyFilter struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri pulumi.StringPtrOutput `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName pulumi.StringOutput `pulumi:"vocabularyFilterName"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words pulumi.StringArrayOutput `pulumi:"words"`
@@ -91,6 +95,7 @@ func NewVocabularyFilter(ctx *pulumi.Context,
 	if args.VocabularyFilterName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyFilterName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VocabularyFilter
 	err := ctx.RegisterResource("aws:transcribe/vocabularyFilter:VocabularyFilter", name, args, &resource, opts...)
 	if err != nil {
@@ -125,6 +130,8 @@ type vocabularyFilterState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words []string `pulumi:"words"`
@@ -143,6 +150,8 @@ type VocabularyFilterState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName pulumi.StringPtrInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words pulumi.StringArrayInput
@@ -160,6 +169,8 @@ type vocabularyFilterArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName string `pulumi:"vocabularyFilterName"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words []string `pulumi:"words"`
@@ -174,6 +185,8 @@ type VocabularyFilterArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName pulumi.StringInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words pulumi.StringArrayInput
@@ -202,6 +215,12 @@ func (i *VocabularyFilter) ToVocabularyFilterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyFilterOutput)
 }
 
+func (i *VocabularyFilter) ToOutput(ctx context.Context) pulumix.Output[*VocabularyFilter] {
+	return pulumix.Output[*VocabularyFilter]{
+		OutputState: i.ToVocabularyFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VocabularyFilterArrayInput is an input type that accepts VocabularyFilterArray and VocabularyFilterArrayOutput values.
 // You can construct a concrete instance of `VocabularyFilterArrayInput` via:
 //
@@ -225,6 +244,12 @@ func (i VocabularyFilterArray) ToVocabularyFilterArrayOutput() VocabularyFilterA
 
 func (i VocabularyFilterArray) ToVocabularyFilterArrayOutputWithContext(ctx context.Context) VocabularyFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyFilterArrayOutput)
+}
+
+func (i VocabularyFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VocabularyFilter] {
+	return pulumix.Output[[]*VocabularyFilter]{
+		OutputState: i.ToVocabularyFilterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VocabularyFilterMapInput is an input type that accepts VocabularyFilterMap and VocabularyFilterMapOutput values.
@@ -252,6 +277,12 @@ func (i VocabularyFilterMap) ToVocabularyFilterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyFilterMapOutput)
 }
 
+func (i VocabularyFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VocabularyFilter] {
+	return pulumix.Output[map[string]*VocabularyFilter]{
+		OutputState: i.ToVocabularyFilterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VocabularyFilterOutput struct{ *pulumi.OutputState }
 
 func (VocabularyFilterOutput) ElementType() reflect.Type {
@@ -264,6 +295,12 @@ func (o VocabularyFilterOutput) ToVocabularyFilterOutput() VocabularyFilterOutpu
 
 func (o VocabularyFilterOutput) ToVocabularyFilterOutputWithContext(ctx context.Context) VocabularyFilterOutput {
 	return o
+}
+
+func (o VocabularyFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*VocabularyFilter] {
+	return pulumix.Output[*VocabularyFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the VocabularyFilter.
@@ -296,6 +333,8 @@ func (o VocabularyFilterOutput) VocabularyFilterFileUri() pulumi.StringPtrOutput
 }
 
 // The name of the VocabularyFilter.
+//
+// The following arguments are optional:
 func (o VocabularyFilterOutput) VocabularyFilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.VocabularyFilterName }).(pulumi.StringOutput)
 }
@@ -319,6 +358,12 @@ func (o VocabularyFilterArrayOutput) ToVocabularyFilterArrayOutputWithContext(ct
 	return o
 }
 
+func (o VocabularyFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VocabularyFilter] {
+	return pulumix.Output[[]*VocabularyFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VocabularyFilterArrayOutput) Index(i pulumi.IntInput) VocabularyFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VocabularyFilter {
 		return vs[0].([]*VocabularyFilter)[vs[1].(int)]
@@ -337,6 +382,12 @@ func (o VocabularyFilterMapOutput) ToVocabularyFilterMapOutput() VocabularyFilte
 
 func (o VocabularyFilterMapOutput) ToVocabularyFilterMapOutputWithContext(ctx context.Context) VocabularyFilterMapOutput {
 	return o
+}
+
+func (o VocabularyFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VocabularyFilter] {
+	return pulumix.Output[map[string]*VocabularyFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VocabularyFilterMapOutput) MapIndex(k pulumi.StringInput) VocabularyFilterOutput {

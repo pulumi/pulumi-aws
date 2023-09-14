@@ -298,7 +298,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
         ## Import
 
-        App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
+        Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
@@ -339,7 +339,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
         ## Import
 
-        App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
+        Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f

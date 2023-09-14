@@ -72,13 +72,20 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+ * __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
+ * 
+ * Using the procotol&#39;s string value:
+ * 
+ * Using the procotol&#39;s decimal value:
+ * 
+ * __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as &#34;6&#34;) or string (such as &#34;tcp&#34;) value. For example:
+ * 
+ * Using the procotol&#39;s string value:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
  * ```
- * 
- *  Or by the procotol&#39;s decimal valueconsole
+ *  Using the procotol&#39;s decimal value:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
@@ -132,12 +139,24 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      * 
+     * &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+     * 
+     * &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+     * 
+     * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+     * 
      */
     @Export(name="icmpCode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> icmpCode;
 
     /**
      * @return ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+     * 
+     * &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+     * 
+     * &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+     * 
+     * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      * 
      */
     public Output<Optional<Integer>> icmpCode() {

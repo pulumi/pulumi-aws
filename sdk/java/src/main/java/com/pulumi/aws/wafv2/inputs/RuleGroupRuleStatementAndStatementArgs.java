@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -15,17 +15,17 @@ public final class RuleGroupRuleStatementAndStatementArgs extends com.pulumi.res
     public static final RuleGroupRuleStatementAndStatementArgs Empty = new RuleGroupRuleStatementAndStatementArgs();
 
     /**
-     * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * The statements to combine.
      * 
      */
     @Import(name="statements", required=true)
-    private Output<List<RuleGroupRuleStatementAndStatementStatementArgs>> statements;
+    private Output<List<RuleGroupRuleStatementArgs>> statements;
 
     /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    public Output<List<RuleGroupRuleStatementAndStatementStatementArgs>> statements() {
+    public Output<List<RuleGroupRuleStatementArgs>> statements() {
         return this.statements;
     }
 
@@ -54,33 +54,33 @@ public final class RuleGroupRuleStatementAndStatementArgs extends com.pulumi.res
         }
 
         /**
-         * @param statements The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(Output<List<RuleGroupRuleStatementAndStatementStatementArgs>> statements) {
+        public Builder statements(Output<List<RuleGroupRuleStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
         /**
-         * @param statements The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(List<RuleGroupRuleStatementAndStatementStatementArgs> statements) {
+        public Builder statements(List<RuleGroupRuleStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
         /**
-         * @param statements The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(RuleGroupRuleStatementAndStatementStatementArgs... statements) {
+        public Builder statements(RuleGroupRuleStatementArgs... statements) {
             return statements(List.of(statements));
         }
 

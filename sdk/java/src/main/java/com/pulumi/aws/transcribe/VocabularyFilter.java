@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Transcribe VocabularyFilter can be imported using the `vocabulary_filter_name`, e.g.,
+ * Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
@@ -148,12 +148,16 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
     /**
      * The name of the VocabularyFilter.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vocabularyFilterName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFilterName;
 
     /**
      * @return The name of the VocabularyFilter.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vocabularyFilterName() {

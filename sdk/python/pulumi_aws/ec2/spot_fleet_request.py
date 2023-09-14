@@ -69,6 +69,12 @@ class SpotFleetRequestArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -258,6 +264,12 @@ class SpotFleetRequestArgs:
         Used to define the launch configuration of the
         spot-fleet request. Can be specified multiple times to define different bids
         across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+
+        **Note**: This takes in similar but not
+        identical inputs as `ec2.Instance`.  There are limitations on
+        what you can specify. See the list of officially supported inputs in the
+        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         """
         return pulumi.get(self, "launch_specifications")
 
@@ -519,6 +531,12 @@ class _SpotFleetRequestState:
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -716,6 +734,12 @@ class _SpotFleetRequestState:
         Used to define the launch configuration of the
         spot-fleet request. Can be specified multiple times to define different bids
         across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+
+        **Note**: This takes in similar but not
+        identical inputs as `ec2.Instance`.  There are limitations on
+        what you can specify. See the list of officially supported inputs in the
+        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         """
         return pulumi.get(self, "launch_specifications")
 
@@ -994,6 +1018,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+
         ## Example Usage
         ### Using launch specifications
 
@@ -1067,7 +1094,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="vpc-id",
+            values=[var["vpc_id"]],
+        )])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1084,13 +1114,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[0],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[1],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[2],
                     ),
                 ],
             )],
@@ -1099,7 +1129,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Import
 
-        Spot Fleet Requests can be imported using `id`, e.g.,
+        Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
@@ -1130,6 +1160,12 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -1165,6 +1201,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+
         ## Example Usage
         ### Using launch specifications
 
@@ -1238,7 +1277,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="vpc-id",
+            values=[var["vpc_id"]],
+        )])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1255,13 +1297,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[0],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[1],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[2],
                     ),
                 ],
             )],
@@ -1270,7 +1312,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Import
 
-        Spot Fleet Requests can be imported using `id`, e.g.,
+        Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
@@ -1425,6 +1467,12 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -1567,6 +1615,12 @@ class SpotFleetRequest(pulumi.CustomResource):
         Used to define the launch configuration of the
         spot-fleet request. Can be specified multiple times to define different bids
         across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+
+        **Note**: This takes in similar but not
+        identical inputs as `ec2.Instance`.  There are limitations on
+        what you can specify. See the list of officially supported inputs in the
+        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         """
         return pulumi.get(self, "launch_specifications")
 

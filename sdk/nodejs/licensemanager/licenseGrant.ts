@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_licensemanager_grant` can be imported using the grant arn.
+ * Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:
  *
  * ```sh
  *  $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089

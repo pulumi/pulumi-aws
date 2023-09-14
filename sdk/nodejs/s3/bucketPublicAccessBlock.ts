@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
+ * Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket

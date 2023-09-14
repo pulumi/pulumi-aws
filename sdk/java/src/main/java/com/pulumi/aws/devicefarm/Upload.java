@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DeviceFarm Uploads can be imported by their arn
+ * Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1

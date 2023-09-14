@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Import
     /// 
-    /// WAF Regex Match Set can be imported using their ID, e.g.,
+    /// Using `pulumi import`, import WAF Regex Match Set using their ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

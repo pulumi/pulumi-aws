@@ -169,10 +169,22 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
+ * ### Emit events to EventBridge
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const bucket = new aws.s3.BucketV2("bucket", {});
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ *     bucket: bucket.id,
+ *     eventbridge: true,
+ * });
+ * ```
  *
  * ## Import
  *
- * S3 bucket notification can be imported using the `bucket`, e.g.,
+ * Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
@@ -208,10 +220,12 @@ export class BucketNotification extends pulumi.CustomResource {
 
     /**
      * Name of the bucket for notification configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
     public readonly eventbridge!: pulumi.Output<boolean | undefined>;
     /**
@@ -267,10 +281,12 @@ export class BucketNotification extends pulumi.CustomResource {
 export interface BucketNotificationState {
     /**
      * Name of the bucket for notification configuration.
+     *
+     * The following arguments are optional:
      */
     bucket?: pulumi.Input<string>;
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
     eventbridge?: pulumi.Input<boolean>;
     /**
@@ -293,10 +309,12 @@ export interface BucketNotificationState {
 export interface BucketNotificationArgs {
     /**
      * Name of the bucket for notification configuration.
+     *
+     * The following arguments are optional:
      */
     bucket: pulumi.Input<string>;
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
     eventbridge?: pulumi.Input<boolean>;
     /**

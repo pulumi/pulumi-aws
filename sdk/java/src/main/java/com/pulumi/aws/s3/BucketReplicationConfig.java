@@ -267,7 +267,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 bucket replication configuration can be imported using the `bucket`, e.g.
+ * Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name

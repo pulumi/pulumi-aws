@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +82,15 @@ import (
 //
 // ## Import
 //
-// AWS SSM Activation can be imported using the `id`, e.g.,
+// Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
 //
 // ```
+//
+//	-> __Note:__ The `activation_code` attribute cannot be imported.
 type Activation struct {
 	pulumi.CustomResourceState
 
@@ -122,6 +126,7 @@ func NewActivation(ctx *pulumi.Context,
 	if args.IamRole == nil {
 		return nil, errors.New("invalid value for required argument 'IamRole'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activation
 	err := ctx.RegisterResource("aws:ssm/activation:Activation", name, args, &resource, opts...)
 	if err != nil {
@@ -247,6 +252,12 @@ func (i *Activation) ToActivationOutputWithContext(ctx context.Context) Activati
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationOutput)
 }
 
+func (i *Activation) ToOutput(ctx context.Context) pulumix.Output[*Activation] {
+	return pulumix.Output[*Activation]{
+		OutputState: i.ToActivationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActivationArrayInput is an input type that accepts ActivationArray and ActivationArrayOutput values.
 // You can construct a concrete instance of `ActivationArrayInput` via:
 //
@@ -270,6 +281,12 @@ func (i ActivationArray) ToActivationArrayOutput() ActivationArrayOutput {
 
 func (i ActivationArray) ToActivationArrayOutputWithContext(ctx context.Context) ActivationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationArrayOutput)
+}
+
+func (i ActivationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Activation] {
+	return pulumix.Output[[]*Activation]{
+		OutputState: i.ToActivationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActivationMapInput is an input type that accepts ActivationMap and ActivationMapOutput values.
@@ -297,6 +314,12 @@ func (i ActivationMap) ToActivationMapOutputWithContext(ctx context.Context) Act
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationMapOutput)
 }
 
+func (i ActivationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Activation] {
+	return pulumix.Output[map[string]*Activation]{
+		OutputState: i.ToActivationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActivationOutput struct{ *pulumi.OutputState }
 
 func (ActivationOutput) ElementType() reflect.Type {
@@ -309,6 +332,12 @@ func (o ActivationOutput) ToActivationOutput() ActivationOutput {
 
 func (o ActivationOutput) ToActivationOutputWithContext(ctx context.Context) ActivationOutput {
 	return o
+}
+
+func (o ActivationOutput) ToOutput(ctx context.Context) pulumix.Output[*Activation] {
+	return pulumix.Output[*Activation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The code the system generates when it processes the activation.
@@ -375,6 +404,12 @@ func (o ActivationArrayOutput) ToActivationArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ActivationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Activation] {
+	return pulumix.Output[[]*Activation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActivationArrayOutput) Index(i pulumi.IntInput) ActivationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Activation {
 		return vs[0].([]*Activation)[vs[1].(int)]
@@ -393,6 +428,12 @@ func (o ActivationMapOutput) ToActivationMapOutput() ActivationMapOutput {
 
 func (o ActivationMapOutput) ToActivationMapOutputWithContext(ctx context.Context) ActivationMapOutput {
 	return o
+}
+
+func (o ActivationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Activation] {
+	return pulumix.Output[map[string]*Activation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActivationMapOutput) MapIndex(k pulumi.StringInput) ActivationOutput {

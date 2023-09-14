@@ -37,10 +37,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Parameter Groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
+ *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-TODO
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
@@ -93,6 +93,8 @@ export class ParameterGroup extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<outputs.redshift.ParameterGroupParameter[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -164,6 +166,8 @@ export interface ParameterGroupState {
     parameters?: pulumi.Input<pulumi.Input<inputs.redshift.ParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -194,6 +198,8 @@ export interface ParameterGroupArgs {
     parameters?: pulumi.Input<pulumi.Input<inputs.redshift.ParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

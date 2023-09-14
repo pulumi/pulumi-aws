@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Fis
     /// 
     /// ## Import
     /// 
-    /// FIS Experiment Templates can be imported using the `id`, e.g.
+    /// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Fis
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration for experiment logging. See below.
+        /// </summary>
+        [Output("logConfiguration")]
+        public Output<Outputs.ExperimentTemplateLogConfiguration?> LogConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -103,6 +109,8 @@ namespace Pulumi.Aws.Fis
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("stopConditions")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
@@ -187,6 +195,12 @@ namespace Pulumi.Aws.Fis
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
+        /// The configuration for experiment logging. See below.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.ExperimentTemplateLogConfigurationArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -197,6 +211,8 @@ namespace Pulumi.Aws.Fis
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ExperimentTemplateStopConditionArgs> StopConditions
         {
@@ -255,6 +271,12 @@ namespace Pulumi.Aws.Fis
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The configuration for experiment logging. See below.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.ExperimentTemplateLogConfigurationGetArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
         [Input("roleArn")]
@@ -265,6 +287,8 @@ namespace Pulumi.Aws.Fis
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ExperimentTemplateStopConditionGetArgs> StopConditions
         {

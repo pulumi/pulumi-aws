@@ -25,6 +25,8 @@ class ExperienceArgs:
         The set of arguments for constructing a Experience resource.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+               
+               The following arguments are optional:
         :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
@@ -55,6 +57,8 @@ class ExperienceArgs:
     def role_arn(self) -> pulumi.Input[str]:
         """
         The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role_arn")
 
@@ -121,6 +125,8 @@ class _ExperienceState:
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: The current processing status of your Amazon Kendra experience.
         """
         if arn is not None:
@@ -231,6 +237,8 @@ class _ExperienceState:
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role_arn")
 
@@ -289,7 +297,7 @@ class Experience(pulumi.CustomResource):
 
         ## Import
 
-        Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+        Using `pulumi import`, import Kendra Experience using the unique identifiers of the experience and index separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
@@ -302,6 +310,8 @@ class Experience(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -336,7 +346,7 @@ class Experience(pulumi.CustomResource):
 
         ## Import
 
-        Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+        Using `pulumi import`, import Kendra Experience using the unique identifiers of the experience and index separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
@@ -418,6 +428,8 @@ class Experience(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: The current processing status of your Amazon Kendra experience.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -496,6 +508,8 @@ class Experience(pulumi.CustomResource):
     def role_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role_arn")
 

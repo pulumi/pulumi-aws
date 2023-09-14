@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +57,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,16 +91,18 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -151,6 +155,7 @@ import (
 //						Enabled:          pulumi.Bool(true),
 //						ExpirationInDays: pulumi.Int(7),
 //						S3BucketName:     exampleBucketV2.ID(),
+//						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -167,7 +172,7 @@ import (
 //
 // ## Import
 //
-// `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
+// Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
 //
 // ```sh
 //
@@ -201,10 +206,6 @@ type CertificateAuthority struct {
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrOutput `pulumi:"revocationConfiguration"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial pulumi.StringOutput `pulumi:"serial"`
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
-	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -225,6 +226,7 @@ func NewCertificateAuthority(ctx *pulumi.Context,
 	if args.CertificateAuthorityConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateAuthorityConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertificateAuthority
 	err := ctx.RegisterResource("aws:acmpca/certificateAuthority:CertificateAuthority", name, args, &resource, opts...)
 	if err != nil {
@@ -271,10 +273,6 @@ type certificateAuthorityState struct {
 	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial *string `pulumi:"serial"`
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
-	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status *string `pulumi:"status"`
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -310,10 +308,6 @@ type CertificateAuthorityState struct {
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial pulumi.StringPtrInput
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
-	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status pulumi.StringPtrInput
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -390,6 +384,12 @@ func (i *CertificateAuthority) ToCertificateAuthorityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOutput)
 }
 
+func (i *CertificateAuthority) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthority] {
+	return pulumix.Output[*CertificateAuthority]{
+		OutputState: i.ToCertificateAuthorityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateAuthorityArrayInput is an input type that accepts CertificateAuthorityArray and CertificateAuthorityArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityArrayInput` via:
 //
@@ -413,6 +413,12 @@ func (i CertificateAuthorityArray) ToCertificateAuthorityArrayOutput() Certifica
 
 func (i CertificateAuthorityArray) ToCertificateAuthorityArrayOutputWithContext(ctx context.Context) CertificateAuthorityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityArrayOutput)
+}
+
+func (i CertificateAuthorityArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateAuthority] {
+	return pulumix.Output[[]*CertificateAuthority]{
+		OutputState: i.ToCertificateAuthorityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CertificateAuthorityMapInput is an input type that accepts CertificateAuthorityMap and CertificateAuthorityMapOutput values.
@@ -440,6 +446,12 @@ func (i CertificateAuthorityMap) ToCertificateAuthorityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityMapOutput)
 }
 
+func (i CertificateAuthorityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateAuthority] {
+	return pulumix.Output[map[string]*CertificateAuthority]{
+		OutputState: i.ToCertificateAuthorityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityOutput) ElementType() reflect.Type {
@@ -452,6 +464,12 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutput() CertificateAu
 
 func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx context.Context) CertificateAuthorityOutput {
 	return o
+}
+
+func (o CertificateAuthorityOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthority] {
+	return pulumix.Output[*CertificateAuthority]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the certificate authority.
@@ -518,13 +536,6 @@ func (o CertificateAuthorityOutput) Serial() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Serial }).(pulumi.StringOutput)
 }
 
-// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-//
-// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-func (o CertificateAuthorityOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
-}
-
 // Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateAuthorityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -559,6 +570,12 @@ func (o CertificateAuthorityArrayOutput) ToCertificateAuthorityArrayOutputWithCo
 	return o
 }
 
+func (o CertificateAuthorityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateAuthority] {
+	return pulumix.Output[[]*CertificateAuthority]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CertificateAuthorityArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateAuthority {
 		return vs[0].([]*CertificateAuthority)[vs[1].(int)]
@@ -577,6 +594,12 @@ func (o CertificateAuthorityMapOutput) ToCertificateAuthorityMapOutput() Certifi
 
 func (o CertificateAuthorityMapOutput) ToCertificateAuthorityMapOutputWithContext(ctx context.Context) CertificateAuthorityMapOutput {
 	return o
+}
+
+func (o CertificateAuthorityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateAuthority] {
+	return pulumix.Output[map[string]*CertificateAuthority]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateAuthorityMapOutput) MapIndex(k pulumi.StringInput) CertificateAuthorityOutput {

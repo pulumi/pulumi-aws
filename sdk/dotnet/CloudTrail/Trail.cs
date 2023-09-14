@@ -30,21 +30,25 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var fooBucketV2 = new Aws.S3.BucketV2("fooBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
     ///     {
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var foobar = new Aws.CloudTrail.Trail("foobar", new()
+    ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
     ///     {
-    ///         S3BucketName = fooBucketV2.Id,
+    ///         S3BucketName = exampleBucketV2.Id,
     ///         S3KeyPrefix = "prefix",
     ///         IncludeGlobalServiceEvents = false,
     ///     });
     /// 
-    ///     var fooPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -69,7 +73,19 @@ namespace Pulumi.Aws.CloudTrail
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     fooBucketV2.Arn,
+    ///                     exampleBucketV2.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -93,7 +109,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{fooBucketV2.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
+    ///                     $"{exampleBucketV2.Arn}/prefix/AWSLogs/{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -106,15 +122,24 @@ namespace Pulumi.Aws.CloudTrail
     ///                             "bucket-owner-full-control",
     ///                         },
     ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var fooBucketPolicy = new Aws.S3.BucketPolicy("fooBucketPolicy", new()
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
     ///     {
-    ///         Bucket = fooBucketV2.Id,
-    ///         Policy = fooPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
@@ -258,7 +283,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// ## Import
     /// 
-    /// Cloudtrails can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import Cloudtrails using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
@@ -353,6 +378,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("s3BucketName")]
         public Output<string> S3BucketName { get; private set; } = null!;
@@ -519,6 +546,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
@@ -659,6 +688,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }

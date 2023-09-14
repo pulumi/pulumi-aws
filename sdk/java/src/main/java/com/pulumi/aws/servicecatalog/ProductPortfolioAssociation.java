@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
@@ -91,12 +91,16 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
     /**
      * Product identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
     /**
      * @return Product identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> productId() {

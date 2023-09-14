@@ -137,11 +137,11 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-        ```
+         to = aws_cognito_identity_pool_roles_attachment.example
+
+         id = "us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42" } Using `TODO import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleconsole % TODO import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +160,11 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-        ```
+         to = aws_cognito_identity_pool_roles_attachment.example
+
+         id = "us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42" } Using `TODO import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleconsole % TODO import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolRoleAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Code Images can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/image:Image test_image my-code-repo

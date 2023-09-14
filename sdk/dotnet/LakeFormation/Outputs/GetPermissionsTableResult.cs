@@ -19,6 +19,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         public readonly string CatalogId;
         /// <summary>
         /// Name of the database for the table. Unique to a Data Catalog.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>

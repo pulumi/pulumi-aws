@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupDataLakeSettings(ctx *pulumi.Context, args *LookupDataLakeSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataLakeSettingsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataLakeSettingsResult
 	err := ctx.Invoke("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args, &rv, opts...)
 	if err != nil {
@@ -69,6 +72,8 @@ type LookupDataLakeSettingsResult struct {
 	ExternalDataFilteringAllowLists []string `pulumi:"externalDataFilteringAllowLists"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
 }
@@ -109,6 +114,12 @@ func (o LookupDataLakeSettingsResultOutput) ToLookupDataLakeSettingsResultOutput
 
 func (o LookupDataLakeSettingsResultOutput) ToLookupDataLakeSettingsResultOutputWithContext(ctx context.Context) LookupDataLakeSettingsResultOutput {
 	return o
+}
+
+func (o LookupDataLakeSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataLakeSettingsResult] {
+	return pulumix.Output[LookupDataLakeSettingsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of ARNs of AWS Lake Formation principals (IAM users or roles).
@@ -152,6 +163,11 @@ func (o LookupDataLakeSettingsResultOutput) ExternalDataFilteringAllowLists() pu
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDataLakeSettingsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+func (o LookupDataLakeSettingsResultOutput) ReadOnlyAdmins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) []string { return v.ReadOnlyAdmins }).(pulumi.StringArrayOutput)
 }
 
 // List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).

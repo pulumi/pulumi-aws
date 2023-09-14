@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Default Network ACLs can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Default Network ACLs using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
@@ -133,12 +133,16 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="defaultNetworkAclId", refs={String.class}, tree="[0]")
     private Output<String> defaultNetworkAclId;
 
     /**
      * @return Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> defaultNetworkAclId() {

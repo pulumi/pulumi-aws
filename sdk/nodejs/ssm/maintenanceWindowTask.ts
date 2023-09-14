@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS Maintenance Window Task can be imported using the `window_id` and `window_task_id` separated by `/`.
+ * Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>

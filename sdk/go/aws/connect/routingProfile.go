@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Routing Profile resource. For more information see
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +63,7 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -85,8 +87,6 @@ type RoutingProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayOutput `pulumi:"queueConfigs"`
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayOutput `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -115,6 +115,7 @@ func NewRoutingProfile(ctx *pulumi.Context,
 	if args.MediaConcurrencies == nil {
 		return nil, errors.New("invalid value for required argument 'MediaConcurrencies'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingProfile
 	err := ctx.RegisterResource("aws:connect/routingProfile:RoutingProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -151,8 +152,6 @@ type routingProfileState struct {
 	Name *string `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds []RoutingProfileQueueConfigsAssociated `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -177,8 +176,6 @@ type RoutingProfileState struct {
 	Name pulumi.StringPtrInput
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayInput
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayInput
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringPtrInput
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -252,6 +249,12 @@ func (i *RoutingProfile) ToRoutingProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileOutput)
 }
 
+func (i *RoutingProfile) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfile] {
+	return pulumix.Output[*RoutingProfile]{
+		OutputState: i.ToRoutingProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RoutingProfileArrayInput is an input type that accepts RoutingProfileArray and RoutingProfileArrayOutput values.
 // You can construct a concrete instance of `RoutingProfileArrayInput` via:
 //
@@ -275,6 +278,12 @@ func (i RoutingProfileArray) ToRoutingProfileArrayOutput() RoutingProfileArrayOu
 
 func (i RoutingProfileArray) ToRoutingProfileArrayOutputWithContext(ctx context.Context) RoutingProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileArrayOutput)
+}
+
+func (i RoutingProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingProfile] {
+	return pulumix.Output[[]*RoutingProfile]{
+		OutputState: i.ToRoutingProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RoutingProfileMapInput is an input type that accepts RoutingProfileMap and RoutingProfileMapOutput values.
@@ -302,6 +311,12 @@ func (i RoutingProfileMap) ToRoutingProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileMapOutput)
 }
 
+func (i RoutingProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingProfile] {
+	return pulumix.Output[map[string]*RoutingProfile]{
+		OutputState: i.ToRoutingProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RoutingProfileOutput struct{ *pulumi.OutputState }
 
 func (RoutingProfileOutput) ElementType() reflect.Type {
@@ -314,6 +329,12 @@ func (o RoutingProfileOutput) ToRoutingProfileOutput() RoutingProfileOutput {
 
 func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Context) RoutingProfileOutput {
 	return o
+}
+
+func (o RoutingProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfile] {
+	return pulumix.Output[*RoutingProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Routing Profile.
@@ -351,13 +372,6 @@ func (o RoutingProfileOutput) QueueConfigs() RoutingProfileQueueConfigArrayOutpu
 	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigArrayOutput { return v.QueueConfigs }).(RoutingProfileQueueConfigArrayOutput)
 }
 
-// Deprecated: Use the queue_configs instead
-func (o RoutingProfileOutput) QueueConfigsAssociateds() RoutingProfileQueueConfigsAssociatedArrayOutput {
-	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigsAssociatedArrayOutput {
-		return v.QueueConfigsAssociateds
-	}).(RoutingProfileQueueConfigsAssociatedArrayOutput)
-}
-
 // The identifier for the Routing Profile.
 func (o RoutingProfileOutput) RoutingProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.RoutingProfileId }).(pulumi.StringOutput)
@@ -388,6 +402,12 @@ func (o RoutingProfileArrayOutput) ToRoutingProfileArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o RoutingProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingProfile] {
+	return pulumix.Output[[]*RoutingProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RoutingProfileArrayOutput) Index(i pulumi.IntInput) RoutingProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoutingProfile {
 		return vs[0].([]*RoutingProfile)[vs[1].(int)]
@@ -406,6 +426,12 @@ func (o RoutingProfileMapOutput) ToRoutingProfileMapOutput() RoutingProfileMapOu
 
 func (o RoutingProfileMapOutput) ToRoutingProfileMapOutputWithContext(ctx context.Context) RoutingProfileMapOutput {
 	return o
+}
+
+func (o RoutingProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingProfile] {
+	return pulumix.Output[map[string]*RoutingProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoutingProfileMapOutput) MapIndex(k pulumi.StringInput) RoutingProfileOutput {

@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_kendra_faq` can be imported using the unique identifiers of the FAQ and index separated by a slash (`/`), e.g.,
+ * Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
  *
  * ```sh
  *  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
@@ -140,6 +140,8 @@ export class Faq extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
+     *
+     * The `s3Path` configuration block supports the following arguments:
      */
     public readonly s3Path!: pulumi.Output<outputs.kendra.FaqS3Path>;
     /**
@@ -265,6 +267,8 @@ export interface FaqState {
     roleArn?: pulumi.Input<string>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
+     *
+     * The `s3Path` configuration block supports the following arguments:
      */
     s3Path?: pulumi.Input<inputs.kendra.FaqS3Path>;
     /**
@@ -315,6 +319,8 @@ export interface FaqArgs {
     roleArn: pulumi.Input<string>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
+     *
+     * The `s3Path` configuration block supports the following arguments:
      */
     s3Path: pulumi.Input<inputs.kendra.FaqS3Path>;
     /**

@@ -156,12 +156,16 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Connect peer address.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="peerAddress")
     private @Nullable Output<String> peerAddress;
 
     /**
      * @return The Connect peer address.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> peerAddress() {
@@ -459,6 +463,8 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param peerAddress The Connect peer address.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -469,6 +475,8 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param peerAddress The Connect peer address.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

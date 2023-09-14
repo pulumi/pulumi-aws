@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +57,7 @@ import (
 //
 // ```
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("aws:ebs/getSnapshot:getSnapshot", args, &rv, opts...)
 	if err != nil {
@@ -168,6 +171,12 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutput() LookupSnapsho
 
 func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx context.Context) LookupSnapshotResultOutput {
 	return o
+}
+
+func (o LookupSnapshotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSnapshotResult] {
+	return pulumix.Output[LookupSnapshotResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the EBS Snapshot.

@@ -294,13 +294,11 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Import
 
-        EBS Volume Attachments can be imported using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`, e.g.,
+        Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
 
         ```sh
          $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
         ```
-
-         [1]https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names [2]https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names [3]https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,13 +354,11 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Import
 
-        EBS Volume Attachments can be imported using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`, e.g.,
+        Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
 
         ```sh
          $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
         ```
-
-         [1]https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names [2]https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names [3]https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html
 
         :param str resource_name: The name of the resource.
         :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.

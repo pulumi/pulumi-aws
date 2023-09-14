@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2
     ///     var lb = new Aws.Ec2.Eip("lb", new()
     ///     {
     ///         Instance = aws_instance.Web.Id,
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///     });
     /// 
     /// });
@@ -57,14 +57,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var one = new Aws.Ec2.Eip("one", new()
     ///     {
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///         NetworkInterface = multi_ip.Id,
     ///         AssociateWithPrivateIp = "10.0.0.10",
     ///     });
     /// 
     ///     var two = new Aws.Ec2.Eip("two", new()
     ///     {
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///         NetworkInterface = multi_ip.Id,
     ///         AssociateWithPrivateIp = "10.0.0.11",
     ///     });
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var bar = new Aws.Ec2.Eip("bar", new()
     ///     {
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///         Instance = foo.Id,
     ///         AssociateWithPrivateIp = "10.0.0.12",
     ///     }, new CustomResourceOptions
@@ -140,8 +140,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var byoip_ip = new Aws.Ec2.Eip("byoip-ip", new()
     ///     {
+    ///         Domain = "vpc",
     ///         PublicIpv4Pool = "ipv4pool-ec2-012345",
-    ///         Vpc = true,
     ///     });
     /// 
     /// });
@@ -149,16 +149,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// EIPs in a VPC can be imported using their Allocation ID, e.g.,
+    /// Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-    /// ```
-    /// 
-    ///  EIPs in EC2-Classic can be imported using their Public IP, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/eip:Eip")]
@@ -207,7 +201,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+        /// Indicates if this EIP is for use in VPC (`vpc`).
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
@@ -274,8 +268,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean if the EIP is in a VPC or not.
+        /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
         /// Defaults to `true` unless the region supports EC2-Classic.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
+        /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Output("vpc")]
         public Output<bool> Vpc { get; private set; } = null!;
@@ -345,6 +344,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
+        /// Indicates if this EIP is for use in VPC (`vpc`).
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
         /// EC2 instance ID.
         /// </summary>
         [Input("instance")]
@@ -382,8 +387,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Boolean if the EIP is in a VPC or not.
+        /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
         /// Defaults to `true` unless the region supports EC2-Classic.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
+        /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }
@@ -439,7 +449,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
-        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+        /// Indicates if this EIP is for use in VPC (`vpc`).
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
@@ -518,8 +528,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Boolean if the EIP is in a VPC or not.
+        /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
         /// Defaults to `true` unless the region supports EC2-Classic.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
+        /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }

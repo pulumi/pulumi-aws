@@ -81,6 +81,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the domain list.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallDomainListId", required: true)]
         public string FirewallDomainListId { get; set; } = null!;
@@ -95,6 +97,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the domain list.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallDomainListId", required: true)]
         public Input<string> FirewallDomainListId { get; set; } = null!;

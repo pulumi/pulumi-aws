@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+ * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:applicationinsights/application:Application some some-application
@@ -91,6 +91,8 @@ export class Application extends pulumi.CustomResource {
     public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the resource group.
+     *
+     * The following arguments are optional:
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -180,6 +182,8 @@ export interface ApplicationState {
     opsItemSnsTopicArn?: pulumi.Input<string>;
     /**
      * Name of the resource group.
+     *
+     * The following arguments are optional:
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -222,6 +226,8 @@ export interface ApplicationArgs {
     opsItemSnsTopicArn?: pulumi.Input<string>;
     /**
      * Name of the resource group.
+     *
+     * The following arguments are optional:
      */
     resourceGroupName: pulumi.Input<string>;
     /**

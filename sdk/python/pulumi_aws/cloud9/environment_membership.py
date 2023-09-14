@@ -164,11 +164,11 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Import
 
-        Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
+        In TODO v1.5.0 and later, use an `import` block to import Cloud9 environment membership using the `environment-id#user-arn`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-        ```
+         to = aws_cloud9_environment_membership.test
+
+         id = "environment-id#user-arn" } Using `TODO import`, import Cloud9 environment membership using the `environment-id#user-arn`. For exampleconsole % TODO import aws_cloud9_environment_membership.test environment-id#user-arn
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,11 +201,11 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Import
 
-        Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
+        In TODO v1.5.0 and later, use an `import` block to import Cloud9 environment membership using the `environment-id#user-arn`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-        ```
+         to = aws_cloud9_environment_membership.test
+
+         id = "environment-id#user-arn" } Using `TODO import`, import Cloud9 environment membership using the `environment-id#user-arn`. For exampleconsole % TODO import aws_cloud9_environment_membership.test environment-id#user-arn
 
         :param str resource_name: The name of the resource.
         :param EnvironmentMembershipArgs args: The arguments to use to populate this resource's properties.

@@ -295,7 +295,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+ * Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
@@ -467,16 +467,20 @@ public class DataSet extends com.pulumi.resources.CustomResource {
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="physicalTableMaps", refs={List.class,DataSetPhysicalTableMap.class}, tree="[0,1]")
-    private Output<List<DataSetPhysicalTableMap>> physicalTableMaps;
+    private Output</* @Nullable */ List<DataSetPhysicalTableMap>> physicalTableMaps;
 
     /**
      * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      * 
+     * The following arguments are optional:
+     * 
      */
-    public Output<List<DataSetPhysicalTableMap>> physicalTableMaps() {
-        return this.physicalTableMaps;
+    public Output<Optional<List<DataSetPhysicalTableMap>>> physicalTableMaps() {
+        return Codegen.optional(this.physicalTableMaps);
     }
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.

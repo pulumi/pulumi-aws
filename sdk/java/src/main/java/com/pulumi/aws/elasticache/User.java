@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache users can be imported using the `user_id`, e.g.,
+ * Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:elasticache/user:User my_user userId1
@@ -261,12 +261,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * The username of the user.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
      * @return The username of the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {

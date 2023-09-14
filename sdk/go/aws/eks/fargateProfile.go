@@ -8,12 +8,57 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EKS Fargate Profile.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			var splat0 []interface{}
+//			for _, val0 := range aws_subnet.Example {
+//				splat0 = append(splat0, val0.Id)
+//			}
+//			_, err := eks.NewFargateProfile(ctx, "example", &eks.FargateProfileArgs{
+//				ClusterName:         pulumi.Any(aws_eks_cluster.Example.Name),
+//				PodExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				SubnetIds:           toPulumiAnyArray(splat0),
+//				Selectors: eks.FargateProfileSelectorArray{
+//					&eks.FargateProfileSelectorArgs{
+//						Namespace: pulumi.String("example"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
+//		var pulumiArr pulumi.AnyArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.Any(v))
+//		}
+//		return pulumiArr
+//	}
+//
+// ```
 // ### Example IAM Role for EKS Fargate Profile
 //
 // ```go
@@ -23,7 +68,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,7 +112,7 @@ import (
 //
 // ## Import
 //
-// EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -90,6 +135,8 @@ type FargateProfile struct {
 	// Status of the EKS Fargate Profile.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -113,6 +160,7 @@ func NewFargateProfile(ctx *pulumi.Context,
 	if args.Selectors == nil {
 		return nil, errors.New("invalid value for required argument 'Selectors'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FargateProfile
 	err := ctx.RegisterResource("aws:eks/fargateProfile:FargateProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -148,6 +196,8 @@ type fargateProfileState struct {
 	// Status of the EKS Fargate Profile.
 	Status *string `pulumi:"status"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -169,6 +219,8 @@ type FargateProfileState struct {
 	// Status of the EKS Fargate Profile.
 	Status pulumi.StringPtrInput
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -190,6 +242,8 @@ type fargateProfileArgs struct {
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -206,6 +260,8 @@ type FargateProfileArgs struct {
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayInput
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -234,6 +290,12 @@ func (i *FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileOutput)
 }
 
+func (i *FargateProfile) ToOutput(ctx context.Context) pulumix.Output[*FargateProfile] {
+	return pulumix.Output[*FargateProfile]{
+		OutputState: i.ToFargateProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FargateProfileArrayInput is an input type that accepts FargateProfileArray and FargateProfileArrayOutput values.
 // You can construct a concrete instance of `FargateProfileArrayInput` via:
 //
@@ -257,6 +319,12 @@ func (i FargateProfileArray) ToFargateProfileArrayOutput() FargateProfileArrayOu
 
 func (i FargateProfileArray) ToFargateProfileArrayOutputWithContext(ctx context.Context) FargateProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileArrayOutput)
+}
+
+func (i FargateProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*FargateProfile] {
+	return pulumix.Output[[]*FargateProfile]{
+		OutputState: i.ToFargateProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FargateProfileMapInput is an input type that accepts FargateProfileMap and FargateProfileMapOutput values.
@@ -284,6 +352,12 @@ func (i FargateProfileMap) ToFargateProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileMapOutput)
 }
 
+func (i FargateProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FargateProfile] {
+	return pulumix.Output[map[string]*FargateProfile]{
+		OutputState: i.ToFargateProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FargateProfileOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileOutput) ElementType() reflect.Type {
@@ -296,6 +370,12 @@ func (o FargateProfileOutput) ToFargateProfileOutput() FargateProfileOutput {
 
 func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput {
 	return o
+}
+
+func (o FargateProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*FargateProfile] {
+	return pulumix.Output[*FargateProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the EKS Fargate Profile.
@@ -329,6 +409,8 @@ func (o FargateProfileOutput) Status() pulumi.StringOutput {
 }
 
 // Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+//
+// The following arguments are optional:
 func (o FargateProfileOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -357,6 +439,12 @@ func (o FargateProfileArrayOutput) ToFargateProfileArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o FargateProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FargateProfile] {
+	return pulumix.Output[[]*FargateProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FargateProfileArrayOutput) Index(i pulumi.IntInput) FargateProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FargateProfile {
 		return vs[0].([]*FargateProfile)[vs[1].(int)]
@@ -375,6 +463,12 @@ func (o FargateProfileMapOutput) ToFargateProfileMapOutput() FargateProfileMapOu
 
 func (o FargateProfileMapOutput) ToFargateProfileMapOutputWithContext(ctx context.Context) FargateProfileMapOutput {
 	return o
+}
+
+func (o FargateProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FargateProfile] {
+	return pulumix.Output[map[string]*FargateProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FargateProfileMapOutput) MapIndex(k pulumi.StringInput) FargateProfileOutput {

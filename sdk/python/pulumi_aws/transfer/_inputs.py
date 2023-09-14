@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'AccessHomeDirectoryMappingArgs',
     'AccessPosixProfileArgs',
+    'ConnectorAs2ConfigArgs',
     'ServerEndpointDetailsArgs',
     'ServerProtocolDetailsArgs',
     'ServerWorkflowDetailsArgs',
@@ -135,6 +136,135 @@ class AccessPosixProfileArgs:
     @secondary_gids.setter
     def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "secondary_gids", value)
+
+
+@pulumi.input_type
+class ConnectorAs2ConfigArgs:
+    def __init__(__self__, *,
+                 compression: pulumi.Input[str],
+                 encryption_algorithm: pulumi.Input[str],
+                 local_profile_id: pulumi.Input[str],
+                 mdn_response: pulumi.Input[str],
+                 partner_profile_id: pulumi.Input[str],
+                 signing_algorithm: pulumi.Input[str],
+                 mdn_signing_algorithm: Optional[pulumi.Input[str]] = None,
+                 message_subject: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] compression: Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+        :param pulumi.Input[str] encryption_algorithm: The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+        :param pulumi.Input[str] local_profile_id: The unique identifier for the AS2 local profile.
+        :param pulumi.Input[str] mdn_response: Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+        :param pulumi.Input[str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[str] signing_algorithm: The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+        :param pulumi.Input[str] mdn_signing_algorithm: The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+        :param pulumi.Input[str] message_subject: Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+        """
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        pulumi.set(__self__, "local_profile_id", local_profile_id)
+        pulumi.set(__self__, "mdn_response", mdn_response)
+        pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+        if mdn_signing_algorithm is not None:
+            pulumi.set(__self__, "mdn_signing_algorithm", mdn_signing_algorithm)
+        if message_subject is not None:
+            pulumi.set(__self__, "message_subject", message_subject)
+
+    @property
+    @pulumi.getter
+    def compression(self) -> pulumi.Input[str]:
+        """
+        Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+        """
+        return pulumi.get(self, "compression")
+
+    @compression.setter
+    def compression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compression", value)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> pulumi.Input[str]:
+        """
+        The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="localProfileId")
+    def local_profile_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the AS2 local profile.
+        """
+        return pulumi.get(self, "local_profile_id")
+
+    @local_profile_id.setter
+    def local_profile_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "local_profile_id", value)
+
+    @property
+    @pulumi.getter(name="mdnResponse")
+    def mdn_response(self) -> pulumi.Input[str]:
+        """
+        Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+        """
+        return pulumi.get(self, "mdn_response")
+
+    @mdn_response.setter
+    def mdn_response(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mdn_response", value)
+
+    @property
+    @pulumi.getter(name="partnerProfileId")
+    def partner_profile_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the AS2 partner profile.
+        """
+        return pulumi.get(self, "partner_profile_id")
+
+    @partner_profile_id.setter
+    def partner_profile_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partner_profile_id", value)
+
+    @property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> pulumi.Input[str]:
+        """
+        The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+    @signing_algorithm.setter
+    def signing_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signing_algorithm", value)
+
+    @property
+    @pulumi.getter(name="mdnSigningAlgorithm")
+    def mdn_signing_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+        """
+        return pulumi.get(self, "mdn_signing_algorithm")
+
+    @mdn_signing_algorithm.setter
+    def mdn_signing_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mdn_signing_algorithm", value)
+
+    @property
+    @pulumi.getter(name="messageSubject")
+    def message_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+        """
+        return pulumi.get(self, "message_subject")
+
+    @message_subject.setter
+    def message_subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_subject", value)
 
 
 @pulumi.input_type
@@ -416,6 +546,12 @@ class UserHomeDirectoryMappingArgs:
         """
         :param pulumi.Input[str] entry: Represents an entry and a target.
         :param pulumi.Input[str] target: Represents the map target.
+               
+               The `Restricted` option is achieved using the following mapping:
+               
+               ```python
+               import pulumi
+               ```
         """
         pulumi.set(__self__, "entry", entry)
         pulumi.set(__self__, "target", target)
@@ -437,6 +573,12 @@ class UserHomeDirectoryMappingArgs:
     def target(self) -> pulumi.Input[str]:
         """
         Represents the map target.
+
+        The `Restricted` option is achieved using the following mapping:
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "target")
 

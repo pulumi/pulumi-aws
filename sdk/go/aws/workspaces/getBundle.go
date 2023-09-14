@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about an AWS WorkSpaces bundle.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +67,7 @@ import (
 //
 // ```
 func GetBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOption) (*GetBundleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBundleResult
 	err := ctx.Invoke("aws:workspaces/getBundle:getBundle", args, &rv, opts...)
 	if err != nil {
@@ -143,6 +146,12 @@ func (o GetBundleResultOutput) ToGetBundleResultOutput() GetBundleResultOutput {
 
 func (o GetBundleResultOutput) ToGetBundleResultOutputWithContext(ctx context.Context) GetBundleResultOutput {
 	return o
+}
+
+func (o GetBundleResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBundleResult] {
+	return pulumix.Output[GetBundleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the bundle.

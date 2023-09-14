@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// he name (or ARN) of the Lambda function.
+        /// The name (or ARN) of the Lambda function.
         /// </summary>
         [Input("functionName", required: true)]
         public string FunctionName { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// he name (or ARN) of the Lambda function.
+        /// The name (or ARN) of the Lambda function.
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;

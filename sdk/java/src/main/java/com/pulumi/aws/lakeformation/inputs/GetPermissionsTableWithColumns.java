@@ -79,12 +79,16 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
     /**
      * Name of the table resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
      * @return Name of the table resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {
@@ -201,6 +205,8 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
 
         /**
          * @param name Name of the table resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

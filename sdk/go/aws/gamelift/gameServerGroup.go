@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an GameLift Game Server Group resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +64,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,8 +125,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -178,13 +180,11 @@ import (
 //
 // ## Import
 //
-// GameLift Game Server Group can be imported using the `name`, e.g.
+// In TODO v1.5.0 and later, use an `import` block to import GameLift Game Server Group using the `name`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_gamelift_game_server_group.example
 //
-//	$ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
-//
-// ```
+//	id = "example" } Using `TODO import`, import GameLift Game Server Group using the `name`. For exampleconsole % TODO import aws_gamelift_game_server_group.example example
 type GameServerGroup struct {
 	pulumi.CustomResourceState
 
@@ -249,6 +249,7 @@ func NewGameServerGroup(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GameServerGroup
 	err := ctx.RegisterResource("aws:gamelift/gameServerGroup:GameServerGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -436,6 +437,12 @@ func (i *GameServerGroup) ToGameServerGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupOutput)
 }
 
+func (i *GameServerGroup) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroup] {
+	return pulumix.Output[*GameServerGroup]{
+		OutputState: i.ToGameServerGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GameServerGroupArrayInput is an input type that accepts GameServerGroupArray and GameServerGroupArrayOutput values.
 // You can construct a concrete instance of `GameServerGroupArrayInput` via:
 //
@@ -459,6 +466,12 @@ func (i GameServerGroupArray) ToGameServerGroupArrayOutput() GameServerGroupArra
 
 func (i GameServerGroupArray) ToGameServerGroupArrayOutputWithContext(ctx context.Context) GameServerGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupArrayOutput)
+}
+
+func (i GameServerGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*GameServerGroup] {
+	return pulumix.Output[[]*GameServerGroup]{
+		OutputState: i.ToGameServerGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GameServerGroupMapInput is an input type that accepts GameServerGroupMap and GameServerGroupMapOutput values.
@@ -486,6 +499,12 @@ func (i GameServerGroupMap) ToGameServerGroupMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupMapOutput)
 }
 
+func (i GameServerGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GameServerGroup] {
+	return pulumix.Output[map[string]*GameServerGroup]{
+		OutputState: i.ToGameServerGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GameServerGroupOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupOutput) ElementType() reflect.Type {
@@ -498,6 +517,12 @@ func (o GameServerGroupOutput) ToGameServerGroupOutput() GameServerGroupOutput {
 
 func (o GameServerGroupOutput) ToGameServerGroupOutputWithContext(ctx context.Context) GameServerGroupOutput {
 	return o
+}
+
+func (o GameServerGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroup] {
+	return pulumix.Output[*GameServerGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the GameLift Game Server Group.
@@ -590,6 +615,12 @@ func (o GameServerGroupArrayOutput) ToGameServerGroupArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o GameServerGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GameServerGroup] {
+	return pulumix.Output[[]*GameServerGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GameServerGroupArrayOutput) Index(i pulumi.IntInput) GameServerGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GameServerGroup {
 		return vs[0].([]*GameServerGroup)[vs[1].(int)]
@@ -608,6 +639,12 @@ func (o GameServerGroupMapOutput) ToGameServerGroupMapOutput() GameServerGroupMa
 
 func (o GameServerGroupMapOutput) ToGameServerGroupMapOutputWithContext(ctx context.Context) GameServerGroupMapOutput {
 	return o
+}
+
+func (o GameServerGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GameServerGroup] {
+	return pulumix.Output[map[string]*GameServerGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GameServerGroupMapOutput) MapIndex(k pulumi.StringInput) GameServerGroupOutput {

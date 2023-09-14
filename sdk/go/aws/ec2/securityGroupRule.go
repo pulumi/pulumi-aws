@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a security group rule resource. Represents a single `ingress` or
@@ -16,8 +18,8 @@ import (
 //
 // > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or
 // `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID.
-// The `awsVpcSecurityGroupEgressRule` and `awsVpcSecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules.
-// You should not use the `awsVpcSecurityGroupEgressRule` and `awsVpcSecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+// The `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules.
+// You should not use the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
 //
 // > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `fromPort` and `toPort` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
 //
@@ -32,7 +34,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +75,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -113,8 +115,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -153,7 +155,27 @@ import (
 //
 // ## Import
 //
-// Security Group Rules can be imported using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (e.g., `cidr_block`) separated by underscores (`_`). All parts are required. Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule. Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
+// __NOTE:__ Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule.
+//
+// Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
+//
+// Import a rule with various IPv4 and IPv6 source CIDR blocks:
+//
+// Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
+//
+// Import a default any/any egress rule to 0.0.0.0/0:
+//
+// Import an egress rule with a prefix list ID destination:
+//
+// Import a rule applicable to all protocols and ports with a security group source:
+//
+// Import a rule that has itself and an IPv6 CIDR block as sources:
+//
+// __Using `pulumi import` to import__ Security Group Rules using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (such as a `cidr_block`) separated by underscores (`_`). All parts are required. For example:
+//
+// __NOTE:__ Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule.
+//
+// Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
 //
 // ```sh
 //
@@ -161,7 +183,7 @@ import (
 //
 // ```
 //
-//	Import a rule with various IPv4 and IPv6 source CIDR blocksconsole
+//	Import a rule with various IPv4 and IPv6 source CIDR blocks:
 //
 // ```sh
 //
@@ -169,7 +191,7 @@ import (
 //
 // ```
 //
-//	Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number, e.g., 92. console
+//	Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
 //
 // ```sh
 //
@@ -177,7 +199,7 @@ import (
 //
 // ```
 //
-//	Import a default any/any egress rule to 0.0.0.0/0console
+//	Import a default any/any egress rule to 0.0.0.0/0:
 //
 // ```sh
 //
@@ -185,7 +207,7 @@ import (
 //
 // ```
 //
-//	Import an egress rule with a prefix list ID destinationconsole
+//	Import an egress rule with a prefix list ID destination:
 //
 // ```sh
 //
@@ -193,7 +215,7 @@ import (
 //
 // ```
 //
-//	Import a rule applicable to all protocols and ports with a security group sourceconsole
+//	Import a rule applicable to all protocols and ports with a security group source:
 //
 // ```sh
 //
@@ -201,7 +223,7 @@ import (
 //
 // ```
 //
-//	Import a rule that has itself and an IPv6 CIDR block as sourcesconsole
+//	Import a rule that has itself and an IPv6 CIDR block as sources:
 //
 // ```sh
 //
@@ -235,6 +257,10 @@ type SecurityGroupRule struct {
 	ToPort pulumi.IntOutput `pulumi:"toPort"`
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -260,6 +286,7 @@ func NewSecurityGroupRule(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupRule
 	err := ctx.RegisterResource("aws:ec2/securityGroupRule:SecurityGroupRule", name, args, &resource, opts...)
 	if err != nil {
@@ -306,6 +333,10 @@ type securityGroupRuleState struct {
 	ToPort *int `pulumi:"toPort"`
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type *string `pulumi:"type"`
 }
 
@@ -334,6 +365,10 @@ type SecurityGroupRuleState struct {
 	ToPort pulumi.IntPtrInput
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringPtrInput
 }
 
@@ -364,6 +399,10 @@ type securityGroupRuleArgs struct {
 	ToPort int `pulumi:"toPort"`
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type string `pulumi:"type"`
 }
 
@@ -391,6 +430,10 @@ type SecurityGroupRuleArgs struct {
 	ToPort pulumi.IntInput
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringInput
 }
 
@@ -415,6 +458,12 @@ func (i *SecurityGroupRule) ToSecurityGroupRuleOutput() SecurityGroupRuleOutput 
 
 func (i *SecurityGroupRule) ToSecurityGroupRuleOutputWithContext(ctx context.Context) SecurityGroupRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupRuleOutput)
+}
+
+func (i *SecurityGroupRule) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupRule] {
+	return pulumix.Output[*SecurityGroupRule]{
+		OutputState: i.ToSecurityGroupRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityGroupRuleArrayInput is an input type that accepts SecurityGroupRuleArray and SecurityGroupRuleArrayOutput values.
@@ -442,6 +491,12 @@ func (i SecurityGroupRuleArray) ToSecurityGroupRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupRuleArrayOutput)
 }
 
+func (i SecurityGroupRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroupRule] {
+	return pulumix.Output[[]*SecurityGroupRule]{
+		OutputState: i.ToSecurityGroupRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityGroupRuleMapInput is an input type that accepts SecurityGroupRuleMap and SecurityGroupRuleMapOutput values.
 // You can construct a concrete instance of `SecurityGroupRuleMapInput` via:
 //
@@ -467,6 +522,12 @@ func (i SecurityGroupRuleMap) ToSecurityGroupRuleMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupRuleMapOutput)
 }
 
+func (i SecurityGroupRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroupRule] {
+	return pulumix.Output[map[string]*SecurityGroupRule]{
+		OutputState: i.ToSecurityGroupRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupRuleOutput) ElementType() reflect.Type {
@@ -479,6 +540,12 @@ func (o SecurityGroupRuleOutput) ToSecurityGroupRuleOutput() SecurityGroupRuleOu
 
 func (o SecurityGroupRuleOutput) ToSecurityGroupRuleOutputWithContext(ctx context.Context) SecurityGroupRuleOutput {
 	return o
+}
+
+func (o SecurityGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupRule] {
+	return pulumix.Output[*SecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
@@ -538,6 +605,10 @@ func (o SecurityGroupRuleOutput) ToPort() pulumi.IntOutput {
 
 // Type of rule being created. Valid options are `ingress` (inbound)
 // or `egress` (outbound).
+//
+// The following arguments are optional:
+//
+// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 func (o SecurityGroupRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -554,6 +625,12 @@ func (o SecurityGroupRuleArrayOutput) ToSecurityGroupRuleArrayOutput() SecurityG
 
 func (o SecurityGroupRuleArrayOutput) ToSecurityGroupRuleArrayOutputWithContext(ctx context.Context) SecurityGroupRuleArrayOutput {
 	return o
+}
+
+func (o SecurityGroupRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroupRule] {
+	return pulumix.Output[[]*SecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityGroupRuleArrayOutput) Index(i pulumi.IntInput) SecurityGroupRuleOutput {
@@ -574,6 +651,12 @@ func (o SecurityGroupRuleMapOutput) ToSecurityGroupRuleMapOutput() SecurityGroup
 
 func (o SecurityGroupRuleMapOutput) ToSecurityGroupRuleMapOutputWithContext(ctx context.Context) SecurityGroupRuleMapOutput {
 	return o
+}
+
+func (o SecurityGroupRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroupRule] {
+	return pulumix.Output[map[string]*SecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityGroupRuleMapOutput) MapIndex(k pulumi.StringInput) SecurityGroupRuleOutput {

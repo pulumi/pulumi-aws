@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about a single RDS Reserved Instance Offering.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func GetReservedInstanceOffering(ctx *pulumi.Context, args *GetReservedInstanceOfferingArgs, opts ...pulumi.InvokeOption) (*GetReservedInstanceOfferingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReservedInstanceOfferingResult
 	err := ctx.Invoke("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args, &rv, opts...)
 	if err != nil {
@@ -125,6 +128,12 @@ func (o GetReservedInstanceOfferingResultOutput) ToGetReservedInstanceOfferingRe
 
 func (o GetReservedInstanceOfferingResultOutput) ToGetReservedInstanceOfferingResultOutputWithContext(ctx context.Context) GetReservedInstanceOfferingResultOutput {
 	return o
+}
+
+func (o GetReservedInstanceOfferingResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetReservedInstanceOfferingResult] {
+	return pulumix.Output[GetReservedInstanceOfferingResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Currency code for the reserved DB instance.

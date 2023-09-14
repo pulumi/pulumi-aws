@@ -35,12 +35,18 @@ public final class GetPublicIpv4PoolsPlainArgs extends com.pulumi.resources.Invo
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
      * @return Map of tags, each pair of which must exactly match a pair on the desired pools.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -95,6 +101,9 @@ public final class GetPublicIpv4PoolsPlainArgs extends com.pulumi.resources.Invo
 
         /**
          * @param tags Map of tags, each pair of which must exactly match a pair on the desired pools.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

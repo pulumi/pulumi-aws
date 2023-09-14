@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Comprehend Document Classifier can be imported using the ARN, e.g.,
+ * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
@@ -175,6 +175,8 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
@@ -183,6 +185,8 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * @return Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

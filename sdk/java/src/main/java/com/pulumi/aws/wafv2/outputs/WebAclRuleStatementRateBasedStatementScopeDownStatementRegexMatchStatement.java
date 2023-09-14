@@ -25,9 +25,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
      */
     private String regexString;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     private List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations;
@@ -48,9 +46,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         return this.regexString;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations() {

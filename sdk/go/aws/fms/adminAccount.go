@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +40,7 @@ import (
 //
 // ## Import
 //
-// Firewall Manager administrator account association can be imported using the account ID, e.g.,
+// Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
 //
 // ```sh
 //
@@ -59,6 +61,7 @@ func NewAdminAccount(ctx *pulumi.Context,
 		args = &AdminAccountArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AdminAccount
 	err := ctx.RegisterResource("aws:fms/adminAccount:AdminAccount", name, args, &resource, opts...)
 	if err != nil {
@@ -128,6 +131,12 @@ func (i *AdminAccount) ToAdminAccountOutputWithContext(ctx context.Context) Admi
 	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountOutput)
 }
 
+func (i *AdminAccount) ToOutput(ctx context.Context) pulumix.Output[*AdminAccount] {
+	return pulumix.Output[*AdminAccount]{
+		OutputState: i.ToAdminAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AdminAccountArrayInput is an input type that accepts AdminAccountArray and AdminAccountArrayOutput values.
 // You can construct a concrete instance of `AdminAccountArrayInput` via:
 //
@@ -151,6 +160,12 @@ func (i AdminAccountArray) ToAdminAccountArrayOutput() AdminAccountArrayOutput {
 
 func (i AdminAccountArray) ToAdminAccountArrayOutputWithContext(ctx context.Context) AdminAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountArrayOutput)
+}
+
+func (i AdminAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*AdminAccount] {
+	return pulumix.Output[[]*AdminAccount]{
+		OutputState: i.ToAdminAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AdminAccountMapInput is an input type that accepts AdminAccountMap and AdminAccountMapOutput values.
@@ -178,6 +193,12 @@ func (i AdminAccountMap) ToAdminAccountMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountMapOutput)
 }
 
+func (i AdminAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdminAccount] {
+	return pulumix.Output[map[string]*AdminAccount]{
+		OutputState: i.ToAdminAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AdminAccountOutput struct{ *pulumi.OutputState }
 
 func (AdminAccountOutput) ElementType() reflect.Type {
@@ -190,6 +211,12 @@ func (o AdminAccountOutput) ToAdminAccountOutput() AdminAccountOutput {
 
 func (o AdminAccountOutput) ToAdminAccountOutputWithContext(ctx context.Context) AdminAccountOutput {
 	return o
+}
+
+func (o AdminAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*AdminAccount] {
+	return pulumix.Output[*AdminAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
@@ -211,6 +238,12 @@ func (o AdminAccountArrayOutput) ToAdminAccountArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o AdminAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AdminAccount] {
+	return pulumix.Output[[]*AdminAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AdminAccountArrayOutput) Index(i pulumi.IntInput) AdminAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdminAccount {
 		return vs[0].([]*AdminAccount)[vs[1].(int)]
@@ -229,6 +262,12 @@ func (o AdminAccountMapOutput) ToAdminAccountMapOutput() AdminAccountMapOutput {
 
 func (o AdminAccountMapOutput) ToAdminAccountMapOutputWithContext(ctx context.Context) AdminAccountMapOutput {
 	return o
+}
+
+func (o AdminAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdminAccount] {
+	return pulumix.Output[map[string]*AdminAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AdminAccountMapOutput) MapIndex(k pulumi.StringInput) AdminAccountOutput {

@@ -100,10 +100,10 @@ def get_resource(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lakeformation/getResource:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        role_arn=__ret__.role_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_resource)

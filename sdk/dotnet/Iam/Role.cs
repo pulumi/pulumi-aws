@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Roles can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import IAM Roles using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iam/role:Role developer developer_name
@@ -294,6 +294,10 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("assumeRolePolicy")]
         public Output<string> AssumeRolePolicy { get; private set; } = null!;
@@ -354,12 +358,6 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Output("permissionsBoundary")]
         public Output<string?> PermissionsBoundary { get; private set; } = null!;
-
-        /// <summary>
-        /// Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-        /// </summary>
-        [Output("roleLastUseds")]
-        public Output<ImmutableArray<Outputs.RoleRoleLastUsed>> RoleLastUseds { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -427,6 +425,10 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("assumeRolePolicy", required: true)]
         public Input<string> AssumeRolePolicy { get; set; } = null!;
@@ -521,6 +523,10 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("assumeRolePolicy")]
         public Input<string>? AssumeRolePolicy { get; set; }
@@ -592,18 +598,6 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("permissionsBoundary")]
         public Input<string>? PermissionsBoundary { get; set; }
-
-        [Input("roleLastUseds")]
-        private InputList<Inputs.RoleRoleLastUsedGetArgs>? _roleLastUseds;
-
-        /// <summary>
-        /// Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-        /// </summary>
-        public InputList<Inputs.RoleRoleLastUsedGetArgs> RoleLastUseds
-        {
-            get => _roleLastUseds ?? (_roleLastUseds = new InputList<Inputs.RoleRoleLastUsedGetArgs>());
-            set => _roleLastUseds = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

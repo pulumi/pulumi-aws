@@ -35,12 +35,16 @@ public final class CellState extends com.pulumi.resources.ResourceArgs {
     /**
      * Unique name describing the cell.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="cellName")
     private @Nullable Output<String> cellName;
 
     /**
      * @return Unique name describing the cell.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> cellName() {
@@ -160,6 +164,8 @@ public final class CellState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param cellName Unique name describing the cell.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -170,6 +176,8 @@ public final class CellState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cellName Unique name describing the cell.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

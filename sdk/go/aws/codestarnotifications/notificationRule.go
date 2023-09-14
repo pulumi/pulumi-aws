@@ -8,20 +8,97 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeStar Notifications Rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarnotifications"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// code, err := codecommit.NewRepository(ctx, "code", &codecommit.RepositoryArgs{
+// RepositoryName: pulumi.String("example-code-repo"),
+// })
+// if err != nil {
+// return err
+// }
+// notif, err := sns.NewTopic(ctx, "notif", nil)
+// if err != nil {
+// return err
+// }
+// notifAccess := notif.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "sns:Publish",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "codestar-notifications.amazonaws.com",
+// },
+// },
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+// Arn: notif.Arn,
+// Policy: notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
+// return &notifAccess.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
+// DetailType: pulumi.String("BASIC"),
+// EventTypeIds: pulumi.StringArray{
+// pulumi.String("codecommit-repository-comments-on-commits"),
+// },
+// Resource: code.Arn,
+// Targets: codestarnotifications.NotificationRuleTargetArray{
+// &codestarnotifications.NotificationRuleTargetArgs{
+// Address: notif.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// CodeStar notification rule can be imported using the ARN, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For exampleterraform import {
 //
-// ```sh
+//	to = aws_codestarnotifications_notification_rule.foo
 //
-//	$ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-//
-// ```
+//	id = "arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b" } Using `TODO import`, import CodeStar notification rule using the ARN. For exampleconsole % TODO import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 type NotificationRule struct {
 	pulumi.CustomResourceState
 
@@ -38,7 +115,7 @@ type NotificationRule struct {
 	Resource pulumi.StringOutput `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -62,6 +139,7 @@ func NewNotificationRule(ctx *pulumi.Context,
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationRule
 	err := ctx.RegisterResource("aws:codestarnotifications/notificationRule:NotificationRule", name, args, &resource, opts...)
 	if err != nil {
@@ -97,7 +175,7 @@ type notificationRuleState struct {
 	Resource *string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -119,7 +197,7 @@ type NotificationRuleState struct {
 	Resource pulumi.StringPtrInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -143,7 +221,7 @@ type notificationRuleArgs struct {
 	Resource string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
@@ -162,7 +240,7 @@ type NotificationRuleArgs struct {
 	Resource pulumi.StringInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayInput
@@ -191,6 +269,12 @@ func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
 }
 
+func (i *NotificationRule) ToOutput(ctx context.Context) pulumix.Output[*NotificationRule] {
+	return pulumix.Output[*NotificationRule]{
+		OutputState: i.ToNotificationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotificationRuleArrayInput is an input type that accepts NotificationRuleArray and NotificationRuleArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleArrayInput` via:
 //
@@ -214,6 +298,12 @@ func (i NotificationRuleArray) ToNotificationRuleArrayOutput() NotificationRuleA
 
 func (i NotificationRuleArray) ToNotificationRuleArrayOutputWithContext(ctx context.Context) NotificationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleArrayOutput)
+}
+
+func (i NotificationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRule] {
+	return pulumix.Output[[]*NotificationRule]{
+		OutputState: i.ToNotificationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NotificationRuleMapInput is an input type that accepts NotificationRuleMap and NotificationRuleMapOutput values.
@@ -241,6 +331,12 @@ func (i NotificationRuleMap) ToNotificationRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleMapOutput)
 }
 
+func (i NotificationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRule] {
+	return pulumix.Output[map[string]*NotificationRule]{
+		OutputState: i.ToNotificationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleOutput) ElementType() reflect.Type {
@@ -253,6 +349,12 @@ func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutpu
 
 func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
 	return o
+}
+
+func (o NotificationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRule] {
+	return pulumix.Output[*NotificationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The codestar notification rule ARN.
@@ -286,7 +388,7 @@ func (o NotificationRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NotificationRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -315,6 +417,12 @@ func (o NotificationRuleArrayOutput) ToNotificationRuleArrayOutputWithContext(ct
 	return o
 }
 
+func (o NotificationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRule] {
+	return pulumix.Output[[]*NotificationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationRuleArrayOutput) Index(i pulumi.IntInput) NotificationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationRule {
 		return vs[0].([]*NotificationRule)[vs[1].(int)]
@@ -333,6 +441,12 @@ func (o NotificationRuleMapOutput) ToNotificationRuleMapOutput() NotificationRul
 
 func (o NotificationRuleMapOutput) ToNotificationRuleMapOutputWithContext(ctx context.Context) NotificationRuleMapOutput {
 	return o
+}
+
+func (o NotificationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRule] {
+	return pulumix.Output[map[string]*NotificationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationRuleMapOutput) MapIndex(k pulumi.StringInput) NotificationRuleOutput {

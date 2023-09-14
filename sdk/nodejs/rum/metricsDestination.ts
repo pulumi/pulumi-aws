@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cloudwatch RUM Metrics Destination can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:rum/metricsDestination:MetricsDestination example example

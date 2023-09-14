@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+    /// Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example

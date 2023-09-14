@@ -182,16 +182,16 @@ def get_job_queue(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts, typ=GetJobQueueResult).value
 
     return AwaitableGetJobQueueResult(
-        arn=__ret__.arn,
-        compute_environment_orders=__ret__.compute_environment_orders,
-        id=__ret__.id,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        scheduling_policy_arn=__ret__.scheduling_policy_arn,
-        state=__ret__.state,
-        status=__ret__.status,
-        status_reason=__ret__.status_reason,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        compute_environment_orders=pulumi.get(__ret__, 'compute_environment_orders'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),
+        state=pulumi.get(__ret__, 'state'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_job_queue)

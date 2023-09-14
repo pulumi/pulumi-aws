@@ -580,7 +580,7 @@ class Resolver(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.,
+        Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
         ```sh
          $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
@@ -711,7 +711,7 @@ class Resolver(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.,
+        Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
         ```sh
          $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField

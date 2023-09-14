@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type FirewallEncryptionConfiguration struct {
 	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
@@ -45,6 +49,12 @@ func (i FirewallEncryptionConfigurationArgs) ToFirewallEncryptionConfigurationOu
 
 func (i FirewallEncryptionConfigurationArgs) ToFirewallEncryptionConfigurationOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallEncryptionConfigurationOutput)
+}
+
+func (i FirewallEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallEncryptionConfiguration] {
+	return pulumix.Output[FirewallEncryptionConfiguration]{
+		OutputState: i.ToFirewallEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FirewallEncryptionConfigurationArgs) ToFirewallEncryptionConfigurationPtrOutput() FirewallEncryptionConfigurationPtrOutput {
@@ -88,6 +98,12 @@ func (i *firewallEncryptionConfigurationPtrType) ToFirewallEncryptionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallEncryptionConfigurationPtrOutput)
 }
 
+func (i *firewallEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallEncryptionConfiguration] {
+	return pulumix.Output[*FirewallEncryptionConfiguration]{
+		OutputState: i.ToFirewallEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirewallEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o FirewallEncryptionConfigurationOutput) ToFirewallEncryptionConfiguration
 	}).(FirewallEncryptionConfigurationPtrOutput)
 }
 
+func (o FirewallEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallEncryptionConfiguration] {
+	return pulumix.Output[FirewallEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
 func (o FirewallEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
@@ -134,6 +156,12 @@ func (o FirewallEncryptionConfigurationPtrOutput) ToFirewallEncryptionConfigurat
 
 func (o FirewallEncryptionConfigurationPtrOutput) ToFirewallEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o FirewallEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallEncryptionConfiguration] {
+	return pulumix.Output[*FirewallEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallEncryptionConfigurationPtrOutput) Elem() FirewallEncryptionConfigurationOutput {
@@ -199,6 +227,12 @@ func (i FirewallFirewallStatusArgs) ToFirewallFirewallStatusOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusOutput)
 }
 
+func (i FirewallFirewallStatusArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallFirewallStatus] {
+	return pulumix.Output[FirewallFirewallStatus]{
+		OutputState: i.ToFirewallFirewallStatusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallFirewallStatusArrayInput is an input type that accepts FirewallFirewallStatusArray and FirewallFirewallStatusArrayOutput values.
 // You can construct a concrete instance of `FirewallFirewallStatusArrayInput` via:
 //
@@ -224,6 +258,12 @@ func (i FirewallFirewallStatusArray) ToFirewallFirewallStatusArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusArrayOutput)
 }
 
+func (i FirewallFirewallStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallFirewallStatus] {
+	return pulumix.Output[[]FirewallFirewallStatus]{
+		OutputState: i.ToFirewallFirewallStatusArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallFirewallStatusOutput struct{ *pulumi.OutputState }
 
 func (FirewallFirewallStatusOutput) ElementType() reflect.Type {
@@ -236,6 +276,12 @@ func (o FirewallFirewallStatusOutput) ToFirewallFirewallStatusOutput() FirewallF
 
 func (o FirewallFirewallStatusOutput) ToFirewallFirewallStatusOutputWithContext(ctx context.Context) FirewallFirewallStatusOutput {
 	return o
+}
+
+func (o FirewallFirewallStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallFirewallStatus] {
+	return pulumix.Output[FirewallFirewallStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of subnets configured for use by the firewall.
@@ -255,6 +301,12 @@ func (o FirewallFirewallStatusArrayOutput) ToFirewallFirewallStatusArrayOutput()
 
 func (o FirewallFirewallStatusArrayOutput) ToFirewallFirewallStatusArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusArrayOutput {
 	return o
+}
+
+func (o FirewallFirewallStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallFirewallStatus] {
+	return pulumix.Output[[]FirewallFirewallStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallFirewallStatusArrayOutput) Index(i pulumi.IntInput) FirewallFirewallStatusOutput {
@@ -300,6 +352,12 @@ func (i FirewallFirewallStatusSyncStateArgs) ToFirewallFirewallStatusSyncStateOu
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateOutput)
 }
 
+func (i FirewallFirewallStatusSyncStateArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallFirewallStatusSyncState] {
+	return pulumix.Output[FirewallFirewallStatusSyncState]{
+		OutputState: i.ToFirewallFirewallStatusSyncStateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallFirewallStatusSyncStateArrayInput is an input type that accepts FirewallFirewallStatusSyncStateArray and FirewallFirewallStatusSyncStateArrayOutput values.
 // You can construct a concrete instance of `FirewallFirewallStatusSyncStateArrayInput` via:
 //
@@ -325,6 +383,12 @@ func (i FirewallFirewallStatusSyncStateArray) ToFirewallFirewallStatusSyncStateA
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateArrayOutput)
 }
 
+func (i FirewallFirewallStatusSyncStateArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallFirewallStatusSyncState] {
+	return pulumix.Output[[]FirewallFirewallStatusSyncState]{
+		OutputState: i.ToFirewallFirewallStatusSyncStateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallFirewallStatusSyncStateOutput struct{ *pulumi.OutputState }
 
 func (FirewallFirewallStatusSyncStateOutput) ElementType() reflect.Type {
@@ -337,6 +401,12 @@ func (o FirewallFirewallStatusSyncStateOutput) ToFirewallFirewallStatusSyncState
 
 func (o FirewallFirewallStatusSyncStateOutput) ToFirewallFirewallStatusSyncStateOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateOutput {
 	return o
+}
+
+func (o FirewallFirewallStatusSyncStateOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallFirewallStatusSyncState] {
+	return pulumix.Output[FirewallFirewallStatusSyncState]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested list describing the attachment status of the firewall's association with a single VPC subnet.
@@ -363,6 +433,12 @@ func (o FirewallFirewallStatusSyncStateArrayOutput) ToFirewallFirewallStatusSync
 
 func (o FirewallFirewallStatusSyncStateArrayOutput) ToFirewallFirewallStatusSyncStateArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateArrayOutput {
 	return o
+}
+
+func (o FirewallFirewallStatusSyncStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallFirewallStatusSyncState] {
+	return pulumix.Output[[]FirewallFirewallStatusSyncState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallFirewallStatusSyncStateArrayOutput) Index(i pulumi.IntInput) FirewallFirewallStatusSyncStateOutput {
@@ -408,6 +484,12 @@ func (i FirewallFirewallStatusSyncStateAttachmentArgs) ToFirewallFirewallStatusS
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateAttachmentOutput)
 }
 
+func (i FirewallFirewallStatusSyncStateAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[FirewallFirewallStatusSyncStateAttachment]{
+		OutputState: i.ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallFirewallStatusSyncStateAttachmentArrayInput is an input type that accepts FirewallFirewallStatusSyncStateAttachmentArray and FirewallFirewallStatusSyncStateAttachmentArrayOutput values.
 // You can construct a concrete instance of `FirewallFirewallStatusSyncStateAttachmentArrayInput` via:
 //
@@ -433,6 +515,12 @@ func (i FirewallFirewallStatusSyncStateAttachmentArray) ToFirewallFirewallStatus
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateAttachmentArrayOutput)
 }
 
+func (i FirewallFirewallStatusSyncStateAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[[]FirewallFirewallStatusSyncStateAttachment]{
+		OutputState: i.ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallFirewallStatusSyncStateAttachmentOutput struct{ *pulumi.OutputState }
 
 func (FirewallFirewallStatusSyncStateAttachmentOutput) ElementType() reflect.Type {
@@ -445,6 +533,12 @@ func (o FirewallFirewallStatusSyncStateAttachmentOutput) ToFirewallFirewallStatu
 
 func (o FirewallFirewallStatusSyncStateAttachmentOutput) ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentOutput {
 	return o
+}
+
+func (o FirewallFirewallStatusSyncStateAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[FirewallFirewallStatusSyncStateAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
@@ -469,6 +563,12 @@ func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) ToFirewallFirewall
 
 func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentArrayOutput {
 	return o
+}
+
+func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[[]FirewallFirewallStatusSyncStateAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) Index(i pulumi.IntInput) FirewallFirewallStatusSyncStateAttachmentOutput {
@@ -514,6 +614,12 @@ func (i FirewallPolicyEncryptionConfigurationArgs) ToFirewallPolicyEncryptionCon
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyEncryptionConfigurationOutput)
 }
 
+func (i FirewallPolicyEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyEncryptionConfiguration] {
+	return pulumix.Output[FirewallPolicyEncryptionConfiguration]{
+		OutputState: i.ToFirewallPolicyEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirewallPolicyEncryptionConfigurationArgs) ToFirewallPolicyEncryptionConfigurationPtrOutput() FirewallPolicyEncryptionConfigurationPtrOutput {
 	return i.ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -555,6 +661,12 @@ func (i *firewallPolicyEncryptionConfigurationPtrType) ToFirewallPolicyEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyEncryptionConfigurationPtrOutput)
 }
 
+func (i *firewallPolicyEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyEncryptionConfiguration] {
+	return pulumix.Output[*FirewallPolicyEncryptionConfiguration]{
+		OutputState: i.ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -579,6 +691,12 @@ func (o FirewallPolicyEncryptionConfigurationOutput) ToFirewallPolicyEncryptionC
 	}).(FirewallPolicyEncryptionConfigurationPtrOutput)
 }
 
+func (o FirewallPolicyEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyEncryptionConfiguration] {
+	return pulumix.Output[FirewallPolicyEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
 func (o FirewallPolicyEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
@@ -601,6 +719,12 @@ func (o FirewallPolicyEncryptionConfigurationPtrOutput) ToFirewallPolicyEncrypti
 
 func (o FirewallPolicyEncryptionConfigurationPtrOutput) ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallPolicyEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o FirewallPolicyEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyEncryptionConfiguration] {
+	return pulumix.Output[*FirewallPolicyEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyEncryptionConfigurationPtrOutput) Elem() FirewallPolicyEncryptionConfigurationOutput {
@@ -634,6 +758,8 @@ func (o FirewallPolicyEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrO
 }
 
 type FirewallPolicyFirewallPolicy struct {
+	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+	PolicyVariables *FirewallPolicyFirewallPolicyPolicyVariables `pulumi:"policyVariables"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
 	StatefulDefaultActions []string `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
@@ -664,6 +790,8 @@ type FirewallPolicyFirewallPolicyInput interface {
 }
 
 type FirewallPolicyFirewallPolicyArgs struct {
+	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+	PolicyVariables FirewallPolicyFirewallPolicyPolicyVariablesPtrInput `pulumi:"policyVariables"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
 	StatefulDefaultActions pulumi.StringArrayInput `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
@@ -692,6 +820,12 @@ func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyOutput()
 
 func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicy] {
+	return pulumix.Output[FirewallPolicyFirewallPolicy]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
@@ -735,6 +869,12 @@ func (i *firewallPolicyFirewallPolicyPtrType) ToFirewallPolicyFirewallPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPtrOutput)
 }
 
+func (i *firewallPolicyFirewallPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicy] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicy]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyOutput) ElementType() reflect.Type {
@@ -757,6 +897,19 @@ func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicy {
 		return &v
 	}).(FirewallPolicyFirewallPolicyPtrOutput)
+}
+
+func (o FirewallPolicyFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicy] {
+	return pulumix.Output[FirewallPolicyFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+func (o FirewallPolicyFirewallPolicyOutput) PolicyVariables() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyPolicyVariables {
+		return v.PolicyVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
 }
 
 // Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
@@ -818,6 +971,12 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) ToFirewallPolicyFirewallPolicyPtr
 	return o
 }
 
+func (o FirewallPolicyFirewallPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicy] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPolicyOutput {
 	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) FirewallPolicyFirewallPolicy {
 		if v != nil {
@@ -826,6 +985,16 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPoli
 		var ret FirewallPolicyFirewallPolicy
 		return ret
 	}).(FirewallPolicyFirewallPolicyOutput)
+}
+
+// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+func (o FirewallPolicyFirewallPolicyPtrOutput) PolicyVariables() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyPolicyVariables {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
 }
 
 // Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
@@ -900,9 +1069,366 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() Fi
 	}).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+type FirewallPolicyFirewallPolicyPolicyVariables struct {
+	RuleVariables []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable `pulumi:"ruleVariables"`
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesArgs and FirewallPolicyFirewallPolicyPolicyVariablesOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesArgs{...}
+type FirewallPolicyFirewallPolicyPolicyVariablesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesOutput() FirewallPolicyFirewallPolicyPolicyVariablesOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesArgs struct {
+	RuleVariables FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput `pulumi:"ruleVariables"`
+}
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesOutput() FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariables] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariables]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesOutput).ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesPtrInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesArgs, FirewallPolicyFirewallPolicyPolicyVariablesPtr and FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesPtrInput` via:
+//
+//	        FirewallPolicyFirewallPolicyPolicyVariablesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyFirewallPolicyPolicyVariablesPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput
+}
+
+type firewallPolicyFirewallPolicyPolicyVariablesPtrType FirewallPolicyFirewallPolicyPolicyVariablesArgs
+
+func FirewallPolicyFirewallPolicyPolicyVariablesPtr(v *FirewallPolicyFirewallPolicyPolicyVariablesArgs) FirewallPolicyFirewallPolicyPolicyVariablesPtrInput {
+	return (*firewallPolicyFirewallPolicyPolicyVariablesPtrType)(v)
+}
+
+func (*firewallPolicyFirewallPolicyPolicyVariablesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (i *firewallPolicyFirewallPolicyPolicyVariablesPtrType) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyFirewallPolicyPolicyVariablesPtrType) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
+}
+
+func (i *firewallPolicyFirewallPolicyPolicyVariablesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicyPolicyVariables] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicyPolicyVariables]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesOutput() FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicyPolicyVariables) *FirewallPolicyFirewallPolicyPolicyVariables {
+		return &v
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariables] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariables]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) RuleVariables() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariables) []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
+		return v.RuleVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicyPolicyVariables] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicyPolicyVariables]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) Elem() FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyPolicyVariables) FirewallPolicyFirewallPolicyPolicyVariables {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyFirewallPolicyPolicyVariables
+		return ret
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesOutput)
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) RuleVariables() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyPolicyVariables) []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
+		if v == nil {
+			return nil
+		}
+		return v.RuleVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable struct {
+	// A configuration block that defines a set of IP addresses. See IP Set below for details.
+	IpSet FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet `pulumi:"ipSet"`
+	// An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
+	Key string `pulumi:"key"`
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs and FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{...}
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs struct {
+	// A configuration block that defines a set of IP addresses. See IP Set below for details.
+	IpSet FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput `pulumi:"ipSet"`
+	// An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray and FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{ FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{...} }
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A configuration block that defines a set of IP addresses. See IP Set below for details.
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) IpSet() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet {
+		return v.IpSet
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput)
+}
+
+// An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) Index(i pulumi.IntInput) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
+		return vs[0].([]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)[vs[1].(int)]
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet struct {
+	// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+	Definitions []string `pulumi:"definitions"`
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs and FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{...}
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs struct {
+	// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+	Definitions pulumi.StringArrayInput `pulumi:"definitions"`
+}
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) Definitions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet) []string { return v.Definitions }).(pulumi.StringArrayOutput)
+}
+
 type FirewallPolicyFirewallPolicyStatefulEngineOptions struct {
 	// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-	RuleOrder string `pulumi:"ruleOrder"`
+	RuleOrder *string `pulumi:"ruleOrder"`
+	// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+	StreamExceptionPolicy *string `pulumi:"streamExceptionPolicy"`
 }
 
 // FirewallPolicyFirewallPolicyStatefulEngineOptionsInput is an input type that accepts FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs and FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput values.
@@ -918,7 +1444,9 @@ type FirewallPolicyFirewallPolicyStatefulEngineOptionsInput interface {
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs struct {
 	// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-	RuleOrder pulumi.StringInput `pulumi:"ruleOrder"`
+	RuleOrder pulumi.StringPtrInput `pulumi:"ruleOrder"`
+	// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+	StreamExceptionPolicy pulumi.StringPtrInput `pulumi:"streamExceptionPolicy"`
 }
 
 func (FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs) ElementType() reflect.Type {
@@ -931,6 +1459,12 @@ func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyF
 
 func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatefulEngineOptions]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatefulEngineOptionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput {
@@ -974,6 +1508,12 @@ func (i *firewallPolicyFirewallPolicyStatefulEngineOptionsPtrType) ToFirewallPol
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+func (i *firewallPolicyFirewallPolicyStatefulEngineOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicyStatefulEngineOptions]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) ElementType() reflect.Type {
@@ -998,9 +1538,20 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolic
 	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatefulEngineOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) RuleOrder() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) string { return v.RuleOrder }).(pulumi.StringOutput)
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) RuleOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) *string { return v.RuleOrder }).(pulumi.StringPtrOutput)
+}
+
+// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) StreamExceptionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) *string { return v.StreamExceptionPolicy }).(pulumi.StringPtrOutput)
 }
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1015,6 +1566,12 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) ToFirewallPo
 
 func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicyStatefulEngineOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) Elem() FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput {
@@ -1033,7 +1590,17 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() 
 		if v == nil {
 			return nil
 		}
-		return &v.RuleOrder
+		return v.RuleOrder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) StreamExceptionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyStatefulEngineOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamExceptionPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1078,6 +1645,12 @@ func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ToFirewallPo
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput is an input type that accepts FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray and FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput` via:
 //
@@ -1103,6 +1676,12 @@ func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray) ToFirewallP
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ElementType() reflect.Type {
@@ -1115,6 +1694,12 @@ func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewall
 
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for override values
@@ -1146,6 +1731,12 @@ func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToFir
 
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
@@ -1185,6 +1776,12 @@ func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ToFi
 
 func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput() FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput {
@@ -1228,6 +1825,12 @@ func (i *firewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput)
 }
 
+func (i *firewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ElementType() reflect.Type {
@@ -1252,6 +1855,12 @@ func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) To
 	}).(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput)
 }
 
+func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride) *string { return v.Action }).(pulumi.StringPtrOutput)
@@ -1269,6 +1878,12 @@ func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput)
 
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput) ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrOutput) Elem() FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
@@ -1328,6 +1943,12 @@ func (i FirewallPolicyFirewallPolicyStatelessCustomActionArgs) ToFirewallPolicyF
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessCustomActionOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessCustomActionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyFirewallPolicyStatelessCustomActionArrayInput is an input type that accepts FirewallPolicyFirewallPolicyStatelessCustomActionArray and FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyFirewallPolicyStatelessCustomActionArrayInput` via:
 //
@@ -1353,6 +1974,12 @@ func (i FirewallPolicyFirewallPolicyStatelessCustomActionArray) ToFirewallPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessCustomActionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatelessCustomActionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatelessCustomActionOutput) ElementType() reflect.Type {
@@ -1365,6 +1992,12 @@ func (o FirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToFirewallPolic
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessCustomActionOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
@@ -1391,6 +2024,12 @@ func (o FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToFirewall
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyFirewallPolicyStatelessCustomActionOutput {
@@ -1432,6 +2071,12 @@ func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ElementType() reflect.Type {
@@ -1444,6 +2089,12 @@ func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput)
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
@@ -1486,6 +2137,12 @@ func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ElementType() reflect.Type {
@@ -1498,6 +2155,12 @@ func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
@@ -1540,6 +2203,12 @@ func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput is an input type that accepts FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray and FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput` via:
 //
@@ -1565,6 +2234,12 @@ func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ElementType() reflect.Type {
@@ -1577,6 +2252,12 @@ func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The string value to use in the custom metric dimension.
@@ -1598,6 +2279,12 @@ func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
@@ -1643,6 +2330,12 @@ func (i FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ToFirewallP
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput is an input type that accepts FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray and FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput` via:
 //
@@ -1668,6 +2361,12 @@ func (i FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray) ToFirewall
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+func (i FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ElementType() reflect.Type {
@@ -1680,6 +2379,12 @@ func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToFirewal
 
 func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
@@ -1704,6 +2409,12 @@ func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToFi
 
 func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
@@ -1749,6 +2460,12 @@ func (i FirewallSubnetMappingArgs) ToFirewallSubnetMappingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallSubnetMappingOutput)
 }
 
+func (i FirewallSubnetMappingArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallSubnetMapping] {
+	return pulumix.Output[FirewallSubnetMapping]{
+		OutputState: i.ToFirewallSubnetMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallSubnetMappingArrayInput is an input type that accepts FirewallSubnetMappingArray and FirewallSubnetMappingArrayOutput values.
 // You can construct a concrete instance of `FirewallSubnetMappingArrayInput` via:
 //
@@ -1774,6 +2491,12 @@ func (i FirewallSubnetMappingArray) ToFirewallSubnetMappingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallSubnetMappingArrayOutput)
 }
 
+func (i FirewallSubnetMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallSubnetMapping] {
+	return pulumix.Output[[]FirewallSubnetMapping]{
+		OutputState: i.ToFirewallSubnetMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallSubnetMappingOutput struct{ *pulumi.OutputState }
 
 func (FirewallSubnetMappingOutput) ElementType() reflect.Type {
@@ -1786,6 +2509,12 @@ func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutput() FirewallSub
 
 func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutputWithContext(ctx context.Context) FirewallSubnetMappingOutput {
 	return o
+}
+
+func (o FirewallSubnetMappingOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallSubnetMapping] {
+	return pulumix.Output[FirewallSubnetMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
@@ -1810,6 +2539,12 @@ func (o FirewallSubnetMappingArrayOutput) ToFirewallSubnetMappingArrayOutput() F
 
 func (o FirewallSubnetMappingArrayOutput) ToFirewallSubnetMappingArrayOutputWithContext(ctx context.Context) FirewallSubnetMappingArrayOutput {
 	return o
+}
+
+func (o FirewallSubnetMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallSubnetMapping] {
+	return pulumix.Output[[]FirewallSubnetMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) FirewallSubnetMappingOutput {
@@ -1849,6 +2584,12 @@ func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLogg
 
 func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationOutput)
+}
+
+func (i LoggingConfigurationLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLoggingConfiguration] {
+	return pulumix.Output[LoggingConfigurationLoggingConfiguration]{
+		OutputState: i.ToLoggingConfigurationLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
@@ -1892,6 +2633,12 @@ func (i *loggingConfigurationLoggingConfigurationPtrType) ToLoggingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationPtrOutput)
 }
 
+func (i *loggingConfigurationLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLoggingConfiguration] {
+	return pulumix.Output[*LoggingConfigurationLoggingConfiguration]{
+		OutputState: i.ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggingConfigurationLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -1916,6 +2663,12 @@ func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLo
 	}).(LoggingConfigurationLoggingConfigurationPtrOutput)
 }
 
+func (o LoggingConfigurationLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLoggingConfiguration] {
+	return pulumix.Output[LoggingConfigurationLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
 func (o LoggingConfigurationLoggingConfigurationOutput) LogDestinationConfigs() LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput {
 	return o.ApplyT(func(v LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLoggingConfigurationLogDestinationConfig {
@@ -1935,6 +2688,12 @@ func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToLoggingConfiguratio
 
 func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLoggingConfiguration] {
+	return pulumix.Output[*LoggingConfigurationLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationLoggingConfigurationPtrOutput) Elem() LoggingConfigurationLoggingConfigurationOutput {
@@ -2004,6 +2763,12 @@ func (i LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs) ToLogg
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput)
 }
 
+func (i LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[LoggingConfigurationLoggingConfigurationLogDestinationConfig]{
+		OutputState: i.ToLoggingConfigurationLoggingConfigurationLogDestinationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayInput is an input type that accepts LoggingConfigurationLoggingConfigurationLogDestinationConfigArray and LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayInput` via:
 //
@@ -2029,6 +2794,12 @@ func (i LoggingConfigurationLoggingConfigurationLogDestinationConfigArray) ToLog
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput)
 }
 
+func (i LoggingConfigurationLoggingConfigurationLogDestinationConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]LoggingConfigurationLoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[[]LoggingConfigurationLoggingConfigurationLogDestinationConfig]{
+		OutputState: i.ToLoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) ElementType() reflect.Type {
@@ -2041,6 +2812,12 @@ func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) ToLo
 
 func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) ToLoggingConfigurationLoggingConfigurationLogDestinationConfigOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput {
 	return o
+}
+
+func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[LoggingConfigurationLoggingConfigurationLogDestinationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map describing the logging destination for the chosen `logDestinationType`.
@@ -2077,6 +2854,12 @@ func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput)
 
 func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput) ToLoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput {
 	return o
+}
+
+func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoggingConfigurationLoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[[]LoggingConfigurationLoggingConfigurationLogDestinationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput {
@@ -2122,6 +2905,12 @@ func (i RuleGroupEncryptionConfigurationArgs) ToRuleGroupEncryptionConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupEncryptionConfigurationOutput)
 }
 
+func (i RuleGroupEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupEncryptionConfiguration] {
+	return pulumix.Output[RuleGroupEncryptionConfiguration]{
+		OutputState: i.ToRuleGroupEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupEncryptionConfigurationArgs) ToRuleGroupEncryptionConfigurationPtrOutput() RuleGroupEncryptionConfigurationPtrOutput {
 	return i.ToRuleGroupEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2163,6 +2952,12 @@ func (i *ruleGroupEncryptionConfigurationPtrType) ToRuleGroupEncryptionConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupEncryptionConfigurationPtrOutput)
 }
 
+func (i *ruleGroupEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupEncryptionConfiguration] {
+	return pulumix.Output[*RuleGroupEncryptionConfiguration]{
+		OutputState: i.ToRuleGroupEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -2187,6 +2982,12 @@ func (o RuleGroupEncryptionConfigurationOutput) ToRuleGroupEncryptionConfigurati
 	}).(RuleGroupEncryptionConfigurationPtrOutput)
 }
 
+func (o RuleGroupEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupEncryptionConfiguration] {
+	return pulumix.Output[RuleGroupEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
 func (o RuleGroupEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
@@ -2209,6 +3010,12 @@ func (o RuleGroupEncryptionConfigurationPtrOutput) ToRuleGroupEncryptionConfigur
 
 func (o RuleGroupEncryptionConfigurationPtrOutput) ToRuleGroupEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o RuleGroupEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupEncryptionConfiguration] {
+	return pulumix.Output[*RuleGroupEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupEncryptionConfigurationPtrOutput) Elem() RuleGroupEncryptionConfigurationOutput {
@@ -2286,6 +3093,12 @@ func (i RuleGroupRuleGroupArgs) ToRuleGroupRuleGroupOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupOutput)
 }
 
+func (i RuleGroupRuleGroupArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroup] {
+	return pulumix.Output[RuleGroupRuleGroup]{
+		OutputState: i.ToRuleGroupRuleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRuleGroupArgs) ToRuleGroupRuleGroupPtrOutput() RuleGroupRuleGroupPtrOutput {
 	return i.ToRuleGroupRuleGroupPtrOutputWithContext(context.Background())
 }
@@ -2327,6 +3140,12 @@ func (i *ruleGroupRuleGroupPtrType) ToRuleGroupRuleGroupPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupPtrOutput)
 }
 
+func (i *ruleGroupRuleGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroup] {
+	return pulumix.Output[*RuleGroupRuleGroup]{
+		OutputState: i.ToRuleGroupRuleGroupPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupOutput) ElementType() reflect.Type {
@@ -2349,6 +3168,12 @@ func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroup) *RuleGroupRuleGroup {
 		return &v
 	}).(RuleGroupRuleGroupPtrOutput)
+}
+
+func (o RuleGroupRuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroup] {
+	return pulumix.Output[RuleGroupRuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
@@ -2383,6 +3208,12 @@ func (o RuleGroupRuleGroupPtrOutput) ToRuleGroupRuleGroupPtrOutput() RuleGroupRu
 
 func (o RuleGroupRuleGroupPtrOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupPtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroup] {
+	return pulumix.Output[*RuleGroupRuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupPtrOutput) Elem() RuleGroupRuleGroupOutput {
@@ -2466,6 +3297,12 @@ func (i RuleGroupRuleGroupReferenceSetsArgs) ToRuleGroupRuleGroupReferenceSetsOu
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsOutput)
 }
 
+func (i RuleGroupRuleGroupReferenceSetsArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupReferenceSets] {
+	return pulumix.Output[RuleGroupRuleGroupReferenceSets]{
+		OutputState: i.ToRuleGroupRuleGroupReferenceSetsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRuleGroupReferenceSetsArgs) ToRuleGroupRuleGroupReferenceSetsPtrOutput() RuleGroupRuleGroupReferenceSetsPtrOutput {
 	return i.ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
 }
@@ -2507,6 +3344,12 @@ func (i *ruleGroupRuleGroupReferenceSetsPtrType) ToRuleGroupRuleGroupReferenceSe
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsPtrOutput)
 }
 
+func (i *ruleGroupRuleGroupReferenceSetsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupReferenceSets] {
+	return pulumix.Output[*RuleGroupRuleGroupReferenceSets]{
+		OutputState: i.ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupReferenceSetsOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupReferenceSetsOutput) ElementType() reflect.Type {
@@ -2531,6 +3374,12 @@ func (o RuleGroupRuleGroupReferenceSetsOutput) ToRuleGroupRuleGroupReferenceSets
 	}).(RuleGroupRuleGroupReferenceSetsPtrOutput)
 }
 
+func (o RuleGroupRuleGroupReferenceSetsOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupReferenceSets] {
+	return pulumix.Output[RuleGroupRuleGroupReferenceSets]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupRuleGroupReferenceSetsOutput) IpSetReferences() RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSets) []RuleGroupRuleGroupReferenceSetsIpSetReference {
 		return v.IpSetReferences
@@ -2549,6 +3398,12 @@ func (o RuleGroupRuleGroupReferenceSetsPtrOutput) ToRuleGroupRuleGroupReferenceS
 
 func (o RuleGroupRuleGroupReferenceSetsPtrOutput) ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsPtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupReferenceSets] {
+	return pulumix.Output[*RuleGroupRuleGroupReferenceSets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupReferenceSetsPtrOutput) Elem() RuleGroupRuleGroupReferenceSetsOutput {
@@ -2607,6 +3462,12 @@ func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs) ToRuleGroupRuleGroupR
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput)
 }
 
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReference] {
+	return pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReference]{
+		OutputState: i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayInput is an input type that accepts RuleGroupRuleGroupReferenceSetsIpSetReferenceArray and RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayInput` via:
 //
@@ -2632,6 +3493,12 @@ func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArray) ToRuleGroupRuleGroup
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput)
 }
 
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReference] {
+	return pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReference]{
+		OutputState: i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ElementType() reflect.Type {
@@ -2644,6 +3511,12 @@ func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ToRuleGroupRuleGrou
 
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReference] {
+	return pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
@@ -2670,6 +3543,12 @@ func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) ToRuleGroupRul
 
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReference] {
+	return pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput {
@@ -2711,6 +3590,12 @@ func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs) ToRuleG
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput)
 }
 
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference] {
+	return pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference]{
+		OutputState: i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput is an input type that accepts RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray and RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput` via:
 //
@@ -2736,6 +3621,12 @@ func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray) ToRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput)
 }
 
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference] {
+	return pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference]{
+		OutputState: i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ElementType() reflect.Type {
@@ -2748,6 +3639,12 @@ func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ToRul
 
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference] {
+	return pulumix.Output[RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of Managed Prefix IP ARN(s)
@@ -2767,6 +3664,12 @@ func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) 
 
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference] {
+	return pulumix.Output[[]RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput {
@@ -2812,6 +3715,12 @@ func (i RuleGroupRuleGroupRuleVariablesArgs) ToRuleGroupRuleGroupRuleVariablesOu
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesOutput)
 }
 
+func (i RuleGroupRuleGroupRuleVariablesArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariables] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariables]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRuleGroupRuleVariablesArgs) ToRuleGroupRuleGroupRuleVariablesPtrOutput() RuleGroupRuleGroupRuleVariablesPtrOutput {
 	return i.ToRuleGroupRuleGroupRuleVariablesPtrOutputWithContext(context.Background())
 }
@@ -2853,6 +3762,12 @@ func (i *ruleGroupRuleGroupRuleVariablesPtrType) ToRuleGroupRuleGroupRuleVariabl
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesPtrOutput)
 }
 
+func (i *ruleGroupRuleGroupRuleVariablesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRuleVariables] {
+	return pulumix.Output[*RuleGroupRuleGroupRuleVariables]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRuleVariablesOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRuleVariablesOutput) ElementType() reflect.Type {
@@ -2877,6 +3792,12 @@ func (o RuleGroupRuleGroupRuleVariablesOutput) ToRuleGroupRuleGroupRuleVariables
 	}).(RuleGroupRuleGroupRuleVariablesPtrOutput)
 }
 
+func (o RuleGroupRuleGroupRuleVariablesOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariables] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariables]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Set of configuration blocks that define IP address information. See IP Sets below for details.
 func (o RuleGroupRuleGroupRuleVariablesOutput) IpSets() RuleGroupRuleGroupRuleVariablesIpSetArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRuleVariables) []RuleGroupRuleGroupRuleVariablesIpSet { return v.IpSets }).(RuleGroupRuleGroupRuleVariablesIpSetArrayOutput)
@@ -2899,6 +3820,12 @@ func (o RuleGroupRuleGroupRuleVariablesPtrOutput) ToRuleGroupRuleGroupRuleVariab
 
 func (o RuleGroupRuleGroupRuleVariablesPtrOutput) ToRuleGroupRuleGroupRuleVariablesPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesPtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRuleVariablesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRuleVariables] {
+	return pulumix.Output[*RuleGroupRuleGroupRuleVariables]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRuleVariablesPtrOutput) Elem() RuleGroupRuleGroupRuleVariablesOutput {
@@ -2968,6 +3895,12 @@ func (i RuleGroupRuleGroupRuleVariablesIpSetArgs) ToRuleGroupRuleGroupRuleVariab
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesIpSetOutput)
 }
 
+func (i RuleGroupRuleGroupRuleVariablesIpSetArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSet]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesIpSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRuleVariablesIpSetArrayInput is an input type that accepts RuleGroupRuleGroupRuleVariablesIpSetArray and RuleGroupRuleGroupRuleVariablesIpSetArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRuleVariablesIpSetArrayInput` via:
 //
@@ -2993,6 +3926,12 @@ func (i RuleGroupRuleGroupRuleVariablesIpSetArray) ToRuleGroupRuleGroupRuleVaria
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesIpSetArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRuleVariablesIpSetArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRuleVariablesIpSet] {
+	return pulumix.Output[[]RuleGroupRuleGroupRuleVariablesIpSet]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesIpSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRuleVariablesIpSetOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRuleVariablesIpSetOutput) ElementType() reflect.Type {
@@ -3005,6 +3944,12 @@ func (o RuleGroupRuleGroupRuleVariablesIpSetOutput) ToRuleGroupRuleGroupRuleVari
 
 func (o RuleGroupRuleGroupRuleVariablesIpSetOutput) ToRuleGroupRuleGroupRuleVariablesIpSetOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesIpSetOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRuleVariablesIpSetOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block that defines a set of IP addresses. See IP Set below for details.
@@ -3029,6 +3974,12 @@ func (o RuleGroupRuleGroupRuleVariablesIpSetArrayOutput) ToRuleGroupRuleGroupRul
 
 func (o RuleGroupRuleGroupRuleVariablesIpSetArrayOutput) ToRuleGroupRuleGroupRuleVariablesIpSetArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesIpSetArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRuleVariablesIpSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRuleVariablesIpSet] {
+	return pulumix.Output[[]RuleGroupRuleGroupRuleVariablesIpSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRuleVariablesIpSetArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRuleVariablesIpSetOutput {
@@ -3070,6 +4021,12 @@ func (i RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs) ToRuleGroupRuleGroupRuleV
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesIpSetIpSetOutput)
 }
 
+func (i RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSetIpSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSetIpSet]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesIpSetIpSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRuleVariablesIpSetIpSetOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRuleVariablesIpSetIpSetOutput) ElementType() reflect.Type {
@@ -3082,6 +4039,12 @@ func (o RuleGroupRuleGroupRuleVariablesIpSetIpSetOutput) ToRuleGroupRuleGroupRul
 
 func (o RuleGroupRuleGroupRuleVariablesIpSetIpSetOutput) ToRuleGroupRuleGroupRuleVariablesIpSetIpSetOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesIpSetIpSetOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRuleVariablesIpSetIpSetOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSetIpSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesIpSetIpSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of IP addresses and address ranges, in CIDR notation.
@@ -3126,6 +4089,12 @@ func (i RuleGroupRuleGroupRuleVariablesPortSetArgs) ToRuleGroupRuleGroupRuleVari
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesPortSetOutput)
 }
 
+func (i RuleGroupRuleGroupRuleVariablesPortSetArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSet]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesPortSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRuleVariablesPortSetArrayInput is an input type that accepts RuleGroupRuleGroupRuleVariablesPortSetArray and RuleGroupRuleGroupRuleVariablesPortSetArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRuleVariablesPortSetArrayInput` via:
 //
@@ -3151,6 +4120,12 @@ func (i RuleGroupRuleGroupRuleVariablesPortSetArray) ToRuleGroupRuleGroupRuleVar
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesPortSetArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRuleVariablesPortSetArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRuleVariablesPortSet] {
+	return pulumix.Output[[]RuleGroupRuleGroupRuleVariablesPortSet]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesPortSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRuleVariablesPortSetOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRuleVariablesPortSetOutput) ElementType() reflect.Type {
@@ -3163,6 +4138,12 @@ func (o RuleGroupRuleGroupRuleVariablesPortSetOutput) ToRuleGroupRuleGroupRuleVa
 
 func (o RuleGroupRuleGroupRuleVariablesPortSetOutput) ToRuleGroupRuleGroupRuleVariablesPortSetOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesPortSetOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRuleVariablesPortSetOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An unique alphanumeric string to identify the `portSet`.
@@ -3189,6 +4170,12 @@ func (o RuleGroupRuleGroupRuleVariablesPortSetArrayOutput) ToRuleGroupRuleGroupR
 
 func (o RuleGroupRuleGroupRuleVariablesPortSetArrayOutput) ToRuleGroupRuleGroupRuleVariablesPortSetArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesPortSetArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRuleVariablesPortSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRuleVariablesPortSet] {
+	return pulumix.Output[[]RuleGroupRuleGroupRuleVariablesPortSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRuleVariablesPortSetArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRuleVariablesPortSetOutput {
@@ -3230,6 +4217,12 @@ func (i RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs) ToRuleGroupRuleGroupR
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput)
 }
 
+func (i RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSetPortSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSetPortSet]{
+		OutputState: i.ToRuleGroupRuleGroupRuleVariablesPortSetPortSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput) ElementType() reflect.Type {
@@ -3242,6 +4235,12 @@ func (o RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput) ToRuleGroupRuleGrou
 
 func (o RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput) ToRuleGroupRuleGroupRuleVariablesPortSetPortSetOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSetPortSet] {
+	return pulumix.Output[RuleGroupRuleGroupRuleVariablesPortSetPortSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of port ranges.
@@ -3294,6 +4293,12 @@ func (i RuleGroupRuleGroupRulesSourceArgs) ToRuleGroupRuleGroupRulesSourceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSource] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSource]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRuleGroupRulesSourceArgs) ToRuleGroupRuleGroupRulesSourcePtrOutput() RuleGroupRuleGroupRulesSourcePtrOutput {
 	return i.ToRuleGroupRuleGroupRulesSourcePtrOutputWithContext(context.Background())
 }
@@ -3335,6 +4340,12 @@ func (i *ruleGroupRuleGroupRulesSourcePtrType) ToRuleGroupRuleGroupRulesSourcePt
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourcePtrOutput)
 }
 
+func (i *ruleGroupRuleGroupRulesSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRulesSource] {
+	return pulumix.Output[*RuleGroupRuleGroupRulesSource]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceOutput) ElementType() reflect.Type {
@@ -3357,6 +4368,12 @@ func (o RuleGroupRuleGroupRulesSourceOutput) ToRuleGroupRuleGroupRulesSourcePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupRulesSource) *RuleGroupRuleGroupRulesSource {
 		return &v
 	}).(RuleGroupRuleGroupRulesSourcePtrOutput)
+}
+
+func (o RuleGroupRuleGroupRulesSourceOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSource] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
@@ -3397,6 +4414,12 @@ func (o RuleGroupRuleGroupRulesSourcePtrOutput) ToRuleGroupRuleGroupRulesSourceP
 
 func (o RuleGroupRuleGroupRulesSourcePtrOutput) ToRuleGroupRuleGroupRulesSourcePtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourcePtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRulesSource] {
+	return pulumix.Output[*RuleGroupRuleGroupRulesSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourcePtrOutput) Elem() RuleGroupRuleGroupRulesSourceOutput {
@@ -3490,6 +4513,12 @@ func (i RuleGroupRuleGroupRulesSourceRulesSourceListArgs) ToRuleGroupRuleGroupRu
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceRulesSourceListOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceRulesSourceListArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceRulesSourceList] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceRulesSourceList]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceRulesSourceListOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRuleGroupRulesSourceRulesSourceListArgs) ToRuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput() RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput {
 	return i.ToRuleGroupRuleGroupRulesSourceRulesSourceListPtrOutputWithContext(context.Background())
 }
@@ -3531,6 +4560,12 @@ func (i *ruleGroupRuleGroupRulesSourceRulesSourceListPtrType) ToRuleGroupRuleGro
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput)
 }
 
+func (i *ruleGroupRuleGroupRulesSourceRulesSourceListPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRulesSourceRulesSourceList] {
+	return pulumix.Output[*RuleGroupRuleGroupRulesSourceRulesSourceList]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceRulesSourceListPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceRulesSourceListOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceRulesSourceListOutput) ElementType() reflect.Type {
@@ -3553,6 +4588,12 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) ToRuleGroupRuleGroup
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupRulesSourceRulesSourceList) *RuleGroupRuleGroupRulesSourceRulesSourceList {
 		return &v
 	}).(RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput)
+}
+
+func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceRulesSourceList] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceRulesSourceList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
@@ -3582,6 +4623,12 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) ToRuleGroupRuleGr
 
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) ToRuleGroupRuleGroupRulesSourceRulesSourceListPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRulesSourceRulesSourceList] {
+	return pulumix.Output[*RuleGroupRuleGroupRulesSourceRulesSourceList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) Elem() RuleGroupRuleGroupRulesSourceRulesSourceListOutput {
@@ -3625,7 +4672,7 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) Targets() pulumi.
 }
 
 type RuleGroupRuleGroupRulesSourceStatefulRule struct {
-	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
 	Action string `pulumi:"action"`
 	// A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
 	Header RuleGroupRuleGroupRulesSourceStatefulRuleHeader `pulumi:"header"`
@@ -3645,7 +4692,7 @@ type RuleGroupRuleGroupRulesSourceStatefulRuleInput interface {
 }
 
 type RuleGroupRuleGroupRulesSourceStatefulRuleArgs struct {
-	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
 	Header RuleGroupRuleGroupRulesSourceStatefulRuleHeaderInput `pulumi:"header"`
@@ -3663,6 +4710,12 @@ func (i RuleGroupRuleGroupRulesSourceStatefulRuleArgs) ToRuleGroupRuleGroupRules
 
 func (i RuleGroupRuleGroupRulesSourceStatefulRuleArgs) ToRuleGroupRuleGroupRulesSourceStatefulRuleOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatefulRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatefulRuleOutput)
+}
+
+func (i RuleGroupRuleGroupRulesSourceStatefulRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRule] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRule]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatefulRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RuleGroupRuleGroupRulesSourceStatefulRuleArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatefulRuleArray and RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput values.
@@ -3690,6 +4743,12 @@ func (i RuleGroupRuleGroupRulesSourceStatefulRuleArray) ToRuleGroupRuleGroupRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatefulRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRule] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRule]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatefulRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatefulRuleOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatefulRuleOutput) ElementType() reflect.Type {
@@ -3704,7 +4763,13 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleOutput) ToRuleGroupRuleGroupRul
 	return o
 }
 
-// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRule] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -3735,6 +4800,12 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput) ToRuleGroupRuleGro
 
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput) ToRuleGroupRuleGroupRulesSourceStatefulRuleArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRule] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatefulRuleOutput {
@@ -3796,6 +4867,12 @@ func (i RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs) ToRuleGroupRuleGrou
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleHeader] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleHeader]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) ElementType() reflect.Type {
@@ -3808,6 +4885,12 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) ToRuleGroupRuleGr
 
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) ToRuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleHeader] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
@@ -3879,6 +4962,12 @@ func (i RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs) ToRuleGroupRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArray and RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayInput` via:
 //
@@ -3904,6 +4993,12 @@ func (i RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArray) ToRuleGroupRul
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput) ElementType() reflect.Type {
@@ -3916,6 +5011,12 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput) ToRuleGroupRu
 
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput) ToRuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
@@ -3941,6 +5042,12 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutput) ToRuleGr
 
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutput) ToRuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionOutput {
@@ -3986,6 +5093,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs) ToRuleG
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput() RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput {
 	return i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutputWithContext(context.Background())
 }
@@ -4027,6 +5140,12 @@ func (i *ruleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrType) ToR
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput)
 }
 
+func (i *ruleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions] {
+	return pulumix.Output[*RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput) ElementType() reflect.Type {
@@ -4049,6 +5168,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput) ToRul
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions) *RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
 		return &v
 	}).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput)
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
@@ -4077,6 +5202,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput) To
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions] {
+	return pulumix.Output[*RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput) Elem() RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput {
@@ -4146,6 +5277,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayInput` via:
 //
@@ -4171,6 +5308,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutput) ElementType() reflect.Type {
@@ -4183,6 +5326,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionO
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
@@ -4211,6 +5360,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionOutput {
@@ -4252,6 +5407,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutput) ElementType() reflect.Type {
@@ -4264,6 +5425,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
@@ -4306,6 +5473,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutput) ElementType() reflect.Type {
@@ -4318,6 +5491,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
@@ -4360,6 +5539,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayInput` via:
 //
@@ -4385,6 +5570,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutput) ElementType() reflect.Type {
@@ -4397,6 +5588,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value to use in the custom metric dimension.
@@ -4418,6 +5615,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionA
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionOutput {
@@ -4463,6 +5666,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayInput` via:
 //
@@ -4488,6 +5697,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutput) ElementType() reflect.Type {
@@ -4500,6 +5715,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
@@ -4528,6 +5749,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleOutput {
@@ -4573,6 +5800,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutput) ElementType() reflect.Type {
@@ -4585,6 +5818,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of actions to take on a packet that matches one of the stateless rule definition's `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
@@ -4654,6 +5893,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput) ElementType() reflect.Type {
@@ -4666,6 +5911,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
@@ -4743,6 +5994,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayInput` via:
 //
@@ -4768,6 +6025,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput) ElementType() reflect.Type {
@@ -4780,6 +6043,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
@@ -4801,6 +6070,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput {
@@ -4846,6 +6121,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayInput` via:
 //
@@ -4871,6 +6152,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutput) ElementType() reflect.Type {
@@ -4883,6 +6170,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The lower limit of the port range. This must be less than or equal to the `toPort`.
@@ -4911,6 +6204,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortOutput {
@@ -4952,6 +6251,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayInput` via:
 //
@@ -4977,6 +6282,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput) ElementType() reflect.Type {
@@ -4989,6 +6300,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
@@ -5010,6 +6327,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput {
@@ -5055,6 +6378,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayInput` via:
 //
@@ -5080,6 +6409,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutput) ElementType() reflect.Type {
@@ -5092,6 +6427,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The lower limit of the port range. This must be less than or equal to the `toPort`.
@@ -5120,6 +6461,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortOutput {
@@ -5169,6 +6516,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayInput is an input type that accepts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArray and RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayInput` via:
 //
@@ -5194,6 +6547,12 @@ func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutput)
 }
 
+func (i RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag]{
+		OutputState: i.ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput) ElementType() reflect.Type {
@@ -5206,6 +6565,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag] {
+	return pulumix.Output[RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
@@ -5236,6 +6601,12 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag] {
+	return pulumix.Output[[]RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagOutput {
@@ -5275,6 +6646,12 @@ func (i RuleGroupRuleGroupStatefulRuleOptionsArgs) ToRuleGroupRuleGroupStatefulR
 
 func (i RuleGroupRuleGroupStatefulRuleOptionsArgs) ToRuleGroupRuleGroupStatefulRuleOptionsOutputWithContext(ctx context.Context) RuleGroupRuleGroupStatefulRuleOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupStatefulRuleOptionsOutput)
+}
+
+func (i RuleGroupRuleGroupStatefulRuleOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupStatefulRuleOptions] {
+	return pulumix.Output[RuleGroupRuleGroupStatefulRuleOptions]{
+		OutputState: i.ToRuleGroupRuleGroupStatefulRuleOptionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RuleGroupRuleGroupStatefulRuleOptionsArgs) ToRuleGroupRuleGroupStatefulRuleOptionsPtrOutput() RuleGroupRuleGroupStatefulRuleOptionsPtrOutput {
@@ -5318,6 +6695,12 @@ func (i *ruleGroupRuleGroupStatefulRuleOptionsPtrType) ToRuleGroupRuleGroupState
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupStatefulRuleOptionsPtrOutput)
 }
 
+func (i *ruleGroupRuleGroupStatefulRuleOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupStatefulRuleOptions] {
+	return pulumix.Output[*RuleGroupRuleGroupStatefulRuleOptions]{
+		OutputState: i.ToRuleGroupRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleGroupStatefulRuleOptionsOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleGroupStatefulRuleOptionsOutput) ElementType() reflect.Type {
@@ -5342,6 +6725,12 @@ func (o RuleGroupRuleGroupStatefulRuleOptionsOutput) ToRuleGroupRuleGroupStatefu
 	}).(RuleGroupRuleGroupStatefulRuleOptionsPtrOutput)
 }
 
+func (o RuleGroupRuleGroupStatefulRuleOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleGroupStatefulRuleOptions] {
+	return pulumix.Output[RuleGroupRuleGroupStatefulRuleOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
 func (o RuleGroupRuleGroupStatefulRuleOptionsOutput) RuleOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupStatefulRuleOptions) string { return v.RuleOrder }).(pulumi.StringOutput)
@@ -5359,6 +6748,12 @@ func (o RuleGroupRuleGroupStatefulRuleOptionsPtrOutput) ToRuleGroupRuleGroupStat
 
 func (o RuleGroupRuleGroupStatefulRuleOptionsPtrOutput) ToRuleGroupRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupStatefulRuleOptionsPtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleGroupStatefulRuleOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleGroupStatefulRuleOptions] {
+	return pulumix.Output[*RuleGroupRuleGroupStatefulRuleOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleGroupStatefulRuleOptionsPtrOutput) Elem() RuleGroupRuleGroupStatefulRuleOptionsOutput {
@@ -5418,6 +6813,12 @@ func (i GetFirewallEncryptionConfigurationArgs) ToGetFirewallEncryptionConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallEncryptionConfigurationOutput)
 }
 
+func (i GetFirewallEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallEncryptionConfiguration] {
+	return pulumix.Output[GetFirewallEncryptionConfiguration]{
+		OutputState: i.ToGetFirewallEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallEncryptionConfigurationArrayInput is an input type that accepts GetFirewallEncryptionConfigurationArray and GetFirewallEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetFirewallEncryptionConfigurationArrayInput` via:
 //
@@ -5443,6 +6844,12 @@ func (i GetFirewallEncryptionConfigurationArray) ToGetFirewallEncryptionConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallEncryptionConfigurationArrayOutput)
 }
 
+func (i GetFirewallEncryptionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallEncryptionConfiguration] {
+	return pulumix.Output[[]GetFirewallEncryptionConfiguration]{
+		OutputState: i.ToGetFirewallEncryptionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -5455,6 +6862,12 @@ func (o GetFirewallEncryptionConfigurationOutput) ToGetFirewallEncryptionConfigu
 
 func (o GetFirewallEncryptionConfigurationOutput) ToGetFirewallEncryptionConfigurationOutputWithContext(ctx context.Context) GetFirewallEncryptionConfigurationOutput {
 	return o
+}
+
+func (o GetFirewallEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallEncryptionConfiguration] {
+	return pulumix.Output[GetFirewallEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the AWS Key Management Service (AWS KMS) customer managed key.
@@ -5479,6 +6892,12 @@ func (o GetFirewallEncryptionConfigurationArrayOutput) ToGetFirewallEncryptionCo
 
 func (o GetFirewallEncryptionConfigurationArrayOutput) ToGetFirewallEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetFirewallEncryptionConfigurationArrayOutput {
 	return o
+}
+
+func (o GetFirewallEncryptionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallEncryptionConfiguration] {
+	return pulumix.Output[[]GetFirewallEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetFirewallEncryptionConfigurationOutput {
@@ -5530,6 +6949,12 @@ func (i GetFirewallFirewallStatusArgs) ToGetFirewallFirewallStatusOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusOutput)
 }
 
+func (i GetFirewallFirewallStatusArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatus] {
+	return pulumix.Output[GetFirewallFirewallStatus]{
+		OutputState: i.ToGetFirewallFirewallStatusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallFirewallStatusArrayInput is an input type that accepts GetFirewallFirewallStatusArray and GetFirewallFirewallStatusArrayOutput values.
 // You can construct a concrete instance of `GetFirewallFirewallStatusArrayInput` via:
 //
@@ -5555,6 +6980,12 @@ func (i GetFirewallFirewallStatusArray) ToGetFirewallFirewallStatusArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusArrayOutput)
 }
 
+func (i GetFirewallFirewallStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatus] {
+	return pulumix.Output[[]GetFirewallFirewallStatus]{
+		OutputState: i.ToGetFirewallFirewallStatusArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallFirewallStatusOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallFirewallStatusOutput) ElementType() reflect.Type {
@@ -5567,6 +6998,12 @@ func (o GetFirewallFirewallStatusOutput) ToGetFirewallFirewallStatusOutput() Get
 
 func (o GetFirewallFirewallStatusOutput) ToGetFirewallFirewallStatusOutputWithContext(ctx context.Context) GetFirewallFirewallStatusOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatus] {
+	return pulumix.Output[GetFirewallFirewallStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Aggregated count of all resources used by reference sets in a firewall.
@@ -5602,6 +7039,12 @@ func (o GetFirewallFirewallStatusArrayOutput) ToGetFirewallFirewallStatusArrayOu
 
 func (o GetFirewallFirewallStatusArrayOutput) ToGetFirewallFirewallStatusArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusArrayOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatus] {
+	return pulumix.Output[[]GetFirewallFirewallStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallFirewallStatusArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusOutput {
@@ -5643,6 +7086,12 @@ func (i GetFirewallFirewallStatusCapacityUsageSummaryArgs) ToGetFirewallFirewall
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryOutput)
 }
 
+func (i GetFirewallFirewallStatusCapacityUsageSummaryArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummary] {
+	return pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummary]{
+		OutputState: i.ToGetFirewallFirewallStatusCapacityUsageSummaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallFirewallStatusCapacityUsageSummaryArrayInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryArray and GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput values.
 // You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryArrayInput` via:
 //
@@ -5668,6 +7117,12 @@ func (i GetFirewallFirewallStatusCapacityUsageSummaryArray) ToGetFirewallFirewal
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput)
 }
 
+func (i GetFirewallFirewallStatusCapacityUsageSummaryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummary] {
+	return pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummary]{
+		OutputState: i.ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallFirewallStatusCapacityUsageSummaryOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallFirewallStatusCapacityUsageSummaryOutput) ElementType() reflect.Type {
@@ -5680,6 +7135,12 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryOutput) ToGetFirewallFirewa
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummary] {
+	return pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Capacity usage of CIDR blocks used by IP set references in a firewall.
@@ -5701,6 +7162,12 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) ToGetFirewallF
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummary] {
+	return pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusCapacityUsageSummaryOutput {
@@ -5750,6 +7217,12 @@ func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs) ToGetFirewallFire
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput)
 }
 
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidr] {
+	return pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidr]{
+		OutputState: i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrArray and GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput values.
 // You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayInput` via:
 //
@@ -5775,6 +7248,12 @@ func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArray) ToGetFirewallFir
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput)
 }
 
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidr] {
+	return pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidr]{
+		OutputState: i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ElementType() reflect.Type {
@@ -5787,6 +7266,12 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ToGetFirewallFi
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidr] {
+	return pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidr]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Available number of CIDR blocks available for use by the IP set references in a firewall.
@@ -5818,6 +7303,12 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) ToGetFirew
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidr] {
+	return pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidr]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusCapacityUsageSummaryCidrOutput {
@@ -5859,6 +7350,12 @@ func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput)
 }
 
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference] {
+	return pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference]{
+		OutputState: i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput is an input type that accepts GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray and GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput values.
 // You can construct a concrete instance of `GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayInput` via:
 //
@@ -5884,6 +7381,12 @@ func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput)
 }
 
+func (i GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference] {
+	return pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference]{
+		OutputState: i.ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ElementType() reflect.Type {
@@ -5896,6 +7399,12 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) T
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference] {
+	return pulumix.Output[GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Total number of CIDR blocks used by the IP set references in a firewall.
@@ -5917,6 +7426,12 @@ func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutp
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput) ToGetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference] {
+	return pulumix.Output[[]GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceOutput {
@@ -5962,6 +7477,12 @@ func (i GetFirewallFirewallStatusSyncStateArgs) ToGetFirewallFirewallStatusSyncS
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusSyncStateOutput)
 }
 
+func (i GetFirewallFirewallStatusSyncStateArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusSyncState] {
+	return pulumix.Output[GetFirewallFirewallStatusSyncState]{
+		OutputState: i.ToGetFirewallFirewallStatusSyncStateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallFirewallStatusSyncStateArrayInput is an input type that accepts GetFirewallFirewallStatusSyncStateArray and GetFirewallFirewallStatusSyncStateArrayOutput values.
 // You can construct a concrete instance of `GetFirewallFirewallStatusSyncStateArrayInput` via:
 //
@@ -5987,6 +7508,12 @@ func (i GetFirewallFirewallStatusSyncStateArray) ToGetFirewallFirewallStatusSync
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusSyncStateArrayOutput)
 }
 
+func (i GetFirewallFirewallStatusSyncStateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusSyncState] {
+	return pulumix.Output[[]GetFirewallFirewallStatusSyncState]{
+		OutputState: i.ToGetFirewallFirewallStatusSyncStateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallFirewallStatusSyncStateOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallFirewallStatusSyncStateOutput) ElementType() reflect.Type {
@@ -5999,6 +7526,12 @@ func (o GetFirewallFirewallStatusSyncStateOutput) ToGetFirewallFirewallStatusSyn
 
 func (o GetFirewallFirewallStatusSyncStateOutput) ToGetFirewallFirewallStatusSyncStateOutputWithContext(ctx context.Context) GetFirewallFirewallStatusSyncStateOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusSyncStateOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusSyncState] {
+	return pulumix.Output[GetFirewallFirewallStatusSyncState]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested list describing the attachment status of the firewall's association with a single VPC subnet.
@@ -6025,6 +7558,12 @@ func (o GetFirewallFirewallStatusSyncStateArrayOutput) ToGetFirewallFirewallStat
 
 func (o GetFirewallFirewallStatusSyncStateArrayOutput) ToGetFirewallFirewallStatusSyncStateArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusSyncStateArrayOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusSyncStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusSyncState] {
+	return pulumix.Output[[]GetFirewallFirewallStatusSyncState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallFirewallStatusSyncStateArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusSyncStateOutput {
@@ -6072,6 +7611,12 @@ func (i GetFirewallFirewallStatusSyncStateAttachmentArgs) ToGetFirewallFirewallS
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusSyncStateAttachmentOutput)
 }
 
+func (i GetFirewallFirewallStatusSyncStateAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[GetFirewallFirewallStatusSyncStateAttachment]{
+		OutputState: i.ToGetFirewallFirewallStatusSyncStateAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallFirewallStatusSyncStateAttachmentArrayInput is an input type that accepts GetFirewallFirewallStatusSyncStateAttachmentArray and GetFirewallFirewallStatusSyncStateAttachmentArrayOutput values.
 // You can construct a concrete instance of `GetFirewallFirewallStatusSyncStateAttachmentArrayInput` via:
 //
@@ -6097,6 +7642,12 @@ func (i GetFirewallFirewallStatusSyncStateAttachmentArray) ToGetFirewallFirewall
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallFirewallStatusSyncStateAttachmentArrayOutput)
 }
 
+func (i GetFirewallFirewallStatusSyncStateAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[[]GetFirewallFirewallStatusSyncStateAttachment]{
+		OutputState: i.ToGetFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallFirewallStatusSyncStateAttachmentOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallFirewallStatusSyncStateAttachmentOutput) ElementType() reflect.Type {
@@ -6109,6 +7660,12 @@ func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) ToGetFirewallFirewal
 
 func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) ToGetFirewallFirewallStatusSyncStateAttachmentOutputWithContext(ctx context.Context) GetFirewallFirewallStatusSyncStateAttachmentOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusSyncStateAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[GetFirewallFirewallStatusSyncStateAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
@@ -6137,6 +7694,12 @@ func (o GetFirewallFirewallStatusSyncStateAttachmentArrayOutput) ToGetFirewallFi
 
 func (o GetFirewallFirewallStatusSyncStateAttachmentArrayOutput) ToGetFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(ctx context.Context) GetFirewallFirewallStatusSyncStateAttachmentArrayOutput {
 	return o
+}
+
+func (o GetFirewallFirewallStatusSyncStateAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallFirewallStatusSyncStateAttachment] {
+	return pulumix.Output[[]GetFirewallFirewallStatusSyncStateAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallFirewallStatusSyncStateAttachmentArrayOutput) Index(i pulumi.IntInput) GetFirewallFirewallStatusSyncStateAttachmentOutput {
@@ -6188,6 +7751,12 @@ func (i GetFirewallPolicyFirewallPolicyArgs) ToGetFirewallPolicyFirewallPolicyOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicy] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicy]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyArray and GetFirewallPolicyFirewallPolicyArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyArrayInput` via:
 //
@@ -6213,6 +7782,12 @@ func (i GetFirewallPolicyFirewallPolicyArray) ToGetFirewallPolicyFirewallPolicyA
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicy] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicy]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyOutput) ElementType() reflect.Type {
@@ -6225,6 +7800,12 @@ func (o GetFirewallPolicyFirewallPolicyOutput) ToGetFirewallPolicyFirewallPolicy
 
 func (o GetFirewallPolicyFirewallPolicyOutput) ToGetFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicy] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
@@ -6277,6 +7858,12 @@ func (o GetFirewallPolicyFirewallPolicyArrayOutput) ToGetFirewallPolicyFirewallP
 	return o
 }
 
+func (o GetFirewallPolicyFirewallPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicy] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetFirewallPolicyFirewallPolicyArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicy {
 		return vs[0].([]GetFirewallPolicyFirewallPolicy)[vs[1].(int)]
@@ -6284,7 +7871,8 @@ func (o GetFirewallPolicyFirewallPolicyArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOption struct {
-	RuleOrder string `pulumi:"ruleOrder"`
+	RuleOrder             string `pulumi:"ruleOrder"`
+	StreamExceptionPolicy string `pulumi:"streamExceptionPolicy"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs and GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput values.
@@ -6299,7 +7887,8 @@ type GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs struct {
-	RuleOrder pulumi.StringInput `pulumi:"ruleOrder"`
+	RuleOrder             pulumi.StringInput `pulumi:"ruleOrder"`
+	StreamExceptionPolicy pulumi.StringInput `pulumi:"streamExceptionPolicy"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ElementType() reflect.Type {
@@ -6312,6 +7901,12 @@ func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ToGetFirewallPo
 
 func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput)
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulEngineOption] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulEngineOption]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray and GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput values.
@@ -6339,6 +7934,12 @@ func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray) ToGetFirewallP
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulEngineOption] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulEngineOption]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ElementType() reflect.Type {
@@ -6353,8 +7954,18 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ToGetFirewall
 	return o
 }
 
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulEngineOption] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulEngineOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) RuleOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.RuleOrder }).(pulumi.StringOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) StreamExceptionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.StreamExceptionPolicy }).(pulumi.StringOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput struct{ *pulumi.OutputState }
@@ -6369,6 +7980,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) ToGetFir
 
 func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulEngineOption] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulEngineOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput {
@@ -6412,6 +8029,12 @@ func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ToGetFire
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput` via:
 //
@@ -6437,6 +8060,12 @@ func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray) ToGetFir
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ElementType() reflect.Type {
@@ -6449,6 +8078,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToGetFi
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Overrides() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {
@@ -6477,6 +8112,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) To
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
@@ -6516,6 +8157,12 @@ func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput` via:
 //
@@ -6541,6 +8188,12 @@ func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ElementType() reflect.Type {
@@ -6553,6 +8206,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput)
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) Action() pulumi.StringPtrOutput {
@@ -6571,6 +8230,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOu
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
@@ -6612,6 +8277,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs) ToGetFirewallP
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput` via:
 //
@@ -6637,6 +8308,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArray) ToGetFirewall
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ElementType() reflect.Type {
@@ -6649,6 +8326,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToGetFirewal
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ActionDefinitions() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput {
@@ -6673,6 +8356,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToGetFi
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomAction] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput {
@@ -6712,6 +8401,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput` via:
 //
@@ -6737,6 +8432,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArra
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ElementType() reflect.Type {
@@ -6749,6 +8450,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutp
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) PublishMetricActions() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput {
@@ -6769,6 +8476,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArra
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
@@ -6808,6 +8521,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayInput` via:
 //
@@ -6833,6 +8552,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ElementType() reflect.Type {
@@ -6845,6 +8570,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) Dimensions() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
@@ -6865,6 +8596,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
@@ -6904,6 +8641,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput` via:
 //
@@ -6929,6 +8672,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ElementType() reflect.Type {
@@ -6941,6 +8690,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) Value() pulumi.StringOutput {
@@ -6961,6 +8716,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPubl
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
@@ -7002,6 +8763,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ToGetFir
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray and GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput values.
 // You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput` via:
 //
@@ -7027,6 +8794,12 @@ func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray) ToGetFi
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: i.ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ElementType() reflect.Type {
@@ -7039,6 +8812,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToGetF
 
 func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
@@ -7061,6 +8840,12 @@ func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) T
 
 func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[[]GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
@@ -7102,6 +8887,12 @@ func (i GetFirewallSubnetMappingArgs) ToGetFirewallSubnetMappingOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallSubnetMappingOutput)
 }
 
+func (i GetFirewallSubnetMappingArgs) ToOutput(ctx context.Context) pulumix.Output[GetFirewallSubnetMapping] {
+	return pulumix.Output[GetFirewallSubnetMapping]{
+		OutputState: i.ToGetFirewallSubnetMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFirewallSubnetMappingArrayInput is an input type that accepts GetFirewallSubnetMappingArray and GetFirewallSubnetMappingArrayOutput values.
 // You can construct a concrete instance of `GetFirewallSubnetMappingArrayInput` via:
 //
@@ -7127,6 +8918,12 @@ func (i GetFirewallSubnetMappingArray) ToGetFirewallSubnetMappingArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallSubnetMappingArrayOutput)
 }
 
+func (i GetFirewallSubnetMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallSubnetMapping] {
+	return pulumix.Output[[]GetFirewallSubnetMapping]{
+		OutputState: i.ToGetFirewallSubnetMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFirewallSubnetMappingOutput struct{ *pulumi.OutputState }
 
 func (GetFirewallSubnetMappingOutput) ElementType() reflect.Type {
@@ -7139,6 +8936,12 @@ func (o GetFirewallSubnetMappingOutput) ToGetFirewallSubnetMappingOutput() GetFi
 
 func (o GetFirewallSubnetMappingOutput) ToGetFirewallSubnetMappingOutputWithContext(ctx context.Context) GetFirewallSubnetMappingOutput {
 	return o
+}
+
+func (o GetFirewallSubnetMappingOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallSubnetMapping] {
+	return pulumix.Output[GetFirewallSubnetMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique identifier for the subnet.
@@ -7160,6 +8963,12 @@ func (o GetFirewallSubnetMappingArrayOutput) ToGetFirewallSubnetMappingArrayOutp
 	return o
 }
 
+func (o GetFirewallSubnetMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFirewallSubnetMapping] {
+	return pulumix.Output[[]GetFirewallSubnetMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetFirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) GetFirewallSubnetMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallSubnetMapping {
 		return vs[0].([]GetFirewallSubnetMapping)[vs[1].(int)]
@@ -7179,6 +8988,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyEncryptionConfigurationPtrInput)(nil)).Elem(), FirewallPolicyEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
@@ -7296,6 +9110,11 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})

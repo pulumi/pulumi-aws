@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 Spot Instance Request resource. This allows instances to be
@@ -33,6 +35,9 @@ import (
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information.
 //
+// > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+// We recommend using the EC2 Instance resource with `instanceMarketOptions` instead.
+//
 // ## Example Usage
 //
 // ```go
@@ -40,7 +45,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +83,8 @@ type SpotInstanceRequest struct {
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes pulumi.IntPtrOutput `pulumi:"blockDurationMinutes"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -115,7 +122,7 @@ type SpotInstanceRequest struct {
 	IamInstanceProfile pulumi.StringOutput `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehavior"`
 	InstanceState                pulumi.StringOutput    `pulumi:"instanceState"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -164,6 +171,8 @@ type SpotInstanceRequest struct {
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
+	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
@@ -199,9 +208,11 @@ type SpotInstanceRequest struct {
 	UserDataReplaceOnChange pulumi.BoolPtrOutput `pulumi:"userDataReplaceOnChange"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringOutput `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 	ValidUntil pulumi.StringOutput `pulumi:"validUntil"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapOutput `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -218,6 +229,7 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 		args = &SpotInstanceRequestArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpotInstanceRequest
 	err := ctx.RegisterResource("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, args, &resource, opts...)
 	if err != nil {
@@ -252,6 +264,8 @@ type spotInstanceRequestState struct {
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *SpotInstanceRequestCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -289,7 +303,7 @@ type spotInstanceRequestState struct {
 	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
 	InstanceState                *string `pulumi:"instanceState"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -338,6 +352,8 @@ type spotInstanceRequestState struct {
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
+	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
@@ -373,9 +389,11 @@ type spotInstanceRequestState struct {
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 	ValidUntil *string `pulumi:"validUntil"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -398,6 +416,8 @@ type SpotInstanceRequestState struct {
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes pulumi.IntPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -435,7 +455,7 @@ type SpotInstanceRequestState struct {
 	IamInstanceProfile pulumi.StringPtrInput
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrInput
 	InstanceState                pulumi.StringPtrInput
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -484,6 +504,8 @@ type SpotInstanceRequestState struct {
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
+	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrInput
@@ -519,9 +541,11 @@ type SpotInstanceRequestState struct {
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 	ValidUntil pulumi.StringPtrInput
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapInput
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -547,6 +571,8 @@ type spotInstanceRequestArgs struct {
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *SpotInstanceRequestCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -584,7 +610,7 @@ type spotInstanceRequestArgs struct {
 	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
@@ -620,6 +646,8 @@ type spotInstanceRequestArgs struct {
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
+	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
@@ -642,9 +670,11 @@ type spotInstanceRequestArgs struct {
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 	ValidUntil *string `pulumi:"validUntil"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -667,6 +697,8 @@ type SpotInstanceRequestArgs struct {
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes pulumi.IntPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -704,7 +736,7 @@ type SpotInstanceRequestArgs struct {
 	IamInstanceProfile pulumi.StringPtrInput
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrInput
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
@@ -740,6 +772,8 @@ type SpotInstanceRequestArgs struct {
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
+	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrInput
@@ -762,9 +796,11 @@ type SpotInstanceRequestArgs struct {
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 	ValidUntil pulumi.StringPtrInput
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapInput
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -797,6 +833,12 @@ func (i *SpotInstanceRequest) ToSpotInstanceRequestOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestOutput)
 }
 
+func (i *SpotInstanceRequest) ToOutput(ctx context.Context) pulumix.Output[*SpotInstanceRequest] {
+	return pulumix.Output[*SpotInstanceRequest]{
+		OutputState: i.ToSpotInstanceRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotInstanceRequestArrayInput is an input type that accepts SpotInstanceRequestArray and SpotInstanceRequestArrayOutput values.
 // You can construct a concrete instance of `SpotInstanceRequestArrayInput` via:
 //
@@ -820,6 +862,12 @@ func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutput() SpotInstanc
 
 func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutputWithContext(ctx context.Context) SpotInstanceRequestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestArrayOutput)
+}
+
+func (i SpotInstanceRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpotInstanceRequest] {
+	return pulumix.Output[[]*SpotInstanceRequest]{
+		OutputState: i.ToSpotInstanceRequestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpotInstanceRequestMapInput is an input type that accepts SpotInstanceRequestMap and SpotInstanceRequestMapOutput values.
@@ -847,6 +895,12 @@ func (i SpotInstanceRequestMap) ToSpotInstanceRequestMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMapOutput)
 }
 
+func (i SpotInstanceRequestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotInstanceRequest] {
+	return pulumix.Output[map[string]*SpotInstanceRequest]{
+		OutputState: i.ToSpotInstanceRequestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotInstanceRequestOutput struct{ *pulumi.OutputState }
 
 func (SpotInstanceRequestOutput) ElementType() reflect.Type {
@@ -859,6 +913,12 @@ func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutput() SpotInstanceReq
 
 func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput {
 	return o
+}
+
+func (o SpotInstanceRequestOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotInstanceRequest] {
+	return pulumix.Output[*SpotInstanceRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -888,6 +948,8 @@ func (o SpotInstanceRequestOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 }
 
 // Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+//
+// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 func (o SpotInstanceRequestOutput) CapacityReservationSpecification() SpotInstanceRequestCapacityReservationSpecificationOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestCapacityReservationSpecificationOutput {
 		return v.CapacityReservationSpecification
@@ -982,7 +1044,7 @@ func (o SpotInstanceRequestOutput) InstanceInitiatedShutdownBehavior() pulumi.St
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringOutput)
 }
 
-// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
 func (o SpotInstanceRequestOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
@@ -1107,6 +1169,8 @@ func (o SpotInstanceRequestOutput) SecondaryPrivateIps() pulumi.StringArrayOutpu
 }
 
 // List of security group names to associate with.
+//
+// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
 func (o SpotInstanceRequestOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -1187,12 +1251,14 @@ func (o SpotInstanceRequestOutput) ValidFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.ValidFrom }).(pulumi.StringOutput)
 }
 
-// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 func (o SpotInstanceRequestOutput) ValidUntil() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.ValidUntil }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign, at instance-creation time, to root and EBS volumes.
+//
+// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 func (o SpotInstanceRequestOutput) VolumeTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringMapOutput { return v.VolumeTags }).(pulumi.StringMapOutput)
 }
@@ -1223,6 +1289,12 @@ func (o SpotInstanceRequestArrayOutput) ToSpotInstanceRequestArrayOutputWithCont
 	return o
 }
 
+func (o SpotInstanceRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpotInstanceRequest] {
+	return pulumix.Output[[]*SpotInstanceRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotInstanceRequestArrayOutput) Index(i pulumi.IntInput) SpotInstanceRequestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpotInstanceRequest {
 		return vs[0].([]*SpotInstanceRequest)[vs[1].(int)]
@@ -1241,6 +1313,12 @@ func (o SpotInstanceRequestMapOutput) ToSpotInstanceRequestMapOutput() SpotInsta
 
 func (o SpotInstanceRequestMapOutput) ToSpotInstanceRequestMapOutputWithContext(ctx context.Context) SpotInstanceRequestMapOutput {
 	return o
+}
+
+func (o SpotInstanceRequestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotInstanceRequest] {
+	return pulumix.Output[map[string]*SpotInstanceRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotInstanceRequestMapOutput) MapIndex(k pulumi.StringInput) SpotInstanceRequestOutput {

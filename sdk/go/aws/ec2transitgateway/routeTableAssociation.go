@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Route Table association.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_route_table_association` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_association` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 //
 // ```sh
 //
@@ -52,6 +54,8 @@ import (
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation pulumi.BoolPtrOutput `pulumi:"replaceExistingAssociation"`
 	// Identifier of the resource
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Type of the resource
@@ -75,6 +79,7 @@ func NewRouteTableAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteTableAssociation
 	err := ctx.RegisterResource("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -97,6 +102,8 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type routeTableAssociationState struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
 	// Identifier of the resource
 	ResourceId *string `pulumi:"resourceId"`
 	// Type of the resource
@@ -108,6 +115,8 @@ type routeTableAssociationState struct {
 }
 
 type RouteTableAssociationState struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation pulumi.BoolPtrInput
 	// Identifier of the resource
 	ResourceId pulumi.StringPtrInput
 	// Type of the resource
@@ -123,6 +132,8 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type routeTableAssociationArgs struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -131,6 +142,8 @@ type routeTableAssociationArgs struct {
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation pulumi.BoolPtrInput
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -160,6 +173,12 @@ func (i *RouteTableAssociation) ToRouteTableAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableAssociationOutput)
 }
 
+func (i *RouteTableAssociation) ToOutput(ctx context.Context) pulumix.Output[*RouteTableAssociation] {
+	return pulumix.Output[*RouteTableAssociation]{
+		OutputState: i.ToRouteTableAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteTableAssociationArrayInput is an input type that accepts RouteTableAssociationArray and RouteTableAssociationArrayOutput values.
 // You can construct a concrete instance of `RouteTableAssociationArrayInput` via:
 //
@@ -183,6 +202,12 @@ func (i RouteTableAssociationArray) ToRouteTableAssociationArrayOutput() RouteTa
 
 func (i RouteTableAssociationArray) ToRouteTableAssociationArrayOutputWithContext(ctx context.Context) RouteTableAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableAssociationArrayOutput)
+}
+
+func (i RouteTableAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTableAssociation] {
+	return pulumix.Output[[]*RouteTableAssociation]{
+		OutputState: i.ToRouteTableAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteTableAssociationMapInput is an input type that accepts RouteTableAssociationMap and RouteTableAssociationMapOutput values.
@@ -210,6 +235,12 @@ func (i RouteTableAssociationMap) ToRouteTableAssociationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableAssociationMapOutput)
 }
 
+func (i RouteTableAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTableAssociation] {
+	return pulumix.Output[map[string]*RouteTableAssociation]{
+		OutputState: i.ToRouteTableAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (RouteTableAssociationOutput) ElementType() reflect.Type {
@@ -222,6 +253,17 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutput() RouteTableA
 
 func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ctx context.Context) RouteTableAssociationOutput {
 	return o
+}
+
+func (o RouteTableAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTableAssociation] {
+	return pulumix.Output[*RouteTableAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+func (o RouteTableAssociationOutput) ReplaceExistingAssociation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RouteTableAssociation) pulumi.BoolPtrOutput { return v.ReplaceExistingAssociation }).(pulumi.BoolPtrOutput)
 }
 
 // Identifier of the resource
@@ -258,6 +300,12 @@ func (o RouteTableAssociationArrayOutput) ToRouteTableAssociationArrayOutputWith
 	return o
 }
 
+func (o RouteTableAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTableAssociation] {
+	return pulumix.Output[[]*RouteTableAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTableAssociationArrayOutput) Index(i pulumi.IntInput) RouteTableAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteTableAssociation {
 		return vs[0].([]*RouteTableAssociation)[vs[1].(int)]
@@ -276,6 +324,12 @@ func (o RouteTableAssociationMapOutput) ToRouteTableAssociationMapOutput() Route
 
 func (o RouteTableAssociationMapOutput) ToRouteTableAssociationMapOutputWithContext(ctx context.Context) RouteTableAssociationMapOutput {
 	return o
+}
+
+func (o RouteTableAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTableAssociation] {
+	return pulumix.Output[map[string]*RouteTableAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput) RouteTableAssociationOutput {

@@ -24,18 +24,18 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoApiKey = new Aws.ApiGateway.ApiKey("myDemoApiKey");
+    ///     var example = new Aws.ApiGateway.ApiKey("example");
     /// 
     /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// API Gateway Keys can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
-    /// ```
+    ///  to = aws_api_gateway_api_key.example
+    /// 
+    ///  id = "8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk" } Using `pulumi import`, import API Gateway Keys using the `id`. For exampleconsole % TODO import aws_api_gateway_api_key.example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
     /// </summary>
     [AwsResourceType("aws:apigateway/apiKey:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        /// </summary>
+        [Output("customerId")]
+        public Output<string?> CustomerId { get; private set; } = null!;
 
         /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        /// </summary>
+        [Input("customerId")]
+        public Input<string>? CustomerId { get; set; }
+
+        /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
@@ -210,6 +222,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
+
+        /// <summary>
+        /// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        /// </summary>
+        [Input("customerId")]
+        public Input<string>? CustomerId { get; set; }
 
         /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".

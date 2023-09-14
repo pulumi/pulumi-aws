@@ -377,23 +377,12 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Import
     /// 
-    /// EMR clusters can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import EMR clusters using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
     /// ```
-    /// 
-    ///  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
-    /// 
-    /// `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
-    /// 
-    /// # ... other configuration ...
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = [kerberos_attributes]
-    /// 
-    ///  } }
+    ///  Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:
     /// </summary>
     [AwsResourceType("aws:emr/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -445,6 +434,39 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// JSON string for supplying list of configurations for the EMR cluster.
+        /// 
+        /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// 
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Output("configurationsJson")]
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
@@ -559,6 +581,8 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
@@ -695,6 +719,39 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// JSON string for supplying list of configurations for the EMR cluster.
+        /// 
+        /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// 
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
@@ -815,6 +872,8 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
@@ -928,6 +987,39 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// JSON string for supplying list of configurations for the EMR cluster.
+        /// 
+        /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// 
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
@@ -1054,6 +1146,8 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }

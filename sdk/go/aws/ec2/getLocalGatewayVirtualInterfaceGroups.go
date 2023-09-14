@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,6 +38,7 @@ import (
 //
 // ```
 func GetLocalGatewayVirtualInterfaceGroups(ctx *pulumi.Context, args *GetLocalGatewayVirtualInterfaceGroupsArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayVirtualInterfaceGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayVirtualInterfaceGroupsResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups", args, &rv, opts...)
 	if err != nil {
@@ -102,6 +105,12 @@ func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToGetLocalGatewayVirt
 
 func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToGetLocalGatewayVirtualInterfaceGroupsResultOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsResultOutput {
 	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewayVirtualInterfaceGroupsResult] {
+	return pulumix.Output[GetLocalGatewayVirtualInterfaceGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Filters() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {

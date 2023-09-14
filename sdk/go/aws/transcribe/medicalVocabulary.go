@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Transcribe MedicalVocabulary.
@@ -23,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +73,7 @@ import (
 //
 // ## Import
 //
-// Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+// Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
 //
 // ```sh
 //
@@ -93,6 +95,8 @@ type MedicalVocabulary struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringOutput `pulumi:"vocabularyName"`
 }
 
@@ -112,6 +116,7 @@ func NewMedicalVocabulary(ctx *pulumi.Context,
 	if args.VocabularyName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MedicalVocabulary
 	err := ctx.RegisterResource("aws:transcribe/medicalVocabulary:MedicalVocabulary", name, args, &resource, opts...)
 	if err != nil {
@@ -146,6 +151,8 @@ type medicalVocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName *string `pulumi:"vocabularyName"`
 }
 
@@ -162,6 +169,8 @@ type MedicalVocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringPtrInput
 }
 
@@ -177,6 +186,8 @@ type medicalVocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri string `pulumi:"vocabularyFileUri"`
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName string `pulumi:"vocabularyName"`
 }
 
@@ -189,6 +200,8 @@ type MedicalVocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringInput
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringInput
 }
 
@@ -213,6 +226,12 @@ func (i *MedicalVocabulary) ToMedicalVocabularyOutput() MedicalVocabularyOutput 
 
 func (i *MedicalVocabulary) ToMedicalVocabularyOutputWithContext(ctx context.Context) MedicalVocabularyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MedicalVocabularyOutput)
+}
+
+func (i *MedicalVocabulary) ToOutput(ctx context.Context) pulumix.Output[*MedicalVocabulary] {
+	return pulumix.Output[*MedicalVocabulary]{
+		OutputState: i.ToMedicalVocabularyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MedicalVocabularyArrayInput is an input type that accepts MedicalVocabularyArray and MedicalVocabularyArrayOutput values.
@@ -240,6 +259,12 @@ func (i MedicalVocabularyArray) ToMedicalVocabularyArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MedicalVocabularyArrayOutput)
 }
 
+func (i MedicalVocabularyArray) ToOutput(ctx context.Context) pulumix.Output[[]*MedicalVocabulary] {
+	return pulumix.Output[[]*MedicalVocabulary]{
+		OutputState: i.ToMedicalVocabularyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MedicalVocabularyMapInput is an input type that accepts MedicalVocabularyMap and MedicalVocabularyMapOutput values.
 // You can construct a concrete instance of `MedicalVocabularyMapInput` via:
 //
@@ -265,6 +290,12 @@ func (i MedicalVocabularyMap) ToMedicalVocabularyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MedicalVocabularyMapOutput)
 }
 
+func (i MedicalVocabularyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedicalVocabulary] {
+	return pulumix.Output[map[string]*MedicalVocabulary]{
+		OutputState: i.ToMedicalVocabularyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MedicalVocabularyOutput struct{ *pulumi.OutputState }
 
 func (MedicalVocabularyOutput) ElementType() reflect.Type {
@@ -277,6 +308,12 @@ func (o MedicalVocabularyOutput) ToMedicalVocabularyOutput() MedicalVocabularyOu
 
 func (o MedicalVocabularyOutput) ToMedicalVocabularyOutputWithContext(ctx context.Context) MedicalVocabularyOutput {
 	return o
+}
+
+func (o MedicalVocabularyOutput) ToOutput(ctx context.Context) pulumix.Output[*MedicalVocabulary] {
+	return pulumix.Output[*MedicalVocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the MedicalVocabulary.
@@ -309,6 +346,8 @@ func (o MedicalVocabularyOutput) VocabularyFileUri() pulumi.StringOutput {
 }
 
 // The name of the Medical Vocabulary.
+//
+// The following arguments are optional:
 func (o MedicalVocabularyOutput) VocabularyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.VocabularyName }).(pulumi.StringOutput)
 }
@@ -325,6 +364,12 @@ func (o MedicalVocabularyArrayOutput) ToMedicalVocabularyArrayOutput() MedicalVo
 
 func (o MedicalVocabularyArrayOutput) ToMedicalVocabularyArrayOutputWithContext(ctx context.Context) MedicalVocabularyArrayOutput {
 	return o
+}
+
+func (o MedicalVocabularyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MedicalVocabulary] {
+	return pulumix.Output[[]*MedicalVocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MedicalVocabularyArrayOutput) Index(i pulumi.IntInput) MedicalVocabularyOutput {
@@ -345,6 +390,12 @@ func (o MedicalVocabularyMapOutput) ToMedicalVocabularyMapOutput() MedicalVocabu
 
 func (o MedicalVocabularyMapOutput) ToMedicalVocabularyMapOutputWithContext(ctx context.Context) MedicalVocabularyMapOutput {
 	return o
+}
+
+func (o MedicalVocabularyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedicalVocabulary] {
+	return pulumix.Output[map[string]*MedicalVocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MedicalVocabularyMapOutput) MapIndex(k pulumi.StringInput) MedicalVocabularyOutput {

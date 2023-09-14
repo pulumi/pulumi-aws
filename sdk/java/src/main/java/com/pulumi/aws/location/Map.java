@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_location_map` resources can be imported using the map name, e.g.
+ * Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:location/map:Map example example
@@ -122,12 +122,16 @@ public class Map extends com.pulumi.resources.CustomResource {
     /**
      * The name for the map resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="mapName", refs={String.class}, tree="[0]")
     private Output<String> mapName;
 
     /**
      * @return The name for the map resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> mapName() {

@@ -15,6 +15,70 @@ namespace Pulumi.Aws.Alb
     /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// ### Application Load Balancer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LB.LoadBalancer("test", new()
+    ///     {
+    ///         Internal = false,
+    ///         LoadBalancerType = "application",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             aws_security_group.Lb_sg.Id,
+    ///         },
+    ///         Subnets = .Select(subnet =&gt; 
+    ///         {
+    ///             return subnet.Id;
+    ///         }).ToList(),
+    ///         EnableDeletionProtection = true,
+    ///         AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
+    ///         {
+    ///             Bucket = aws_s3_bucket.Lb_logs.Id,
+    ///             Prefix = "test-lb",
+    ///             Enabled = true,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Network Load Balancer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LB.LoadBalancer("test", new()
+    ///     {
+    ///         Internal = false,
+    ///         LoadBalancerType = "network",
+    ///         Subnets = .Select(subnet =&gt; 
+    ///         {
+    ///             return subnet.Id;
+    ///         }).ToList(),
+    ///         EnableDeletionProtection = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Specifying Elastic IPs
     /// 
     /// ```csharp
@@ -78,7 +142,7 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Import
     /// 
-    /// LBs can be imported using their ARN, e.g.,
+    /// Using `pulumi import`, import LBs using their ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
@@ -210,7 +274,7 @@ namespace Pulumi.Aws.Alb
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
 
         /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -414,7 +478,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -600,7 +664,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         public InputList<string> SecurityGroups
         {

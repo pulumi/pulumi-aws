@@ -199,7 +199,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.,
+        Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
 
         ```sh
          $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
@@ -246,7 +246,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.,
+        Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
 
         ```sh
          $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy

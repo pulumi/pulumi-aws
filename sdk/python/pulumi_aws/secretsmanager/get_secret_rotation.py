@@ -114,11 +114,11 @@ def get_secret_rotation(secret_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretRotation:getSecretRotation', __args__, opts=opts, typ=GetSecretRotationResult).value
 
     return AwaitableGetSecretRotationResult(
-        id=__ret__.id,
-        rotation_enabled=__ret__.rotation_enabled,
-        rotation_lambda_arn=__ret__.rotation_lambda_arn,
-        rotation_rules=__ret__.rotation_rules,
-        secret_id=__ret__.secret_id)
+        id=pulumi.get(__ret__, 'id'),
+        rotation_enabled=pulumi.get(__ret__, 'rotation_enabled'),
+        rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
+        rotation_rules=pulumi.get(__ret__, 'rotation_rules'),
+        secret_id=pulumi.get(__ret__, 'secret_id'))
 
 
 @_utilities.lift_output_func(get_secret_rotation)

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
  *
  * ## Example Usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -76,16 +77,26 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+ * In TODO v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
+ *
+ * Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
+ *
+ * Import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+ *
+ * Using `TODO import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
  *
  * ```sh
  *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
  * ```
- *
- *  CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+ *  Using `TODO import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
  *
  * ```sh
  *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+ * ```
+ *  Using `TODO import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
  * ```
  */
 export class StackSetInstance extends pulumi.CustomResource {
@@ -133,7 +144,7 @@ export class StackSetInstance extends pulumi.CustomResource {
      */
     public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetInstanceOperationPreferences | undefined>;
     /**
-     * The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+     * Organizational unit ID in which the stack is deployed.
      */
     public /*out*/ readonly organizationalUnitId!: pulumi.Output<string>;
     /**
@@ -149,9 +160,13 @@ export class StackSetInstance extends pulumi.CustomResource {
      */
     public readonly retainStack!: pulumi.Output<boolean | undefined>;
     /**
-     * Stack identifier
+     * Stack identifier.
      */
     public /*out*/ readonly stackId!: pulumi.Output<string>;
+    /**
+     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+     */
+    public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.cloudformation.StackSetInstanceStackInstanceSummary[]>;
     /**
      * Name of the StackSet.
      */
@@ -179,6 +194,7 @@ export class StackSetInstance extends pulumi.CustomResource {
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retainStack"] = state ? state.retainStack : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["stackInstanceSummaries"] = state ? state.stackInstanceSummaries : undefined;
             resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
         } else {
             const args = argsOrState as StackSetInstanceArgs | undefined;
@@ -195,6 +211,7 @@ export class StackSetInstance extends pulumi.CustomResource {
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["organizationalUnitId"] = undefined /*out*/;
             resourceInputs["stackId"] = undefined /*out*/;
+            resourceInputs["stackInstanceSummaries"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StackSetInstance.__pulumiType, name, resourceInputs, opts);
@@ -222,7 +239,7 @@ export interface StackSetInstanceState {
      */
     operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetInstanceOperationPreferences>;
     /**
-     * The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+     * Organizational unit ID in which the stack is deployed.
      */
     organizationalUnitId?: pulumi.Input<string>;
     /**
@@ -238,9 +255,13 @@ export interface StackSetInstanceState {
      */
     retainStack?: pulumi.Input<boolean>;
     /**
-     * Stack identifier
+     * Stack identifier.
      */
     stackId?: pulumi.Input<string>;
+    /**
+     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+     */
+    stackInstanceSummaries?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetInstanceStackInstanceSummary>[]>;
     /**
      * Name of the StackSet.
      */

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementNotStatement {
     /**
-     * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    private List<RuleGroupRuleStatementNotStatementStatement> statements;
+    private List<RuleGroupRuleStatement> statements;
 
     private RuleGroupRuleStatementNotStatement() {}
     /**
-     * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    public List<RuleGroupRuleStatementNotStatementStatement> statements() {
+    public List<RuleGroupRuleStatement> statements() {
         return this.statements;
     }
 
@@ -34,7 +34,7 @@ public final class RuleGroupRuleStatementNotStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<RuleGroupRuleStatementNotStatementStatement> statements;
+        private List<RuleGroupRuleStatement> statements;
         public Builder() {}
         public Builder(RuleGroupRuleStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,11 +42,11 @@ public final class RuleGroupRuleStatementNotStatement {
         }
 
         @CustomType.Setter
-        public Builder statements(List<RuleGroupRuleStatementNotStatementStatement> statements) {
+        public Builder statements(List<RuleGroupRuleStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
-        public Builder statements(RuleGroupRuleStatementNotStatementStatement... statements) {
+        public Builder statements(RuleGroupRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementNotStatement build() {

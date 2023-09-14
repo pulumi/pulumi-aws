@@ -3,7 +3,6 @@
 
 package com.pulumi.aws.codebuild.inputs;
 
-import com.pulumi.aws.codebuild.inputs.ProjectSourceAuthArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectSourceBuildStatusConfigArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectSourceGitSubmodulesConfigArgs;
 import com.pulumi.core.Output;
@@ -19,29 +18,6 @@ import javax.annotation.Nullable;
 public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProjectSourceArgs Empty = new ProjectSourceArgs();
-
-    /**
-     * Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-     * 
-     * @deprecated
-     * Use the aws_codebuild_source_credential resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-    @Import(name="auth")
-    private @Nullable Output<ProjectSourceAuthArgs> auth;
-
-    /**
-     * @return Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-     * 
-     * @deprecated
-     * Use the aws_codebuild_source_credential resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-    public Optional<Output<ProjectSourceAuthArgs>> auth() {
-        return Optional.ofNullable(this.auth);
-    }
 
     /**
      * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
@@ -149,14 +125,14 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
     public Output<String> type() {
@@ -166,7 +142,6 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     private ProjectSourceArgs() {}
 
     private ProjectSourceArgs(ProjectSourceArgs $) {
-        this.auth = $.auth;
         this.buildStatusConfig = $.buildStatusConfig;
         this.buildspec = $.buildspec;
         this.gitCloneDepth = $.gitCloneDepth;
@@ -193,35 +168,6 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProjectSourceArgs defaults) {
             $ = new ProjectSourceArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param auth Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_codebuild_source_credential resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-        public Builder auth(@Nullable Output<ProjectSourceAuthArgs> auth) {
-            $.auth = auth;
-            return this;
-        }
-
-        /**
-         * @param auth Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_codebuild_source_credential resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-        public Builder auth(ProjectSourceAuthArgs auth) {
-            return auth(Output.of(auth));
         }
 
         /**
@@ -372,7 +318,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          * 
          * @return builder
          * 
@@ -383,7 +329,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          * 
          * @return builder
          * 

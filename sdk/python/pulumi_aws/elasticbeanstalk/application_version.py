@@ -29,6 +29,8 @@ class ApplicationVersionArgs:
         :param pulumi.Input[str] description: Short description of the Application Version.
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application", application)
@@ -108,6 +110,8 @@ class ApplicationVersionArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the this Application Version.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -149,6 +153,8 @@ class _ApplicationVersionState:
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -248,6 +254,8 @@ class _ApplicationVersionState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the this Application Version.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -333,6 +341,8 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -452,6 +462,8 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -523,6 +535,8 @@ class ApplicationVersion(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Unique name for the this Application Version.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

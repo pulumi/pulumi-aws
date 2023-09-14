@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS NetworkManager VpcAttachment.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+// Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
 //
 // ```sh
 //
@@ -85,6 +87,8 @@ type VpcAttachment struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn pulumi.StringOutput `pulumi:"vpcArn"`
 }
 
@@ -104,6 +108,7 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpcArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws:networkmanager/vpcAttachment:VpcAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -155,6 +160,8 @@ type vpcAttachmentState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn *string `pulumi:"vpcArn"`
 }
 
@@ -188,6 +195,8 @@ type VpcAttachmentState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn pulumi.StringPtrInput
 }
 
@@ -205,6 +214,8 @@ type vpcAttachmentArgs struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn string `pulumi:"vpcArn"`
 }
 
@@ -219,6 +230,8 @@ type VpcAttachmentArgs struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn pulumi.StringInput
 }
 
@@ -243,6 +256,12 @@ func (i *VpcAttachment) ToVpcAttachmentOutput() VpcAttachmentOutput {
 
 func (i *VpcAttachment) ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOutput)
+}
+
+func (i *VpcAttachment) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachment] {
+	return pulumix.Output[*VpcAttachment]{
+		OutputState: i.ToVpcAttachmentOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcAttachmentArrayInput is an input type that accepts VpcAttachmentArray and VpcAttachmentArrayOutput values.
@@ -270,6 +289,12 @@ func (i VpcAttachmentArray) ToVpcAttachmentArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentArrayOutput)
 }
 
+func (i VpcAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAttachment] {
+	return pulumix.Output[[]*VpcAttachment]{
+		OutputState: i.ToVpcAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcAttachmentMapInput is an input type that accepts VpcAttachmentMap and VpcAttachmentMapOutput values.
 // You can construct a concrete instance of `VpcAttachmentMapInput` via:
 //
@@ -295,6 +320,12 @@ func (i VpcAttachmentMap) ToVpcAttachmentMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentMapOutput)
 }
 
+func (i VpcAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAttachment] {
+	return pulumix.Output[map[string]*VpcAttachment]{
+		OutputState: i.ToVpcAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentOutput) ElementType() reflect.Type {
@@ -307,6 +338,12 @@ func (o VpcAttachmentOutput) ToVpcAttachmentOutput() VpcAttachmentOutput {
 
 func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput {
 	return o
+}
+
+func (o VpcAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachment] {
+	return pulumix.Output[*VpcAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the attachment.
@@ -380,6 +417,8 @@ func (o VpcAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The ARN of the VPC.
+//
+// The following arguments are optional:
 func (o VpcAttachmentOutput) VpcArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.VpcArn }).(pulumi.StringOutput)
 }
@@ -396,6 +435,12 @@ func (o VpcAttachmentArrayOutput) ToVpcAttachmentArrayOutput() VpcAttachmentArra
 
 func (o VpcAttachmentArrayOutput) ToVpcAttachmentArrayOutputWithContext(ctx context.Context) VpcAttachmentArrayOutput {
 	return o
+}
+
+func (o VpcAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAttachment] {
+	return pulumix.Output[[]*VpcAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAttachmentArrayOutput) Index(i pulumi.IntInput) VpcAttachmentOutput {
@@ -416,6 +461,12 @@ func (o VpcAttachmentMapOutput) ToVpcAttachmentMapOutput() VpcAttachmentMapOutpu
 
 func (o VpcAttachmentMapOutput) ToVpcAttachmentMapOutputWithContext(ctx context.Context) VpcAttachmentMapOutput {
 	return o
+}
+
+func (o VpcAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAttachment] {
+	return pulumix.Output[map[string]*VpcAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAttachmentMapOutput) MapIndex(k pulumi.StringInput) VpcAttachmentOutput {

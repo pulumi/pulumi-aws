@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM role inline policy.
@@ -24,7 +26,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // ## Import
 //
-// IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
+// Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
 //
 // ```sh
 //
@@ -120,6 +122,7 @@ func NewRolePolicy(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RolePolicy
 	err := ctx.RegisterResource("aws:iam/rolePolicy:RolePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -221,6 +224,12 @@ func (i *RolePolicy) ToRolePolicyOutputWithContext(ctx context.Context) RolePoli
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyOutput)
 }
 
+func (i *RolePolicy) ToOutput(ctx context.Context) pulumix.Output[*RolePolicy] {
+	return pulumix.Output[*RolePolicy]{
+		OutputState: i.ToRolePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RolePolicyArrayInput is an input type that accepts RolePolicyArray and RolePolicyArrayOutput values.
 // You can construct a concrete instance of `RolePolicyArrayInput` via:
 //
@@ -244,6 +253,12 @@ func (i RolePolicyArray) ToRolePolicyArrayOutput() RolePolicyArrayOutput {
 
 func (i RolePolicyArray) ToRolePolicyArrayOutputWithContext(ctx context.Context) RolePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyArrayOutput)
+}
+
+func (i RolePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RolePolicy] {
+	return pulumix.Output[[]*RolePolicy]{
+		OutputState: i.ToRolePolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RolePolicyMapInput is an input type that accepts RolePolicyMap and RolePolicyMapOutput values.
@@ -271,6 +286,12 @@ func (i RolePolicyMap) ToRolePolicyMapOutputWithContext(ctx context.Context) Rol
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyMapOutput)
 }
 
+func (i RolePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RolePolicy] {
+	return pulumix.Output[map[string]*RolePolicy]{
+		OutputState: i.ToRolePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RolePolicyOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyOutput) ElementType() reflect.Type {
@@ -283,6 +304,12 @@ func (o RolePolicyOutput) ToRolePolicyOutput() RolePolicyOutput {
 
 func (o RolePolicyOutput) ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput {
 	return o
+}
+
+func (o RolePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RolePolicy] {
+	return pulumix.Output[*RolePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the role policy. If omitted, this provider will
@@ -321,6 +348,12 @@ func (o RolePolicyArrayOutput) ToRolePolicyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o RolePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RolePolicy] {
+	return pulumix.Output[[]*RolePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RolePolicyArrayOutput) Index(i pulumi.IntInput) RolePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RolePolicy {
 		return vs[0].([]*RolePolicy)[vs[1].(int)]
@@ -339,6 +372,12 @@ func (o RolePolicyMapOutput) ToRolePolicyMapOutput() RolePolicyMapOutput {
 
 func (o RolePolicyMapOutput) ToRolePolicyMapOutputWithContext(ctx context.Context) RolePolicyMapOutput {
 	return o
+}
+
+func (o RolePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RolePolicy] {
+	return pulumix.Output[map[string]*RolePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RolePolicyMapOutput) MapIndex(k pulumi.StringInput) RolePolicyOutput {

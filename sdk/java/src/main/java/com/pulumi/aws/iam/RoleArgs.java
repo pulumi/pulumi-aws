@@ -23,12 +23,20 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Policy that grants an entity permission to assume the role.
      * 
+     * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="assumeRolePolicy", required=true)
     private Output<String> assumeRolePolicy;
 
     /**
      * @return Policy that grants an entity permission to assume the role.
+     * 
+     * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> assumeRolePolicy() {
@@ -214,6 +222,10 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param assumeRolePolicy Policy that grants an entity permission to assume the role.
          * 
+         * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+         * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -224,6 +236,10 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param assumeRolePolicy Policy that grants an entity permission to assume the role.
+         * 
+         * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -12,9 +12,9 @@ namespace Pulumi.Aws.ServiceCatalog
     public static class GetProduct
     {
         /// <summary>
-        /// Provides information on a Service Catalog Product.
+        /// Use this data source to retrieve information about a Service Catalog product.
         /// 
-        /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+        /// &gt; **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -43,9 +43,9 @@ namespace Pulumi.Aws.ServiceCatalog
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information on a Service Catalog Product.
+        /// Use this data source to retrieve information about a Service Catalog product.
         /// 
-        /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+        /// &gt; **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -78,13 +78,15 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetProductArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
 
         /// <summary>
-        /// Product ID.
+        /// ID of the product.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -93,7 +95,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the product.
+        /// Tags applied to the product.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -110,13 +112,15 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetProductInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
         /// <summary>
-        /// Product ID.
+        /// ID of the product.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -125,7 +129,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the product.
+        /// Tags applied to the product.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -157,7 +161,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Distributor (i.e., vendor) of the product.
+        /// Vendor of the product.
         /// </summary>
         public readonly string Distributor;
         /// <summary>
@@ -178,7 +182,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Support information about the product.
+        /// Field that provides support information about the product.
         /// </summary>
         public readonly string SupportDescription;
         /// <summary>
@@ -190,7 +194,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public readonly string SupportUrl;
         /// <summary>
-        /// Tags to apply to the product.
+        /// Tags applied to the product.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

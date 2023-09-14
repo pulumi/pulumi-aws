@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker App Image Config resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +80,7 @@ import (
 //
 // ## Import
 //
-// SageMaker App Image Configs can be imported using the `name`, e.g.,
+// Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
 //
 // ```sh
 //
@@ -110,6 +112,7 @@ func NewAppImageConfig(ctx *pulumi.Context,
 	if args.AppImageConfigName == nil {
 		return nil, errors.New("invalid value for required argument 'AppImageConfigName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppImageConfig
 	err := ctx.RegisterResource("aws:sagemaker/appImageConfig:AppImageConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -203,6 +206,12 @@ func (i *AppImageConfig) ToAppImageConfigOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigOutput)
 }
 
+func (i *AppImageConfig) ToOutput(ctx context.Context) pulumix.Output[*AppImageConfig] {
+	return pulumix.Output[*AppImageConfig]{
+		OutputState: i.ToAppImageConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppImageConfigArrayInput is an input type that accepts AppImageConfigArray and AppImageConfigArrayOutput values.
 // You can construct a concrete instance of `AppImageConfigArrayInput` via:
 //
@@ -226,6 +235,12 @@ func (i AppImageConfigArray) ToAppImageConfigArrayOutput() AppImageConfigArrayOu
 
 func (i AppImageConfigArray) ToAppImageConfigArrayOutputWithContext(ctx context.Context) AppImageConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigArrayOutput)
+}
+
+func (i AppImageConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppImageConfig] {
+	return pulumix.Output[[]*AppImageConfig]{
+		OutputState: i.ToAppImageConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AppImageConfigMapInput is an input type that accepts AppImageConfigMap and AppImageConfigMapOutput values.
@@ -253,6 +268,12 @@ func (i AppImageConfigMap) ToAppImageConfigMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigMapOutput)
 }
 
+func (i AppImageConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppImageConfig] {
+	return pulumix.Output[map[string]*AppImageConfig]{
+		OutputState: i.ToAppImageConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppImageConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigOutput) ElementType() reflect.Type {
@@ -265,6 +286,12 @@ func (o AppImageConfigOutput) ToAppImageConfigOutput() AppImageConfigOutput {
 
 func (o AppImageConfigOutput) ToAppImageConfigOutputWithContext(ctx context.Context) AppImageConfigOutput {
 	return o
+}
+
+func (o AppImageConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*AppImageConfig] {
+	return pulumix.Output[*AppImageConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the App Image Config.
@@ -308,6 +335,12 @@ func (o AppImageConfigArrayOutput) ToAppImageConfigArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o AppImageConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppImageConfig] {
+	return pulumix.Output[[]*AppImageConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppImageConfigArrayOutput) Index(i pulumi.IntInput) AppImageConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppImageConfig {
 		return vs[0].([]*AppImageConfig)[vs[1].(int)]
@@ -326,6 +359,12 @@ func (o AppImageConfigMapOutput) ToAppImageConfigMapOutput() AppImageConfigMapOu
 
 func (o AppImageConfigMapOutput) ToAppImageConfigMapOutputWithContext(ctx context.Context) AppImageConfigMapOutput {
 	return o
+}
+
+func (o AppImageConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppImageConfig] {
+	return pulumix.Output[map[string]*AppImageConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppImageConfigMapOutput) MapIndex(k pulumi.StringInput) AppImageConfigOutput {

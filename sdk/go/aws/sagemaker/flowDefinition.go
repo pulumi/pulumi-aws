@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Flow Definition resource.
@@ -23,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +64,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +109,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,7 +132,19 @@ import (
 //				},
 //				HumanLoopActivationConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigArgs{
 //					HumanLoopActivationConditionsConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{
-//						HumanLoopActivationConditions: pulumi.String("        {\n			\"Conditions\": [\n			  {\n				\"ConditionType\": \"Sampling\",\n				\"ConditionParameters\": {\n				  \"RandomSamplingPercentage\": 5\n				}\n			  }\n			]\n		}\n"),
+//						HumanLoopActivationConditions: pulumi.String(`        {
+//				"Conditions": [
+//				  {
+//					"ConditionType": "Sampling",
+//					"ConditionParameters": {
+//					  "RandomSamplingPercentage": 5
+//					}
+//				  }
+//				]
+//			}
+//
+// `),
+//
 //					},
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
@@ -148,7 +162,7 @@ import (
 //
 // ## Import
 //
-// SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+// Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 //
 // ```sh
 //
@@ -197,6 +211,7 @@ func NewFlowDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowDefinition
 	err := ctx.RegisterResource("aws:sagemaker/flowDefinition:FlowDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -322,6 +337,12 @@ func (i *FlowDefinition) ToFlowDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionOutput)
 }
 
+func (i *FlowDefinition) ToOutput(ctx context.Context) pulumix.Output[*FlowDefinition] {
+	return pulumix.Output[*FlowDefinition]{
+		OutputState: i.ToFlowDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FlowDefinitionArrayInput is an input type that accepts FlowDefinitionArray and FlowDefinitionArrayOutput values.
 // You can construct a concrete instance of `FlowDefinitionArrayInput` via:
 //
@@ -345,6 +366,12 @@ func (i FlowDefinitionArray) ToFlowDefinitionArrayOutput() FlowDefinitionArrayOu
 
 func (i FlowDefinitionArray) ToFlowDefinitionArrayOutputWithContext(ctx context.Context) FlowDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionArrayOutput)
+}
+
+func (i FlowDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlowDefinition] {
+	return pulumix.Output[[]*FlowDefinition]{
+		OutputState: i.ToFlowDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FlowDefinitionMapInput is an input type that accepts FlowDefinitionMap and FlowDefinitionMapOutput values.
@@ -372,6 +399,12 @@ func (i FlowDefinitionMap) ToFlowDefinitionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionMapOutput)
 }
 
+func (i FlowDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlowDefinition] {
+	return pulumix.Output[map[string]*FlowDefinition]{
+		OutputState: i.ToFlowDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlowDefinitionOutput struct{ *pulumi.OutputState }
 
 func (FlowDefinitionOutput) ElementType() reflect.Type {
@@ -384,6 +417,12 @@ func (o FlowDefinitionOutput) ToFlowDefinitionOutput() FlowDefinitionOutput {
 
 func (o FlowDefinitionOutput) ToFlowDefinitionOutputWithContext(ctx context.Context) FlowDefinitionOutput {
 	return o
+}
+
+func (o FlowDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDefinition] {
+	return pulumix.Output[*FlowDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
@@ -447,6 +486,12 @@ func (o FlowDefinitionArrayOutput) ToFlowDefinitionArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o FlowDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlowDefinition] {
+	return pulumix.Output[[]*FlowDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowDefinitionArrayOutput) Index(i pulumi.IntInput) FlowDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlowDefinition {
 		return vs[0].([]*FlowDefinition)[vs[1].(int)]
@@ -465,6 +510,12 @@ func (o FlowDefinitionMapOutput) ToFlowDefinitionMapOutput() FlowDefinitionMapOu
 
 func (o FlowDefinitionMapOutput) ToFlowDefinitionMapOutputWithContext(ctx context.Context) FlowDefinitionMapOutput {
 	return o
+}
+
+func (o FlowDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlowDefinition] {
+	return pulumix.Output[map[string]*FlowDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowDefinitionMapOutput) MapIndex(k pulumi.StringInput) FlowDefinitionOutput {

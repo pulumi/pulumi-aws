@@ -62,6 +62,8 @@ class ServiceArgs:
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+               
+               The following arguments are optional:
         :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
@@ -317,6 +319,8 @@ class ServiceArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -519,6 +523,8 @@ class _ServiceState:
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+               
+               The following arguments are optional:
         :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
@@ -777,6 +783,8 @@ class _ServiceState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -1059,7 +1067,7 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
+        Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 
         ```sh
          $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -1083,6 +1091,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArgs']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
@@ -1186,7 +1196,7 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
+        Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 
         ```sh
          $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -1335,6 +1345,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArgs']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
@@ -1509,6 +1521,8 @@ class Service(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

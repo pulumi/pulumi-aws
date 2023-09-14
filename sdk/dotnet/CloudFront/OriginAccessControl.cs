@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// CloudFront Origin Access Control can be imported using the `id`. For example
+    /// Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG

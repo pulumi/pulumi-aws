@@ -17,11 +17,19 @@ namespace Pulumi.Aws.Msk.Outputs
         /// Access control settings for brokers. See below.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess? PublicAccess;
+        /// <summary>
+        /// VPC connectivity access control for brokers. See below.
+        /// </summary>
+        public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity? VpcConnectivity;
 
         [OutputConstructor]
-        private ClusterBrokerNodeGroupInfoConnectivityInfo(Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess? publicAccess)
+        private ClusterBrokerNodeGroupInfoConnectivityInfo(
+            Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess? publicAccess,
+
+            Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity? vpcConnectivity)
         {
             PublicAccess = publicAccess;
+            VpcConnectivity = vpcConnectivity;
         }
     }
 }

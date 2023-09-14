@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Data catalogs can be imported using their `name`, e.g.,
+ * Using `pulumi import`, import data catalogs using their `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog

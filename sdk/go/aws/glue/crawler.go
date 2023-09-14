@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +88,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,7 +119,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -138,7 +140,15 @@ import (
 //				SchemaChangePolicy: &glue.CrawlerSchemaChangePolicyArgs{
 //					DeleteBehavior: pulumi.String("LOG"),
 //				},
-//				Configuration: pulumi.String("{\n  \"Version\":1.0,\n  \"Grouping\": {\n    \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"\n  }\n}\n"),
+//				Configuration: pulumi.String(`{
+//	  "Version":1.0,
+//	  "Grouping": {
+//	    "TableGroupingPolicy": "CombineCompatibleSchemas"
+//	  }
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -155,7 +165,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -190,7 +200,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -235,7 +245,7 @@ import (
 //
 // ## Import
 //
-// Glue Crawlers can be imported using `name`, e.g.,
+// Using `pulumi import`, import Glue Crawlers using `name`. For example:
 //
 // ```sh
 //
@@ -253,12 +263,17 @@ type Crawler struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName pulumi.StringOutput           `pulumi:"databaseName"`
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayOutput `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets CrawlerHudiTargetArrayOutput `pulumi:"hudiTargets"`
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets CrawlerIcebergTargetArrayOutput `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -302,6 +317,7 @@ func NewCrawler(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Crawler
 	err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, args, &resource, opts...)
 	if err != nil {
@@ -332,12 +348,17 @@ type crawlerState struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName *string              `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -378,11 +399,16 @@ type CrawlerState struct {
 	Configuration pulumi.StringPtrInput
 	// Glue database where results are written.
 	DatabaseName pulumi.StringPtrInput
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets CrawlerHudiTargetArrayInput
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -424,12 +450,17 @@ type crawlerArgs struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName string               `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -467,11 +498,16 @@ type CrawlerArgs struct {
 	Configuration pulumi.StringPtrInput
 	// Glue database where results are written.
 	DatabaseName pulumi.StringInput
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets CrawlerHudiTargetArrayInput
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -523,6 +559,12 @@ func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerOutput)
 }
 
+func (i *Crawler) ToOutput(ctx context.Context) pulumix.Output[*Crawler] {
+	return pulumix.Output[*Crawler]{
+		OutputState: i.ToCrawlerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CrawlerArrayInput is an input type that accepts CrawlerArray and CrawlerArrayOutput values.
 // You can construct a concrete instance of `CrawlerArrayInput` via:
 //
@@ -546,6 +588,12 @@ func (i CrawlerArray) ToCrawlerArrayOutput() CrawlerArrayOutput {
 
 func (i CrawlerArray) ToCrawlerArrayOutputWithContext(ctx context.Context) CrawlerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerArrayOutput)
+}
+
+func (i CrawlerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Crawler] {
+	return pulumix.Output[[]*Crawler]{
+		OutputState: i.ToCrawlerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CrawlerMapInput is an input type that accepts CrawlerMap and CrawlerMapOutput values.
@@ -573,6 +621,12 @@ func (i CrawlerMap) ToCrawlerMapOutputWithContext(ctx context.Context) CrawlerMa
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMapOutput)
 }
 
+func (i CrawlerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Crawler] {
+	return pulumix.Output[map[string]*Crawler]{
+		OutputState: i.ToCrawlerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CrawlerOutput struct{ *pulumi.OutputState }
 
 func (CrawlerOutput) ElementType() reflect.Type {
@@ -585,6 +639,12 @@ func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {
 
 func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
 	return o
+}
+
+func (o CrawlerOutput) ToOutput(ctx context.Context) pulumix.Output[*Crawler] {
+	return pulumix.Output[*Crawler]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the crawler
@@ -611,6 +671,7 @@ func (o CrawlerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// List of nested Delta Lake target arguments. See Delta Target below.
 func (o CrawlerOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerDeltaTargetArrayOutput { return v.DeltaTargets }).(CrawlerDeltaTargetArrayOutput)
 }
@@ -623,6 +684,16 @@ func (o CrawlerOutput) Description() pulumi.StringPtrOutput {
 // List of nested DynamoDB target arguments. See Dynamodb Target below.
 func (o CrawlerOutput) DynamodbTargets() CrawlerDynamodbTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerDynamodbTargetArrayOutput { return v.DynamodbTargets }).(CrawlerDynamodbTargetArrayOutput)
+}
+
+// List nested Hudi target arguments. See Iceberg Target below.
+func (o CrawlerOutput) HudiTargets() CrawlerHudiTargetArrayOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerHudiTargetArrayOutput { return v.HudiTargets }).(CrawlerHudiTargetArrayOutput)
+}
+
+// List nested Iceberg target arguments. See Iceberg Target below.
+func (o CrawlerOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerIcebergTargetArrayOutput { return v.IcebergTargets }).(CrawlerIcebergTargetArrayOutput)
 }
 
 // List of nested JBDC target arguments. See JDBC Target below.
@@ -709,6 +780,12 @@ func (o CrawlerArrayOutput) ToCrawlerArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o CrawlerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Crawler] {
+	return pulumix.Output[[]*Crawler]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CrawlerArrayOutput) Index(i pulumi.IntInput) CrawlerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Crawler {
 		return vs[0].([]*Crawler)[vs[1].(int)]
@@ -727,6 +804,12 @@ func (o CrawlerMapOutput) ToCrawlerMapOutput() CrawlerMapOutput {
 
 func (o CrawlerMapOutput) ToCrawlerMapOutputWithContext(ctx context.Context) CrawlerMapOutput {
 	return o
+}
+
+func (o CrawlerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Crawler] {
+	return pulumix.Output[map[string]*Crawler]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CrawlerMapOutput) MapIndex(k pulumi.StringInput) CrawlerOutput {

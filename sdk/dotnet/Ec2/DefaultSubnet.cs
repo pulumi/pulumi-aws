@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Subnets can be imported using the `subnet id`, e.g.,
+    /// Using `pulumi import`, import subnets using the subnet `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
@@ -62,6 +62,8 @@ namespace Pulumi.Aws.Ec2
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
+        /// 
+        /// This resource supports the following additional arguments:
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -191,6 +193,8 @@ namespace Pulumi.Aws.Ec2
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
+        /// 
+        /// This resource supports the following additional arguments:
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -254,6 +258,8 @@ namespace Pulumi.Aws.Ec2
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
+        /// 
+        /// This resource supports the following additional arguments:
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

@@ -167,12 +167,11 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_deployment` can be imported by using the API identifier and deployment identifier, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
         ```
-
          The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
@@ -207,12 +206,11 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_deployment` can be imported by using the API identifier and deployment identifier, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
         ```
-
          The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.

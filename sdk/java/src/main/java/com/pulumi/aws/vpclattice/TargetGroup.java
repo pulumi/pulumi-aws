@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Target Group can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
@@ -237,12 +237,16 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
     /**
      * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

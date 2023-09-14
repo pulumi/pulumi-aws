@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +46,13 @@ import (
 //
 // ## Import
 //
-// S3 bucket request payment configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` e.g.,
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+//
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+//
+// __Using `pulumi import` to import__ S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+//
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
 //
@@ -52,7 +60,7 @@ import (
 //
 // ```
 //
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
 //
@@ -83,6 +91,7 @@ func NewBucketRequestPaymentConfigurationV2(ctx *pulumi.Context,
 	if args.Payer == nil {
 		return nil, errors.New("invalid value for required argument 'Payer'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketRequestPaymentConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2", name, args, &resource, opts...)
 	if err != nil {
@@ -168,6 +177,12 @@ func (i *BucketRequestPaymentConfigurationV2) ToBucketRequestPaymentConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRequestPaymentConfigurationV2Output)
 }
 
+func (i *BucketRequestPaymentConfigurationV2) ToOutput(ctx context.Context) pulumix.Output[*BucketRequestPaymentConfigurationV2] {
+	return pulumix.Output[*BucketRequestPaymentConfigurationV2]{
+		OutputState: i.ToBucketRequestPaymentConfigurationV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketRequestPaymentConfigurationV2ArrayInput is an input type that accepts BucketRequestPaymentConfigurationV2Array and BucketRequestPaymentConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketRequestPaymentConfigurationV2ArrayInput` via:
 //
@@ -191,6 +206,12 @@ func (i BucketRequestPaymentConfigurationV2Array) ToBucketRequestPaymentConfigur
 
 func (i BucketRequestPaymentConfigurationV2Array) ToBucketRequestPaymentConfigurationV2ArrayOutputWithContext(ctx context.Context) BucketRequestPaymentConfigurationV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRequestPaymentConfigurationV2ArrayOutput)
+}
+
+func (i BucketRequestPaymentConfigurationV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketRequestPaymentConfigurationV2] {
+	return pulumix.Output[[]*BucketRequestPaymentConfigurationV2]{
+		OutputState: i.ToBucketRequestPaymentConfigurationV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketRequestPaymentConfigurationV2MapInput is an input type that accepts BucketRequestPaymentConfigurationV2Map and BucketRequestPaymentConfigurationV2MapOutput values.
@@ -218,6 +239,12 @@ func (i BucketRequestPaymentConfigurationV2Map) ToBucketRequestPaymentConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRequestPaymentConfigurationV2MapOutput)
 }
 
+func (i BucketRequestPaymentConfigurationV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketRequestPaymentConfigurationV2] {
+	return pulumix.Output[map[string]*BucketRequestPaymentConfigurationV2]{
+		OutputState: i.ToBucketRequestPaymentConfigurationV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketRequestPaymentConfigurationV2Output struct{ *pulumi.OutputState }
 
 func (BucketRequestPaymentConfigurationV2Output) ElementType() reflect.Type {
@@ -230,6 +257,12 @@ func (o BucketRequestPaymentConfigurationV2Output) ToBucketRequestPaymentConfigu
 
 func (o BucketRequestPaymentConfigurationV2Output) ToBucketRequestPaymentConfigurationV2OutputWithContext(ctx context.Context) BucketRequestPaymentConfigurationV2Output {
 	return o
+}
+
+func (o BucketRequestPaymentConfigurationV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketRequestPaymentConfigurationV2] {
+	return pulumix.Output[*BucketRequestPaymentConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bucket.
@@ -261,6 +294,12 @@ func (o BucketRequestPaymentConfigurationV2ArrayOutput) ToBucketRequestPaymentCo
 	return o
 }
 
+func (o BucketRequestPaymentConfigurationV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketRequestPaymentConfigurationV2] {
+	return pulumix.Output[[]*BucketRequestPaymentConfigurationV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketRequestPaymentConfigurationV2ArrayOutput) Index(i pulumi.IntInput) BucketRequestPaymentConfigurationV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketRequestPaymentConfigurationV2 {
 		return vs[0].([]*BucketRequestPaymentConfigurationV2)[vs[1].(int)]
@@ -279,6 +318,12 @@ func (o BucketRequestPaymentConfigurationV2MapOutput) ToBucketRequestPaymentConf
 
 func (o BucketRequestPaymentConfigurationV2MapOutput) ToBucketRequestPaymentConfigurationV2MapOutputWithContext(ctx context.Context) BucketRequestPaymentConfigurationV2MapOutput {
 	return o
+}
+
+func (o BucketRequestPaymentConfigurationV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketRequestPaymentConfigurationV2] {
+	return pulumix.Output[map[string]*BucketRequestPaymentConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketRequestPaymentConfigurationV2MapOutput) MapIndex(k pulumi.StringInput) BucketRequestPaymentConfigurationV2Output {

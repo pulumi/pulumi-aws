@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -17,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +40,7 @@ import (
 //
 // ## Import
 //
-// Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
+// Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 //
 // ```sh
 //
@@ -69,6 +71,7 @@ func NewHttpNamespace(ctx *pulumi.Context,
 		args = &HttpNamespaceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HttpNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/httpNamespace:HttpNamespace", name, args, &resource, opts...)
 	if err != nil {
@@ -166,6 +169,12 @@ func (i *HttpNamespace) ToHttpNamespaceOutputWithContext(ctx context.Context) Ht
 	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceOutput)
 }
 
+func (i *HttpNamespace) ToOutput(ctx context.Context) pulumix.Output[*HttpNamespace] {
+	return pulumix.Output[*HttpNamespace]{
+		OutputState: i.ToHttpNamespaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HttpNamespaceArrayInput is an input type that accepts HttpNamespaceArray and HttpNamespaceArrayOutput values.
 // You can construct a concrete instance of `HttpNamespaceArrayInput` via:
 //
@@ -189,6 +198,12 @@ func (i HttpNamespaceArray) ToHttpNamespaceArrayOutput() HttpNamespaceArrayOutpu
 
 func (i HttpNamespaceArray) ToHttpNamespaceArrayOutputWithContext(ctx context.Context) HttpNamespaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceArrayOutput)
+}
+
+func (i HttpNamespaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*HttpNamespace] {
+	return pulumix.Output[[]*HttpNamespace]{
+		OutputState: i.ToHttpNamespaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HttpNamespaceMapInput is an input type that accepts HttpNamespaceMap and HttpNamespaceMapOutput values.
@@ -216,6 +231,12 @@ func (i HttpNamespaceMap) ToHttpNamespaceMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceMapOutput)
 }
 
+func (i HttpNamespaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HttpNamespace] {
+	return pulumix.Output[map[string]*HttpNamespace]{
+		OutputState: i.ToHttpNamespaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HttpNamespaceOutput struct{ *pulumi.OutputState }
 
 func (HttpNamespaceOutput) ElementType() reflect.Type {
@@ -228,6 +249,12 @@ func (o HttpNamespaceOutput) ToHttpNamespaceOutput() HttpNamespaceOutput {
 
 func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput {
 	return o
+}
+
+func (o HttpNamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*HttpNamespace] {
+	return pulumix.Output[*HttpNamespace]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN that Amazon Route 53 assigns to the namespace when you create it.
@@ -274,6 +301,12 @@ func (o HttpNamespaceArrayOutput) ToHttpNamespaceArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o HttpNamespaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HttpNamespace] {
+	return pulumix.Output[[]*HttpNamespace]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HttpNamespaceArrayOutput) Index(i pulumi.IntInput) HttpNamespaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HttpNamespace {
 		return vs[0].([]*HttpNamespace)[vs[1].(int)]
@@ -292,6 +325,12 @@ func (o HttpNamespaceMapOutput) ToHttpNamespaceMapOutput() HttpNamespaceMapOutpu
 
 func (o HttpNamespaceMapOutput) ToHttpNamespaceMapOutputWithContext(ctx context.Context) HttpNamespaceMapOutput {
 	return o
+}
+
+func (o HttpNamespaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HttpNamespace] {
+	return pulumix.Output[map[string]*HttpNamespace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HttpNamespaceMapOutput) MapIndex(k pulumi.StringInput) HttpNamespaceOutput {

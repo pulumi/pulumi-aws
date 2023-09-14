@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight Template can be imported using the AWS account ID and template ID separated by a comma (`,`) e.g.,
+ * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
  *
  * ```sh
  *  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
@@ -114,6 +114,8 @@ export class Template extends pulumi.CustomResource {
     public readonly templateId!: pulumi.Output<string>;
     /**
      * A description of the current template version being created/updated.
+     *
+     * The following arguments are optional:
      */
     public readonly versionDescription!: pulumi.Output<string>;
     /**
@@ -230,6 +232,8 @@ export interface TemplateState {
     templateId?: pulumi.Input<string>;
     /**
      * A description of the current template version being created/updated.
+     *
+     * The following arguments are optional:
      */
     versionDescription?: pulumi.Input<string>;
     /**
@@ -268,6 +272,8 @@ export interface TemplateArgs {
     templateId: pulumi.Input<string>;
     /**
      * A description of the current template version being created/updated.
+     *
+     * The following arguments are optional:
      */
     versionDescription: pulumi.Input<string>;
 }

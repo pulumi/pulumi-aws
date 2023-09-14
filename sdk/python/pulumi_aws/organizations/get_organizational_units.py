@@ -22,10 +22,10 @@ class GetOrganizationalUnitsResult:
     """
     A collection of values returned by getOrganizationalUnits.
     """
-    def __init__(__self__, childrens=None, id=None, parent_id=None):
-        if childrens and not isinstance(childrens, list):
-            raise TypeError("Expected argument 'childrens' to be a list")
-        pulumi.set(__self__, "childrens", childrens)
+    def __init__(__self__, children=None, id=None, parent_id=None):
+        if children and not isinstance(children, list):
+            raise TypeError("Expected argument 'children' to be a list")
+        pulumi.set(__self__, "children", children)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,11 +35,11 @@ class GetOrganizationalUnitsResult:
 
     @property
     @pulumi.getter
-    def childrens(self) -> Sequence['outputs.GetOrganizationalUnitsChildrenResult']:
+    def children(self) -> Sequence['outputs.GetOrganizationalUnitsChildResult']:
         """
         List of child organizational units, which have the following attributes:
         """
-        return pulumi.get(self, "childrens")
+        return pulumi.get(self, "children")
 
     @property
     @pulumi.getter
@@ -61,7 +61,7 @@ class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
         if False:
             yield self
         return GetOrganizationalUnitsResult(
-            childrens=self.childrens,
+            children=self.children,
             id=self.id,
             parent_id=self.parent_id)
 
@@ -90,9 +90,9 @@ def get_organizational_units(parent_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganizationalUnits:getOrganizationalUnits', __args__, opts=opts, typ=GetOrganizationalUnitsResult).value
 
     return AwaitableGetOrganizationalUnitsResult(
-        childrens=__ret__.childrens,
-        id=__ret__.id,
-        parent_id=__ret__.parent_id)
+        children=pulumi.get(__ret__, 'children'),
+        id=pulumi.get(__ret__, 'id'),
+        parent_id=pulumi.get(__ret__, 'parent_id'))
 
 
 @_utilities.lift_output_func(get_organizational_units)

@@ -222,19 +222,19 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getAttachment:getAttachment', __args__, opts=opts, typ=GetAttachmentResult).value
 
     return AwaitableGetAttachmentResult(
-        arn=__ret__.arn,
-        association_state=__ret__.association_state,
-        association_transit_gateway_route_table_id=__ret__.association_transit_gateway_route_table_id,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        resource_id=__ret__.resource_id,
-        resource_owner_id=__ret__.resource_owner_id,
-        resource_type=__ret__.resource_type,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        transit_gateway_attachment_id=__ret__.transit_gateway_attachment_id,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        transit_gateway_owner_id=__ret__.transit_gateway_owner_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        association_state=pulumi.get(__ret__, 'association_state'),
+        association_transit_gateway_route_table_id=pulumi.get(__ret__, 'association_transit_gateway_route_table_id'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        resource_owner_id=pulumi.get(__ret__, 'resource_owner_id'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        transit_gateway_owner_id=pulumi.get(__ret__, 'transit_gateway_owner_id'))
 
 
 @_utilities.lift_output_func(get_attachment)

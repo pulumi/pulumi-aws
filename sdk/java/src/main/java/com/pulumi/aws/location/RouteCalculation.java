@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_location_route_calculator` can be imported using the route calculator name, e.g.,
+ * Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
@@ -105,12 +105,16 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the data provider of traffic and road network data.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output<String> dataSource;
 
     /**
      * @return Specifies the data provider of traffic and road network data.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> dataSource() {

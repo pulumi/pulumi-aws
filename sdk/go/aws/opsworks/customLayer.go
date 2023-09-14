@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks custom layer resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// OpsWorks Custom Layers can be imported using the `id`, e.g.,
+// Using `pulumi import`, import OpsWorks Custom Layers using the `id`. For example:
 //
 // ```sh
 //
@@ -94,6 +96,10 @@ type CustomLayer struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -114,6 +120,7 @@ func NewCustomLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomLayer
 	err := ctx.RegisterResource("aws:opsworks/customLayer:CustomLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -178,6 +185,10 @@ type customLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -228,6 +239,10 @@ type CustomLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -280,6 +295,10 @@ type customLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -327,6 +346,10 @@ type CustomLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -355,6 +378,12 @@ func (i *CustomLayer) ToCustomLayerOutputWithContext(ctx context.Context) Custom
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerOutput)
 }
 
+func (i *CustomLayer) ToOutput(ctx context.Context) pulumix.Output[*CustomLayer] {
+	return pulumix.Output[*CustomLayer]{
+		OutputState: i.ToCustomLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomLayerArrayInput is an input type that accepts CustomLayerArray and CustomLayerArrayOutput values.
 // You can construct a concrete instance of `CustomLayerArrayInput` via:
 //
@@ -378,6 +407,12 @@ func (i CustomLayerArray) ToCustomLayerArrayOutput() CustomLayerArrayOutput {
 
 func (i CustomLayerArray) ToCustomLayerArrayOutputWithContext(ctx context.Context) CustomLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerArrayOutput)
+}
+
+func (i CustomLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomLayer] {
+	return pulumix.Output[[]*CustomLayer]{
+		OutputState: i.ToCustomLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomLayerMapInput is an input type that accepts CustomLayerMap and CustomLayerMapOutput values.
@@ -405,6 +440,12 @@ func (i CustomLayerMap) ToCustomLayerMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerMapOutput)
 }
 
+func (i CustomLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomLayer] {
+	return pulumix.Output[map[string]*CustomLayer]{
+		OutputState: i.ToCustomLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLayerOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerOutput) ElementType() reflect.Type {
@@ -417,6 +458,12 @@ func (o CustomLayerOutput) ToCustomLayerOutput() CustomLayerOutput {
 
 func (o CustomLayerOutput) ToCustomLayerOutputWithContext(ctx context.Context) CustomLayerOutput {
 	return o
+}
+
+func (o CustomLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLayer] {
+	return pulumix.Output[*CustomLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -530,6 +577,10 @@ func (o CustomLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following extra optional arguments, all lists of Chef recipe names, allow
+// custom Chef recipes to be applied to layer instances at the five different
+// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 func (o CustomLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -558,6 +609,12 @@ func (o CustomLayerArrayOutput) ToCustomLayerArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CustomLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomLayer] {
+	return pulumix.Output[[]*CustomLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomLayerArrayOutput) Index(i pulumi.IntInput) CustomLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomLayer {
 		return vs[0].([]*CustomLayer)[vs[1].(int)]
@@ -576,6 +633,12 @@ func (o CustomLayerMapOutput) ToCustomLayerMapOutput() CustomLayerMapOutput {
 
 func (o CustomLayerMapOutput) ToCustomLayerMapOutputWithContext(ctx context.Context) CustomLayerMapOutput {
 	return o
+}
+
+func (o CustomLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomLayer] {
+	return pulumix.Output[map[string]*CustomLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLayerMapOutput) MapIndex(k pulumi.StringInput) CustomLayerOutput {

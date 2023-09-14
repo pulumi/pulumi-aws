@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a FSx for Lustre Data Repository Association. See [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html) for more information.
@@ -24,8 +26,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,7 +90,7 @@ import (
 //
 // ## Import
 //
-// FSx Data Repository Associations can be imported using the `id`, e.g.,
+// Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
 //
 // ```sh
 //
@@ -138,6 +140,7 @@ func NewDataRepositoryAssociation(ctx *pulumi.Context,
 	if args.FileSystemPath == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemPath'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataRepositoryAssociation
 	err := ctx.RegisterResource("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -277,6 +280,12 @@ func (i *DataRepositoryAssociation) ToDataRepositoryAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationOutput)
 }
 
+func (i *DataRepositoryAssociation) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociation] {
+	return pulumix.Output[*DataRepositoryAssociation]{
+		OutputState: i.ToDataRepositoryAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataRepositoryAssociationArrayInput is an input type that accepts DataRepositoryAssociationArray and DataRepositoryAssociationArrayOutput values.
 // You can construct a concrete instance of `DataRepositoryAssociationArrayInput` via:
 //
@@ -300,6 +309,12 @@ func (i DataRepositoryAssociationArray) ToDataRepositoryAssociationArrayOutput()
 
 func (i DataRepositoryAssociationArray) ToDataRepositoryAssociationArrayOutputWithContext(ctx context.Context) DataRepositoryAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationArrayOutput)
+}
+
+func (i DataRepositoryAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataRepositoryAssociation] {
+	return pulumix.Output[[]*DataRepositoryAssociation]{
+		OutputState: i.ToDataRepositoryAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataRepositoryAssociationMapInput is an input type that accepts DataRepositoryAssociationMap and DataRepositoryAssociationMapOutput values.
@@ -327,6 +342,12 @@ func (i DataRepositoryAssociationMap) ToDataRepositoryAssociationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationMapOutput)
 }
 
+func (i DataRepositoryAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataRepositoryAssociation] {
+	return pulumix.Output[map[string]*DataRepositoryAssociation]{
+		OutputState: i.ToDataRepositoryAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataRepositoryAssociationOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationOutput) ElementType() reflect.Type {
@@ -339,6 +360,12 @@ func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutput() Dat
 
 func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutputWithContext(ctx context.Context) DataRepositoryAssociationOutput {
 	return o
+}
+
+func (o DataRepositoryAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociation] {
+	return pulumix.Output[*DataRepositoryAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the file system.
@@ -410,6 +437,12 @@ func (o DataRepositoryAssociationArrayOutput) ToDataRepositoryAssociationArrayOu
 	return o
 }
 
+func (o DataRepositoryAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataRepositoryAssociation] {
+	return pulumix.Output[[]*DataRepositoryAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataRepositoryAssociationArrayOutput) Index(i pulumi.IntInput) DataRepositoryAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataRepositoryAssociation {
 		return vs[0].([]*DataRepositoryAssociation)[vs[1].(int)]
@@ -428,6 +461,12 @@ func (o DataRepositoryAssociationMapOutput) ToDataRepositoryAssociationMapOutput
 
 func (o DataRepositoryAssociationMapOutput) ToDataRepositoryAssociationMapOutputWithContext(ctx context.Context) DataRepositoryAssociationMapOutput {
 	return o
+}
+
+func (o DataRepositoryAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataRepositoryAssociation] {
+	return pulumix.Output[map[string]*DataRepositoryAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataRepositoryAssociationMapOutput) MapIndex(k pulumi.StringInput) DataRepositoryAssociationOutput {

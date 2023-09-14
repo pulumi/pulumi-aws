@@ -339,7 +339,7 @@ class ResolverRule(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Resolver rules can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
         ```sh
          $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
@@ -396,7 +396,7 @@ class ResolverRule(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Resolver rules can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
         ```sh
          $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0

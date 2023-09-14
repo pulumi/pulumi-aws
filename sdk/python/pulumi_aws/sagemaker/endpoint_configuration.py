@@ -355,7 +355,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Endpoint configurations can be imported using the `name`, e.g.,
+        Using `pulumi import`, import endpoint configurations using the `name`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
@@ -403,7 +403,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Endpoint configurations can be imported using the `name`, e.g.,
+        Using `pulumi import`, import endpoint configurations using the `name`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo

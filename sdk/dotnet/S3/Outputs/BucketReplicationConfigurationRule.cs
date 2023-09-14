@@ -43,6 +43,8 @@ namespace Pulumi.Aws.S3.Outputs
         public readonly Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria? SourceSelectionCriteria;
         /// <summary>
         /// The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+        /// 
+        /// &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
         /// </summary>
         public readonly string Status;
 

@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.opensearch.OutboundConnection;
  * import com.pulumi.aws.opensearch.OutboundConnectionArgs;
@@ -73,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS Opensearch Inbound Connection Accepters can be imported by using the Inbound Connection ID, e.g.,
+ * Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Redshift Cluster IAM Roles resource.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //
 // ## Import
 //
-// Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
+// Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
 //
 // ```sh
 //
@@ -74,6 +76,7 @@ func NewClusterIamRoles(ctx *pulumi.Context,
 	if args.ClusterIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterIamRoles
 	err := ctx.RegisterResource("aws:redshift/clusterIamRoles:ClusterIamRoles", name, args, &resource, opts...)
 	if err != nil {
@@ -159,6 +162,12 @@ func (i *ClusterIamRoles) ToClusterIamRolesOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIamRolesOutput)
 }
 
+func (i *ClusterIamRoles) ToOutput(ctx context.Context) pulumix.Output[*ClusterIamRoles] {
+	return pulumix.Output[*ClusterIamRoles]{
+		OutputState: i.ToClusterIamRolesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterIamRolesArrayInput is an input type that accepts ClusterIamRolesArray and ClusterIamRolesArrayOutput values.
 // You can construct a concrete instance of `ClusterIamRolesArrayInput` via:
 //
@@ -182,6 +191,12 @@ func (i ClusterIamRolesArray) ToClusterIamRolesArrayOutput() ClusterIamRolesArra
 
 func (i ClusterIamRolesArray) ToClusterIamRolesArrayOutputWithContext(ctx context.Context) ClusterIamRolesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIamRolesArrayOutput)
+}
+
+func (i ClusterIamRolesArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterIamRoles] {
+	return pulumix.Output[[]*ClusterIamRoles]{
+		OutputState: i.ToClusterIamRolesArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterIamRolesMapInput is an input type that accepts ClusterIamRolesMap and ClusterIamRolesMapOutput values.
@@ -209,6 +224,12 @@ func (i ClusterIamRolesMap) ToClusterIamRolesMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIamRolesMapOutput)
 }
 
+func (i ClusterIamRolesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterIamRoles] {
+	return pulumix.Output[map[string]*ClusterIamRoles]{
+		OutputState: i.ToClusterIamRolesMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterIamRolesOutput struct{ *pulumi.OutputState }
 
 func (ClusterIamRolesOutput) ElementType() reflect.Type {
@@ -221,6 +242,12 @@ func (o ClusterIamRolesOutput) ToClusterIamRolesOutput() ClusterIamRolesOutput {
 
 func (o ClusterIamRolesOutput) ToClusterIamRolesOutputWithContext(ctx context.Context) ClusterIamRolesOutput {
 	return o
+}
+
+func (o ClusterIamRolesOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterIamRoles] {
+	return pulumix.Output[*ClusterIamRoles]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Redshift Cluster IAM Roles.
@@ -252,6 +279,12 @@ func (o ClusterIamRolesArrayOutput) ToClusterIamRolesArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ClusterIamRolesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterIamRoles] {
+	return pulumix.Output[[]*ClusterIamRoles]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterIamRolesArrayOutput) Index(i pulumi.IntInput) ClusterIamRolesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterIamRoles {
 		return vs[0].([]*ClusterIamRoles)[vs[1].(int)]
@@ -270,6 +303,12 @@ func (o ClusterIamRolesMapOutput) ToClusterIamRolesMapOutput() ClusterIamRolesMa
 
 func (o ClusterIamRolesMapOutput) ToClusterIamRolesMapOutputWithContext(ctx context.Context) ClusterIamRolesMapOutput {
 	return o
+}
+
+func (o ClusterIamRolesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterIamRoles] {
+	return pulumix.Output[map[string]*ClusterIamRoles]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterIamRolesMapOutput) MapIndex(k pulumi.StringInput) ClusterIamRolesOutput {

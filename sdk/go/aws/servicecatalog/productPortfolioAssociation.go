@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Product Portfolio Association.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
+// Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
 //
 // ```sh
 //
@@ -58,6 +60,8 @@ type ProductPortfolioAssociation struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrOutput `pulumi:"sourcePortfolioId"`
@@ -76,6 +80,7 @@ func NewProductPortfolioAssociation(ctx *pulumi.Context,
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProductPortfolioAssociation
 	err := ctx.RegisterResource("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -103,6 +108,8 @@ type productPortfolioAssociationState struct {
 	// Portfolio identifier.
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId *string `pulumi:"productId"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
@@ -114,6 +121,8 @@ type ProductPortfolioAssociationState struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringPtrInput
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringPtrInput
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrInput
@@ -129,6 +138,8 @@ type productPortfolioAssociationArgs struct {
 	// Portfolio identifier.
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId string `pulumi:"productId"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
@@ -141,6 +152,8 @@ type ProductPortfolioAssociationArgs struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringInput
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringInput
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrInput
@@ -169,6 +182,12 @@ func (i *ProductPortfolioAssociation) ToProductPortfolioAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPortfolioAssociationOutput)
 }
 
+func (i *ProductPortfolioAssociation) ToOutput(ctx context.Context) pulumix.Output[*ProductPortfolioAssociation] {
+	return pulumix.Output[*ProductPortfolioAssociation]{
+		OutputState: i.ToProductPortfolioAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProductPortfolioAssociationArrayInput is an input type that accepts ProductPortfolioAssociationArray and ProductPortfolioAssociationArrayOutput values.
 // You can construct a concrete instance of `ProductPortfolioAssociationArrayInput` via:
 //
@@ -192,6 +211,12 @@ func (i ProductPortfolioAssociationArray) ToProductPortfolioAssociationArrayOutp
 
 func (i ProductPortfolioAssociationArray) ToProductPortfolioAssociationArrayOutputWithContext(ctx context.Context) ProductPortfolioAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPortfolioAssociationArrayOutput)
+}
+
+func (i ProductPortfolioAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProductPortfolioAssociation] {
+	return pulumix.Output[[]*ProductPortfolioAssociation]{
+		OutputState: i.ToProductPortfolioAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProductPortfolioAssociationMapInput is an input type that accepts ProductPortfolioAssociationMap and ProductPortfolioAssociationMapOutput values.
@@ -219,6 +244,12 @@ func (i ProductPortfolioAssociationMap) ToProductPortfolioAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPortfolioAssociationMapOutput)
 }
 
+func (i ProductPortfolioAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductPortfolioAssociation] {
+	return pulumix.Output[map[string]*ProductPortfolioAssociation]{
+		OutputState: i.ToProductPortfolioAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProductPortfolioAssociationOutput struct{ *pulumi.OutputState }
 
 func (ProductPortfolioAssociationOutput) ElementType() reflect.Type {
@@ -233,6 +264,12 @@ func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationOutputWi
 	return o
 }
 
+func (o ProductPortfolioAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ProductPortfolioAssociation] {
+	return pulumix.Output[*ProductPortfolioAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 func (o ProductPortfolioAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
@@ -244,6 +281,8 @@ func (o ProductPortfolioAssociationOutput) PortfolioId() pulumi.StringOutput {
 }
 
 // Product identifier.
+//
+// The following arguments are optional:
 func (o ProductPortfolioAssociationOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
 }
@@ -267,6 +306,12 @@ func (o ProductPortfolioAssociationArrayOutput) ToProductPortfolioAssociationArr
 	return o
 }
 
+func (o ProductPortfolioAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProductPortfolioAssociation] {
+	return pulumix.Output[[]*ProductPortfolioAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProductPortfolioAssociationArrayOutput) Index(i pulumi.IntInput) ProductPortfolioAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProductPortfolioAssociation {
 		return vs[0].([]*ProductPortfolioAssociation)[vs[1].(int)]
@@ -285,6 +330,12 @@ func (o ProductPortfolioAssociationMapOutput) ToProductPortfolioAssociationMapOu
 
 func (o ProductPortfolioAssociationMapOutput) ToProductPortfolioAssociationMapOutputWithContext(ctx context.Context) ProductPortfolioAssociationMapOutput {
 	return o
+}
+
+func (o ProductPortfolioAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductPortfolioAssociation] {
+	return pulumix.Output[map[string]*ProductPortfolioAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProductPortfolioAssociationMapOutput) MapIndex(k pulumi.StringInput) ProductPortfolioAssociationOutput {

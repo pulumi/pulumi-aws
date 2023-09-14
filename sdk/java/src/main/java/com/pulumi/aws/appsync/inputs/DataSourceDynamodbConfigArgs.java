@@ -17,9 +17,17 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
 
     public static final DataSourceDynamodbConfigArgs Empty = new DataSourceDynamodbConfigArgs();
 
+    /**
+     * The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+     * 
+     */
     @Import(name="deltaSyncConfig")
     private @Nullable Output<DataSourceDynamodbConfigDeltaSyncConfigArgs> deltaSyncConfig;
 
+    /**
+     * @return The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+     * 
+     */
     public Optional<Output<DataSourceDynamodbConfigDeltaSyncConfigArgs>> deltaSyncConfig() {
         return Optional.ofNullable(this.deltaSyncConfig);
     }
@@ -69,9 +77,17 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.useCallerCredentials);
     }
 
+    /**
+     * Detects Conflict Detection and Resolution with this data source.
+     * 
+     */
     @Import(name="versioned")
     private @Nullable Output<Boolean> versioned;
 
+    /**
+     * @return Detects Conflict Detection and Resolution with this data source.
+     * 
+     */
     public Optional<Output<Boolean>> versioned() {
         return Optional.ofNullable(this.versioned);
     }
@@ -104,11 +120,23 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
             $ = new DataSourceDynamodbConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaSyncConfig(@Nullable Output<DataSourceDynamodbConfigDeltaSyncConfigArgs> deltaSyncConfig) {
             $.deltaSyncConfig = deltaSyncConfig;
             return this;
         }
 
+        /**
+         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaSyncConfig(DataSourceDynamodbConfigDeltaSyncConfigArgs deltaSyncConfig) {
             return deltaSyncConfig(Output.of(deltaSyncConfig));
         }
@@ -176,11 +204,23 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
             return useCallerCredentials(Output.of(useCallerCredentials));
         }
 
+        /**
+         * @param versioned Detects Conflict Detection and Resolution with this data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versioned(@Nullable Output<Boolean> versioned) {
             $.versioned = versioned;
             return this;
         }
 
+        /**
+         * @param versioned Detects Conflict Detection and Resolution with this data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versioned(Boolean versioned) {
             return versioned(Output.of(versioned));
         }

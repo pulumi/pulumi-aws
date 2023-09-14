@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Importing is currently not supported on this resource.
+ * You cannot import this resource.
  * 
  */
 @ResourceType(type="aws:quicksight/accountSubscription:AccountSubscription")
@@ -243,12 +243,16 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="notificationEmail", refs={String.class}, tree="[0]")
     private Output<String> notificationEmail;
 
     /**
      * @return Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> notificationEmail() {

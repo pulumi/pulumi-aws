@@ -23,6 +23,8 @@ class ContactListArgs:
         """
         The set of arguments for constructing a ContactList resource.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
@@ -40,6 +42,8 @@ class ContactListArgs:
     def contact_list_name(self) -> pulumi.Input[str]:
         """
         The name of the contact list.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "contact_list_name")
 
@@ -98,6 +102,8 @@ class _ContactListState:
         """
         Input properties used for looking up and filtering ContactList resources.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] created_timestamp: A timestamp noting when the contact list was created in ISO 8601 format.
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[str] last_updated_timestamp: A timestamp noting the last time the contact list was updated in ISO 8601 format.
@@ -135,6 +141,8 @@ class _ContactListState:
     def contact_list_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the contact list.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "contact_list_name")
 
@@ -253,7 +261,7 @@ class ContactList(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Contact List can be imported using the `example_id_arg`, e.g.,
+        Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For example:
 
         ```sh
          $ pulumi import aws:sesv2/contactList:ContactList example example
@@ -262,6 +270,8 @@ class ContactList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
@@ -303,7 +313,7 @@ class ContactList(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Contact List can be imported using the `example_id_arg`, e.g.,
+        Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For example:
 
         ```sh
          $ pulumi import aws:sesv2/contactList:ContactList example example
@@ -373,6 +383,8 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] created_timestamp: A timestamp noting when the contact list was created in ISO 8601 format.
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[str] last_updated_timestamp: A timestamp noting the last time the contact list was updated in ISO 8601 format.
@@ -403,6 +415,8 @@ class ContactList(pulumi.CustomResource):
     def contact_list_name(self) -> pulumi.Output[str]:
         """
         The name of the contact list.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "contact_list_name")
 

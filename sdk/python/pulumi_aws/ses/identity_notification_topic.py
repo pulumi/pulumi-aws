@@ -181,11 +181,11 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         ## Import
 
-        Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
+        In TODO v1.5.0 and later, use an `import` block to import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
-        ```
+         to = aws_ses_identity_notification_topic.test
+
+         id = "example.com|Bounce" } Using `TODO import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleconsole % TODO import aws_ses_identity_notification_topic.test 'example.com|Bounce'
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,11 +218,11 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         ## Import
 
-        Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
+        In TODO v1.5.0 and later, use an `import` block to import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
-        ```
+         to = aws_ses_identity_notification_topic.test
+
+         id = "example.com|Bounce" } Using `TODO import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleconsole % TODO import aws_ses_identity_notification_topic.test 'example.com|Bounce'
 
         :param str resource_name: The name of the resource.
         :param IdentityNotificationTopicArgs args: The arguments to use to populate this resource's properties.

@@ -25,7 +25,7 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,
+ * Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
  *
  * ```sh
  *  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij

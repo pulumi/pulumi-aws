@@ -15,6 +15,13 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetIpRangesPlainArgs Empty = new GetIpRangesPlainArgs();
 
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     /**
      * Filter IP ranges by regions (or include all regions, if
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
@@ -41,6 +48,9 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
      * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
      * [`service` attribute][2] documentation for other possible values.
      * 
+     * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+     * CIDR blocks, this call will fail.
+     * 
      */
     @Import(name="services", required=true)
     private List<String> services;
@@ -51,6 +61,9 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
      * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
      * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
      * [`service` attribute][2] documentation for other possible values.
+     * 
+     * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+     * CIDR blocks, this call will fail.
      * 
      */
     public List<String> services() {
@@ -75,6 +88,7 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
     private GetIpRangesPlainArgs() {}
 
     private GetIpRangesPlainArgs(GetIpRangesPlainArgs $) {
+        this.id = $.id;
         this.regions = $.regions;
         this.services = $.services;
         this.url = $.url;
@@ -96,6 +110,11 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
 
         public Builder(GetIpRangesPlainArgs defaults) {
             $ = new GetIpRangesPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
         }
 
         /**
@@ -130,6 +149,9 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
          * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
          * [`service` attribute][2] documentation for other possible values.
          * 
+         * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+         * CIDR blocks, this call will fail.
+         * 
          * @return builder
          * 
          */
@@ -144,6 +166,9 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
          * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
          * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
          * [`service` attribute][2] documentation for other possible values.
+         * 
+         * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+         * CIDR blocks, this call will fail.
          * 
          * @return builder
          * 

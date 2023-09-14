@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DocumentDB Subnet groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group

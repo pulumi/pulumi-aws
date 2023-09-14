@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Serverless Resource Policies can be imported using the `resource_arn`, e.g.,
+ * Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_location_route_calculator` can be imported using the route calculator name, e.g.,
+ * Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
  *
  * ```sh
  *  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
@@ -69,6 +69,8 @@ export class RouteCalculation extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * Specifies the data provider of traffic and road network data.
+     *
+     * The following arguments are optional:
      */
     public readonly dataSource!: pulumi.Output<string>;
     /**
@@ -149,6 +151,8 @@ export interface RouteCalculationState {
     createTime?: pulumi.Input<string>;
     /**
      * Specifies the data provider of traffic and road network data.
+     *
+     * The following arguments are optional:
      */
     dataSource?: pulumi.Input<string>;
     /**
@@ -179,6 +183,8 @@ export interface RouteCalculationArgs {
     calculatorName: pulumi.Input<string>;
     /**
      * Specifies the data provider of traffic and road network data.
+     *
+     * The following arguments are optional:
      */
     dataSource: pulumi.Input<string>;
     /**

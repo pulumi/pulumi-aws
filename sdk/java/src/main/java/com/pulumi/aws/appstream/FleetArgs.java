@@ -219,12 +219,16 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Unique name for the fleet.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Unique name for the fleet.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -592,6 +596,8 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Unique name for the fleet.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -602,6 +608,8 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Unique name for the fleet.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

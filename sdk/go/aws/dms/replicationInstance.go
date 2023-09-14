@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,7 +126,7 @@ import (
 //
 // ## Import
 //
-// Replication instances can be imported using the `replication_instance_id`, e.g.,
+// Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
 //
 // ```sh
 //
@@ -150,7 +152,14 @@ type ReplicationInstance struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
@@ -159,6 +168,11 @@ type ReplicationInstance struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringOutput `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringOutput `pulumi:"replicationInstanceId"`
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps pulumi.StringArrayOutput `pulumi:"replicationInstancePrivateIps"`
@@ -187,6 +201,7 @@ func NewReplicationInstance(ctx *pulumi.Context,
 	if args.ReplicationInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationInstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("aws:dms/replicationInstance:ReplicationInstance", name, args, &resource, opts...)
 	if err != nil {
@@ -225,7 +240,14 @@ type replicationInstanceState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType *string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
@@ -234,6 +256,11 @@ type replicationInstanceState struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass *string `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId *string `pulumi:"replicationInstanceId"`
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps []string `pulumi:"replicationInstancePrivateIps"`
@@ -266,7 +293,14 @@ type ReplicationInstanceState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolPtrInput
@@ -275,6 +309,11 @@ type ReplicationInstanceState struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringPtrInput
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringPtrInput
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps pulumi.StringArrayInput
@@ -311,13 +350,25 @@ type replicationInstanceArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType *string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass string `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId string `pulumi:"replicationInstanceId"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
@@ -345,13 +396,25 @@ type ReplicationInstanceArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringInput
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
@@ -384,6 +447,12 @@ func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
 }
 
+func (i *ReplicationInstance) ToOutput(ctx context.Context) pulumix.Output[*ReplicationInstance] {
+	return pulumix.Output[*ReplicationInstance]{
+		OutputState: i.ToReplicationInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationInstanceArrayInput is an input type that accepts ReplicationInstanceArray and ReplicationInstanceArrayOutput values.
 // You can construct a concrete instance of `ReplicationInstanceArrayInput` via:
 //
@@ -407,6 +476,12 @@ func (i ReplicationInstanceArray) ToReplicationInstanceArrayOutput() Replication
 
 func (i ReplicationInstanceArray) ToReplicationInstanceArrayOutputWithContext(ctx context.Context) ReplicationInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceArrayOutput)
+}
+
+func (i ReplicationInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationInstance] {
+	return pulumix.Output[[]*ReplicationInstance]{
+		OutputState: i.ToReplicationInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicationInstanceMapInput is an input type that accepts ReplicationInstanceMap and ReplicationInstanceMapOutput values.
@@ -434,6 +509,12 @@ func (i ReplicationInstanceMap) ToReplicationInstanceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceMapOutput)
 }
 
+func (i ReplicationInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationInstance] {
+	return pulumix.Output[map[string]*ReplicationInstance]{
+		OutputState: i.ToReplicationInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationInstanceOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceOutput) ElementType() reflect.Type {
@@ -446,6 +527,12 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInst
 
 func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
 	return o
+}
+
+func (o ReplicationInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationInstance] {
+	return pulumix.Output[*ReplicationInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -488,7 +575,17 @@ func (o ReplicationInstanceOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
 }
 
+// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+func (o ReplicationInstanceOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
+}
+
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+//
+// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+// - Constraints: Minimum 30-minute window.
 func (o ReplicationInstanceOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
@@ -509,6 +606,11 @@ func (o ReplicationInstanceOutput) ReplicationInstanceClass() pulumi.StringOutpu
 }
 
 // The replication instance identifier. This parameter is stored as a lowercase string.
+//
+// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+// - First character must be a letter.
+// - Cannot end with a hyphen
+// - Cannot contain two consecutive hyphens.
 func (o ReplicationInstanceOutput) ReplicationInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstanceId }).(pulumi.StringOutput)
 }
@@ -557,6 +659,12 @@ func (o ReplicationInstanceArrayOutput) ToReplicationInstanceArrayOutputWithCont
 	return o
 }
 
+func (o ReplicationInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationInstance] {
+	return pulumix.Output[[]*ReplicationInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationInstanceArrayOutput) Index(i pulumi.IntInput) ReplicationInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationInstance {
 		return vs[0].([]*ReplicationInstance)[vs[1].(int)]
@@ -575,6 +683,12 @@ func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutput() Replicati
 
 func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutputWithContext(ctx context.Context) ReplicationInstanceMapOutput {
 	return o
+}
+
+func (o ReplicationInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationInstance] {
+	return pulumix.Output[map[string]*ReplicationInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationInstanceMapOutput) MapIndex(k pulumi.StringInput) ReplicationInstanceOutput {

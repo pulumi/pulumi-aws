@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create an EventBridge resource policy to support cross-account events.
@@ -25,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,10 +72,154 @@ import (
 //	}
 //
 // ```
+// ### Organization Access
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: pulumi.StringRef("OrganizationAccess"),
+// Effect: pulumi.StringRef("Allow"),
+// Actions: []string{
+// "events:DescribeRule",
+// "events:ListRules",
+// "events:ListTargetsByRule",
+// "events:ListTagsForResource",
+// },
+// Resources: []string{
+// "arn:aws:events:eu-west-1:123456789012:rule/*",
+// "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "aws:PrincipalOrgID",
+// Values: interface{}{
+// aws_organizations_organization.Example.Id,
+// },
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
+// Policy: *pulumi.String(testPolicyDocument.Json),
+// EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Multiple Statements
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: pulumi.StringRef("DevAccountAccess"),
+// Effect: pulumi.StringRef("Allow"),
+// Actions: []string{
+// "events:PutEvents",
+// },
+// Resources: []string{
+// "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "123456789012",
+// },
+// },
+// },
+// },
+// {
+// Sid: pulumi.StringRef("OrganizationAccess"),
+// Effect: pulumi.StringRef("Allow"),
+// Actions: []string{
+// "events:DescribeRule",
+// "events:ListRules",
+// "events:ListTargetsByRule",
+// "events:ListTagsForResource",
+// },
+// Resources: []string{
+// "arn:aws:events:eu-west-1:123456789012:rule/*",
+// "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "aws:PrincipalOrgID",
+// Values: interface{}{
+// aws_organizations_organization.Example.Id,
+// },
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
+// Policy: *pulumi.String(testPolicyDocument.Json),
+// EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //
-// EventBridge permissions can be imported using the `event_bus_name`, e.g.,
+// Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
 //
 // ```sh
 //
@@ -100,6 +246,7 @@ func NewEventBusPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventBusPolicy
 	err := ctx.RegisterResource("aws:cloudwatch/eventBusPolicy:EventBusPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -181,6 +328,12 @@ func (i *EventBusPolicy) ToEventBusPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyOutput)
 }
 
+func (i *EventBusPolicy) ToOutput(ctx context.Context) pulumix.Output[*EventBusPolicy] {
+	return pulumix.Output[*EventBusPolicy]{
+		OutputState: i.ToEventBusPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventBusPolicyArrayInput is an input type that accepts EventBusPolicyArray and EventBusPolicyArrayOutput values.
 // You can construct a concrete instance of `EventBusPolicyArrayInput` via:
 //
@@ -204,6 +357,12 @@ func (i EventBusPolicyArray) ToEventBusPolicyArrayOutput() EventBusPolicyArrayOu
 
 func (i EventBusPolicyArray) ToEventBusPolicyArrayOutputWithContext(ctx context.Context) EventBusPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyArrayOutput)
+}
+
+func (i EventBusPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventBusPolicy] {
+	return pulumix.Output[[]*EventBusPolicy]{
+		OutputState: i.ToEventBusPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventBusPolicyMapInput is an input type that accepts EventBusPolicyMap and EventBusPolicyMapOutput values.
@@ -231,6 +390,12 @@ func (i EventBusPolicyMap) ToEventBusPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyMapOutput)
 }
 
+func (i EventBusPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventBusPolicy] {
+	return pulumix.Output[map[string]*EventBusPolicy]{
+		OutputState: i.ToEventBusPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventBusPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventBusPolicyOutput) ElementType() reflect.Type {
@@ -243,6 +408,12 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutput() EventBusPolicyOutput {
 
 func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Context) EventBusPolicyOutput {
 	return o
+}
+
+func (o EventBusPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*EventBusPolicy] {
+	return pulumix.Output[*EventBusPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the event bus to set the permissions on.
@@ -270,6 +441,12 @@ func (o EventBusPolicyArrayOutput) ToEventBusPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o EventBusPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventBusPolicy] {
+	return pulumix.Output[[]*EventBusPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventBusPolicyArrayOutput) Index(i pulumi.IntInput) EventBusPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventBusPolicy {
 		return vs[0].([]*EventBusPolicy)[vs[1].(int)]
@@ -288,6 +465,12 @@ func (o EventBusPolicyMapOutput) ToEventBusPolicyMapOutput() EventBusPolicyMapOu
 
 func (o EventBusPolicyMapOutput) ToEventBusPolicyMapOutputWithContext(ctx context.Context) EventBusPolicyMapOutput {
 	return o
+}
+
+func (o EventBusPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventBusPolicy] {
+	return pulumix.Output[map[string]*EventBusPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventBusPolicyMapOutput) MapIndex(k pulumi.StringInput) EventBusPolicyOutput {

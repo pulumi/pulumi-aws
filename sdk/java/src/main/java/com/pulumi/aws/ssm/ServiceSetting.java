@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS SSM Service Setting can be imported using the `setting_id`, e.g.
+ * Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled

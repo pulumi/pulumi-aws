@@ -344,7 +344,7 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Import
 
-        RADIUS settings can be imported using the directory ID, e.g.,
+        Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 
         ```sh
          $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
@@ -390,7 +390,7 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Import
 
-        RADIUS settings can be imported using the directory ID, e.g.,
+        Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 
         ```sh
          $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57

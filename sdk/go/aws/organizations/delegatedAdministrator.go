@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.,
+// Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
 //
 // ```sh
 //
@@ -85,6 +87,7 @@ func NewDelegatedAdministrator(ctx *pulumi.Context,
 	if args.ServicePrincipal == nil {
 		return nil, errors.New("invalid value for required argument 'ServicePrincipal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DelegatedAdministrator
 	err := ctx.RegisterResource("aws:organizations/delegatedAdministrator:DelegatedAdministrator", name, args, &resource, opts...)
 	if err != nil {
@@ -190,6 +193,12 @@ func (i *DelegatedAdministrator) ToDelegatedAdministratorOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdministratorOutput)
 }
 
+func (i *DelegatedAdministrator) ToOutput(ctx context.Context) pulumix.Output[*DelegatedAdministrator] {
+	return pulumix.Output[*DelegatedAdministrator]{
+		OutputState: i.ToDelegatedAdministratorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DelegatedAdministratorArrayInput is an input type that accepts DelegatedAdministratorArray and DelegatedAdministratorArrayOutput values.
 // You can construct a concrete instance of `DelegatedAdministratorArrayInput` via:
 //
@@ -213,6 +222,12 @@ func (i DelegatedAdministratorArray) ToDelegatedAdministratorArrayOutput() Deleg
 
 func (i DelegatedAdministratorArray) ToDelegatedAdministratorArrayOutputWithContext(ctx context.Context) DelegatedAdministratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdministratorArrayOutput)
+}
+
+func (i DelegatedAdministratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*DelegatedAdministrator] {
+	return pulumix.Output[[]*DelegatedAdministrator]{
+		OutputState: i.ToDelegatedAdministratorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DelegatedAdministratorMapInput is an input type that accepts DelegatedAdministratorMap and DelegatedAdministratorMapOutput values.
@@ -240,6 +255,12 @@ func (i DelegatedAdministratorMap) ToDelegatedAdministratorMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdministratorMapOutput)
 }
 
+func (i DelegatedAdministratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DelegatedAdministrator] {
+	return pulumix.Output[map[string]*DelegatedAdministrator]{
+		OutputState: i.ToDelegatedAdministratorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DelegatedAdministratorOutput struct{ *pulumi.OutputState }
 
 func (DelegatedAdministratorOutput) ElementType() reflect.Type {
@@ -252,6 +273,12 @@ func (o DelegatedAdministratorOutput) ToDelegatedAdministratorOutput() Delegated
 
 func (o DelegatedAdministratorOutput) ToDelegatedAdministratorOutputWithContext(ctx context.Context) DelegatedAdministratorOutput {
 	return o
+}
+
+func (o DelegatedAdministratorOutput) ToOutput(ctx context.Context) pulumix.Output[*DelegatedAdministrator] {
+	return pulumix.Output[*DelegatedAdministrator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account ID number of the member account in the organization to register as a delegated administrator.
@@ -313,6 +340,12 @@ func (o DelegatedAdministratorArrayOutput) ToDelegatedAdministratorArrayOutputWi
 	return o
 }
 
+func (o DelegatedAdministratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DelegatedAdministrator] {
+	return pulumix.Output[[]*DelegatedAdministrator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DelegatedAdministratorArrayOutput) Index(i pulumi.IntInput) DelegatedAdministratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DelegatedAdministrator {
 		return vs[0].([]*DelegatedAdministrator)[vs[1].(int)]
@@ -331,6 +364,12 @@ func (o DelegatedAdministratorMapOutput) ToDelegatedAdministratorMapOutput() Del
 
 func (o DelegatedAdministratorMapOutput) ToDelegatedAdministratorMapOutputWithContext(ctx context.Context) DelegatedAdministratorMapOutput {
 	return o
+}
+
+func (o DelegatedAdministratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DelegatedAdministrator] {
+	return pulumix.Output[map[string]*DelegatedAdministrator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DelegatedAdministratorMapOutput) MapIndex(k pulumi.StringInput) DelegatedAdministratorOutput {

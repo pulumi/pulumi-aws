@@ -31,14 +31,13 @@ class ProviderArgs:
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 s3_force_path_style: Optional[pulumi.Input[bool]] = None,
+                 retry_mode: Optional[pulumi.Input[str]] = None,
+                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 shared_credentials_file: Optional[pulumi.Input[str]] = None,
                  shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
-                 skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
@@ -63,19 +62,19 @@ class ProviderArgs:
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        :param pulumi.Input[bool] s3_force_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-               Specific to the Amazon S3 service.
+        :param pulumi.Input[str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+               `AWS_RETRY_MODE` environment variable.
+        :param pulumi.Input[str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+               values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+               variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         :param pulumi.Input[bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
                default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
                Specific to the Amazon S3 service.
         :param pulumi.Input[str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_config_files: List of paths to shared config files. If not set, defaults to [~/.aws/config].
-        :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_credentials_files: List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
         :param pulumi.Input[bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
                available/implemented.
-        :param pulumi.Input[bool] skip_get_ec2_platforms: Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
         :param pulumi.Input[bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
@@ -119,33 +118,22 @@ class ProviderArgs:
             region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if s3_force_path_style is not None:
-            warnings.warn("""Use s3_use_path_style instead.""", DeprecationWarning)
-            pulumi.log.warn("""s3_force_path_style is deprecated: Use s3_use_path_style instead.""")
-        if s3_force_path_style is not None:
-            pulumi.set(__self__, "s3_force_path_style", s3_force_path_style)
+        if retry_mode is not None:
+            pulumi.set(__self__, "retry_mode", retry_mode)
+        if s3_us_east1_regional_endpoint is not None:
+            pulumi.set(__self__, "s3_us_east1_regional_endpoint", s3_us_east1_regional_endpoint)
         if s3_use_path_style is not None:
             pulumi.set(__self__, "s3_use_path_style", s3_use_path_style)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if shared_config_files is not None:
             pulumi.set(__self__, "shared_config_files", shared_config_files)
-        if shared_credentials_file is not None:
-            warnings.warn("""Use shared_credentials_files instead.""", DeprecationWarning)
-            pulumi.log.warn("""shared_credentials_file is deprecated: Use shared_credentials_files instead.""")
-        if shared_credentials_file is not None:
-            pulumi.set(__self__, "shared_credentials_file", shared_credentials_file)
         if shared_credentials_files is not None:
             pulumi.set(__self__, "shared_credentials_files", shared_credentials_files)
         if skip_credentials_validation is None:
             skip_credentials_validation = False
         if skip_credentials_validation is not None:
             pulumi.set(__self__, "skip_credentials_validation", skip_credentials_validation)
-        if skip_get_ec2_platforms is not None:
-            warnings.warn("""With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""skip_get_ec2_platforms is deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""")
-        if skip_get_ec2_platforms is not None:
-            pulumi.set(__self__, "skip_get_ec2_platforms", skip_get_ec2_platforms)
         if skip_metadata_api_check is None:
             skip_metadata_api_check = True
         if skip_metadata_api_check is not None:
@@ -347,18 +335,31 @@ class ProviderArgs:
         pulumi.set(self, "region", value)
 
     @property
-    @pulumi.getter(name="s3ForcePathStyle")
-    def s3_force_path_style(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="retryMode")
+    def retry_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        Specific to the Amazon S3 service.
+        Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        `AWS_RETRY_MODE` environment variable.
         """
-        return pulumi.get(self, "s3_force_path_style")
+        return pulumi.get(self, "retry_mode")
 
-    @s3_force_path_style.setter
-    def s3_force_path_style(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "s3_force_path_style", value)
+    @retry_mode.setter
+    def retry_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retry_mode", value)
+
+    @property
+    @pulumi.getter(name="s3UsEast1RegionalEndpoint")
+    def s3_us_east1_regional_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        """
+        return pulumi.get(self, "s3_us_east1_regional_endpoint")
+
+    @s3_us_east1_regional_endpoint.setter
+    def s3_us_east1_regional_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_us_east1_regional_endpoint", value)
 
     @property
     @pulumi.getter(name="s3UsePathStyle")
@@ -399,18 +400,6 @@ class ProviderArgs:
         pulumi.set(self, "shared_config_files", value)
 
     @property
-    @pulumi.getter(name="sharedCredentialsFile")
-    def shared_credentials_file(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        """
-        return pulumi.get(self, "shared_credentials_file")
-
-    @shared_credentials_file.setter
-    def shared_credentials_file(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "shared_credentials_file", value)
-
-    @property
     @pulumi.getter(name="sharedCredentialsFiles")
     def shared_credentials_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -434,18 +423,6 @@ class ProviderArgs:
     @skip_credentials_validation.setter
     def skip_credentials_validation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_credentials_validation", value)
-
-    @property
-    @pulumi.getter(name="skipGetEc2Platforms")
-    def skip_get_ec2_platforms(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        """
-        return pulumi.get(self, "skip_get_ec2_platforms")
-
-    @skip_get_ec2_platforms.setter
-    def skip_get_ec2_platforms(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_get_ec2_platforms", value)
 
     @property
     @pulumi.getter(name="skipMetadataApiCheck")
@@ -554,14 +531,13 @@ class Provider(pulumi.ProviderResource):
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 s3_force_path_style: Optional[pulumi.Input[bool]] = None,
+                 retry_mode: Optional[pulumi.Input[str]] = None,
+                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 shared_credentials_file: Optional[pulumi.Input[str]] = None,
                  shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
-                 skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
@@ -593,19 +569,19 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        :param pulumi.Input[bool] s3_force_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-               default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-               Specific to the Amazon S3 service.
+        :param pulumi.Input[str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+               `AWS_RETRY_MODE` environment variable.
+        :param pulumi.Input[str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+               values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+               variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         :param pulumi.Input[bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
                default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
                Specific to the Amazon S3 service.
         :param pulumi.Input[str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_config_files: List of paths to shared config files. If not set, defaults to [~/.aws/config].
-        :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_credentials_files: List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
         :param pulumi.Input[bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
                available/implemented.
-        :param pulumi.Input[bool] skip_get_ec2_platforms: Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
         :param pulumi.Input[bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
@@ -658,14 +634,13 @@ class Provider(pulumi.ProviderResource):
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 s3_force_path_style: Optional[pulumi.Input[bool]] = None,
+                 retry_mode: Optional[pulumi.Input[str]] = None,
+                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 shared_credentials_file: Optional[pulumi.Input[str]] = None,
                  shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
-                 skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
                  skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
@@ -700,25 +675,15 @@ class Provider(pulumi.ProviderResource):
             if region is None:
                 region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
             __props__.__dict__["region"] = region
-            if s3_force_path_style is not None and not opts.urn:
-                warnings.warn("""Use s3_use_path_style instead.""", DeprecationWarning)
-                pulumi.log.warn("""s3_force_path_style is deprecated: Use s3_use_path_style instead.""")
-            __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
+            __props__.__dict__["retry_mode"] = retry_mode
+            __props__.__dict__["s3_us_east1_regional_endpoint"] = s3_us_east1_regional_endpoint
             __props__.__dict__["s3_use_path_style"] = pulumi.Output.from_input(s3_use_path_style).apply(pulumi.runtime.to_json) if s3_use_path_style is not None else None
             __props__.__dict__["secret_key"] = secret_key
             __props__.__dict__["shared_config_files"] = pulumi.Output.from_input(shared_config_files).apply(pulumi.runtime.to_json) if shared_config_files is not None else None
-            if shared_credentials_file is not None and not opts.urn:
-                warnings.warn("""Use shared_credentials_files instead.""", DeprecationWarning)
-                pulumi.log.warn("""shared_credentials_file is deprecated: Use shared_credentials_files instead.""")
-            __props__.__dict__["shared_credentials_file"] = shared_credentials_file
             __props__.__dict__["shared_credentials_files"] = pulumi.Output.from_input(shared_credentials_files).apply(pulumi.runtime.to_json) if shared_credentials_files is not None else None
             if skip_credentials_validation is None:
                 skip_credentials_validation = False
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
-            if skip_get_ec2_platforms is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""skip_get_ec2_platforms is deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["skip_get_ec2_platforms"] = pulumi.Output.from_input(skip_get_ec2_platforms).apply(pulumi.runtime.to_json) if skip_get_ec2_platforms is not None else None
             if skip_metadata_api_check is None:
                 skip_metadata_api_check = True
             __props__.__dict__["skip_metadata_api_check"] = pulumi.Output.from_input(skip_metadata_api_check).apply(pulumi.runtime.to_json) if skip_metadata_api_check is not None else None
@@ -797,20 +762,31 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="retryMode")
+    def retry_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        `AWS_RETRY_MODE` environment variable.
+        """
+        return pulumi.get(self, "retry_mode")
+
+    @property
+    @pulumi.getter(name="s3UsEast1RegionalEndpoint")
+    def s3_us_east1_regional_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        """
+        return pulumi.get(self, "s3_us_east1_regional_endpoint")
+
+    @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Output[Optional[str]]:
         """
         The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "secret_key")
-
-    @property
-    @pulumi.getter(name="sharedCredentialsFile")
-    def shared_credentials_file(self) -> pulumi.Output[Optional[str]]:
-        """
-        The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        """
-        return pulumi.get(self, "shared_credentials_file")
 
     @property
     @pulumi.getter(name="stsRegion")

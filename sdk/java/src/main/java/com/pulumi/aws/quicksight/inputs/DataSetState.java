@@ -203,12 +203,16 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="physicalTableMaps")
     private @Nullable Output<List<DataSetPhysicalTableMapArgs>> physicalTableMaps;
 
     /**
      * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<DataSetPhysicalTableMapArgs>>> physicalTableMaps() {
@@ -628,6 +632,8 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -639,6 +645,8 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -648,6 +656,8 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

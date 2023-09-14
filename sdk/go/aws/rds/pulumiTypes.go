@@ -7,15 +7,19 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+var _ = internal.GetEnvOrDefault
+
 type ClusterMasterUserSecret struct {
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// Amazon Resource Name (ARN) of the secret.
 	SecretArn *string `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus *string `pulumi:"secretStatus"`
 }
 
@@ -31,11 +35,11 @@ type ClusterMasterUserSecretInput interface {
 }
 
 type ClusterMasterUserSecretArgs struct {
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// Amazon Resource Name (ARN) of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
 }
 
@@ -49,6 +53,12 @@ func (i ClusterMasterUserSecretArgs) ToClusterMasterUserSecretOutput() ClusterMa
 
 func (i ClusterMasterUserSecretArgs) ToClusterMasterUserSecretOutputWithContext(ctx context.Context) ClusterMasterUserSecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterUserSecretOutput)
+}
+
+func (i ClusterMasterUserSecretArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterUserSecret] {
+	return pulumix.Output[ClusterMasterUserSecret]{
+		OutputState: i.ToClusterMasterUserSecretOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterMasterUserSecretArrayInput is an input type that accepts ClusterMasterUserSecretArray and ClusterMasterUserSecretArrayOutput values.
@@ -76,6 +86,12 @@ func (i ClusterMasterUserSecretArray) ToClusterMasterUserSecretArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterUserSecretArrayOutput)
 }
 
+func (i ClusterMasterUserSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterUserSecret] {
+	return pulumix.Output[[]ClusterMasterUserSecret]{
+		OutputState: i.ToClusterMasterUserSecretArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterUserSecretOutput) ElementType() reflect.Type {
@@ -90,17 +106,23 @@ func (o ClusterMasterUserSecretOutput) ToClusterMasterUserSecretOutputWithContex
 	return o
 }
 
-// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+func (o ClusterMasterUserSecretOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterUserSecret] {
+	return pulumix.Output[ClusterMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
+// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 func (o ClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// Amazon Resource Name (ARN) of the secret.
 func (o ClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 func (o ClusterMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
 }
@@ -117,6 +139,12 @@ func (o ClusterMasterUserSecretArrayOutput) ToClusterMasterUserSecretArrayOutput
 
 func (o ClusterMasterUserSecretArrayOutput) ToClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) ClusterMasterUserSecretArrayOutput {
 	return o
+}
+
+func (o ClusterMasterUserSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterUserSecret] {
+	return pulumix.Output[[]ClusterMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterMasterUserSecretArrayOutput) Index(i pulumi.IntInput) ClusterMasterUserSecretOutput {
@@ -170,6 +198,12 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
+func (i ClusterParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
@@ -195,6 +229,12 @@ func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterArrayOutput)
 }
 
+func (i ClusterParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -207,6 +247,12 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 
 func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
 	return o
+}
+
+func (o ClusterParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // "immediate" (default), or "pending-reboot". Some
@@ -240,6 +286,12 @@ func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParame
 	return o
 }
 
+func (o ClusterParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterParameterGroupParameter {
 		return vs[0].([]ClusterParameterGroupParameter)[vs[1].(int)]
@@ -252,7 +304,7 @@ type ClusterRestoreToPointInTime struct {
 	// Type of restore to be performed.
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType *string `pulumi:"restoreType"`
-	// The identifier of the source database cluster from which to restore.
+	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
 	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
@@ -275,7 +327,7 @@ type ClusterRestoreToPointInTimeArgs struct {
 	// Type of restore to be performed.
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
-	// The identifier of the source database cluster from which to restore.
+	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
 	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
@@ -291,6 +343,12 @@ func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutput() C
 
 func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimeOutput)
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterRestoreToPointInTime] {
+	return pulumix.Output[ClusterRestoreToPointInTime]{
+		OutputState: i.ToClusterRestoreToPointInTimeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
@@ -334,6 +392,12 @@ func (i *clusterRestoreToPointInTimePtrType) ToClusterRestoreToPointInTimePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimePtrOutput)
 }
 
+func (i *clusterRestoreToPointInTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterRestoreToPointInTime] {
+	return pulumix.Output[*ClusterRestoreToPointInTime]{
+		OutputState: i.ToClusterRestoreToPointInTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterRestoreToPointInTimeOutput struct{ *pulumi.OutputState }
 
 func (ClusterRestoreToPointInTimeOutput) ElementType() reflect.Type {
@@ -358,6 +422,12 @@ func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutpu
 	}).(ClusterRestoreToPointInTimePtrOutput)
 }
 
+func (o ClusterRestoreToPointInTimeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterRestoreToPointInTime] {
+	return pulumix.Output[ClusterRestoreToPointInTime]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
 func (o ClusterRestoreToPointInTimeOutput) RestoreToTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreToTime }).(pulumi.StringPtrOutput)
@@ -369,7 +439,7 @@ func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source database cluster from which to restore.
+// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
 func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -391,6 +461,12 @@ func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOu
 
 func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
 	return o
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterRestoreToPointInTime] {
+	return pulumix.Output[*ClusterRestoreToPointInTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterRestoreToPointInTimePtrOutput) Elem() ClusterRestoreToPointInTimeOutput {
@@ -424,7 +500,7 @@ func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source database cluster from which to restore.
+// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
 func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
 		if v == nil {
@@ -445,7 +521,7 @@ func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.B
 }
 
 type ClusterS3Import struct {
-	// The bucket name where your backup is stored
+	// Bucket name where your backup is stored
 	BucketName string `pulumi:"bucketName"`
 	// Can be blank, but is the path to your backup
 	BucketPrefix *string `pulumi:"bucketPrefix"`
@@ -454,6 +530,8 @@ type ClusterS3Import struct {
 	// Source engine for the backup
 	SourceEngine string `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
@@ -469,7 +547,7 @@ type ClusterS3ImportInput interface {
 }
 
 type ClusterS3ImportArgs struct {
-	// The bucket name where your backup is stored
+	// Bucket name where your backup is stored
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// Can be blank, but is the path to your backup
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
@@ -478,6 +556,8 @@ type ClusterS3ImportArgs struct {
 	// Source engine for the backup
 	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
@@ -491,6 +571,12 @@ func (i ClusterS3ImportArgs) ToClusterS3ImportOutput() ClusterS3ImportOutput {
 
 func (i ClusterS3ImportArgs) ToClusterS3ImportOutputWithContext(ctx context.Context) ClusterS3ImportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterS3ImportOutput)
+}
+
+func (i ClusterS3ImportArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterS3Import] {
+	return pulumix.Output[ClusterS3Import]{
+		OutputState: i.ToClusterS3ImportOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ClusterS3ImportArgs) ToClusterS3ImportPtrOutput() ClusterS3ImportPtrOutput {
@@ -534,6 +620,12 @@ func (i *clusterS3ImportPtrType) ToClusterS3ImportPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterS3ImportPtrOutput)
 }
 
+func (i *clusterS3ImportPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterS3Import] {
+	return pulumix.Output[*ClusterS3Import]{
+		OutputState: i.ToClusterS3ImportPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterS3ImportOutput struct{ *pulumi.OutputState }
 
 func (ClusterS3ImportOutput) ElementType() reflect.Type {
@@ -558,7 +650,13 @@ func (o ClusterS3ImportOutput) ToClusterS3ImportPtrOutputWithContext(ctx context
 	}).(ClusterS3ImportPtrOutput)
 }
 
-// The bucket name where your backup is stored
+func (o ClusterS3ImportOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterS3Import] {
+	return pulumix.Output[ClusterS3Import]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Bucket name where your backup is stored
 func (o ClusterS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -579,6 +677,8 @@ func (o ClusterS3ImportOutput) SourceEngine() pulumi.StringOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -597,6 +697,12 @@ func (o ClusterS3ImportPtrOutput) ToClusterS3ImportPtrOutputWithContext(ctx cont
 	return o
 }
 
+func (o ClusterS3ImportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterS3Import] {
+	return pulumix.Output[*ClusterS3Import]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
 	return o.ApplyT(func(v *ClusterS3Import) ClusterS3Import {
 		if v != nil {
@@ -607,7 +713,7 @@ func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
 	}).(ClusterS3ImportOutput)
 }
 
-// The bucket name where your backup is stored
+// Bucket name where your backup is stored
 func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -648,6 +754,8 @@ func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -660,13 +768,13 @@ func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 type ClusterScalingConfiguration struct {
 	// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 	AutoPause *bool `pulumi:"autoPause"`
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity *int `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity *int `pulumi:"minCapacity"`
-	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+	// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
-	// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+	// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 	TimeoutAction *string `pulumi:"timeoutAction"`
 }
 
@@ -684,13 +792,13 @@ type ClusterScalingConfigurationInput interface {
 type ClusterScalingConfigurationArgs struct {
 	// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
-	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+	// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
-	// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+	// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 	TimeoutAction pulumi.StringPtrInput `pulumi:"timeoutAction"`
 }
 
@@ -704,6 +812,12 @@ func (i ClusterScalingConfigurationArgs) ToClusterScalingConfigurationOutput() C
 
 func (i ClusterScalingConfigurationArgs) ToClusterScalingConfigurationOutputWithContext(ctx context.Context) ClusterScalingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingConfigurationOutput)
+}
+
+func (i ClusterScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterScalingConfiguration] {
+	return pulumix.Output[ClusterScalingConfiguration]{
+		OutputState: i.ToClusterScalingConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ClusterScalingConfigurationArgs) ToClusterScalingConfigurationPtrOutput() ClusterScalingConfigurationPtrOutput {
@@ -747,6 +861,12 @@ func (i *clusterScalingConfigurationPtrType) ToClusterScalingConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingConfigurationPtrOutput)
 }
 
+func (i *clusterScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterScalingConfiguration] {
+	return pulumix.Output[*ClusterScalingConfiguration]{
+		OutputState: i.ToClusterScalingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterScalingConfigurationOutput) ElementType() reflect.Type {
@@ -771,27 +891,33 @@ func (o ClusterScalingConfigurationOutput) ToClusterScalingConfigurationPtrOutpu
 	}).(ClusterScalingConfigurationPtrOutput)
 }
 
+func (o ClusterScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterScalingConfiguration] {
+	return pulumix.Output[ClusterScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 func (o ClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 func (o ClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 func (o ClusterScalingConfigurationOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
 }
@@ -808,6 +934,12 @@ func (o ClusterScalingConfigurationPtrOutput) ToClusterScalingConfigurationPtrOu
 
 func (o ClusterScalingConfigurationPtrOutput) ToClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterScalingConfigurationPtrOutput {
 	return o
+}
+
+func (o ClusterScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterScalingConfiguration] {
+	return pulumix.Output[*ClusterScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterScalingConfigurationPtrOutput) Elem() ClusterScalingConfigurationOutput {
@@ -830,7 +962,7 @@ func (o ClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {
@@ -840,7 +972,7 @@ func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {
@@ -850,7 +982,7 @@ func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 func (o ClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {
@@ -860,7 +992,7 @@ func (o ClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *string {
 		if v == nil {
@@ -871,9 +1003,9 @@ func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOu
 }
 
 type ClusterServerlessv2ScalingConfiguration struct {
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity float64 `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity float64 `pulumi:"minCapacity"`
 }
 
@@ -889,9 +1021,9 @@ type ClusterServerlessv2ScalingConfigurationInput interface {
 }
 
 type ClusterServerlessv2ScalingConfigurationArgs struct {
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
 }
 
@@ -905,6 +1037,12 @@ func (i ClusterServerlessv2ScalingConfigurationArgs) ToClusterServerlessv2Scalin
 
 func (i ClusterServerlessv2ScalingConfigurationArgs) ToClusterServerlessv2ScalingConfigurationOutputWithContext(ctx context.Context) ClusterServerlessv2ScalingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessv2ScalingConfigurationOutput)
+}
+
+func (i ClusterServerlessv2ScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServerlessv2ScalingConfiguration] {
+	return pulumix.Output[ClusterServerlessv2ScalingConfiguration]{
+		OutputState: i.ToClusterServerlessv2ScalingConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ClusterServerlessv2ScalingConfigurationArgs) ToClusterServerlessv2ScalingConfigurationPtrOutput() ClusterServerlessv2ScalingConfigurationPtrOutput {
@@ -948,6 +1086,12 @@ func (i *clusterServerlessv2ScalingConfigurationPtrType) ToClusterServerlessv2Sc
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessv2ScalingConfigurationPtrOutput)
 }
 
+func (i *clusterServerlessv2ScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServerlessv2ScalingConfiguration] {
+	return pulumix.Output[*ClusterServerlessv2ScalingConfiguration]{
+		OutputState: i.ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterServerlessv2ScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterServerlessv2ScalingConfigurationOutput) ElementType() reflect.Type {
@@ -972,12 +1116,18 @@ func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2Scal
 	}).(ClusterServerlessv2ScalingConfigurationPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+func (o ClusterServerlessv2ScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServerlessv2ScalingConfiguration] {
+	return pulumix.Output[ClusterServerlessv2ScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
@@ -996,6 +1146,12 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) ToClusterServerlessv2S
 	return o
 }
 
+func (o ClusterServerlessv2ScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServerlessv2ScalingConfiguration] {
+	return pulumix.Output[*ClusterServerlessv2ScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) Elem() ClusterServerlessv2ScalingConfigurationOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) ClusterServerlessv2ScalingConfiguration {
 		if v != nil {
@@ -1006,7 +1162,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) Elem() ClusterServerle
 	}).(ClusterServerlessv2ScalingConfigurationOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -1016,7 +1172,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -1024,6 +1180,178 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.F
 		}
 		return &v.MinCapacity
 	}).(pulumi.Float64PtrOutput)
+}
+
+type ExportTaskTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// ExportTaskTimeoutsInput is an input type that accepts ExportTaskTimeoutsArgs and ExportTaskTimeoutsOutput values.
+// You can construct a concrete instance of `ExportTaskTimeoutsInput` via:
+//
+//	ExportTaskTimeoutsArgs{...}
+type ExportTaskTimeoutsInput interface {
+	pulumi.Input
+
+	ToExportTaskTimeoutsOutput() ExportTaskTimeoutsOutput
+	ToExportTaskTimeoutsOutputWithContext(context.Context) ExportTaskTimeoutsOutput
+}
+
+type ExportTaskTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ExportTaskTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsOutput() ExportTaskTimeoutsOutput {
+	return i.ToExportTaskTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsOutputWithContext(ctx context.Context) ExportTaskTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskTimeoutsOutput)
+}
+
+func (i ExportTaskTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[ExportTaskTimeouts] {
+	return pulumix.Output[ExportTaskTimeouts]{
+		OutputState: i.ToExportTaskTimeoutsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return i.ToExportTaskTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskTimeoutsOutput).ToExportTaskTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ExportTaskTimeoutsPtrInput is an input type that accepts ExportTaskTimeoutsArgs, ExportTaskTimeoutsPtr and ExportTaskTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ExportTaskTimeoutsPtrInput` via:
+//
+//	        ExportTaskTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExportTaskTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput
+	ToExportTaskTimeoutsPtrOutputWithContext(context.Context) ExportTaskTimeoutsPtrOutput
+}
+
+type exportTaskTimeoutsPtrType ExportTaskTimeoutsArgs
+
+func ExportTaskTimeoutsPtr(v *ExportTaskTimeoutsArgs) ExportTaskTimeoutsPtrInput {
+	return (*exportTaskTimeoutsPtrType)(v)
+}
+
+func (*exportTaskTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (i *exportTaskTimeoutsPtrType) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return i.ToExportTaskTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *exportTaskTimeoutsPtrType) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskTimeoutsPtrOutput)
+}
+
+func (i *exportTaskTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExportTaskTimeouts] {
+	return pulumix.Output[*ExportTaskTimeouts]{
+		OutputState: i.ToExportTaskTimeoutsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ExportTaskTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ExportTaskTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsOutput() ExportTaskTimeoutsOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsOutputWithContext(ctx context.Context) ExportTaskTimeoutsOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return o.ToExportTaskTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTaskTimeouts) *ExportTaskTimeouts {
+		return &v
+	}).(ExportTaskTimeoutsPtrOutput)
+}
+
+func (o ExportTaskTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[ExportTaskTimeouts] {
+	return pulumix.Output[ExportTaskTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ExportTaskTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportTaskTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ExportTaskTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportTaskTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ExportTaskTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExportTaskTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (o ExportTaskTimeoutsPtrOutput) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsPtrOutput) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExportTaskTimeouts] {
+	return pulumix.Output[*ExportTaskTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ExportTaskTimeoutsPtrOutput) Elem() ExportTaskTimeoutsOutput {
+	return o.ApplyT(func(v *ExportTaskTimeouts) ExportTaskTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ExportTaskTimeouts
+		return ret
+	}).(ExportTaskTimeoutsOutput)
+}
+
+func (o ExportTaskTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTaskTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExportTaskTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTaskTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
 }
 
 type GlobalClusterGlobalClusterMember struct {
@@ -1063,6 +1391,12 @@ func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMember
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberOutput)
 }
 
+func (i GlobalClusterGlobalClusterMemberArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[GlobalClusterGlobalClusterMember]{
+		OutputState: i.ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GlobalClusterGlobalClusterMemberArrayInput is an input type that accepts GlobalClusterGlobalClusterMemberArray and GlobalClusterGlobalClusterMemberArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterGlobalClusterMemberArrayInput` via:
 //
@@ -1088,6 +1422,12 @@ func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMembe
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberArrayOutput)
 }
 
+func (i GlobalClusterGlobalClusterMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[[]GlobalClusterGlobalClusterMember]{
+		OutputState: i.ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalClusterGlobalClusterMemberOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterGlobalClusterMemberOutput) ElementType() reflect.Type {
@@ -1100,6 +1440,12 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 
 func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
 	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[GlobalClusterGlobalClusterMember]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of member DB Cluster
@@ -1126,6 +1472,12 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalCluste
 	return o
 }
 
+func (o GlobalClusterGlobalClusterMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[[]GlobalClusterGlobalClusterMember]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GlobalClusterGlobalClusterMemberOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalClusterGlobalClusterMember {
 		return vs[0].([]GlobalClusterGlobalClusterMember)[vs[1].(int)]
@@ -1135,6 +1487,13 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 type InstanceBlueGreenUpdate struct {
 	// Enables low-downtime updates when `true`.
 	// Default is `false`.
+	//
+	// [instance-replication]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+	// [instance-maintenance]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+	// [blue-green]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1152,6 +1511,13 @@ type InstanceBlueGreenUpdateInput interface {
 type InstanceBlueGreenUpdateArgs struct {
 	// Enables low-downtime updates when `true`.
 	// Default is `false`.
+	//
+	// [instance-replication]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+	// [instance-maintenance]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+	// [blue-green]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1165,6 +1531,12 @@ func (i InstanceBlueGreenUpdateArgs) ToInstanceBlueGreenUpdateOutput() InstanceB
 
 func (i InstanceBlueGreenUpdateArgs) ToInstanceBlueGreenUpdateOutputWithContext(ctx context.Context) InstanceBlueGreenUpdateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlueGreenUpdateOutput)
+}
+
+func (i InstanceBlueGreenUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceBlueGreenUpdate] {
+	return pulumix.Output[InstanceBlueGreenUpdate]{
+		OutputState: i.ToInstanceBlueGreenUpdateOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i InstanceBlueGreenUpdateArgs) ToInstanceBlueGreenUpdatePtrOutput() InstanceBlueGreenUpdatePtrOutput {
@@ -1208,6 +1580,12 @@ func (i *instanceBlueGreenUpdatePtrType) ToInstanceBlueGreenUpdatePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlueGreenUpdatePtrOutput)
 }
 
+func (i *instanceBlueGreenUpdatePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceBlueGreenUpdate] {
+	return pulumix.Output[*InstanceBlueGreenUpdate]{
+		OutputState: i.ToInstanceBlueGreenUpdatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceBlueGreenUpdateOutput struct{ *pulumi.OutputState }
 
 func (InstanceBlueGreenUpdateOutput) ElementType() reflect.Type {
@@ -1232,8 +1610,21 @@ func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdatePtrOutputWithCon
 	}).(InstanceBlueGreenUpdatePtrOutput)
 }
 
+func (o InstanceBlueGreenUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceBlueGreenUpdate] {
+	return pulumix.Output[InstanceBlueGreenUpdate]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enables low-downtime updates when `true`.
 // Default is `false`.
+//
+// [instance-replication]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+// [instance-maintenance]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+// [blue-green]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 func (o InstanceBlueGreenUpdateOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceBlueGreenUpdate) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1252,6 +1643,12 @@ func (o InstanceBlueGreenUpdatePtrOutput) ToInstanceBlueGreenUpdatePtrOutputWith
 	return o
 }
 
+func (o InstanceBlueGreenUpdatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceBlueGreenUpdate] {
+	return pulumix.Output[*InstanceBlueGreenUpdate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceBlueGreenUpdatePtrOutput) Elem() InstanceBlueGreenUpdateOutput {
 	return o.ApplyT(func(v *InstanceBlueGreenUpdate) InstanceBlueGreenUpdate {
 		if v != nil {
@@ -1264,6 +1661,13 @@ func (o InstanceBlueGreenUpdatePtrOutput) Elem() InstanceBlueGreenUpdateOutput {
 
 // Enables low-downtime updates when `true`.
 // Default is `false`.
+//
+// [instance-replication]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+// [instance-maintenance]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+// [blue-green]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 func (o InstanceBlueGreenUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceBlueGreenUpdate) *bool {
 		if v == nil {
@@ -1314,6 +1718,12 @@ func (i InstanceListenerEndpointArgs) ToInstanceListenerEndpointOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceListenerEndpointOutput)
 }
 
+func (i InstanceListenerEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceListenerEndpoint] {
+	return pulumix.Output[InstanceListenerEndpoint]{
+		OutputState: i.ToInstanceListenerEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceListenerEndpointArrayInput is an input type that accepts InstanceListenerEndpointArray and InstanceListenerEndpointArrayOutput values.
 // You can construct a concrete instance of `InstanceListenerEndpointArrayInput` via:
 //
@@ -1339,6 +1749,12 @@ func (i InstanceListenerEndpointArray) ToInstanceListenerEndpointArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceListenerEndpointArrayOutput)
 }
 
+func (i InstanceListenerEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceListenerEndpoint] {
+	return pulumix.Output[[]InstanceListenerEndpoint]{
+		OutputState: i.ToInstanceListenerEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceListenerEndpointOutput struct{ *pulumi.OutputState }
 
 func (InstanceListenerEndpointOutput) ElementType() reflect.Type {
@@ -1351,6 +1767,12 @@ func (o InstanceListenerEndpointOutput) ToInstanceListenerEndpointOutput() Insta
 
 func (o InstanceListenerEndpointOutput) ToInstanceListenerEndpointOutputWithContext(ctx context.Context) InstanceListenerEndpointOutput {
 	return o
+}
+
+func (o InstanceListenerEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceListenerEndpoint] {
+	return pulumix.Output[InstanceListenerEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the DNS address of the DB instance.
@@ -1380,6 +1802,12 @@ func (o InstanceListenerEndpointArrayOutput) ToInstanceListenerEndpointArrayOutp
 
 func (o InstanceListenerEndpointArrayOutput) ToInstanceListenerEndpointArrayOutputWithContext(ctx context.Context) InstanceListenerEndpointArrayOutput {
 	return o
+}
+
+func (o InstanceListenerEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceListenerEndpoint] {
+	return pulumix.Output[[]InstanceListenerEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceListenerEndpointArrayOutput) Index(i pulumi.IntInput) InstanceListenerEndpointOutput {
@@ -1431,6 +1859,12 @@ func (i InstanceMasterUserSecretArgs) ToInstanceMasterUserSecretOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMasterUserSecretOutput)
 }
 
+func (i InstanceMasterUserSecretArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceMasterUserSecret] {
+	return pulumix.Output[InstanceMasterUserSecret]{
+		OutputState: i.ToInstanceMasterUserSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceMasterUserSecretArrayInput is an input type that accepts InstanceMasterUserSecretArray and InstanceMasterUserSecretArrayOutput values.
 // You can construct a concrete instance of `InstanceMasterUserSecretArrayInput` via:
 //
@@ -1456,6 +1890,12 @@ func (i InstanceMasterUserSecretArray) ToInstanceMasterUserSecretArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMasterUserSecretArrayOutput)
 }
 
+func (i InstanceMasterUserSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceMasterUserSecret] {
+	return pulumix.Output[[]InstanceMasterUserSecret]{
+		OutputState: i.ToInstanceMasterUserSecretArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (InstanceMasterUserSecretOutput) ElementType() reflect.Type {
@@ -1468,6 +1908,12 @@ func (o InstanceMasterUserSecretOutput) ToInstanceMasterUserSecretOutput() Insta
 
 func (o InstanceMasterUserSecretOutput) ToInstanceMasterUserSecretOutputWithContext(ctx context.Context) InstanceMasterUserSecretOutput {
 	return o
+}
+
+func (o InstanceMasterUserSecretOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceMasterUserSecret] {
+	return pulumix.Output[InstanceMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN for the KMS encryption key. If creating an
@@ -1498,6 +1944,12 @@ func (o InstanceMasterUserSecretArrayOutput) ToInstanceMasterUserSecretArrayOutp
 
 func (o InstanceMasterUserSecretArrayOutput) ToInstanceMasterUserSecretArrayOutputWithContext(ctx context.Context) InstanceMasterUserSecretArrayOutput {
 	return o
+}
+
+func (o InstanceMasterUserSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceMasterUserSecret] {
+	return pulumix.Output[[]InstanceMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceMasterUserSecretArrayOutput) Index(i pulumi.IntInput) InstanceMasterUserSecretOutput {
@@ -1555,6 +2007,12 @@ func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimeOutput)
 }
 
+func (i InstanceRestoreToPointInTimeArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceRestoreToPointInTime] {
+	return pulumix.Output[InstanceRestoreToPointInTime]{
+		OutputState: i.ToInstanceRestoreToPointInTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
 	return i.ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Background())
 }
@@ -1596,6 +2054,12 @@ func (i *instanceRestoreToPointInTimePtrType) ToInstanceRestoreToPointInTimePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimePtrOutput)
 }
 
+func (i *instanceRestoreToPointInTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceRestoreToPointInTime] {
+	return pulumix.Output[*InstanceRestoreToPointInTime]{
+		OutputState: i.ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceRestoreToPointInTimeOutput struct{ *pulumi.OutputState }
 
 func (InstanceRestoreToPointInTimeOutput) ElementType() reflect.Type {
@@ -1618,6 +2082,12 @@ func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceRestoreToPointInTime) *InstanceRestoreToPointInTime {
 		return &v
 	}).(InstanceRestoreToPointInTimePtrOutput)
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceRestoreToPointInTime] {
+	return pulumix.Output[InstanceRestoreToPointInTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
@@ -1657,6 +2127,12 @@ func (o InstanceRestoreToPointInTimePtrOutput) ToInstanceRestoreToPointInTimePtr
 
 func (o InstanceRestoreToPointInTimePtrOutput) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
 	return o
+}
+
+func (o InstanceRestoreToPointInTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceRestoreToPointInTime] {
+	return pulumix.Output[*InstanceRestoreToPointInTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceRestoreToPointInTimePtrOutput) Elem() InstanceRestoreToPointInTimeOutput {
@@ -1729,6 +2205,8 @@ type InstanceS3Import struct {
 	// Source engine for the backup
 	SourceEngine string `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
@@ -1753,6 +2231,8 @@ type InstanceS3ImportArgs struct {
 	// Source engine for the backup
 	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
@@ -1766,6 +2246,12 @@ func (i InstanceS3ImportArgs) ToInstanceS3ImportOutput() InstanceS3ImportOutput 
 
 func (i InstanceS3ImportArgs) ToInstanceS3ImportOutputWithContext(ctx context.Context) InstanceS3ImportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceS3ImportOutput)
+}
+
+func (i InstanceS3ImportArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceS3Import] {
+	return pulumix.Output[InstanceS3Import]{
+		OutputState: i.ToInstanceS3ImportOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i InstanceS3ImportArgs) ToInstanceS3ImportPtrOutput() InstanceS3ImportPtrOutput {
@@ -1809,6 +2295,12 @@ func (i *instanceS3ImportPtrType) ToInstanceS3ImportPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceS3ImportPtrOutput)
 }
 
+func (i *instanceS3ImportPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceS3Import] {
+	return pulumix.Output[*InstanceS3Import]{
+		OutputState: i.ToInstanceS3ImportPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceS3ImportOutput struct{ *pulumi.OutputState }
 
 func (InstanceS3ImportOutput) ElementType() reflect.Type {
@@ -1833,6 +2325,12 @@ func (o InstanceS3ImportOutput) ToInstanceS3ImportPtrOutputWithContext(ctx conte
 	}).(InstanceS3ImportPtrOutput)
 }
 
+func (o InstanceS3ImportOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceS3Import] {
+	return pulumix.Output[InstanceS3Import]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The bucket name where your backup is stored
 func (o InstanceS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.BucketName }).(pulumi.StringOutput)
@@ -1854,6 +2352,8 @@ func (o InstanceS3ImportOutput) SourceEngine() pulumi.StringOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -1870,6 +2370,12 @@ func (o InstanceS3ImportPtrOutput) ToInstanceS3ImportPtrOutput() InstanceS3Impor
 
 func (o InstanceS3ImportPtrOutput) ToInstanceS3ImportPtrOutputWithContext(ctx context.Context) InstanceS3ImportPtrOutput {
 	return o
+}
+
+func (o InstanceS3ImportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceS3Import] {
+	return pulumix.Output[*InstanceS3Import]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceS3ImportPtrOutput) Elem() InstanceS3ImportOutput {
@@ -1923,6 +2429,8 @@ func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -1985,6 +2493,12 @@ func (i OptionGroupOptionArgs) ToOptionGroupOptionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionOutput)
 }
 
+func (i OptionGroupOptionArgs) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOption] {
+	return pulumix.Output[OptionGroupOption]{
+		OutputState: i.ToOptionGroupOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OptionGroupOptionArrayInput is an input type that accepts OptionGroupOptionArray and OptionGroupOptionArrayOutput values.
 // You can construct a concrete instance of `OptionGroupOptionArrayInput` via:
 //
@@ -2010,6 +2524,12 @@ func (i OptionGroupOptionArray) ToOptionGroupOptionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionArrayOutput)
 }
 
+func (i OptionGroupOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOption] {
+	return pulumix.Output[[]OptionGroupOption]{
+		OutputState: i.ToOptionGroupOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OptionGroupOptionOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOptionOutput) ElementType() reflect.Type {
@@ -2022,6 +2542,12 @@ func (o OptionGroupOptionOutput) ToOptionGroupOptionOutput() OptionGroupOptionOu
 
 func (o OptionGroupOptionOutput) ToOptionGroupOptionOutputWithContext(ctx context.Context) OptionGroupOptionOutput {
 	return o
+}
+
+func (o OptionGroupOptionOutput) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOption] {
+	return pulumix.Output[OptionGroupOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of DB Security Groups for which the option is enabled.
@@ -2068,6 +2594,12 @@ func (o OptionGroupOptionArrayOutput) ToOptionGroupOptionArrayOutputWithContext(
 	return o
 }
 
+func (o OptionGroupOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOption] {
+	return pulumix.Output[[]OptionGroupOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OptionGroupOptionArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptionGroupOption {
 		return vs[0].([]OptionGroupOption)[vs[1].(int)]
@@ -2111,6 +2643,12 @@ func (i OptionGroupOptionOptionSettingArgs) ToOptionGroupOptionOptionSettingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionOptionSettingOutput)
 }
 
+func (i OptionGroupOptionOptionSettingArgs) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOptionOptionSetting] {
+	return pulumix.Output[OptionGroupOptionOptionSetting]{
+		OutputState: i.ToOptionGroupOptionOptionSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OptionGroupOptionOptionSettingArrayInput is an input type that accepts OptionGroupOptionOptionSettingArray and OptionGroupOptionOptionSettingArrayOutput values.
 // You can construct a concrete instance of `OptionGroupOptionOptionSettingArrayInput` via:
 //
@@ -2136,6 +2674,12 @@ func (i OptionGroupOptionOptionSettingArray) ToOptionGroupOptionOptionSettingArr
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionOptionSettingArrayOutput)
 }
 
+func (i OptionGroupOptionOptionSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOptionOptionSetting] {
+	return pulumix.Output[[]OptionGroupOptionOptionSetting]{
+		OutputState: i.ToOptionGroupOptionOptionSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OptionGroupOptionOptionSettingOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOptionOptionSettingOutput) ElementType() reflect.Type {
@@ -2148,6 +2692,12 @@ func (o OptionGroupOptionOptionSettingOutput) ToOptionGroupOptionOptionSettingOu
 
 func (o OptionGroupOptionOptionSettingOutput) ToOptionGroupOptionOptionSettingOutputWithContext(ctx context.Context) OptionGroupOptionOptionSettingOutput {
 	return o
+}
+
+func (o OptionGroupOptionOptionSettingOutput) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOptionOptionSetting] {
+	return pulumix.Output[OptionGroupOptionOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Name of the setting.
@@ -2172,6 +2722,12 @@ func (o OptionGroupOptionOptionSettingArrayOutput) ToOptionGroupOptionOptionSett
 
 func (o OptionGroupOptionOptionSettingArrayOutput) ToOptionGroupOptionOptionSettingArrayOutputWithContext(ctx context.Context) OptionGroupOptionOptionSettingArrayOutput {
 	return o
+}
+
+func (o OptionGroupOptionOptionSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOptionOptionSetting] {
+	return pulumix.Output[[]OptionGroupOptionOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OptionGroupOptionOptionSettingArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionOptionSettingOutput {
@@ -2225,6 +2781,12 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
+func (i ParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
+	return pulumix.Output[ParameterGroupParameter]{
+		OutputState: i.ToParameterGroupParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
@@ -2250,6 +2812,12 @@ func (i ParameterGroupParameterArray) ToParameterGroupParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterArrayOutput)
 }
 
+func (i ParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
+	return pulumix.Output[[]ParameterGroupParameter]{
+		OutputState: i.ToParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -2262,6 +2830,12 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutput() Paramet
 
 func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContext(ctx context.Context) ParameterGroupParameterOutput {
 	return o
+}
+
+func (o ParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
+	return pulumix.Output[ParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // "immediate" (default), or "pending-reboot". Some
@@ -2293,6 +2867,12 @@ func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutput
 
 func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutputWithContext(ctx context.Context) ParameterGroupParameterArrayOutput {
 	return o
+}
+
+func (o ParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
+	return pulumix.Output[[]ParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGroupParameterOutput {
@@ -2354,6 +2934,12 @@ func (i ProxyAuthArgs) ToProxyAuthOutputWithContext(ctx context.Context) ProxyAu
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyAuthOutput)
 }
 
+func (i ProxyAuthArgs) ToOutput(ctx context.Context) pulumix.Output[ProxyAuth] {
+	return pulumix.Output[ProxyAuth]{
+		OutputState: i.ToProxyAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProxyAuthArrayInput is an input type that accepts ProxyAuthArray and ProxyAuthArrayOutput values.
 // You can construct a concrete instance of `ProxyAuthArrayInput` via:
 //
@@ -2379,6 +2965,12 @@ func (i ProxyAuthArray) ToProxyAuthArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyAuthArrayOutput)
 }
 
+func (i ProxyAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]ProxyAuth] {
+	return pulumix.Output[[]ProxyAuth]{
+		OutputState: i.ToProxyAuthArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProxyAuthOutput struct{ *pulumi.OutputState }
 
 func (ProxyAuthOutput) ElementType() reflect.Type {
@@ -2391,6 +2983,12 @@ func (o ProxyAuthOutput) ToProxyAuthOutput() ProxyAuthOutput {
 
 func (o ProxyAuthOutput) ToProxyAuthOutputWithContext(ctx context.Context) ProxyAuthOutput {
 	return o
+}
+
+func (o ProxyAuthOutput) ToOutput(ctx context.Context) pulumix.Output[ProxyAuth] {
+	return pulumix.Output[ProxyAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
@@ -2435,6 +3033,12 @@ func (o ProxyAuthArrayOutput) ToProxyAuthArrayOutput() ProxyAuthArrayOutput {
 
 func (o ProxyAuthArrayOutput) ToProxyAuthArrayOutputWithContext(ctx context.Context) ProxyAuthArrayOutput {
 	return o
+}
+
+func (o ProxyAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProxyAuth] {
+	return pulumix.Output[[]ProxyAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProxyAuthArrayOutput) Index(i pulumi.IntInput) ProxyAuthOutput {
@@ -2492,6 +3096,12 @@ func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGro
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
 }
 
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProxyDefaultTargetGroupConnectionPoolConfig] {
+	return pulumix.Output[ProxyDefaultTargetGroupConnectionPoolConfig]{
+		OutputState: i.ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
 	return i.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Background())
 }
@@ -2533,6 +3143,12 @@ func (i *proxyDefaultTargetGroupConnectionPoolConfigPtrType) ToProxyDefaultTarge
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
 }
 
+func (i *proxyDefaultTargetGroupConnectionPoolConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProxyDefaultTargetGroupConnectionPoolConfig] {
+	return pulumix.Output[*ProxyDefaultTargetGroupConnectionPoolConfig]{
+		OutputState: i.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProxyDefaultTargetGroupConnectionPoolConfigOutput struct{ *pulumi.OutputState }
 
 func (ProxyDefaultTargetGroupConnectionPoolConfigOutput) ElementType() reflect.Type {
@@ -2555,6 +3171,12 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetG
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyDefaultTargetGroupConnectionPoolConfig) *ProxyDefaultTargetGroupConnectionPoolConfig {
 		return &v
 	}).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProxyDefaultTargetGroupConnectionPoolConfig] {
+	return pulumix.Output[ProxyDefaultTargetGroupConnectionPoolConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
@@ -2594,6 +3216,12 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToProxyDefaultTarg
 
 func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
 	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProxyDefaultTargetGroupConnectionPoolConfig] {
+	return pulumix.Output[*ProxyDefaultTargetGroupConnectionPoolConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) Elem() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
@@ -2689,6 +3317,12 @@ func (i ReservedInstanceRecurringChargeArgs) ToReservedInstanceRecurringChargeOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReservedInstanceRecurringChargeOutput)
 }
 
+func (i ReservedInstanceRecurringChargeArgs) ToOutput(ctx context.Context) pulumix.Output[ReservedInstanceRecurringCharge] {
+	return pulumix.Output[ReservedInstanceRecurringCharge]{
+		OutputState: i.ToReservedInstanceRecurringChargeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReservedInstanceRecurringChargeArrayInput is an input type that accepts ReservedInstanceRecurringChargeArray and ReservedInstanceRecurringChargeArrayOutput values.
 // You can construct a concrete instance of `ReservedInstanceRecurringChargeArrayInput` via:
 //
@@ -2714,6 +3348,12 @@ func (i ReservedInstanceRecurringChargeArray) ToReservedInstanceRecurringChargeA
 	return pulumi.ToOutputWithContext(ctx, i).(ReservedInstanceRecurringChargeArrayOutput)
 }
 
+func (i ReservedInstanceRecurringChargeArray) ToOutput(ctx context.Context) pulumix.Output[[]ReservedInstanceRecurringCharge] {
+	return pulumix.Output[[]ReservedInstanceRecurringCharge]{
+		OutputState: i.ToReservedInstanceRecurringChargeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReservedInstanceRecurringChargeOutput struct{ *pulumi.OutputState }
 
 func (ReservedInstanceRecurringChargeOutput) ElementType() reflect.Type {
@@ -2726,6 +3366,12 @@ func (o ReservedInstanceRecurringChargeOutput) ToReservedInstanceRecurringCharge
 
 func (o ReservedInstanceRecurringChargeOutput) ToReservedInstanceRecurringChargeOutputWithContext(ctx context.Context) ReservedInstanceRecurringChargeOutput {
 	return o
+}
+
+func (o ReservedInstanceRecurringChargeOutput) ToOutput(ctx context.Context) pulumix.Output[ReservedInstanceRecurringCharge] {
+	return pulumix.Output[ReservedInstanceRecurringCharge]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReservedInstanceRecurringChargeOutput) RecurringChargeAmount() pulumi.IntPtrOutput {
@@ -2750,137 +3396,16 @@ func (o ReservedInstanceRecurringChargeArrayOutput) ToReservedInstanceRecurringC
 	return o
 }
 
+func (o ReservedInstanceRecurringChargeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReservedInstanceRecurringCharge] {
+	return pulumix.Output[[]ReservedInstanceRecurringCharge]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReservedInstanceRecurringChargeArrayOutput) Index(i pulumi.IntInput) ReservedInstanceRecurringChargeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReservedInstanceRecurringCharge {
 		return vs[0].([]ReservedInstanceRecurringCharge)[vs[1].(int)]
 	}).(ReservedInstanceRecurringChargeOutput)
-}
-
-type SecurityGroupIngress struct {
-	// The CIDR block to accept
-	Cidr *string `pulumi:"cidr"`
-	// The ID of the security group to authorize
-	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// The name of the security group to authorize
-	SecurityGroupName *string `pulumi:"securityGroupName"`
-	// The owner Id of the security group provided
-	// by `securityGroupName`.
-	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
-}
-
-// SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
-// You can construct a concrete instance of `SecurityGroupIngressInput` via:
-//
-//	SecurityGroupIngressArgs{...}
-type SecurityGroupIngressInput interface {
-	pulumi.Input
-
-	ToSecurityGroupIngressOutput() SecurityGroupIngressOutput
-	ToSecurityGroupIngressOutputWithContext(context.Context) SecurityGroupIngressOutput
-}
-
-type SecurityGroupIngressArgs struct {
-	// The CIDR block to accept
-	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
-	// The ID of the security group to authorize
-	SecurityGroupId pulumi.StringPtrInput `pulumi:"securityGroupId"`
-	// The name of the security group to authorize
-	SecurityGroupName pulumi.StringPtrInput `pulumi:"securityGroupName"`
-	// The owner Id of the security group provided
-	// by `securityGroupName`.
-	SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"securityGroupOwnerId"`
-}
-
-func (SecurityGroupIngressArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
-}
-
-func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
-	return i.ToSecurityGroupIngressOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
-}
-
-// SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
-// You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
-//
-//	SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
-type SecurityGroupIngressArrayInput interface {
-	pulumi.Input
-
-	ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput
-	ToSecurityGroupIngressArrayOutputWithContext(context.Context) SecurityGroupIngressArrayOutput
-}
-
-type SecurityGroupIngressArray []SecurityGroupIngressInput
-
-func (SecurityGroupIngressArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
-}
-
-func (i SecurityGroupIngressArray) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
-	return i.ToSecurityGroupIngressArrayOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupIngressArray) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressArrayOutput)
-}
-
-type SecurityGroupIngressOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupIngressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
-}
-
-func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
-	return o
-}
-
-func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
-	return o
-}
-
-// The CIDR block to accept
-func (o SecurityGroupIngressOutput) Cidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Cidr }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the security group to authorize
-func (o SecurityGroupIngressOutput) SecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The name of the security group to authorize
-func (o SecurityGroupIngressOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
-}
-
-// The owner Id of the security group provided
-// by `securityGroupName`.
-func (o SecurityGroupIngressOutput) SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
-}
-
-type SecurityGroupIngressArrayOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupIngressArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
-}
-
-func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
-	return o
-}
-
-func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
-	return o
-}
-
-func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngress {
-		return vs[0].([]SecurityGroupIngress)[vs[1].(int)]
-	}).(SecurityGroupIngressOutput)
 }
 
 type GetClusterMasterUserSecret struct {
@@ -2918,6 +3443,12 @@ func (i GetClusterMasterUserSecretArgs) ToGetClusterMasterUserSecretOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterMasterUserSecretOutput)
 }
 
+func (i GetClusterMasterUserSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetClusterMasterUserSecret] {
+	return pulumix.Output[GetClusterMasterUserSecret]{
+		OutputState: i.ToGetClusterMasterUserSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetClusterMasterUserSecretArrayInput is an input type that accepts GetClusterMasterUserSecretArray and GetClusterMasterUserSecretArrayOutput values.
 // You can construct a concrete instance of `GetClusterMasterUserSecretArrayInput` via:
 //
@@ -2943,6 +3474,12 @@ func (i GetClusterMasterUserSecretArray) ToGetClusterMasterUserSecretArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterMasterUserSecretArrayOutput)
 }
 
+func (i GetClusterMasterUserSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterMasterUserSecret] {
+	return pulumix.Output[[]GetClusterMasterUserSecret]{
+		OutputState: i.ToGetClusterMasterUserSecretArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (GetClusterMasterUserSecretOutput) ElementType() reflect.Type {
@@ -2955,6 +3492,12 @@ func (o GetClusterMasterUserSecretOutput) ToGetClusterMasterUserSecretOutput() G
 
 func (o GetClusterMasterUserSecretOutput) ToGetClusterMasterUserSecretOutputWithContext(ctx context.Context) GetClusterMasterUserSecretOutput {
 	return o
+}
+
+func (o GetClusterMasterUserSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterMasterUserSecret] {
+	return pulumix.Output[GetClusterMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
@@ -2981,6 +3524,12 @@ func (o GetClusterMasterUserSecretArrayOutput) ToGetClusterMasterUserSecretArray
 
 func (o GetClusterMasterUserSecretArrayOutput) ToGetClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) GetClusterMasterUserSecretArrayOutput {
 	return o
+}
+
+func (o GetClusterMasterUserSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterMasterUserSecret] {
+	return pulumix.Output[[]GetClusterMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterMasterUserSecretArrayOutput) Index(i pulumi.IntInput) GetClusterMasterUserSecretOutput {
@@ -3026,6 +3575,12 @@ func (i GetClustersFilterArgs) ToGetClustersFilterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetClustersFilterOutput)
 }
 
+func (i GetClustersFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetClustersFilter] {
+	return pulumix.Output[GetClustersFilter]{
+		OutputState: i.ToGetClustersFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetClustersFilterArrayInput is an input type that accepts GetClustersFilterArray and GetClustersFilterArrayOutput values.
 // You can construct a concrete instance of `GetClustersFilterArrayInput` via:
 //
@@ -3051,6 +3606,12 @@ func (i GetClustersFilterArray) ToGetClustersFilterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetClustersFilterArrayOutput)
 }
 
+func (i GetClustersFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetClustersFilter] {
+	return pulumix.Output[[]GetClustersFilter]{
+		OutputState: i.ToGetClustersFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetClustersFilterOutput struct{ *pulumi.OutputState }
 
 func (GetClustersFilterOutput) ElementType() reflect.Type {
@@ -3063,6 +3624,12 @@ func (o GetClustersFilterOutput) ToGetClustersFilterOutput() GetClustersFilterOu
 
 func (o GetClustersFilterOutput) ToGetClustersFilterOutputWithContext(ctx context.Context) GetClustersFilterOutput {
 	return o
+}
+
+func (o GetClustersFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetClustersFilter] {
+	return pulumix.Output[GetClustersFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
@@ -3087,6 +3654,12 @@ func (o GetClustersFilterArrayOutput) ToGetClustersFilterArrayOutput() GetCluste
 
 func (o GetClustersFilterArrayOutput) ToGetClustersFilterArrayOutputWithContext(ctx context.Context) GetClustersFilterArrayOutput {
 	return o
+}
+
+func (o GetClustersFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetClustersFilter] {
+	return pulumix.Output[[]GetClustersFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClustersFilterArrayOutput) Index(i pulumi.IntInput) GetClustersFilterOutput {
@@ -3128,6 +3701,12 @@ func (i GetEngineVersionFilterArgs) ToGetEngineVersionFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetEngineVersionFilterOutput)
 }
 
+func (i GetEngineVersionFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetEngineVersionFilter] {
+	return pulumix.Output[GetEngineVersionFilter]{
+		OutputState: i.ToGetEngineVersionFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEngineVersionFilterArrayInput is an input type that accepts GetEngineVersionFilterArray and GetEngineVersionFilterArrayOutput values.
 // You can construct a concrete instance of `GetEngineVersionFilterArrayInput` via:
 //
@@ -3153,6 +3732,12 @@ func (i GetEngineVersionFilterArray) ToGetEngineVersionFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetEngineVersionFilterArrayOutput)
 }
 
+func (i GetEngineVersionFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEngineVersionFilter] {
+	return pulumix.Output[[]GetEngineVersionFilter]{
+		OutputState: i.ToGetEngineVersionFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEngineVersionFilterOutput struct{ *pulumi.OutputState }
 
 func (GetEngineVersionFilterOutput) ElementType() reflect.Type {
@@ -3165,6 +3750,12 @@ func (o GetEngineVersionFilterOutput) ToGetEngineVersionFilterOutput() GetEngine
 
 func (o GetEngineVersionFilterOutput) ToGetEngineVersionFilterOutputWithContext(ctx context.Context) GetEngineVersionFilterOutput {
 	return o
+}
+
+func (o GetEngineVersionFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetEngineVersionFilter] {
+	return pulumix.Output[GetEngineVersionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEngineVersionFilterOutput) Name() pulumi.StringOutput {
@@ -3187,6 +3778,12 @@ func (o GetEngineVersionFilterArrayOutput) ToGetEngineVersionFilterArrayOutput()
 
 func (o GetEngineVersionFilterArrayOutput) ToGetEngineVersionFilterArrayOutputWithContext(ctx context.Context) GetEngineVersionFilterArrayOutput {
 	return o
+}
+
+func (o GetEngineVersionFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEngineVersionFilter] {
+	return pulumix.Output[[]GetEngineVersionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVersionFilterOutput {
@@ -3236,6 +3833,12 @@ func (i GetInstanceMasterUserSecretArgs) ToGetInstanceMasterUserSecretOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMasterUserSecretOutput)
 }
 
+func (i GetInstanceMasterUserSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetInstanceMasterUserSecret] {
+	return pulumix.Output[GetInstanceMasterUserSecret]{
+		OutputState: i.ToGetInstanceMasterUserSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetInstanceMasterUserSecretArrayInput is an input type that accepts GetInstanceMasterUserSecretArray and GetInstanceMasterUserSecretArrayOutput values.
 // You can construct a concrete instance of `GetInstanceMasterUserSecretArrayInput` via:
 //
@@ -3261,6 +3864,12 @@ func (i GetInstanceMasterUserSecretArray) ToGetInstanceMasterUserSecretArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMasterUserSecretArrayOutput)
 }
 
+func (i GetInstanceMasterUserSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInstanceMasterUserSecret] {
+	return pulumix.Output[[]GetInstanceMasterUserSecret]{
+		OutputState: i.ToGetInstanceMasterUserSecretArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (GetInstanceMasterUserSecretOutput) ElementType() reflect.Type {
@@ -3273,6 +3882,12 @@ func (o GetInstanceMasterUserSecretOutput) ToGetInstanceMasterUserSecretOutput()
 
 func (o GetInstanceMasterUserSecretOutput) ToGetInstanceMasterUserSecretOutputWithContext(ctx context.Context) GetInstanceMasterUserSecretOutput {
 	return o
+}
+
+func (o GetInstanceMasterUserSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceMasterUserSecret] {
+	return pulumix.Output[GetInstanceMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Web Services KMS key identifier that is used to encrypt the secret.
@@ -3304,6 +3919,12 @@ func (o GetInstanceMasterUserSecretArrayOutput) ToGetInstanceMasterUserSecretArr
 	return o
 }
 
+func (o GetInstanceMasterUserSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInstanceMasterUserSecret] {
+	return pulumix.Output[[]GetInstanceMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetInstanceMasterUserSecretArrayOutput) Index(i pulumi.IntInput) GetInstanceMasterUserSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceMasterUserSecret {
 		return vs[0].([]GetInstanceMasterUserSecret)[vs[1].(int)]
@@ -3311,7 +3932,7 @@ func (o GetInstanceMasterUserSecretArrayOutput) Index(i pulumi.IntInput) GetInst
 }
 
 type GetInstancesFilter struct {
-	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -3329,7 +3950,7 @@ type GetInstancesFilterInput interface {
 }
 
 type GetInstancesFilterArgs struct {
-	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -3345,6 +3966,12 @@ func (i GetInstancesFilterArgs) ToGetInstancesFilterOutput() GetInstancesFilterO
 
 func (i GetInstancesFilterArgs) ToGetInstancesFilterOutputWithContext(ctx context.Context) GetInstancesFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstancesFilterOutput)
+}
+
+func (i GetInstancesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetInstancesFilter] {
+	return pulumix.Output[GetInstancesFilter]{
+		OutputState: i.ToGetInstancesFilterOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetInstancesFilterArrayInput is an input type that accepts GetInstancesFilterArray and GetInstancesFilterArrayOutput values.
@@ -3372,6 +3999,12 @@ func (i GetInstancesFilterArray) ToGetInstancesFilterArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstancesFilterArrayOutput)
 }
 
+func (i GetInstancesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInstancesFilter] {
+	return pulumix.Output[[]GetInstancesFilter]{
+		OutputState: i.ToGetInstancesFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInstancesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetInstancesFilterOutput) ElementType() reflect.Type {
@@ -3386,7 +4019,13 @@ func (o GetInstancesFilterOutput) ToGetInstancesFilterOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+func (o GetInstancesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstancesFilter] {
+	return pulumix.Output[GetInstancesFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
 func (o GetInstancesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3408,6 +4047,12 @@ func (o GetInstancesFilterArrayOutput) ToGetInstancesFilterArrayOutput() GetInst
 
 func (o GetInstancesFilterArrayOutput) ToGetInstancesFilterArrayOutputWithContext(ctx context.Context) GetInstancesFilterArrayOutput {
 	return o
+}
+
+func (o GetInstancesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInstancesFilter] {
+	return pulumix.Output[[]GetInstancesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInstancesFilterArrayOutput) Index(i pulumi.IntInput) GetInstancesFilterOutput {
@@ -3457,6 +4102,12 @@ func (i GetProxyAuthArgs) ToGetProxyAuthOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetProxyAuthOutput)
 }
 
+func (i GetProxyAuthArgs) ToOutput(ctx context.Context) pulumix.Output[GetProxyAuth] {
+	return pulumix.Output[GetProxyAuth]{
+		OutputState: i.ToGetProxyAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetProxyAuthArrayInput is an input type that accepts GetProxyAuthArray and GetProxyAuthArrayOutput values.
 // You can construct a concrete instance of `GetProxyAuthArrayInput` via:
 //
@@ -3482,6 +4133,12 @@ func (i GetProxyAuthArray) ToGetProxyAuthArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetProxyAuthArrayOutput)
 }
 
+func (i GetProxyAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]GetProxyAuth] {
+	return pulumix.Output[[]GetProxyAuth]{
+		OutputState: i.ToGetProxyAuthArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetProxyAuthOutput struct{ *pulumi.OutputState }
 
 func (GetProxyAuthOutput) ElementType() reflect.Type {
@@ -3494,6 +4151,12 @@ func (o GetProxyAuthOutput) ToGetProxyAuthOutput() GetProxyAuthOutput {
 
 func (o GetProxyAuthOutput) ToGetProxyAuthOutputWithContext(ctx context.Context) GetProxyAuthOutput {
 	return o
+}
+
+func (o GetProxyAuthOutput) ToOutput(ctx context.Context) pulumix.Output[GetProxyAuth] {
+	return pulumix.Output[GetProxyAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetProxyAuthOutput) AuthScheme() pulumi.StringOutput {
@@ -3534,6 +4197,12 @@ func (o GetProxyAuthArrayOutput) ToGetProxyAuthArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o GetProxyAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetProxyAuth] {
+	return pulumix.Output[[]GetProxyAuth]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetProxyAuthArrayOutput) Index(i pulumi.IntInput) GetProxyAuthOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProxyAuth {
 		return vs[0].([]GetProxyAuth)[vs[1].(int)]
@@ -3553,6 +4222,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConfigurationPtrInput)(nil)).Elem(), ClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationPtrInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportTaskTimeoutsInput)(nil)).Elem(), ExportTaskTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportTaskTimeoutsPtrInput)(nil)).Elem(), ExportTaskTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdateInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
@@ -3577,8 +4248,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfigPtrInput)(nil)).Elem(), ProxyDefaultTargetGroupConnectionPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeInput)(nil)).Elem(), ReservedInstanceRecurringChargeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeArrayInput)(nil)).Elem(), ReservedInstanceRecurringChargeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretInput)(nil)).Elem(), GetClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretArrayInput)(nil)).Elem(), GetClusterMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterInput)(nil)).Elem(), GetClustersFilterArgs{})
@@ -3603,6 +4272,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExportTaskTimeoutsOutput{})
+	pulumi.RegisterOutputType(ExportTaskTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlueGreenUpdateOutput{})
@@ -3627,8 +4298,6 @@ func init() {
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeOutput{})
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeArrayOutput{})
-	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
-	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetClustersFilterOutput{})

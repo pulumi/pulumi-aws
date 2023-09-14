@@ -280,7 +280,7 @@ class SnapshotSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
+        Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
 
         ```sh
          $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
@@ -316,7 +316,7 @@ class SnapshotSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
+        Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
 
         ```sh
          $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule

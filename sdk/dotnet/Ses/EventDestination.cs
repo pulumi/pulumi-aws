@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.,
+    /// Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
@@ -156,6 +156,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Send the events to an SNS Topic destination
+        /// 
+        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
         [Output("snsDestination")]
         public Output<Outputs.EventDestinationSnsDestination?> SnsDestination { get; private set; } = null!;
@@ -256,6 +258,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Send the events to an SNS Topic destination
+        /// 
+        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationArgs>? SnsDestination { get; set; }
@@ -324,6 +328,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Send the events to an SNS Topic destination
+        /// 
+        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationGetArgs>? SnsDestination { get; set; }

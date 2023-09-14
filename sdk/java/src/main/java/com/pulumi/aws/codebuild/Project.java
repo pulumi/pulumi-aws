@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
  *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/standard:1.0&#34;)
+ *                 .image(&#34;aws/codebuild/amazonlinux2-x86_64-standard:4.0&#34;)
  *                 .type(&#34;LINUX_CONTAINER&#34;)
  *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
  *                 .environmentVariables(                
@@ -222,7 +222,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
  *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/standard:1.0&#34;)
+ *                 .image(&#34;aws/codebuild/amazonlinux2-x86_64-standard:4.0&#34;)
  *                 .type(&#34;LINUX_CONTAINER&#34;)
  *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
  *                 .environmentVariables(ProjectEnvironmentEnvironmentVariableArgs.builder()
@@ -244,7 +244,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeBuild Project can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:codebuild/project:Project name project-name
@@ -564,12 +564,16 @@ public class Project extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="source", refs={ProjectSource.class}, tree="[0]")
     private Output<ProjectSource> source;
 
     /**
      * @return Configuration block. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ProjectSource> source() {

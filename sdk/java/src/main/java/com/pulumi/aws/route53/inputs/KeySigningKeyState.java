@@ -154,12 +154,16 @@ public final class KeySigningKeyState extends com.pulumi.resources.ResourceArgs 
     /**
      * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -455,6 +459,8 @@ public final class KeySigningKeyState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -465,6 +471,8 @@ public final class KeySigningKeyState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param name Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

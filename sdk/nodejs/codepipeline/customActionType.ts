@@ -33,10 +33,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodeDeploy CustomActionType can be imported using the `id`, e.g.
+ * Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:terraform:1
+ *  $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
  * ```
  */
 export class CustomActionType extends pulumi.CustomResource {

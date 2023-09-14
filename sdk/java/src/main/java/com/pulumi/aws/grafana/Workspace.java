@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Grafana Workspace can be imported using the workspace&#39;s `id`, e.g.,
+ * Using `pulumi import`, import Grafana Workspace using the workspace&#39;s `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
@@ -183,14 +183,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
     @Export(name="grafanaVersion", refs={String.class}, tree="[0]")
     private Output<String> grafanaVersion;
 
     /**
-     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
     public Output<String> grafanaVersion() {
@@ -269,12 +269,16 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="permissionType", refs={String.class}, tree="[0]")
     private Output<String> permissionType;
 
     /**
      * @return The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> permissionType() {

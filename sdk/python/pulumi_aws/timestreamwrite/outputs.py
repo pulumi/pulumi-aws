@@ -15,6 +15,8 @@ __all__ = [
     'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation',
     'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration',
     'TableRetentionProperties',
+    'TableSchema',
+    'TableSchemaCompositePartitionKey',
 ]
 
 @pulumi.output_type
@@ -227,5 +229,100 @@ class TableRetentionProperties(dict):
         The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
         """
         return pulumi.get(self, "memory_store_retention_period_in_hours")
+
+
+@pulumi.output_type
+class TableSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compositePartitionKey":
+            suggest = "composite_partition_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 composite_partition_key: Optional['outputs.TableSchemaCompositePartitionKey'] = None):
+        """
+        :param 'TableSchemaCompositePartitionKeyArgs' composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        """
+        if composite_partition_key is not None:
+            pulumi.set(__self__, "composite_partition_key", composite_partition_key)
+
+    @property
+    @pulumi.getter(name="compositePartitionKey")
+    def composite_partition_key(self) -> Optional['outputs.TableSchemaCompositePartitionKey']:
+        """
+        A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        """
+        return pulumi.get(self, "composite_partition_key")
+
+
+@pulumi.output_type
+class TableSchemaCompositePartitionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enforcementInRecord":
+            suggest = "enforcement_in_record"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSchemaCompositePartitionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSchemaCompositePartitionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSchemaCompositePartitionKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 enforcement_in_record: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str type: The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+        :param str enforcement_in_record: The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+        :param str name: The name of the attribute used for a dimension key.
+        """
+        pulumi.set(__self__, "type", type)
+        if enforcement_in_record is not None:
+            pulumi.set(__self__, "enforcement_in_record", enforcement_in_record)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="enforcementInRecord")
+    def enforcement_in_record(self) -> Optional[str]:
+        """
+        The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+        """
+        return pulumi.get(self, "enforcement_in_record")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the attribute used for a dimension key.
+        """
+        return pulumi.get(self, "name")
 
 

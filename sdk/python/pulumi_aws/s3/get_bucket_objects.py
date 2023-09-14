@@ -24,10 +24,6 @@ class GetBucketObjectsResult:
     def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, id=None, keys=None, max_keys=None, owners=None, prefix=None, start_after=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
-        if bucket is not None:
-            warnings.warn("""Use the aws_s3_objects data source instead""", DeprecationWarning)
-            pulumi.log.warn("""bucket is deprecated: Use the aws_s3_objects data source instead""")
-
         pulumi.set(__self__, "bucket", bucket)
         if common_prefixes and not isinstance(common_prefixes, list):
             raise TypeError("Expected argument 'common_prefixes' to be a list")
@@ -63,6 +59,9 @@ class GetBucketObjectsResult:
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        warnings.warn("""Use the aws_s3_objects data source instead""", DeprecationWarning)
+        pulumi.log.warn("""bucket is deprecated: Use the aws_s3_objects data source instead""")
+
         return pulumi.get(self, "bucket")
 
     @property
@@ -183,17 +182,17 @@ def get_bucket_objects(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObjects:getBucketObjects', __args__, opts=opts, typ=GetBucketObjectsResult).value
 
     return AwaitableGetBucketObjectsResult(
-        bucket=__ret__.bucket,
-        common_prefixes=__ret__.common_prefixes,
-        delimiter=__ret__.delimiter,
-        encoding_type=__ret__.encoding_type,
-        fetch_owner=__ret__.fetch_owner,
-        id=__ret__.id,
-        keys=__ret__.keys,
-        max_keys=__ret__.max_keys,
-        owners=__ret__.owners,
-        prefix=__ret__.prefix,
-        start_after=__ret__.start_after)
+        bucket=pulumi.get(__ret__, 'bucket'),
+        common_prefixes=pulumi.get(__ret__, 'common_prefixes'),
+        delimiter=pulumi.get(__ret__, 'delimiter'),
+        encoding_type=pulumi.get(__ret__, 'encoding_type'),
+        fetch_owner=pulumi.get(__ret__, 'fetch_owner'),
+        id=pulumi.get(__ret__, 'id'),
+        keys=pulumi.get(__ret__, 'keys'),
+        max_keys=pulumi.get(__ret__, 'max_keys'),
+        owners=pulumi.get(__ret__, 'owners'),
+        prefix=pulumi.get(__ret__, 'prefix'),
+        start_after=pulumi.get(__ret__, 'start_after'))
 
 
 @_utilities.lift_output_func(get_bucket_objects)

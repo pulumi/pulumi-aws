@@ -72,14 +72,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
-     * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     @Import(name="ipSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs> ipSetReferenceStatement;
 
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs>> ipSetReferenceStatement() {
@@ -147,14 +147,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
-     * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     @Import(name="regexPatternSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs> regexPatternSetReferenceStatement;
 
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs>> regexPatternSetReferenceStatement() {
@@ -305,7 +305,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
          * 
          * @return builder
          * 

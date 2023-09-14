@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MQ Configurations can be imported using the configuration ID, e.g.,
+ * Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
@@ -176,12 +176,16 @@ public class Configuration extends com.pulumi.resources.CustomResource {
     /**
      * Name of the configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

@@ -270,23 +270,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EMR clusters can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import EMR clusters using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
  * ```
- *
- *  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
- *
- * `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
- *
- * # ... other configuration ...
- *
- *  lifecycle {
- *
- *  ignore_changes = [kerberos_attributes]
- *
- *  } }
+ *  Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -347,6 +336,30 @@ export class Cluster extends pulumi.CustomResource {
     public readonly configurations!: pulumi.Output<string | undefined>;
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
+     *
+     * > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
+     * {
+     * "Classification": "hadoop-env",
+     * "Configurations": [
+     * {
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * }
+     * }
+     * ],
+     * "Properties": {}
+     * }
+     * ]
+     *
+     * `});
+     * ```
      */
     public readonly configurationsJson!: pulumi.Output<string | undefined>;
     /**
@@ -423,6 +436,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     *
+     * The following arguments are optional:
      */
     public readonly serviceRole!: pulumi.Output<string>;
     /**
@@ -580,6 +595,30 @@ export interface ClusterState {
     configurations?: pulumi.Input<string>;
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
+     *
+     * > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
+     * {
+     * "Classification": "hadoop-env",
+     * "Configurations": [
+     * {
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * }
+     * }
+     * ],
+     * "Properties": {}
+     * }
+     * ]
+     *
+     * `});
+     * ```
      */
     configurationsJson?: pulumi.Input<string>;
     /**
@@ -656,6 +695,8 @@ export interface ClusterState {
     securityConfiguration?: pulumi.Input<string>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     *
+     * The following arguments are optional:
      */
     serviceRole?: pulumi.Input<string>;
     /**
@@ -714,6 +755,30 @@ export interface ClusterArgs {
     configurations?: pulumi.Input<string>;
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
+     *
+     * > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
+     * {
+     * "Classification": "hadoop-env",
+     * "Configurations": [
+     * {
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * }
+     * }
+     * ],
+     * "Properties": {}
+     * }
+     * ]
+     *
+     * `});
+     * ```
      */
     configurationsJson?: pulumi.Input<string>;
     /**
@@ -786,6 +851,8 @@ export interface ClusterArgs {
     securityConfiguration?: pulumi.Input<string>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     *
+     * The following arguments are optional:
      */
     serviceRole: pulumi.Input<string>;
     /**

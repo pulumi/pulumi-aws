@@ -35,6 +35,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int? IcmpType;
         /// <summary>
         /// The IPv6 CIDR block.
+        /// 
+        /// &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         /// </summary>
         public readonly string? Ipv6CidrBlock;
         /// <summary>
@@ -47,6 +49,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int RuleNo;
         /// <summary>
         /// The to port to match.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly int ToPort;
 

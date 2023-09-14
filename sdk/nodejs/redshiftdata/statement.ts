@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Data Statements can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:redshiftdata/statement:Statement example example
@@ -92,6 +92,8 @@ export class Statement extends pulumi.CustomResource {
     public readonly secretArn!: pulumi.Output<string | undefined>;
     /**
      * The SQL statement text to run.
+     *
+     * The following arguments are optional:
      */
     public readonly sql!: pulumi.Output<string>;
     /**
@@ -175,6 +177,8 @@ export interface StatementState {
     secretArn?: pulumi.Input<string>;
     /**
      * The SQL statement text to run.
+     *
+     * The following arguments are optional:
      */
     sql?: pulumi.Input<string>;
     /**
@@ -214,6 +218,8 @@ export interface StatementArgs {
     secretArn?: pulumi.Input<string>;
     /**
      * The SQL statement text to run.
+     *
+     * The following arguments are optional:
      */
     sql: pulumi.Input<string>;
     /**

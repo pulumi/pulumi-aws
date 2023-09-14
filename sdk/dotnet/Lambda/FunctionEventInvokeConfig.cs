@@ -122,25 +122,32 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+    /// ARN without qualifier (all versions and aliases):
+    /// 
+    /// ARN with qualifier:
+    /// 
+    /// Name without qualifier (all versions and aliases):
+    /// 
+    /// Name with qualifier:
+    /// 
+    /// __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+    /// 
+    /// ARN without qualifier (all versions and aliases):
     /// 
     /// ```sh
     ///  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
     /// ```
-    /// 
-    ///  ARN with qualifier
+    ///  ARN with qualifier:
     /// 
     /// ```sh
     ///  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
     /// ```
-    /// 
-    ///  Name without qualifier (all versions and aliases)
+    ///  Name without qualifier (all versions and aliases):
     /// 
     /// ```sh
     ///  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
     /// ```
-    /// 
-    ///  Name with qualifier
+    ///  Name with qualifier:
     /// 
     /// ```sh
     ///  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
@@ -157,6 +164,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
@@ -233,6 +242,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
@@ -271,6 +282,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }

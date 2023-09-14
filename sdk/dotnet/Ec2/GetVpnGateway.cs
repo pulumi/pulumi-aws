@@ -103,6 +103,9 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         [Input("amazonSideAsn")]
         public string? AmazonSideAsn { get; set; }
@@ -166,6 +169,9 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         [Input("amazonSideAsn")]
         public Input<string>? AmazonSideAsn { get; set; }

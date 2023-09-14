@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an SSM Parameter resource.
  * 
- * &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that&#39;s not created by the provider before.
+ * &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that&#39;s not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
  * 
  * ## Example Usage
  * ### Basic example
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.7.16&#34;)
  *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .name(&#34;mydb&#34;)
+ *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;foo&#34;)
  *             .password(var_.database_master_password())
  *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSM Parameters can be imported using the `parameter store name`, e.g.,
+ * Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
@@ -212,14 +212,18 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     @Export(name="overwrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * @return Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      * 
      */
     public Output<Optional<Boolean>> overwrite() {
@@ -270,12 +274,16 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     /**
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -284,12 +292,16 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     /**
      * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
+     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
      * @return Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+     * 
+     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 
      */
     public Output<String> value() {

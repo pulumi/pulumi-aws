@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     enableDefaultInternetAccess: false,
  *     fleetType: "ON_DEMAND",
  *     idleDisconnectTimeoutInSeconds: 60,
- *     imageName: "Amazon-AppStream2-Sample-Image-02-04-2019",
+ *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
  *     instanceType: "stream.standard.large",
  *     maxUserDurationInSeconds: 600,
  *     tags: {
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appstream_fleet` can be imported using the id, e.g.,
+ * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  *
  * ```sh
  *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -135,6 +135,8 @@ export class Fleet extends pulumi.CustomResource {
     public readonly maxUserDurationInSeconds!: pulumi.Output<number>;
     /**
      * Unique name for the fleet.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -290,6 +292,8 @@ export interface FleetState {
     maxUserDurationInSeconds?: pulumi.Input<number>;
     /**
      * Unique name for the fleet.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -369,6 +373,8 @@ export interface FleetArgs {
     maxUserDurationInSeconds?: pulumi.Input<number>;
     /**
      * Unique name for the fleet.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

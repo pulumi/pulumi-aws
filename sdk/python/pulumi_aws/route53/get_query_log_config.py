@@ -155,9 +155,13 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
     :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
+           
+           In addition to all arguments above, the following attributes are exported:
     :param str name: The name of the query logging configuration.
     :param str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
     :param Mapping[str, str] tags: Map of tags to assign to the service.
+           
+           [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -168,15 +172,15 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
     __ret__ = pulumi.runtime.invoke('aws:route53/getQueryLogConfig:getQueryLogConfig', __args__, opts=opts, typ=GetQueryLogConfigResult).value
 
     return AwaitableGetQueryLogConfigResult(
-        arn=__ret__.arn,
-        destination_arn=__ret__.destination_arn,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner_id=__ret__.owner_id,
-        resolver_query_log_config_id=__ret__.resolver_query_log_config_id,
-        share_status=__ret__.share_status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        destination_arn=pulumi.get(__ret__, 'destination_arn'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        resolver_query_log_config_id=pulumi.get(__ret__, 'resolver_query_log_config_id'),
+        share_status=pulumi.get(__ret__, 'share_status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_query_log_config)
@@ -217,8 +221,12 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
     :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
+           
+           In addition to all arguments above, the following attributes are exported:
     :param str name: The name of the query logging configuration.
     :param str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
     :param Mapping[str, str] tags: Map of tags to assign to the service.
+           
+           [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
     """
     ...

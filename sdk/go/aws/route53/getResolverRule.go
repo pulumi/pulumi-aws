@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverRule` provides details about a specific Route53 Resolver rule.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func LookupResolverRule(ctx *pulumi.Context, args *LookupResolverRuleArgs, opts ...pulumi.InvokeOption) (*LookupResolverRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverRuleResult
 	err := ctx.Invoke("aws:route53/getResolverRule:getResolverRule", args, &rv, opts...)
 	if err != nil {
@@ -131,6 +134,12 @@ func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutput() Looku
 
 func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutputWithContext(ctx context.Context) LookupResolverRuleResultOutput {
 	return o
+}
+
+func (o LookupResolverRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverRuleResult] {
+	return pulumix.Output[LookupResolverRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN (Amazon Resource Name) for the resolver rule.

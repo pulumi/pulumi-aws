@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
+    /// Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2

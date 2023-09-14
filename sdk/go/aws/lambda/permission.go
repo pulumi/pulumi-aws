@@ -8,12 +8,15 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -22,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +88,7 @@ import (
 //	}
 //
 // ```
-// ## Usage with SNS
+// ### With SNS
 //
 // ```go
 // package main
@@ -94,9 +97,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -161,8 +164,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Specify Lambda permissions for API Gateway REST API
+// ### With API Gateway REST API
 //
 // ```go
 // package main
@@ -171,8 +173,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,8 +203,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Usage with CloudWatch log group
+// ### With CloudWatch Log Group
 //
 // ```go
 // package main
@@ -211,9 +212,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -286,15 +287,14 @@ import (
 //	}
 //
 // ```
-//
-// ## Example function URL cross-account invoke policy
+// ### With Cross-Account Invocation Policy
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -323,21 +323,48 @@ import (
 //	}
 //
 // ```
+// ### With `replaceTriggeredBy` Lifecycle Configuration
+//
+// If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  pulumi.Any(aws_lambda_function.Example.Function_name),
+//				Principal: pulumi.String("events.amazonaws.com"),
+//				SourceArn: pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
+// Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
 //
 // ```
-//
 // ```sh
-//
-//	$ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
-//
+// $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
 // ```
 type Permission struct {
 	pulumi.CustomResourceState
@@ -353,6 +380,10 @@ type Permission struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
@@ -386,6 +417,7 @@ func NewPermission(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Permission
 	err := ctx.RegisterResource("aws:lambda/permission:Permission", name, args, &resource, opts...)
 	if err != nil {
@@ -419,6 +451,10 @@ type permissionState struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal *string `pulumi:"principal"`
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
@@ -448,6 +484,10 @@ type PermissionState struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringPtrInput
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
@@ -481,6 +521,10 @@ type permissionArgs struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal string `pulumi:"principal"`
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
@@ -511,6 +555,10 @@ type PermissionArgs struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringInput
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
@@ -551,6 +599,12 @@ func (i *Permission) ToPermissionOutputWithContext(ctx context.Context) Permissi
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionOutput)
 }
 
+func (i *Permission) ToOutput(ctx context.Context) pulumix.Output[*Permission] {
+	return pulumix.Output[*Permission]{
+		OutputState: i.ToPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
 // You can construct a concrete instance of `PermissionArrayInput` via:
 //
@@ -574,6 +628,12 @@ func (i PermissionArray) ToPermissionArrayOutput() PermissionArrayOutput {
 
 func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionArrayOutput)
+}
+
+func (i PermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Permission] {
+	return pulumix.Output[[]*Permission]{
+		OutputState: i.ToPermissionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PermissionMapInput is an input type that accepts PermissionMap and PermissionMapOutput values.
@@ -601,6 +661,12 @@ func (i PermissionMap) ToPermissionMapOutputWithContext(ctx context.Context) Per
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionMapOutput)
 }
 
+func (i PermissionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Permission] {
+	return pulumix.Output[map[string]*Permission]{
+		OutputState: i.ToPermissionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionOutput struct{ *pulumi.OutputState }
 
 func (PermissionOutput) ElementType() reflect.Type {
@@ -613,6 +679,12 @@ func (o PermissionOutput) ToPermissionOutput() PermissionOutput {
 
 func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
 	return o
+}
+
+func (o PermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*Permission] {
+	return pulumix.Output[*Permission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
@@ -641,6 +713,10 @@ func (o PermissionOutput) Principal() pulumi.StringOutput {
 }
 
 // The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+//
+// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 func (o PermissionOutput) PrincipalOrgId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.PrincipalOrgId }).(pulumi.StringPtrOutput)
 }
@@ -688,6 +764,12 @@ func (o PermissionArrayOutput) ToPermissionArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o PermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Permission] {
+	return pulumix.Output[[]*Permission]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Permission {
 		return vs[0].([]*Permission)[vs[1].(int)]
@@ -706,6 +788,12 @@ func (o PermissionMapOutput) ToPermissionMapOutput() PermissionMapOutput {
 
 func (o PermissionMapOutput) ToPermissionMapOutputWithContext(ctx context.Context) PermissionMapOutput {
 	return o
+}
+
+func (o PermissionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Permission] {
+	return pulumix.Output[map[string]*Permission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionMapOutput) MapIndex(k pulumi.StringInput) PermissionOutput {

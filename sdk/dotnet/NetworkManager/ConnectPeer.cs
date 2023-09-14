@@ -16,7 +16,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// `aws_networkmanager_connect_peer` can be imported using the connect peer ID, e.g.
+    /// Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
@@ -81,6 +81,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("peerAddress")]
         public Output<string> PeerAddress { get; private set; } = null!;
@@ -181,6 +183,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("peerAddress", required: true)]
         public Input<string> PeerAddress { get; set; } = null!;
@@ -273,6 +277,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("peerAddress")]
         public Input<string>? PeerAddress { get; set; }

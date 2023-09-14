@@ -168,6 +168,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+        /// </summary>
+        public readonly string AssetId;
+        /// <summary>
         /// Whether auto-placement is on or off.
         /// </summary>
         public readonly string AutoPlacement;
@@ -219,6 +223,8 @@ namespace Pulumi.Aws.Ec2
         private GetDedicatedHostResult(
             string arn,
 
+            string assetId,
+
             string autoPlacement,
 
             string availabilityZone,
@@ -248,6 +254,7 @@ namespace Pulumi.Aws.Ec2
             int totalVcpus)
         {
             Arn = arn;
+            AssetId = assetId;
             AutoPlacement = autoPlacement;
             AvailabilityZone = availabilityZone;
             Cores = cores;

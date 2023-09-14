@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
+ * Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321

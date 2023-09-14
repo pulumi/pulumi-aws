@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
  * 
+ * &gt; **NOTE:** `aurora` is no longer a valid `engine` because of [Amazon Aurora&#39;s MySQL-Compatible Edition version 1 end of life](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.MySQL56.EOL.html).
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -86,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * RDS Cluster Instances can be imported using the `identifier`, e.g.,
+ * Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
@@ -96,16 +98,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterInstance:ClusterInstance")
 public class ClusterInstance extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * @return Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
     public Output<Boolean> applyImmediately() {
@@ -140,42 +140,42 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoMinorVersionUpgrade);
     }
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
+     * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
+     * @return EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * The identifier of the CA certificate for the DB instance.
+     * Identifier of the CA certificate for the DB instance.
      * 
      */
     @Export(name="caCertIdentifier", refs={String.class}, tree="[0]")
     private Output<String> caCertIdentifier;
 
     /**
-     * @return The identifier of the CA certificate for the DB instance.
+     * @return Identifier of the CA certificate for the DB instance.
      * 
      */
     public Output<String> caCertIdentifier() {
         return this.caCertIdentifier;
     }
     /**
-     * The identifier of the `aws.rds.Cluster` in which to launch this instance.
+     * Identifier of the `aws.rds.Cluster` in which to launch this instance.
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The identifier of the `aws.rds.Cluster` in which to launch this instance.
+     * @return Identifier of the `aws.rds.Cluster` in which to launch this instance.
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -196,118 +196,126 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyTagsToSnapshot);
     }
     /**
-     * The name of the DB parameter group to associate with this instance.
+     * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    @Export(name="customIamInstanceProfile", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customIamInstanceProfile;
+
+    /**
+     * @return Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    public Output<Optional<String>> customIamInstanceProfile() {
+        return Codegen.optional(this.customIamInstanceProfile);
+    }
+    /**
+     * Name of the DB parameter group to associate with this instance.
      * 
      */
     @Export(name="dbParameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbParameterGroupName;
 
     /**
-     * @return The name of the DB parameter group to associate with this instance.
+     * @return Name of the DB parameter group to associate with this instance.
      * 
      */
     public Output<String> dbParameterGroupName() {
         return this.dbParameterGroupName;
     }
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
+     * DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
     /**
-     * @return A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
+     * @return DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
      * 
      */
     public Output<String> dbSubnetGroupName() {
         return this.dbSubnetGroupName;
     }
     /**
-     * The region-unique, immutable identifier for the DB instance.
+     * Region-unique, immutable identifier for the DB instance.
      * 
      */
     @Export(name="dbiResourceId", refs={String.class}, tree="[0]")
     private Output<String> dbiResourceId;
 
     /**
-     * @return The region-unique, immutable identifier for the DB instance.
+     * @return Region-unique, immutable identifier for the DB instance.
      * 
      */
     public Output<String> dbiResourceId() {
         return this.dbiResourceId;
     }
     /**
-     * The DNS address for this instance. May not be writable
+     * DNS address for this instance. May not be writable
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The DNS address for this instance. May not be writable
+     * @return DNS address for this instance. May not be writable
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
-     * For information on the difference between the available Aurora MySQL engines
-     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-     * in the Amazon RDS User Guide.
+     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> engine;
+    private Output<String> engine;
 
     /**
-     * @return The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
-     * For information on the difference between the available Aurora MySQL engines
-     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-     * in the Amazon RDS User Guide.
+     * @return Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
      * 
      */
-    public Output<Optional<String>> engine() {
-        return Codegen.optional(this.engine);
+    public Output<String> engine() {
+        return this.engine;
     }
     /**
-     * The database engine version.
+     * Database engine version.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The database engine version.
+     * @return Database engine version.
      * 
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
     /**
-     * The database engine version
+     * Database engine version
      * 
      */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
     private Output<String> engineVersionActual;
 
     /**
-     * @return The database engine version
+     * @return Database engine version
      * 
      */
     public Output<String> engineVersionActual() {
         return this.engineVersionActual;
     }
     /**
-     * The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
+     * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
-     * @return The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
+     * @return Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      * 
      */
     public Output<String> identifier() {
@@ -328,76 +336,70 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.identifierPrefix;
     }
     /**
-     * The instance class to use. For details on CPU
-     * and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
+     * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      * 
      */
     @Export(name="instanceClass", refs={String.class}, tree="[0]")
     private Output<String> instanceClass;
 
     /**
-     * @return The instance class to use. For details on CPU
-     * and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
+     * @return Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      * 
      */
     public Output<String> instanceClass() {
         return this.instanceClass;
     }
     /**
-     * The ARN for the KMS encryption key if one is set to the cluster.
+     * ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key if one is set to the cluster.
+     * @return ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      * 
      */
     @Export(name="monitoringInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> monitoringInterval;
 
     /**
-     * @return The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      * 
      */
     public Output<Optional<Integer>> monitoringInterval() {
         return Codegen.optional(this.monitoringInterval);
     }
     /**
-     * The ARN for the IAM role that permits RDS to send
-     * enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
-     * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+     * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      * 
      */
     @Export(name="monitoringRoleArn", refs={String.class}, tree="[0]")
     private Output<String> monitoringRoleArn;
 
     /**
-     * @return The ARN for the IAM role that permits RDS to send
-     * enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
-     * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+     * @return ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      * 
      */
     public Output<String> monitoringRoleArn() {
         return this.monitoringRoleArn;
     }
     /**
-     * The network type of the DB instance.
+     * Network type of the DB instance.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
     private Output<String> networkType;
 
     /**
-     * @return The network type of the DB instance.
+     * @return Network type of the DB instance.
      * 
      */
     public Output<String> networkType() {
@@ -446,44 +448,42 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.performanceInsightsRetentionPeriod;
     }
     /**
-     * The database port
+     * Database port
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return The database port
+     * @return Database port
      * 
      */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
+     * Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
+     * @return Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
      * 
      */
     public Output<String> preferredBackupWindow() {
         return this.preferredBackupWindow;
     }
     /**
-     * The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+     * Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+     * @return Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
     public Output<String> preferredMaintenanceWindow() {
@@ -504,18 +504,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.promotionTier);
     }
     /**
-     * Bool to control if instance is publicly accessible.
-     * Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
-     * details on controlling this property.
+     * Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
-     * @return Bool to control if instance is publicly accessible.
-     * Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
-     * details on controlling this property.
+     * @return Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      * 
      */
     public Output<Optional<Boolean>> publiclyAccessible() {
@@ -536,28 +532,28 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.storageEncrypted;
     }
     /**
-     * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

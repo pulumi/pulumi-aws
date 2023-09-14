@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
+    /// Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name

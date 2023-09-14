@@ -109,12 +109,16 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -296,6 +300,8 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
+         * 
          * @return builder
          * 
          */
@@ -306,6 +312,8 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
 
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
          * 
          * @return builder
          * 

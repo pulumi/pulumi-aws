@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
@@ -16,6 +18,9 @@ import (
 // > **NOTE:** We recommend using this resource in conjunction with the `apigateway.Stage` resource instead of a stage managed by the `apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
 //
 // ## Example Usage
+//
+// ### End-to-end
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -26,7 +31,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,10 +128,139 @@ import (
 //	}
 //
 // ```
+// ### CloudWatch Logging and Tracing
+//
+// The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+// ### Off
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel: pulumi.String("OFF"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Errors Only
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("ERROR"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Errors and Info Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("INFO"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Full Request and Response Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("INFO"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+// Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 //
 // ```sh
 //
@@ -165,6 +299,7 @@ func NewMethodSettings(ctx *pulumi.Context,
 	if args.StageName == nil {
 		return nil, errors.New("invalid value for required argument 'StageName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MethodSettings
 	err := ctx.RegisterResource("aws:apigateway/methodSettings:MethodSettings", name, args, &resource, opts...)
 	if err != nil {
@@ -258,6 +393,12 @@ func (i *MethodSettings) ToMethodSettingsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsOutput)
 }
 
+func (i *MethodSettings) ToOutput(ctx context.Context) pulumix.Output[*MethodSettings] {
+	return pulumix.Output[*MethodSettings]{
+		OutputState: i.ToMethodSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MethodSettingsArrayInput is an input type that accepts MethodSettingsArray and MethodSettingsArrayOutput values.
 // You can construct a concrete instance of `MethodSettingsArrayInput` via:
 //
@@ -281,6 +422,12 @@ func (i MethodSettingsArray) ToMethodSettingsArrayOutput() MethodSettingsArrayOu
 
 func (i MethodSettingsArray) ToMethodSettingsArrayOutputWithContext(ctx context.Context) MethodSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsArrayOutput)
+}
+
+func (i MethodSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*MethodSettings] {
+	return pulumix.Output[[]*MethodSettings]{
+		OutputState: i.ToMethodSettingsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MethodSettingsMapInput is an input type that accepts MethodSettingsMap and MethodSettingsMapOutput values.
@@ -308,6 +455,12 @@ func (i MethodSettingsMap) ToMethodSettingsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsMapOutput)
 }
 
+func (i MethodSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MethodSettings] {
+	return pulumix.Output[map[string]*MethodSettings]{
+		OutputState: i.ToMethodSettingsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MethodSettingsOutput struct{ *pulumi.OutputState }
 
 func (MethodSettingsOutput) ElementType() reflect.Type {
@@ -320,6 +473,12 @@ func (o MethodSettingsOutput) ToMethodSettingsOutput() MethodSettingsOutput {
 
 func (o MethodSettingsOutput) ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput {
 	return o
+}
+
+func (o MethodSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodSettings] {
+	return pulumix.Output[*MethodSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
@@ -356,6 +515,12 @@ func (o MethodSettingsArrayOutput) ToMethodSettingsArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o MethodSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MethodSettings] {
+	return pulumix.Output[[]*MethodSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodSettingsArrayOutput) Index(i pulumi.IntInput) MethodSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MethodSettings {
 		return vs[0].([]*MethodSettings)[vs[1].(int)]
@@ -374,6 +539,12 @@ func (o MethodSettingsMapOutput) ToMethodSettingsMapOutput() MethodSettingsMapOu
 
 func (o MethodSettingsMapOutput) ToMethodSettingsMapOutputWithContext(ctx context.Context) MethodSettingsMapOutput {
 	return o
+}
+
+func (o MethodSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MethodSettings] {
+	return pulumix.Output[map[string]*MethodSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodSettingsMapOutput) MapIndex(k pulumi.StringInput) MethodSettingsOutput {

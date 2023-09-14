@@ -180,6 +180,22 @@ def get_stack(name: Optional[str] = None,
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    network = aws.cloudformation.get_stack(name="my-network-stack")
+    web = aws.ec2.Instance("web",
+        ami="ami-abb07bcb",
+        instance_type="t2.micro",
+        subnet_id=network.outputs["SubnetId"],
+        tags={
+            "Name": "HelloWorld",
+        })
+    ```
+
 
     :param str name: Name of the stack
     :param Mapping[str, str] tags: Map of tags associated with this stack.
@@ -191,18 +207,18 @@ def get_stack(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts, typ=GetStackResult).value
 
     return AwaitableGetStackResult(
-        capabilities=__ret__.capabilities,
-        description=__ret__.description,
-        disable_rollback=__ret__.disable_rollback,
-        iam_role_arn=__ret__.iam_role_arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        notification_arns=__ret__.notification_arns,
-        outputs=__ret__.outputs,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags,
-        template_body=__ret__.template_body,
-        timeout_in_minutes=__ret__.timeout_in_minutes)
+        capabilities=pulumi.get(__ret__, 'capabilities'),
+        description=pulumi.get(__ret__, 'description'),
+        disable_rollback=pulumi.get(__ret__, 'disable_rollback'),
+        iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notification_arns=pulumi.get(__ret__, 'notification_arns'),
+        outputs=pulumi.get(__ret__, 'outputs'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_body=pulumi.get(__ret__, 'template_body'),
+        timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
 
 
 @_utilities.lift_output_func(get_stack)
@@ -212,6 +228,22 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    network = aws.cloudformation.get_stack(name="my-network-stack")
+    web = aws.ec2.Instance("web",
+        ami="ami-abb07bcb",
+        instance_type="t2.micro",
+        subnet_id=network.outputs["SubnetId"],
+        tags={
+            "Name": "HelloWorld",
+        })
+    ```
 
 
     :param str name: Name of the stack

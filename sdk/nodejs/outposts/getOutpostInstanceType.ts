@@ -23,6 +23,8 @@ export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: 
 export interface GetOutpostInstanceTypeArgs {
     /**
      * Outpost ARN.
+     *
+     * The following arguments are optional:
      */
     arn: string;
     /**
@@ -60,6 +62,8 @@ export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputA
 export interface GetOutpostInstanceTypeOutputArgs {
     /**
      * Outpost ARN.
+     *
+     * The following arguments are optional:
      */
     arn: pulumi.Input<string>;
     /**

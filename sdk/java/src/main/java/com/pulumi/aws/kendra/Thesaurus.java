@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+ * Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
@@ -140,12 +140,16 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      * 
+     * The `source_s3_path` configuration block supports the following arguments:
+     * 
      */
     @Export(name="sourceS3Path", refs={ThesaurusSourceS3Path.class}, tree="[0]")
     private Output<ThesaurusSourceS3Path> sourceS3Path;
 
     /**
      * @return The S3 path where your thesaurus file sits in S3. Detailed below.
+     * 
+     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<ThesaurusSourceS3Path> sourceS3Path() {

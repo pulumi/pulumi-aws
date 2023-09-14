@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// `ec2.getVpcIamPools` provides details about IPAM pools.
+// `ec2.getVpcIpamPools` provides details about IPAM pools.
 //
 // This resource can prove useful when IPAM pools are created in another root
 // module and you need the pool ids as input variables. For example, pools
@@ -23,15 +25,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIamPools(ctx, &ec2.GetVpcIamPoolsArgs{
-//				Filters: []ec2.GetVpcIamPoolsFilter{
+//			_, err := ec2.GetVpcIpamPools(ctx, &ec2.GetVpcIpamPoolsArgs{
+//				Filters: []ec2.GetVpcIpamPoolsFilter{
 //					{
 //						Name: "description",
 //						Values: []string{
@@ -54,7 +56,10 @@ import (
 //	}
 //
 // ```
+//
+// Deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
 func GetVpcIamPools(ctx *pulumi.Context, args *GetVpcIamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIamPoolsResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPools:getVpcIamPools", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +119,12 @@ func (o GetVpcIamPoolsResultOutput) ToGetVpcIamPoolsResultOutput() GetVpcIamPool
 
 func (o GetVpcIamPoolsResultOutput) ToGetVpcIamPoolsResultOutputWithContext(ctx context.Context) GetVpcIamPoolsResultOutput {
 	return o
+}
+
+func (o GetVpcIamPoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcIamPoolsResult] {
+	return pulumix.Output[GetVpcIamPoolsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcIamPoolsResultOutput) Filters() GetVpcIamPoolsFilterArrayOutput {

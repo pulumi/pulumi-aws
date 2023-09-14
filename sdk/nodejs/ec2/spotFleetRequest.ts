@@ -11,6 +11,9 @@ import * as utilities from "../utilities";
  * Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
  * instances to be requested on the Spot market.
  *
+ * > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+ * We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+ *
  * ## Example Usage
  * ### Using launch specifications
  *
@@ -88,8 +91,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.ec2.getSubnetIds({
- *     vpcId: _var.vpc_id,
+ * const example = aws.ec2.getSubnets({
+ *     filters: [{
+ *         name: "vpc-id",
+ *         values: [_var.vpc_id],
+ *     }],
  * });
  * const fooLaunchTemplate = new aws.ec2.LaunchTemplate("fooLaunchTemplate", {
  *     imageId: "ami-516b9131",
@@ -108,13 +114,13 @@ import * as utilities from "../utilities";
  *         },
  *         overrides: [
  *             {
- *                 subnetId: data.aws_subnets.example.ids[0],
+ *                 subnetId: example.then(example => example.ids?.[0]),
  *             },
  *             {
- *                 subnetId: data.aws_subnets.example.ids[1],
+ *                 subnetId: example.then(example => example.ids?.[1]),
  *             },
  *             {
- *                 subnetId: data.aws_subnets.example.ids[2],
+ *                 subnetId: example.then(example => example.ids?.[2]),
  *             },
  *         ],
  *     }],
@@ -125,7 +131,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Spot Fleet Requests can be imported using `id`, e.g.,
+ * Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
@@ -205,6 +211,12 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+     *
+     * **Note**: This takes in similar but not
+     * identical inputs as `aws.ec2.Instance`.  There are limitations on
+     * what you can specify. See the list of officially supported inputs in the
+     * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+     * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
     public readonly launchSpecifications!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchSpecification[] | undefined>;
     /**
@@ -424,6 +436,12 @@ export interface SpotFleetRequestState {
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+     *
+     * **Note**: This takes in similar but not
+     * identical inputs as `aws.ec2.Instance`.  There are limitations on
+     * what you can specify. See the list of officially supported inputs in the
+     * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+     * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
     launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
     /**
@@ -560,6 +578,12 @@ export interface SpotFleetRequestArgs {
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+     *
+     * **Note**: This takes in similar but not
+     * identical inputs as `aws.ec2.Instance`.  There are limitations on
+     * what you can specify. See the list of officially supported inputs in the
+     * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+     * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
     launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
     /**

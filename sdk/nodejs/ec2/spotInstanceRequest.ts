@@ -31,6 +31,9 @@ import * as utilities from "../utilities";
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
  * for more information.
  *
+ * > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+ * We recommend using the EC2 Instance resource with `instanceMarketOptions` instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -97,6 +100,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly blockDurationMinutes!: pulumi.Output<number | undefined>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     *
+     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
     /**
@@ -168,7 +173,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
     /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      */
     public readonly instanceInterruptionBehavior!: pulumi.Output<string | undefined>;
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
@@ -257,6 +262,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly secondaryPrivateIps!: pulumi.Output<string[]>;
     /**
      * List of security group names to associate with.
+     *
+     * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
     /**
@@ -322,11 +329,13 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly validFrom!: pulumi.Output<string>;
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      */
     public readonly validUntil!: pulumi.Output<string>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     *
+     * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
     public readonly volumeTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -516,6 +525,8 @@ export interface SpotInstanceRequestState {
     blockDurationMinutes?: pulumi.Input<number>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     *
+     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
     /**
@@ -587,7 +598,7 @@ export interface SpotInstanceRequestState {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      */
     instanceInterruptionBehavior?: pulumi.Input<string>;
     instanceState?: pulumi.Input<string>;
@@ -676,6 +687,8 @@ export interface SpotInstanceRequestState {
     secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of security group names to associate with.
+     *
+     * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -741,11 +754,13 @@ export interface SpotInstanceRequestState {
      */
     validFrom?: pulumi.Input<string>;
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      */
     validUntil?: pulumi.Input<string>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     *
+     * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
     volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -784,6 +799,8 @@ export interface SpotInstanceRequestArgs {
     blockDurationMinutes?: pulumi.Input<number>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     *
+     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
     /**
@@ -855,7 +872,7 @@ export interface SpotInstanceRequestArgs {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      */
     instanceInterruptionBehavior?: pulumi.Input<string>;
     /**
@@ -925,6 +942,8 @@ export interface SpotInstanceRequestArgs {
     secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of security group names to associate with.
+     *
+     * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -969,11 +988,13 @@ export interface SpotInstanceRequestArgs {
      */
     validFrom?: pulumi.Input<string>;
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      */
     validUntil?: pulumi.Input<string>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     *
+     * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
     volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

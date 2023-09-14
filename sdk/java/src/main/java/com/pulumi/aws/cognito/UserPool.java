@@ -143,11 +143,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cognito User Pools can be imported using the `id`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
- * ```
+ *  to = aws_cognito_user_pool.pool
+ * 
+ *  id = &#34;us-west-2_abc123&#34; } Using `TODO import`, import Cognito User Pools using the `id`. For exampleconsole % TODO import aws_cognito_user_pool.pool us-west-2_abc123
  * 
  */
 @ResourceType(type="aws:cognito/userPool:UserPool")
@@ -407,6 +407,8 @@ public class UserPool extends com.pulumi.resources.CustomResource {
     /**
      * Name of the user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
@@ -414,19 +416,21 @@ public class UserPool extends com.pulumi.resources.CustomResource {
     /**
      * @return Name of the user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     @Export(name="passwordPolicy", refs={UserPoolPasswordPolicy.class}, tree="[0]")
     private Output<UserPoolPasswordPolicy> passwordPolicy;
 
     /**
-     * @return Configuration blocked for information about the user pool password policy. Detailed below.
+     * @return Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     public Output<UserPoolPasswordPolicy> passwordPolicy() {
@@ -461,14 +465,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.smsAuthenticationMessage);
     }
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     @Export(name="smsConfiguration", refs={UserPoolSmsConfiguration.class}, tree="[0]")
     private Output<UserPoolSmsConfiguration> smsConfiguration;
 
     /**
-     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     public Output<UserPoolSmsConfiguration> smsConfiguration() {

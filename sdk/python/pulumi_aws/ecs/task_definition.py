@@ -38,6 +38,8 @@ class TaskDefinitionArgs:
         The set of arguments for constructing a TaskDefinition resource.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
@@ -107,6 +109,8 @@ class TaskDefinitionArgs:
     def family(self) -> pulumi.Input[str]:
         """
         A unique name for your task definition.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 
@@ -341,6 +345,8 @@ class _TaskDefinitionState:
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
@@ -479,6 +485,8 @@ class _TaskDefinitionState:
     def family(self) -> Optional[pulumi.Input[str]]:
         """
         A unique name for your task definition.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 
@@ -904,7 +912,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         ## Import
 
-        ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
+        Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
         ```sh
          $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
@@ -917,6 +925,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
@@ -1150,7 +1160,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         ## Import
 
-        ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
+        Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
         ```sh
          $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
@@ -1270,6 +1280,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
@@ -1367,6 +1379,8 @@ class TaskDefinition(pulumi.CustomResource):
     def family(self) -> pulumi.Output[str]:
         """
         A unique name for your task definition.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 

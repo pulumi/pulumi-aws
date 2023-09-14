@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ELBs can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import ELBs using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
@@ -385,14 +385,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.sourceSecurityGroupId;
     }
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the ELB.
+     * @return A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     public Output<List<String>> subnets() {
@@ -401,12 +401,18 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * Exactly one of `availability_zones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * Exactly one of `availability_zones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

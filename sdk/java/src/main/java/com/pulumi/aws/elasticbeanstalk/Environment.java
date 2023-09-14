@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Elastic Beanstalk Environments can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j

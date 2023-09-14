@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     autoscalingGroupName: bar.name,
  * });
  * ```
- * ### Create target tarcking scaling policy using metric math
+ * ### Create target tracking scaling policy using metric math
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -179,7 +179,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+ * Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
  *
  * ```sh
  *  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
@@ -231,6 +231,8 @@ export class Policy extends pulumi.CustomResource {
     public readonly cooldown!: pulumi.Output<number | undefined>;
     /**
      * Whether the scaling policy is enabled or disabled. Default: `true`.
+     *
+     * The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -243,6 +245,8 @@ export class Policy extends pulumi.CustomResource {
     public readonly metricAggregationType!: pulumi.Output<string>;
     /**
      * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     *
+     * The following arguments are only available to "SimpleScaling" type policies:
      */
     public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
     /**
@@ -266,10 +270,44 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Set of adjustments that manage
      * group scaling. These have the following structure:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
+     *     {
+     *         metricIntervalLowerBound: "1",
+     *         metricIntervalUpperBound: "2",
+     *         scalingAdjustment: -1,
+     *     },
+     *     {
+     *         metricIntervalLowerBound: "2",
+     *         metricIntervalUpperBound: "3",
+     *         scalingAdjustment: 1,
+     *     },
+     * ]});
+     * ```
+     *
+     * The following fields are available in step adjustments:
      */
     public readonly stepAdjustments!: pulumi.Output<outputs.autoscaling.PolicyStepAdjustment[] | undefined>;
     /**
      * Target tracking policy. These have the following structure:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
+     *     predefinedMetricSpecification: {
+     *         predefinedMetricType: "ASGAverageCPUUtilization",
+     *     },
+     *     targetValue: 40,
+     * }});
+     * ```
+     *
+     * The following fields are available in target tracking configuration:
      */
     public readonly targetTrackingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyTargetTrackingConfiguration | undefined>;
 
@@ -347,6 +385,8 @@ export interface PolicyState {
     cooldown?: pulumi.Input<number>;
     /**
      * Whether the scaling policy is enabled or disabled. Default: `true`.
+     *
+     * The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -359,6 +399,8 @@ export interface PolicyState {
     metricAggregationType?: pulumi.Input<string>;
     /**
      * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     *
+     * The following arguments are only available to "SimpleScaling" type policies:
      */
     minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
@@ -382,10 +424,44 @@ export interface PolicyState {
     /**
      * Set of adjustments that manage
      * group scaling. These have the following structure:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
+     *     {
+     *         metricIntervalLowerBound: "1",
+     *         metricIntervalUpperBound: "2",
+     *         scalingAdjustment: -1,
+     *     },
+     *     {
+     *         metricIntervalLowerBound: "2",
+     *         metricIntervalUpperBound: "3",
+     *         scalingAdjustment: 1,
+     *     },
+     * ]});
+     * ```
+     *
+     * The following fields are available in step adjustments:
      */
     stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
      * Target tracking policy. These have the following structure:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
+     *     predefinedMetricSpecification: {
+     *         predefinedMetricType: "ASGAverageCPUUtilization",
+     *     },
+     *     targetValue: 40,
+     * }});
+     * ```
+     *
+     * The following fields are available in target tracking configuration:
      */
     targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
 }
@@ -408,6 +484,8 @@ export interface PolicyArgs {
     cooldown?: pulumi.Input<number>;
     /**
      * Whether the scaling policy is enabled or disabled. Default: `true`.
+     *
+     * The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -420,6 +498,8 @@ export interface PolicyArgs {
     metricAggregationType?: pulumi.Input<string>;
     /**
      * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     *
+     * The following arguments are only available to "SimpleScaling" type policies:
      */
     minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
@@ -443,10 +523,44 @@ export interface PolicyArgs {
     /**
      * Set of adjustments that manage
      * group scaling. These have the following structure:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
+     *     {
+     *         metricIntervalLowerBound: "1",
+     *         metricIntervalUpperBound: "2",
+     *         scalingAdjustment: -1,
+     *     },
+     *     {
+     *         metricIntervalLowerBound: "2",
+     *         metricIntervalUpperBound: "3",
+     *         scalingAdjustment: 1,
+     *     },
+     * ]});
+     * ```
+     *
+     * The following fields are available in step adjustments:
      */
     stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
      * Target tracking policy. These have the following structure:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
+     *     predefinedMetricSpecification: {
+     *         predefinedMetricType: "ASGAverageCPUUtilization",
+     *     },
+     *     targetValue: 40,
+     * }});
+     * ```
+     *
+     * The following fields are available in target tracking configuration:
      */
     targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
 }

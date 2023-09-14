@@ -54,7 +54,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// AWS Opensearch Inbound Connection Accepters can be imported by using the Inbound Connection ID, e.g.,
+    /// Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Redshift endpoint access can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example

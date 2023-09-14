@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Metric Stream resource.
@@ -23,10 +25,10 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,8 +94,8 @@ import (
 //				return err
 //			}
 //			s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3Stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("s3"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
+//				Destination: pulumi.String("extended_s3"),
+//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   firehoseToS3Role.Arn,
 //					BucketArn: bucket.Arn,
 //				},
@@ -194,7 +196,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -242,7 +244,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch metric streams can be imported using the `name`, e.g.,
+// Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
 //
 // ```sh
 //
@@ -271,6 +273,8 @@ type MetricStream struct {
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+	//
+	// The following arguments are optional:
 	OutputFormat pulumi.StringOutput `pulumi:"outputFormat"`
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -300,6 +304,7 @@ func NewMetricStream(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricStream
 	err := ctx.RegisterResource("aws:cloudwatch/metricStream:MetricStream", name, args, &resource, opts...)
 	if err != nil {
@@ -341,6 +346,8 @@ type metricStreamState struct {
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+	//
+	// The following arguments are optional:
 	OutputFormat *string `pulumi:"outputFormat"`
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn *string `pulumi:"roleArn"`
@@ -374,6 +381,8 @@ type MetricStreamState struct {
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+	//
+	// The following arguments are optional:
 	OutputFormat pulumi.StringPtrInput
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn pulumi.StringPtrInput
@@ -405,6 +414,8 @@ type metricStreamArgs struct {
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+	//
+	// The following arguments are optional:
 	OutputFormat string `pulumi:"outputFormat"`
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn string `pulumi:"roleArn"`
@@ -429,6 +440,8 @@ type MetricStreamArgs struct {
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+	//
+	// The following arguments are optional:
 	OutputFormat pulumi.StringInput
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn pulumi.StringInput
@@ -461,6 +474,12 @@ func (i *MetricStream) ToMetricStreamOutputWithContext(ctx context.Context) Metr
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamOutput)
 }
 
+func (i *MetricStream) ToOutput(ctx context.Context) pulumix.Output[*MetricStream] {
+	return pulumix.Output[*MetricStream]{
+		OutputState: i.ToMetricStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricStreamArrayInput is an input type that accepts MetricStreamArray and MetricStreamArrayOutput values.
 // You can construct a concrete instance of `MetricStreamArrayInput` via:
 //
@@ -484,6 +503,12 @@ func (i MetricStreamArray) ToMetricStreamArrayOutput() MetricStreamArrayOutput {
 
 func (i MetricStreamArray) ToMetricStreamArrayOutputWithContext(ctx context.Context) MetricStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamArrayOutput)
+}
+
+func (i MetricStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricStream] {
+	return pulumix.Output[[]*MetricStream]{
+		OutputState: i.ToMetricStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MetricStreamMapInput is an input type that accepts MetricStreamMap and MetricStreamMapOutput values.
@@ -511,6 +536,12 @@ func (i MetricStreamMap) ToMetricStreamMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamMapOutput)
 }
 
+func (i MetricStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricStream] {
+	return pulumix.Output[map[string]*MetricStream]{
+		OutputState: i.ToMetricStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricStreamOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamOutput) ElementType() reflect.Type {
@@ -523,6 +554,12 @@ func (o MetricStreamOutput) ToMetricStreamOutput() MetricStreamOutput {
 
 func (o MetricStreamOutput) ToMetricStreamOutputWithContext(ctx context.Context) MetricStreamOutput {
 	return o
+}
+
+func (o MetricStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricStream] {
+	return pulumix.Output[*MetricStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the metric stream.
@@ -571,6 +608,8 @@ func (o MetricStreamOutput) NamePrefix() pulumi.StringOutput {
 }
 
 // Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+//
+// The following arguments are optional:
 func (o MetricStreamOutput) OutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.OutputFormat }).(pulumi.StringOutput)
 }
@@ -616,6 +655,12 @@ func (o MetricStreamArrayOutput) ToMetricStreamArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o MetricStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricStream] {
+	return pulumix.Output[[]*MetricStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricStreamArrayOutput) Index(i pulumi.IntInput) MetricStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricStream {
 		return vs[0].([]*MetricStream)[vs[1].(int)]
@@ -634,6 +679,12 @@ func (o MetricStreamMapOutput) ToMetricStreamMapOutput() MetricStreamMapOutput {
 
 func (o MetricStreamMapOutput) ToMetricStreamMapOutputWithContext(ctx context.Context) MetricStreamMapOutput {
 	return o
+}
+
+func (o MetricStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricStream] {
+	return pulumix.Output[map[string]*MetricStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricStreamMapOutput) MapIndex(k pulumi.StringInput) MetricStreamOutput {

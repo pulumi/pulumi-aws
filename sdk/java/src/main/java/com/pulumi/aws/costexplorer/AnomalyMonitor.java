@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ce_anomaly_monitor` can be imported using the `id`, e.g.
+ * Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN

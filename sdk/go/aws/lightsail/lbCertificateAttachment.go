@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,7 +61,7 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb_certificate_attachment` can be imported by using the name attribute, e.g.,
+// Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
 //
 // ```sh
 //
@@ -88,6 +90,7 @@ func NewLbCertificateAttachment(ctx *pulumi.Context,
 	if args.LbName == nil {
 		return nil, errors.New("invalid value for required argument 'LbName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LbCertificateAttachment
 	err := ctx.RegisterResource("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -165,6 +168,12 @@ func (i *LbCertificateAttachment) ToLbCertificateAttachmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateAttachmentOutput)
 }
 
+func (i *LbCertificateAttachment) ToOutput(ctx context.Context) pulumix.Output[*LbCertificateAttachment] {
+	return pulumix.Output[*LbCertificateAttachment]{
+		OutputState: i.ToLbCertificateAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LbCertificateAttachmentArrayInput is an input type that accepts LbCertificateAttachmentArray and LbCertificateAttachmentArrayOutput values.
 // You can construct a concrete instance of `LbCertificateAttachmentArrayInput` via:
 //
@@ -188,6 +197,12 @@ func (i LbCertificateAttachmentArray) ToLbCertificateAttachmentArrayOutput() LbC
 
 func (i LbCertificateAttachmentArray) ToLbCertificateAttachmentArrayOutputWithContext(ctx context.Context) LbCertificateAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateAttachmentArrayOutput)
+}
+
+func (i LbCertificateAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*LbCertificateAttachment] {
+	return pulumix.Output[[]*LbCertificateAttachment]{
+		OutputState: i.ToLbCertificateAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LbCertificateAttachmentMapInput is an input type that accepts LbCertificateAttachmentMap and LbCertificateAttachmentMapOutput values.
@@ -215,6 +230,12 @@ func (i LbCertificateAttachmentMap) ToLbCertificateAttachmentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateAttachmentMapOutput)
 }
 
+func (i LbCertificateAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbCertificateAttachment] {
+	return pulumix.Output[map[string]*LbCertificateAttachment]{
+		OutputState: i.ToLbCertificateAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LbCertificateAttachmentOutput struct{ *pulumi.OutputState }
 
 func (LbCertificateAttachmentOutput) ElementType() reflect.Type {
@@ -227,6 +248,12 @@ func (o LbCertificateAttachmentOutput) ToLbCertificateAttachmentOutput() LbCerti
 
 func (o LbCertificateAttachmentOutput) ToLbCertificateAttachmentOutputWithContext(ctx context.Context) LbCertificateAttachmentOutput {
 	return o
+}
+
+func (o LbCertificateAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*LbCertificateAttachment] {
+	return pulumix.Output[*LbCertificateAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of your SSL/TLS certificate.
@@ -253,6 +280,12 @@ func (o LbCertificateAttachmentArrayOutput) ToLbCertificateAttachmentArrayOutput
 	return o
 }
 
+func (o LbCertificateAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LbCertificateAttachment] {
+	return pulumix.Output[[]*LbCertificateAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LbCertificateAttachmentArrayOutput) Index(i pulumi.IntInput) LbCertificateAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LbCertificateAttachment {
 		return vs[0].([]*LbCertificateAttachment)[vs[1].(int)]
@@ -271,6 +304,12 @@ func (o LbCertificateAttachmentMapOutput) ToLbCertificateAttachmentMapOutput() L
 
 func (o LbCertificateAttachmentMapOutput) ToLbCertificateAttachmentMapOutputWithContext(ctx context.Context) LbCertificateAttachmentMapOutput {
 	return o
+}
+
+func (o LbCertificateAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbCertificateAttachment] {
+	return pulumix.Output[map[string]*LbCertificateAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LbCertificateAttachmentMapOutput) MapIndex(k pulumi.StringInput) LbCertificateAttachmentOutput {

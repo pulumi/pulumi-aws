@@ -29,6 +29,8 @@ class ListenerRuleArgs:
         :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input['ListenerRuleMatchArgs'] match: The rule match.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -84,6 +86,8 @@ class ListenerRuleArgs:
     def priority(self) -> pulumi.Input[int]:
         """
         The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "priority")
 
@@ -149,6 +153,8 @@ class _ListenerRuleState:
         :param pulumi.Input['ListenerRuleMatchArgs'] match: The rule match.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] rule_id: Unique identifier for the target group.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -240,6 +246,8 @@ class _ListenerRuleState:
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "priority")
 
@@ -383,7 +391,7 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Listener Rule can be imported using the `example_id_arg`, e.g.,
+        Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
@@ -396,6 +404,8 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ListenerRuleMatchArgs']] match: The rule match.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -479,7 +489,7 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Listener Rule can be imported using the `example_id_arg`, e.g.,
+        Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
@@ -569,6 +579,8 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ListenerRuleMatchArgs']] match: The rule match.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] rule_id: Unique identifier for the target group.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -635,6 +647,8 @@ class ListenerRule(pulumi.CustomResource):
     def priority(self) -> pulumi.Output[int]:
         """
         The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "priority")
 

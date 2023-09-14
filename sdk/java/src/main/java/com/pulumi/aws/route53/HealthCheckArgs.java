@@ -85,6 +85,8 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      * 
+     * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+     * 
      */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
@@ -94,6 +96,8 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
      * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+     * 
+     * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
      * 
      */
     public Optional<Output<Boolean>> disabled() {
@@ -131,14 +135,14 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return The fully qualified domain name of the endpoint to be checked.
+     * @return The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -486,6 +490,8 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
          * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
          * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
          * 
+         * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+         * 
          * @return builder
          * 
          */
@@ -499,6 +505,8 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
          * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
          * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
          * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+         * 
+         * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
          * 
          * @return builder
          * 
@@ -550,7 +558,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn The fully qualified domain name of the endpoint to be checked.
+         * @param fqdn The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
          * 
          * @return builder
          * 
@@ -561,7 +569,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn The fully qualified domain name of the endpoint to be checked.
+         * @param fqdn The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
          * 
          * @return builder
          * 

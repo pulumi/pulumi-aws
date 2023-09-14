@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Kendra block list used for query suggestions for an index.
+ * Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
  * 
  * ## Example Usage
  * ### Basic Usage
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_kendra_query_suggestions_block_list` can be imported using the unique identifiers of the block list and index separated by a slash (`/`), e.g.,
+ * Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -83,84 +83,88 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
         return this.arn;
     }
     /**
-     * The description for a block list.
+     * Description for a block list.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for a block list.
+     * @return Description for a block list.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The identifier of the index for a block list.
+     * Identifier of the index for a block list.
      * 
      */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index for a block list.
+     * @return Identifier of the index for a block list.
      * 
      */
     public Output<String> indexId() {
         return this.indexId;
     }
     /**
-     * The name for the block list.
+     * Name for the block list.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name for the block list.
+     * @return Name for the block list.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The unique indentifier of the block list.
+     * Unique identifier of the block list.
      * 
      */
     @Export(name="querySuggestionsBlockListId", refs={String.class}, tree="[0]")
     private Output<String> querySuggestionsBlockListId;
 
     /**
-     * @return The unique indentifier of the block list.
+     * @return Unique identifier of the block list.
      * 
      */
     public Output<String> querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
     }
     /**
-     * The IAM (Identity and Access Management) role used to access the block list text file in S3.
+     * IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The IAM (Identity and Access Management) role used to access the block list text file in S3.
+     * @return IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * The S3 path where your block list text file sits in S3. Detailed below.
+     * S3 path where your block list text file is located. See details below.
+     * 
+     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     @Export(name="sourceS3Path", refs={QuerySuggestionsBlockListSourceS3Path.class}, tree="[0]")
     private Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
     /**
-     * @return The S3 path where your block list text file sits in S3. Detailed below.
+     * @return S3 path where your block list text file is located. See details below.
+     * 
+     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path() {
@@ -173,28 +177,28 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
         return this.status;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider&#39;s default_tags configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider&#39;s default_tags configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

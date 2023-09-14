@@ -51,15 +51,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Lambda Layers can be imported using `arn`.
+    /// Using `pulumi import`, import Lambda Layers using `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lambda/layerVersion:LayerVersion \
+    ///  $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
     /// ```
-    /// 
-    ///  aws_lambda_layer_version.test_layer \
-    /// 
-    ///  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
     /// </summary>
     [AwsResourceType("aws:lambda/layerVersion:LayerVersion")]
     public partial class LayerVersion : global::Pulumi.CustomResource
@@ -108,6 +104,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("layerName")]
         public Output<string> LayerName { get; private set; } = null!;
@@ -256,6 +254,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName", required: true)]
         public Input<string> LayerName { get; set; } = null!;
@@ -360,6 +360,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName")]
         public Input<string>? LayerName { get; set; }

@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Config Organization Conformance Packs can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example

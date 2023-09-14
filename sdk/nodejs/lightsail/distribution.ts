@@ -132,7 +132,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Lightsail Distribution can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
@@ -180,6 +180,8 @@ export class Distribution extends pulumi.CustomResource {
     public readonly bundleId!: pulumi.Output<string>;
     /**
      * An object that describes the cache behavior settings of the distribution. Detailed below
+     *
+     * The following arguments are optional:
      */
     public readonly cacheBehaviorSettings!: pulumi.Output<outputs.lightsail.DistributionCacheBehaviorSettings | undefined>;
     /**
@@ -338,6 +340,8 @@ export interface DistributionState {
     bundleId?: pulumi.Input<string>;
     /**
      * An object that describes the cache behavior settings of the distribution. Detailed below
+     *
+     * The following arguments are optional:
      */
     cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
     /**
@@ -419,6 +423,8 @@ export interface DistributionArgs {
     bundleId: pulumi.Input<string>;
     /**
      * An object that describes the cache behavior settings of the distribution. Detailed below
+     *
+     * The following arguments are optional:
      */
     cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
     /**

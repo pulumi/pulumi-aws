@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Amazon CloudFront origin access identity.
@@ -26,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,15 +84,75 @@ import (
 //
 // ```
 //
+// ### Updating your bucket policy
+//
+// Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
+// principal into an `AWS` IAM ARN principal when supplied in an
+// `s3.BucketV2` bucket policy, causing spurious diffs. If
+// you see this behaviour, use the `iamArn` instead:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// s3Policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "s3:GetObject",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/*", aws_s3_bucket.Example.Arn),
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: interface{}{
+// aws_cloudfront_origin_access_identity.Example.Iam_arn,
+// },
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+// Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+// Policy: *pulumi.String(s3Policy.Json),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// Cloudfront Origin Access Identities can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
 //
 // ```
+//
+// [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+//
+// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
 type OriginAccessIdentity struct {
 	pulumi.CustomResourceState
 
@@ -122,6 +184,7 @@ func NewOriginAccessIdentity(ctx *pulumi.Context,
 		args = &OriginAccessIdentityArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginAccessIdentity
 	err := ctx.RegisterResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args, &resource, opts...)
 	if err != nil {
@@ -225,6 +288,12 @@ func (i *OriginAccessIdentity) ToOriginAccessIdentityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityOutput)
 }
 
+func (i *OriginAccessIdentity) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessIdentity] {
+	return pulumix.Output[*OriginAccessIdentity]{
+		OutputState: i.ToOriginAccessIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginAccessIdentityArrayInput is an input type that accepts OriginAccessIdentityArray and OriginAccessIdentityArrayOutput values.
 // You can construct a concrete instance of `OriginAccessIdentityArrayInput` via:
 //
@@ -248,6 +317,12 @@ func (i OriginAccessIdentityArray) ToOriginAccessIdentityArrayOutput() OriginAcc
 
 func (i OriginAccessIdentityArray) ToOriginAccessIdentityArrayOutputWithContext(ctx context.Context) OriginAccessIdentityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityArrayOutput)
+}
+
+func (i OriginAccessIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]*OriginAccessIdentity] {
+	return pulumix.Output[[]*OriginAccessIdentity]{
+		OutputState: i.ToOriginAccessIdentityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OriginAccessIdentityMapInput is an input type that accepts OriginAccessIdentityMap and OriginAccessIdentityMapOutput values.
@@ -275,6 +350,12 @@ func (i OriginAccessIdentityMap) ToOriginAccessIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityMapOutput)
 }
 
+func (i OriginAccessIdentityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginAccessIdentity] {
+	return pulumix.Output[map[string]*OriginAccessIdentity]{
+		OutputState: i.ToOriginAccessIdentityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginAccessIdentityOutput struct{ *pulumi.OutputState }
 
 func (OriginAccessIdentityOutput) ElementType() reflect.Type {
@@ -287,6 +368,12 @@ func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutput() OriginAccessI
 
 func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutputWithContext(ctx context.Context) OriginAccessIdentityOutput {
 	return o
+}
+
+func (o OriginAccessIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessIdentity] {
+	return pulumix.Output[*OriginAccessIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Internal value used by CloudFront to allow future
@@ -340,6 +427,12 @@ func (o OriginAccessIdentityArrayOutput) ToOriginAccessIdentityArrayOutputWithCo
 	return o
 }
 
+func (o OriginAccessIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OriginAccessIdentity] {
+	return pulumix.Output[[]*OriginAccessIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginAccessIdentityArrayOutput) Index(i pulumi.IntInput) OriginAccessIdentityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OriginAccessIdentity {
 		return vs[0].([]*OriginAccessIdentity)[vs[1].(int)]
@@ -358,6 +451,12 @@ func (o OriginAccessIdentityMapOutput) ToOriginAccessIdentityMapOutput() OriginA
 
 func (o OriginAccessIdentityMapOutput) ToOriginAccessIdentityMapOutputWithContext(ctx context.Context) OriginAccessIdentityMapOutput {
 	return o
+}
+
+func (o OriginAccessIdentityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginAccessIdentity] {
+	return pulumix.Output[map[string]*OriginAccessIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginAccessIdentityMapOutput) MapIndex(k pulumi.StringInput) OriginAccessIdentityOutput {

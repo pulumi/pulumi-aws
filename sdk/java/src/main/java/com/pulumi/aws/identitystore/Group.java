@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+ * Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
@@ -91,12 +91,16 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * The globally unique identifier for the identity store.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="identityStoreId", refs={String.class}, tree="[0]")
     private Output<String> identityStoreId;
 
     /**
      * @return The globally unique identifier for the identity store.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> identityStoreId() {

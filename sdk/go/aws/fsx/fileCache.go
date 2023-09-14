@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an Amazon File Cache cache.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +80,7 @@ import (
 //
 // ## Import
 //
-// Amazon File Cache cache can be imported using the resource `id`.
+// Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
 //
 // ```sh
 //
@@ -117,6 +119,8 @@ type FileCache struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -144,6 +148,7 @@ func NewFileCache(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileCache
 	err := ctx.RegisterResource("aws:fsx/fileCache:FileCache", name, args, &resource, opts...)
 	if err != nil {
@@ -195,6 +200,8 @@ type fileCacheState struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -233,6 +240,8 @@ type FileCacheState struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntPtrInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -264,6 +273,8 @@ type fileCacheArgs struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -289,6 +300,8 @@ type FileCacheArgs struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -317,6 +330,12 @@ func (i *FileCache) ToFileCacheOutputWithContext(ctx context.Context) FileCacheO
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheOutput)
 }
 
+func (i *FileCache) ToOutput(ctx context.Context) pulumix.Output[*FileCache] {
+	return pulumix.Output[*FileCache]{
+		OutputState: i.ToFileCacheOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileCacheArrayInput is an input type that accepts FileCacheArray and FileCacheArrayOutput values.
 // You can construct a concrete instance of `FileCacheArrayInput` via:
 //
@@ -340,6 +359,12 @@ func (i FileCacheArray) ToFileCacheArrayOutput() FileCacheArrayOutput {
 
 func (i FileCacheArray) ToFileCacheArrayOutputWithContext(ctx context.Context) FileCacheArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheArrayOutput)
+}
+
+func (i FileCacheArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileCache] {
+	return pulumix.Output[[]*FileCache]{
+		OutputState: i.ToFileCacheArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FileCacheMapInput is an input type that accepts FileCacheMap and FileCacheMapOutput values.
@@ -367,6 +392,12 @@ func (i FileCacheMap) ToFileCacheMapOutputWithContext(ctx context.Context) FileC
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheMapOutput)
 }
 
+func (i FileCacheMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileCache] {
+	return pulumix.Output[map[string]*FileCache]{
+		OutputState: i.ToFileCacheMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileCacheOutput struct{ *pulumi.OutputState }
 
 func (FileCacheOutput) ElementType() reflect.Type {
@@ -379,6 +410,12 @@ func (o FileCacheOutput) ToFileCacheOutput() FileCacheOutput {
 
 func (o FileCacheOutput) ToFileCacheOutputWithContext(ctx context.Context) FileCacheOutput {
 	return o
+}
+
+func (o FileCacheOutput) ToOutput(ctx context.Context) pulumix.Output[*FileCache] {
+	return pulumix.Output[*FileCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the resource.
@@ -452,6 +489,8 @@ func (o FileCacheOutput) StorageCapacity() pulumi.IntOutput {
 }
 
 // A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+//
+// The following arguments are optional:
 func (o FileCacheOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -484,6 +523,12 @@ func (o FileCacheArrayOutput) ToFileCacheArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o FileCacheArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileCache] {
+	return pulumix.Output[[]*FileCache]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FileCacheArrayOutput) Index(i pulumi.IntInput) FileCacheOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileCache {
 		return vs[0].([]*FileCache)[vs[1].(int)]
@@ -502,6 +547,12 @@ func (o FileCacheMapOutput) ToFileCacheMapOutput() FileCacheMapOutput {
 
 func (o FileCacheMapOutput) ToFileCacheMapOutputWithContext(ctx context.Context) FileCacheMapOutput {
 	return o
+}
+
+func (o FileCacheMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileCache] {
+	return pulumix.Output[map[string]*FileCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileCacheMapOutput) MapIndex(k pulumi.StringInput) FileCacheOutput {

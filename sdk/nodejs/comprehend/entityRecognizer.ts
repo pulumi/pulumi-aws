@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+ * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
@@ -107,6 +107,8 @@ export class EntityRecognizer extends pulumi.CustomResource {
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -228,6 +230,8 @@ export interface EntityRecognizerState {
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -292,6 +296,8 @@ export interface EntityRecognizerArgs {
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

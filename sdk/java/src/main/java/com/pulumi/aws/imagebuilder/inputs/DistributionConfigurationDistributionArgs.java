@@ -98,12 +98,16 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
     /**
      * AWS Region for the distribution.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
      * @return AWS Region for the distribution.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> region() {
@@ -277,6 +281,8 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         /**
          * @param region AWS Region for the distribution.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -287,6 +293,8 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
 
         /**
          * @param region AWS Region for the distribution.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

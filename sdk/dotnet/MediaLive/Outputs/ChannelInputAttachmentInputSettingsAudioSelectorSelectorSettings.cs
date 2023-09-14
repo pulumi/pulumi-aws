@@ -13,9 +13,21 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings
     {
+        /// <summary>
+        /// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection? AudioHlsRenditionSelection;
+        /// <summary>
+        /// Audio Language Selection. See Audio Language Selection for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection? AudioLanguageSelection;
+        /// <summary>
+        /// Audio Pid Selection. See Audio PID Selection for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection? AudioPidSelection;
+        /// <summary>
+        /// Audio Track Selection. See Audio Track Selection for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection? AudioTrackSelection;
 
         [OutputConstructor]

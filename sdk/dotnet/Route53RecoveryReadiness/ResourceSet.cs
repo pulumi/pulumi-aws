@@ -40,10 +40,10 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
+    /// Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
+    ///  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/resourceSet:ResourceSet")]
@@ -69,6 +69,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// List of resources to add to this resource set. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.ResourceSetResource>> Resources { get; private set; } = null!;
@@ -148,6 +150,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// List of resources to add to this resource set. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ResourceSetResourceArgs> Resources
         {
@@ -198,6 +202,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// List of resources to add to this resource set. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ResourceSetResourceGetArgs> Resources
         {

@@ -113,7 +113,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
 
         ## Import
 
-        CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
+        Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
 
         ```sh
          $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
@@ -146,7 +146,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
 
         ## Import
 
-        CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
+        Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
 
         ```sh
          $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo

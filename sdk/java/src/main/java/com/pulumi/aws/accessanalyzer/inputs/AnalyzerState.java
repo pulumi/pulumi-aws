@@ -19,12 +19,16 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the Analyzer.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="analyzerName")
     private @Nullable Output<String> analyzerName;
 
     /**
      * @return Name of the Analyzer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> analyzerName() {
@@ -122,6 +126,8 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param analyzerName Name of the Analyzer.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -132,6 +138,8 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param analyzerName Name of the Analyzer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

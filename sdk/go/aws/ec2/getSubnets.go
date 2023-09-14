@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a set of subnet IDs.
 func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.InvokeOption) (*GetSubnetsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubnetsResult
 	err := ctx.Invoke("aws:ec2/getSubnets:getSubnets", args, &rv, opts...)
 	if err != nil {
@@ -26,6 +29,9 @@ type GetSubnetsArgs struct {
 	Filters []GetSubnetsFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -58,6 +64,9 @@ type GetSubnetsOutputArgs struct {
 	Filters GetSubnetsFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -78,6 +87,12 @@ func (o GetSubnetsResultOutput) ToGetSubnetsResultOutput() GetSubnetsResultOutpu
 
 func (o GetSubnetsResultOutput) ToGetSubnetsResultOutputWithContext(ctx context.Context) GetSubnetsResultOutput {
 	return o
+}
+
+func (o GetSubnetsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubnetsResult] {
+	return pulumix.Output[GetSubnetsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubnetsResultOutput) Filters() GetSubnetsFilterArrayOutput {

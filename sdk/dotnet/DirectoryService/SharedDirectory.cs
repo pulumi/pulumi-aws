@@ -50,7 +50,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Import
     /// 
-    /// Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
+    /// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
@@ -85,6 +85,8 @@ namespace Pulumi.Aws.DirectoryService
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("target")]
         public Output<Outputs.SharedDirectoryTarget> Target { get; private set; } = null!;
@@ -169,6 +171,8 @@ namespace Pulumi.Aws.DirectoryService
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.SharedDirectoryTargetArgs> Target { get; set; } = null!;
@@ -217,6 +221,8 @@ namespace Pulumi.Aws.DirectoryService
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target")]
         public Input<Inputs.SharedDirectoryTargetGetArgs>? Target { get; set; }

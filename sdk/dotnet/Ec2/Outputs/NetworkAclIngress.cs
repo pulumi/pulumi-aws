@@ -28,6 +28,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int FromPort;
         /// <summary>
         /// The ICMP type code to be used. Default 0.
+        /// 
+        /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
         public readonly int? IcmpCode;
         /// <summary>

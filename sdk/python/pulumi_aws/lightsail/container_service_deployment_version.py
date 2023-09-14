@@ -223,7 +223,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Container Service Deployment Version can be imported using the `service_name` and `version` separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
@@ -284,7 +284,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Container Service Deployment Version can be imported using the `service_name` and `version` separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1

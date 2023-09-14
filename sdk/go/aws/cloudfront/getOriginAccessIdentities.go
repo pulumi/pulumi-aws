@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,6 +69,7 @@ import (
 //
 // ```
 func GetOriginAccessIdentities(ctx *pulumi.Context, args *GetOriginAccessIdentitiesArgs, opts ...pulumi.InvokeOption) (*GetOriginAccessIdentitiesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOriginAccessIdentitiesResult
 	err := ctx.Invoke("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args, &rv, opts...)
 	if err != nil {
@@ -130,6 +133,12 @@ func (o GetOriginAccessIdentitiesResultOutput) ToGetOriginAccessIdentitiesResult
 
 func (o GetOriginAccessIdentitiesResultOutput) ToGetOriginAccessIdentitiesResultOutputWithContext(ctx context.Context) GetOriginAccessIdentitiesResultOutput {
 	return o
+}
+
+func (o GetOriginAccessIdentitiesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOriginAccessIdentitiesResult] {
+	return pulumix.Output[GetOriginAccessIdentitiesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOriginAccessIdentitiesResultOutput) Comments() pulumi.StringArrayOutput {

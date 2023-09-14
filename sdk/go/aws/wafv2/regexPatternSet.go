@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS WAFv2 Regex Pattern Set Resource
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +56,7 @@ import (
 //
 // ## Import
 //
-// WAFv2 Regex Pattern Sets can be imported using `ID/name/scope` e.g.,
+// Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
 //
 // ```sh
 //
@@ -71,7 +73,7 @@ type RegexPatternSet struct {
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
 	// A friendly name of the regular expression pattern set.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions RegexPatternSetRegularExpressionArrayOutput `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
@@ -91,6 +93,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws:wafv2/regexPatternSet:RegexPatternSet", name, args, &resource, opts...)
 	if err != nil {
@@ -120,7 +123,7 @@ type regexPatternSetState struct {
 	LockToken   *string `pulumi:"lockToken"`
 	// A friendly name of the regular expression pattern set.
 	Name *string `pulumi:"name"`
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
@@ -138,7 +141,7 @@ type RegexPatternSetState struct {
 	LockToken   pulumi.StringPtrInput
 	// A friendly name of the regular expression pattern set.
 	Name pulumi.StringPtrInput
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions RegexPatternSetRegularExpressionArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
@@ -157,7 +160,7 @@ type regexPatternSetArgs struct {
 	Description *string `pulumi:"description"`
 	// A friendly name of the regular expression pattern set.
 	Name *string `pulumi:"name"`
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
@@ -171,7 +174,7 @@ type RegexPatternSetArgs struct {
 	Description pulumi.StringPtrInput
 	// A friendly name of the regular expression pattern set.
 	Name pulumi.StringPtrInput
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions RegexPatternSetRegularExpressionArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
@@ -202,6 +205,12 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
 }
 
+func (i *RegexPatternSet) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegexPatternSetArrayInput is an input type that accepts RegexPatternSetArray and RegexPatternSetArrayOutput values.
 // You can construct a concrete instance of `RegexPatternSetArrayInput` via:
 //
@@ -225,6 +234,12 @@ func (i RegexPatternSetArray) ToRegexPatternSetArrayOutput() RegexPatternSetArra
 
 func (i RegexPatternSetArray) ToRegexPatternSetArrayOutputWithContext(ctx context.Context) RegexPatternSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetArrayOutput)
+}
+
+func (i RegexPatternSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegexPatternSet] {
+	return pulumix.Output[[]*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegexPatternSetMapInput is an input type that accepts RegexPatternSetMap and RegexPatternSetMapOutput values.
@@ -252,6 +267,12 @@ func (i RegexPatternSetMap) ToRegexPatternSetMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetMapOutput)
 }
 
+func (i RegexPatternSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegexPatternSet] {
+	return pulumix.Output[map[string]*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegexPatternSetOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetOutput) ElementType() reflect.Type {
@@ -264,6 +285,12 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return o
+}
+
+func (o RegexPatternSetOutput) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that identifies the cluster.
@@ -285,7 +312,7 @@ func (o RegexPatternSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 func (o RegexPatternSetOutput) RegularExpressions() RegexPatternSetRegularExpressionArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetRegularExpressionArrayOutput { return v.RegularExpressions }).(RegexPatternSetRegularExpressionArrayOutput)
 }
@@ -319,6 +346,12 @@ func (o RegexPatternSetArrayOutput) ToRegexPatternSetArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o RegexPatternSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegexPatternSet] {
+	return pulumix.Output[[]*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegexPatternSetArrayOutput) Index(i pulumi.IntInput) RegexPatternSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegexPatternSet {
 		return vs[0].([]*RegexPatternSet)[vs[1].(int)]
@@ -337,6 +370,12 @@ func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutput() RegexPatternSetMa
 
 func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutputWithContext(ctx context.Context) RegexPatternSetMapOutput {
 	return o
+}
+
+func (o RegexPatternSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegexPatternSet] {
+	return pulumix.Output[map[string]*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegexPatternSetMapOutput) MapIndex(k pulumi.StringInput) RegexPatternSetOutput {

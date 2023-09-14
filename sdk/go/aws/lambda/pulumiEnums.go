@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
@@ -23,9 +24,11 @@ const (
 	RuntimeJava8         = Runtime("java8")
 	RuntimeJava8AL2      = Runtime("java8.al2")
 	RuntimeJava11        = Runtime("java11")
+	RuntimeJava17        = Runtime("java17")
 	// Deprecated: This runtime is now deprecated
 	RuntimeRuby2d5 = Runtime("ruby2.5")
 	RuntimeRuby2d7 = Runtime("ruby2.7")
+	RuntimeRuby3d2 = Runtime("ruby3.2")
 	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS10dX = Runtime("nodejs10.x")
 	RuntimeNodeJS12dX = Runtime("nodejs12.x")
@@ -40,6 +43,7 @@ const (
 	RuntimePython3d8  = Runtime("python3.8")
 	RuntimePython3d9  = Runtime("python3.9")
 	RuntimePython3d10 = Runtime("python3.10")
+	RuntimePython3d11 = Runtime("python3.11")
 	RuntimeCustom     = Runtime("provided")
 	RuntimeCustomAL2  = Runtime("provided.al2")
 )
@@ -104,6 +108,12 @@ func (o RuntimeOutput) ToRuntimePtrOutputWithContext(ctx context.Context) Runtim
 	}).(RuntimePtrOutput)
 }
 
+func (o RuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[Runtime] {
+	return pulumix.Output[Runtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuntimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -137,6 +147,12 @@ func (o RuntimePtrOutput) ToRuntimePtrOutput() RuntimePtrOutput {
 
 func (o RuntimePtrOutput) ToRuntimePtrOutputWithContext(ctx context.Context) RuntimePtrOutput {
 	return o
+}
+
+func (o RuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Runtime] {
+	return pulumix.Output[*Runtime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuntimePtrOutput) Elem() RuntimeOutput {
@@ -199,6 +215,12 @@ func (in *runtimePtr) ToRuntimePtrOutput() RuntimePtrOutput {
 
 func (in *runtimePtr) ToRuntimePtrOutputWithContext(ctx context.Context) RuntimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuntimePtrOutput)
+}
+
+func (in *runtimePtr) ToOutput(ctx context.Context) pulumix.Output[*Runtime] {
+	return pulumix.Output[*Runtime]{
+		OutputState: in.ToRuntimePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway Client Certificate.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,7 +42,7 @@ import (
 //
 // ## Import
 //
-// API Gateway Client Certificates can be imported using the id, e.g.,
+// Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
 //
 // ```sh
 //
@@ -73,6 +75,7 @@ func NewClientCertificate(ctx *pulumi.Context,
 		args = &ClientCertificateArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClientCertificate
 	err := ctx.RegisterResource("aws:apigateway/clientCertificate:ClientCertificate", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +173,12 @@ func (i *ClientCertificate) ToClientCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateOutput)
 }
 
+func (i *ClientCertificate) ToOutput(ctx context.Context) pulumix.Output[*ClientCertificate] {
+	return pulumix.Output[*ClientCertificate]{
+		OutputState: i.ToClientCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClientCertificateArrayInput is an input type that accepts ClientCertificateArray and ClientCertificateArrayOutput values.
 // You can construct a concrete instance of `ClientCertificateArrayInput` via:
 //
@@ -193,6 +202,12 @@ func (i ClientCertificateArray) ToClientCertificateArrayOutput() ClientCertifica
 
 func (i ClientCertificateArray) ToClientCertificateArrayOutputWithContext(ctx context.Context) ClientCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateArrayOutput)
+}
+
+func (i ClientCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClientCertificate] {
+	return pulumix.Output[[]*ClientCertificate]{
+		OutputState: i.ToClientCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClientCertificateMapInput is an input type that accepts ClientCertificateMap and ClientCertificateMapOutput values.
@@ -220,6 +235,12 @@ func (i ClientCertificateMap) ToClientCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateMapOutput)
 }
 
+func (i ClientCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClientCertificate] {
+	return pulumix.Output[map[string]*ClientCertificate]{
+		OutputState: i.ToClientCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClientCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateOutput) ElementType() reflect.Type {
@@ -232,6 +253,12 @@ func (o ClientCertificateOutput) ToClientCertificateOutput() ClientCertificateOu
 
 func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx context.Context) ClientCertificateOutput {
 	return o
+}
+
+func (o ClientCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ClientCertificate] {
+	return pulumix.Output[*ClientCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN
@@ -283,6 +310,12 @@ func (o ClientCertificateArrayOutput) ToClientCertificateArrayOutputWithContext(
 	return o
 }
 
+func (o ClientCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClientCertificate] {
+	return pulumix.Output[[]*ClientCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClientCertificateArrayOutput) Index(i pulumi.IntInput) ClientCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClientCertificate {
 		return vs[0].([]*ClientCertificate)[vs[1].(int)]
@@ -301,6 +334,12 @@ func (o ClientCertificateMapOutput) ToClientCertificateMapOutput() ClientCertifi
 
 func (o ClientCertificateMapOutput) ToClientCertificateMapOutputWithContext(ctx context.Context) ClientCertificateMapOutput {
 	return o
+}
+
+func (o ClientCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClientCertificate] {
+	return pulumix.Output[map[string]*ClientCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClientCertificateMapOutput) MapIndex(k pulumi.StringInput) ClientCertificateOutput {

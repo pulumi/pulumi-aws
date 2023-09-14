@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for enabling Amazon Inspector resource scans.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,8 +55,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,6 +109,7 @@ func NewEnabler(ctx *pulumi.Context,
 	if args.ResourceTypes == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceTypes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Enabler
 	err := ctx.RegisterResource("aws:inspector2/enabler:Enabler", name, args, &resource, opts...)
 	if err != nil {
@@ -196,6 +199,12 @@ func (i *Enabler) ToEnablerOutputWithContext(ctx context.Context) EnablerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(EnablerOutput)
 }
 
+func (i *Enabler) ToOutput(ctx context.Context) pulumix.Output[*Enabler] {
+	return pulumix.Output[*Enabler]{
+		OutputState: i.ToEnablerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnablerArrayInput is an input type that accepts EnablerArray and EnablerArrayOutput values.
 // You can construct a concrete instance of `EnablerArrayInput` via:
 //
@@ -219,6 +228,12 @@ func (i EnablerArray) ToEnablerArrayOutput() EnablerArrayOutput {
 
 func (i EnablerArray) ToEnablerArrayOutputWithContext(ctx context.Context) EnablerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnablerArrayOutput)
+}
+
+func (i EnablerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Enabler] {
+	return pulumix.Output[[]*Enabler]{
+		OutputState: i.ToEnablerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnablerMapInput is an input type that accepts EnablerMap and EnablerMapOutput values.
@@ -246,6 +261,12 @@ func (i EnablerMap) ToEnablerMapOutputWithContext(ctx context.Context) EnablerMa
 	return pulumi.ToOutputWithContext(ctx, i).(EnablerMapOutput)
 }
 
+func (i EnablerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Enabler] {
+	return pulumix.Output[map[string]*Enabler]{
+		OutputState: i.ToEnablerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnablerOutput struct{ *pulumi.OutputState }
 
 func (EnablerOutput) ElementType() reflect.Type {
@@ -258,6 +279,12 @@ func (o EnablerOutput) ToEnablerOutput() EnablerOutput {
 
 func (o EnablerOutput) ToEnablerOutputWithContext(ctx context.Context) EnablerOutput {
 	return o
+}
+
+func (o EnablerOutput) ToOutput(ctx context.Context) pulumix.Output[*Enabler] {
+	return pulumix.Output[*Enabler]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of account IDs.
@@ -287,6 +314,12 @@ func (o EnablerArrayOutput) ToEnablerArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o EnablerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Enabler] {
+	return pulumix.Output[[]*Enabler]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnablerArrayOutput) Index(i pulumi.IntInput) EnablerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Enabler {
 		return vs[0].([]*Enabler)[vs[1].(int)]
@@ -305,6 +338,12 @@ func (o EnablerMapOutput) ToEnablerMapOutput() EnablerMapOutput {
 
 func (o EnablerMapOutput) ToEnablerMapOutputWithContext(ctx context.Context) EnablerMapOutput {
 	return o
+}
+
+func (o EnablerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Enabler] {
+	return pulumix.Output[map[string]*Enabler]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnablerMapOutput) MapIndex(k pulumi.StringInput) EnablerOutput {

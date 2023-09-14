@@ -250,7 +250,7 @@ class Build(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Builds can be imported using the ID, e.g.,
+        Using `pulumi import`, import GameLift Builds using the ID. For example:
 
         ```sh
          $ pulumi import aws:gamelift/build:Build example <build-id>
@@ -290,7 +290,7 @@ class Build(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Builds can be imported using the ID, e.g.,
+        Using `pulumi import`, import GameLift Builds using the ID. For example:
 
         ```sh
          $ pulumi import aws:gamelift/build:Build example <build-id>

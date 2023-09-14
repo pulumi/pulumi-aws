@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Global Accelerator accelerator.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// Global Accelerator accelerators can be imported using the `arn`, e.g.,
+// Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 //
 // ```sh
 //
@@ -92,6 +94,7 @@ func NewAccelerator(ctx *pulumi.Context,
 		args = &AcceleratorArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Accelerator
 	err := ctx.RegisterResource("aws:globalaccelerator/accelerator:Accelerator", name, args, &resource, opts...)
 	if err != nil {
@@ -225,6 +228,12 @@ func (i *Accelerator) ToAcceleratorOutputWithContext(ctx context.Context) Accele
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorOutput)
 }
 
+func (i *Accelerator) ToOutput(ctx context.Context) pulumix.Output[*Accelerator] {
+	return pulumix.Output[*Accelerator]{
+		OutputState: i.ToAcceleratorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AcceleratorArrayInput is an input type that accepts AcceleratorArray and AcceleratorArrayOutput values.
 // You can construct a concrete instance of `AcceleratorArrayInput` via:
 //
@@ -248,6 +257,12 @@ func (i AcceleratorArray) ToAcceleratorArrayOutput() AcceleratorArrayOutput {
 
 func (i AcceleratorArray) ToAcceleratorArrayOutputWithContext(ctx context.Context) AcceleratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorArrayOutput)
+}
+
+func (i AcceleratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Accelerator] {
+	return pulumix.Output[[]*Accelerator]{
+		OutputState: i.ToAcceleratorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AcceleratorMapInput is an input type that accepts AcceleratorMap and AcceleratorMapOutput values.
@@ -275,6 +290,12 @@ func (i AcceleratorMap) ToAcceleratorMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorMapOutput)
 }
 
+func (i AcceleratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Accelerator] {
+	return pulumix.Output[map[string]*Accelerator]{
+		OutputState: i.ToAcceleratorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AcceleratorOutput struct{ *pulumi.OutputState }
 
 func (AcceleratorOutput) ElementType() reflect.Type {
@@ -287,6 +308,12 @@ func (o AcceleratorOutput) ToAcceleratorOutput() AcceleratorOutput {
 
 func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) AcceleratorOutput {
 	return o
+}
+
+func (o AcceleratorOutput) ToOutput(ctx context.Context) pulumix.Output[*Accelerator] {
+	return pulumix.Output[*Accelerator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attributes of the accelerator. Fields documented below.
@@ -360,6 +387,12 @@ func (o AcceleratorArrayOutput) ToAcceleratorArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o AcceleratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Accelerator] {
+	return pulumix.Output[[]*Accelerator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AcceleratorArrayOutput) Index(i pulumi.IntInput) AcceleratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Accelerator {
 		return vs[0].([]*Accelerator)[vs[1].(int)]
@@ -378,6 +411,12 @@ func (o AcceleratorMapOutput) ToAcceleratorMapOutput() AcceleratorMapOutput {
 
 func (o AcceleratorMapOutput) ToAcceleratorMapOutputWithContext(ctx context.Context) AcceleratorMapOutput {
 	return o
+}
+
+func (o AcceleratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Accelerator] {
+	return pulumix.Output[map[string]*Accelerator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AcceleratorMapOutput) MapIndex(k pulumi.StringInput) AcceleratorOutput {

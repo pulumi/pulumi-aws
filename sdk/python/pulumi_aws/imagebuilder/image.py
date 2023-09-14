@@ -26,6 +26,8 @@ class ImageArgs:
         """
         The set of arguments for constructing a Image resource.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
@@ -52,6 +54,8 @@ class ImageArgs:
     def infrastructure_configuration_arn(self) -> pulumi.Input[str]:
         """
         Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
@@ -160,6 +164,8 @@ class _ImageState:
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the AMI.
         :param pulumi.Input[str] os_version: Operating System version of the image.
         :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]] output_resources: List of objects with resources created by the image.
@@ -288,6 +294,8 @@ class _ImageState:
     def infrastructure_configuration_arn(self) -> Optional[pulumi.Input[str]]:
         """
         Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
@@ -410,7 +418,7 @@ class Image(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
@@ -424,6 +432,8 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -449,7 +459,7 @@ class Image(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
@@ -543,6 +553,8 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the AMI.
         :param pulumi.Input[str] os_version: Operating System version of the image.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageOutputResourceArgs']]]] output_resources: List of objects with resources created by the image.
@@ -633,6 +645,8 @@ class Image(pulumi.CustomResource):
     def infrastructure_configuration_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 

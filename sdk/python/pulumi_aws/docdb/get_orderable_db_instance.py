@@ -155,14 +155,14 @@ def get_orderable_db_instance(engine: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:docdb/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult).value
 
     return AwaitableGetOrderableDbInstanceResult(
-        availability_zones=__ret__.availability_zones,
-        engine=__ret__.engine,
-        engine_version=__ret__.engine_version,
-        id=__ret__.id,
-        instance_class=__ret__.instance_class,
-        license_model=__ret__.license_model,
-        preferred_instance_classes=__ret__.preferred_instance_classes,
-        vpc=__ret__.vpc)
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        engine=pulumi.get(__ret__, 'engine'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_class=pulumi.get(__ret__, 'instance_class'),
+        license_model=pulumi.get(__ret__, 'license_model'),
+        preferred_instance_classes=pulumi.get(__ret__, 'preferred_instance_classes'),
+        vpc=pulumi.get(__ret__, 'vpc'))
 
 
 @_utilities.lift_output_func(get_orderable_db_instance)

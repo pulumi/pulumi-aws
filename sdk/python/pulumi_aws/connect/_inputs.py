@@ -29,7 +29,6 @@ __all__ = [
     'QuickConnectQuickConnectConfigUserConfigArgs',
     'RoutingProfileMediaConcurrencyArgs',
     'RoutingProfileQueueConfigArgs',
-    'RoutingProfileQueueConfigsAssociatedArgs',
     'UserHierarchyGroupHierarchyPathArgs',
     'UserHierarchyGroupHierarchyPathLevelFifeArgs',
     'UserHierarchyGroupHierarchyPathLevelFourArgs',
@@ -917,109 +916,6 @@ class RoutingProfileQueueConfigArgs:
 
 
 @pulumi.input_type
-class RoutingProfileQueueConfigsAssociatedArgs:
-    def __init__(__self__, *,
-                 channel: Optional[pulumi.Input[str]] = None,
-                 delay: Optional[pulumi.Input[int]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
-                 queue_arn: Optional[pulumi.Input[str]] = None,
-                 queue_id: Optional[pulumi.Input[str]] = None,
-                 queue_name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param pulumi.Input[int] delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        :param pulumi.Input[int] priority: Specifies the order in which contacts are to be handled for the queue.
-        :param pulumi.Input[str] queue_arn: ARN for the queue.
-        :param pulumi.Input[str] queue_id: Specifies the identifier for the queue.
-        :param pulumi.Input[str] queue_name: Name for the queue.
-        """
-        if channel is not None:
-            pulumi.set(__self__, "channel", channel)
-        if delay is not None:
-            pulumi.set(__self__, "delay", delay)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
-        if queue_arn is not None:
-            pulumi.set(__self__, "queue_arn", queue_arn)
-        if queue_id is not None:
-            pulumi.set(__self__, "queue_id", queue_id)
-        if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
-
-    @property
-    @pulumi.getter
-    def channel(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-        """
-        return pulumi.get(self, "channel")
-
-    @channel.setter
-    def channel(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "channel", value)
-
-    @property
-    @pulumi.getter
-    def delay(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        """
-        return pulumi.get(self, "delay")
-
-    @delay.setter
-    def delay(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "delay", value)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the order in which contacts are to be handled for the queue.
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter(name="queueArn")
-    def queue_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN for the queue.
-        """
-        return pulumi.get(self, "queue_arn")
-
-    @queue_arn.setter
-    def queue_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "queue_arn", value)
-
-    @property
-    @pulumi.getter(name="queueId")
-    def queue_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the identifier for the queue.
-        """
-        return pulumi.get(self, "queue_id")
-
-    @queue_id.setter
-    def queue_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "queue_id", value)
-
-    @property
-    @pulumi.getter(name="queueName")
-    def queue_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for the queue.
-        """
-        return pulumi.get(self, "queue_name")
-
-    @queue_name.setter
-    def queue_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "queue_name", value)
-
-
-@pulumi.input_type
 class UserHierarchyGroupHierarchyPathArgs:
     def __init__(__self__, *,
                  level_fives: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]] = None,
@@ -1391,6 +1287,8 @@ class UserHierarchyStructureHierarchyStructureArgs:
                  level_two: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']] = None):
         """
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs'] level_five: A block that defines the details of level five. The level block is documented below.
+               
+               Each level block supports the following arguments:
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs'] level_four: A block that defines the details of level four. The level block is documented below.
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs'] level_one: A block that defines the details of level one. The level block is documented below.
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_three: A block that defines the details of level three. The level block is documented below.
@@ -1412,6 +1310,8 @@ class UserHierarchyStructureHierarchyStructureArgs:
     def level_five(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]:
         """
         A block that defines the details of level five. The level block is documented below.
+
+        Each level block supports the following arguments:
         """
         return pulumi.get(self, "level_five")
 

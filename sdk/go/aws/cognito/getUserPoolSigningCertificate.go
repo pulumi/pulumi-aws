@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the signing certificate for a Cognito IdP user pool.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigningCertificateArgs, opts ...pulumi.InvokeOption) (*GetUserPoolSigningCertificateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolSigningCertificateResult
 	err := ctx.Invoke("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, &rv, opts...)
 	if err != nil {
@@ -97,6 +100,12 @@ func (o GetUserPoolSigningCertificateResultOutput) ToGetUserPoolSigningCertifica
 
 func (o GetUserPoolSigningCertificateResultOutput) ToGetUserPoolSigningCertificateResultOutputWithContext(ctx context.Context) GetUserPoolSigningCertificateResultOutput {
 	return o
+}
+
+func (o GetUserPoolSigningCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserPoolSigningCertificateResult] {
+	return pulumix.Output[GetUserPoolSigningCertificateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Certificate string

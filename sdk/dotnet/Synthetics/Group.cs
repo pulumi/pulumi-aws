@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Import
     /// 
-    /// CloudWatch Synthetics Group can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:synthetics/group:Group example example
@@ -53,6 +53,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Name of the group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -117,6 +119,8 @@ namespace Pulumi.Aws.Synthetics
     {
         /// <summary>
         /// Name of the group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -155,6 +159,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Name of the group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

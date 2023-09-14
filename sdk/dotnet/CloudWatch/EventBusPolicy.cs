@@ -223,7 +223,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// EventBridge permissions can be imported using the `event_bus_name`, e.g.,
+    /// Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus

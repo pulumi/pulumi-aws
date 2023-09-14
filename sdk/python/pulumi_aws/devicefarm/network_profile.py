@@ -510,7 +510,7 @@ class NetworkProfile(pulumi.CustomResource):
 
         ## Import
 
-        DeviceFarm Network Profiles can be imported by their arn
+        Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 
         ```sh
          $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
@@ -555,7 +555,7 @@ class NetworkProfile(pulumi.CustomResource):
 
         ## Import
 
-        DeviceFarm Network Profiles can be imported by their arn
+        Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 
         ```sh
          $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1

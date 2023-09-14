@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type PolicyStepScalingPolicyConfiguration struct {
 	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
@@ -20,6 +24,40 @@ type PolicyStepScalingPolicyConfiguration struct {
 	// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+	// 			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+	// 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("1"),
+	// 						MetricIntervalUpperBound: pulumi.String("2"),
+	// 						ScalingAdjustment:        -1,
+	// 					},
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("2"),
+	// 						MetricIntervalUpperBound: pulumi.String("3"),
+	// 						ScalingAdjustment:        pulumi.Int(1),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	StepAdjustments []PolicyStepScalingPolicyConfigurationStepAdjustment `pulumi:"stepAdjustments"`
 }
 
@@ -44,6 +82,40 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
 	MinAdjustmentMagnitude pulumi.IntPtrInput `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+	// 			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+	// 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("1"),
+	// 						MetricIntervalUpperBound: pulumi.String("2"),
+	// 						ScalingAdjustment:        -1,
+	// 					},
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("2"),
+	// 						MetricIntervalUpperBound: pulumi.String("3"),
+	// 						ScalingAdjustment:        pulumi.Int(1),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	StepAdjustments PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput `pulumi:"stepAdjustments"`
 }
 
@@ -57,6 +129,12 @@ func (i PolicyStepScalingPolicyConfigurationArgs) ToPolicyStepScalingPolicyConfi
 
 func (i PolicyStepScalingPolicyConfigurationArgs) ToPolicyStepScalingPolicyConfigurationOutputWithContext(ctx context.Context) PolicyStepScalingPolicyConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepScalingPolicyConfigurationOutput)
+}
+
+func (i PolicyStepScalingPolicyConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyStepScalingPolicyConfiguration] {
+	return pulumix.Output[PolicyStepScalingPolicyConfiguration]{
+		OutputState: i.ToPolicyStepScalingPolicyConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicyStepScalingPolicyConfigurationArgs) ToPolicyStepScalingPolicyConfigurationPtrOutput() PolicyStepScalingPolicyConfigurationPtrOutput {
@@ -100,6 +178,12 @@ func (i *policyStepScalingPolicyConfigurationPtrType) ToPolicyStepScalingPolicyC
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepScalingPolicyConfigurationPtrOutput)
 }
 
+func (i *policyStepScalingPolicyConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyStepScalingPolicyConfiguration] {
+	return pulumix.Output[*PolicyStepScalingPolicyConfiguration]{
+		OutputState: i.ToPolicyStepScalingPolicyConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStepScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PolicyStepScalingPolicyConfigurationOutput) ElementType() reflect.Type {
@@ -124,6 +208,12 @@ func (o PolicyStepScalingPolicyConfigurationOutput) ToPolicyStepScalingPolicyCon
 	}).(PolicyStepScalingPolicyConfigurationPtrOutput)
 }
 
+func (o PolicyStepScalingPolicyConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStepScalingPolicyConfiguration] {
+	return pulumix.Output[PolicyStepScalingPolicyConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 func (o PolicyStepScalingPolicyConfigurationOutput) AdjustmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) *string { return v.AdjustmentType }).(pulumi.StringPtrOutput)
@@ -145,6 +235,43 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 }
 
 // Set of adjustments that manage scaling. These have the following structure:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+//				StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+//					StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("1"),
+//							MetricIntervalUpperBound: pulumi.String("2"),
+//							ScalingAdjustment:        -1,
+//						},
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("2"),
+//							MetricIntervalUpperBound: pulumi.String("3"),
+//							ScalingAdjustment:        pulumi.Int(1),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o PolicyStepScalingPolicyConfigurationOutput) StepAdjustments() PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
 		return v.StepAdjustments
@@ -163,6 +290,12 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) ToPolicyStepScalingPolicy
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) ToPolicyStepScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyStepScalingPolicyConfigurationPtrOutput {
 	return o
+}
+
+func (o PolicyStepScalingPolicyConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStepScalingPolicyConfiguration] {
+	return pulumix.Output[*PolicyStepScalingPolicyConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) Elem() PolicyStepScalingPolicyConfigurationOutput {
@@ -216,6 +349,43 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 }
 
 // Set of adjustments that manage scaling. These have the following structure:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+//				StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+//					StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("1"),
+//							MetricIntervalUpperBound: pulumi.String("2"),
+//							ScalingAdjustment:        -1,
+//						},
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("2"),
+//							MetricIntervalUpperBound: pulumi.String("3"),
+//							ScalingAdjustment:        pulumi.Int(1),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
 		if v == nil {
@@ -266,6 +436,12 @@ func (i PolicyStepScalingPolicyConfigurationStepAdjustmentArgs) ToPolicyStepScal
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepScalingPolicyConfigurationStepAdjustmentOutput)
 }
 
+func (i PolicyStepScalingPolicyConfigurationStepAdjustmentArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyStepScalingPolicyConfigurationStepAdjustment] {
+	return pulumix.Output[PolicyStepScalingPolicyConfigurationStepAdjustment]{
+		OutputState: i.ToPolicyStepScalingPolicyConfigurationStepAdjustmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput is an input type that accepts PolicyStepScalingPolicyConfigurationStepAdjustmentArray and PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput values.
 // You can construct a concrete instance of `PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput` via:
 //
@@ -291,6 +467,12 @@ func (i PolicyStepScalingPolicyConfigurationStepAdjustmentArray) ToPolicyStepSca
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput)
 }
 
+func (i PolicyStepScalingPolicyConfigurationStepAdjustmentArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyStepScalingPolicyConfigurationStepAdjustment] {
+	return pulumix.Output[[]PolicyStepScalingPolicyConfigurationStepAdjustment]{
+		OutputState: i.ToPolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStepScalingPolicyConfigurationStepAdjustmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ElementType() reflect.Type {
@@ -303,6 +485,12 @@ func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ToPolicyStepSc
 
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ToPolicyStepScalingPolicyConfigurationStepAdjustmentOutputWithContext(ctx context.Context) PolicyStepScalingPolicyConfigurationStepAdjustmentOutput {
 	return o
+}
+
+func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStepScalingPolicyConfigurationStepAdjustment] {
+	return pulumix.Output[PolicyStepScalingPolicyConfigurationStepAdjustment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
@@ -332,6 +520,12 @@ func (o PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput) ToPolicyS
 
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput) ToPolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutputWithContext(ctx context.Context) PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
 	return o
+}
+
+func (o PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyStepScalingPolicyConfigurationStepAdjustment] {
+	return pulumix.Output[[]PolicyStepScalingPolicyConfigurationStepAdjustment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput) Index(i pulumi.IntInput) PolicyStepScalingPolicyConfigurationStepAdjustmentOutput {
@@ -393,6 +587,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationArgs) ToPolicyTargetTracki
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfiguration] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfiguration]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingScalingPolicyConfigurationArgs) ToPolicyTargetTrackingScalingPolicyConfigurationPtrOutput() PolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return i.ToPolicyTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(context.Background())
 }
@@ -434,6 +634,12 @@ func (i *policyTargetTrackingScalingPolicyConfigurationPtrType) ToPolicyTargetTr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
 
+func (i *policyTargetTrackingScalingPolicyConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfiguration] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfiguration]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationOutput) ElementType() reflect.Type {
@@ -456,6 +662,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationOutput) ToPolicyTargetTrac
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfiguration) *PolicyTargetTrackingScalingPolicyConfiguration {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationPtrOutput)
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfiguration] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
@@ -504,6 +716,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ToPolicyTargetT
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ToPolicyTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfiguration] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationOutput {
@@ -629,6 +847,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput {
 	return i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -670,6 +894,12 @@ func (i *policyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
+func (i *policyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -692,6 +922,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput)
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
@@ -748,6 +984,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput {
@@ -857,6 +1099,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArray and PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput` via:
 //
@@ -882,6 +1130,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput) ElementType() reflect.Type {
@@ -894,6 +1148,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the policy. Must be between 1 and 255 characters in length.
@@ -922,6 +1182,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput) Index(i pulumi.IntInput) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput {
@@ -979,6 +1245,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrayInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArray and PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrayOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrayInput` via:
 //
@@ -1004,6 +1276,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrayOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutput) ElementType() reflect.Type {
@@ -1016,6 +1294,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
@@ -1067,6 +1351,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return o
 }
 
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrayOutput) Index(i pulumi.IntInput) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric {
 		return vs[0].([]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric)[vs[1].(int)]
@@ -1114,6 +1404,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput {
 	return i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutputWithContext(context.Background())
 }
@@ -1155,6 +1451,12 @@ func (i *policyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput)
 }
 
+func (i *policyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) ElementType() reflect.Type {
@@ -1177,6 +1479,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat) *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput)
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
@@ -1212,6 +1520,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatOutput {
@@ -1295,6 +1609,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput {
 	return i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutputWithContext(context.Background())
 }
@@ -1336,6 +1656,12 @@ func (i *policyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput)
 }
 
+func (i *policyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) ElementType() reflect.Type {
@@ -1358,6 +1684,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput)
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
@@ -1393,6 +1725,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput {
@@ -1472,6 +1810,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray and PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayInput` via:
 //
@@ -1497,6 +1841,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) ElementType() reflect.Type {
@@ -1509,6 +1859,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the policy. Must be between 1 and 255 characters in length.
@@ -1537,6 +1893,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput) Index(i pulumi.IntInput) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput {
@@ -1582,6 +1944,12 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput)
 }
 
+func (i PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs) ToPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput() PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput {
 	return i.ToPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -1623,6 +1991,12 @@ func (i *policyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
+func (i *policyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -1645,6 +2019,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput)
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Metric type.
@@ -1673,6 +2053,12 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) ToPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput {
@@ -1742,6 +2128,12 @@ func (i ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTarget
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionScalableTargetActionOutput)
 }
 
+func (i ScheduledActionScalableTargetActionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledActionScalableTargetAction] {
+	return pulumix.Output[ScheduledActionScalableTargetAction]{
+		OutputState: i.ToScheduledActionScalableTargetActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTargetActionPtrOutput() ScheduledActionScalableTargetActionPtrOutput {
 	return i.ToScheduledActionScalableTargetActionPtrOutputWithContext(context.Background())
 }
@@ -1783,6 +2175,12 @@ func (i *scheduledActionScalableTargetActionPtrType) ToScheduledActionScalableTa
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionScalableTargetActionPtrOutput)
 }
 
+func (i *scheduledActionScalableTargetActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledActionScalableTargetAction] {
+	return pulumix.Output[*ScheduledActionScalableTargetAction]{
+		OutputState: i.ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduledActionScalableTargetActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionScalableTargetActionOutput) ElementType() reflect.Type {
@@ -1807,6 +2205,12 @@ func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTarg
 	}).(ScheduledActionScalableTargetActionPtrOutput)
 }
 
+func (o ScheduledActionScalableTargetActionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledActionScalableTargetAction] {
+	return pulumix.Output[ScheduledActionScalableTargetAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 func (o ScheduledActionScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
@@ -1829,6 +2233,12 @@ func (o ScheduledActionScalableTargetActionPtrOutput) ToScheduledActionScalableT
 
 func (o ScheduledActionScalableTargetActionPtrOutput) ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionPtrOutput {
 	return o
+}
+
+func (o ScheduledActionScalableTargetActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledActionScalableTargetAction] {
+	return pulumix.Output[*ScheduledActionScalableTargetAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduledActionScalableTargetActionPtrOutput) Elem() ScheduledActionScalableTargetActionOutput {

@@ -11,7 +11,9 @@ import com.pulumi.aws.opensearch.outputs.GetDomainEbsOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainEncryptionAtRest;
 import com.pulumi.aws.opensearch.outputs.GetDomainLogPublishingOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainNodeToNodeEncryption;
+import com.pulumi.aws.opensearch.outputs.GetDomainOffPeakWindowOptions;
 import com.pulumi.aws.opensearch.outputs.GetDomainSnapshotOption;
+import com.pulumi.aws.opensearch.outputs.GetDomainSoftwareUpdateOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainVpcOption;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -19,6 +21,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainResult {
@@ -104,9 +108,13 @@ public final class GetDomainResult {
      */
     private String id;
     /**
-     * @return Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
+     * 
+     * @deprecated
+     * use &#39;dashboard_endpoint&#39; attribute instead
      * 
      */
+    @Deprecated /* use 'dashboard_endpoint' attribute instead */
     private String kibanaEndpoint;
     /**
      * @return Domain log publishing related options.
@@ -119,6 +127,11 @@ public final class GetDomainResult {
      */
     private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
     /**
+     * @return Off Peak update options
+     * 
+     */
+    private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
+    /**
      * @return Status of a configuration change in the domain.
      * 
      */
@@ -128,6 +141,11 @@ public final class GetDomainResult {
      * 
      */
     private List<GetDomainSnapshotOption> snapshotOptions;
+    /**
+     * @return Software update options for the domain
+     * 
+     */
+    private List<GetDomainSoftwareUpdateOption> softwareUpdateOptions;
     /**
      * @return Tags assigned to the domain.
      * 
@@ -256,9 +274,13 @@ public final class GetDomainResult {
         return this.id;
     }
     /**
-     * @return Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
+     * 
+     * @deprecated
+     * use &#39;dashboard_endpoint&#39; attribute instead
      * 
      */
+    @Deprecated /* use 'dashboard_endpoint' attribute instead */
     public String kibanaEndpoint() {
         return this.kibanaEndpoint;
     }
@@ -277,6 +299,13 @@ public final class GetDomainResult {
         return this.nodeToNodeEncryptions;
     }
     /**
+     * @return Off Peak update options
+     * 
+     */
+    public Optional<GetDomainOffPeakWindowOptions> offPeakWindowOptions() {
+        return Optional.ofNullable(this.offPeakWindowOptions);
+    }
+    /**
      * @return Status of a configuration change in the domain.
      * 
      */
@@ -289,6 +318,13 @@ public final class GetDomainResult {
      */
     public List<GetDomainSnapshotOption> snapshotOptions() {
         return this.snapshotOptions;
+    }
+    /**
+     * @return Software update options for the domain
+     * 
+     */
+    public List<GetDomainSoftwareUpdateOption> softwareUpdateOptions() {
+        return this.softwareUpdateOptions;
     }
     /**
      * @return Tags assigned to the domain.
@@ -334,8 +370,10 @@ public final class GetDomainResult {
         private String kibanaEndpoint;
         private List<GetDomainLogPublishingOption> logPublishingOptions;
         private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
+        private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
         private Boolean processing;
         private List<GetDomainSnapshotOption> snapshotOptions;
+        private List<GetDomainSoftwareUpdateOption> softwareUpdateOptions;
         private Map<String,String> tags;
         private List<GetDomainVpcOption> vpcOptions;
         public Builder() {}
@@ -361,8 +399,10 @@ public final class GetDomainResult {
     	      this.kibanaEndpoint = defaults.kibanaEndpoint;
     	      this.logPublishingOptions = defaults.logPublishingOptions;
     	      this.nodeToNodeEncryptions = defaults.nodeToNodeEncryptions;
+    	      this.offPeakWindowOptions = defaults.offPeakWindowOptions;
     	      this.processing = defaults.processing;
     	      this.snapshotOptions = defaults.snapshotOptions;
+    	      this.softwareUpdateOptions = defaults.softwareUpdateOptions;
     	      this.tags = defaults.tags;
     	      this.vpcOptions = defaults.vpcOptions;
         }
@@ -492,6 +532,11 @@ public final class GetDomainResult {
             return nodeToNodeEncryptions(List.of(nodeToNodeEncryptions));
         }
         @CustomType.Setter
+        public Builder offPeakWindowOptions(@Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions) {
+            this.offPeakWindowOptions = offPeakWindowOptions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder processing(Boolean processing) {
             this.processing = Objects.requireNonNull(processing);
             return this;
@@ -503,6 +548,14 @@ public final class GetDomainResult {
         }
         public Builder snapshotOptions(GetDomainSnapshotOption... snapshotOptions) {
             return snapshotOptions(List.of(snapshotOptions));
+        }
+        @CustomType.Setter
+        public Builder softwareUpdateOptions(List<GetDomainSoftwareUpdateOption> softwareUpdateOptions) {
+            this.softwareUpdateOptions = Objects.requireNonNull(softwareUpdateOptions);
+            return this;
+        }
+        public Builder softwareUpdateOptions(GetDomainSoftwareUpdateOption... softwareUpdateOptions) {
+            return softwareUpdateOptions(List.of(softwareUpdateOptions));
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
@@ -539,8 +592,10 @@ public final class GetDomainResult {
             o.kibanaEndpoint = kibanaEndpoint;
             o.logPublishingOptions = logPublishingOptions;
             o.nodeToNodeEncryptions = nodeToNodeEncryptions;
+            o.offPeakWindowOptions = offPeakWindowOptions;
             o.processing = processing;
             o.snapshotOptions = snapshotOptions;
+            o.softwareUpdateOptions = softwareUpdateOptions;
             o.tags = tags;
             o.vpcOptions = vpcOptions;
             return o;

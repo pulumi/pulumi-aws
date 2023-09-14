@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM Server Certificate resource to upload Server Certificates.
@@ -33,7 +35,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,8 +106,8 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -154,15 +156,13 @@ import (
 //
 // ## Import
 //
-// IAM Server Certificates can be imported using the `name`, e.g.,
+// Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
 //
 // ```
-//
-//	[1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
@@ -191,6 +191,8 @@ type ServerCertificate struct {
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -218,6 +220,7 @@ func NewServerCertificate(ctx *pulumi.Context,
 		"privateKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerCertificate
 	err := ctx.RegisterResource("aws:iam/serverCertificate:ServerCertificate", name, args, &resource, opts...)
 	if err != nil {
@@ -265,6 +268,8 @@ type serverCertificateState struct {
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -298,6 +303,8 @@ type ServerCertificateState struct {
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringPtrInput
 	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -331,6 +338,8 @@ type serverCertificateArgs struct {
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey string `pulumi:"privateKey"`
 	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -357,6 +366,8 @@ type ServerCertificateArgs struct {
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringInput
 	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
 	Tags pulumi.StringMapInput
 }
 
@@ -381,6 +392,12 @@ func (i *ServerCertificate) ToServerCertificateOutput() ServerCertificateOutput 
 
 func (i *ServerCertificate) ToServerCertificateOutputWithContext(ctx context.Context) ServerCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateOutput)
+}
+
+func (i *ServerCertificate) ToOutput(ctx context.Context) pulumix.Output[*ServerCertificate] {
+	return pulumix.Output[*ServerCertificate]{
+		OutputState: i.ToServerCertificateOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerCertificateArrayInput is an input type that accepts ServerCertificateArray and ServerCertificateArrayOutput values.
@@ -408,6 +425,12 @@ func (i ServerCertificateArray) ToServerCertificateArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateArrayOutput)
 }
 
+func (i ServerCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerCertificate] {
+	return pulumix.Output[[]*ServerCertificate]{
+		OutputState: i.ToServerCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerCertificateMapInput is an input type that accepts ServerCertificateMap and ServerCertificateMapOutput values.
 // You can construct a concrete instance of `ServerCertificateMapInput` via:
 //
@@ -433,6 +456,12 @@ func (i ServerCertificateMap) ToServerCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateMapOutput)
 }
 
+func (i ServerCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerCertificate] {
+	return pulumix.Output[map[string]*ServerCertificate]{
+		OutputState: i.ToServerCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateOutput) ElementType() reflect.Type {
@@ -445,6 +474,12 @@ func (o ServerCertificateOutput) ToServerCertificateOutput() ServerCertificateOu
 
 func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx context.Context) ServerCertificateOutput {
 	return o
+}
+
+func (o ServerCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerCertificate] {
+	return pulumix.Output[*ServerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the server certificate.
@@ -496,6 +531,8 @@ func (o ServerCertificateOutput) PrivateKey() pulumi.StringOutput {
 }
 
 // Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
 func (o ServerCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -524,6 +561,12 @@ func (o ServerCertificateArrayOutput) ToServerCertificateArrayOutputWithContext(
 	return o
 }
 
+func (o ServerCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerCertificate] {
+	return pulumix.Output[[]*ServerCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerCertificateArrayOutput) Index(i pulumi.IntInput) ServerCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerCertificate {
 		return vs[0].([]*ServerCertificate)[vs[1].(int)]
@@ -542,6 +585,12 @@ func (o ServerCertificateMapOutput) ToServerCertificateMapOutput() ServerCertifi
 
 func (o ServerCertificateMapOutput) ToServerCertificateMapOutputWithContext(ctx context.Context) ServerCertificateMapOutput {
 	return o
+}
+
+func (o ServerCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerCertificate] {
+	return pulumix.Output[map[string]*ServerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerCertificateMapOutput) MapIndex(k pulumi.StringInput) ServerCertificateOutput {

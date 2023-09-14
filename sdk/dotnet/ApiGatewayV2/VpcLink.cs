@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         {
     ///             data.Aws_security_group.Example.Id,
     ///         },
-    ///         SubnetIds = data.Aws_subnet_ids.Example.Ids,
+    ///         SubnetIds = data.Aws_subnets.Example.Ids,
     ///         Tags = 
     ///         {
     ///             { "Usage", "example" },
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,
+    /// Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee

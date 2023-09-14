@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Elasticsearch domains can be imported using the `domain_name`, e.g.,
+ * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
@@ -80,6 +80,8 @@ export class DomainSamlOptions extends pulumi.CustomResource {
 
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -121,6 +123,8 @@ export class DomainSamlOptions extends pulumi.CustomResource {
 export interface DomainSamlOptionsState {
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -135,6 +139,8 @@ export interface DomainSamlOptionsState {
 export interface DomainSamlOptionsArgs {
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName: pulumi.Input<string>;
     /**

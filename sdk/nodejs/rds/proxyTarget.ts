@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleProxyTarget = new aws.rds.ProxyTarget("exampleProxyTarget", {
- *     dbInstanceIdentifier: aws_db_instance.example.id,
+ *     dbInstanceIdentifier: aws_db_instance.example.identifier,
  *     dbProxyName: exampleProxy.name,
  *     targetGroupName: exampleProxyDefaultTargetGroup.name,
  * });
@@ -51,13 +51,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
+ * Instances:
+ *
+ * Provisioned Clusters:
+ *
+ * __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
+ *
+ * Instances:
  *
  * ```sh
  *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
  * ```
- *
- *  Provisioned Clusters
+ *  Provisioned Clusters:
  *
  * ```sh
  *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
@@ -93,6 +98,8 @@ export class ProxyTarget extends pulumi.CustomResource {
 
     /**
      * DB cluster identifier.
+     *
+     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -185,6 +192,8 @@ export class ProxyTarget extends pulumi.CustomResource {
 export interface ProxyTargetState {
     /**
      * DB cluster identifier.
+     *
+     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     dbClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -231,6 +240,8 @@ export interface ProxyTargetState {
 export interface ProxyTargetArgs {
     /**
      * DB cluster identifier.
+     *
+     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     dbClusterIdentifier?: pulumi.Input<string>;
     /**

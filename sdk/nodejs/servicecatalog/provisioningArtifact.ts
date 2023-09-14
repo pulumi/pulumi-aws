@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_provisioning_artifact` can be imported using the provisioning artifact ID and product ID separated by a colon, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
@@ -105,6 +105,8 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
     public readonly templatePhysicalId!: pulumi.Output<string | undefined>;
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
+     *
+     * The following arguments are optional:
      */
     public readonly templateUrl!: pulumi.Output<string | undefined>;
     /**
@@ -206,6 +208,8 @@ export interface ProvisioningArtifactState {
     templatePhysicalId?: pulumi.Input<string>;
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
+     *
+     * The following arguments are optional:
      */
     templateUrl?: pulumi.Input<string>;
     /**
@@ -252,6 +256,8 @@ export interface ProvisioningArtifactArgs {
     templatePhysicalId?: pulumi.Input<string>;
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
+     *
+     * The following arguments are optional:
      */
     templateUrl?: pulumi.Input<string>;
     /**

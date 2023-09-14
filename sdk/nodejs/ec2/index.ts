@@ -322,7 +322,8 @@ utilities.lazyLoad(exports, ["getSecurityGroups","getSecurityGroupsOutput"], () 
 
 export { GetSerialConsoleAccessResult } from "./getSerialConsoleAccess";
 export const getSerialConsoleAccess: typeof import("./getSerialConsoleAccess").getSerialConsoleAccess = null as any;
-utilities.lazyLoad(exports, ["getSerialConsoleAccess"], () => require("./getSerialConsoleAccess"));
+export const getSerialConsoleAccessOutput: typeof import("./getSerialConsoleAccess").getSerialConsoleAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getSerialConsoleAccess","getSerialConsoleAccessOutput"], () => require("./getSerialConsoleAccess"));
 
 export { GetSpotPriceArgs, GetSpotPriceResult, GetSpotPriceOutputArgs } from "./getSpotPrice";
 export const getSpotPrice: typeof import("./getSpotPrice").getSpotPrice = null as any;
@@ -333,11 +334,6 @@ export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet
 export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
 export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
-
-export { GetSubnetIdsArgs, GetSubnetIdsResult, GetSubnetIdsOutputArgs } from "./getSubnetIds";
-export const getSubnetIds: typeof import("./getSubnetIds").getSubnetIds = null as any;
-export const getSubnetIdsOutput: typeof import("./getSubnetIds").getSubnetIdsOutput = null as any;
-utilities.lazyLoad(exports, ["getSubnetIds","getSubnetIdsOutput"], () => require("./getSubnetIds"));
 
 export { GetSubnetsArgs, GetSubnetsResult, GetSubnetsOutputArgs } from "./getSubnets";
 export const getSubnets: typeof import("./getSubnets").getSubnets = null as any;
@@ -383,6 +379,21 @@ export { GetVpcIamPoolsArgs, GetVpcIamPoolsResult, GetVpcIamPoolsOutputArgs } fr
 export const getVpcIamPools: typeof import("./getVpcIamPools").getVpcIamPools = null as any;
 export const getVpcIamPoolsOutput: typeof import("./getVpcIamPools").getVpcIamPoolsOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcIamPools","getVpcIamPoolsOutput"], () => require("./getVpcIamPools"));
+
+export { GetVpcIpamPoolArgs, GetVpcIpamPoolResult, GetVpcIpamPoolOutputArgs } from "./getVpcIpamPool";
+export const getVpcIpamPool: typeof import("./getVpcIpamPool").getVpcIpamPool = null as any;
+export const getVpcIpamPoolOutput: typeof import("./getVpcIpamPool").getVpcIpamPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcIpamPool","getVpcIpamPoolOutput"], () => require("./getVpcIpamPool"));
+
+export { GetVpcIpamPoolCidrsArgs, GetVpcIpamPoolCidrsResult, GetVpcIpamPoolCidrsOutputArgs } from "./getVpcIpamPoolCidrs";
+export const getVpcIpamPoolCidrs: typeof import("./getVpcIpamPoolCidrs").getVpcIpamPoolCidrs = null as any;
+export const getVpcIpamPoolCidrsOutput: typeof import("./getVpcIpamPoolCidrs").getVpcIpamPoolCidrsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcIpamPoolCidrs","getVpcIpamPoolCidrsOutput"], () => require("./getVpcIpamPoolCidrs"));
+
+export { GetVpcIpamPoolsArgs, GetVpcIpamPoolsResult, GetVpcIpamPoolsOutputArgs } from "./getVpcIpamPools";
+export const getVpcIpamPools: typeof import("./getVpcIpamPools").getVpcIpamPools = null as any;
+export const getVpcIpamPoolsOutput: typeof import("./getVpcIpamPools").getVpcIpamPoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcIpamPools","getVpcIpamPoolsOutput"], () => require("./getVpcIpamPools"));
 
 export { GetVpcPeeringConnectionArgs, GetVpcPeeringConnectionResult, GetVpcPeeringConnectionOutputArgs } from "./getVpcPeeringConnection";
 export const getVpcPeeringConnection: typeof import("./getVpcPeeringConnection").getVpcPeeringConnection = null as any;
@@ -613,11 +624,6 @@ export { TrafficMirrorTargetArgs, TrafficMirrorTargetState } from "./trafficMirr
 export type TrafficMirrorTarget = import("./trafficMirrorTarget").TrafficMirrorTarget;
 export const TrafficMirrorTarget: typeof import("./trafficMirrorTarget").TrafficMirrorTarget = null as any;
 utilities.lazyLoad(exports, ["TrafficMirrorTarget"], () => require("./trafficMirrorTarget"));
-
-export { TransitGatewayPeeringAttachmentAccepterArgs, TransitGatewayPeeringAttachmentAccepterState } from "./transitGatewayPeeringAttachmentAccepter";
-export type TransitGatewayPeeringAttachmentAccepter = import("./transitGatewayPeeringAttachmentAccepter").TransitGatewayPeeringAttachmentAccepter;
-export const TransitGatewayPeeringAttachmentAccepter: typeof import("./transitGatewayPeeringAttachmentAccepter").TransitGatewayPeeringAttachmentAccepter = null as any;
-utilities.lazyLoad(exports, ["TransitGatewayPeeringAttachmentAccepter"], () => require("./transitGatewayPeeringAttachmentAccepter"));
 
 export { VolumeAttachmentArgs, VolumeAttachmentState } from "./volumeAttachment";
 export type VolumeAttachment = import("./volumeAttachment").VolumeAttachment;
@@ -904,8 +910,6 @@ const _module = {
                 return new TrafficMirrorSession(name, <any>undefined, { urn })
             case "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget":
                 return new TrafficMirrorTarget(name, <any>undefined, { urn })
-            case "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter":
-                return new TransitGatewayPeeringAttachmentAccepter(name, <any>undefined, { urn })
             case "aws:ec2/volumeAttachment:VolumeAttachment":
                 return new VolumeAttachment(name, <any>undefined, { urn })
             case "aws:ec2/vpc:Vpc":
@@ -1034,7 +1038,6 @@ pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorFilterRule", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorSession", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorTarget", _module)
-pulumi.runtime.registerResourceModule("aws", "ec2/transitGatewayPeeringAttachmentAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/volumeAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpc", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptions", _module)

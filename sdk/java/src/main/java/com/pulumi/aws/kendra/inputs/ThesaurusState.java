@@ -95,12 +95,16 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      * 
+     * The `source_s3_path` configuration block supports the following arguments:
+     * 
      */
     @Import(name="sourceS3Path")
     private @Nullable Output<ThesaurusSourceS3PathArgs> sourceS3Path;
 
     /**
      * @return The S3 path where your thesaurus file sits in S3. Detailed below.
+     * 
+     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Optional<Output<ThesaurusSourceS3PathArgs>> sourceS3Path() {
@@ -300,6 +304,8 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
          * 
+         * The `source_s3_path` configuration block supports the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -310,6 +316,8 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
+         * 
+         * The `source_s3_path` configuration block supports the following arguments:
          * 
          * @return builder
          * 

@@ -9,234 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
-    /// <summary>
-    /// Provides an AppSync GraphQL API.
-    /// 
-    /// ## Example Usage
-    /// ### API Key Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AuthenticationType = "API_KEY",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### AWS IAM Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AuthenticationType = "AWS_IAM",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### AWS Cognito User Pool Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AuthenticationType = "AMAZON_COGNITO_USER_POOLS",
-    ///         UserPoolConfig = new Aws.AppSync.Inputs.GraphQLApiUserPoolConfigArgs
-    ///         {
-    ///             AwsRegion = data.Aws_region.Current.Name,
-    ///             DefaultAction = "DENY",
-    ///             UserPoolId = aws_cognito_user_pool.Example.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### OpenID Connect Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AuthenticationType = "OPENID_CONNECT",
-    ///         OpenidConnectConfig = new Aws.AppSync.Inputs.GraphQLApiOpenidConnectConfigArgs
-    ///         {
-    ///             Issuer = "https://example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### AWS Lambda Authorizer Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AuthenticationType = "AWS_LAMBDA",
-    ///         LambdaAuthorizerConfig = new Aws.AppSync.Inputs.GraphQLApiLambdaAuthorizerConfigArgs
-    ///         {
-    ///             AuthorizerUri = "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-    ///         },
-    ///     });
-    /// 
-    ///     var appsyncLambdaAuthorizer = new Aws.Lambda.Permission("appsyncLambdaAuthorizer", new()
-    ///     {
-    ///         Action = "lambda:InvokeFunction",
-    ///         Function = "custom_lambda_authorizer",
-    ///         Principal = "appsync.amazonaws.com",
-    ///         SourceArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Multiple Authentication Providers
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AdditionalAuthenticationProviders = new[]
-    ///         {
-    ///             new Aws.AppSync.Inputs.GraphQLApiAdditionalAuthenticationProviderArgs
-    ///             {
-    ///                 AuthenticationType = "AWS_IAM",
-    ///             },
-    ///         },
-    ///         AuthenticationType = "API_KEY",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Schema
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AuthenticationType = "AWS_IAM",
-    ///         Schema = @"schema {
-    /// 	query: Query
-    /// }
-    /// type Query {
-    ///   test: Int
-    /// }
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Enabling Logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "appsync.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
-    ///     {
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
-    ///         Role = exampleRole.Name,
-    ///     });
-    /// 
-    ///     // ... other configuration ...
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
-    ///     {
-    ///         LogConfig = new Aws.AppSync.Inputs.GraphQLApiLogConfigArgs
-    ///         {
-    ///             CloudwatchLogsRoleArn = exampleRole.Arn,
-    ///             FieldLogLevel = "ERROR",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appsync/graphQLApi:GraphQLApi")]
     public partial class GraphQLApi : global::Pulumi.CustomResource
     {
@@ -311,6 +83,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        /// </summary>
+        [Output("visibility")]
+        public Output<string?> Visibility { get; private set; } = null!;
 
         /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.
@@ -431,6 +209,12 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }
 
         /// <summary>
+        /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        /// </summary>
+        [Input("visibility")]
+        public Input<string>? Visibility { get; set; }
+
+        /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.
         /// </summary>
         [Input("xrayEnabled")]
@@ -539,6 +323,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigGetArgs>? UserPoolConfig { get; set; }
+
+        /// <summary>
+        /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        /// </summary>
+        [Input("visibility")]
+        public Input<string>? Visibility { get; set; }
 
         /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.

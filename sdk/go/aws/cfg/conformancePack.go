@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Config Conformance Pack. More information about this collection of Config rules and remediation actions can be found in the
@@ -27,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +43,22 @@ import (
 //						ParameterValue: pulumi.String("90"),
 //					},
 //				},
-//				TemplateBody: pulumi.String("Parameters:\n  AccessKeysRotatedParameterMaxAccessKeyAge:\n    Type: String\nResources:\n  IAMPasswordPolicy:\n    Properties:\n      ConfigRuleName: IAMPasswordPolicy\n      Source:\n        Owner: AWS\n        SourceIdentifier: IAM_PASSWORD_POLICY\n    Type: AWS::Config::ConfigRule\n"),
+//				TemplateBody: pulumi.String(`Parameters:
+//	  AccessKeysRotatedParameterMaxAccessKeyAge:
+//	    Type: String
+//
+// Resources:
+//
+//	IAMPasswordPolicy:
+//	  Properties:
+//	    ConfigRuleName: IAMPasswordPolicy
+//	    Source:
+//	      Owner: AWS
+//	      SourceIdentifier: IAM_PASSWORD_POLICY
+//	  Type: AWS::Config::ConfigRule
+//
+// `),
+//
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				aws_config_configuration_recorder.Example,
 //			}))
@@ -62,8 +79,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,9 +92,19 @@ import (
 //				return err
 //			}
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket:  exampleBucketV2.ID(),
-//				Key:     pulumi.String("example-key"),
-//				Content: pulumi.String("Resources:\n  IAMPasswordPolicy:\n    Properties:\n      ConfigRuleName: IAMPasswordPolicy\n      Source:\n        Owner: AWS\n        SourceIdentifier: IAM_PASSWORD_POLICY\n    Type: AWS::Config::ConfigRule\n"),
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("example-key"),
+//				Content: pulumi.String(`Resources:
+//	  IAMPasswordPolicy:
+//	    Properties:
+//	      ConfigRuleName: IAMPasswordPolicy
+//	      Source:
+//	        Owner: AWS
+//	        SourceIdentifier: IAM_PASSWORD_POLICY
+//	    Type: AWS::Config::ConfigRule
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -102,7 +129,7 @@ import (
 //
 // ## Import
 //
-// Config Conformance Packs can be imported using the `name`, e.g.,
+// Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 //
 // ```sh
 //
@@ -135,6 +162,7 @@ func NewConformancePack(ctx *pulumi.Context,
 		args = &ConformancePackArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConformancePack
 	err := ctx.RegisterResource("aws:cfg/conformancePack:ConformancePack", name, args, &resource, opts...)
 	if err != nil {
@@ -248,6 +276,12 @@ func (i *ConformancePack) ToConformancePackOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackOutput)
 }
 
+func (i *ConformancePack) ToOutput(ctx context.Context) pulumix.Output[*ConformancePack] {
+	return pulumix.Output[*ConformancePack]{
+		OutputState: i.ToConformancePackOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConformancePackArrayInput is an input type that accepts ConformancePackArray and ConformancePackArrayOutput values.
 // You can construct a concrete instance of `ConformancePackArrayInput` via:
 //
@@ -271,6 +305,12 @@ func (i ConformancePackArray) ToConformancePackArrayOutput() ConformancePackArra
 
 func (i ConformancePackArray) ToConformancePackArrayOutputWithContext(ctx context.Context) ConformancePackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackArrayOutput)
+}
+
+func (i ConformancePackArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConformancePack] {
+	return pulumix.Output[[]*ConformancePack]{
+		OutputState: i.ToConformancePackArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConformancePackMapInput is an input type that accepts ConformancePackMap and ConformancePackMapOutput values.
@@ -298,6 +338,12 @@ func (i ConformancePackMap) ToConformancePackMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackMapOutput)
 }
 
+func (i ConformancePackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConformancePack] {
+	return pulumix.Output[map[string]*ConformancePack]{
+		OutputState: i.ToConformancePackMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConformancePackOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackOutput) ElementType() reflect.Type {
@@ -310,6 +356,12 @@ func (o ConformancePackOutput) ToConformancePackOutput() ConformancePackOutput {
 
 func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Context) ConformancePackOutput {
 	return o
+}
+
+func (o ConformancePackOutput) ToOutput(ctx context.Context) pulumix.Output[*ConformancePack] {
+	return pulumix.Output[*ConformancePack]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the conformance pack.
@@ -361,6 +413,12 @@ func (o ConformancePackArrayOutput) ToConformancePackArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ConformancePackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConformancePack] {
+	return pulumix.Output[[]*ConformancePack]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConformancePackArrayOutput) Index(i pulumi.IntInput) ConformancePackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConformancePack {
 		return vs[0].([]*ConformancePack)[vs[1].(int)]
@@ -379,6 +437,12 @@ func (o ConformancePackMapOutput) ToConformancePackMapOutput() ConformancePackMa
 
 func (o ConformancePackMapOutput) ToConformancePackMapOutputWithContext(ctx context.Context) ConformancePackMapOutput {
 	return o
+}
+
+func (o ConformancePackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConformancePack] {
+	return pulumix.Output[map[string]*ConformancePack]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConformancePackMapOutput) MapIndex(k pulumi.StringInput) ConformancePackOutput {

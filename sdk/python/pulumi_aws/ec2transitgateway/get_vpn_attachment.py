@@ -132,11 +132,11 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpnAttachment:getVpnAttachment', __args__, opts=opts, typ=GetVpnAttachmentResult).value
 
     return AwaitableGetVpnAttachmentResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        vpn_connection_id=__ret__.vpn_connection_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
 
 
 @_utilities.lift_output_func(get_vpn_attachment)

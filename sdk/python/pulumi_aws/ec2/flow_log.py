@@ -40,7 +40,7 @@ class FlowLogArgs:
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
-        :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
@@ -174,8 +174,11 @@ class FlowLogArgs:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
+        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
+
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -300,7 +303,7 @@ class _FlowLogState:
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
-        :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
@@ -451,8 +454,11 @@ class _FlowLogState:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
+        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
+
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -654,7 +660,7 @@ class FlowLog(pulumi.CustomResource):
 
         ## Import
 
-        Flow Logs can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Flow Logs using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
@@ -669,7 +675,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
-        :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
@@ -761,7 +767,7 @@ class FlowLog(pulumi.CustomResource):
 
         ## Import
 
-        Flow Logs can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Flow Logs using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
@@ -868,7 +874,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
-        :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
@@ -972,8 +978,11 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[str]:
         """
-        *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
+        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
+
         return pulumi.get(self, "log_group_name")
 
     @property

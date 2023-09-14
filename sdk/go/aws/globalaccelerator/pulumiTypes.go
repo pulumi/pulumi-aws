@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AcceleratorAttributes struct {
 	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
@@ -49,6 +53,12 @@ func (i AcceleratorAttributesArgs) ToAcceleratorAttributesOutput() AcceleratorAt
 
 func (i AcceleratorAttributesArgs) ToAcceleratorAttributesOutputWithContext(ctx context.Context) AcceleratorAttributesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorAttributesOutput)
+}
+
+func (i AcceleratorAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[AcceleratorAttributes] {
+	return pulumix.Output[AcceleratorAttributes]{
+		OutputState: i.ToAcceleratorAttributesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AcceleratorAttributesArgs) ToAcceleratorAttributesPtrOutput() AcceleratorAttributesPtrOutput {
@@ -92,6 +102,12 @@ func (i *acceleratorAttributesPtrType) ToAcceleratorAttributesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorAttributesPtrOutput)
 }
 
+func (i *acceleratorAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AcceleratorAttributes] {
+	return pulumix.Output[*AcceleratorAttributes]{
+		OutputState: i.ToAcceleratorAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AcceleratorAttributesOutput struct{ *pulumi.OutputState }
 
 func (AcceleratorAttributesOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o AcceleratorAttributesOutput) ToAcceleratorAttributesPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcceleratorAttributes) *AcceleratorAttributes {
 		return &v
 	}).(AcceleratorAttributesPtrOutput)
+}
+
+func (o AcceleratorAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[AcceleratorAttributes] {
+	return pulumix.Output[AcceleratorAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
@@ -143,6 +165,12 @@ func (o AcceleratorAttributesPtrOutput) ToAcceleratorAttributesPtrOutput() Accel
 
 func (o AcceleratorAttributesPtrOutput) ToAcceleratorAttributesPtrOutputWithContext(ctx context.Context) AcceleratorAttributesPtrOutput {
 	return o
+}
+
+func (o AcceleratorAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AcceleratorAttributes] {
+	return pulumix.Output[*AcceleratorAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AcceleratorAttributesPtrOutput) Elem() AcceleratorAttributesOutput {
@@ -222,6 +250,12 @@ func (i AcceleratorIpSetArgs) ToAcceleratorIpSetOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorIpSetOutput)
 }
 
+func (i AcceleratorIpSetArgs) ToOutput(ctx context.Context) pulumix.Output[AcceleratorIpSet] {
+	return pulumix.Output[AcceleratorIpSet]{
+		OutputState: i.ToAcceleratorIpSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AcceleratorIpSetArrayInput is an input type that accepts AcceleratorIpSetArray and AcceleratorIpSetArrayOutput values.
 // You can construct a concrete instance of `AcceleratorIpSetArrayInput` via:
 //
@@ -247,6 +281,12 @@ func (i AcceleratorIpSetArray) ToAcceleratorIpSetArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorIpSetArrayOutput)
 }
 
+func (i AcceleratorIpSetArray) ToOutput(ctx context.Context) pulumix.Output[[]AcceleratorIpSet] {
+	return pulumix.Output[[]AcceleratorIpSet]{
+		OutputState: i.ToAcceleratorIpSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AcceleratorIpSetOutput struct{ *pulumi.OutputState }
 
 func (AcceleratorIpSetOutput) ElementType() reflect.Type {
@@ -259,6 +299,12 @@ func (o AcceleratorIpSetOutput) ToAcceleratorIpSetOutput() AcceleratorIpSetOutpu
 
 func (o AcceleratorIpSetOutput) ToAcceleratorIpSetOutputWithContext(ctx context.Context) AcceleratorIpSetOutput {
 	return o
+}
+
+func (o AcceleratorIpSetOutput) ToOutput(ctx context.Context) pulumix.Output[AcceleratorIpSet] {
+	return pulumix.Output[AcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
@@ -285,10 +331,735 @@ func (o AcceleratorIpSetArrayOutput) ToAcceleratorIpSetArrayOutputWithContext(ct
 	return o
 }
 
+func (o AcceleratorIpSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AcceleratorIpSet] {
+	return pulumix.Output[[]AcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) AcceleratorIpSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AcceleratorIpSet {
 		return vs[0].([]AcceleratorIpSet)[vs[1].(int)]
 	}).(AcceleratorIpSetOutput)
+}
+
+type CustomRoutingAcceleratorAttributes struct {
+	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+	FlowLogsEnabled *bool `pulumi:"flowLogsEnabled"`
+	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsS3Bucket *string `pulumi:"flowLogsS3Bucket"`
+	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
+}
+
+// CustomRoutingAcceleratorAttributesInput is an input type that accepts CustomRoutingAcceleratorAttributesArgs and CustomRoutingAcceleratorAttributesOutput values.
+// You can construct a concrete instance of `CustomRoutingAcceleratorAttributesInput` via:
+//
+//	CustomRoutingAcceleratorAttributesArgs{...}
+type CustomRoutingAcceleratorAttributesInput interface {
+	pulumi.Input
+
+	ToCustomRoutingAcceleratorAttributesOutput() CustomRoutingAcceleratorAttributesOutput
+	ToCustomRoutingAcceleratorAttributesOutputWithContext(context.Context) CustomRoutingAcceleratorAttributesOutput
+}
+
+type CustomRoutingAcceleratorAttributesArgs struct {
+	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+	FlowLogsEnabled pulumi.BoolPtrInput `pulumi:"flowLogsEnabled"`
+	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsS3Bucket pulumi.StringPtrInput `pulumi:"flowLogsS3Bucket"`
+	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsS3Prefix pulumi.StringPtrInput `pulumi:"flowLogsS3Prefix"`
+}
+
+func (CustomRoutingAcceleratorAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingAcceleratorAttributes)(nil)).Elem()
+}
+
+func (i CustomRoutingAcceleratorAttributesArgs) ToCustomRoutingAcceleratorAttributesOutput() CustomRoutingAcceleratorAttributesOutput {
+	return i.ToCustomRoutingAcceleratorAttributesOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingAcceleratorAttributesArgs) ToCustomRoutingAcceleratorAttributesOutputWithContext(ctx context.Context) CustomRoutingAcceleratorAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorAttributesOutput)
+}
+
+func (i CustomRoutingAcceleratorAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingAcceleratorAttributes] {
+	return pulumix.Output[CustomRoutingAcceleratorAttributes]{
+		OutputState: i.ToCustomRoutingAcceleratorAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CustomRoutingAcceleratorAttributesArgs) ToCustomRoutingAcceleratorAttributesPtrOutput() CustomRoutingAcceleratorAttributesPtrOutput {
+	return i.ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingAcceleratorAttributesArgs) ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(ctx context.Context) CustomRoutingAcceleratorAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorAttributesOutput).ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(ctx)
+}
+
+// CustomRoutingAcceleratorAttributesPtrInput is an input type that accepts CustomRoutingAcceleratorAttributesArgs, CustomRoutingAcceleratorAttributesPtr and CustomRoutingAcceleratorAttributesPtrOutput values.
+// You can construct a concrete instance of `CustomRoutingAcceleratorAttributesPtrInput` via:
+//
+//	        CustomRoutingAcceleratorAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomRoutingAcceleratorAttributesPtrInput interface {
+	pulumi.Input
+
+	ToCustomRoutingAcceleratorAttributesPtrOutput() CustomRoutingAcceleratorAttributesPtrOutput
+	ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(context.Context) CustomRoutingAcceleratorAttributesPtrOutput
+}
+
+type customRoutingAcceleratorAttributesPtrType CustomRoutingAcceleratorAttributesArgs
+
+func CustomRoutingAcceleratorAttributesPtr(v *CustomRoutingAcceleratorAttributesArgs) CustomRoutingAcceleratorAttributesPtrInput {
+	return (*customRoutingAcceleratorAttributesPtrType)(v)
+}
+
+func (*customRoutingAcceleratorAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomRoutingAcceleratorAttributes)(nil)).Elem()
+}
+
+func (i *customRoutingAcceleratorAttributesPtrType) ToCustomRoutingAcceleratorAttributesPtrOutput() CustomRoutingAcceleratorAttributesPtrOutput {
+	return i.ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *customRoutingAcceleratorAttributesPtrType) ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(ctx context.Context) CustomRoutingAcceleratorAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorAttributesPtrOutput)
+}
+
+func (i *customRoutingAcceleratorAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomRoutingAcceleratorAttributes] {
+	return pulumix.Output[*CustomRoutingAcceleratorAttributes]{
+		OutputState: i.ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomRoutingAcceleratorAttributesOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingAcceleratorAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingAcceleratorAttributes)(nil)).Elem()
+}
+
+func (o CustomRoutingAcceleratorAttributesOutput) ToCustomRoutingAcceleratorAttributesOutput() CustomRoutingAcceleratorAttributesOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorAttributesOutput) ToCustomRoutingAcceleratorAttributesOutputWithContext(ctx context.Context) CustomRoutingAcceleratorAttributesOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorAttributesOutput) ToCustomRoutingAcceleratorAttributesPtrOutput() CustomRoutingAcceleratorAttributesPtrOutput {
+	return o.ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o CustomRoutingAcceleratorAttributesOutput) ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(ctx context.Context) CustomRoutingAcceleratorAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRoutingAcceleratorAttributes) *CustomRoutingAcceleratorAttributes {
+		return &v
+	}).(CustomRoutingAcceleratorAttributesPtrOutput)
+}
+
+func (o CustomRoutingAcceleratorAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingAcceleratorAttributes] {
+	return pulumix.Output[CustomRoutingAcceleratorAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+func (o CustomRoutingAcceleratorAttributesOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomRoutingAcceleratorAttributes) *bool { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+func (o CustomRoutingAcceleratorAttributesOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomRoutingAcceleratorAttributes) *string { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+func (o CustomRoutingAcceleratorAttributesOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomRoutingAcceleratorAttributes) *string { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
+}
+
+type CustomRoutingAcceleratorAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingAcceleratorAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomRoutingAcceleratorAttributes)(nil)).Elem()
+}
+
+func (o CustomRoutingAcceleratorAttributesPtrOutput) ToCustomRoutingAcceleratorAttributesPtrOutput() CustomRoutingAcceleratorAttributesPtrOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorAttributesPtrOutput) ToCustomRoutingAcceleratorAttributesPtrOutputWithContext(ctx context.Context) CustomRoutingAcceleratorAttributesPtrOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomRoutingAcceleratorAttributes] {
+	return pulumix.Output[*CustomRoutingAcceleratorAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomRoutingAcceleratorAttributesPtrOutput) Elem() CustomRoutingAcceleratorAttributesOutput {
+	return o.ApplyT(func(v *CustomRoutingAcceleratorAttributes) CustomRoutingAcceleratorAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret CustomRoutingAcceleratorAttributes
+		return ret
+	}).(CustomRoutingAcceleratorAttributesOutput)
+}
+
+// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomRoutingAcceleratorAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomRoutingAcceleratorAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsS3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomRoutingAcceleratorAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsS3Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomRoutingAcceleratorIpSet struct {
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// The type of IP addresses included in this IP set.
+	IpFamily *string `pulumi:"ipFamily"`
+}
+
+// CustomRoutingAcceleratorIpSetInput is an input type that accepts CustomRoutingAcceleratorIpSetArgs and CustomRoutingAcceleratorIpSetOutput values.
+// You can construct a concrete instance of `CustomRoutingAcceleratorIpSetInput` via:
+//
+//	CustomRoutingAcceleratorIpSetArgs{...}
+type CustomRoutingAcceleratorIpSetInput interface {
+	pulumi.Input
+
+	ToCustomRoutingAcceleratorIpSetOutput() CustomRoutingAcceleratorIpSetOutput
+	ToCustomRoutingAcceleratorIpSetOutputWithContext(context.Context) CustomRoutingAcceleratorIpSetOutput
+}
+
+type CustomRoutingAcceleratorIpSetArgs struct {
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The type of IP addresses included in this IP set.
+	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
+}
+
+func (CustomRoutingAcceleratorIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (i CustomRoutingAcceleratorIpSetArgs) ToCustomRoutingAcceleratorIpSetOutput() CustomRoutingAcceleratorIpSetOutput {
+	return i.ToCustomRoutingAcceleratorIpSetOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingAcceleratorIpSetArgs) ToCustomRoutingAcceleratorIpSetOutputWithContext(ctx context.Context) CustomRoutingAcceleratorIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorIpSetOutput)
+}
+
+func (i CustomRoutingAcceleratorIpSetArgs) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[CustomRoutingAcceleratorIpSet]{
+		OutputState: i.ToCustomRoutingAcceleratorIpSetOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CustomRoutingAcceleratorIpSetArrayInput is an input type that accepts CustomRoutingAcceleratorIpSetArray and CustomRoutingAcceleratorIpSetArrayOutput values.
+// You can construct a concrete instance of `CustomRoutingAcceleratorIpSetArrayInput` via:
+//
+//	CustomRoutingAcceleratorIpSetArray{ CustomRoutingAcceleratorIpSetArgs{...} }
+type CustomRoutingAcceleratorIpSetArrayInput interface {
+	pulumi.Input
+
+	ToCustomRoutingAcceleratorIpSetArrayOutput() CustomRoutingAcceleratorIpSetArrayOutput
+	ToCustomRoutingAcceleratorIpSetArrayOutputWithContext(context.Context) CustomRoutingAcceleratorIpSetArrayOutput
+}
+
+type CustomRoutingAcceleratorIpSetArray []CustomRoutingAcceleratorIpSetInput
+
+func (CustomRoutingAcceleratorIpSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (i CustomRoutingAcceleratorIpSetArray) ToCustomRoutingAcceleratorIpSetArrayOutput() CustomRoutingAcceleratorIpSetArrayOutput {
+	return i.ToCustomRoutingAcceleratorIpSetArrayOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingAcceleratorIpSetArray) ToCustomRoutingAcceleratorIpSetArrayOutputWithContext(ctx context.Context) CustomRoutingAcceleratorIpSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorIpSetArrayOutput)
+}
+
+func (i CustomRoutingAcceleratorIpSetArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[[]CustomRoutingAcceleratorIpSet]{
+		OutputState: i.ToCustomRoutingAcceleratorIpSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomRoutingAcceleratorIpSetOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingAcceleratorIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (o CustomRoutingAcceleratorIpSetOutput) ToCustomRoutingAcceleratorIpSetOutput() CustomRoutingAcceleratorIpSetOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorIpSetOutput) ToCustomRoutingAcceleratorIpSetOutputWithContext(ctx context.Context) CustomRoutingAcceleratorIpSetOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorIpSetOutput) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[CustomRoutingAcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+func (o CustomRoutingAcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomRoutingAcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The type of IP addresses included in this IP set.
+func (o CustomRoutingAcceleratorIpSetOutput) IpFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomRoutingAcceleratorIpSet) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
+}
+
+type CustomRoutingAcceleratorIpSetArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingAcceleratorIpSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (o CustomRoutingAcceleratorIpSetArrayOutput) ToCustomRoutingAcceleratorIpSetArrayOutput() CustomRoutingAcceleratorIpSetArrayOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorIpSetArrayOutput) ToCustomRoutingAcceleratorIpSetArrayOutputWithContext(ctx context.Context) CustomRoutingAcceleratorIpSetArrayOutput {
+	return o
+}
+
+func (o CustomRoutingAcceleratorIpSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[[]CustomRoutingAcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomRoutingAcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) CustomRoutingAcceleratorIpSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRoutingAcceleratorIpSet {
+		return vs[0].([]CustomRoutingAcceleratorIpSet)[vs[1].(int)]
+	}).(CustomRoutingAcceleratorIpSetOutput)
+}
+
+type CustomRoutingEndpointGroupDestinationConfiguration struct {
+	// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+	FromPort int `pulumi:"fromPort"`
+	// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+	Protocols []string `pulumi:"protocols"`
+	// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+	ToPort int `pulumi:"toPort"`
+}
+
+// CustomRoutingEndpointGroupDestinationConfigurationInput is an input type that accepts CustomRoutingEndpointGroupDestinationConfigurationArgs and CustomRoutingEndpointGroupDestinationConfigurationOutput values.
+// You can construct a concrete instance of `CustomRoutingEndpointGroupDestinationConfigurationInput` via:
+//
+//	CustomRoutingEndpointGroupDestinationConfigurationArgs{...}
+type CustomRoutingEndpointGroupDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToCustomRoutingEndpointGroupDestinationConfigurationOutput() CustomRoutingEndpointGroupDestinationConfigurationOutput
+	ToCustomRoutingEndpointGroupDestinationConfigurationOutputWithContext(context.Context) CustomRoutingEndpointGroupDestinationConfigurationOutput
+}
+
+type CustomRoutingEndpointGroupDestinationConfigurationArgs struct {
+	// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
+	// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (CustomRoutingEndpointGroupDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingEndpointGroupDestinationConfiguration)(nil)).Elem()
+}
+
+func (i CustomRoutingEndpointGroupDestinationConfigurationArgs) ToCustomRoutingEndpointGroupDestinationConfigurationOutput() CustomRoutingEndpointGroupDestinationConfigurationOutput {
+	return i.ToCustomRoutingEndpointGroupDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingEndpointGroupDestinationConfigurationArgs) ToCustomRoutingEndpointGroupDestinationConfigurationOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingEndpointGroupDestinationConfigurationOutput)
+}
+
+func (i CustomRoutingEndpointGroupDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingEndpointGroupDestinationConfiguration] {
+	return pulumix.Output[CustomRoutingEndpointGroupDestinationConfiguration]{
+		OutputState: i.ToCustomRoutingEndpointGroupDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CustomRoutingEndpointGroupDestinationConfigurationArrayInput is an input type that accepts CustomRoutingEndpointGroupDestinationConfigurationArray and CustomRoutingEndpointGroupDestinationConfigurationArrayOutput values.
+// You can construct a concrete instance of `CustomRoutingEndpointGroupDestinationConfigurationArrayInput` via:
+//
+//	CustomRoutingEndpointGroupDestinationConfigurationArray{ CustomRoutingEndpointGroupDestinationConfigurationArgs{...} }
+type CustomRoutingEndpointGroupDestinationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutput() CustomRoutingEndpointGroupDestinationConfigurationArrayOutput
+	ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutputWithContext(context.Context) CustomRoutingEndpointGroupDestinationConfigurationArrayOutput
+}
+
+type CustomRoutingEndpointGroupDestinationConfigurationArray []CustomRoutingEndpointGroupDestinationConfigurationInput
+
+func (CustomRoutingEndpointGroupDestinationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingEndpointGroupDestinationConfiguration)(nil)).Elem()
+}
+
+func (i CustomRoutingEndpointGroupDestinationConfigurationArray) ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutput() CustomRoutingEndpointGroupDestinationConfigurationArrayOutput {
+	return i.ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingEndpointGroupDestinationConfigurationArray) ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupDestinationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingEndpointGroupDestinationConfigurationArrayOutput)
+}
+
+func (i CustomRoutingEndpointGroupDestinationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingEndpointGroupDestinationConfiguration] {
+	return pulumix.Output[[]CustomRoutingEndpointGroupDestinationConfiguration]{
+		OutputState: i.ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomRoutingEndpointGroupDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingEndpointGroupDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingEndpointGroupDestinationConfiguration)(nil)).Elem()
+}
+
+func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) ToCustomRoutingEndpointGroupDestinationConfigurationOutput() CustomRoutingEndpointGroupDestinationConfigurationOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) ToCustomRoutingEndpointGroupDestinationConfigurationOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupDestinationConfigurationOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingEndpointGroupDestinationConfiguration] {
+	return pulumix.Output[CustomRoutingEndpointGroupDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v CustomRoutingEndpointGroupDestinationConfiguration) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomRoutingEndpointGroupDestinationConfiguration) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v CustomRoutingEndpointGroupDestinationConfiguration) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type CustomRoutingEndpointGroupDestinationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingEndpointGroupDestinationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingEndpointGroupDestinationConfiguration)(nil)).Elem()
+}
+
+func (o CustomRoutingEndpointGroupDestinationConfigurationArrayOutput) ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutput() CustomRoutingEndpointGroupDestinationConfigurationArrayOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupDestinationConfigurationArrayOutput) ToCustomRoutingEndpointGroupDestinationConfigurationArrayOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupDestinationConfigurationArrayOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupDestinationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingEndpointGroupDestinationConfiguration] {
+	return pulumix.Output[[]CustomRoutingEndpointGroupDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomRoutingEndpointGroupDestinationConfigurationArrayOutput) Index(i pulumi.IntInput) CustomRoutingEndpointGroupDestinationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRoutingEndpointGroupDestinationConfiguration {
+		return vs[0].([]CustomRoutingEndpointGroupDestinationConfiguration)[vs[1].(int)]
+	}).(CustomRoutingEndpointGroupDestinationConfigurationOutput)
+}
+
+type CustomRoutingEndpointGroupEndpointConfiguration struct {
+	// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+	EndpointId *string `pulumi:"endpointId"`
+}
+
+// CustomRoutingEndpointGroupEndpointConfigurationInput is an input type that accepts CustomRoutingEndpointGroupEndpointConfigurationArgs and CustomRoutingEndpointGroupEndpointConfigurationOutput values.
+// You can construct a concrete instance of `CustomRoutingEndpointGroupEndpointConfigurationInput` via:
+//
+//	CustomRoutingEndpointGroupEndpointConfigurationArgs{...}
+type CustomRoutingEndpointGroupEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToCustomRoutingEndpointGroupEndpointConfigurationOutput() CustomRoutingEndpointGroupEndpointConfigurationOutput
+	ToCustomRoutingEndpointGroupEndpointConfigurationOutputWithContext(context.Context) CustomRoutingEndpointGroupEndpointConfigurationOutput
+}
+
+type CustomRoutingEndpointGroupEndpointConfigurationArgs struct {
+	// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
+}
+
+func (CustomRoutingEndpointGroupEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingEndpointGroupEndpointConfiguration)(nil)).Elem()
+}
+
+func (i CustomRoutingEndpointGroupEndpointConfigurationArgs) ToCustomRoutingEndpointGroupEndpointConfigurationOutput() CustomRoutingEndpointGroupEndpointConfigurationOutput {
+	return i.ToCustomRoutingEndpointGroupEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingEndpointGroupEndpointConfigurationArgs) ToCustomRoutingEndpointGroupEndpointConfigurationOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingEndpointGroupEndpointConfigurationOutput)
+}
+
+func (i CustomRoutingEndpointGroupEndpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingEndpointGroupEndpointConfiguration] {
+	return pulumix.Output[CustomRoutingEndpointGroupEndpointConfiguration]{
+		OutputState: i.ToCustomRoutingEndpointGroupEndpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CustomRoutingEndpointGroupEndpointConfigurationArrayInput is an input type that accepts CustomRoutingEndpointGroupEndpointConfigurationArray and CustomRoutingEndpointGroupEndpointConfigurationArrayOutput values.
+// You can construct a concrete instance of `CustomRoutingEndpointGroupEndpointConfigurationArrayInput` via:
+//
+//	CustomRoutingEndpointGroupEndpointConfigurationArray{ CustomRoutingEndpointGroupEndpointConfigurationArgs{...} }
+type CustomRoutingEndpointGroupEndpointConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutput() CustomRoutingEndpointGroupEndpointConfigurationArrayOutput
+	ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutputWithContext(context.Context) CustomRoutingEndpointGroupEndpointConfigurationArrayOutput
+}
+
+type CustomRoutingEndpointGroupEndpointConfigurationArray []CustomRoutingEndpointGroupEndpointConfigurationInput
+
+func (CustomRoutingEndpointGroupEndpointConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingEndpointGroupEndpointConfiguration)(nil)).Elem()
+}
+
+func (i CustomRoutingEndpointGroupEndpointConfigurationArray) ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutput() CustomRoutingEndpointGroupEndpointConfigurationArrayOutput {
+	return i.ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingEndpointGroupEndpointConfigurationArray) ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupEndpointConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingEndpointGroupEndpointConfigurationArrayOutput)
+}
+
+func (i CustomRoutingEndpointGroupEndpointConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingEndpointGroupEndpointConfiguration] {
+	return pulumix.Output[[]CustomRoutingEndpointGroupEndpointConfiguration]{
+		OutputState: i.ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomRoutingEndpointGroupEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingEndpointGroupEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingEndpointGroupEndpointConfiguration)(nil)).Elem()
+}
+
+func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) ToCustomRoutingEndpointGroupEndpointConfigurationOutput() CustomRoutingEndpointGroupEndpointConfigurationOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) ToCustomRoutingEndpointGroupEndpointConfigurationOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupEndpointConfigurationOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingEndpointGroupEndpointConfiguration] {
+	return pulumix.Output[CustomRoutingEndpointGroupEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) EndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomRoutingEndpointGroupEndpointConfiguration) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
+}
+
+type CustomRoutingEndpointGroupEndpointConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingEndpointGroupEndpointConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingEndpointGroupEndpointConfiguration)(nil)).Elem()
+}
+
+func (o CustomRoutingEndpointGroupEndpointConfigurationArrayOutput) ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutput() CustomRoutingEndpointGroupEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupEndpointConfigurationArrayOutput) ToCustomRoutingEndpointGroupEndpointConfigurationArrayOutputWithContext(ctx context.Context) CustomRoutingEndpointGroupEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o CustomRoutingEndpointGroupEndpointConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingEndpointGroupEndpointConfiguration] {
+	return pulumix.Output[[]CustomRoutingEndpointGroupEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomRoutingEndpointGroupEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) CustomRoutingEndpointGroupEndpointConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRoutingEndpointGroupEndpointConfiguration {
+		return vs[0].([]CustomRoutingEndpointGroupEndpointConfiguration)[vs[1].(int)]
+	}).(CustomRoutingEndpointGroupEndpointConfigurationOutput)
+}
+
+type CustomRoutingListenerPortRange struct {
+	// The first port in the range of ports, inclusive.
+	FromPort *int `pulumi:"fromPort"`
+	// The last port in the range of ports, inclusive.
+	ToPort *int `pulumi:"toPort"`
+}
+
+// CustomRoutingListenerPortRangeInput is an input type that accepts CustomRoutingListenerPortRangeArgs and CustomRoutingListenerPortRangeOutput values.
+// You can construct a concrete instance of `CustomRoutingListenerPortRangeInput` via:
+//
+//	CustomRoutingListenerPortRangeArgs{...}
+type CustomRoutingListenerPortRangeInput interface {
+	pulumi.Input
+
+	ToCustomRoutingListenerPortRangeOutput() CustomRoutingListenerPortRangeOutput
+	ToCustomRoutingListenerPortRangeOutputWithContext(context.Context) CustomRoutingListenerPortRangeOutput
+}
+
+type CustomRoutingListenerPortRangeArgs struct {
+	// The first port in the range of ports, inclusive.
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The last port in the range of ports, inclusive.
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (CustomRoutingListenerPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingListenerPortRange)(nil)).Elem()
+}
+
+func (i CustomRoutingListenerPortRangeArgs) ToCustomRoutingListenerPortRangeOutput() CustomRoutingListenerPortRangeOutput {
+	return i.ToCustomRoutingListenerPortRangeOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingListenerPortRangeArgs) ToCustomRoutingListenerPortRangeOutputWithContext(ctx context.Context) CustomRoutingListenerPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingListenerPortRangeOutput)
+}
+
+func (i CustomRoutingListenerPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingListenerPortRange] {
+	return pulumix.Output[CustomRoutingListenerPortRange]{
+		OutputState: i.ToCustomRoutingListenerPortRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CustomRoutingListenerPortRangeArrayInput is an input type that accepts CustomRoutingListenerPortRangeArray and CustomRoutingListenerPortRangeArrayOutput values.
+// You can construct a concrete instance of `CustomRoutingListenerPortRangeArrayInput` via:
+//
+//	CustomRoutingListenerPortRangeArray{ CustomRoutingListenerPortRangeArgs{...} }
+type CustomRoutingListenerPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToCustomRoutingListenerPortRangeArrayOutput() CustomRoutingListenerPortRangeArrayOutput
+	ToCustomRoutingListenerPortRangeArrayOutputWithContext(context.Context) CustomRoutingListenerPortRangeArrayOutput
+}
+
+type CustomRoutingListenerPortRangeArray []CustomRoutingListenerPortRangeInput
+
+func (CustomRoutingListenerPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingListenerPortRange)(nil)).Elem()
+}
+
+func (i CustomRoutingListenerPortRangeArray) ToCustomRoutingListenerPortRangeArrayOutput() CustomRoutingListenerPortRangeArrayOutput {
+	return i.ToCustomRoutingListenerPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i CustomRoutingListenerPortRangeArray) ToCustomRoutingListenerPortRangeArrayOutputWithContext(ctx context.Context) CustomRoutingListenerPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingListenerPortRangeArrayOutput)
+}
+
+func (i CustomRoutingListenerPortRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingListenerPortRange] {
+	return pulumix.Output[[]CustomRoutingListenerPortRange]{
+		OutputState: i.ToCustomRoutingListenerPortRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CustomRoutingListenerPortRangeOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingListenerPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRoutingListenerPortRange)(nil)).Elem()
+}
+
+func (o CustomRoutingListenerPortRangeOutput) ToCustomRoutingListenerPortRangeOutput() CustomRoutingListenerPortRangeOutput {
+	return o
+}
+
+func (o CustomRoutingListenerPortRangeOutput) ToCustomRoutingListenerPortRangeOutputWithContext(ctx context.Context) CustomRoutingListenerPortRangeOutput {
+	return o
+}
+
+func (o CustomRoutingListenerPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomRoutingListenerPortRange] {
+	return pulumix.Output[CustomRoutingListenerPortRange]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The first port in the range of ports, inclusive.
+func (o CustomRoutingListenerPortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomRoutingListenerPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range of ports, inclusive.
+func (o CustomRoutingListenerPortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomRoutingListenerPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type CustomRoutingListenerPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomRoutingListenerPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRoutingListenerPortRange)(nil)).Elem()
+}
+
+func (o CustomRoutingListenerPortRangeArrayOutput) ToCustomRoutingListenerPortRangeArrayOutput() CustomRoutingListenerPortRangeArrayOutput {
+	return o
+}
+
+func (o CustomRoutingListenerPortRangeArrayOutput) ToCustomRoutingListenerPortRangeArrayOutputWithContext(ctx context.Context) CustomRoutingListenerPortRangeArrayOutput {
+	return o
+}
+
+func (o CustomRoutingListenerPortRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomRoutingListenerPortRange] {
+	return pulumix.Output[[]CustomRoutingListenerPortRange]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CustomRoutingListenerPortRangeArrayOutput) Index(i pulumi.IntInput) CustomRoutingListenerPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRoutingListenerPortRange {
+		return vs[0].([]CustomRoutingListenerPortRange)[vs[1].(int)]
+	}).(CustomRoutingListenerPortRangeOutput)
 }
 
 type EndpointGroupEndpointConfiguration struct {
@@ -334,6 +1105,12 @@ func (i EndpointGroupEndpointConfigurationArgs) ToEndpointGroupEndpointConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupEndpointConfigurationOutput)
 }
 
+func (i EndpointGroupEndpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupEndpointConfiguration] {
+	return pulumix.Output[EndpointGroupEndpointConfiguration]{
+		OutputState: i.ToEndpointGroupEndpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointGroupEndpointConfigurationArrayInput is an input type that accepts EndpointGroupEndpointConfigurationArray and EndpointGroupEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupEndpointConfigurationArrayInput` via:
 //
@@ -359,6 +1136,12 @@ func (i EndpointGroupEndpointConfigurationArray) ToEndpointGroupEndpointConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupEndpointConfigurationArrayOutput)
 }
 
+func (i EndpointGroupEndpointConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupEndpointConfiguration] {
+	return pulumix.Output[[]EndpointGroupEndpointConfiguration]{
+		OutputState: i.ToEndpointGroupEndpointConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointGroupEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EndpointGroupEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -371,6 +1154,12 @@ func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigu
 
 func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigurationOutputWithContext(ctx context.Context) EndpointGroupEndpointConfigurationOutput {
 	return o
+}
+
+func (o EndpointGroupEndpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupEndpointConfiguration] {
+	return pulumix.Output[EndpointGroupEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
@@ -401,6 +1190,12 @@ func (o EndpointGroupEndpointConfigurationArrayOutput) ToEndpointGroupEndpointCo
 
 func (o EndpointGroupEndpointConfigurationArrayOutput) ToEndpointGroupEndpointConfigurationArrayOutputWithContext(ctx context.Context) EndpointGroupEndpointConfigurationArrayOutput {
 	return o
+}
+
+func (o EndpointGroupEndpointConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupEndpointConfiguration] {
+	return pulumix.Output[[]EndpointGroupEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointGroupEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) EndpointGroupEndpointConfigurationOutput {
@@ -446,6 +1241,12 @@ func (i EndpointGroupPortOverrideArgs) ToEndpointGroupPortOverrideOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPortOverrideOutput)
 }
 
+func (i EndpointGroupPortOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupPortOverride] {
+	return pulumix.Output[EndpointGroupPortOverride]{
+		OutputState: i.ToEndpointGroupPortOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointGroupPortOverrideArrayInput is an input type that accepts EndpointGroupPortOverrideArray and EndpointGroupPortOverrideArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupPortOverrideArrayInput` via:
 //
@@ -471,6 +1272,12 @@ func (i EndpointGroupPortOverrideArray) ToEndpointGroupPortOverrideArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPortOverrideArrayOutput)
 }
 
+func (i EndpointGroupPortOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupPortOverride] {
+	return pulumix.Output[[]EndpointGroupPortOverride]{
+		OutputState: i.ToEndpointGroupPortOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointGroupPortOverrideOutput struct{ *pulumi.OutputState }
 
 func (EndpointGroupPortOverrideOutput) ElementType() reflect.Type {
@@ -483,6 +1290,12 @@ func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutput() End
 
 func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutputWithContext(ctx context.Context) EndpointGroupPortOverrideOutput {
 	return o
+}
+
+func (o EndpointGroupPortOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupPortOverride] {
+	return pulumix.Output[EndpointGroupPortOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
@@ -507,6 +1320,12 @@ func (o EndpointGroupPortOverrideArrayOutput) ToEndpointGroupPortOverrideArrayOu
 
 func (o EndpointGroupPortOverrideArrayOutput) ToEndpointGroupPortOverrideArrayOutputWithContext(ctx context.Context) EndpointGroupPortOverrideArrayOutput {
 	return o
+}
+
+func (o EndpointGroupPortOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupPortOverride] {
+	return pulumix.Output[[]EndpointGroupPortOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointGroupPortOverrideArrayOutput) Index(i pulumi.IntInput) EndpointGroupPortOverrideOutput {
@@ -552,6 +1371,12 @@ func (i ListenerPortRangeArgs) ToListenerPortRangeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPortRangeOutput)
 }
 
+func (i ListenerPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerPortRange] {
+	return pulumix.Output[ListenerPortRange]{
+		OutputState: i.ToListenerPortRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ListenerPortRangeArrayInput is an input type that accepts ListenerPortRangeArray and ListenerPortRangeArrayOutput values.
 // You can construct a concrete instance of `ListenerPortRangeArrayInput` via:
 //
@@ -577,6 +1402,12 @@ func (i ListenerPortRangeArray) ToListenerPortRangeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPortRangeArrayOutput)
 }
 
+func (i ListenerPortRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerPortRange] {
+	return pulumix.Output[[]ListenerPortRange]{
+		OutputState: i.ToListenerPortRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerPortRangeOutput struct{ *pulumi.OutputState }
 
 func (ListenerPortRangeOutput) ElementType() reflect.Type {
@@ -589,6 +1420,12 @@ func (o ListenerPortRangeOutput) ToListenerPortRangeOutput() ListenerPortRangeOu
 
 func (o ListenerPortRangeOutput) ToListenerPortRangeOutputWithContext(ctx context.Context) ListenerPortRangeOutput {
 	return o
+}
+
+func (o ListenerPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerPortRange] {
+	return pulumix.Output[ListenerPortRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The first port in the range of ports, inclusive.
@@ -613,6 +1450,12 @@ func (o ListenerPortRangeArrayOutput) ToListenerPortRangeArrayOutput() ListenerP
 
 func (o ListenerPortRangeArrayOutput) ToListenerPortRangeArrayOutputWithContext(ctx context.Context) ListenerPortRangeArrayOutput {
 	return o
+}
+
+func (o ListenerPortRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerPortRange] {
+	return pulumix.Output[[]ListenerPortRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerPortRangeArrayOutput) Index(i pulumi.IntInput) ListenerPortRangeOutput {
@@ -656,6 +1499,12 @@ func (i GetAcceleratorAttributeArgs) ToGetAcceleratorAttributeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorAttributeOutput)
 }
 
+func (i GetAcceleratorAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[GetAcceleratorAttribute] {
+	return pulumix.Output[GetAcceleratorAttribute]{
+		OutputState: i.ToGetAcceleratorAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAcceleratorAttributeArrayInput is an input type that accepts GetAcceleratorAttributeArray and GetAcceleratorAttributeArrayOutput values.
 // You can construct a concrete instance of `GetAcceleratorAttributeArrayInput` via:
 //
@@ -681,6 +1530,12 @@ func (i GetAcceleratorAttributeArray) ToGetAcceleratorAttributeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorAttributeArrayOutput)
 }
 
+func (i GetAcceleratorAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAcceleratorAttribute] {
+	return pulumix.Output[[]GetAcceleratorAttribute]{
+		OutputState: i.ToGetAcceleratorAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAcceleratorAttributeOutput struct{ *pulumi.OutputState }
 
 func (GetAcceleratorAttributeOutput) ElementType() reflect.Type {
@@ -693,6 +1548,12 @@ func (o GetAcceleratorAttributeOutput) ToGetAcceleratorAttributeOutput() GetAcce
 
 func (o GetAcceleratorAttributeOutput) ToGetAcceleratorAttributeOutputWithContext(ctx context.Context) GetAcceleratorAttributeOutput {
 	return o
+}
+
+func (o GetAcceleratorAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[GetAcceleratorAttribute] {
+	return pulumix.Output[GetAcceleratorAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAcceleratorAttributeOutput) FlowLogsEnabled() pulumi.BoolOutput {
@@ -719,6 +1580,12 @@ func (o GetAcceleratorAttributeArrayOutput) ToGetAcceleratorAttributeArrayOutput
 
 func (o GetAcceleratorAttributeArrayOutput) ToGetAcceleratorAttributeArrayOutputWithContext(ctx context.Context) GetAcceleratorAttributeArrayOutput {
 	return o
+}
+
+func (o GetAcceleratorAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAcceleratorAttribute] {
+	return pulumix.Output[[]GetAcceleratorAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAcceleratorAttributeArrayOutput) Index(i pulumi.IntInput) GetAcceleratorAttributeOutput {
@@ -760,6 +1627,12 @@ func (i GetAcceleratorIpSetArgs) ToGetAcceleratorIpSetOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorIpSetOutput)
 }
 
+func (i GetAcceleratorIpSetArgs) ToOutput(ctx context.Context) pulumix.Output[GetAcceleratorIpSet] {
+	return pulumix.Output[GetAcceleratorIpSet]{
+		OutputState: i.ToGetAcceleratorIpSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAcceleratorIpSetArrayInput is an input type that accepts GetAcceleratorIpSetArray and GetAcceleratorIpSetArrayOutput values.
 // You can construct a concrete instance of `GetAcceleratorIpSetArrayInput` via:
 //
@@ -785,6 +1658,12 @@ func (i GetAcceleratorIpSetArray) ToGetAcceleratorIpSetArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorIpSetArrayOutput)
 }
 
+func (i GetAcceleratorIpSetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAcceleratorIpSet] {
+	return pulumix.Output[[]GetAcceleratorIpSet]{
+		OutputState: i.ToGetAcceleratorIpSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAcceleratorIpSetOutput struct{ *pulumi.OutputState }
 
 func (GetAcceleratorIpSetOutput) ElementType() reflect.Type {
@@ -797,6 +1676,12 @@ func (o GetAcceleratorIpSetOutput) ToGetAcceleratorIpSetOutput() GetAcceleratorI
 
 func (o GetAcceleratorIpSetOutput) ToGetAcceleratorIpSetOutputWithContext(ctx context.Context) GetAcceleratorIpSetOutput {
 	return o
+}
+
+func (o GetAcceleratorIpSetOutput) ToOutput(ctx context.Context) pulumix.Output[GetAcceleratorIpSet] {
+	return pulumix.Output[GetAcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -821,10 +1706,270 @@ func (o GetAcceleratorIpSetArrayOutput) ToGetAcceleratorIpSetArrayOutputWithCont
 	return o
 }
 
+func (o GetAcceleratorIpSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAcceleratorIpSet] {
+	return pulumix.Output[[]GetAcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetAcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) GetAcceleratorIpSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAcceleratorIpSet {
 		return vs[0].([]GetAcceleratorIpSet)[vs[1].(int)]
 	}).(GetAcceleratorIpSetOutput)
+}
+
+type GetCustomRoutingAcceleratorAttribute struct {
+	FlowLogsEnabled  bool   `pulumi:"flowLogsEnabled"`
+	FlowLogsS3Bucket string `pulumi:"flowLogsS3Bucket"`
+	FlowLogsS3Prefix string `pulumi:"flowLogsS3Prefix"`
+}
+
+// GetCustomRoutingAcceleratorAttributeInput is an input type that accepts GetCustomRoutingAcceleratorAttributeArgs and GetCustomRoutingAcceleratorAttributeOutput values.
+// You can construct a concrete instance of `GetCustomRoutingAcceleratorAttributeInput` via:
+//
+//	GetCustomRoutingAcceleratorAttributeArgs{...}
+type GetCustomRoutingAcceleratorAttributeInput interface {
+	pulumi.Input
+
+	ToGetCustomRoutingAcceleratorAttributeOutput() GetCustomRoutingAcceleratorAttributeOutput
+	ToGetCustomRoutingAcceleratorAttributeOutputWithContext(context.Context) GetCustomRoutingAcceleratorAttributeOutput
+}
+
+type GetCustomRoutingAcceleratorAttributeArgs struct {
+	FlowLogsEnabled  pulumi.BoolInput   `pulumi:"flowLogsEnabled"`
+	FlowLogsS3Bucket pulumi.StringInput `pulumi:"flowLogsS3Bucket"`
+	FlowLogsS3Prefix pulumi.StringInput `pulumi:"flowLogsS3Prefix"`
+}
+
+func (GetCustomRoutingAcceleratorAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomRoutingAcceleratorAttribute)(nil)).Elem()
+}
+
+func (i GetCustomRoutingAcceleratorAttributeArgs) ToGetCustomRoutingAcceleratorAttributeOutput() GetCustomRoutingAcceleratorAttributeOutput {
+	return i.ToGetCustomRoutingAcceleratorAttributeOutputWithContext(context.Background())
+}
+
+func (i GetCustomRoutingAcceleratorAttributeArgs) ToGetCustomRoutingAcceleratorAttributeOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomRoutingAcceleratorAttributeOutput)
+}
+
+func (i GetCustomRoutingAcceleratorAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[GetCustomRoutingAcceleratorAttribute] {
+	return pulumix.Output[GetCustomRoutingAcceleratorAttribute]{
+		OutputState: i.ToGetCustomRoutingAcceleratorAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetCustomRoutingAcceleratorAttributeArrayInput is an input type that accepts GetCustomRoutingAcceleratorAttributeArray and GetCustomRoutingAcceleratorAttributeArrayOutput values.
+// You can construct a concrete instance of `GetCustomRoutingAcceleratorAttributeArrayInput` via:
+//
+//	GetCustomRoutingAcceleratorAttributeArray{ GetCustomRoutingAcceleratorAttributeArgs{...} }
+type GetCustomRoutingAcceleratorAttributeArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomRoutingAcceleratorAttributeArrayOutput() GetCustomRoutingAcceleratorAttributeArrayOutput
+	ToGetCustomRoutingAcceleratorAttributeArrayOutputWithContext(context.Context) GetCustomRoutingAcceleratorAttributeArrayOutput
+}
+
+type GetCustomRoutingAcceleratorAttributeArray []GetCustomRoutingAcceleratorAttributeInput
+
+func (GetCustomRoutingAcceleratorAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomRoutingAcceleratorAttribute)(nil)).Elem()
+}
+
+func (i GetCustomRoutingAcceleratorAttributeArray) ToGetCustomRoutingAcceleratorAttributeArrayOutput() GetCustomRoutingAcceleratorAttributeArrayOutput {
+	return i.ToGetCustomRoutingAcceleratorAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomRoutingAcceleratorAttributeArray) ToGetCustomRoutingAcceleratorAttributeArrayOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomRoutingAcceleratorAttributeArrayOutput)
+}
+
+func (i GetCustomRoutingAcceleratorAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCustomRoutingAcceleratorAttribute] {
+	return pulumix.Output[[]GetCustomRoutingAcceleratorAttribute]{
+		OutputState: i.ToGetCustomRoutingAcceleratorAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetCustomRoutingAcceleratorAttributeOutput struct{ *pulumi.OutputState }
+
+func (GetCustomRoutingAcceleratorAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomRoutingAcceleratorAttribute)(nil)).Elem()
+}
+
+func (o GetCustomRoutingAcceleratorAttributeOutput) ToGetCustomRoutingAcceleratorAttributeOutput() GetCustomRoutingAcceleratorAttributeOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorAttributeOutput) ToGetCustomRoutingAcceleratorAttributeOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorAttributeOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[GetCustomRoutingAcceleratorAttribute] {
+	return pulumix.Output[GetCustomRoutingAcceleratorAttribute]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) bool { return v.FlowLogsEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsS3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) string { return v.FlowLogsS3Bucket }).(pulumi.StringOutput)
+}
+
+func (o GetCustomRoutingAcceleratorAttributeOutput) FlowLogsS3Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorAttribute) string { return v.FlowLogsS3Prefix }).(pulumi.StringOutput)
+}
+
+type GetCustomRoutingAcceleratorAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomRoutingAcceleratorAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomRoutingAcceleratorAttribute)(nil)).Elem()
+}
+
+func (o GetCustomRoutingAcceleratorAttributeArrayOutput) ToGetCustomRoutingAcceleratorAttributeArrayOutput() GetCustomRoutingAcceleratorAttributeArrayOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorAttributeArrayOutput) ToGetCustomRoutingAcceleratorAttributeArrayOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorAttributeArrayOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCustomRoutingAcceleratorAttribute] {
+	return pulumix.Output[[]GetCustomRoutingAcceleratorAttribute]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetCustomRoutingAcceleratorAttributeArrayOutput) Index(i pulumi.IntInput) GetCustomRoutingAcceleratorAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomRoutingAcceleratorAttribute {
+		return vs[0].([]GetCustomRoutingAcceleratorAttribute)[vs[1].(int)]
+	}).(GetCustomRoutingAcceleratorAttributeOutput)
+}
+
+type GetCustomRoutingAcceleratorIpSet struct {
+	IpAddresses []string `pulumi:"ipAddresses"`
+	IpFamily    string   `pulumi:"ipFamily"`
+}
+
+// GetCustomRoutingAcceleratorIpSetInput is an input type that accepts GetCustomRoutingAcceleratorIpSetArgs and GetCustomRoutingAcceleratorIpSetOutput values.
+// You can construct a concrete instance of `GetCustomRoutingAcceleratorIpSetInput` via:
+//
+//	GetCustomRoutingAcceleratorIpSetArgs{...}
+type GetCustomRoutingAcceleratorIpSetInput interface {
+	pulumi.Input
+
+	ToGetCustomRoutingAcceleratorIpSetOutput() GetCustomRoutingAcceleratorIpSetOutput
+	ToGetCustomRoutingAcceleratorIpSetOutputWithContext(context.Context) GetCustomRoutingAcceleratorIpSetOutput
+}
+
+type GetCustomRoutingAcceleratorIpSetArgs struct {
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	IpFamily    pulumi.StringInput      `pulumi:"ipFamily"`
+}
+
+func (GetCustomRoutingAcceleratorIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (i GetCustomRoutingAcceleratorIpSetArgs) ToGetCustomRoutingAcceleratorIpSetOutput() GetCustomRoutingAcceleratorIpSetOutput {
+	return i.ToGetCustomRoutingAcceleratorIpSetOutputWithContext(context.Background())
+}
+
+func (i GetCustomRoutingAcceleratorIpSetArgs) ToGetCustomRoutingAcceleratorIpSetOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomRoutingAcceleratorIpSetOutput)
+}
+
+func (i GetCustomRoutingAcceleratorIpSetArgs) ToOutput(ctx context.Context) pulumix.Output[GetCustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[GetCustomRoutingAcceleratorIpSet]{
+		OutputState: i.ToGetCustomRoutingAcceleratorIpSetOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetCustomRoutingAcceleratorIpSetArrayInput is an input type that accepts GetCustomRoutingAcceleratorIpSetArray and GetCustomRoutingAcceleratorIpSetArrayOutput values.
+// You can construct a concrete instance of `GetCustomRoutingAcceleratorIpSetArrayInput` via:
+//
+//	GetCustomRoutingAcceleratorIpSetArray{ GetCustomRoutingAcceleratorIpSetArgs{...} }
+type GetCustomRoutingAcceleratorIpSetArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomRoutingAcceleratorIpSetArrayOutput() GetCustomRoutingAcceleratorIpSetArrayOutput
+	ToGetCustomRoutingAcceleratorIpSetArrayOutputWithContext(context.Context) GetCustomRoutingAcceleratorIpSetArrayOutput
+}
+
+type GetCustomRoutingAcceleratorIpSetArray []GetCustomRoutingAcceleratorIpSetInput
+
+func (GetCustomRoutingAcceleratorIpSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (i GetCustomRoutingAcceleratorIpSetArray) ToGetCustomRoutingAcceleratorIpSetArrayOutput() GetCustomRoutingAcceleratorIpSetArrayOutput {
+	return i.ToGetCustomRoutingAcceleratorIpSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomRoutingAcceleratorIpSetArray) ToGetCustomRoutingAcceleratorIpSetArrayOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorIpSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomRoutingAcceleratorIpSetArrayOutput)
+}
+
+func (i GetCustomRoutingAcceleratorIpSetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[[]GetCustomRoutingAcceleratorIpSet]{
+		OutputState: i.ToGetCustomRoutingAcceleratorIpSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetCustomRoutingAcceleratorIpSetOutput struct{ *pulumi.OutputState }
+
+func (GetCustomRoutingAcceleratorIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (o GetCustomRoutingAcceleratorIpSetOutput) ToGetCustomRoutingAcceleratorIpSetOutput() GetCustomRoutingAcceleratorIpSetOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorIpSetOutput) ToGetCustomRoutingAcceleratorIpSetOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorIpSetOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorIpSetOutput) ToOutput(ctx context.Context) pulumix.Output[GetCustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[GetCustomRoutingAcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetCustomRoutingAcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCustomRoutingAcceleratorIpSetOutput) IpFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomRoutingAcceleratorIpSet) string { return v.IpFamily }).(pulumi.StringOutput)
+}
+
+type GetCustomRoutingAcceleratorIpSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomRoutingAcceleratorIpSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomRoutingAcceleratorIpSet)(nil)).Elem()
+}
+
+func (o GetCustomRoutingAcceleratorIpSetArrayOutput) ToGetCustomRoutingAcceleratorIpSetArrayOutput() GetCustomRoutingAcceleratorIpSetArrayOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorIpSetArrayOutput) ToGetCustomRoutingAcceleratorIpSetArrayOutputWithContext(ctx context.Context) GetCustomRoutingAcceleratorIpSetArrayOutput {
+	return o
+}
+
+func (o GetCustomRoutingAcceleratorIpSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCustomRoutingAcceleratorIpSet] {
+	return pulumix.Output[[]GetCustomRoutingAcceleratorIpSet]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetCustomRoutingAcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) GetCustomRoutingAcceleratorIpSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomRoutingAcceleratorIpSet {
+		return vs[0].([]GetCustomRoutingAcceleratorIpSet)[vs[1].(int)]
+	}).(GetCustomRoutingAcceleratorIpSetOutput)
 }
 
 func init() {
@@ -832,6 +1977,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorAttributesPtrInput)(nil)).Elem(), AcceleratorAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetInput)(nil)).Elem(), AcceleratorIpSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetArrayInput)(nil)).Elem(), AcceleratorIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingAcceleratorAttributesInput)(nil)).Elem(), CustomRoutingAcceleratorAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingAcceleratorAttributesPtrInput)(nil)).Elem(), CustomRoutingAcceleratorAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingAcceleratorIpSetInput)(nil)).Elem(), CustomRoutingAcceleratorIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingAcceleratorIpSetArrayInput)(nil)).Elem(), CustomRoutingAcceleratorIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingEndpointGroupDestinationConfigurationInput)(nil)).Elem(), CustomRoutingEndpointGroupDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingEndpointGroupDestinationConfigurationArrayInput)(nil)).Elem(), CustomRoutingEndpointGroupDestinationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingEndpointGroupEndpointConfigurationInput)(nil)).Elem(), CustomRoutingEndpointGroupEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingEndpointGroupEndpointConfigurationArrayInput)(nil)).Elem(), CustomRoutingEndpointGroupEndpointConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingListenerPortRangeInput)(nil)).Elem(), CustomRoutingListenerPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoutingListenerPortRangeArrayInput)(nil)).Elem(), CustomRoutingListenerPortRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationArrayInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideInput)(nil)).Elem(), EndpointGroupPortOverrideArgs{})
@@ -842,10 +1997,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorAttributeArrayInput)(nil)).Elem(), GetAcceleratorAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorIpSetInput)(nil)).Elem(), GetAcceleratorIpSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorIpSetArrayInput)(nil)).Elem(), GetAcceleratorIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomRoutingAcceleratorAttributeInput)(nil)).Elem(), GetCustomRoutingAcceleratorAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomRoutingAcceleratorAttributeArrayInput)(nil)).Elem(), GetCustomRoutingAcceleratorAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomRoutingAcceleratorIpSetInput)(nil)).Elem(), GetCustomRoutingAcceleratorIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomRoutingAcceleratorIpSetArrayInput)(nil)).Elem(), GetCustomRoutingAcceleratorIpSetArray{})
 	pulumi.RegisterOutputType(AcceleratorAttributesOutput{})
 	pulumi.RegisterOutputType(AcceleratorAttributesPtrOutput{})
 	pulumi.RegisterOutputType(AcceleratorIpSetOutput{})
 	pulumi.RegisterOutputType(AcceleratorIpSetArrayOutput{})
+	pulumi.RegisterOutputType(CustomRoutingAcceleratorAttributesOutput{})
+	pulumi.RegisterOutputType(CustomRoutingAcceleratorAttributesPtrOutput{})
+	pulumi.RegisterOutputType(CustomRoutingAcceleratorIpSetOutput{})
+	pulumi.RegisterOutputType(CustomRoutingAcceleratorIpSetArrayOutput{})
+	pulumi.RegisterOutputType(CustomRoutingEndpointGroupDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(CustomRoutingEndpointGroupDestinationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(CustomRoutingEndpointGroupEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(CustomRoutingEndpointGroupEndpointConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(CustomRoutingListenerPortRangeOutput{})
+	pulumi.RegisterOutputType(CustomRoutingListenerPortRangeArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupPortOverrideOutput{})
@@ -856,4 +2025,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAcceleratorAttributeArrayOutput{})
 	pulumi.RegisterOutputType(GetAcceleratorIpSetOutput{})
 	pulumi.RegisterOutputType(GetAcceleratorIpSetArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomRoutingAcceleratorAttributeOutput{})
+	pulumi.RegisterOutputType(GetCustomRoutingAcceleratorAttributeArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomRoutingAcceleratorIpSetOutput{})
+	pulumi.RegisterOutputType(GetCustomRoutingAcceleratorIpSetArrayOutput{})
 }

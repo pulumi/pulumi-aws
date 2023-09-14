@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -23,12 +26,17 @@ import * as utilities from "../utilities";
  *     alarmRule: `ALARM(${aws_cloudwatch_metric_alarm.alpha.alarm_name}) OR
  * ALARM(${aws_cloudwatch_metric_alarm.bravo.alarm_name})
  * `,
+ *     actionsSuppressor: {
+ *         alarm: "suppressor-alarm",
+ *         extensionPeriod: 10,
+ *         waitPeriod: 20,
+ *     },
  * });
  * ```
  *
  * ## Import
  *
- * Use the `alarm_name` to import a CloudWatch Composite Alarm. For example
+ * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
@@ -66,6 +74,10 @@ export class CompositeAlarm extends pulumi.CustomResource {
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
     public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state.
+     */
+    public readonly actionsSuppressor!: pulumi.Output<outputs.cloudwatch.CompositeAlarmActionsSuppressor | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
@@ -117,6 +129,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CompositeAlarmState | undefined;
             resourceInputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
+            resourceInputs["actionsSuppressor"] = state ? state.actionsSuppressor : undefined;
             resourceInputs["alarmActions"] = state ? state.alarmActions : undefined;
             resourceInputs["alarmDescription"] = state ? state.alarmDescription : undefined;
             resourceInputs["alarmName"] = state ? state.alarmName : undefined;
@@ -135,6 +148,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
                 throw new Error("Missing required property 'alarmRule'");
             }
             resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
+            resourceInputs["actionsSuppressor"] = args ? args.actionsSuppressor : undefined;
             resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
             resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
             resourceInputs["alarmName"] = args ? args.alarmName : undefined;
@@ -158,6 +172,10 @@ export interface CompositeAlarmState {
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
     actionsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state.
+     */
+    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
@@ -204,6 +222,10 @@ export interface CompositeAlarmArgs {
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
     actionsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state.
+     */
+    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */

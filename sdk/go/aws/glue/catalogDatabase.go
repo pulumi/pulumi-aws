@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +77,7 @@ import (
 //
 // ## Import
 //
-// Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
+// Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 //
 // ```sh
 //
@@ -114,6 +116,7 @@ func NewCatalogDatabase(ctx *pulumi.Context,
 		args = &CatalogDatabaseArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CatalogDatabase
 	err := ctx.RegisterResource("aws:glue/catalogDatabase:CatalogDatabase", name, args, &resource, opts...)
 	if err != nil {
@@ -247,6 +250,12 @@ func (i *CatalogDatabase) ToCatalogDatabaseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseOutput)
 }
 
+func (i *CatalogDatabase) ToOutput(ctx context.Context) pulumix.Output[*CatalogDatabase] {
+	return pulumix.Output[*CatalogDatabase]{
+		OutputState: i.ToCatalogDatabaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CatalogDatabaseArrayInput is an input type that accepts CatalogDatabaseArray and CatalogDatabaseArrayOutput values.
 // You can construct a concrete instance of `CatalogDatabaseArrayInput` via:
 //
@@ -270,6 +279,12 @@ func (i CatalogDatabaseArray) ToCatalogDatabaseArrayOutput() CatalogDatabaseArra
 
 func (i CatalogDatabaseArray) ToCatalogDatabaseArrayOutputWithContext(ctx context.Context) CatalogDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseArrayOutput)
+}
+
+func (i CatalogDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*CatalogDatabase] {
+	return pulumix.Output[[]*CatalogDatabase]{
+		OutputState: i.ToCatalogDatabaseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CatalogDatabaseMapInput is an input type that accepts CatalogDatabaseMap and CatalogDatabaseMapOutput values.
@@ -297,6 +312,12 @@ func (i CatalogDatabaseMap) ToCatalogDatabaseMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseMapOutput)
 }
 
+func (i CatalogDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CatalogDatabase] {
+	return pulumix.Output[map[string]*CatalogDatabase]{
+		OutputState: i.ToCatalogDatabaseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CatalogDatabaseOutput struct{ *pulumi.OutputState }
 
 func (CatalogDatabaseOutput) ElementType() reflect.Type {
@@ -309,6 +330,12 @@ func (o CatalogDatabaseOutput) ToCatalogDatabaseOutput() CatalogDatabaseOutput {
 
 func (o CatalogDatabaseOutput) ToCatalogDatabaseOutputWithContext(ctx context.Context) CatalogDatabaseOutput {
 	return o
+}
+
+func (o CatalogDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*CatalogDatabase] {
+	return pulumix.Output[*CatalogDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Glue Catalog Database.
@@ -377,6 +404,12 @@ func (o CatalogDatabaseArrayOutput) ToCatalogDatabaseArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o CatalogDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CatalogDatabase] {
+	return pulumix.Output[[]*CatalogDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CatalogDatabaseArrayOutput) Index(i pulumi.IntInput) CatalogDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CatalogDatabase {
 		return vs[0].([]*CatalogDatabase)[vs[1].(int)]
@@ -395,6 +428,12 @@ func (o CatalogDatabaseMapOutput) ToCatalogDatabaseMapOutput() CatalogDatabaseMa
 
 func (o CatalogDatabaseMapOutput) ToCatalogDatabaseMapOutputWithContext(ctx context.Context) CatalogDatabaseMapOutput {
 	return o
+}
+
+func (o CatalogDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CatalogDatabase] {
+	return pulumix.Output[map[string]*CatalogDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CatalogDatabaseMapOutput) MapIndex(k pulumi.StringInput) CatalogDatabaseOutput {

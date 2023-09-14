@@ -33,13 +33,13 @@ class LaunchConfigurationArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
-                 user_data_base64: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_id: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 user_data_base64: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LaunchConfiguration resource.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
@@ -56,8 +56,6 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -93,16 +91,6 @@ class LaunchConfigurationArgs:
             pulumi.set(__self__, "user_data", user_data)
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
-        if vpc_classic_link_id is not None:
-            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
-        if vpc_classic_link_id is not None:
-            pulumi.set(__self__, "vpc_classic_link_id", vpc_classic_link_id)
-        if vpc_classic_link_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
-        if vpc_classic_link_security_groups is not None:
-            pulumi.set(__self__, "vpc_classic_link_security_groups", vpc_classic_link_security_groups)
 
     @property
     @pulumi.getter(name="imageId")
@@ -121,6 +109,8 @@ class LaunchConfigurationArgs:
     def instance_type(self) -> pulumi.Input[str]:
         """
         The size of instance to launch.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -320,30 +310,6 @@ class LaunchConfigurationArgs:
     def user_data_base64(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_data_base64", value)
 
-    @property
-    @pulumi.getter(name="vpcClassicLinkId")
-    def vpc_classic_link_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        """
-        return pulumi.get(self, "vpc_classic_link_id")
-
-    @vpc_classic_link_id.setter
-    def vpc_classic_link_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_classic_link_id", value)
-
-    @property
-    @pulumi.getter(name="vpcClassicLinkSecurityGroups")
-    def vpc_classic_link_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        """
-        return pulumi.get(self, "vpc_classic_link_security_groups")
-
-    @vpc_classic_link_security_groups.setter
-    def vpc_classic_link_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "vpc_classic_link_security_groups", value)
-
 
 @pulumi.input_type
 class _LaunchConfigurationState:
@@ -366,9 +332,7 @@ class _LaunchConfigurationState:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
-                 user_data_base64: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_id: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 user_data_base64: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LaunchConfiguration resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the launch configuration.
@@ -380,6 +344,8 @@ class _LaunchConfigurationState:
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -390,8 +356,6 @@ class _LaunchConfigurationState:
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -431,16 +395,6 @@ class _LaunchConfigurationState:
             pulumi.set(__self__, "user_data", user_data)
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
-        if vpc_classic_link_id is not None:
-            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
-        if vpc_classic_link_id is not None:
-            pulumi.set(__self__, "vpc_classic_link_id", vpc_classic_link_id)
-        if vpc_classic_link_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
-        if vpc_classic_link_security_groups is not None:
-            pulumi.set(__self__, "vpc_classic_link_security_groups", vpc_classic_link_security_groups)
 
     @property
     @pulumi.getter
@@ -543,6 +497,8 @@ class _LaunchConfigurationState:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The size of instance to launch.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -670,30 +626,6 @@ class _LaunchConfigurationState:
     def user_data_base64(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_data_base64", value)
 
-    @property
-    @pulumi.getter(name="vpcClassicLinkId")
-    def vpc_classic_link_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        """
-        return pulumi.get(self, "vpc_classic_link_id")
-
-    @vpc_classic_link_id.setter
-    def vpc_classic_link_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_classic_link_id", value)
-
-    @property
-    @pulumi.getter(name="vpcClassicLinkSecurityGroups")
-    def vpc_classic_link_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        """
-        return pulumi.get(self, "vpc_classic_link_security_groups")
-
-    @vpc_classic_link_security_groups.setter
-    def vpc_classic_link_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "vpc_classic_link_security_groups", value)
-
 
 class LaunchConfiguration(pulumi.CustomResource):
     @overload
@@ -718,8 +650,6 @@ class LaunchConfiguration(pulumi.CustomResource):
                  spot_price: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_id: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
@@ -876,10 +806,10 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Launch configurations can be imported using the `name`, e.g.,
+        Using `pulumi import`, import launch configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -892,6 +822,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -902,8 +834,6 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
         ...
     @overload
@@ -1066,10 +996,10 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Launch configurations can be imported using the `name`, e.g.,
+        Using `pulumi import`, import launch configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -1105,8 +1035,6 @@ class LaunchConfiguration(pulumi.CustomResource):
                  spot_price: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_id: Optional[pulumi.Input[str]] = None,
-                 vpc_classic_link_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1138,14 +1066,6 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__.__dict__["spot_price"] = spot_price
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["user_data_base64"] = user_data_base64
-            if vpc_classic_link_id is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["vpc_classic_link_id"] = vpc_classic_link_id
-            if vpc_classic_link_security_groups is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["vpc_classic_link_security_groups"] = vpc_classic_link_security_groups
             __props__.__dict__["arn"] = None
         super(LaunchConfiguration, __self__).__init__(
             'aws:ec2/launchConfiguration:LaunchConfiguration',
@@ -1175,9 +1095,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             spot_price: Optional[pulumi.Input[str]] = None,
             user_data: Optional[pulumi.Input[str]] = None,
-            user_data_base64: Optional[pulumi.Input[str]] = None,
-            vpc_classic_link_id: Optional[pulumi.Input[str]] = None,
-            vpc_classic_link_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'LaunchConfiguration':
+            user_data_base64: Optional[pulumi.Input[str]] = None) -> 'LaunchConfiguration':
         """
         Get an existing LaunchConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1194,6 +1112,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -1204,8 +1124,6 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1230,8 +1148,6 @@ class LaunchConfiguration(pulumi.CustomResource):
         __props__.__dict__["spot_price"] = spot_price
         __props__.__dict__["user_data"] = user_data
         __props__.__dict__["user_data_base64"] = user_data_base64
-        __props__.__dict__["vpc_classic_link_id"] = vpc_classic_link_id
-        __props__.__dict__["vpc_classic_link_security_groups"] = vpc_classic_link_security_groups
         return LaunchConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1303,6 +1219,8 @@ class LaunchConfiguration(pulumi.CustomResource):
     def instance_type(self) -> pulumi.Output[str]:
         """
         The size of instance to launch.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -1385,20 +1303,4 @@ class LaunchConfiguration(pulumi.CustomResource):
         Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
         return pulumi.get(self, "user_data_base64")
-
-    @property
-    @pulumi.getter(name="vpcClassicLinkId")
-    def vpc_classic_link_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        """
-        return pulumi.get(self, "vpc_classic_link_id")
-
-    @property
-    @pulumi.getter(name="vpcClassicLinkSecurityGroups")
-    def vpc_classic_link_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        """
-        return pulumi.get(self, "vpc_classic_link_security_groups")
 

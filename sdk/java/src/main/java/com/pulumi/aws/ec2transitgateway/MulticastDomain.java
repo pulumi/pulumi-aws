@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_transit_gateway_multicast_domain` can be imported by using the EC2 Transit Gateway Multicast Domain identifier, e.g.,
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345

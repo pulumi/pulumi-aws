@@ -39,6 +39,8 @@ export interface GetParameterArgs {
     name: string;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     withDecryption?: boolean;
 }
@@ -52,6 +54,7 @@ export interface GetParameterResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly insecureValue: string;
     readonly name: string;
     readonly type: string;
     readonly value: string;
@@ -88,6 +91,8 @@ export interface GetParameterOutputArgs {
     name: pulumi.Input<string>;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     withDecryption?: pulumi.Input<boolean>;
 }

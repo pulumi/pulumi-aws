@@ -256,10 +256,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Launch configurations can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import launch configurations using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+ *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
  * ```
  * 
  */
@@ -380,12 +380,16 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * The size of instance to launch.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
      * @return The size of instance to launch.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> instanceType() {
@@ -530,42 +534,6 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> userDataBase64() {
         return Codegen.optional(this.userDataBase64);
-    }
-    /**
-     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
-    @Export(name="vpcClassicLinkId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> vpcClassicLinkId;
-
-    /**
-     * @return The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-     * 
-     */
-    public Output<Optional<String>> vpcClassicLinkId() {
-        return Codegen.optional(this.vpcClassicLinkId);
-    }
-    /**
-     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
-    @Export(name="vpcClassicLinkSecurityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> vpcClassicLinkSecurityGroups;
-
-    /**
-     * @return The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-     * 
-     */
-    public Output<Optional<List<String>>> vpcClassicLinkSecurityGroups() {
-        return Codegen.optional(this.vpcClassicLinkSecurityGroups);
     }
 
     /**

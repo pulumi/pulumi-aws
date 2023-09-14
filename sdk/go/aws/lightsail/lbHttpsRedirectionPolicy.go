@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +68,7 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb_https_redirection_policy` can be imported by using the `lb_name` attribute, e.g.,
+// Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 //
 // ```sh
 //
@@ -95,6 +97,7 @@ func NewLbHttpsRedirectionPolicy(ctx *pulumi.Context,
 	if args.LbName == nil {
 		return nil, errors.New("invalid value for required argument 'LbName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LbHttpsRedirectionPolicy
 	err := ctx.RegisterResource("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -172,6 +175,12 @@ func (i *LbHttpsRedirectionPolicy) ToLbHttpsRedirectionPolicyOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LbHttpsRedirectionPolicyOutput)
 }
 
+func (i *LbHttpsRedirectionPolicy) ToOutput(ctx context.Context) pulumix.Output[*LbHttpsRedirectionPolicy] {
+	return pulumix.Output[*LbHttpsRedirectionPolicy]{
+		OutputState: i.ToLbHttpsRedirectionPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LbHttpsRedirectionPolicyArrayInput is an input type that accepts LbHttpsRedirectionPolicyArray and LbHttpsRedirectionPolicyArrayOutput values.
 // You can construct a concrete instance of `LbHttpsRedirectionPolicyArrayInput` via:
 //
@@ -195,6 +204,12 @@ func (i LbHttpsRedirectionPolicyArray) ToLbHttpsRedirectionPolicyArrayOutput() L
 
 func (i LbHttpsRedirectionPolicyArray) ToLbHttpsRedirectionPolicyArrayOutputWithContext(ctx context.Context) LbHttpsRedirectionPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbHttpsRedirectionPolicyArrayOutput)
+}
+
+func (i LbHttpsRedirectionPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LbHttpsRedirectionPolicy] {
+	return pulumix.Output[[]*LbHttpsRedirectionPolicy]{
+		OutputState: i.ToLbHttpsRedirectionPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LbHttpsRedirectionPolicyMapInput is an input type that accepts LbHttpsRedirectionPolicyMap and LbHttpsRedirectionPolicyMapOutput values.
@@ -222,6 +237,12 @@ func (i LbHttpsRedirectionPolicyMap) ToLbHttpsRedirectionPolicyMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LbHttpsRedirectionPolicyMapOutput)
 }
 
+func (i LbHttpsRedirectionPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbHttpsRedirectionPolicy] {
+	return pulumix.Output[map[string]*LbHttpsRedirectionPolicy]{
+		OutputState: i.ToLbHttpsRedirectionPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LbHttpsRedirectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LbHttpsRedirectionPolicyOutput) ElementType() reflect.Type {
@@ -234,6 +255,12 @@ func (o LbHttpsRedirectionPolicyOutput) ToLbHttpsRedirectionPolicyOutput() LbHtt
 
 func (o LbHttpsRedirectionPolicyOutput) ToLbHttpsRedirectionPolicyOutputWithContext(ctx context.Context) LbHttpsRedirectionPolicyOutput {
 	return o
+}
+
+func (o LbHttpsRedirectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LbHttpsRedirectionPolicy] {
+	return pulumix.Output[*LbHttpsRedirectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
@@ -260,6 +287,12 @@ func (o LbHttpsRedirectionPolicyArrayOutput) ToLbHttpsRedirectionPolicyArrayOutp
 	return o
 }
 
+func (o LbHttpsRedirectionPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LbHttpsRedirectionPolicy] {
+	return pulumix.Output[[]*LbHttpsRedirectionPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LbHttpsRedirectionPolicyArrayOutput) Index(i pulumi.IntInput) LbHttpsRedirectionPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LbHttpsRedirectionPolicy {
 		return vs[0].([]*LbHttpsRedirectionPolicy)[vs[1].(int)]
@@ -278,6 +311,12 @@ func (o LbHttpsRedirectionPolicyMapOutput) ToLbHttpsRedirectionPolicyMapOutput()
 
 func (o LbHttpsRedirectionPolicyMapOutput) ToLbHttpsRedirectionPolicyMapOutputWithContext(ctx context.Context) LbHttpsRedirectionPolicyMapOutput {
 	return o
+}
+
+func (o LbHttpsRedirectionPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbHttpsRedirectionPolicy] {
+	return pulumix.Output[map[string]*LbHttpsRedirectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LbHttpsRedirectionPolicyMapOutput) MapIndex(k pulumi.StringInput) LbHttpsRedirectionPolicyOutput {

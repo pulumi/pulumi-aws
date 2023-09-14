@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a VPC DHCP Options Association resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //
 // ## Import
 //
-// # DHCP associations can be imported by providing the VPC ID associated with the options
+// Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 //
 // ```sh
 //
@@ -75,6 +77,7 @@ func NewVpcDhcpOptionsAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcDhcpOptionsAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -152,6 +155,12 @@ func (i *VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationOutput)
 }
 
+func (i *VpcDhcpOptionsAssociation) ToOutput(ctx context.Context) pulumix.Output[*VpcDhcpOptionsAssociation] {
+	return pulumix.Output[*VpcDhcpOptionsAssociation]{
+		OutputState: i.ToVpcDhcpOptionsAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcDhcpOptionsAssociationArrayInput is an input type that accepts VpcDhcpOptionsAssociationArray and VpcDhcpOptionsAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcDhcpOptionsAssociationArrayInput` via:
 //
@@ -175,6 +184,12 @@ func (i VpcDhcpOptionsAssociationArray) ToVpcDhcpOptionsAssociationArrayOutput()
 
 func (i VpcDhcpOptionsAssociationArray) ToVpcDhcpOptionsAssociationArrayOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationArrayOutput)
+}
+
+func (i VpcDhcpOptionsAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcDhcpOptionsAssociation] {
+	return pulumix.Output[[]*VpcDhcpOptionsAssociation]{
+		OutputState: i.ToVpcDhcpOptionsAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcDhcpOptionsAssociationMapInput is an input type that accepts VpcDhcpOptionsAssociationMap and VpcDhcpOptionsAssociationMapOutput values.
@@ -202,6 +217,12 @@ func (i VpcDhcpOptionsAssociationMap) ToVpcDhcpOptionsAssociationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationMapOutput)
 }
 
+func (i VpcDhcpOptionsAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcDhcpOptionsAssociation] {
+	return pulumix.Output[map[string]*VpcDhcpOptionsAssociation]{
+		OutputState: i.ToVpcDhcpOptionsAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcDhcpOptionsAssociationOutput struct{ *pulumi.OutputState }
 
 func (VpcDhcpOptionsAssociationOutput) ElementType() reflect.Type {
@@ -214,6 +235,12 @@ func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationOutput() Vpc
 
 func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationOutput {
 	return o
+}
+
+func (o VpcDhcpOptionsAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcDhcpOptionsAssociation] {
+	return pulumix.Output[*VpcDhcpOptionsAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the DHCP Options Set to associate to the VPC.
@@ -240,6 +267,12 @@ func (o VpcDhcpOptionsAssociationArrayOutput) ToVpcDhcpOptionsAssociationArrayOu
 	return o
 }
 
+func (o VpcDhcpOptionsAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcDhcpOptionsAssociation] {
+	return pulumix.Output[[]*VpcDhcpOptionsAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcDhcpOptionsAssociationArrayOutput) Index(i pulumi.IntInput) VpcDhcpOptionsAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcDhcpOptionsAssociation {
 		return vs[0].([]*VpcDhcpOptionsAssociation)[vs[1].(int)]
@@ -258,6 +291,12 @@ func (o VpcDhcpOptionsAssociationMapOutput) ToVpcDhcpOptionsAssociationMapOutput
 
 func (o VpcDhcpOptionsAssociationMapOutput) ToVpcDhcpOptionsAssociationMapOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationMapOutput {
 	return o
+}
+
+func (o VpcDhcpOptionsAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcDhcpOptionsAssociation] {
+	return pulumix.Output[map[string]*VpcDhcpOptionsAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcDhcpOptionsAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcDhcpOptionsAssociationOutput {

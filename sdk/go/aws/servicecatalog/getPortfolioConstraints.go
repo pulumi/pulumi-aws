@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information on Service Catalog Portfolio Constraints.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetPortfolioConstraints(ctx *pulumi.Context, args *GetPortfolioConstraintsArgs, opts ...pulumi.InvokeOption) (*GetPortfolioConstraintsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPortfolioConstraintsResult
 	err := ctx.Invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, &rv, opts...)
 	if err != nil {
@@ -52,6 +55,8 @@ type GetPortfolioConstraintsArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId *string `pulumi:"productId"`
@@ -88,6 +93,8 @@ type GetPortfolioConstraintsOutputArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId pulumi.StringPtrInput `pulumi:"productId"`
@@ -110,6 +117,12 @@ func (o GetPortfolioConstraintsResultOutput) ToGetPortfolioConstraintsResultOutp
 
 func (o GetPortfolioConstraintsResultOutput) ToGetPortfolioConstraintsResultOutputWithContext(ctx context.Context) GetPortfolioConstraintsResultOutput {
 	return o
+}
+
+func (o GetPortfolioConstraintsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPortfolioConstraintsResult] {
+	return pulumix.Output[GetPortfolioConstraintsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPortfolioConstraintsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

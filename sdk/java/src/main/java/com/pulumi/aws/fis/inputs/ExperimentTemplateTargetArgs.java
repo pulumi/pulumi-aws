@@ -9,6 +9,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,6 +47,25 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * The resource type parameters.
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<Map<String,String>> parameters;
+
+    /**
+     * @return The resource type parameters.
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> parameters() {
+        return Optional.ofNullable(this.parameters);
     }
 
     /**
@@ -113,6 +133,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     private ExperimentTemplateTargetArgs(ExperimentTemplateTargetArgs $) {
         this.filters = $.filters;
         this.name = $.name;
+        this.parameters = $.parameters;
         this.resourceArns = $.resourceArns;
         this.resourceTags = $.resourceTags;
         this.resourceType = $.resourceType;
@@ -187,6 +208,31 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param parameters The resource type parameters.
+         * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters The resource type parameters.
+         * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(Map<String,String> parameters) {
+            return parameters(Output.of(parameters));
         }
 
         /**

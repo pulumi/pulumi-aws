@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EMR Containers (EMR on EKS) Virtual Cluster.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrcontainers"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrcontainers"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +52,11 @@ import (
 //
 // ## Import
 //
-// EKS Clusters can be imported using the `id`, e.g.
+// In TODO v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_emrcontainers_virtual_cluster.example
 //
-//	$ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-//
-// ```
+//	id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `TODO import`, import EKS Clusters using the `id`. For exampleconsole % TODO import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
 type VirtualCluster struct {
 	pulumi.CustomResourceState
 
@@ -66,7 +66,7 @@ type VirtualCluster struct {
 	ContainerProvider VirtualClusterContainerProviderOutput `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -82,6 +82,7 @@ func NewVirtualCluster(ctx *pulumi.Context,
 	if args.ContainerProvider == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerProvider'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualCluster
 	err := ctx.RegisterResource("aws:emrcontainers/virtualCluster:VirtualCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -110,7 +111,7 @@ type virtualClusterState struct {
 	ContainerProvider *VirtualClusterContainerProvider `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -123,7 +124,7 @@ type VirtualClusterState struct {
 	ContainerProvider VirtualClusterContainerProviderPtrInput
 	// Name of the virtual cluster.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -138,7 +139,7 @@ type virtualClusterArgs struct {
 	ContainerProvider VirtualClusterContainerProvider `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -148,7 +149,7 @@ type VirtualClusterArgs struct {
 	ContainerProvider VirtualClusterContainerProviderInput
 	// Name of the virtual cluster.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -173,6 +174,12 @@ func (i *VirtualCluster) ToVirtualClusterOutput() VirtualClusterOutput {
 
 func (i *VirtualCluster) ToVirtualClusterOutputWithContext(ctx context.Context) VirtualClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterOutput)
+}
+
+func (i *VirtualCluster) ToOutput(ctx context.Context) pulumix.Output[*VirtualCluster] {
+	return pulumix.Output[*VirtualCluster]{
+		OutputState: i.ToVirtualClusterOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualClusterArrayInput is an input type that accepts VirtualClusterArray and VirtualClusterArrayOutput values.
@@ -200,6 +207,12 @@ func (i VirtualClusterArray) ToVirtualClusterArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterArrayOutput)
 }
 
+func (i VirtualClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCluster] {
+	return pulumix.Output[[]*VirtualCluster]{
+		OutputState: i.ToVirtualClusterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualClusterMapInput is an input type that accepts VirtualClusterMap and VirtualClusterMapOutput values.
 // You can construct a concrete instance of `VirtualClusterMapInput` via:
 //
@@ -225,6 +238,12 @@ func (i VirtualClusterMap) ToVirtualClusterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterMapOutput)
 }
 
+func (i VirtualClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCluster] {
+	return pulumix.Output[map[string]*VirtualCluster]{
+		OutputState: i.ToVirtualClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualClusterOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterOutput) ElementType() reflect.Type {
@@ -237,6 +256,12 @@ func (o VirtualClusterOutput) ToVirtualClusterOutput() VirtualClusterOutput {
 
 func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Context) VirtualClusterOutput {
 	return o
+}
+
+func (o VirtualClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualCluster] {
+	return pulumix.Output[*VirtualCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the cluster.
@@ -254,7 +279,7 @@ func (o VirtualClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -278,6 +303,12 @@ func (o VirtualClusterArrayOutput) ToVirtualClusterArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o VirtualClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCluster] {
+	return pulumix.Output[[]*VirtualCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualClusterArrayOutput) Index(i pulumi.IntInput) VirtualClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualCluster {
 		return vs[0].([]*VirtualCluster)[vs[1].(int)]
@@ -296,6 +327,12 @@ func (o VirtualClusterMapOutput) ToVirtualClusterMapOutput() VirtualClusterMapOu
 
 func (o VirtualClusterMapOutput) ToVirtualClusterMapOutputWithContext(ctx context.Context) VirtualClusterMapOutput {
 	return o
+}
+
+func (o VirtualClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCluster] {
+	return pulumix.Output[map[string]*VirtualCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualClusterMapOutput) MapIndex(k pulumi.StringInput) VirtualClusterOutput {

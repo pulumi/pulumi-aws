@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolClientsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolClientsResult
 	err := ctx.Invoke("aws:cognito/getUserPoolClients:getUserPoolClients", args, &rv, opts...)
 	if err != nil {
@@ -99,6 +102,12 @@ func (o GetUserPoolClientsResultOutput) ToGetUserPoolClientsResultOutput() GetUs
 
 func (o GetUserPoolClientsResultOutput) ToGetUserPoolClientsResultOutputWithContext(ctx context.Context) GetUserPoolClientsResultOutput {
 	return o
+}
+
+func (o GetUserPoolClientsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserPoolClientsResult] {
+	return pulumix.Output[GetUserPoolClientsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of Cognito user pool client IDs.

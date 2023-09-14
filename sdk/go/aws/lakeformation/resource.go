@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +57,8 @@ type Resource struct {
 	// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
@@ -68,6 +72,7 @@ func NewResource(ctx *pulumi.Context,
 	if args.Arn == nil {
 		return nil, errors.New("invalid value for required argument 'Arn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resource
 	err := ctx.RegisterResource("aws:lakeformation/resource:Resource", name, args, &resource, opts...)
 	if err != nil {
@@ -95,6 +100,8 @@ type resourceState struct {
 	// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified *string `pulumi:"lastModified"`
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -104,6 +111,8 @@ type ResourceState struct {
 	// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringPtrInput
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -115,6 +124,8 @@ type resourceArgs struct {
 	// Amazon Resource Name (ARN) of the resource, an S3 path.
 	Arn string `pulumi:"arn"`
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -123,6 +134,8 @@ type ResourceArgs struct {
 	// Amazon Resource Name (ARN) of the resource, an S3 path.
 	Arn pulumi.StringInput
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -147,6 +160,12 @@ func (i *Resource) ToResourceOutput() ResourceOutput {
 
 func (i *Resource) ToResourceOutputWithContext(ctx context.Context) ResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceOutput)
+}
+
+func (i *Resource) ToOutput(ctx context.Context) pulumix.Output[*Resource] {
+	return pulumix.Output[*Resource]{
+		OutputState: i.ToResourceOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceArrayInput is an input type that accepts ResourceArray and ResourceArrayOutput values.
@@ -174,6 +193,12 @@ func (i ResourceArray) ToResourceArrayOutputWithContext(ctx context.Context) Res
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceArrayOutput)
 }
 
+func (i ResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Resource] {
+	return pulumix.Output[[]*Resource]{
+		OutputState: i.ToResourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceMapInput is an input type that accepts ResourceMap and ResourceMapOutput values.
 // You can construct a concrete instance of `ResourceMapInput` via:
 //
@@ -199,6 +224,12 @@ func (i ResourceMap) ToResourceMapOutputWithContext(ctx context.Context) Resourc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMapOutput)
 }
 
+func (i ResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resource] {
+	return pulumix.Output[map[string]*Resource]{
+		OutputState: i.ToResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceOutput) ElementType() reflect.Type {
@@ -213,6 +244,12 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
+func (o ResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*Resource] {
+	return pulumix.Output[*Resource]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) of the resource, an S3 path.
 func (o ResourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -224,6 +261,8 @@ func (o ResourceOutput) LastModified() pulumi.StringOutput {
 }
 
 // Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+//
+// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 func (o ResourceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -240,6 +279,12 @@ func (o ResourceArrayOutput) ToResourceArrayOutput() ResourceArrayOutput {
 
 func (o ResourceArrayOutput) ToResourceArrayOutputWithContext(ctx context.Context) ResourceArrayOutput {
 	return o
+}
+
+func (o ResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Resource] {
+	return pulumix.Output[[]*Resource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceArrayOutput) Index(i pulumi.IntInput) ResourceOutput {
@@ -260,6 +305,12 @@ func (o ResourceMapOutput) ToResourceMapOutput() ResourceMapOutput {
 
 func (o ResourceMapOutput) ToResourceMapOutputWithContext(ctx context.Context) ResourceMapOutput {
 	return o
+}
+
+func (o ResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resource] {
+	return pulumix.Output[map[string]*Resource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceMapOutput) MapIndex(k pulumi.StringInput) ResourceOutput {

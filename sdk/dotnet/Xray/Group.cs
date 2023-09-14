@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Import
     /// 
-    /// XRay Groups can be imported using the ARN, e.g.,
+    /// Using `pulumi import`, import XRay Groups using the ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds an IoT Thing to an IoT Thing Group.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// IoT Thing Group Membership can be imported using the thing group name and thing name.
+// Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
 //
 // ```sh
 //
@@ -74,6 +76,7 @@ func NewThingGroupMembership(ctx *pulumi.Context,
 	if args.ThingName == nil {
 		return nil, errors.New("invalid value for required argument 'ThingName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroupMembership
 	err := ctx.RegisterResource("aws:iot/thingGroupMembership:ThingGroupMembership", name, args, &resource, opts...)
 	if err != nil {
@@ -159,6 +162,12 @@ func (i *ThingGroupMembership) ToThingGroupMembershipOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMembershipOutput)
 }
 
+func (i *ThingGroupMembership) ToOutput(ctx context.Context) pulumix.Output[*ThingGroupMembership] {
+	return pulumix.Output[*ThingGroupMembership]{
+		OutputState: i.ToThingGroupMembershipOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThingGroupMembershipArrayInput is an input type that accepts ThingGroupMembershipArray and ThingGroupMembershipArrayOutput values.
 // You can construct a concrete instance of `ThingGroupMembershipArrayInput` via:
 //
@@ -182,6 +191,12 @@ func (i ThingGroupMembershipArray) ToThingGroupMembershipArrayOutput() ThingGrou
 
 func (i ThingGroupMembershipArray) ToThingGroupMembershipArrayOutputWithContext(ctx context.Context) ThingGroupMembershipArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMembershipArrayOutput)
+}
+
+func (i ThingGroupMembershipArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThingGroupMembership] {
+	return pulumix.Output[[]*ThingGroupMembership]{
+		OutputState: i.ToThingGroupMembershipArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ThingGroupMembershipMapInput is an input type that accepts ThingGroupMembershipMap and ThingGroupMembershipMapOutput values.
@@ -209,6 +224,12 @@ func (i ThingGroupMembershipMap) ToThingGroupMembershipMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMembershipMapOutput)
 }
 
+func (i ThingGroupMembershipMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingGroupMembership] {
+	return pulumix.Output[map[string]*ThingGroupMembership]{
+		OutputState: i.ToThingGroupMembershipMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThingGroupMembershipOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupMembershipOutput) ElementType() reflect.Type {
@@ -221,6 +242,12 @@ func (o ThingGroupMembershipOutput) ToThingGroupMembershipOutput() ThingGroupMem
 
 func (o ThingGroupMembershipOutput) ToThingGroupMembershipOutputWithContext(ctx context.Context) ThingGroupMembershipOutput {
 	return o
+}
+
+func (o ThingGroupMembershipOutput) ToOutput(ctx context.Context) pulumix.Output[*ThingGroupMembership] {
+	return pulumix.Output[*ThingGroupMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
@@ -252,6 +279,12 @@ func (o ThingGroupMembershipArrayOutput) ToThingGroupMembershipArrayOutputWithCo
 	return o
 }
 
+func (o ThingGroupMembershipArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThingGroupMembership] {
+	return pulumix.Output[[]*ThingGroupMembership]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ThingGroupMembershipArrayOutput) Index(i pulumi.IntInput) ThingGroupMembershipOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingGroupMembership {
 		return vs[0].([]*ThingGroupMembership)[vs[1].(int)]
@@ -270,6 +303,12 @@ func (o ThingGroupMembershipMapOutput) ToThingGroupMembershipMapOutput() ThingGr
 
 func (o ThingGroupMembershipMapOutput) ToThingGroupMembershipMapOutputWithContext(ctx context.Context) ThingGroupMembershipMapOutput {
 	return o
+}
+
+func (o ThingGroupMembershipMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingGroupMembership] {
+	return pulumix.Output[map[string]*ThingGroupMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThingGroupMembershipMapOutput) MapIndex(k pulumi.StringInput) ThingGroupMembershipOutput {

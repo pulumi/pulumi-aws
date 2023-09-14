@@ -42,6 +42,8 @@ class DomainArgs:
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -173,6 +175,8 @@ class DomainArgs:
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -313,6 +317,8 @@ class _DomainState:
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -483,6 +489,8 @@ class _DomainState:
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -739,7 +747,10 @@ class Domain(pulumi.CustomResource):
         selected_vpc = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        selected_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=selected_vpc.id,
+        selected_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+                name="vpc-id",
+                values=[selected_vpc.id],
+            )],
             tags={
                 "Tier": "private",
             })
@@ -763,8 +774,8 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    selected_subnet_ids.ids[0],
-                    selected_subnet_ids.ids[1],
+                    selected_subnets.ids[0],
+                    selected_subnets.ids[1],
                 ],
                 security_group_ids=[es_security_group.id],
             ),
@@ -791,7 +802,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Elasticsearch domains can be imported using the `domain_name`, e.g.,
+        Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 
         ```sh
          $ pulumi import aws:elasticsearch/domain:Domain example domain_name
@@ -807,6 +818,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -914,7 +927,10 @@ class Domain(pulumi.CustomResource):
         selected_vpc = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        selected_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=selected_vpc.id,
+        selected_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+                name="vpc-id",
+                values=[selected_vpc.id],
+            )],
             tags={
                 "Tier": "private",
             })
@@ -938,8 +954,8 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    selected_subnet_ids.ids[0],
-                    selected_subnet_ids.ids[1],
+                    selected_subnets.ids[0],
+                    selected_subnets.ids[1],
                 ],
                 security_group_ids=[es_security_group.id],
             ),
@@ -966,7 +982,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Elasticsearch domains can be imported using the `domain_name`, e.g.,
+        Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 
         ```sh
          $ pulumi import aws:elasticsearch/domain:Domain example domain_name
@@ -1081,6 +1097,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -1199,6 +1217,8 @@ class Domain(pulumi.CustomResource):
     def domain_name(self) -> pulumi.Output[str]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 

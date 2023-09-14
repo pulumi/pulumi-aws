@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Default VPC route tables can be imported using the `vpc_id`, e.g.,
+ * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
@@ -127,12 +127,16 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
     /**
      * ID of the default route table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
     /**
      * @return ID of the default route table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> defaultRouteTableId() {

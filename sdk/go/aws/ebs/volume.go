@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a single EBS volume.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // ## Import
 //
-// EBS Volumes can be imported using the `id`, e.g.,
+// Using `pulumi import`, import EBS Volumes using the `id`. For example:
 //
 // ```sh
 //
@@ -82,6 +84,8 @@ type Volume struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -97,6 +101,7 @@ func NewVolume(ctx *pulumi.Context,
 	if args.AvailabilityZone == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
 	err := ctx.RegisterResource("aws:ebs/volume:Volume", name, args, &resource, opts...)
 	if err != nil {
@@ -144,6 +149,8 @@ type volumeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput *int `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type *string `pulumi:"type"`
@@ -175,6 +182,8 @@ type VolumeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput pulumi.IntPtrInput
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringPtrInput
@@ -206,6 +215,8 @@ type volumeArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput *int `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type *string `pulumi:"type"`
@@ -234,6 +245,8 @@ type VolumeArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput pulumi.IntPtrInput
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringPtrInput
@@ -262,6 +275,12 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
+func (i *Volume) ToOutput(ctx context.Context) pulumix.Output[*Volume] {
+	return pulumix.Output[*Volume]{
+		OutputState: i.ToVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VolumeArrayInput is an input type that accepts VolumeArray and VolumeArrayOutput values.
 // You can construct a concrete instance of `VolumeArrayInput` via:
 //
@@ -285,6 +304,12 @@ func (i VolumeArray) ToVolumeArrayOutput() VolumeArrayOutput {
 
 func (i VolumeArray) ToVolumeArrayOutputWithContext(ctx context.Context) VolumeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeArrayOutput)
+}
+
+func (i VolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]*Volume] {
+	return pulumix.Output[[]*Volume]{
+		OutputState: i.ToVolumeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VolumeMapInput is an input type that accepts VolumeMap and VolumeMapOutput values.
@@ -312,6 +337,12 @@ func (i VolumeMap) ToVolumeMapOutputWithContext(ctx context.Context) VolumeMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeMapOutput)
 }
 
+func (i VolumeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Volume] {
+	return pulumix.Output[map[string]*Volume]{
+		OutputState: i.ToVolumeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
@@ -324,6 +355,12 @@ func (o VolumeOutput) ToVolumeOutput() VolumeOutput {
 
 func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return o
+}
+
+func (o VolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*Volume] {
+	return pulumix.Output[*Volume]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
@@ -387,6 +424,8 @@ func (o VolumeOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+//
+// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 func (o VolumeOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }
@@ -410,6 +449,12 @@ func (o VolumeArrayOutput) ToVolumeArrayOutputWithContext(ctx context.Context) V
 	return o
 }
 
+func (o VolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Volume] {
+	return pulumix.Output[[]*Volume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VolumeArrayOutput) Index(i pulumi.IntInput) VolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Volume {
 		return vs[0].([]*Volume)[vs[1].(int)]
@@ -428,6 +473,12 @@ func (o VolumeMapOutput) ToVolumeMapOutput() VolumeMapOutput {
 
 func (o VolumeMapOutput) ToVolumeMapOutputWithContext(ctx context.Context) VolumeMapOutput {
 	return o
+}
+
+func (o VolumeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Volume] {
+	return pulumix.Output[map[string]*Volume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VolumeMapOutput) MapIndex(k pulumi.StringInput) VolumeOutput {

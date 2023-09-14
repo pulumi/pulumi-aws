@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a core network resource.
  *
- * > **NOTE on Core Networks and Policy Attachments:** For a given core network, this resource's `policyDocument` argument is incompatible with using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. When using this resource's `policyDocument` argument and the `aws.networkmanager.CoreNetworkPolicyAttachment` resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference.
- *
  * ## Example Usage
  * ### Basic
  *
@@ -157,7 +155,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_networkmanager_core_network` can be imported using the core network ID, e.g.
+ * Using `pulumi import`, import `aws_networkmanager_core_network` using the core network ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
@@ -206,7 +204,11 @@ export class CoreNetwork extends pulumi.CustomResource {
      */
     public readonly basePolicyRegions!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policyDocument` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policyDocument`. An example of this snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly createBasePolicy!: pulumi.Output<boolean | undefined>;
     /**
@@ -225,12 +227,6 @@ export class CoreNetwork extends pulumi.CustomResource {
      * The ID of the global network that a core network will be a part of.
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
-    /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `createBasePolicy`.
-     *
-     * @deprecated Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.
-     */
-    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      */
@@ -269,7 +265,6 @@ export class CoreNetwork extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["edges"] = state ? state.edges : undefined;
             resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
-            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["segments"] = state ? state.segments : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -284,7 +279,6 @@ export class CoreNetwork extends pulumi.CustomResource {
             resourceInputs["createBasePolicy"] = args ? args.createBasePolicy : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -317,7 +311,11 @@ export interface CoreNetworkState {
      */
     basePolicyRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policyDocument` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policyDocument`. An example of this snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     createBasePolicy?: pulumi.Input<boolean>;
     /**
@@ -336,12 +334,6 @@ export interface CoreNetworkState {
      * The ID of the global network that a core network will be a part of.
      */
     globalNetworkId?: pulumi.Input<string>;
-    /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `createBasePolicy`.
-     *
-     * @deprecated Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.
-     */
-    policyDocument?: pulumi.Input<string>;
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      */
@@ -375,7 +367,11 @@ export interface CoreNetworkArgs {
      */
     basePolicyRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policyDocument` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policyDocument`. An example of this snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     createBasePolicy?: pulumi.Input<boolean>;
     /**
@@ -386,12 +382,6 @@ export interface CoreNetworkArgs {
      * The ID of the global network that a core network will be a part of.
      */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `createBasePolicy`.
-     *
-     * @deprecated Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.
-     */
-    policyDocument?: pulumi.Input<string>;
     /**
      * Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

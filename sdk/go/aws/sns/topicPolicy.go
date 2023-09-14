@@ -8,16 +8,92 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SNS topic policy resource
 //
 // > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := sns.NewTopic(ctx, "test", nil)
+// if err != nil {
+// return err
+// }
+// snsTopicPolicy := test.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// PolicyId: "__default_policy_ID",
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "SNS:Subscribe",
+// "SNS:SetTopicAttributes",
+// "SNS:RemovePermission",
+// "SNS:Receive",
+// "SNS:Publish",
+// "SNS:ListSubscriptionsByTopic",
+// "SNS:GetTopicAttributes",
+// "SNS:DeleteTopic",
+// "SNS:AddPermission",
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "AWS:SourceOwner",
+// Values: interface{}{
+// _var.AccountId,
+// },
+// },
+// },
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Resources: interface{}{
+// arn,
+// },
+// Sid: "__default_statement_ID",
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+// Arn: test.Arn,
+// Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+// return &snsTopicPolicy.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// SNS Topic Policy can be imported using the topic ARN, e.g.,
+// Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 //
 // ```sh
 //
@@ -48,6 +124,7 @@ func NewTopicPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicPolicy
 	err := ctx.RegisterResource("aws:sns/topicPolicy:TopicPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -129,6 +206,12 @@ func (i *TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicP
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyOutput)
 }
 
+func (i *TopicPolicy) ToOutput(ctx context.Context) pulumix.Output[*TopicPolicy] {
+	return pulumix.Output[*TopicPolicy]{
+		OutputState: i.ToTopicPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicPolicyArrayInput is an input type that accepts TopicPolicyArray and TopicPolicyArrayOutput values.
 // You can construct a concrete instance of `TopicPolicyArrayInput` via:
 //
@@ -152,6 +235,12 @@ func (i TopicPolicyArray) ToTopicPolicyArrayOutput() TopicPolicyArrayOutput {
 
 func (i TopicPolicyArray) ToTopicPolicyArrayOutputWithContext(ctx context.Context) TopicPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyArrayOutput)
+}
+
+func (i TopicPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*TopicPolicy] {
+	return pulumix.Output[[]*TopicPolicy]{
+		OutputState: i.ToTopicPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicPolicyMapInput is an input type that accepts TopicPolicyMap and TopicPolicyMapOutput values.
@@ -179,6 +268,12 @@ func (i TopicPolicyMap) ToTopicPolicyMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyMapOutput)
 }
 
+func (i TopicPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicPolicy] {
+	return pulumix.Output[map[string]*TopicPolicy]{
+		OutputState: i.ToTopicPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicPolicyOutput struct{ *pulumi.OutputState }
 
 func (TopicPolicyOutput) ElementType() reflect.Type {
@@ -191,6 +286,12 @@ func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {
 
 func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
 	return o
+}
+
+func (o TopicPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicPolicy] {
+	return pulumix.Output[*TopicPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the SNS topic
@@ -222,6 +323,12 @@ func (o TopicPolicyArrayOutput) ToTopicPolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o TopicPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TopicPolicy] {
+	return pulumix.Output[[]*TopicPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TopicPolicyArrayOutput) Index(i pulumi.IntInput) TopicPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TopicPolicy {
 		return vs[0].([]*TopicPolicy)[vs[1].(int)]
@@ -240,6 +347,12 @@ func (o TopicPolicyMapOutput) ToTopicPolicyMapOutput() TopicPolicyMapOutput {
 
 func (o TopicPolicyMapOutput) ToTopicPolicyMapOutputWithContext(ctx context.Context) TopicPolicyMapOutput {
 	return o
+}
+
+func (o TopicPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicPolicy] {
+	return pulumix.Output[map[string]*TopicPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicPolicyMapOutput) MapIndex(k pulumi.StringInput) TopicPolicyOutput {

@@ -147,13 +147,18 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        __Using `pulumi import` to import.__ For example:
+
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
          $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
         ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
          $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
@@ -188,13 +193,18 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        __Using `pulumi import` to import.__ For example:
+
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
          $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
         ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
          $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012

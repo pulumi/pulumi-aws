@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
 func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulumi.InvokeOption) (*GetNatGatewaysResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNatGatewaysResult
 	err := ctx.Invoke("aws:ec2/getNatGateways:getNatGateways", args, &rv, opts...)
 	if err != nil {
@@ -26,6 +29,9 @@ type GetNatGatewaysArgs struct {
 	Filters []GetNatGatewaysFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired NAT Gateways.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
@@ -61,6 +67,9 @@ type GetNatGatewaysOutputArgs struct {
 	Filters GetNatGatewaysFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired NAT Gateways.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
@@ -83,6 +92,12 @@ func (o GetNatGatewaysResultOutput) ToGetNatGatewaysResultOutput() GetNatGateway
 
 func (o GetNatGatewaysResultOutput) ToGetNatGatewaysResultOutputWithContext(ctx context.Context) GetNatGatewaysResultOutput {
 	return o
+}
+
+func (o GetNatGatewaysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNatGatewaysResult] {
+	return pulumix.Output[GetNatGatewaysResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNatGatewaysResultOutput) Filters() GetNatGatewaysFilterArrayOutput {

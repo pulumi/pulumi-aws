@@ -59,6 +59,8 @@ export interface GetQueryLogConfigArgs {
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     filters?: inputs.route53.GetQueryLogConfigFilter[];
     /**
@@ -71,6 +73,8 @@ export interface GetQueryLogConfigArgs {
     resolverQueryLogConfigId?: string;
     /**
      * Map of tags to assign to the service.
+     *
+     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      */
     tags?: {[key: string]: string};
 }
@@ -136,6 +140,8 @@ export interface GetQueryLogConfigOutputArgs {
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.route53.GetQueryLogConfigFilterArgs>[]>;
     /**
@@ -148,6 +154,8 @@ export interface GetQueryLogConfigOutputArgs {
     resolverQueryLogConfigId?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the service.
+     *
+     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

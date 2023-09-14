@@ -312,7 +312,8 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
     :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB cluster snapshot.
     """
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
@@ -326,27 +327,27 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getClusterSnapshot:getClusterSnapshot', __args__, opts=opts, typ=GetClusterSnapshotResult).value
 
     return AwaitableGetClusterSnapshotResult(
-        allocated_storage=__ret__.allocated_storage,
-        availability_zones=__ret__.availability_zones,
-        db_cluster_identifier=__ret__.db_cluster_identifier,
-        db_cluster_snapshot_arn=__ret__.db_cluster_snapshot_arn,
-        db_cluster_snapshot_identifier=__ret__.db_cluster_snapshot_identifier,
-        engine=__ret__.engine,
-        engine_version=__ret__.engine_version,
-        id=__ret__.id,
-        include_public=__ret__.include_public,
-        include_shared=__ret__.include_shared,
-        kms_key_id=__ret__.kms_key_id,
-        license_model=__ret__.license_model,
-        most_recent=__ret__.most_recent,
-        port=__ret__.port,
-        snapshot_create_time=__ret__.snapshot_create_time,
-        snapshot_type=__ret__.snapshot_type,
-        source_db_cluster_snapshot_arn=__ret__.source_db_cluster_snapshot_arn,
-        status=__ret__.status,
-        storage_encrypted=__ret__.storage_encrypted,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        db_cluster_identifier=pulumi.get(__ret__, 'db_cluster_identifier'),
+        db_cluster_snapshot_arn=pulumi.get(__ret__, 'db_cluster_snapshot_arn'),
+        db_cluster_snapshot_identifier=pulumi.get(__ret__, 'db_cluster_snapshot_identifier'),
+        engine=pulumi.get(__ret__, 'engine'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        id=pulumi.get(__ret__, 'id'),
+        include_public=pulumi.get(__ret__, 'include_public'),
+        include_shared=pulumi.get(__ret__, 'include_shared'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        license_model=pulumi.get(__ret__, 'license_model'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        port=pulumi.get(__ret__, 'port'),
+        snapshot_create_time=pulumi.get(__ret__, 'snapshot_create_time'),
+        snapshot_type=pulumi.get(__ret__, 'snapshot_type'),
+        source_db_cluster_snapshot_arn=pulumi.get(__ret__, 'source_db_cluster_snapshot_arn'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_cluster_snapshot)
@@ -396,6 +397,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
     :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB cluster snapshot.
     """
     ...

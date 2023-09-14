@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific CostExplorer Cost Category.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts ...pulumi.InvokeOption) (*LookupCostCategoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCostCategoryResult
 	err := ctx.Invoke("aws:costexplorer/getCostCategory:getCostCategory", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o LookupCostCategoryResultOutput) ToLookupCostCategoryResultOutput() Looku
 
 func (o LookupCostCategoryResultOutput) ToLookupCostCategoryResultOutputWithContext(ctx context.Context) LookupCostCategoryResultOutput {
 	return o
+}
+
+func (o LookupCostCategoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCostCategoryResult] {
+	return pulumix.Output[LookupCostCategoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCostCategoryResultOutput) CostCategoryArn() pulumi.StringOutput {

@@ -93,12 +93,16 @@ public final class ConstraintArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -242,6 +246,8 @@ public final class ConstraintArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -252,6 +258,8 @@ public final class ConstraintArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

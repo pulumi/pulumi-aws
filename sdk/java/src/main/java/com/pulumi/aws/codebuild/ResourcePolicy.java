@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.ReportGroupArgs;
  * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.codebuild.ResourcePolicy;
  * import com.pulumi.aws.codebuild.ResourcePolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -83,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeBuild Resource Policy can be imported using the CodeBuild Resource Policy arn, e.g.,
+ * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  * 
  * ```sh
  *  $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name

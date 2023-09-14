@@ -7,13 +7,33 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type GetRouterConfigurationRouter struct {
 	// Router platform
 	Platform string `pulumi:"platform"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+	//
+	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
 	// Router operating system
 	Software string `pulumi:"software"`
@@ -39,6 +59,22 @@ type GetRouterConfigurationRouterArgs struct {
 	// Router platform
 	Platform pulumi.StringInput `pulumi:"platform"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+	//
+	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
 	// Router operating system
 	Software pulumi.StringInput `pulumi:"software"`
@@ -59,6 +95,12 @@ func (i GetRouterConfigurationRouterArgs) ToGetRouterConfigurationRouterOutput()
 
 func (i GetRouterConfigurationRouterArgs) ToGetRouterConfigurationRouterOutputWithContext(ctx context.Context) GetRouterConfigurationRouterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouterConfigurationRouterOutput)
+}
+
+func (i GetRouterConfigurationRouterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRouterConfigurationRouter] {
+	return pulumix.Output[GetRouterConfigurationRouter]{
+		OutputState: i.ToGetRouterConfigurationRouterOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetRouterConfigurationRouterArrayInput is an input type that accepts GetRouterConfigurationRouterArray and GetRouterConfigurationRouterArrayOutput values.
@@ -86,6 +128,12 @@ func (i GetRouterConfigurationRouterArray) ToGetRouterConfigurationRouterArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouterConfigurationRouterArrayOutput)
 }
 
+func (i GetRouterConfigurationRouterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRouterConfigurationRouter] {
+	return pulumix.Output[[]GetRouterConfigurationRouter]{
+		OutputState: i.ToGetRouterConfigurationRouterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetRouterConfigurationRouterOutput struct{ *pulumi.OutputState }
 
 func (GetRouterConfigurationRouterOutput) ElementType() reflect.Type {
@@ -100,12 +148,37 @@ func (o GetRouterConfigurationRouterOutput) ToGetRouterConfigurationRouterOutput
 	return o
 }
 
+func (o GetRouterConfigurationRouterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouterConfigurationRouter] {
+	return pulumix.Output[GetRouterConfigurationRouter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Router platform
 func (o GetRouterConfigurationRouterOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.Platform }).(pulumi.StringOutput)
 }
 
 // ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+//
+// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetRouterConfigurationRouterOutput) RouterTypeIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.RouterTypeIdentifier }).(pulumi.StringOutput)
 }
@@ -141,6 +214,12 @@ func (o GetRouterConfigurationRouterArrayOutput) ToGetRouterConfigurationRouterA
 
 func (o GetRouterConfigurationRouterArrayOutput) ToGetRouterConfigurationRouterArrayOutputWithContext(ctx context.Context) GetRouterConfigurationRouterArrayOutput {
 	return o
+}
+
+func (o GetRouterConfigurationRouterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRouterConfigurationRouter] {
+	return pulumix.Output[[]GetRouterConfigurationRouter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRouterConfigurationRouterArrayOutput) Index(i pulumi.IntInput) GetRouterConfigurationRouterOutput {

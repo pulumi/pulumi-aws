@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AMP Workspaces can be imported using the identifier, e.g.,
+ * Using `pulumi import`, import AMP Workspaces using the identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B

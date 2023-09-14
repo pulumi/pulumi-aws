@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// `aws_neptune_event_subscription` can be imported by using the event subscription name, e.g.,
+    /// Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription

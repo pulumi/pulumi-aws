@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Activities can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import activities using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar

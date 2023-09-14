@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Domains can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import SageMaker Domains using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -394,12 +394,16 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
      * @return The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {

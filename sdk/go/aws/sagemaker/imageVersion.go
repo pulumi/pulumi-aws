@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Image Version resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// SageMaker Image Versions can be imported using the `name`, e.g.,
+// Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
 //
 // ```sh
 //
@@ -79,6 +81,7 @@ func NewImageVersion(ctx *pulumi.Context,
 	if args.ImageName == nil {
 		return nil, errors.New("invalid value for required argument 'ImageName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageVersion
 	err := ctx.RegisterResource("aws:sagemaker/imageVersion:ImageVersion", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +173,12 @@ func (i *ImageVersion) ToImageVersionOutputWithContext(ctx context.Context) Imag
 	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionOutput)
 }
 
+func (i *ImageVersion) ToOutput(ctx context.Context) pulumix.Output[*ImageVersion] {
+	return pulumix.Output[*ImageVersion]{
+		OutputState: i.ToImageVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageVersionArrayInput is an input type that accepts ImageVersionArray and ImageVersionArrayOutput values.
 // You can construct a concrete instance of `ImageVersionArrayInput` via:
 //
@@ -193,6 +202,12 @@ func (i ImageVersionArray) ToImageVersionArrayOutput() ImageVersionArrayOutput {
 
 func (i ImageVersionArray) ToImageVersionArrayOutputWithContext(ctx context.Context) ImageVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionArrayOutput)
+}
+
+func (i ImageVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ImageVersion] {
+	return pulumix.Output[[]*ImageVersion]{
+		OutputState: i.ToImageVersionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ImageVersionMapInput is an input type that accepts ImageVersionMap and ImageVersionMapOutput values.
@@ -220,6 +235,12 @@ func (i ImageVersionMap) ToImageVersionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionMapOutput)
 }
 
+func (i ImageVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageVersion] {
+	return pulumix.Output[map[string]*ImageVersion]{
+		OutputState: i.ToImageVersionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageVersionOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionOutput) ElementType() reflect.Type {
@@ -232,6 +253,12 @@ func (o ImageVersionOutput) ToImageVersionOutput() ImageVersionOutput {
 
 func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context) ImageVersionOutput {
 	return o
+}
+
+func (o ImageVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageVersion] {
+	return pulumix.Output[*ImageVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
@@ -277,6 +304,12 @@ func (o ImageVersionArrayOutput) ToImageVersionArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ImageVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ImageVersion] {
+	return pulumix.Output[[]*ImageVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImageVersionArrayOutput) Index(i pulumi.IntInput) ImageVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageVersion {
 		return vs[0].([]*ImageVersion)[vs[1].(int)]
@@ -295,6 +328,12 @@ func (o ImageVersionMapOutput) ToImageVersionMapOutput() ImageVersionMapOutput {
 
 func (o ImageVersionMapOutput) ToImageVersionMapOutputWithContext(ctx context.Context) ImageVersionMapOutput {
 	return o
+}
+
+func (o ImageVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageVersion] {
+	return pulumix.Output[map[string]*ImageVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageVersionMapOutput) MapIndex(k pulumi.StringInput) ImageVersionOutput {

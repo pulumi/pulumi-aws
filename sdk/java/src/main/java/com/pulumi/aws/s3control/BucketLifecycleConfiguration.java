@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  *  $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example

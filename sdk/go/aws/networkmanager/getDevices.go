@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about devices.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetDevices(ctx *pulumi.Context, args *GetDevicesArgs, opts ...pulumi.InvokeOption) (*GetDevicesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDevicesResult
 	err := ctx.Invoke("aws:networkmanager/getDevices:getDevices", args, &rv, opts...)
 	if err != nil {
@@ -110,6 +113,12 @@ func (o GetDevicesResultOutput) ToGetDevicesResultOutput() GetDevicesResultOutpu
 
 func (o GetDevicesResultOutput) ToGetDevicesResultOutputWithContext(ctx context.Context) GetDevicesResultOutput {
 	return o
+}
+
+func (o GetDevicesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDevicesResult] {
+	return pulumix.Output[GetDevicesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDevicesResultOutput) GlobalNetworkId() pulumi.StringOutput {

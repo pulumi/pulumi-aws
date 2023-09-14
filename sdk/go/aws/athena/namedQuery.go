@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Athena Named Query resource.
@@ -22,9 +24,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +82,7 @@ import (
 //
 // ## Import
 //
-// Athena Named Query can be imported using the query ID, e.g.,
+// Using `pulumi import`, import Athena Named Query using the query ID. For example:
 //
 // ```sh
 //
@@ -115,6 +117,7 @@ func NewNamedQuery(ctx *pulumi.Context,
 	if args.Query == nil {
 		return nil, errors.New("invalid value for required argument 'Query'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NamedQuery
 	err := ctx.RegisterResource("aws:athena/namedQuery:NamedQuery", name, args, &resource, opts...)
 	if err != nil {
@@ -216,6 +219,12 @@ func (i *NamedQuery) ToNamedQueryOutputWithContext(ctx context.Context) NamedQue
 	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryOutput)
 }
 
+func (i *NamedQuery) ToOutput(ctx context.Context) pulumix.Output[*NamedQuery] {
+	return pulumix.Output[*NamedQuery]{
+		OutputState: i.ToNamedQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamedQueryArrayInput is an input type that accepts NamedQueryArray and NamedQueryArrayOutput values.
 // You can construct a concrete instance of `NamedQueryArrayInput` via:
 //
@@ -239,6 +248,12 @@ func (i NamedQueryArray) ToNamedQueryArrayOutput() NamedQueryArrayOutput {
 
 func (i NamedQueryArray) ToNamedQueryArrayOutputWithContext(ctx context.Context) NamedQueryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryArrayOutput)
+}
+
+func (i NamedQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]*NamedQuery] {
+	return pulumix.Output[[]*NamedQuery]{
+		OutputState: i.ToNamedQueryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NamedQueryMapInput is an input type that accepts NamedQueryMap and NamedQueryMapOutput values.
@@ -266,6 +281,12 @@ func (i NamedQueryMap) ToNamedQueryMapOutputWithContext(ctx context.Context) Nam
 	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryMapOutput)
 }
 
+func (i NamedQueryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamedQuery] {
+	return pulumix.Output[map[string]*NamedQuery]{
+		OutputState: i.ToNamedQueryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamedQueryOutput struct{ *pulumi.OutputState }
 
 func (NamedQueryOutput) ElementType() reflect.Type {
@@ -278,6 +299,12 @@ func (o NamedQueryOutput) ToNamedQueryOutput() NamedQueryOutput {
 
 func (o NamedQueryOutput) ToNamedQueryOutputWithContext(ctx context.Context) NamedQueryOutput {
 	return o
+}
+
+func (o NamedQueryOutput) ToOutput(ctx context.Context) pulumix.Output[*NamedQuery] {
+	return pulumix.Output[*NamedQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Database to which the query belongs.
@@ -319,6 +346,12 @@ func (o NamedQueryArrayOutput) ToNamedQueryArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o NamedQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NamedQuery] {
+	return pulumix.Output[[]*NamedQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NamedQueryArrayOutput) Index(i pulumi.IntInput) NamedQueryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamedQuery {
 		return vs[0].([]*NamedQuery)[vs[1].(int)]
@@ -337,6 +370,12 @@ func (o NamedQueryMapOutput) ToNamedQueryMapOutput() NamedQueryMapOutput {
 
 func (o NamedQueryMapOutput) ToNamedQueryMapOutputWithContext(ctx context.Context) NamedQueryMapOutput {
 	return o
+}
+
+func (o NamedQueryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamedQuery] {
+	return pulumix.Output[map[string]*NamedQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamedQueryMapOutput) MapIndex(k pulumi.StringInput) NamedQueryOutput {

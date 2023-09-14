@@ -8,14 +8,16 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Disable/enable Security Hub standards control in the current region.
 //
 // The `securityhub.StandardsControl` behaves differently from normal resources, in that
-// The provider does not _create_ this resource, but instead "adopts" it
-// into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
+// TODO does not _create_ this resource, but instead "adopts" it
+// into management. When you _delete_ this resource configuration, TODO "abandons" resource as is and just removes it from the state.
 //
 // ## Example Usage
 //
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +79,7 @@ type StandardsControl struct {
 	RemediationUrl pulumi.StringOutput `pulumi:"remediationUrl"`
 	// The severity of findings generated from this security standard control.
 	SeverityRating pulumi.StringOutput `pulumi:"severityRating"`
-	// The standards control ARN.
+	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn pulumi.StringOutput `pulumi:"standardsControlArn"`
 	// The standard control title.
 	Title pulumi.StringOutput `pulumi:"title"`
@@ -96,6 +98,7 @@ func NewStandardsControl(ctx *pulumi.Context,
 	if args.StandardsControlArn == nil {
 		return nil, errors.New("invalid value for required argument 'StandardsControlArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StandardsControl
 	err := ctx.RegisterResource("aws:securityhub/standardsControl:StandardsControl", name, args, &resource, opts...)
 	if err != nil {
@@ -134,7 +137,7 @@ type standardsControlState struct {
 	RemediationUrl *string `pulumi:"remediationUrl"`
 	// The severity of findings generated from this security standard control.
 	SeverityRating *string `pulumi:"severityRating"`
-	// The standards control ARN.
+	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn *string `pulumi:"standardsControlArn"`
 	// The standard control title.
 	Title *string `pulumi:"title"`
@@ -157,7 +160,7 @@ type StandardsControlState struct {
 	RemediationUrl pulumi.StringPtrInput
 	// The severity of findings generated from this security standard control.
 	SeverityRating pulumi.StringPtrInput
-	// The standards control ARN.
+	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn pulumi.StringPtrInput
 	// The standard control title.
 	Title pulumi.StringPtrInput
@@ -172,7 +175,7 @@ type standardsControlArgs struct {
 	ControlStatus string `pulumi:"controlStatus"`
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 	DisabledReason *string `pulumi:"disabledReason"`
-	// The standards control ARN.
+	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn string `pulumi:"standardsControlArn"`
 }
 
@@ -182,7 +185,7 @@ type StandardsControlArgs struct {
 	ControlStatus pulumi.StringInput
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 	DisabledReason pulumi.StringPtrInput
-	// The standards control ARN.
+	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn pulumi.StringInput
 }
 
@@ -207,6 +210,12 @@ func (i *StandardsControl) ToStandardsControlOutput() StandardsControlOutput {
 
 func (i *StandardsControl) ToStandardsControlOutputWithContext(ctx context.Context) StandardsControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlOutput)
+}
+
+func (i *StandardsControl) ToOutput(ctx context.Context) pulumix.Output[*StandardsControl] {
+	return pulumix.Output[*StandardsControl]{
+		OutputState: i.ToStandardsControlOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StandardsControlArrayInput is an input type that accepts StandardsControlArray and StandardsControlArrayOutput values.
@@ -234,6 +243,12 @@ func (i StandardsControlArray) ToStandardsControlArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlArrayOutput)
 }
 
+func (i StandardsControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsControl] {
+	return pulumix.Output[[]*StandardsControl]{
+		OutputState: i.ToStandardsControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StandardsControlMapInput is an input type that accepts StandardsControlMap and StandardsControlMapOutput values.
 // You can construct a concrete instance of `StandardsControlMapInput` via:
 //
@@ -259,6 +274,12 @@ func (i StandardsControlMap) ToStandardsControlMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlMapOutput)
 }
 
+func (i StandardsControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsControl] {
+	return pulumix.Output[map[string]*StandardsControl]{
+		OutputState: i.ToStandardsControlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StandardsControlOutput struct{ *pulumi.OutputState }
 
 func (StandardsControlOutput) ElementType() reflect.Type {
@@ -271,6 +292,12 @@ func (o StandardsControlOutput) ToStandardsControlOutput() StandardsControlOutpu
 
 func (o StandardsControlOutput) ToStandardsControlOutputWithContext(ctx context.Context) StandardsControlOutput {
 	return o
+}
+
+func (o StandardsControlOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardsControl] {
+	return pulumix.Output[*StandardsControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the security standard control.
@@ -313,7 +340,7 @@ func (o StandardsControlOutput) SeverityRating() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.SeverityRating }).(pulumi.StringOutput)
 }
 
-// The standards control ARN.
+// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 func (o StandardsControlOutput) StandardsControlArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.StandardsControlArn }).(pulumi.StringOutput)
 }
@@ -337,6 +364,12 @@ func (o StandardsControlArrayOutput) ToStandardsControlArrayOutputWithContext(ct
 	return o
 }
 
+func (o StandardsControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsControl] {
+	return pulumix.Output[[]*StandardsControl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StandardsControlArrayOutput) Index(i pulumi.IntInput) StandardsControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StandardsControl {
 		return vs[0].([]*StandardsControl)[vs[1].(int)]
@@ -355,6 +388,12 @@ func (o StandardsControlMapOutput) ToStandardsControlMapOutput() StandardsContro
 
 func (o StandardsControlMapOutput) ToStandardsControlMapOutputWithContext(ctx context.Context) StandardsControlMapOutput {
 	return o
+}
+
+func (o StandardsControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsControl] {
+	return pulumix.Output[map[string]*StandardsControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardsControlMapOutput) MapIndex(k pulumi.StringInput) StandardsControlOutput {

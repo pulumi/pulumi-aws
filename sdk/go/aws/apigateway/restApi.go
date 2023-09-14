@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Gateway REST API. The REST API can be configured via [importing an OpenAPI specification](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html) in the `body` argument (with other arguments serving as overrides) or via other provider resources to manage the resources (`apigateway.Resource` resource), methods (`apigateway.Method` resource), integrations (`apigateway.Integration` resource), etc. of the REST API. Once the REST API is configured, the `apigateway.Deployment` resource can be used along with the `apigateway.Stage` resource to publish the REST API.
@@ -28,7 +30,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,13 +114,15 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.,
+// Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
 //
 // ```
+//
+//	~> __NOTE:__ Resource import does not currently support the `body` attribute.
 type RestApi struct {
 	pulumi.CustomResourceState
 
@@ -144,8 +148,8 @@ type RestApi struct {
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
 	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
 	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
-	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
+	// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	MinimumCompressionSize pulumi.StringOutput `pulumi:"minimumCompressionSize"`
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -169,6 +173,7 @@ func NewRestApi(ctx *pulumi.Context,
 		args = &RestApiArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RestApi
 	err := ctx.RegisterResource("aws:apigateway/restApi:RestApi", name, args, &resource, opts...)
 	if err != nil {
@@ -213,8 +218,8 @@ type restApiState struct {
 	ExecutionArn *string `pulumi:"executionArn"`
 	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
-	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
+	// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	MinimumCompressionSize *string `pulumi:"minimumCompressionSize"`
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Name *string `pulumi:"name"`
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -254,8 +259,8 @@ type RestApiState struct {
 	ExecutionArn pulumi.StringPtrInput
 	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
 	FailOnWarnings pulumi.BoolPtrInput
-	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-	MinimumCompressionSize pulumi.IntPtrInput
+	// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	MinimumCompressionSize pulumi.StringPtrInput
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Name pulumi.StringPtrInput
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -291,8 +296,8 @@ type restApiArgs struct {
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
-	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
+	// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	MinimumCompressionSize *string `pulumi:"minimumCompressionSize"`
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Name *string `pulumi:"name"`
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -321,8 +326,8 @@ type RestApiArgs struct {
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
 	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
 	FailOnWarnings pulumi.BoolPtrInput
-	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-	MinimumCompressionSize pulumi.IntPtrInput
+	// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	MinimumCompressionSize pulumi.StringPtrInput
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Name pulumi.StringPtrInput
 	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -358,6 +363,12 @@ func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
 }
 
+func (i *RestApi) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: i.ToRestApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RestApiArrayInput is an input type that accepts RestApiArray and RestApiArrayOutput values.
 // You can construct a concrete instance of `RestApiArrayInput` via:
 //
@@ -381,6 +392,12 @@ func (i RestApiArray) ToRestApiArrayOutput() RestApiArrayOutput {
 
 func (i RestApiArray) ToRestApiArrayOutputWithContext(ctx context.Context) RestApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiArrayOutput)
+}
+
+func (i RestApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*RestApi] {
+	return pulumix.Output[[]*RestApi]{
+		OutputState: i.ToRestApiArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RestApiMapInput is an input type that accepts RestApiMap and RestApiMapOutput values.
@@ -408,6 +425,12 @@ func (i RestApiMap) ToRestApiMapOutputWithContext(ctx context.Context) RestApiMa
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiMapOutput)
 }
 
+func (i RestApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestApi] {
+	return pulumix.Output[map[string]*RestApi]{
+		OutputState: i.ToRestApiMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestApiOutput struct{ *pulumi.OutputState }
 
 func (RestApiOutput) ElementType() reflect.Type {
@@ -420,6 +443,12 @@ func (o RestApiOutput) ToRestApiOutput() RestApiOutput {
 
 func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
 	return o
+}
+
+func (o RestApiOutput) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -474,9 +503,9 @@ func (o RestApiOutput) FailOnWarnings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
 }
 
-// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-func (o RestApiOutput) MinimumCompressionSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RestApi) pulumi.IntPtrOutput { return v.MinimumCompressionSize }).(pulumi.IntPtrOutput)
+// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+func (o RestApiOutput) MinimumCompressionSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.MinimumCompressionSize }).(pulumi.StringOutput)
 }
 
 // Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -528,6 +557,12 @@ func (o RestApiArrayOutput) ToRestApiArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o RestApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RestApi] {
+	return pulumix.Output[[]*RestApi]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RestApiArrayOutput) Index(i pulumi.IntInput) RestApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RestApi {
 		return vs[0].([]*RestApi)[vs[1].(int)]
@@ -546,6 +581,12 @@ func (o RestApiMapOutput) ToRestApiMapOutput() RestApiMapOutput {
 
 func (o RestApiMapOutput) ToRestApiMapOutputWithContext(ctx context.Context) RestApiMapOutput {
 	return o
+}
+
+func (o RestApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestApi] {
+	return pulumix.Output[map[string]*RestApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestApiMapOutput) MapIndex(k pulumi.StringInput) RestApiOutput {

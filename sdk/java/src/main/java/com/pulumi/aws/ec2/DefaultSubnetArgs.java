@@ -29,6 +29,8 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
      * 
+     * This resource supports the following additional arguments:
+     * 
      */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
@@ -37,6 +39,8 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
      * @return is required
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
+     * 
+     * This resource supports the following additional arguments:
      * 
      */
     public Output<String> availabilityZone() {
@@ -178,6 +182,8 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
          * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
          * * The default value for `map_public_ip_on_launch` is `true`
          * 
+         * This resource supports the following additional arguments:
+         * 
          * @return builder
          * 
          */
@@ -190,6 +196,8 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
          * @param availabilityZone is required
          * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
          * * The default value for `map_public_ip_on_launch` is `true`
+         * 
+         * This resource supports the following additional arguments:
          * 
          * @return builder
          * 

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Client VPN endpoint.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointResult
 	err := ctx.Invoke("aws:ec2clientvpn/getEndpoint:getEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -172,6 +175,12 @@ func (o LookupEndpointResultOutput) ToLookupEndpointResultOutput() LookupEndpoin
 
 func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx context.Context) LookupEndpointResultOutput {
 	return o
+}
+
+func (o LookupEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointResult] {
+	return pulumix.Output[LookupEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Client VPN endpoint.

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * KMS aliases can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import KMS aliases using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias

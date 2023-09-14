@@ -93,8 +93,6 @@ import com.pulumi.aws.ec2.inputs.GetSecurityGroupsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotPricePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-import com.pulumi.aws.ec2.inputs.GetSubnetIdsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetsPlainArgs;
@@ -113,6 +111,12 @@ import com.pulumi.aws.ec2.inputs.GetVpcIamPoolCidrsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcIamPoolPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionsArgs;
@@ -167,7 +171,6 @@ import com.pulumi.aws.ec2.outputs.GetSecurityGroupResult;
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupsResult;
 import com.pulumi.aws.ec2.outputs.GetSerialConsoleAccessResult;
 import com.pulumi.aws.ec2.outputs.GetSpotPriceResult;
-import com.pulumi.aws.ec2.outputs.GetSubnetIdsResult;
 import com.pulumi.aws.ec2.outputs.GetSubnetResult;
 import com.pulumi.aws.ec2.outputs.GetSubnetsResult;
 import com.pulumi.aws.ec2.outputs.GetTransitGatewayRouteTablesResult;
@@ -177,6 +180,9 @@ import com.pulumi.aws.ec2.outputs.GetVpcEndpointServiceResult;
 import com.pulumi.aws.ec2.outputs.GetVpcIamPoolCidrsResult;
 import com.pulumi.aws.ec2.outputs.GetVpcIamPoolResult;
 import com.pulumi.aws.ec2.outputs.GetVpcIamPoolsResult;
+import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolCidrsResult;
+import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolResult;
+import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolsResult;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionResult;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionsResult;
 import com.pulumi.aws.ec2.outputs.GetVpcResult;
@@ -3913,6 +3919,53 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetInstancesResult> getInstances() {
         return getInstances(GetInstancesArgs.Empty, InvokeOptions.Empty);
@@ -3925,6 +3978,53 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -3939,6 +4039,53 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
         return getInstances(args, InvokeOptions.Empty);
@@ -3951,6 +4098,53 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args) {
@@ -3965,6 +4159,53 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
@@ -3977,6 +4218,53 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args, InvokeOptions options) {
@@ -7231,7 +7519,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7262,8 +7550,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7299,7 +7586,7 @@ public final class Ec2Functions {
         return getNatGateway(GetNatGatewayArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7330,8 +7617,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7367,7 +7653,7 @@ public final class Ec2Functions {
         return getNatGatewayPlain(GetNatGatewayPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7398,8 +7684,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7435,7 +7720,7 @@ public final class Ec2Functions {
         return getNatGateway(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7466,8 +7751,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7503,7 +7787,7 @@ public final class Ec2Functions {
         return getNatGatewayPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7534,8 +7818,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7571,7 +7854,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateway:getNatGateway", TypeShape.of(GetNatGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7602,8 +7885,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -13101,50 +13383,6 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSubnet:getSubnet", TypeShape.of(GetSubnetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     */
-    public static Output<GetSubnetIdsResult> getSubnetIds(GetSubnetIdsArgs args) {
-        return getSubnetIds(args, InvokeOptions.Empty);
-    }
-    /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     */
-    public static CompletableFuture<GetSubnetIdsResult> getSubnetIdsPlain(GetSubnetIdsPlainArgs args) {
-        return getSubnetIdsPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     */
-    public static Output<GetSubnetIdsResult> getSubnetIds(GetSubnetIdsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:ec2/getSubnetIds:getSubnetIds", TypeShape.of(GetSubnetIdsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     */
-    public static CompletableFuture<GetSubnetIdsResult> getSubnetIdsPlain(GetSubnetIdsPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:ec2/getSubnetIds:getSubnetIds", TypeShape.of(GetSubnetIdsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
      * This resource can be useful for getting back a set of subnet IDs.
      * 
      */
@@ -13215,7 +13453,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13253,7 +13491,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13291,7 +13529,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13329,7 +13567,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13367,7 +13605,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13405,7 +13643,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -14909,7 +15147,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.List;
@@ -14925,20 +15163,20 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
      *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -14946,7 +15184,11 @@ public final class Ec2Functions {
      * }
      * ```
      * 
+     * @deprecated
+     * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
+     * 
      */
+    @Deprecated /* aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
     public static Output<GetVpcIamPoolResult> getVpcIamPool() {
         return getVpcIamPool(GetVpcIamPoolArgs.Empty, InvokeOptions.Empty);
     }
@@ -14969,7 +15211,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.List;
@@ -14985,20 +15227,20 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
      *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -15006,7 +15248,11 @@ public final class Ec2Functions {
      * }
      * ```
      * 
+     * @deprecated
+     * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
+     * 
      */
+    @Deprecated /* aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
     public static CompletableFuture<GetVpcIamPoolResult> getVpcIamPoolPlain() {
         return getVpcIamPoolPlain(GetVpcIamPoolPlainArgs.Empty, InvokeOptions.Empty);
     }
@@ -15029,7 +15275,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.List;
@@ -15045,20 +15291,20 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
      *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -15066,7 +15312,11 @@ public final class Ec2Functions {
      * }
      * ```
      * 
+     * @deprecated
+     * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
+     * 
      */
+    @Deprecated /* aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
     public static Output<GetVpcIamPoolResult> getVpcIamPool(GetVpcIamPoolArgs args) {
         return getVpcIamPool(args, InvokeOptions.Empty);
     }
@@ -15089,7 +15339,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.List;
@@ -15105,20 +15355,20 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
      *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -15126,7 +15376,11 @@ public final class Ec2Functions {
      * }
      * ```
      * 
+     * @deprecated
+     * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
+     * 
      */
+    @Deprecated /* aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
     public static CompletableFuture<GetVpcIamPoolResult> getVpcIamPoolPlain(GetVpcIamPoolPlainArgs args) {
         return getVpcIamPoolPlain(args, InvokeOptions.Empty);
     }
@@ -15149,7 +15403,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.List;
@@ -15165,20 +15419,20 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
      *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -15186,7 +15440,11 @@ public final class Ec2Functions {
      * }
      * ```
      * 
+     * @deprecated
+     * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
+     * 
      */
+    @Deprecated /* aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
     public static Output<GetVpcIamPoolResult> getVpcIamPool(GetVpcIamPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcIamPool:getVpcIamPool", TypeShape.of(GetVpcIamPoolResult.class), args, Utilities.withVersion(options));
     }
@@ -15209,7 +15467,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.List;
@@ -15225,20 +15483,454 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolFilterArgs.builder()
+     *                 GetVpcIpamPoolFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
      *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipv4NetmaskLength(28)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
+    public static CompletableFuture<GetVpcIamPoolResult> getVpcIamPoolPlain(GetVpcIamPoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPool:getVpcIamPool", TypeShape.of(GetVpcIamPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
+    public static Output<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrs(GetVpcIamPoolCidrsArgs args) {
+        return getVpcIamPoolCidrs(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
+    public static CompletableFuture<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrsPlain(GetVpcIamPoolCidrsPlainArgs args) {
+        return getVpcIamPoolCidrsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
+    public static Output<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrs(GetVpcIamPoolCidrsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", TypeShape.of(GetVpcIamPoolCidrsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
+    public static CompletableFuture<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrsPlain(GetVpcIamPoolCidrsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", TypeShape.of(GetVpcIamPoolCidrsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
+     * 
+     * This resource can prove useful when IPAM pools are created in another root
+     * module and you need the pool ids as input variables. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
+    public static Output<GetVpcIamPoolsResult> getVpcIamPools() {
+        return getVpcIamPools(GetVpcIamPoolsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
+     * 
+     * This resource can prove useful when IPAM pools are created in another root
+     * module and you need the pool ids as input variables. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
+    public static CompletableFuture<GetVpcIamPoolsResult> getVpcIamPoolsPlain() {
+        return getVpcIamPoolsPlain(GetVpcIamPoolsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
+     * 
+     * This resource can prove useful when IPAM pools are created in another root
+     * module and you need the pool ids as input variables. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
+    public static Output<GetVpcIamPoolsResult> getVpcIamPools(GetVpcIamPoolsArgs args) {
+        return getVpcIamPools(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
+     * 
+     * This resource can prove useful when IPAM pools are created in another root
+     * module and you need the pool ids as input variables. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
+    public static CompletableFuture<GetVpcIamPoolsResult> getVpcIamPoolsPlain(GetVpcIamPoolsPlainArgs args) {
+        return getVpcIamPoolsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
+     * 
+     * This resource can prove useful when IPAM pools are created in another root
+     * module and you need the pool ids as input variables. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
+    public static Output<GetVpcIamPoolsResult> getVpcIamPools(GetVpcIamPoolsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpcIamPools:getVpcIamPools", TypeShape.of(GetVpcIamPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
+     * 
+     * This resource can prove useful when IPAM pools are created in another root
+     * module and you need the pool ids as input variables. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolsFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * @deprecated
+     * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
+     * 
+     */
+    @Deprecated /* aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
+    public static CompletableFuture<GetVpcIamPoolsResult> getVpcIamPoolsPlain(GetVpcIamPoolsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPools:getVpcIamPools", TypeShape.of(GetVpcIamPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was created in another root
+     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows an account that has only 1 pool, perhaps shared
+     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * AWS IPAM.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -15247,47 +15939,347 @@ public final class Ec2Functions {
      * ```
      * 
      */
-    public static CompletableFuture<GetVpcIamPoolResult> getVpcIamPoolPlain(GetVpcIamPoolPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPool:getVpcIamPool", TypeShape.of(GetVpcIamPoolResult.class), args, Utilities.withVersion(options));
+    public static Output<GetVpcIpamPoolResult> getVpcIpamPool() {
+        return getVpcIpamPool(GetVpcIpamPoolArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was created in another root
+     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows an account that has only 1 pool, perhaps shared
+     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * AWS IPAM.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipv4NetmaskLength(28)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVpcIpamPoolResult> getVpcIpamPoolPlain() {
+        return getVpcIpamPoolPlain(GetVpcIpamPoolPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was created in another root
+     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows an account that has only 1 pool, perhaps shared
+     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * AWS IPAM.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipv4NetmaskLength(28)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVpcIpamPoolResult> getVpcIpamPool(GetVpcIpamPoolArgs args) {
+        return getVpcIpamPool(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was created in another root
+     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows an account that has only 1 pool, perhaps shared
+     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * AWS IPAM.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipv4NetmaskLength(28)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVpcIpamPoolResult> getVpcIpamPoolPlain(GetVpcIpamPoolPlainArgs args) {
+        return getVpcIpamPoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was created in another root
+     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows an account that has only 1 pool, perhaps shared
+     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * AWS IPAM.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipv4NetmaskLength(28)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVpcIpamPoolResult> getVpcIpamPool(GetVpcIpamPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpcIpamPool:getVpcIpamPool", TypeShape.of(GetVpcIpamPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was created in another root
+     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows an account that has only 1 pool, perhaps shared
+     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * AWS IPAM.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
+     *             .filters(            
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;description&#34;)
+     *                     .values(&#34;*test*&#34;)
+     *                     .build(),
+     *                 GetVpcIpamPoolFilterArgs.builder()
+     *                     .name(&#34;address-family&#34;)
+     *                     .values(&#34;ipv4&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
+     *             .ipv4NetmaskLength(28)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVpcIpamPoolResult> getVpcIpamPoolPlain(GetVpcIpamPoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIpamPool:getVpcIpamPool", TypeShape.of(GetVpcIpamPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
      * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      */
-    public static Output<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrs(GetVpcIamPoolCidrsArgs args) {
-        return getVpcIamPoolCidrs(args, InvokeOptions.Empty);
+    public static Output<GetVpcIpamPoolCidrsResult> getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs args) {
+        return getVpcIpamPoolCidrs(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
      * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      */
-    public static CompletableFuture<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrsPlain(GetVpcIamPoolCidrsPlainArgs args) {
-        return getVpcIamPoolCidrsPlain(args, InvokeOptions.Empty);
+    public static CompletableFuture<GetVpcIpamPoolCidrsResult> getVpcIpamPoolCidrsPlain(GetVpcIpamPoolCidrsPlainArgs args) {
+        return getVpcIpamPoolCidrsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
      * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      */
-    public static Output<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrs(GetVpcIamPoolCidrsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", TypeShape.of(GetVpcIamPoolCidrsResult.class), args, Utilities.withVersion(options));
+    public static Output<GetVpcIpamPoolCidrsResult> getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", TypeShape.of(GetVpcIpamPoolCidrsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
      * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      */
-    public static CompletableFuture<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrsPlain(GetVpcIamPoolCidrsPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", TypeShape.of(GetVpcIamPoolCidrsResult.class), args, Utilities.withVersion(options));
+    public static CompletableFuture<GetVpcIpamPoolCidrsResult> getVpcIpamPoolCidrsPlain(GetVpcIpamPoolCidrsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", TypeShape.of(GetVpcIpamPoolCidrsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
@@ -15301,7 +16293,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -15315,13 +16307,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIamPools(GetVpcIamPoolsArgs.builder()
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
@@ -15332,11 +16324,11 @@ public final class Ec2Functions {
      * ```
      * 
      */
-    public static Output<GetVpcIamPoolsResult> getVpcIamPools() {
-        return getVpcIamPools(GetVpcIamPoolsArgs.Empty, InvokeOptions.Empty);
+    public static Output<GetVpcIpamPoolsResult> getVpcIpamPools() {
+        return getVpcIpamPools(GetVpcIpamPoolsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
@@ -15350,7 +16342,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -15364,13 +16356,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIamPools(GetVpcIamPoolsArgs.builder()
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
@@ -15381,11 +16373,11 @@ public final class Ec2Functions {
      * ```
      * 
      */
-    public static CompletableFuture<GetVpcIamPoolsResult> getVpcIamPoolsPlain() {
-        return getVpcIamPoolsPlain(GetVpcIamPoolsPlainArgs.Empty, InvokeOptions.Empty);
+    public static CompletableFuture<GetVpcIpamPoolsResult> getVpcIpamPoolsPlain() {
+        return getVpcIpamPoolsPlain(GetVpcIpamPoolsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
@@ -15399,7 +16391,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -15413,13 +16405,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIamPools(GetVpcIamPoolsArgs.builder()
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
@@ -15430,11 +16422,11 @@ public final class Ec2Functions {
      * ```
      * 
      */
-    public static Output<GetVpcIamPoolsResult> getVpcIamPools(GetVpcIamPoolsArgs args) {
-        return getVpcIamPools(args, InvokeOptions.Empty);
+    public static Output<GetVpcIpamPoolsResult> getVpcIpamPools(GetVpcIpamPoolsArgs args) {
+        return getVpcIpamPools(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
@@ -15448,7 +16440,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -15462,13 +16454,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIamPools(GetVpcIamPoolsArgs.builder()
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
@@ -15479,11 +16471,11 @@ public final class Ec2Functions {
      * ```
      * 
      */
-    public static CompletableFuture<GetVpcIamPoolsResult> getVpcIamPoolsPlain(GetVpcIamPoolsPlainArgs args) {
-        return getVpcIamPoolsPlain(args, InvokeOptions.Empty);
+    public static CompletableFuture<GetVpcIpamPoolsResult> getVpcIpamPoolsPlain(GetVpcIpamPoolsPlainArgs args) {
+        return getVpcIpamPoolsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
@@ -15497,7 +16489,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -15511,13 +16503,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIamPools(GetVpcIamPoolsArgs.builder()
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
@@ -15528,11 +16520,11 @@ public final class Ec2Functions {
      * ```
      * 
      */
-    public static Output<GetVpcIamPoolsResult> getVpcIamPools(GetVpcIamPoolsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:ec2/getVpcIamPools:getVpcIamPools", TypeShape.of(GetVpcIamPoolsResult.class), args, Utilities.withVersion(options));
+    public static Output<GetVpcIpamPoolsResult> getVpcIpamPools(GetVpcIpamPoolsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpcIpamPools:getVpcIpamPools", TypeShape.of(GetVpcIpamPoolsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+     * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
@@ -15546,7 +16538,7 @@ public final class Ec2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -15560,13 +16552,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIamPools(GetVpcIamPoolsArgs.builder()
+     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
      *             .filters(            
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;description&#34;)
      *                     .values(&#34;*test*&#34;)
      *                     .build(),
-     *                 GetVpcIamPoolsFilterArgs.builder()
+     *                 GetVpcIpamPoolsFilterArgs.builder()
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
@@ -15577,8 +16569,8 @@ public final class Ec2Functions {
      * ```
      * 
      */
-    public static CompletableFuture<GetVpcIamPoolsResult> getVpcIamPoolsPlain(GetVpcIamPoolsPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPools:getVpcIamPools", TypeShape.of(GetVpcIamPoolsResult.class), args, Utilities.withVersion(options));
+    public static CompletableFuture<GetVpcIpamPoolsResult> getVpcIpamPoolsPlain(GetVpcIpamPoolsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIpamPools:getVpcIpamPools", TypeShape.of(GetVpcIpamPoolsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The VPC Peering Connection data source provides details about
@@ -15905,6 +16897,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections() {
         return getVpcPeeringConnections(GetVpcPeeringConnectionsArgs.Empty, InvokeOptions.Empty);
@@ -15915,6 +16909,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain() {
@@ -15927,6 +16923,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args) {
         return getVpcPeeringConnections(args, InvokeOptions.Empty);
@@ -15937,6 +16935,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args) {
@@ -15949,6 +16949,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", TypeShape.of(GetVpcPeeringConnectionsResult.class), args, Utilities.withVersion(options));
@@ -15959,6 +16961,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args, InvokeOptions options) {

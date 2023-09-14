@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
+    /// Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
@@ -94,6 +94,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+        /// 
+        /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         /// </summary>
         [Output("connectionEvents")]
         public Output<ImmutableArray<string>> ConnectionEvents { get; private set; } = null!;
@@ -179,6 +181,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+        /// 
+        /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         /// </summary>
         public InputList<string> ConnectionEvents
         {
@@ -217,6 +221,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+        /// 
+        /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         /// </summary>
         public InputList<string> ConnectionEvents
         {

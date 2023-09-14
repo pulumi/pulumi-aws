@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_networkmanager_connect_attachment` can be imported using the attachment ID, e.g.
+ * Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
@@ -75,6 +75,8 @@ export class ConnectAttachment extends pulumi.CustomResource {
     public readonly edgeLocation!: pulumi.Output<string>;
     /**
      * Options for creating an attachment.
+     *
+     * The following arguments are optional:
      */
     public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
     /**
@@ -200,6 +202,8 @@ export interface ConnectAttachmentState {
     edgeLocation?: pulumi.Input<string>;
     /**
      * Options for creating an attachment.
+     *
+     * The following arguments are optional:
      */
     options?: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptions>;
     /**
@@ -246,6 +250,8 @@ export interface ConnectAttachmentArgs {
     edgeLocation: pulumi.Input<string>;
     /**
      * Options for creating an attachment.
+     *
+     * The following arguments are optional:
      */
     options: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptions>;
     /**

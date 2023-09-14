@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArgs, opts ...pulumi.InvokeOption) (*GetRouterConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouterConfigurationResult
 	err := ctx.Invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -51,6 +54,22 @@ func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArg
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationArgs struct {
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+	//
+	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
 	// ID of the Direct Connect Virtual Interface
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
@@ -86,6 +105,22 @@ func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurati
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationOutputArgs struct {
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+	//
+	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
 	// ID of the Direct Connect Virtual Interface
 	VirtualInterfaceId pulumi.StringInput `pulumi:"virtualInterfaceId"`
@@ -108,6 +143,12 @@ func (o GetRouterConfigurationResultOutput) ToGetRouterConfigurationResultOutput
 
 func (o GetRouterConfigurationResultOutput) ToGetRouterConfigurationResultOutputWithContext(ctx context.Context) GetRouterConfigurationResultOutput {
 	return o
+}
+
+func (o GetRouterConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouterConfigurationResult] {
+	return pulumix.Output[GetRouterConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Instructions for configuring your router

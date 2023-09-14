@@ -64,18 +64,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs>> textTransformations() {
@@ -173,9 +169,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -186,9 +180,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -198,9 +190,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
          * 
          * @return builder
          * 

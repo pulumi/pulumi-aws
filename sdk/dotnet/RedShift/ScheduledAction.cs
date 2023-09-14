@@ -130,7 +130,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Redshift Scheduled Action can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action

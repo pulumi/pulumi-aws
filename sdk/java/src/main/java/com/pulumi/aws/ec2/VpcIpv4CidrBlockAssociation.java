@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
  *             .vpcId(main.id())
- *             .cidrBlock(&#34;172.2.0.0/16&#34;)
+ *             .cidrBlock(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *     }
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+ * Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx

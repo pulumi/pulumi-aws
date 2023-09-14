@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an NFS Location within AWS DataSync.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -92,6 +94,7 @@ func NewNfsLocation(ctx *pulumi.Context,
 	if args.Subdirectory == nil {
 		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NfsLocation
 	err := ctx.RegisterResource("aws:datasync/nfsLocation:NfsLocation", name, args, &resource, opts...)
 	if err != nil {
@@ -203,6 +206,12 @@ func (i *NfsLocation) ToNfsLocationOutputWithContext(ctx context.Context) NfsLoc
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationOutput)
 }
 
+func (i *NfsLocation) ToOutput(ctx context.Context) pulumix.Output[*NfsLocation] {
+	return pulumix.Output[*NfsLocation]{
+		OutputState: i.ToNfsLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NfsLocationArrayInput is an input type that accepts NfsLocationArray and NfsLocationArrayOutput values.
 // You can construct a concrete instance of `NfsLocationArrayInput` via:
 //
@@ -226,6 +235,12 @@ func (i NfsLocationArray) ToNfsLocationArrayOutput() NfsLocationArrayOutput {
 
 func (i NfsLocationArray) ToNfsLocationArrayOutputWithContext(ctx context.Context) NfsLocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationArrayOutput)
+}
+
+func (i NfsLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NfsLocation] {
+	return pulumix.Output[[]*NfsLocation]{
+		OutputState: i.ToNfsLocationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NfsLocationMapInput is an input type that accepts NfsLocationMap and NfsLocationMapOutput values.
@@ -253,6 +268,12 @@ func (i NfsLocationMap) ToNfsLocationMapOutputWithContext(ctx context.Context) N
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMapOutput)
 }
 
+func (i NfsLocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NfsLocation] {
+	return pulumix.Output[map[string]*NfsLocation]{
+		OutputState: i.ToNfsLocationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NfsLocationOutput struct{ *pulumi.OutputState }
 
 func (NfsLocationOutput) ElementType() reflect.Type {
@@ -265,6 +286,12 @@ func (o NfsLocationOutput) ToNfsLocationOutput() NfsLocationOutput {
 
 func (o NfsLocationOutput) ToNfsLocationOutputWithContext(ctx context.Context) NfsLocationOutput {
 	return o
+}
+
+func (o NfsLocationOutput) ToOutput(ctx context.Context) pulumix.Output[*NfsLocation] {
+	return pulumix.Output[*NfsLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
@@ -320,6 +347,12 @@ func (o NfsLocationArrayOutput) ToNfsLocationArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o NfsLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NfsLocation] {
+	return pulumix.Output[[]*NfsLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NfsLocationArrayOutput) Index(i pulumi.IntInput) NfsLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NfsLocation {
 		return vs[0].([]*NfsLocation)[vs[1].(int)]
@@ -338,6 +371,12 @@ func (o NfsLocationMapOutput) ToNfsLocationMapOutput() NfsLocationMapOutput {
 
 func (o NfsLocationMapOutput) ToNfsLocationMapOutputWithContext(ctx context.Context) NfsLocationMapOutput {
 	return o
+}
+
+func (o NfsLocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NfsLocation] {
+	return pulumix.Output[map[string]*NfsLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NfsLocationMapOutput) MapIndex(k pulumi.StringInput) NfsLocationOutput {

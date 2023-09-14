@@ -17,9 +17,9 @@ import javax.annotation.Nullable;
 /**
  * Manages the Security Hub Organization Configuration.
  * 
- * &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+ * &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with TODO). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
  * 
- * &gt; **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+ * &gt; **NOTE:** This is an advanced TODO resource. TODO will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the TODO configuration.
  * 
  * ## Example Usage
  * ```java
@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
- * ```
+ *  to = aws_securityhub_organization_configuration.example
+ * 
+ *  id = &#34;123456789012&#34; } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_organization_configuration.example 123456789012
  * 
  */
 @ResourceType(type="aws:securityhub/organizationConfiguration:OrganizationConfiguration")

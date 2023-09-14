@@ -152,7 +152,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
+        Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
 
         ```sh
          $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
@@ -191,7 +191,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
+        Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
 
         ```sh
          $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new()
     ///     {
-    ///         ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.small",
     ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
     ///         {
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+    /// Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName

@@ -76,15 +76,6 @@ public final class GetInstanceResult {
      */
     private List<String> dbParameterGroups;
     /**
-     * @return Provides List of DB security groups associated to this DB instance.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version. */
-    private List<String> dbSecurityGroups;
-    /**
      * @return Name of the subnet group associated with the DB instance.
      * 
      */
@@ -145,6 +136,11 @@ public final class GetInstanceResult {
      */
     private String masterUsername;
     /**
+     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     * 
+     */
+    private Integer maxAllocatedStorage;
+    /**
      * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
@@ -170,7 +166,7 @@ public final class GetInstanceResult {
      */
     private List<String> optionGroupMemberships;
     /**
-     * @return Database port.
+     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
      * 
      */
     private Integer port;
@@ -315,17 +311,6 @@ public final class GetInstanceResult {
         return this.dbParameterGroups;
     }
     /**
-     * @return Provides List of DB security groups associated to this DB instance.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version. */
-    public List<String> dbSecurityGroups() {
-        return this.dbSecurityGroups;
-    }
-    /**
      * @return Name of the subnet group associated with the DB instance.
      * 
      */
@@ -410,6 +395,13 @@ public final class GetInstanceResult {
         return this.masterUsername;
     }
     /**
+     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     * 
+     */
+    public Integer maxAllocatedStorage() {
+        return this.maxAllocatedStorage;
+    }
+    /**
      * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
@@ -445,7 +437,7 @@ public final class GetInstanceResult {
         return this.optionGroupMemberships;
     }
     /**
-     * @return Database port.
+     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
      * 
      */
     public Integer port() {
@@ -547,7 +539,6 @@ public final class GetInstanceResult {
         private Integer dbInstancePort;
         private String dbName;
         private List<String> dbParameterGroups;
-        private List<String> dbSecurityGroups;
         private String dbSubnetGroup;
         private List<String> enabledCloudwatchLogsExports;
         private String endpoint;
@@ -560,6 +551,7 @@ public final class GetInstanceResult {
         private String licenseModel;
         private List<GetInstanceMasterUserSecret> masterUserSecrets;
         private String masterUsername;
+        private Integer maxAllocatedStorage;
         private Integer monitoringInterval;
         private String monitoringRoleArn;
         private Boolean multiAz;
@@ -593,7 +585,6 @@ public final class GetInstanceResult {
     	      this.dbInstancePort = defaults.dbInstancePort;
     	      this.dbName = defaults.dbName;
     	      this.dbParameterGroups = defaults.dbParameterGroups;
-    	      this.dbSecurityGroups = defaults.dbSecurityGroups;
     	      this.dbSubnetGroup = defaults.dbSubnetGroup;
     	      this.enabledCloudwatchLogsExports = defaults.enabledCloudwatchLogsExports;
     	      this.endpoint = defaults.endpoint;
@@ -606,6 +597,7 @@ public final class GetInstanceResult {
     	      this.licenseModel = defaults.licenseModel;
     	      this.masterUserSecrets = defaults.masterUserSecrets;
     	      this.masterUsername = defaults.masterUsername;
+    	      this.maxAllocatedStorage = defaults.maxAllocatedStorage;
     	      this.monitoringInterval = defaults.monitoringInterval;
     	      this.monitoringRoleArn = defaults.monitoringRoleArn;
     	      this.multiAz = defaults.multiAz;
@@ -694,14 +686,6 @@ public final class GetInstanceResult {
             return dbParameterGroups(List.of(dbParameterGroups));
         }
         @CustomType.Setter
-        public Builder dbSecurityGroups(List<String> dbSecurityGroups) {
-            this.dbSecurityGroups = Objects.requireNonNull(dbSecurityGroups);
-            return this;
-        }
-        public Builder dbSecurityGroups(String... dbSecurityGroups) {
-            return dbSecurityGroups(List.of(dbSecurityGroups));
-        }
-        @CustomType.Setter
         public Builder dbSubnetGroup(String dbSubnetGroup) {
             this.dbSubnetGroup = Objects.requireNonNull(dbSubnetGroup);
             return this;
@@ -765,6 +749,11 @@ public final class GetInstanceResult {
         @CustomType.Setter
         public Builder masterUsername(String masterUsername) {
             this.masterUsername = Objects.requireNonNull(masterUsername);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxAllocatedStorage(Integer maxAllocatedStorage) {
+            this.maxAllocatedStorage = Objects.requireNonNull(maxAllocatedStorage);
             return this;
         }
         @CustomType.Setter
@@ -873,7 +862,6 @@ public final class GetInstanceResult {
             o.dbInstancePort = dbInstancePort;
             o.dbName = dbName;
             o.dbParameterGroups = dbParameterGroups;
-            o.dbSecurityGroups = dbSecurityGroups;
             o.dbSubnetGroup = dbSubnetGroup;
             o.enabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             o.endpoint = endpoint;
@@ -886,6 +874,7 @@ public final class GetInstanceResult {
             o.licenseModel = licenseModel;
             o.masterUserSecrets = masterUserSecrets;
             o.masterUsername = masterUsername;
+            o.maxAllocatedStorage = maxAllocatedStorage;
             o.monitoringInterval = monitoringInterval;
             o.monitoringRoleArn = monitoringRoleArn;
             o.multiAz = multiAz;

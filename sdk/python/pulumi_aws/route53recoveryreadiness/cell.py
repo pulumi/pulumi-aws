@@ -20,6 +20,8 @@ class CellArgs:
         """
         The set of arguments for constructing a Cell resource.
         :param pulumi.Input[str] cell_name: Unique name describing the cell.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -34,6 +36,8 @@ class CellArgs:
     def cell_name(self) -> pulumi.Input[str]:
         """
         Unique name describing the cell.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cell_name")
 
@@ -79,6 +83,8 @@ class _CellState:
         Input properties used for looking up and filtering Cell resources.
         :param pulumi.Input[str] arn: ARN of the cell
         :param pulumi.Input[str] cell_name: Unique name describing the cell.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parent_readiness_scopes: List of readiness scopes (recovery groups or cells) that contain this cell.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -114,6 +120,8 @@ class _CellState:
     def cell_name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name describing the cell.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cell_name")
 
@@ -193,7 +201,7 @@ class Cell(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+        Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
 
         ```sh
          $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
@@ -202,6 +210,8 @@ class Cell(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cell_name: Unique name describing the cell.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -225,7 +235,7 @@ class Cell(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+        Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
 
         ```sh
          $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
@@ -291,6 +301,8 @@ class Cell(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the cell
         :param pulumi.Input[str] cell_name: Unique name describing the cell.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parent_readiness_scopes: List of readiness scopes (recovery groups or cells) that contain this cell.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -321,6 +333,8 @@ class Cell(pulumi.CustomResource):
     def cell_name(self) -> pulumi.Output[str]:
         """
         Unique name describing the cell.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cell_name")
 

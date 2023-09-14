@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Observability Access Manager Sink can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
@@ -77,12 +77,16 @@ public class Sink extends com.pulumi.resources.CustomResource {
     /**
      * Name for the sink.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name for the sink.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

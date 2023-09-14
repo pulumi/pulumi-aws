@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Emr.Inputs
     public sealed class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        /// Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
         /// </summary>
         [Input("allocationStrategy", required: true)]
         public Input<string> AllocationStrategy { get; set; } = null!;

@@ -133,6 +133,7 @@ class GcmChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint GCM Channel resource.
 
+        > **Note:** Api Key argument will be stored in the raw state as plain-text.
         ## Example Usage
 
         ```python
@@ -147,11 +148,11 @@ class GcmChannel(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
-        ```
+         to = aws_pinpoint_gcm_channel.gcm
+
+         id = "application-id" } Using `TODO import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_gcm_channel.gcm application-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +169,7 @@ class GcmChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint GCM Channel resource.
 
+        > **Note:** Api Key argument will be stored in the raw state as plain-text.
         ## Example Usage
 
         ```python
@@ -182,11 +184,11 @@ class GcmChannel(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
-        ```
+         to = aws_pinpoint_gcm_channel.gcm
+
+         id = "application-id" } Using `TODO import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_gcm_channel.gcm application-id
 
         :param str resource_name: The name of the resource.
         :param GcmChannelArgs args: The arguments to use to populate this resource's properties.

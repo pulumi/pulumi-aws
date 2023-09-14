@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Managed Grafana workspace role association resource.
@@ -23,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,6 +93,8 @@ type RoleAssociation struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayOutput `pulumi:"userIds"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -107,6 +111,7 @@ func NewRoleAssociation(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoleAssociation
 	err := ctx.RegisterResource("aws:grafana/roleAssociation:RoleAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -136,6 +141,8 @@ type roleAssociationState struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds []string `pulumi:"userIds"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -147,6 +154,8 @@ type RoleAssociationState struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayInput
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -162,6 +171,8 @@ type roleAssociationArgs struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds []string `pulumi:"userIds"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -174,6 +185,8 @@ type RoleAssociationArgs struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayInput
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringInput
 }
 
@@ -198,6 +211,12 @@ func (i *RoleAssociation) ToRoleAssociationOutput() RoleAssociationOutput {
 
 func (i *RoleAssociation) ToRoleAssociationOutputWithContext(ctx context.Context) RoleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationOutput)
+}
+
+func (i *RoleAssociation) ToOutput(ctx context.Context) pulumix.Output[*RoleAssociation] {
+	return pulumix.Output[*RoleAssociation]{
+		OutputState: i.ToRoleAssociationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RoleAssociationArrayInput is an input type that accepts RoleAssociationArray and RoleAssociationArrayOutput values.
@@ -225,6 +244,12 @@ func (i RoleAssociationArray) ToRoleAssociationArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationArrayOutput)
 }
 
+func (i RoleAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoleAssociation] {
+	return pulumix.Output[[]*RoleAssociation]{
+		OutputState: i.ToRoleAssociationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RoleAssociationMapInput is an input type that accepts RoleAssociationMap and RoleAssociationMapOutput values.
 // You can construct a concrete instance of `RoleAssociationMapInput` via:
 //
@@ -250,6 +275,12 @@ func (i RoleAssociationMap) ToRoleAssociationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssociationMapOutput)
 }
 
+func (i RoleAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleAssociation] {
+	return pulumix.Output[map[string]*RoleAssociation]{
+		OutputState: i.ToRoleAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RoleAssociationOutput struct{ *pulumi.OutputState }
 
 func (RoleAssociationOutput) ElementType() reflect.Type {
@@ -262,6 +293,12 @@ func (o RoleAssociationOutput) ToRoleAssociationOutput() RoleAssociationOutput {
 
 func (o RoleAssociationOutput) ToRoleAssociationOutputWithContext(ctx context.Context) RoleAssociationOutput {
 	return o
+}
+
+func (o RoleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*RoleAssociation] {
+	return pulumix.Output[*RoleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS SSO group ids to be assigned the role given in `role`.
@@ -280,6 +317,8 @@ func (o RoleAssociationOutput) UserIds() pulumi.StringArrayOutput {
 }
 
 // The workspace id.
+//
+// The following arguments are optional:
 func (o RoleAssociationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -296,6 +335,12 @@ func (o RoleAssociationArrayOutput) ToRoleAssociationArrayOutput() RoleAssociati
 
 func (o RoleAssociationArrayOutput) ToRoleAssociationArrayOutputWithContext(ctx context.Context) RoleAssociationArrayOutput {
 	return o
+}
+
+func (o RoleAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoleAssociation] {
+	return pulumix.Output[[]*RoleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoleAssociationArrayOutput) Index(i pulumi.IntInput) RoleAssociationOutput {
@@ -316,6 +361,12 @@ func (o RoleAssociationMapOutput) ToRoleAssociationMapOutput() RoleAssociationMa
 
 func (o RoleAssociationMapOutput) ToRoleAssociationMapOutputWithContext(ctx context.Context) RoleAssociationMapOutput {
 	return o
+}
+
+func (o RoleAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleAssociation] {
+	return pulumix.Output[map[string]*RoleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoleAssociationMapOutput) MapIndex(k pulumi.StringInput) RoleAssociationOutput {

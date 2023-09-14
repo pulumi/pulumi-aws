@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// 1-based integer value that maps to a specific audio track.
+        /// </summary>
         [Input("track", required: true)]
         public Input<int> Track { get; set; } = null!;
 

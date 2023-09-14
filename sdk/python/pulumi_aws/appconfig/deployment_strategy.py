@@ -349,7 +349,7 @@ class DeploymentStrategy(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
+        Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 
         ```sh
          $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
@@ -395,7 +395,7 @@ class DeploymentStrategy(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
+        Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 
         ```sh
          $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx

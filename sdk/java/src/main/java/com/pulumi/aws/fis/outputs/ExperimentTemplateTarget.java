@@ -8,6 +8,7 @@ import com.pulumi.aws.fis.outputs.ExperimentTemplateTargetResourceTag;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import javax.annotation.Nullable;
 
@@ -23,6 +24,13 @@ public final class ExperimentTemplateTarget {
      * 
      */
     private String name;
+    /**
+     * @return The resource type parameters.
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * 
+     */
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
      * 
@@ -58,6 +66,15 @@ public final class ExperimentTemplateTarget {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The resource type parameters.
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * 
+     */
+    public Map<String,String> parameters() {
+        return this.parameters == null ? Map.of() : this.parameters;
     }
     /**
      * @return Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
@@ -99,6 +116,7 @@ public final class ExperimentTemplateTarget {
     public static final class Builder {
         private @Nullable List<ExperimentTemplateTargetFilter> filters;
         private String name;
+        private @Nullable Map<String,String> parameters;
         private @Nullable List<String> resourceArns;
         private @Nullable List<ExperimentTemplateTargetResourceTag> resourceTags;
         private String resourceType;
@@ -108,6 +126,7 @@ public final class ExperimentTemplateTarget {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.name = defaults.name;
+    	      this.parameters = defaults.parameters;
     	      this.resourceArns = defaults.resourceArns;
     	      this.resourceTags = defaults.resourceTags;
     	      this.resourceType = defaults.resourceType;
@@ -125,6 +144,11 @@ public final class ExperimentTemplateTarget {
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder parameters(@Nullable Map<String,String> parameters) {
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
@@ -157,6 +181,7 @@ public final class ExperimentTemplateTarget {
             final var o = new ExperimentTemplateTarget();
             o.filters = filters;
             o.name = name;
+            o.parameters = parameters;
             o.resourceArns = resourceArns;
             o.resourceTags = resourceTags;
             o.resourceType = resourceType;

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an HTTP Method Response for an API Gateway Resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +78,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_method_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+// Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 //
 // ```sh
 //
@@ -121,6 +123,7 @@ func NewMethodResponse(ctx *pulumi.Context,
 	if args.StatusCode == nil {
 		return nil, errors.New("invalid value for required argument 'StatusCode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MethodResponse
 	err := ctx.RegisterResource("aws:apigateway/methodResponse:MethodResponse", name, args, &resource, opts...)
 	if err != nil {
@@ -238,6 +241,12 @@ func (i *MethodResponse) ToMethodResponseOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseOutput)
 }
 
+func (i *MethodResponse) ToOutput(ctx context.Context) pulumix.Output[*MethodResponse] {
+	return pulumix.Output[*MethodResponse]{
+		OutputState: i.ToMethodResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MethodResponseArrayInput is an input type that accepts MethodResponseArray and MethodResponseArrayOutput values.
 // You can construct a concrete instance of `MethodResponseArrayInput` via:
 //
@@ -261,6 +270,12 @@ func (i MethodResponseArray) ToMethodResponseArrayOutput() MethodResponseArrayOu
 
 func (i MethodResponseArray) ToMethodResponseArrayOutputWithContext(ctx context.Context) MethodResponseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseArrayOutput)
+}
+
+func (i MethodResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]*MethodResponse] {
+	return pulumix.Output[[]*MethodResponse]{
+		OutputState: i.ToMethodResponseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MethodResponseMapInput is an input type that accepts MethodResponseMap and MethodResponseMapOutput values.
@@ -288,6 +303,12 @@ func (i MethodResponseMap) ToMethodResponseMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseMapOutput)
 }
 
+func (i MethodResponseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MethodResponse] {
+	return pulumix.Output[map[string]*MethodResponse]{
+		OutputState: i.ToMethodResponseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MethodResponseOutput struct{ *pulumi.OutputState }
 
 func (MethodResponseOutput) ElementType() reflect.Type {
@@ -300,6 +321,12 @@ func (o MethodResponseOutput) ToMethodResponseOutput() MethodResponseOutput {
 
 func (o MethodResponseOutput) ToMethodResponseOutputWithContext(ctx context.Context) MethodResponseOutput {
 	return o
+}
+
+func (o MethodResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodResponse] {
+	return pulumix.Output[*MethodResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
@@ -348,6 +375,12 @@ func (o MethodResponseArrayOutput) ToMethodResponseArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o MethodResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MethodResponse] {
+	return pulumix.Output[[]*MethodResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodResponseArrayOutput) Index(i pulumi.IntInput) MethodResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MethodResponse {
 		return vs[0].([]*MethodResponse)[vs[1].(int)]
@@ -366,6 +399,12 @@ func (o MethodResponseMapOutput) ToMethodResponseMapOutput() MethodResponseMapOu
 
 func (o MethodResponseMapOutput) ToMethodResponseMapOutputWithContext(ctx context.Context) MethodResponseMapOutput {
 	return o
+}
+
+func (o MethodResponseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MethodResponse] {
+	return pulumix.Output[map[string]*MethodResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodResponseMapOutput) MapIndex(k pulumi.StringInput) MethodResponseOutput {

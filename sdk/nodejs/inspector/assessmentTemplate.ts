@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
+ * Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH

@@ -265,7 +265,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `ipam resource discovery association id`, e.g.
+        Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
@@ -306,7 +306,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `ipam resource discovery association id`, e.g.
+        Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492

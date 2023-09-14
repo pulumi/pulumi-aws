@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Lambda Alias.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAliasResult
 	err := ctx.Invoke("aws:lambda/getAlias:getAlias", args, &rv, opts...)
 	if err != nil {
@@ -109,6 +112,12 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutput() LookupAliasResultOu
 
 func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx context.Context) LookupAliasResultOutput {
 	return o
+}
+
+func (o LookupAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAliasResult] {
+	return pulumix.Output[LookupAliasResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN identifying the Lambda function alias.

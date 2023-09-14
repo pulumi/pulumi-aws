@@ -19,16 +19,16 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigur
      */
     private String bucketArn;
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
-    private @Nullable Integer bufferInterval;
+    private @Nullable Integer bufferingInterval;
     /**
-     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
      * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
-    private @Nullable Integer bufferSize;
+    private @Nullable Integer bufferingSize;
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
      * 
@@ -70,19 +70,19 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigur
         return this.bucketArn;
     }
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
-    public Optional<Integer> bufferInterval() {
-        return Optional.ofNullable(this.bufferInterval);
+    public Optional<Integer> bufferingInterval() {
+        return Optional.ofNullable(this.bufferingInterval);
     }
     /**
-     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
      * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
-    public Optional<Integer> bufferSize() {
-        return Optional.ofNullable(this.bufferSize);
+    public Optional<Integer> bufferingSize() {
+        return Optional.ofNullable(this.bufferingSize);
     }
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
@@ -138,8 +138,8 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigur
     @CustomType.Builder
     public static final class Builder {
         private String bucketArn;
-        private @Nullable Integer bufferInterval;
-        private @Nullable Integer bufferSize;
+        private @Nullable Integer bufferingInterval;
+        private @Nullable Integer bufferingSize;
         private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
         private @Nullable String compressionFormat;
         private @Nullable String errorOutputPrefix;
@@ -150,8 +150,8 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigur
         public Builder(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketArn = defaults.bucketArn;
-    	      this.bufferInterval = defaults.bufferInterval;
-    	      this.bufferSize = defaults.bufferSize;
+    	      this.bufferingInterval = defaults.bufferingInterval;
+    	      this.bufferingSize = defaults.bufferingSize;
     	      this.cloudwatchLoggingOptions = defaults.cloudwatchLoggingOptions;
     	      this.compressionFormat = defaults.compressionFormat;
     	      this.errorOutputPrefix = defaults.errorOutputPrefix;
@@ -166,13 +166,13 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigur
             return this;
         }
         @CustomType.Setter
-        public Builder bufferInterval(@Nullable Integer bufferInterval) {
-            this.bufferInterval = bufferInterval;
+        public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
+            this.bufferingInterval = bufferingInterval;
             return this;
         }
         @CustomType.Setter
-        public Builder bufferSize(@Nullable Integer bufferSize) {
-            this.bufferSize = bufferSize;
+        public Builder bufferingSize(@Nullable Integer bufferingSize) {
+            this.bufferingSize = bufferingSize;
             return this;
         }
         @CustomType.Setter
@@ -208,8 +208,8 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigur
         public FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration build() {
             final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration();
             o.bucketArn = bucketArn;
-            o.bufferInterval = bufferInterval;
-            o.bufferSize = bufferSize;
+            o.bufferingInterval = bufferingInterval;
+            o.bufferingSize = bufferingSize;
             o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             o.compressionFormat = compressionFormat;
             o.errorOutputPrefix = errorOutputPrefix;

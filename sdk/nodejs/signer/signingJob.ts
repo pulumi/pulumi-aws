@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Signer signing jobs can be imported using the `job_id`, e.g.,
+ * Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee

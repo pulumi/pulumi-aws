@@ -33,12 +33,16 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation extends 
     /**
      * Configures the masking of sensitive data.
      * 
+     * &gt; Every policy statement must specify exactly one operation.
+     * 
      */
     @Import(name="deidentify")
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationDeidentify deidentify;
 
     /**
      * @return Configures the masking of sensitive data.
+     * 
+     * &gt; Every policy statement must specify exactly one operation.
      * 
      */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationDeidentify> deidentify() {
@@ -83,6 +87,8 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation extends 
 
         /**
          * @param deidentify Configures the masking of sensitive data.
+         * 
+         * &gt; Every policy statement must specify exactly one operation.
          * 
          * @return builder
          * 

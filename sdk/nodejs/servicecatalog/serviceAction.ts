@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
@@ -75,6 +75,8 @@ export class ServiceAction extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string>;
     /**
      * Self-service action name.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -128,6 +130,8 @@ export interface ServiceActionState {
     description?: pulumi.Input<string>;
     /**
      * Self-service action name.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
 }
@@ -150,6 +154,8 @@ export interface ServiceActionArgs {
     description?: pulumi.Input<string>;
     /**
      * Self-service action name.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
 }

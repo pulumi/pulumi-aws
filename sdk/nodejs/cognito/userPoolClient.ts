@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Pool Client resource.
  *
  * To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
- * use the `awsCognitoManagedUserPoolClient` resource instead.
+ * use the `aws.cognito.ManagedUserPoolClient` resource instead.
  *
  * ## Example Usage
  * ### Create a basic user pool client
@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
+ * Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
  *
  * ```sh
  *  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
@@ -144,19 +144,19 @@ export class UserPoolClient extends pulumi.CustomResource {
      * By default, the unit is hours.
      * The unit can be overridden by a value in `token_validity_units.access_token`.
      */
-    public readonly accessTokenValidity!: pulumi.Output<number | undefined>;
+    public readonly accessTokenValidity!: pulumi.Output<number>;
     /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
-    public readonly allowedOauthFlows!: pulumi.Output<string[] | undefined>;
+    public readonly allowedOauthFlows!: pulumi.Output<string[]>;
     /**
      * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      */
-    public readonly allowedOauthFlowsUserPoolClient!: pulumi.Output<boolean | undefined>;
+    public readonly allowedOauthFlowsUserPoolClient!: pulumi.Output<boolean>;
     /**
      * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      */
-    public readonly allowedOauthScopes!: pulumi.Output<string[] | undefined>;
+    public readonly allowedOauthScopes!: pulumi.Output<string[]>;
     /**
      * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
@@ -164,7 +164,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
      */
-    public readonly authSessionValidity!: pulumi.Output<number | undefined>;
+    public readonly authSessionValidity!: pulumi.Output<number>;
     /**
      * List of allowed callback URLs for the identity providers.
      */
@@ -176,11 +176,11 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * Default redirect URI. Must be in the list of callback URLs.
      */
-    public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
+    public readonly defaultRedirectUri!: pulumi.Output<string>;
     /**
      * Activates the propagation of additional user context data.
      */
-    public readonly enablePropagateAdditionalUserContextData!: pulumi.Output<boolean | undefined>;
+    public readonly enablePropagateAdditionalUserContextData!: pulumi.Output<boolean>;
     /**
      * Enables or disables token revocation.
      */
@@ -188,7 +188,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
-    public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
+    public readonly explicitAuthFlows!: pulumi.Output<string[]>;
     /**
      * Should an application secret be generated.
      */
@@ -198,7 +198,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      * By default, the unit is hours.
      * The unit can be overridden by a value in `token_validity_units.id_token`.
      */
-    public readonly idTokenValidity!: pulumi.Output<number | undefined>;
+    public readonly idTokenValidity!: pulumi.Output<number>;
     /**
      * List of allowed logout URLs for the identity providers.
      */
@@ -214,29 +214,31 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * List of user pool attributes the application client can read from.
      */
-    public readonly readAttributes!: pulumi.Output<string[] | undefined>;
+    public readonly readAttributes!: pulumi.Output<string[]>;
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
      * By default, the unit is days.
      * The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
-    public readonly refreshTokenValidity!: pulumi.Output<number | undefined>;
+    public readonly refreshTokenValidity!: pulumi.Output<number>;
     /**
      * List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
-    public readonly supportedIdentityProviders!: pulumi.Output<string[] | undefined>;
+    public readonly supportedIdentityProviders!: pulumi.Output<string[]>;
     /**
      * Configuration block for units in which the validity times are represented in. Detailed below.
      */
     public readonly tokenValidityUnits!: pulumi.Output<outputs.cognito.UserPoolClientTokenValidityUnits | undefined>;
     /**
      * User pool the client belongs to.
+     *
+     * The following arguments are optional:
      */
     public readonly userPoolId!: pulumi.Output<string>;
     /**
      * List of user pool attributes the application client can write to.
      */
-    public readonly writeAttributes!: pulumi.Output<string[] | undefined>;
+    public readonly writeAttributes!: pulumi.Output<string[]>;
 
     /**
      * Create a UserPoolClient resource with the given unique name, arguments, and options.
@@ -406,6 +408,8 @@ export interface UserPoolClientState {
     tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
     /**
      * User pool the client belongs to.
+     *
+     * The following arguments are optional:
      */
     userPoolId?: pulumi.Input<string>;
     /**
@@ -506,6 +510,8 @@ export interface UserPoolClientArgs {
     tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
     /**
      * User pool the client belongs to.
+     *
+     * The following arguments are optional:
      */
     userPoolId: pulumi.Input<string>;
     /**

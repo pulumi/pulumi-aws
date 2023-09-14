@@ -175,7 +175,7 @@ class OutboundConnection(pulumi.CustomResource):
 
         ## Import
 
-        AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+        Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
 
         ```sh
          $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
@@ -221,7 +221,7 @@ class OutboundConnection(pulumi.CustomResource):
 
         ## Import
 
-        AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+        Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
 
         ```sh
          $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id

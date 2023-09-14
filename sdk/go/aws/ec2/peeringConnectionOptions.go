@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage VPC peering connection options.
@@ -30,7 +32,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,10 +64,6 @@ import (
 //				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
-//				Requester: &ec2.PeeringConnectionOptionsRequesterArgs{
-//					AllowVpcToRemoteClassicLink: pulumi.Bool(true),
-//					AllowClassicLinkToRemoteVpc: pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -82,8 +80,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,7 +164,7 @@ import (
 //
 // ## Import
 //
-// VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.,
+// Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
 //
 // ```sh
 //
@@ -176,13 +174,9 @@ import (
 type PeeringConnectionOptions struct {
 	pulumi.CustomResourceState
 
-	// An optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-	// the peering connection (a maximum of one).
+	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
 	Accepter PeeringConnectionOptionsAccepterOutput `pulumi:"accepter"`
-	// A optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-	// the peering connection (a maximum of one).
+	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
 	Requester PeeringConnectionOptionsRequesterOutput `pulumi:"requester"`
 	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringOutput `pulumi:"vpcPeeringConnectionId"`
@@ -198,6 +192,7 @@ func NewPeeringConnectionOptions(ctx *pulumi.Context,
 	if args.VpcPeeringConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcPeeringConnectionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PeeringConnectionOptions
 	err := ctx.RegisterResource("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, args, &resource, opts...)
 	if err != nil {
@@ -220,26 +215,18 @@ func GetPeeringConnectionOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringConnectionOptions resources.
 type peeringConnectionOptionsState struct {
-	// An optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-	// the peering connection (a maximum of one).
+	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
 	Accepter *PeeringConnectionOptionsAccepter `pulumi:"accepter"`
-	// A optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-	// the peering connection (a maximum of one).
+	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
 	Requester *PeeringConnectionOptionsRequester `pulumi:"requester"`
 	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
 type PeeringConnectionOptionsState struct {
-	// An optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-	// the peering connection (a maximum of one).
+	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
 	Accepter PeeringConnectionOptionsAccepterPtrInput
-	// A optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-	// the peering connection (a maximum of one).
+	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
 	Requester PeeringConnectionOptionsRequesterPtrInput
 	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrInput
@@ -250,13 +237,9 @@ func (PeeringConnectionOptionsState) ElementType() reflect.Type {
 }
 
 type peeringConnectionOptionsArgs struct {
-	// An optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-	// the peering connection (a maximum of one).
+	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
 	Accepter *PeeringConnectionOptionsAccepter `pulumi:"accepter"`
-	// A optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-	// the peering connection (a maximum of one).
+	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
 	Requester *PeeringConnectionOptionsRequester `pulumi:"requester"`
 	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
@@ -264,13 +247,9 @@ type peeringConnectionOptionsArgs struct {
 
 // The set of arguments for constructing a PeeringConnectionOptions resource.
 type PeeringConnectionOptionsArgs struct {
-	// An optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-	// the peering connection (a maximum of one).
+	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
 	Accepter PeeringConnectionOptionsAccepterPtrInput
-	// A optional configuration block that allows for [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-	// the peering connection (a maximum of one).
+	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
 	Requester PeeringConnectionOptionsRequesterPtrInput
 	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringInput
@@ -299,6 +278,12 @@ func (i *PeeringConnectionOptions) ToPeeringConnectionOptionsOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsOutput)
 }
 
+func (i *PeeringConnectionOptions) ToOutput(ctx context.Context) pulumix.Output[*PeeringConnectionOptions] {
+	return pulumix.Output[*PeeringConnectionOptions]{
+		OutputState: i.ToPeeringConnectionOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PeeringConnectionOptionsArrayInput is an input type that accepts PeeringConnectionOptionsArray and PeeringConnectionOptionsArrayOutput values.
 // You can construct a concrete instance of `PeeringConnectionOptionsArrayInput` via:
 //
@@ -322,6 +307,12 @@ func (i PeeringConnectionOptionsArray) ToPeeringConnectionOptionsArrayOutput() P
 
 func (i PeeringConnectionOptionsArray) ToPeeringConnectionOptionsArrayOutputWithContext(ctx context.Context) PeeringConnectionOptionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsArrayOutput)
+}
+
+func (i PeeringConnectionOptionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringConnectionOptions] {
+	return pulumix.Output[[]*PeeringConnectionOptions]{
+		OutputState: i.ToPeeringConnectionOptionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PeeringConnectionOptionsMapInput is an input type that accepts PeeringConnectionOptionsMap and PeeringConnectionOptionsMapOutput values.
@@ -349,6 +340,12 @@ func (i PeeringConnectionOptionsMap) ToPeeringConnectionOptionsMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsMapOutput)
 }
 
+func (i PeeringConnectionOptionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringConnectionOptions] {
+	return pulumix.Output[map[string]*PeeringConnectionOptions]{
+		OutputState: i.ToPeeringConnectionOptionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PeeringConnectionOptionsOutput struct{ *pulumi.OutputState }
 
 func (PeeringConnectionOptionsOutput) ElementType() reflect.Type {
@@ -363,16 +360,18 @@ func (o PeeringConnectionOptionsOutput) ToPeeringConnectionOptionsOutputWithCont
 	return o
 }
 
-// An optional configuration block that allows for [VPC Peering Connection]
-// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-// the peering connection (a maximum of one).
+func (o PeeringConnectionOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringConnectionOptions] {
+	return pulumix.Output[*PeeringConnectionOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
 func (o PeeringConnectionOptionsOutput) Accepter() PeeringConnectionOptionsAccepterOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptions) PeeringConnectionOptionsAccepterOutput { return v.Accepter }).(PeeringConnectionOptionsAccepterOutput)
 }
 
-// A optional configuration block that allows for [VPC Peering Connection]
-// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-// the peering connection (a maximum of one).
+// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
 func (o PeeringConnectionOptionsOutput) Requester() PeeringConnectionOptionsRequesterOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptions) PeeringConnectionOptionsRequesterOutput { return v.Requester }).(PeeringConnectionOptionsRequesterOutput)
 }
@@ -396,6 +395,12 @@ func (o PeeringConnectionOptionsArrayOutput) ToPeeringConnectionOptionsArrayOutp
 	return o
 }
 
+func (o PeeringConnectionOptionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringConnectionOptions] {
+	return pulumix.Output[[]*PeeringConnectionOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PeeringConnectionOptionsArrayOutput) Index(i pulumi.IntInput) PeeringConnectionOptionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PeeringConnectionOptions {
 		return vs[0].([]*PeeringConnectionOptions)[vs[1].(int)]
@@ -414,6 +419,12 @@ func (o PeeringConnectionOptionsMapOutput) ToPeeringConnectionOptionsMapOutput()
 
 func (o PeeringConnectionOptionsMapOutput) ToPeeringConnectionOptionsMapOutputWithContext(ctx context.Context) PeeringConnectionOptionsMapOutput {
 	return o
+}
+
+func (o PeeringConnectionOptionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringConnectionOptions] {
+	return pulumix.Output[map[string]*PeeringConnectionOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PeeringConnectionOptionsMapOutput) MapIndex(k pulumi.StringInput) PeeringConnectionOptionsOutput {

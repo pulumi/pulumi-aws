@@ -13,8 +13,8 @@ namespace Pulumi.Aws.SecurityHub
     /// Disable/enable Security Hub standards control in the current region.
     /// 
     /// The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
-    /// The provider does not _create_ this resource, but instead "adopts" it
-    /// into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
+    /// TODO does not _create_ this resource, but instead "adopts" it
+    /// into management. When you _delete_ this resource configuration, TODO "abandons" resource as is and just removes it from the state.
     /// 
     /// ## Example Usage
     /// 
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> SeverityRating { get; private set; } = null!;
 
         /// <summary>
-        /// The standards control ARN.
+        /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         /// </summary>
         [Output("standardsControlArn")]
         public Output<string> StandardsControlArn { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? DisabledReason { get; set; }
 
         /// <summary>
-        /// The standards control ARN.
+        /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         /// </summary>
         [Input("standardsControlArn", required: true)]
         public Input<string> StandardsControlArn { get; set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? SeverityRating { get; set; }
 
         /// <summary>
-        /// The standards control ARN.
+        /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         /// </summary>
         [Input("standardsControlArn")]
         public Input<string>? StandardsControlArn { get; set; }

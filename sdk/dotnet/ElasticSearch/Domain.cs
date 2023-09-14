@@ -168,9 +168,19 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var selectedSubnetIds = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     var selectedSubnets = Aws.Ec2.GetSubnets.Invoke(new()
     ///     {
-    ///         VpcId = selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+    ///             {
+    ///                 Name = "vpc-id",
+    ///                 Values = new[]
+    ///                 {
+    ///                     selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///                 },
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "Tier", "private" },
@@ -217,8 +227,8 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[0]),
-    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[1]),
+    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
+    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
@@ -263,7 +273,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Import
     /// 
-    /// Elasticsearch domains can be imported using the `domain_name`, e.g.,
+    /// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
@@ -328,6 +338,8 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -496,6 +508,8 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -630,6 +644,8 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

@@ -6,6 +6,8 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogDatabaseTargetDatabase {
@@ -19,6 +21,11 @@ public final class CatalogDatabaseTargetDatabase {
      * 
      */
     private String databaseName;
+    /**
+     * @return Region of the target database.
+     * 
+     */
+    private @Nullable String region;
 
     private CatalogDatabaseTargetDatabase() {}
     /**
@@ -35,6 +42,13 @@ public final class CatalogDatabaseTargetDatabase {
     public String databaseName() {
         return this.databaseName;
     }
+    /**
+     * @return Region of the target database.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -47,11 +61,13 @@ public final class CatalogDatabaseTargetDatabase {
     public static final class Builder {
         private String catalogId;
         private String databaseName;
+        private @Nullable String region;
         public Builder() {}
         public Builder(CatalogDatabaseTargetDatabase defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.databaseName = defaults.databaseName;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -64,10 +80,16 @@ public final class CatalogDatabaseTargetDatabase {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
+        public Builder region(@Nullable String region) {
+            this.region = region;
+            return this;
+        }
         public CatalogDatabaseTargetDatabase build() {
             final var o = new CatalogDatabaseTargetDatabase();
             o.catalogId = catalogId;
             o.databaseName = databaseName;
+            o.region = region;
             return o;
         }
     }

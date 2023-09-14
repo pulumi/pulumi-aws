@@ -17,14 +17,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs();
 
     /**
-     * Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
      * 
      */
     @Import(name="queryStringBehavior", required=true)
     private Output<String> queryStringBehavior;
 
     /**
-     * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * @return Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
      * 
      */
     public Output<String> queryStringBehavior() {
@@ -32,14 +32,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
     }
 
     /**
-     * Object that contains a list of query string names. See Items for more information.
+     * Configuration parameter that contains a list of query string names. See Items for more information.
      * 
      */
     @Import(name="queryStrings")
     private @Nullable Output<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs> queryStrings;
 
     /**
-     * @return Object that contains a list of query string names. See Items for more information.
+     * @return Configuration parameter that contains a list of query string names. See Items for more information.
      * 
      */
     public Optional<Output<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs>> queryStrings() {
@@ -72,7 +72,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
         }
 
         /**
-         * @param queryStringBehavior Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * @param queryStringBehavior Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
         }
 
         /**
-         * @param queryStringBehavior Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * @param queryStringBehavior Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
         }
 
         /**
-         * @param queryStrings Object that contains a list of query string names. See Items for more information.
+         * @param queryStrings Configuration parameter that contains a list of query string names. See Items for more information.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
         }
 
         /**
-         * @param queryStrings Object that contains a list of query string names. See Items for more information.
+         * @param queryStrings Configuration parameter that contains a list of query string names. See Items for more information.
          * 
          * @return builder
          * 

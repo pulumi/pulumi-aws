@@ -557,8 +557,22 @@ class Index(pulumi.CustomResource):
                 kms_key_id=data["aws_kms_key"]["this"]["arn"],
             ))
         ```
+        ### With user group resolution configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Index("example",
+            role_arn=aws_iam_role["this"]["arn"],
+            user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
+                user_group_resolution_mode="AWS_SSO",
+            ))
+        ```
         ### With Document Metadata Configuration Updates
         ### Specifying the predefined elements
+
+        Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
 
         ```python
         import pulumi
@@ -718,6 +732,20 @@ class Index(pulumi.CustomResource):
                         facetable=False,
                         searchable=False,
                         sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_tenant_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
                     ),
                     relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
                         importance=1,
@@ -923,6 +951,20 @@ class Index(pulumi.CustomResource):
                     ),
                 ),
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_tenant_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_version",
                     type="STRING_VALUE",
                     search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
@@ -1027,7 +1069,7 @@ class Index(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Kendra Indexes can be imported using its `id`, e.g.,
+        Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 
         ```sh
          $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
@@ -1098,8 +1140,22 @@ class Index(pulumi.CustomResource):
                 kms_key_id=data["aws_kms_key"]["this"]["arn"],
             ))
         ```
+        ### With user group resolution configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Index("example",
+            role_arn=aws_iam_role["this"]["arn"],
+            user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
+                user_group_resolution_mode="AWS_SSO",
+            ))
+        ```
         ### With Document Metadata Configuration Updates
         ### Specifying the predefined elements
+
+        Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
 
         ```python
         import pulumi
@@ -1259,6 +1315,20 @@ class Index(pulumi.CustomResource):
                         facetable=False,
                         searchable=False,
                         sortable=False,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_tenant_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
                     ),
                     relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
                         importance=1,
@@ -1464,6 +1534,20 @@ class Index(pulumi.CustomResource):
                     ),
                 ),
                 aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
+                    name="_tenant_id",
+                    type="STRING_VALUE",
+                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
+                        displayable=False,
+                        facetable=False,
+                        searchable=False,
+                        sortable=True,
+                    ),
+                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
+                        importance=1,
+                        values_importance_map={},
+                    ),
+                ),
+                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
                     name="_version",
                     type="STRING_VALUE",
                     search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
@@ -1568,7 +1652,7 @@ class Index(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Kendra Indexes can be imported using its `id`, e.g.,
+        Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 
         ```sh
          $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123

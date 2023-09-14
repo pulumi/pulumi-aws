@@ -11,6 +11,7 @@ import com.pulumi.aws.ec2.inputs.InstanceCreditSpecificationArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEbsBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEnclaveOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEphemeralBlockDeviceArgs;
+import com.pulumi.aws.ec2.inputs.InstanceInstanceMarketOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceLaunchTemplateArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMaintenanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMetadataOptionsArgs;
@@ -97,12 +98,16 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+     * 
      */
     @Import(name="capacityReservationSpecification")
     private @Nullable Output<InstanceCapacityReservationSpecificationArgs> capacityReservationSpecification;
 
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
     public Optional<Output<InstanceCapacityReservationSpecificationArgs>> capacityReservationSpecification() {
@@ -363,6 +368,36 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> instanceInitiatedShutdownBehavior() {
         return Optional.ofNullable(this.instanceInitiatedShutdownBehavior);
+    }
+
+    /**
+     * Indicates whether this is a Spot Instance or a Scheduled Instance.
+     * 
+     */
+    @Import(name="instanceLifecycle")
+    private @Nullable Output<String> instanceLifecycle;
+
+    /**
+     * @return Indicates whether this is a Spot Instance or a Scheduled Instance.
+     * 
+     */
+    public Optional<Output<String>> instanceLifecycle() {
+        return Optional.ofNullable(this.instanceLifecycle);
+    }
+
+    /**
+     * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    @Import(name="instanceMarketOptions")
+    private @Nullable Output<InstanceInstanceMarketOptionsArgs> instanceMarketOptions;
+
+    /**
+     * @return Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    public Optional<Output<InstanceInstanceMarketOptionsArgs>> instanceMarketOptions() {
+        return Optional.ofNullable(this.instanceMarketOptions);
     }
 
     /**
@@ -698,6 +733,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * List of security group names to associate with.
      * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      * 
@@ -708,6 +745,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return List of security group names to associate with.
+     * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
@@ -731,6 +770,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> sourceDestCheck() {
         return Optional.ofNullable(this.sourceDestCheck);
+    }
+
+    /**
+     * If the request is a Spot Instance request, the ID of the request.
+     * 
+     */
+    @Import(name="spotInstanceRequestId")
+    private @Nullable Output<String> spotInstanceRequestId;
+
+    /**
+     * @return If the request is a Spot Instance request, the ID of the request.
+     * 
+     */
+    public Optional<Output<String>> spotInstanceRequestId() {
+        return Optional.ofNullable(this.spotInstanceRequestId);
     }
 
     /**
@@ -841,12 +895,16 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+     * 
      */
     @Import(name="volumeTags")
     private @Nullable Output<Map<String,String>> volumeTags;
 
     /**
      * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
     public Optional<Output<Map<String,String>>> volumeTags() {
@@ -892,6 +950,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.hostResourceGroupArn = $.hostResourceGroupArn;
         this.iamInstanceProfile = $.iamInstanceProfile;
         this.instanceInitiatedShutdownBehavior = $.instanceInitiatedShutdownBehavior;
+        this.instanceLifecycle = $.instanceLifecycle;
+        this.instanceMarketOptions = $.instanceMarketOptions;
         this.instanceState = $.instanceState;
         this.instanceType = $.instanceType;
         this.ipv6AddressCount = $.ipv6AddressCount;
@@ -916,6 +976,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.secondaryPrivateIps = $.secondaryPrivateIps;
         this.securityGroups = $.securityGroups;
         this.sourceDestCheck = $.sourceDestCheck;
+        this.spotInstanceRequestId = $.spotInstanceRequestId;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -1032,6 +1093,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
          * 
+         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+         * 
          * @return builder
          * 
          */
@@ -1042,6 +1105,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+         * 
+         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
          * 
          * @return builder
          * 
@@ -1420,6 +1485,48 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceInitiatedShutdownBehavior(String instanceInitiatedShutdownBehavior) {
             return instanceInitiatedShutdownBehavior(Output.of(instanceInitiatedShutdownBehavior));
+        }
+
+        /**
+         * @param instanceLifecycle Indicates whether this is a Spot Instance or a Scheduled Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceLifecycle(@Nullable Output<String> instanceLifecycle) {
+            $.instanceLifecycle = instanceLifecycle;
+            return this;
+        }
+
+        /**
+         * @param instanceLifecycle Indicates whether this is a Spot Instance or a Scheduled Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceLifecycle(String instanceLifecycle) {
+            return instanceLifecycle(Output.of(instanceLifecycle));
+        }
+
+        /**
+         * @param instanceMarketOptions Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMarketOptions(@Nullable Output<InstanceInstanceMarketOptionsArgs> instanceMarketOptions) {
+            $.instanceMarketOptions = instanceMarketOptions;
+            return this;
+        }
+
+        /**
+         * @param instanceMarketOptions Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMarketOptions(InstanceInstanceMarketOptionsArgs instanceMarketOptions) {
+            return instanceMarketOptions(Output.of(instanceMarketOptions));
         }
 
         /**
@@ -1937,6 +2044,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityGroups List of security group names to associate with.
          * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -1952,6 +2061,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityGroups List of security group names to associate with.
          * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -1965,6 +2076,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param securityGroups List of security group names to associate with.
+         * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
          * 
          * @return builder
          * 
@@ -1996,6 +2109,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sourceDestCheck(Boolean sourceDestCheck) {
             return sourceDestCheck(Output.of(sourceDestCheck));
+        }
+
+        /**
+         * @param spotInstanceRequestId If the request is a Spot Instance request, the ID of the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spotInstanceRequestId(@Nullable Output<String> spotInstanceRequestId) {
+            $.spotInstanceRequestId = spotInstanceRequestId;
+            return this;
+        }
+
+        /**
+         * @param spotInstanceRequestId If the request is a Spot Instance request, the ID of the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spotInstanceRequestId(String spotInstanceRequestId) {
+            return spotInstanceRequestId(Output.of(spotInstanceRequestId));
         }
 
         /**
@@ -2168,6 +2302,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
          * 
+         * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+         * 
          * @return builder
          * 
          */
@@ -2178,6 +2314,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
+         * 
+         * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
          * 
          * @return builder
          * 

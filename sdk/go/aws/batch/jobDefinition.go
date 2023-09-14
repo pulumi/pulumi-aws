@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Batch Job Definition resource.
@@ -22,7 +24,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,8 +101,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -187,7 +189,7 @@ import (
 //
 // ## Import
 //
-// Batch Job Definition can be imported using the `arn`, e.g.,
+// Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 //
 // ```sh
 //
@@ -222,6 +224,8 @@ type JobDefinition struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -235,6 +239,7 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobDefinition
 	err := ctx.RegisterResource("aws:batch/jobDefinition:JobDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -282,6 +287,8 @@ type jobDefinitionState struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -311,6 +318,8 @@ type JobDefinitionState struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -338,6 +347,8 @@ type jobDefinitionArgs struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -362,6 +373,8 @@ type JobDefinitionArgs struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -386,6 +399,12 @@ func (i *JobDefinition) ToJobDefinitionOutput() JobDefinitionOutput {
 
 func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionOutput)
+}
+
+func (i *JobDefinition) ToOutput(ctx context.Context) pulumix.Output[*JobDefinition] {
+	return pulumix.Output[*JobDefinition]{
+		OutputState: i.ToJobDefinitionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // JobDefinitionArrayInput is an input type that accepts JobDefinitionArray and JobDefinitionArrayOutput values.
@@ -413,6 +432,12 @@ func (i JobDefinitionArray) ToJobDefinitionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionArrayOutput)
 }
 
+func (i JobDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobDefinition] {
+	return pulumix.Output[[]*JobDefinition]{
+		OutputState: i.ToJobDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // JobDefinitionMapInput is an input type that accepts JobDefinitionMap and JobDefinitionMapOutput values.
 // You can construct a concrete instance of `JobDefinitionMapInput` via:
 //
@@ -438,6 +463,12 @@ func (i JobDefinitionMap) ToJobDefinitionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMapOutput)
 }
 
+func (i JobDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobDefinition] {
+	return pulumix.Output[map[string]*JobDefinition]{
+		OutputState: i.ToJobDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
@@ -450,6 +481,12 @@ func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {
 
 func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return o
+}
+
+func (o JobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinition] {
+	return pulumix.Output[*JobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of the job definition.
@@ -510,6 +547,8 @@ func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
 }
 
 // The type of job definition. Must be `container`.
+//
+// The following arguments are optional:
 func (o JobDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -526,6 +565,12 @@ func (o JobDefinitionArrayOutput) ToJobDefinitionArrayOutput() JobDefinitionArra
 
 func (o JobDefinitionArrayOutput) ToJobDefinitionArrayOutputWithContext(ctx context.Context) JobDefinitionArrayOutput {
 	return o
+}
+
+func (o JobDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobDefinition] {
+	return pulumix.Output[[]*JobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobDefinitionArrayOutput) Index(i pulumi.IntInput) JobDefinitionOutput {
@@ -546,6 +591,12 @@ func (o JobDefinitionMapOutput) ToJobDefinitionMapOutput() JobDefinitionMapOutpu
 
 func (o JobDefinitionMapOutput) ToJobDefinitionMapOutputWithContext(ctx context.Context) JobDefinitionMapOutput {
 	return o
+}
+
+func (o JobDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobDefinition] {
+	return pulumix.Output[map[string]*JobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobDefinitionMapOutput) MapIndex(k pulumi.StringInput) JobDefinitionOutput {

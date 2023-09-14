@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * QLDB Ledgers can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger

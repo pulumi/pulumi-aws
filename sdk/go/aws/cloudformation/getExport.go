@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The CloudFormation Export data source allows access to stack
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +52,7 @@ import (
 //
 // ```
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExportResult
 	err := ctx.Invoke("aws:cloudformation/getExport:getExport", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o GetExportResultOutput) ToGetExportResultOutput() GetExportResultOutput {
 
 func (o GetExportResultOutput) ToGetExportResultOutputWithContext(ctx context.Context) GetExportResultOutput {
 	return o
+}
+
+func (o GetExportResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetExportResult] {
+	return pulumix.Output[GetExportResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of stack that contains the exported output name and value.

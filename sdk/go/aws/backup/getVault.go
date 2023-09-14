@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information on an existing backup vault.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVaultResult
 	err := ctx.Invoke("aws:backup/getVault:getVault", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o LookupVaultResultOutput) ToLookupVaultResultOutput() LookupVaultResultOu
 
 func (o LookupVaultResultOutput) ToLookupVaultResultOutputWithContext(ctx context.Context) LookupVaultResultOutput {
 	return o
+}
+
+func (o LookupVaultResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVaultResult] {
+	return pulumix.Output[LookupVaultResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the vault.

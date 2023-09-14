@@ -6,6 +6,7 @@ package com.pulumi.aws.batch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.batch.JobQueueArgs;
 import com.pulumi.aws.batch.inputs.JobQueueState;
+import com.pulumi.aws.batch.outputs.JobQueueTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -105,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Batch Job Queue can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
@@ -231,6 +232,12 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    @Export(name="timeouts", refs={JobQueueTimeouts.class}, tree="[0]")
+    private Output</* @Nullable */ JobQueueTimeouts> timeouts;
+
+    public Output<Optional<JobQueueTimeouts>> timeouts() {
+        return Codegen.optional(this.timeouts);
     }
 
     /**

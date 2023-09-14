@@ -100,16 +100,21 @@ import {Bucket} from "./index";
  *
  * ## Import
  *
- * Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+ * Import using the `id`, which is the bucket name and the key together:
+ *
+ * Import using S3 URL syntax:
+ *
+ * __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
+ *
+ * Import using the `id`, which is the bucket name and the key together:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
+ *  $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
  * ```
- *
- *  Additionally, s3 url syntax can be used, e.g.,
+ *  Import using S3 URL syntax:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
+ *  $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
  * ```
  */
 export class BucketObject extends pulumi.CustomResource {
@@ -190,6 +195,8 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -242,6 +249,8 @@ export class BucketObject extends pulumi.CustomResource {
     public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      */
     public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
@@ -375,6 +384,8 @@ export interface BucketObjectState {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     key?: pulumi.Input<string>;
     /**
@@ -427,6 +438,8 @@ export interface BucketObjectState {
     versionId?: pulumi.Input<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      */
     websiteRedirect?: pulumi.Input<string>;
 }
@@ -485,6 +498,8 @@ export interface BucketObjectArgs {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     key?: pulumi.Input<string>;
     /**
@@ -529,6 +544,8 @@ export interface BucketObjectArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      */
     websiteRedirect?: pulumi.Input<string>;
 }

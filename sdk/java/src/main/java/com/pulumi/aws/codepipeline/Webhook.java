@@ -126,11 +126,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodePipeline Webhooks can be imported by their ARN, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
- * ```
+ *  to = aws_codepipeline_webhook.example
+ * 
+ *  id = &#34;arn:aws:codepipeline:us-west-2:123456789012:webhook:example&#34; } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
  * 
  */
 @ResourceType(type="aws:codepipeline/webhook:Webhook")
@@ -206,14 +206,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

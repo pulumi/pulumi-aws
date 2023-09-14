@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,
+ * Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345

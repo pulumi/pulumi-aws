@@ -25,6 +25,8 @@ public final class InstanceCpuOptions {
     /**
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
+     * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
+     * 
      */
     private @Nullable Integer threadsPerCore;
 
@@ -45,6 +47,8 @@ public final class InstanceCpuOptions {
     }
     /**
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * 
+     * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
      * 
      */
     public Optional<Integer> threadsPerCore() {

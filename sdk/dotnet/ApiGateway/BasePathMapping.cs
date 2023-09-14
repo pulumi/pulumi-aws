@@ -53,13 +53,18 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))
+    /// For an empty `base_path` or, in other words, a root path (`/`):
+    /// 
+    /// For a non-root `base_path`:
+    /// 
+    /// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For example:
+    /// 
+    /// For an empty `base_path` or, in other words, a root path (`/`):
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
     /// ```
-    /// 
-    ///  Otherwise
+    ///  For a non-root `base_path`:
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path

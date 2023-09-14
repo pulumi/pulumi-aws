@@ -34,12 +34,16 @@ public final class FargateProfileSelectorArgs extends com.pulumi.resources.Resou
     /**
      * Kubernetes namespace for selection.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
      * @return Kubernetes namespace for selection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> namespace() {
@@ -95,6 +99,8 @@ public final class FargateProfileSelectorArgs extends com.pulumi.resources.Resou
         /**
          * @param namespace Kubernetes namespace for selection.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class FargateProfileSelectorArgs extends com.pulumi.resources.Resou
 
         /**
          * @param namespace Kubernetes namespace for selection.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = "mysql",
     ///         EngineVersion = "5.6.21",
     ///         InstanceClass = "db.t2.micro",
-    ///         Name = "baz",
+    ///         DbName = "baz",
     ///         Password = "barbarbarbar",
     ///         Username = "foo",
     ///         MaintenanceWindow = "Fri:09:00-Fri:09:30",
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var exampleSnapshot = new Aws.Rds.Snapshot("exampleSnapshot", new()
     ///     {
-    ///         DbInstanceIdentifier = exampleInstance.Id,
+    ///         DbInstanceIdentifier = exampleInstance.Identifier,
     ///         DbSnapshotIdentifier = "testsnapshot1234",
     ///     });
     /// 
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// `aws_db_snapshot_copy` can be imported by using the snapshot identifier, e.g.,
+    /// Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot

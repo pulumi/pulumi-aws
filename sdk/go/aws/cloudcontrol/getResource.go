@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudcontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudcontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceResult
 	err := ctx.Invoke("aws:cloudcontrol/getResource:getResource", args, &rv, opts...)
 	if err != nil {
@@ -54,6 +57,8 @@ type LookupResourceArgs struct {
 	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName string `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -91,6 +96,8 @@ type LookupResourceOutputArgs struct {
 	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringInput `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrInput `pulumi:"typeVersionId"`
@@ -113,6 +120,12 @@ func (o LookupResourceResultOutput) ToLookupResourceResultOutput() LookupResourc
 
 func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx context.Context) LookupResourceResultOutput {
 	return o
+}
+
+func (o LookupResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceResult] {
+	return pulumix.Output[LookupResourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

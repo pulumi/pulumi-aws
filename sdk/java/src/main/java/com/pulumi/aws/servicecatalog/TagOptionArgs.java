@@ -49,12 +49,16 @@ public final class TagOptionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Tag option value.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
      * @return Tag option value.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> value() {
@@ -132,6 +136,8 @@ public final class TagOptionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param value Tag option value.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -142,6 +148,8 @@ public final class TagOptionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param value Tag option value.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

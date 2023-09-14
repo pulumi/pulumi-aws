@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS NetworkManager Connect Peer.
@@ -17,7 +19,7 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_connect_peer` can be imported using the connect peer ID, e.g.
+// Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 //
 // ```sh
 //
@@ -46,6 +48,8 @@ type ConnectPeer struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
 	// The state of the Connect peer.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -71,6 +75,7 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.PeerAddress == nil {
 		return nil, errors.New("invalid value for required argument 'PeerAddress'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws:networkmanager/connectPeer:ConnectPeer", name, args, &resource, opts...)
 	if err != nil {
@@ -112,6 +117,8 @@ type connectPeerState struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress *string `pulumi:"peerAddress"`
 	// The state of the Connect peer.
 	State *string `pulumi:"state"`
@@ -141,6 +148,8 @@ type ConnectPeerState struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks pulumi.StringArrayInput
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringPtrInput
 	// The state of the Connect peer.
 	State pulumi.StringPtrInput
@@ -164,6 +173,8 @@ type connectPeerArgs struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress string `pulumi:"peerAddress"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -180,6 +191,8 @@ type ConnectPeerArgs struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks pulumi.StringArrayInput
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -208,6 +221,12 @@ func (i *ConnectPeer) ToConnectPeerOutputWithContext(ctx context.Context) Connec
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerOutput)
 }
 
+func (i *ConnectPeer) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeer] {
+	return pulumix.Output[*ConnectPeer]{
+		OutputState: i.ToConnectPeerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectPeerArrayInput is an input type that accepts ConnectPeerArray and ConnectPeerArrayOutput values.
 // You can construct a concrete instance of `ConnectPeerArrayInput` via:
 //
@@ -231,6 +250,12 @@ func (i ConnectPeerArray) ToConnectPeerArrayOutput() ConnectPeerArrayOutput {
 
 func (i ConnectPeerArray) ToConnectPeerArrayOutputWithContext(ctx context.Context) ConnectPeerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerArrayOutput)
+}
+
+func (i ConnectPeerArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectPeer] {
+	return pulumix.Output[[]*ConnectPeer]{
+		OutputState: i.ToConnectPeerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectPeerMapInput is an input type that accepts ConnectPeerMap and ConnectPeerMapOutput values.
@@ -258,6 +283,12 @@ func (i ConnectPeerMap) ToConnectPeerMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerMapOutput)
 }
 
+func (i ConnectPeerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectPeer] {
+	return pulumix.Output[map[string]*ConnectPeer]{
+		OutputState: i.ToConnectPeerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectPeerOutput struct{ *pulumi.OutputState }
 
 func (ConnectPeerOutput) ElementType() reflect.Type {
@@ -270,6 +301,12 @@ func (o ConnectPeerOutput) ToConnectPeerOutput() ConnectPeerOutput {
 
 func (o ConnectPeerOutput) ToConnectPeerOutputWithContext(ctx context.Context) ConnectPeerOutput {
 	return o
+}
+
+func (o ConnectPeerOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeer] {
+	return pulumix.Output[*ConnectPeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the attachment.
@@ -321,6 +358,8 @@ func (o ConnectPeerOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 }
 
 // The Connect peer address.
+//
+// The following arguments are optional:
 func (o ConnectPeerOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.PeerAddress }).(pulumi.StringOutput)
 }
@@ -354,6 +393,12 @@ func (o ConnectPeerArrayOutput) ToConnectPeerArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ConnectPeerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectPeer] {
+	return pulumix.Output[[]*ConnectPeer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectPeerArrayOutput) Index(i pulumi.IntInput) ConnectPeerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectPeer {
 		return vs[0].([]*ConnectPeer)[vs[1].(int)]
@@ -372,6 +417,12 @@ func (o ConnectPeerMapOutput) ToConnectPeerMapOutput() ConnectPeerMapOutput {
 
 func (o ConnectPeerMapOutput) ToConnectPeerMapOutputWithContext(ctx context.Context) ConnectPeerMapOutput {
 	return o
+}
+
+func (o ConnectPeerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectPeer] {
+	return pulumix.Output[map[string]*ConnectPeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectPeerMapOutput) MapIndex(k pulumi.StringInput) ConnectPeerOutput {

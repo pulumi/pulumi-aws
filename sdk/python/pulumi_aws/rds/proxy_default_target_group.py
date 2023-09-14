@@ -174,7 +174,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DB proxy default target groups can be imported using the `db_proxy_name`, e.g.,
+        Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
 
         ```sh
          $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
@@ -233,7 +233,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DB proxy default target groups can be imported using the `db_proxy_name`, e.g.,
+        Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
 
         ```sh
          $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example

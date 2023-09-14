@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// Network Insights Analyses can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
 //
 // ```sh
 //
@@ -70,6 +72,8 @@ type NetworkInsightsAnalysis struct {
 	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ForwardPathComponents NetworkInsightsAnalysisForwardPathComponentArrayOutput `pulumi:"forwardPathComponents"`
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringOutput `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
 	PathFound pulumi.BoolOutput `pulumi:"pathFound"`
@@ -101,6 +105,7 @@ func NewNetworkInsightsAnalysis(ctx *pulumi.Context,
 	if args.NetworkInsightsPathId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInsightsPathId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsAnalysis
 	err := ctx.RegisterResource("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis", name, args, &resource, opts...)
 	if err != nil {
@@ -134,6 +139,8 @@ type networkInsightsAnalysisState struct {
 	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ForwardPathComponents []NetworkInsightsAnalysisForwardPathComponent `pulumi:"forwardPathComponents"`
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
 	PathFound *bool `pulumi:"pathFound"`
@@ -167,6 +174,8 @@ type NetworkInsightsAnalysisState struct {
 	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ForwardPathComponents NetworkInsightsAnalysisForwardPathComponentArrayInput
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringPtrInput
 	// Set to `true` if the destination was reachable.
 	PathFound pulumi.BoolPtrInput
@@ -196,6 +205,8 @@ type networkInsightsAnalysisArgs struct {
 	// A list of ARNs for resources the path must traverse.
 	FilterInArns []string `pulumi:"filterInArns"`
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -208,6 +219,8 @@ type NetworkInsightsAnalysisArgs struct {
 	// A list of ARNs for resources the path must traverse.
 	FilterInArns pulumi.StringArrayInput
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -238,6 +251,12 @@ func (i *NetworkInsightsAnalysis) ToNetworkInsightsAnalysisOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisOutput)
 }
 
+func (i *NetworkInsightsAnalysis) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAnalysis] {
+	return pulumix.Output[*NetworkInsightsAnalysis]{
+		OutputState: i.ToNetworkInsightsAnalysisOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkInsightsAnalysisArrayInput is an input type that accepts NetworkInsightsAnalysisArray and NetworkInsightsAnalysisArrayOutput values.
 // You can construct a concrete instance of `NetworkInsightsAnalysisArrayInput` via:
 //
@@ -261,6 +280,12 @@ func (i NetworkInsightsAnalysisArray) ToNetworkInsightsAnalysisArrayOutput() Net
 
 func (i NetworkInsightsAnalysisArray) ToNetworkInsightsAnalysisArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisArrayOutput)
+}
+
+func (i NetworkInsightsAnalysisArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInsightsAnalysis] {
+	return pulumix.Output[[]*NetworkInsightsAnalysis]{
+		OutputState: i.ToNetworkInsightsAnalysisArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkInsightsAnalysisMapInput is an input type that accepts NetworkInsightsAnalysisMap and NetworkInsightsAnalysisMapOutput values.
@@ -288,6 +313,12 @@ func (i NetworkInsightsAnalysisMap) ToNetworkInsightsAnalysisMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisMapOutput)
 }
 
+func (i NetworkInsightsAnalysisMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInsightsAnalysis] {
+	return pulumix.Output[map[string]*NetworkInsightsAnalysis]{
+		OutputState: i.ToNetworkInsightsAnalysisMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInsightsAnalysisOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisOutput) ElementType() reflect.Type {
@@ -300,6 +331,12 @@ func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutput() Network
 
 func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutputWithContext(ctx context.Context) NetworkInsightsAnalysisOutput {
 	return o
+}
+
+func (o NetworkInsightsAnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAnalysis] {
+	return pulumix.Output[*NetworkInsightsAnalysis]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Potential intermediate components of a feasible path. Described below.
@@ -332,6 +369,8 @@ func (o NetworkInsightsAnalysisOutput) ForwardPathComponents() NetworkInsightsAn
 }
 
 // ID of the Network Insights Path to run an analysis on.
+//
+// The following arguments are optional:
 func (o NetworkInsightsAnalysisOutput) NetworkInsightsPathId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
 }
@@ -397,6 +436,12 @@ func (o NetworkInsightsAnalysisArrayOutput) ToNetworkInsightsAnalysisArrayOutput
 	return o
 }
 
+func (o NetworkInsightsAnalysisArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInsightsAnalysis] {
+	return pulumix.Output[[]*NetworkInsightsAnalysis]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAnalysisArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAnalysisOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInsightsAnalysis {
 		return vs[0].([]*NetworkInsightsAnalysis)[vs[1].(int)]
@@ -415,6 +460,12 @@ func (o NetworkInsightsAnalysisMapOutput) ToNetworkInsightsAnalysisMapOutput() N
 
 func (o NetworkInsightsAnalysisMapOutput) ToNetworkInsightsAnalysisMapOutputWithContext(ctx context.Context) NetworkInsightsAnalysisMapOutput {
 	return o
+}
+
+func (o NetworkInsightsAnalysisMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInsightsAnalysis] {
+	return pulumix.Output[map[string]*NetworkInsightsAnalysis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAnalysisMapOutput) MapIndex(k pulumi.StringInput) NetworkInsightsAnalysisOutput {

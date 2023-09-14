@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string ConditionDocumentAttributeKey;
         /// <summary>
-        /// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        /// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue? ConditionOnValue;
         /// <summary>

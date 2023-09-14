@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Import
     /// 
-    /// `aws_location_map` resources can be imported using the map name, e.g.
+    /// Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:location/map:Map example example
@@ -71,6 +71,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name for the map resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("mapName")]
         public Output<string> MapName { get; private set; } = null!;
@@ -153,6 +155,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name for the map resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("mapName", required: true)]
         public Input<string> MapName { get; set; } = null!;
@@ -203,6 +207,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name for the map resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("mapName")]
         public Input<string>? MapName { get; set; }

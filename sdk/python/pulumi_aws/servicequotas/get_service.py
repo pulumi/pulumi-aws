@@ -90,9 +90,9 @@ def get_service(service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicequotas/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        id=__ret__.id,
-        service_code=__ret__.service_code,
-        service_name=__ret__.service_name)
+        id=pulumi.get(__ret__, 'id'),
+        service_code=pulumi.get(__ret__, 'service_code'),
+        service_name=pulumi.get(__ret__, 'service_name'))
 
 
 @_utilities.lift_output_func(get_service)

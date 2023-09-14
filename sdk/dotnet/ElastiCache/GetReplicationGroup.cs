@@ -150,10 +150,6 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly int NumNodeGroups;
         /// <summary>
-        /// (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
-        /// </summary>
-        public readonly int NumberCacheClusters;
-        /// <summary>
         /// The port number on which the configuration endpoint will accept connections.
         /// </summary>
         public readonly int Port;
@@ -169,10 +165,6 @@ namespace Pulumi.Aws.ElastiCache
         /// Number of replica nodes in each node group.
         /// </summary>
         public readonly int ReplicasPerNodeGroup;
-        /// <summary>
-        /// (**Deprecated** use `description` instead) Description of the replication group.
-        /// </summary>
-        public readonly string ReplicationGroupDescription;
         public readonly string ReplicationGroupId;
         /// <summary>
         /// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
@@ -209,8 +201,6 @@ namespace Pulumi.Aws.ElastiCache
 
             int numNodeGroups,
 
-            int numberCacheClusters,
-
             int port,
 
             string primaryEndpointAddress,
@@ -218,8 +208,6 @@ namespace Pulumi.Aws.ElastiCache
             string readerEndpointAddress,
 
             int replicasPerNodeGroup,
-
-            string replicationGroupDescription,
 
             string replicationGroupId,
 
@@ -239,12 +227,10 @@ namespace Pulumi.Aws.ElastiCache
             NodeType = nodeType;
             NumCacheClusters = numCacheClusters;
             NumNodeGroups = numNodeGroups;
-            NumberCacheClusters = numberCacheClusters;
             Port = port;
             PrimaryEndpointAddress = primaryEndpointAddress;
             ReaderEndpointAddress = readerEndpointAddress;
             ReplicasPerNodeGroup = replicasPerNodeGroup;
-            ReplicationGroupDescription = replicationGroupDescription;
             ReplicationGroupId = replicationGroupId;
             SnapshotRetentionLimit = snapshotRetentionLimit;
             SnapshotWindow = snapshotWindow;

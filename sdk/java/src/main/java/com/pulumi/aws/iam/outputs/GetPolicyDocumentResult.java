@@ -23,22 +23,8 @@ public final class GetPolicyDocumentResult {
      * 
      */
     private String json;
-    /**
-     * @deprecated
-     * Use the attribute &#34;override_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""override_policy_documents"" instead. */
-    private @Nullable String overrideJson;
     private @Nullable List<String> overridePolicyDocuments;
     private @Nullable String policyId;
-    /**
-     * @deprecated
-     * Use the attribute &#34;source_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""source_policy_documents"" instead. */
-    private @Nullable String sourceJson;
     private @Nullable List<String> sourcePolicyDocuments;
     private @Nullable List<GetPolicyDocumentStatement> statements;
     private @Nullable String version;
@@ -58,29 +44,11 @@ public final class GetPolicyDocumentResult {
     public String json() {
         return this.json;
     }
-    /**
-     * @deprecated
-     * Use the attribute &#34;override_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""override_policy_documents"" instead. */
-    public Optional<String> overrideJson() {
-        return Optional.ofNullable(this.overrideJson);
-    }
     public List<String> overridePolicyDocuments() {
         return this.overridePolicyDocuments == null ? List.of() : this.overridePolicyDocuments;
     }
     public Optional<String> policyId() {
         return Optional.ofNullable(this.policyId);
-    }
-    /**
-     * @deprecated
-     * Use the attribute &#34;source_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""source_policy_documents"" instead. */
-    public Optional<String> sourceJson() {
-        return Optional.ofNullable(this.sourceJson);
     }
     public List<String> sourcePolicyDocuments() {
         return this.sourcePolicyDocuments == null ? List.of() : this.sourcePolicyDocuments;
@@ -103,10 +71,8 @@ public final class GetPolicyDocumentResult {
     public static final class Builder {
         private String id;
         private String json;
-        private @Nullable String overrideJson;
         private @Nullable List<String> overridePolicyDocuments;
         private @Nullable String policyId;
-        private @Nullable String sourceJson;
         private @Nullable List<String> sourcePolicyDocuments;
         private @Nullable List<GetPolicyDocumentStatement> statements;
         private @Nullable String version;
@@ -115,10 +81,8 @@ public final class GetPolicyDocumentResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.json = defaults.json;
-    	      this.overrideJson = defaults.overrideJson;
     	      this.overridePolicyDocuments = defaults.overridePolicyDocuments;
     	      this.policyId = defaults.policyId;
-    	      this.sourceJson = defaults.sourceJson;
     	      this.sourcePolicyDocuments = defaults.sourcePolicyDocuments;
     	      this.statements = defaults.statements;
     	      this.version = defaults.version;
@@ -135,11 +99,6 @@ public final class GetPolicyDocumentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder overrideJson(@Nullable String overrideJson) {
-            this.overrideJson = overrideJson;
-            return this;
-        }
-        @CustomType.Setter
         public Builder overridePolicyDocuments(@Nullable List<String> overridePolicyDocuments) {
             this.overridePolicyDocuments = overridePolicyDocuments;
             return this;
@@ -150,11 +109,6 @@ public final class GetPolicyDocumentResult {
         @CustomType.Setter
         public Builder policyId(@Nullable String policyId) {
             this.policyId = policyId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder sourceJson(@Nullable String sourceJson) {
-            this.sourceJson = sourceJson;
             return this;
         }
         @CustomType.Setter
@@ -182,10 +136,8 @@ public final class GetPolicyDocumentResult {
             final var o = new GetPolicyDocumentResult();
             o.id = id;
             o.json = json;
-            o.overrideJson = overrideJson;
             o.overridePolicyDocuments = overridePolicyDocuments;
             o.policyId = policyId;
-            o.sourceJson = sourceJson;
             o.sourcePolicyDocuments = sourcePolicyDocuments;
             o.statements = statements;
             o.version = version;

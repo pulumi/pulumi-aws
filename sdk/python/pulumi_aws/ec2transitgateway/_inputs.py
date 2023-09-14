@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'InstanceConnectEndpointTimeoutsArgs',
     'GetAttachmentFilterArgs',
     'GetAttachmentsFilterArgs',
     'GetConnectFilterArgs',
@@ -20,11 +21,41 @@ __all__ = [
     'GetRouteTableAssociationsFilterArgs',
     'GetRouteTableFilterArgs',
     'GetRouteTablePropagationsFilterArgs',
+    'GetRouteTableRoutesFilterArgs',
     'GetTransitGatewayFilterArgs',
     'GetVpcAttachmentFilterArgs',
     'GetVpcAttachmentsFilterArgs',
     'GetVpnAttachmentFilterArgs',
 ]
+
+@pulumi.input_type
+class InstanceConnectEndpointTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
 
 @pulumi.input_type
 class GetAttachmentFilterArgs:
@@ -400,6 +431,45 @@ class GetRouteTablePropagationsFilterArgs:
         """
         Set of values that are accepted for the given field.
         A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetRouteTableRoutesFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
         """
         return pulumi.get(self, "values")
 

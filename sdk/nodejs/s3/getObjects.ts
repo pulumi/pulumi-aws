@@ -19,6 +19,7 @@ export function getObjects(args: GetObjectsArgs, opts?: pulumi.InvokeOptions): P
         "fetchOwner": args.fetchOwner,
         "maxKeys": args.maxKeys,
         "prefix": args.prefix,
+        "requestPayer": args.requestPayer,
         "startAfter": args.startAfter,
     }, opts);
 }
@@ -52,6 +53,10 @@ export interface GetObjectsArgs {
      */
     prefix?: string;
     /**
+     * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+     */
+    requestPayer?: string;
+    /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      */
     startAfter?: string;
@@ -83,6 +88,11 @@ export interface GetObjectsResult {
      */
     readonly owners: string[];
     readonly prefix?: string;
+    /**
+     * If present, indicates that the requester was successfully charged for the request.
+     */
+    readonly requestCharged: string;
+    readonly requestPayer?: string;
     readonly startAfter?: string;
 }
 /**
@@ -122,6 +132,10 @@ export interface GetObjectsOutputArgs {
      * Limits results to object keys with this prefix (Default: none)
      */
     prefix?: pulumi.Input<string>;
+    /**
+     * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+     */
+    requestPayer?: pulumi.Input<string>;
     /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      */

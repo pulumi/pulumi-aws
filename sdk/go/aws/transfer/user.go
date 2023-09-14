@@ -8,14 +8,112 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooServer, err := transfer.NewServer(ctx, "fooServer", &transfer.ServerArgs{
+//				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
+//				Tags: pulumi.StringMap{
+//					"NAME": pulumi.String("tf-acc-test-transfer-server"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"transfer.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooRole, err := iam.NewRole(ctx, "fooRole", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("AllowFullAccesstoS3"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "fooRolePolicy", &iam.RolePolicyArgs{
+//				Role:   fooRole.ID(),
+//				Policy: *pulumi.String(fooPolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = transfer.NewUser(ctx, "fooUser", &transfer.UserArgs{
+//				ServerId:          fooServer.ID(),
+//				UserName:          pulumi.String("tftestuser"),
+//				Role:              fooRole.Arn,
+//				HomeDirectoryType: pulumi.String("LOGICAL"),
+//				HomeDirectoryMappings: transfer.UserHomeDirectoryMappingArray{
+//					&transfer.UserHomeDirectoryMappingArgs{
+//						Entry:  pulumi.String("/test.pdf"),
+//						Target: pulumi.String("/bucket3/test-path/tftestuser.pdf"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Transfer Users can be imported using the `server_id` and `user_name` separated by `/`.
+// Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
 //
 // ```sh
 //
@@ -37,7 +135,7 @@ type User struct {
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile UserPosixProfilePtrOutput `pulumi:"posixProfile"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -65,6 +163,7 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws:transfer/user:User", name, args, &resource, opts...)
 	if err != nil {
@@ -99,7 +198,7 @@ type userState struct {
 	Policy *string `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
@@ -124,7 +223,7 @@ type UserState struct {
 	Policy pulumi.StringPtrInput
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile UserPosixProfilePtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
@@ -151,7 +250,7 @@ type userArgs struct {
 	Policy *string `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role string `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
@@ -173,7 +272,7 @@ type UserArgs struct {
 	Policy pulumi.StringPtrInput
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile UserPosixProfilePtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
@@ -206,6 +305,12 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
+func (i *User) ToOutput(ctx context.Context) pulumix.Output[*User] {
+	return pulumix.Output[*User]{
+		OutputState: i.ToUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
@@ -229,6 +334,12 @@ func (i UserArray) ToUserArrayOutput() UserArrayOutput {
 
 func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserArrayOutput)
+}
+
+func (i UserArray) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
+	return pulumix.Output[[]*User]{
+		OutputState: i.ToUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
@@ -256,6 +367,12 @@ func (i UserMap) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserMapOutput)
 }
 
+func (i UserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
+	return pulumix.Output[map[string]*User]{
+		OutputState: i.ToUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
@@ -268,6 +385,12 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+func (o UserOutput) ToOutput(ctx context.Context) pulumix.Output[*User] {
+	return pulumix.Output[*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of Transfer User
@@ -300,7 +423,7 @@ func (o UserOutput) PosixProfile() UserPosixProfilePtrOutput {
 	return o.ApplyT(func(v *User) UserPosixProfilePtrOutput { return v.PosixProfile }).(UserPosixProfilePtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 func (o UserOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
@@ -339,6 +462,12 @@ func (o UserArrayOutput) ToUserArrayOutputWithContext(ctx context.Context) UserA
 	return o
 }
 
+func (o UserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
+	return pulumix.Output[[]*User]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserArrayOutput) Index(i pulumi.IntInput) UserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *User {
 		return vs[0].([]*User)[vs[1].(int)]
@@ -357,6 +486,12 @@ func (o UserMapOutput) ToUserMapOutput() UserMapOutput {
 
 func (o UserMapOutput) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return o
+}
+
+func (o UserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
+	return pulumix.Output[map[string]*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserMapOutput) MapIndex(k pulumi.StringInput) UserOutput {

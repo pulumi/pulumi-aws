@@ -20,6 +20,8 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         /// <summary>
         /// Port on the container to associate with the load balancer.
+        /// 
+        /// &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         /// </summary>
         [Input("containerPort", required: true)]
         public Input<int> ContainerPort { get; set; } = null!;

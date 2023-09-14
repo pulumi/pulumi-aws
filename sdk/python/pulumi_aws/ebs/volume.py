@@ -39,6 +39,8 @@ class VolumeArgs:
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+               
+               > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -190,6 +192,8 @@ class VolumeArgs:
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "throughput")
 
@@ -242,6 +246,8 @@ class _VolumeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+               
+               > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         if arn is not None:
@@ -422,6 +428,8 @@ class _VolumeState:
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "throughput")
 
@@ -481,7 +489,7 @@ class Volume(pulumi.CustomResource):
 
         ## Import
 
-        EBS Volumes can be imported using the `id`, e.g.,
+        Using `pulumi import`, import EBS Volumes using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
@@ -500,6 +508,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+               
+               > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         ...
@@ -529,7 +539,7 @@ class Volume(pulumi.CustomResource):
 
         ## Import
 
-        EBS Volumes can be imported using the `id`, e.g.,
+        Using `pulumi import`, import EBS Volumes using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
@@ -631,6 +641,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+               
+               > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -754,6 +766,8 @@ class Volume(pulumi.CustomResource):
     def throughput(self) -> pulumi.Output[int]:
         """
         The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "throughput")
 

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:route53/cidrCollection:CidrCollection":
+		r = &CidrCollection{}
+	case "aws:route53/cidrLocation:CidrLocation":
+		r = &CidrLocation{}
 	case "aws:route53/delegationSet:DelegationSet":
 		r = &DelegationSet{}
 	case "aws:route53/healthCheck:HealthCheck":
@@ -76,10 +80,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/cidrCollection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/cidrLocation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53/delegationSet",

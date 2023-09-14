@@ -58,6 +58,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration S3Configuration;
+        /// <summary>
         /// The Elasticsearch type name with maximum length of 100 characters.
         /// </summary>
         public readonly string? TypeName;
@@ -90,6 +94,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? s3BackupMode,
 
+            Outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration,
+
             string? typeName,
 
             Outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig? vpcConfig)
@@ -105,6 +111,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             RetryDuration = retryDuration;
             RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
             TypeName = typeName;
             VpcConfig = vpcConfig;
         }

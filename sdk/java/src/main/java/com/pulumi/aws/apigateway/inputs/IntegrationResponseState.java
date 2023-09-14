@@ -124,12 +124,16 @@ public final class IntegrationResponseState extends com.pulumi.resources.Resourc
     /**
      * HTTP status code.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
     /**
      * @return HTTP status code.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> statusCode() {
@@ -317,6 +321,8 @@ public final class IntegrationResponseState extends com.pulumi.resources.Resourc
         /**
          * @param statusCode HTTP status code.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -327,6 +333,8 @@ public final class IntegrationResponseState extends com.pulumi.resources.Resourc
 
         /**
          * @param statusCode HTTP status code.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

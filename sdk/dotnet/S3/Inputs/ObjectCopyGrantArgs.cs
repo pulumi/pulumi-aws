@@ -38,6 +38,8 @@ namespace Pulumi.Aws.S3.Inputs
 
         /// <summary>
         /// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        /// 
+        /// This configuration block has the following optional arguments (one of the three is required):
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

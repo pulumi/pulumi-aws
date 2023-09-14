@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Timestream table resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,10 +75,43 @@ import (
 //	}
 //
 // ```
+// ### Customer-defined Partition Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
+//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
+//				TableName:    pulumi.String("example"),
+//				Schema: &timestreamwrite.TableSchemaArgs{
+//					CompositePartitionKey: &timestreamwrite.TableSchemaCompositePartitionKeyArgs{
+//						EnforcementInRecord: pulumi.String("REQUIRED"),
+//						Name:                pulumi.String("attr1"),
+//						Type:                pulumi.String("DIMENSION"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+// Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -94,6 +129,8 @@ type Table struct {
 	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesOutput `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesOutput `pulumi:"retentionProperties"`
+	// The schema of the table. See Schema below for more details.
+	Schema TableSchemaOutput `pulumi:"schema"`
 	// The name of the Timestream table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -115,6 +152,7 @@ func NewTable(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws:timestreamwrite/table:Table", name, args, &resource, opts...)
 	if err != nil {
@@ -145,6 +183,8 @@ type tableState struct {
 	MagneticStoreWriteProperties *TableMagneticStoreWriteProperties `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
+	// The schema of the table. See Schema below for more details.
+	Schema *TableSchema `pulumi:"schema"`
 	// The name of the Timestream table.
 	TableName *string `pulumi:"tableName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,6 +202,8 @@ type TableState struct {
 	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesPtrInput
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesPtrInput
+	// The schema of the table. See Schema below for more details.
+	Schema TableSchemaPtrInput
 	// The name of the Timestream table.
 	TableName pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,6 +223,8 @@ type tableArgs struct {
 	MagneticStoreWriteProperties *TableMagneticStoreWriteProperties `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
+	// The schema of the table. See Schema below for more details.
+	Schema *TableSchema `pulumi:"schema"`
 	// The name of the Timestream table.
 	TableName string `pulumi:"tableName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -195,6 +239,8 @@ type TableArgs struct {
 	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesPtrInput
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesPtrInput
+	// The schema of the table. See Schema below for more details.
+	Schema TableSchemaPtrInput
 	// The name of the Timestream table.
 	TableName pulumi.StringInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -224,6 +270,12 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
 }
 
+func (i *Table) ToOutput(ctx context.Context) pulumix.Output[*Table] {
+	return pulumix.Output[*Table]{
+		OutputState: i.ToTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableArrayInput is an input type that accepts TableArray and TableArrayOutput values.
 // You can construct a concrete instance of `TableArrayInput` via:
 //
@@ -247,6 +299,12 @@ func (i TableArray) ToTableArrayOutput() TableArrayOutput {
 
 func (i TableArray) ToTableArrayOutputWithContext(ctx context.Context) TableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableArrayOutput)
+}
+
+func (i TableArray) ToOutput(ctx context.Context) pulumix.Output[[]*Table] {
+	return pulumix.Output[[]*Table]{
+		OutputState: i.ToTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TableMapInput is an input type that accepts TableMap and TableMapOutput values.
@@ -274,6 +332,12 @@ func (i TableMap) ToTableMapOutputWithContext(ctx context.Context) TableMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TableMapOutput)
 }
 
+func (i TableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Table] {
+	return pulumix.Output[map[string]*Table]{
+		OutputState: i.ToTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableOutput struct{ *pulumi.OutputState }
 
 func (TableOutput) ElementType() reflect.Type {
@@ -286,6 +350,12 @@ func (o TableOutput) ToTableOutput() TableOutput {
 
 func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
+}
+
+func (o TableOutput) ToOutput(ctx context.Context) pulumix.Output[*Table] {
+	return pulumix.Output[*Table]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN that uniquely identifies this table.
@@ -306,6 +376,11 @@ func (o TableOutput) MagneticStoreWriteProperties() TableMagneticStoreWritePrope
 // The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 func (o TableOutput) RetentionProperties() TableRetentionPropertiesOutput {
 	return o.ApplyT(func(v *Table) TableRetentionPropertiesOutput { return v.RetentionProperties }).(TableRetentionPropertiesOutput)
+}
+
+// The schema of the table. See Schema below for more details.
+func (o TableOutput) Schema() TableSchemaOutput {
+	return o.ApplyT(func(v *Table) TableSchemaOutput { return v.Schema }).(TableSchemaOutput)
 }
 
 // The name of the Timestream table.
@@ -337,6 +412,12 @@ func (o TableArrayOutput) ToTableArrayOutputWithContext(ctx context.Context) Tab
 	return o
 }
 
+func (o TableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Table] {
+	return pulumix.Output[[]*Table]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableArrayOutput) Index(i pulumi.IntInput) TableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Table {
 		return vs[0].([]*Table)[vs[1].(int)]
@@ -355,6 +436,12 @@ func (o TableMapOutput) ToTableMapOutput() TableMapOutput {
 
 func (o TableMapOutput) ToTableMapOutputWithContext(ctx context.Context) TableMapOutput {
 	return o
+}
+
+func (o TableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Table] {
+	return pulumix.Output[map[string]*Table]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableMapOutput) MapIndex(k pulumi.StringInput) TableOutput {

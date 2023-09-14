@@ -293,7 +293,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+        Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
 
         ```sh
          $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
@@ -341,7 +341,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+        Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
 
         ```sh
          $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
@@ -457,7 +457,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Description of the environment. Can be at most 1024 characters.
         """

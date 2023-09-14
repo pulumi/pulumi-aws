@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Scheduler
     ///         {
     ///             Mode = "OFF",
     ///         },
-    ///         ScheduleExpression = "rate(1 hour)",
+    ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = aws_sqs_queue.Example.Arn,
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Scheduler
     ///         {
     ///             Mode = "OFF",
     ///         },
-    ///         ScheduleExpression = "rate(1 hour)",
+    ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ## Import
     /// 
-    /// Schedules can be imported using the combination `group_name/name`. For example
+    /// Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
@@ -164,6 +164,8 @@ namespace Pulumi.Aws.Scheduler
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("target")]
         public Output<Outputs.ScheduleTarget> Target { get; private set; } = null!;
@@ -282,6 +284,8 @@ namespace Pulumi.Aws.Scheduler
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.ScheduleTargetArgs> Target { get; set; } = null!;
@@ -368,6 +372,8 @@ namespace Pulumi.Aws.Scheduler
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target")]
         public Input<Inputs.ScheduleTargetGetArgs>? Target { get; set; }

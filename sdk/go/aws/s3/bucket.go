@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a S3 bucket resource.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,8 +55,8 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +77,17 @@ import (
 //				Website: &s3.BucketWebsiteArgs{
 //					IndexDocument: pulumi.String("index.html"),
 //					ErrorDocument: pulumi.String("error.html"),
-//					RoutingRules:  pulumi.Any("[{\n    \"Condition\": {\n        \"KeyPrefixEquals\": \"docs/\"\n    },\n    \"Redirect\": {\n        \"ReplaceKeyPrefixWith\": \"documents/\"\n    }\n}]\n"),
+//					RoutingRules: pulumi.Any(`[{
+//	    "Condition": {
+//	        "KeyPrefixEquals": "docs/"
+//	    },
+//	    "Redirect": {
+//	        "ReplaceKeyPrefixWith": "documents/"
+//	    }
+//	}]
+//
+// `),
+//
 //				},
 //			})
 //			if err != nil {
@@ -93,7 +105,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -136,7 +148,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -164,7 +176,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,7 +213,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -290,9 +302,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -306,7 +318,22 @@ import (
 //				return err
 //			}
 //			replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any("{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"s3.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n"),
+//				AssumeRolePolicy: pulumi.Any(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "s3.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -419,8 +446,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -459,7 +486,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -539,6 +566,8 @@ type Bucket struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings BucketLoggingArrayOutput `pulumi:"loggings"`
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrOutput `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
@@ -574,6 +603,7 @@ func NewBucket(ctx *pulumi.Context,
 		args = &BucketArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws:s3/bucket:Bucket", name, args, &resource, opts...)
 	if err != nil {
@@ -623,6 +653,8 @@ type bucketState struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings []BucketLogging `pulumi:"loggings"`
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy interface{} `pulumi:"policy"`
@@ -679,6 +711,8 @@ type BucketState struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings BucketLoggingArrayInput
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.Input
@@ -735,6 +769,8 @@ type bucketArgs struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings []BucketLogging `pulumi:"loggings"`
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy interface{} `pulumi:"policy"`
@@ -784,6 +820,8 @@ type BucketArgs struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings BucketLoggingArrayInput
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.Input
@@ -831,6 +869,12 @@ func (i *Bucket) ToBucketOutputWithContext(ctx context.Context) BucketOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOutput)
 }
 
+func (i *Bucket) ToOutput(ctx context.Context) pulumix.Output[*Bucket] {
+	return pulumix.Output[*Bucket]{
+		OutputState: i.ToBucketOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketArrayInput is an input type that accepts BucketArray and BucketArrayOutput values.
 // You can construct a concrete instance of `BucketArrayInput` via:
 //
@@ -854,6 +898,12 @@ func (i BucketArray) ToBucketArrayOutput() BucketArrayOutput {
 
 func (i BucketArray) ToBucketArrayOutputWithContext(ctx context.Context) BucketArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketArrayOutput)
+}
+
+func (i BucketArray) ToOutput(ctx context.Context) pulumix.Output[[]*Bucket] {
+	return pulumix.Output[[]*Bucket]{
+		OutputState: i.ToBucketArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketMapInput is an input type that accepts BucketMap and BucketMapOutput values.
@@ -881,6 +931,12 @@ func (i BucketMap) ToBucketMapOutputWithContext(ctx context.Context) BucketMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMapOutput)
 }
 
+func (i BucketMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Bucket] {
+	return pulumix.Output[map[string]*Bucket]{
+		OutputState: i.ToBucketMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketOutput struct{ *pulumi.OutputState }
 
 func (BucketOutput) ElementType() reflect.Type {
@@ -893,6 +949,12 @@ func (o BucketOutput) ToBucketOutput() BucketOutput {
 
 func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutput {
 	return o
+}
+
+func (o BucketOutput) ToOutput(ctx context.Context) pulumix.Output[*Bucket] {
+	return pulumix.Output[*Bucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
@@ -961,6 +1023,8 @@ func (o BucketOutput) Loggings() BucketLoggingArrayOutput {
 }
 
 // A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+//
+// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 func (o BucketOutput) ObjectLockConfiguration() BucketObjectLockConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketObjectLockConfigurationPtrOutput { return v.ObjectLockConfiguration }).(BucketObjectLockConfigurationPtrOutput)
 }
@@ -1039,6 +1103,12 @@ func (o BucketArrayOutput) ToBucketArrayOutputWithContext(ctx context.Context) B
 	return o
 }
 
+func (o BucketArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Bucket] {
+	return pulumix.Output[[]*Bucket]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketArrayOutput) Index(i pulumi.IntInput) BucketOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Bucket {
 		return vs[0].([]*Bucket)[vs[1].(int)]
@@ -1057,6 +1127,12 @@ func (o BucketMapOutput) ToBucketMapOutput() BucketMapOutput {
 
 func (o BucketMapOutput) ToBucketMapOutputWithContext(ctx context.Context) BucketMapOutput {
 	return o
+}
+
+func (o BucketMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Bucket] {
+	return pulumix.Output[map[string]*Bucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketMapOutput) MapIndex(k pulumi.StringInput) BucketOutput {

@@ -137,11 +137,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodePipelines can be imported using the name, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
- * ```
+ *  to = aws_codepipeline.foo
+ *
+ *  id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
  */
 export class Pipeline extends pulumi.CustomResource {
     /**
@@ -192,7 +192,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -269,7 +269,7 @@ export interface PipelineState {
      */
     stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -299,7 +299,7 @@ export interface PipelineArgs {
      */
     stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

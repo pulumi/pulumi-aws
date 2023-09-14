@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WAF Rule Group can be imported using the id, e.g.,
+ * Using `pulumi import`, import WAF Rule Group using the id. For example:
  *
  * ```sh
  *  $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -78,7 +78,7 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly metricName!: pulumi.Output<string>;
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export interface RuleGroupState {
      */
     metricName?: pulumi.Input<string>;
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface RuleGroupArgs {
      */
     metricName: pulumi.Input<string>;
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodePipeline.
@@ -22,11 +24,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -220,13 +222,11 @@ import (
 //
 // ## Import
 //
-// CodePipelines can be imported using the name, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
 //
-// ```sh
+//	to = aws_codepipeline.foo
 //
-//	$ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-//
-// ```
+//	id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
 type Pipeline struct {
 	pulumi.CustomResourceState
 
@@ -240,7 +240,7 @@ type Pipeline struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayOutput `pulumi:"stages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -262,6 +262,7 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.Stages == nil {
 		return nil, errors.New("invalid value for required argument 'Stages'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:codepipeline/pipeline:Pipeline", name, args, &resource, opts...)
 	if err != nil {
@@ -294,7 +295,7 @@ type pipelineState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -311,7 +312,7 @@ type PipelineState struct {
 	RoleArn pulumi.StringPtrInput
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -330,7 +331,7 @@ type pipelineArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -344,7 +345,7 @@ type PipelineArgs struct {
 	RoleArn pulumi.StringInput
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -369,6 +370,12 @@ func (i *Pipeline) ToPipelineOutput() PipelineOutput {
 
 func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
+}
+
+func (i *Pipeline) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: i.ToPipelineOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PipelineArrayInput is an input type that accepts PipelineArray and PipelineArrayOutput values.
@@ -396,6 +403,12 @@ func (i PipelineArray) ToPipelineArrayOutputWithContext(ctx context.Context) Pip
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArrayOutput)
 }
 
+func (i PipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*Pipeline] {
+	return pulumix.Output[[]*Pipeline]{
+		OutputState: i.ToPipelineArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineMapInput is an input type that accepts PipelineMap and PipelineMapOutput values.
 // You can construct a concrete instance of `PipelineMapInput` via:
 //
@@ -421,6 +434,12 @@ func (i PipelineMap) ToPipelineMapOutputWithContext(ctx context.Context) Pipelin
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineMapOutput)
 }
 
+func (i PipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipeline] {
+	return pulumix.Output[map[string]*Pipeline]{
+		OutputState: i.ToPipelineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
@@ -433,6 +452,12 @@ func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
 
 func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return o
+}
+
+func (o PipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The codepipeline ARN.
@@ -460,7 +485,7 @@ func (o PipelineOutput) Stages() PipelineStageArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineStageArrayOutput { return v.Stages }).(PipelineStageArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PipelineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -484,6 +509,12 @@ func (o PipelineArrayOutput) ToPipelineArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Pipeline] {
+	return pulumix.Output[[]*Pipeline]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipelineArrayOutput) Index(i pulumi.IntInput) PipelineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Pipeline {
 		return vs[0].([]*Pipeline)[vs[1].(int)]
@@ -502,6 +533,12 @@ func (o PipelineMapOutput) ToPipelineMapOutput() PipelineMapOutput {
 
 func (o PipelineMapOutput) ToPipelineMapOutputWithContext(ctx context.Context) PipelineMapOutput {
 	return o
+}
+
+func (o PipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipeline] {
+	return pulumix.Output[map[string]*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineMapOutput) MapIndex(k pulumi.StringInput) PipelineOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
@@ -22,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -136,7 +138,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -242,6 +244,7 @@ import (
 //
 // ```
 func GetScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOption) (*GetScriptResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetScriptResult
 	err := ctx.Invoke("aws:glue/getScript:getScript", args, &rv, opts...)
 	if err != nil {
@@ -313,6 +316,12 @@ func (o GetScriptResultOutput) ToGetScriptResultOutput() GetScriptResultOutput {
 
 func (o GetScriptResultOutput) ToGetScriptResultOutputWithContext(ctx context.Context) GetScriptResultOutput {
 	return o
+}
+
+func (o GetScriptResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetScriptResult] {
+	return pulumix.Output[GetScriptResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetScriptResultOutput) DagEdges() GetScriptDagEdgeArrayOutput {

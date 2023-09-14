@@ -129,6 +129,9 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
@@ -141,13 +144,13 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult).value
 
     return AwaitableGetInternetGatewayResult(
-        arn=__ret__.arn,
-        attachments=__ret__.attachments,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        internet_gateway_id=__ret__.internet_gateway_id,
-        owner_id=__ret__.owner_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        attachments=pulumi.get(__ret__, 'attachments'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_internet_gateway)
@@ -174,6 +177,9 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
@@ -23,9 +25,276 @@ import (
 //
 // > **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
 //
+// ## Example Usage
+//
+// You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+//				Endpoint: pulumi.String("arn:aws:sqs:us-west-2:432981146916:queue-too"),
+//				Protocol: pulumi.String("sqs"),
+//				Topic:    pulumi.Any("arn:aws:sns:us-west-2:432981146916:user-updates-topic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			userUpdates, err := sns.NewTopic(ctx, "userUpdates", nil)
+//			if err != nil {
+//				return err
+//			}
+//			userUpdatesQueue, err := sqs.NewQueue(ctx, "userUpdatesQueue", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+//				Topic:    userUpdates.Arn,
+//				Protocol: pulumi.String("sqs"),
+//				Endpoint: userUpdatesQueue.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// sns := map[string]interface{}{
+// "account-id": "111111111111",
+// "role-name": "service/service",
+// "name": "example-sns-topic",
+// "display_name": "example",
+// "region": "us-west-1",
+// };
+// if param := cfg.GetBool("sns"); param != nil {
+// sns = param
+// }
+// sqs := map[string]interface{}{
+// "account-id": "222222222222",
+// "role-name": "service/service",
+// "name": "example-sqs-queue",
+// "region": "us-east-1",
+// };
+// if param := cfg.GetBool("sqs"); param != nil {
+// sqs = param
+// }
+// sns_topic_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// PolicyId: pulumi.StringRef("__default_policy_ID"),
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "SNS:Subscribe",
+// "SNS:SetTopicAttributes",
+// "SNS:RemovePermission",
+// "SNS:Publish",
+// "SNS:ListSubscriptionsByTopic",
+// "SNS:GetTopicAttributes",
+// "SNS:DeleteTopic",
+// "SNS:AddPermission",
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "AWS:SourceOwner",
+// Values: interface{}{
+// sns.AccountId,
+// },
+// },
+// },
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
+// },
+// Sid: pulumi.StringRef("__default_statement_ID"),
+// },
+// {
+// Actions: []string{
+// "SNS:Subscribe",
+// "SNS:Receive",
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringLike",
+// Variable: "SNS:Endpoint",
+// Values: []string{
+// fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.AccountId, sqs.Name),
+// },
+// },
+// },
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
+// },
+// Sid: pulumi.StringRef("__console_sub_0"),
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// sqs_queue_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// PolicyId: pulumi.StringRef(fmt.Sprintf("arn:aws:sqs:%v:%v:%v/SQSDefaultPolicy", sqs.Region, sqs.AccountId, sqs.Name)),
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: pulumi.StringRef("example-sns-topic"),
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "SQS:SendMessage",
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.AccountId, sqs.Name),
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "ArnEquals",
+// Variable: "aws:SourceArn",
+// Values: []string{
+// fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
+// },
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = aws.NewProvider(ctx, "awsSns", &aws.ProviderArgs{
+// Region: *pulumi.String(sns.Region),
+// AssumeRole: &aws.ProviderAssumeRoleArgs{
+// RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.AccountId, sns.RoleName)),
+// SessionName: pulumi.String(fmt.Sprintf("sns-%v", sns.Region)),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = aws.NewProvider(ctx, "awsSqs", &aws.ProviderArgs{
+// Region: *pulumi.String(sqs.Region),
+// AssumeRole: &aws.ProviderAssumeRoleArgs{
+// RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
+// SessionName: pulumi.String(fmt.Sprintf("sqs-%v", sqs.Region)),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = aws.NewProvider(ctx, "sns2sqs", &aws.ProviderArgs{
+// Region: *pulumi.String(sns.Region),
+// AssumeRole: &aws.ProviderAssumeRoleArgs{
+// RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
+// SessionName: pulumi.String(fmt.Sprintf("sns2sqs-%v", sns.Region)),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sns.NewTopic(ctx, "sns-topicTopic", &sns.TopicArgs{
+// DisplayName: *pulumi.String(sns.Display_name),
+// Policy: *pulumi.String(sns_topic_policy.Json),
+// }, pulumi.Provider(aws.Sns))
+// if err != nil {
+// return err
+// }
+// _, err = sqs.NewQueue(ctx, "sqs-queue", &sqs.QueueArgs{
+// Policy: *pulumi.String(sqs_queue_policy.Json),
+// }, pulumi.Provider(aws.Sqs))
+// if err != nil {
+// return err
+// }
+// _, err = sns.NewTopicSubscription(ctx, "sns-topicTopicSubscription", &sns.TopicSubscriptionArgs{
+// Topic: sns_topicTopic.Arn,
+// Protocol: pulumi.String("sqs"),
+// Endpoint: sqs_queue.Arn,
+// }, pulumi.Provider(aws.Sns2sqs))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+// Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
 //
 // ```sh
 //
@@ -64,6 +333,8 @@ type TopicSubscription struct {
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn pulumi.StringPtrOutput `pulumi:"subscriptionRoleArn"`
 	// ARN of the SNS topic to subscribe to.
+	//
+	// The following arguments are optional:
 	Topic pulumi.StringOutput `pulumi:"topic"`
 }
 
@@ -83,6 +354,7 @@ func NewTopicSubscription(ctx *pulumi.Context,
 	if args.Topic == nil {
 		return nil, errors.New("invalid value for required argument 'Topic'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicSubscription
 	err := ctx.RegisterResource("aws:sns/topicSubscription:TopicSubscription", name, args, &resource, opts...)
 	if err != nil {
@@ -134,6 +406,8 @@ type topicSubscriptionState struct {
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn *string `pulumi:"subscriptionRoleArn"`
 	// ARN of the SNS topic to subscribe to.
+	//
+	// The following arguments are optional:
 	Topic interface{} `pulumi:"topic"`
 }
 
@@ -167,6 +441,8 @@ type TopicSubscriptionState struct {
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn pulumi.StringPtrInput
 	// ARN of the SNS topic to subscribe to.
+	//
+	// The following arguments are optional:
 	Topic pulumi.Input
 }
 
@@ -196,6 +472,8 @@ type topicSubscriptionArgs struct {
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn *string `pulumi:"subscriptionRoleArn"`
 	// ARN of the SNS topic to subscribe to.
+	//
+	// The following arguments are optional:
 	Topic interface{} `pulumi:"topic"`
 }
 
@@ -222,6 +500,8 @@ type TopicSubscriptionArgs struct {
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn pulumi.StringPtrInput
 	// ARN of the SNS topic to subscribe to.
+	//
+	// The following arguments are optional:
 	Topic pulumi.Input
 }
 
@@ -246,6 +526,12 @@ func (i *TopicSubscription) ToTopicSubscriptionOutput() TopicSubscriptionOutput 
 
 func (i *TopicSubscription) ToTopicSubscriptionOutputWithContext(ctx context.Context) TopicSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionOutput)
+}
+
+func (i *TopicSubscription) ToOutput(ctx context.Context) pulumix.Output[*TopicSubscription] {
+	return pulumix.Output[*TopicSubscription]{
+		OutputState: i.ToTopicSubscriptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicSubscriptionArrayInput is an input type that accepts TopicSubscriptionArray and TopicSubscriptionArrayOutput values.
@@ -273,6 +559,12 @@ func (i TopicSubscriptionArray) ToTopicSubscriptionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionArrayOutput)
 }
 
+func (i TopicSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*TopicSubscription] {
+	return pulumix.Output[[]*TopicSubscription]{
+		OutputState: i.ToTopicSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicSubscriptionMapInput is an input type that accepts TopicSubscriptionMap and TopicSubscriptionMapOutput values.
 // You can construct a concrete instance of `TopicSubscriptionMapInput` via:
 //
@@ -298,6 +590,12 @@ func (i TopicSubscriptionMap) ToTopicSubscriptionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionMapOutput)
 }
 
+func (i TopicSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicSubscription] {
+	return pulumix.Output[map[string]*TopicSubscription]{
+		OutputState: i.ToTopicSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (TopicSubscriptionOutput) ElementType() reflect.Type {
@@ -310,6 +608,12 @@ func (o TopicSubscriptionOutput) ToTopicSubscriptionOutput() TopicSubscriptionOu
 
 func (o TopicSubscriptionOutput) ToTopicSubscriptionOutputWithContext(ctx context.Context) TopicSubscriptionOutput {
 	return o
+}
+
+func (o TopicSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicSubscription] {
+	return pulumix.Output[*TopicSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the subscription.
@@ -383,6 +687,8 @@ func (o TopicSubscriptionOutput) SubscriptionRoleArn() pulumi.StringPtrOutput {
 }
 
 // ARN of the SNS topic to subscribe to.
+//
+// The following arguments are optional:
 func (o TopicSubscriptionOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.Topic }).(pulumi.StringOutput)
 }
@@ -399,6 +705,12 @@ func (o TopicSubscriptionArrayOutput) ToTopicSubscriptionArrayOutput() TopicSubs
 
 func (o TopicSubscriptionArrayOutput) ToTopicSubscriptionArrayOutputWithContext(ctx context.Context) TopicSubscriptionArrayOutput {
 	return o
+}
+
+func (o TopicSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TopicSubscription] {
+	return pulumix.Output[[]*TopicSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicSubscriptionArrayOutput) Index(i pulumi.IntInput) TopicSubscriptionOutput {
@@ -419,6 +731,12 @@ func (o TopicSubscriptionMapOutput) ToTopicSubscriptionMapOutput() TopicSubscrip
 
 func (o TopicSubscriptionMapOutput) ToTopicSubscriptionMapOutputWithContext(ctx context.Context) TopicSubscriptionMapOutput {
 	return o
+}
+
+func (o TopicSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicSubscription] {
+	return pulumix.Output[map[string]*TopicSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicSubscriptionMapOutput) MapIndex(k pulumi.StringInput) TopicSubscriptionOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +61,7 @@ import (
 //
 // ```
 func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCanonicalUserIdArgs, opts ...pulumi.InvokeOption) (*GetLogDeliveryCanonicalUserIdResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogDeliveryCanonicalUserIdResult
 	err := ctx.Invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, &rv, opts...)
 	if err != nil {
@@ -116,6 +119,12 @@ func (o GetLogDeliveryCanonicalUserIdResultOutput) ToGetLogDeliveryCanonicalUser
 
 func (o GetLogDeliveryCanonicalUserIdResultOutput) ToGetLogDeliveryCanonicalUserIdResultOutputWithContext(ctx context.Context) GetLogDeliveryCanonicalUserIdResultOutput {
 	return o
+}
+
+func (o GetLogDeliveryCanonicalUserIdResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDeliveryCanonicalUserIdResult] {
+	return pulumix.Output[GetLogDeliveryCanonicalUserIdResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

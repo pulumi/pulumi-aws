@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
  * Disable/enable Security Hub standards control in the current region.
  *
  * The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
- * The provider does not _create_ this resource, but instead "adopts" it
- * into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
+ * TODO does not _create_ this resource, but instead "adopts" it
+ * into management. When you _delete_ this resource configuration, TODO "abandons" resource as is and just removes it from the state.
  *
  * ## Example Usage
  *
@@ -91,7 +91,7 @@ export class StandardsControl extends pulumi.CustomResource {
      */
     public /*out*/ readonly severityRating!: pulumi.Output<string>;
     /**
-     * The standards control ARN.
+     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */
     public readonly standardsControlArn!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface StandardsControlState {
      */
     severityRating?: pulumi.Input<string>;
     /**
-     * The standards control ARN.
+     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */
     standardsControlArn?: pulumi.Input<string>;
     /**
@@ -205,7 +205,7 @@ export interface StandardsControlArgs {
      */
     disabledReason?: pulumi.Input<string>;
     /**
-     * The standards control ARN.
+     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */
     standardsControlArn: pulumi.Input<string>;
 }

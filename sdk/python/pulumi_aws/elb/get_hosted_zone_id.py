@@ -87,8 +87,8 @@ def get_hosted_zone_id(region: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elb/getHostedZoneId:getHostedZoneId', __args__, opts=opts, typ=GetHostedZoneIdResult).value
 
     return AwaitableGetHostedZoneIdResult(
-        id=__ret__.id,
-        region=__ret__.region)
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 
 
 @_utilities.lift_output_func(get_hosted_zone_id)

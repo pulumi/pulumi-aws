@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
+ * Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
@@ -94,12 +94,16 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
+     * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+     * 
      */
     @Export(name="connectionEvents", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> connectionEvents;
 
     /**
      * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     * 
+     * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
      * 
      */
     public Output<List<String>> connectionEvents() {

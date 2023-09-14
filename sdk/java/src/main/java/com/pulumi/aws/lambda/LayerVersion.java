@@ -70,15 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lambda Layers can be imported using `arn`.
+ * Using `pulumi import`, import Lambda Layers using `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/layerVersion:LayerVersion \
+ *  $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
  * ```
- * 
- *  aws_lambda_layer_version.test_layer \
- * 
- *  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
  * 
  */
 @ResourceType(type="aws:lambda/layerVersion:LayerVersion")
@@ -184,12 +180,16 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
     /**
      * Unique name for your Lambda Layer
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="layerName", refs={String.class}, tree="[0]")
     private Output<String> layerName;
 
     /**
      * @return Unique name for your Lambda Layer
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> layerName() {

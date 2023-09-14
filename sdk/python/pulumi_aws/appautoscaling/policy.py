@@ -483,7 +483,7 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        Application AutoScaling Policy can be imported using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`.
+        Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
          $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
@@ -693,7 +693,7 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        Application AutoScaling Policy can be imported using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`.
+        Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
          $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name

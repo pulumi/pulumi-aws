@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint GCM Channel resource.
     /// 
+    /// &gt; **Note:** Api Key argument will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -35,11 +36,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
-    /// ```
+    ///  to = aws_pinpoint_gcm_channel.gcm
+    /// 
+    ///  id = "application-id" } Using `TODO import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_gcm_channel.gcm application-id
     /// </summary>
     [AwsResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
     public partial class GcmChannel : global::Pulumi.CustomResource

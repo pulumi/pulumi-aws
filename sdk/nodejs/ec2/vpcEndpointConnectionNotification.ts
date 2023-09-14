@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
+ * Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
@@ -78,6 +78,8 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
 
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     *
+     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     public readonly connectionEvents!: pulumi.Output<string[]>;
     /**
@@ -146,6 +148,8 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
 export interface VpcEndpointConnectionNotificationState {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     *
+     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     connectionEvents?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -176,6 +180,8 @@ export interface VpcEndpointConnectionNotificationState {
 export interface VpcEndpointConnectionNotificationArgs {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     *
+     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     connectionEvents: pulumi.Input<pulumi.Input<string>[]>;
     /**

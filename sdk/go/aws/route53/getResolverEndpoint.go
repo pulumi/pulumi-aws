@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupResolverEndpoint(ctx *pulumi.Context, args *LookupResolverEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverEndpointResult
 	err := ctx.Invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -84,6 +87,8 @@ type LookupResolverEndpointArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Filters []GetResolverEndpointFilter `pulumi:"filters"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
@@ -121,6 +126,8 @@ type LookupResolverEndpointOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Filters GetResolverEndpointFilterArrayInput `pulumi:"filters"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
@@ -143,6 +150,12 @@ func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutput
 
 func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutputWithContext(ctx context.Context) LookupResolverEndpointResultOutput {
 	return o
+}
+
+func (o LookupResolverEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverEndpointResult] {
+	return pulumix.Output[LookupResolverEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringOutput {

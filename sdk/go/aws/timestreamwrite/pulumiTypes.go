@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type TableMagneticStoreWriteProperties struct {
 	// A flag to enable magnetic store writes.
@@ -45,6 +49,12 @@ func (i TableMagneticStoreWritePropertiesArgs) ToTableMagneticStoreWriteProperti
 
 func (i TableMagneticStoreWritePropertiesArgs) ToTableMagneticStoreWritePropertiesOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesOutput)
+}
+
+func (i TableMagneticStoreWritePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWriteProperties] {
+	return pulumix.Output[TableMagneticStoreWriteProperties]{
+		OutputState: i.ToTableMagneticStoreWritePropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i TableMagneticStoreWritePropertiesArgs) ToTableMagneticStoreWritePropertiesPtrOutput() TableMagneticStoreWritePropertiesPtrOutput {
@@ -88,6 +98,12 @@ func (i *tableMagneticStoreWritePropertiesPtrType) ToTableMagneticStoreWriteProp
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesPtrOutput)
 }
 
+func (i *tableMagneticStoreWritePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWriteProperties] {
+	return pulumix.Output[*TableMagneticStoreWriteProperties]{
+		OutputState: i.ToTableMagneticStoreWritePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableMagneticStoreWritePropertiesOutput struct{ *pulumi.OutputState }
 
 func (TableMagneticStoreWritePropertiesOutput) ElementType() reflect.Type {
@@ -110,6 +126,12 @@ func (o TableMagneticStoreWritePropertiesOutput) ToTableMagneticStoreWriteProper
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMagneticStoreWriteProperties) *TableMagneticStoreWriteProperties {
 		return &v
 	}).(TableMagneticStoreWritePropertiesPtrOutput)
+}
+
+func (o TableMagneticStoreWritePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWriteProperties] {
+	return pulumix.Output[TableMagneticStoreWriteProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag to enable magnetic store writes.
@@ -136,6 +158,12 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) ToTableMagneticStoreWritePro
 
 func (o TableMagneticStoreWritePropertiesPtrOutput) ToTableMagneticStoreWritePropertiesPtrOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesPtrOutput {
 	return o
+}
+
+func (o TableMagneticStoreWritePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWriteProperties] {
+	return pulumix.Output[*TableMagneticStoreWriteProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableMagneticStoreWritePropertiesPtrOutput) Elem() TableMagneticStoreWritePropertiesOutput {
@@ -201,6 +229,12 @@ func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput)
 }
 
+func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
+	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
+		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutputWithContext(context.Background())
 }
@@ -242,6 +276,12 @@ func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput)
 }
 
+func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
+	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
+		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput struct{ *pulumi.OutputState }
 
 func (TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) ElementType() reflect.Type {
@@ -266,6 +306,12 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput)
 }
 
+func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
+	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) S3Configuration() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
@@ -285,6 +331,12 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOut
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return o
+}
+
+func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
+	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) Elem() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput {
@@ -352,6 +404,12 @@ func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput)
 }
 
+func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
+	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
+		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutputWithContext(context.Background())
 }
@@ -393,6 +451,12 @@ func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Con
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput)
 }
 
+func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
+	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
+		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) ElementType() reflect.Type {
@@ -415,6 +479,12 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
 		return &v
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput)
+}
+
+func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
+	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Bucket name of the customer S3 bucket.
@@ -457,6 +527,12 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o
+}
+
+func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
+	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) Elem() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput {
@@ -546,6 +622,12 @@ func (i TableRetentionPropertiesArgs) ToTableRetentionPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableRetentionPropertiesOutput)
 }
 
+func (i TableRetentionPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TableRetentionProperties] {
+	return pulumix.Output[TableRetentionProperties]{
+		OutputState: i.ToTableRetentionPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableRetentionPropertiesArgs) ToTableRetentionPropertiesPtrOutput() TableRetentionPropertiesPtrOutput {
 	return i.ToTableRetentionPropertiesPtrOutputWithContext(context.Background())
 }
@@ -587,6 +669,12 @@ func (i *tableRetentionPropertiesPtrType) ToTableRetentionPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TableRetentionPropertiesPtrOutput)
 }
 
+func (i *tableRetentionPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableRetentionProperties] {
+	return pulumix.Output[*TableRetentionProperties]{
+		OutputState: i.ToTableRetentionPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableRetentionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TableRetentionPropertiesOutput) ElementType() reflect.Type {
@@ -611,6 +699,12 @@ func (o TableRetentionPropertiesOutput) ToTableRetentionPropertiesPtrOutputWithC
 	}).(TableRetentionPropertiesPtrOutput)
 }
 
+func (o TableRetentionPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TableRetentionProperties] {
+	return pulumix.Output[TableRetentionProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 func (o TableRetentionPropertiesOutput) MagneticStoreRetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v TableRetentionProperties) int { return v.MagneticStoreRetentionPeriodInDays }).(pulumi.IntOutput)
@@ -633,6 +727,12 @@ func (o TableRetentionPropertiesPtrOutput) ToTableRetentionPropertiesPtrOutput()
 
 func (o TableRetentionPropertiesPtrOutput) ToTableRetentionPropertiesPtrOutputWithContext(ctx context.Context) TableRetentionPropertiesPtrOutput {
 	return o
+}
+
+func (o TableRetentionPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableRetentionProperties] {
+	return pulumix.Output[*TableRetentionProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableRetentionPropertiesPtrOutput) Elem() TableRetentionPropertiesOutput {
@@ -665,6 +765,366 @@ func (o TableRetentionPropertiesPtrOutput) MemoryStoreRetentionPeriodInHours() p
 	}).(pulumi.IntPtrOutput)
 }
 
+type TableSchema struct {
+	// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+	CompositePartitionKey *TableSchemaCompositePartitionKey `pulumi:"compositePartitionKey"`
+}
+
+// TableSchemaInput is an input type that accepts TableSchemaArgs and TableSchemaOutput values.
+// You can construct a concrete instance of `TableSchemaInput` via:
+//
+//	TableSchemaArgs{...}
+type TableSchemaInput interface {
+	pulumi.Input
+
+	ToTableSchemaOutput() TableSchemaOutput
+	ToTableSchemaOutputWithContext(context.Context) TableSchemaOutput
+}
+
+type TableSchemaArgs struct {
+	// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+	CompositePartitionKey TableSchemaCompositePartitionKeyPtrInput `pulumi:"compositePartitionKey"`
+}
+
+func (TableSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchema)(nil)).Elem()
+}
+
+func (i TableSchemaArgs) ToTableSchemaOutput() TableSchemaOutput {
+	return i.ToTableSchemaOutputWithContext(context.Background())
+}
+
+func (i TableSchemaArgs) ToTableSchemaOutputWithContext(ctx context.Context) TableSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaOutput)
+}
+
+func (i TableSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchema] {
+	return pulumix.Output[TableSchema]{
+		OutputState: i.ToTableSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TableSchemaArgs) ToTableSchemaPtrOutput() TableSchemaPtrOutput {
+	return i.ToTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaArgs) ToTableSchemaPtrOutputWithContext(ctx context.Context) TableSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaOutput).ToTableSchemaPtrOutputWithContext(ctx)
+}
+
+// TableSchemaPtrInput is an input type that accepts TableSchemaArgs, TableSchemaPtr and TableSchemaPtrOutput values.
+// You can construct a concrete instance of `TableSchemaPtrInput` via:
+//
+//	        TableSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableSchemaPtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaPtrOutput() TableSchemaPtrOutput
+	ToTableSchemaPtrOutputWithContext(context.Context) TableSchemaPtrOutput
+}
+
+type tableSchemaPtrType TableSchemaArgs
+
+func TableSchemaPtr(v *TableSchemaArgs) TableSchemaPtrInput {
+	return (*tableSchemaPtrType)(v)
+}
+
+func (*tableSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchema)(nil)).Elem()
+}
+
+func (i *tableSchemaPtrType) ToTableSchemaPtrOutput() TableSchemaPtrOutput {
+	return i.ToTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaPtrType) ToTableSchemaPtrOutputWithContext(ctx context.Context) TableSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaPtrOutput)
+}
+
+func (i *tableSchemaPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableSchema] {
+	return pulumix.Output[*TableSchema]{
+		OutputState: i.ToTableSchemaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TableSchemaOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchema)(nil)).Elem()
+}
+
+func (o TableSchemaOutput) ToTableSchemaOutput() TableSchemaOutput {
+	return o
+}
+
+func (o TableSchemaOutput) ToTableSchemaOutputWithContext(ctx context.Context) TableSchemaOutput {
+	return o
+}
+
+func (o TableSchemaOutput) ToTableSchemaPtrOutput() TableSchemaPtrOutput {
+	return o.ToTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaOutput) ToTableSchemaPtrOutputWithContext(ctx context.Context) TableSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchema) *TableSchema {
+		return &v
+	}).(TableSchemaPtrOutput)
+}
+
+func (o TableSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchema] {
+	return pulumix.Output[TableSchema]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+func (o TableSchemaOutput) CompositePartitionKey() TableSchemaCompositePartitionKeyPtrOutput {
+	return o.ApplyT(func(v TableSchema) *TableSchemaCompositePartitionKey { return v.CompositePartitionKey }).(TableSchemaCompositePartitionKeyPtrOutput)
+}
+
+type TableSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchema)(nil)).Elem()
+}
+
+func (o TableSchemaPtrOutput) ToTableSchemaPtrOutput() TableSchemaPtrOutput {
+	return o
+}
+
+func (o TableSchemaPtrOutput) ToTableSchemaPtrOutputWithContext(ctx context.Context) TableSchemaPtrOutput {
+	return o
+}
+
+func (o TableSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableSchema] {
+	return pulumix.Output[*TableSchema]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableSchemaPtrOutput) Elem() TableSchemaOutput {
+	return o.ApplyT(func(v *TableSchema) TableSchema {
+		if v != nil {
+			return *v
+		}
+		var ret TableSchema
+		return ret
+	}).(TableSchemaOutput)
+}
+
+// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+func (o TableSchemaPtrOutput) CompositePartitionKey() TableSchemaCompositePartitionKeyPtrOutput {
+	return o.ApplyT(func(v *TableSchema) *TableSchemaCompositePartitionKey {
+		if v == nil {
+			return nil
+		}
+		return v.CompositePartitionKey
+	}).(TableSchemaCompositePartitionKeyPtrOutput)
+}
+
+type TableSchemaCompositePartitionKey struct {
+	// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+	EnforcementInRecord *string `pulumi:"enforcementInRecord"`
+	// The name of the attribute used for a dimension key.
+	Name *string `pulumi:"name"`
+	// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+	Type string `pulumi:"type"`
+}
+
+// TableSchemaCompositePartitionKeyInput is an input type that accepts TableSchemaCompositePartitionKeyArgs and TableSchemaCompositePartitionKeyOutput values.
+// You can construct a concrete instance of `TableSchemaCompositePartitionKeyInput` via:
+//
+//	TableSchemaCompositePartitionKeyArgs{...}
+type TableSchemaCompositePartitionKeyInput interface {
+	pulumi.Input
+
+	ToTableSchemaCompositePartitionKeyOutput() TableSchemaCompositePartitionKeyOutput
+	ToTableSchemaCompositePartitionKeyOutputWithContext(context.Context) TableSchemaCompositePartitionKeyOutput
+}
+
+type TableSchemaCompositePartitionKeyArgs struct {
+	// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+	EnforcementInRecord pulumi.StringPtrInput `pulumi:"enforcementInRecord"`
+	// The name of the attribute used for a dimension key.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableSchemaCompositePartitionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (i TableSchemaCompositePartitionKeyArgs) ToTableSchemaCompositePartitionKeyOutput() TableSchemaCompositePartitionKeyOutput {
+	return i.ToTableSchemaCompositePartitionKeyOutputWithContext(context.Background())
+}
+
+func (i TableSchemaCompositePartitionKeyArgs) ToTableSchemaCompositePartitionKeyOutputWithContext(ctx context.Context) TableSchemaCompositePartitionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaCompositePartitionKeyOutput)
+}
+
+func (i TableSchemaCompositePartitionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchemaCompositePartitionKey] {
+	return pulumix.Output[TableSchemaCompositePartitionKey]{
+		OutputState: i.ToTableSchemaCompositePartitionKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TableSchemaCompositePartitionKeyArgs) ToTableSchemaCompositePartitionKeyPtrOutput() TableSchemaCompositePartitionKeyPtrOutput {
+	return i.ToTableSchemaCompositePartitionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaCompositePartitionKeyArgs) ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx context.Context) TableSchemaCompositePartitionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaCompositePartitionKeyOutput).ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx)
+}
+
+// TableSchemaCompositePartitionKeyPtrInput is an input type that accepts TableSchemaCompositePartitionKeyArgs, TableSchemaCompositePartitionKeyPtr and TableSchemaCompositePartitionKeyPtrOutput values.
+// You can construct a concrete instance of `TableSchemaCompositePartitionKeyPtrInput` via:
+//
+//	        TableSchemaCompositePartitionKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableSchemaCompositePartitionKeyPtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaCompositePartitionKeyPtrOutput() TableSchemaCompositePartitionKeyPtrOutput
+	ToTableSchemaCompositePartitionKeyPtrOutputWithContext(context.Context) TableSchemaCompositePartitionKeyPtrOutput
+}
+
+type tableSchemaCompositePartitionKeyPtrType TableSchemaCompositePartitionKeyArgs
+
+func TableSchemaCompositePartitionKeyPtr(v *TableSchemaCompositePartitionKeyArgs) TableSchemaCompositePartitionKeyPtrInput {
+	return (*tableSchemaCompositePartitionKeyPtrType)(v)
+}
+
+func (*tableSchemaCompositePartitionKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (i *tableSchemaCompositePartitionKeyPtrType) ToTableSchemaCompositePartitionKeyPtrOutput() TableSchemaCompositePartitionKeyPtrOutput {
+	return i.ToTableSchemaCompositePartitionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaCompositePartitionKeyPtrType) ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx context.Context) TableSchemaCompositePartitionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaCompositePartitionKeyPtrOutput)
+}
+
+func (i *tableSchemaCompositePartitionKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableSchemaCompositePartitionKey] {
+	return pulumix.Output[*TableSchemaCompositePartitionKey]{
+		OutputState: i.ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TableSchemaCompositePartitionKeyOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaCompositePartitionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (o TableSchemaCompositePartitionKeyOutput) ToTableSchemaCompositePartitionKeyOutput() TableSchemaCompositePartitionKeyOutput {
+	return o
+}
+
+func (o TableSchemaCompositePartitionKeyOutput) ToTableSchemaCompositePartitionKeyOutputWithContext(ctx context.Context) TableSchemaCompositePartitionKeyOutput {
+	return o
+}
+
+func (o TableSchemaCompositePartitionKeyOutput) ToTableSchemaCompositePartitionKeyPtrOutput() TableSchemaCompositePartitionKeyPtrOutput {
+	return o.ToTableSchemaCompositePartitionKeyPtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaCompositePartitionKeyOutput) ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx context.Context) TableSchemaCompositePartitionKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchemaCompositePartitionKey) *TableSchemaCompositePartitionKey {
+		return &v
+	}).(TableSchemaCompositePartitionKeyPtrOutput)
+}
+
+func (o TableSchemaCompositePartitionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchemaCompositePartitionKey] {
+	return pulumix.Output[TableSchemaCompositePartitionKey]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+func (o TableSchemaCompositePartitionKeyOutput) EnforcementInRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaCompositePartitionKey) *string { return v.EnforcementInRecord }).(pulumi.StringPtrOutput)
+}
+
+// The name of the attribute used for a dimension key.
+func (o TableSchemaCompositePartitionKeyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaCompositePartitionKey) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+func (o TableSchemaCompositePartitionKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSchemaCompositePartitionKey) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TableSchemaCompositePartitionKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaCompositePartitionKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (o TableSchemaCompositePartitionKeyPtrOutput) ToTableSchemaCompositePartitionKeyPtrOutput() TableSchemaCompositePartitionKeyPtrOutput {
+	return o
+}
+
+func (o TableSchemaCompositePartitionKeyPtrOutput) ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx context.Context) TableSchemaCompositePartitionKeyPtrOutput {
+	return o
+}
+
+func (o TableSchemaCompositePartitionKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableSchemaCompositePartitionKey] {
+	return pulumix.Output[*TableSchemaCompositePartitionKey]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableSchemaCompositePartitionKeyPtrOutput) Elem() TableSchemaCompositePartitionKeyOutput {
+	return o.ApplyT(func(v *TableSchemaCompositePartitionKey) TableSchemaCompositePartitionKey {
+		if v != nil {
+			return *v
+		}
+		var ret TableSchemaCompositePartitionKey
+		return ret
+	}).(TableSchemaCompositePartitionKeyOutput)
+}
+
+// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+func (o TableSchemaCompositePartitionKeyPtrOutput) EnforcementInRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaCompositePartitionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnforcementInRecord
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the attribute used for a dimension key.
+func (o TableSchemaCompositePartitionKeyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaCompositePartitionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+func (o TableSchemaCompositePartitionKeyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaCompositePartitionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMagneticStoreWritePropertiesInput)(nil)).Elem(), TableMagneticStoreWritePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMagneticStoreWritePropertiesPtrInput)(nil)).Elem(), TableMagneticStoreWritePropertiesArgs{})
@@ -674,6 +1134,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrInput)(nil)).Elem(), TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableRetentionPropertiesInput)(nil)).Elem(), TableRetentionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableRetentionPropertiesPtrInput)(nil)).Elem(), TableRetentionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaInput)(nil)).Elem(), TableSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaPtrInput)(nil)).Elem(), TableSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaCompositePartitionKeyInput)(nil)).Elem(), TableSchemaCompositePartitionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaCompositePartitionKeyPtrInput)(nil)).Elem(), TableSchemaCompositePartitionKeyArgs{})
 	pulumi.RegisterOutputType(TableMagneticStoreWritePropertiesOutput{})
 	pulumi.RegisterOutputType(TableMagneticStoreWritePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput{})
@@ -682,4 +1146,8 @@ func init() {
 	pulumi.RegisterOutputType(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableRetentionPropertiesOutput{})
 	pulumi.RegisterOutputType(TableRetentionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TableSchemaOutput{})
+	pulumi.RegisterOutputType(TableSchemaPtrOutput{})
+	pulumi.RegisterOutputType(TableSchemaCompositePartitionKeyOutput{})
+	pulumi.RegisterOutputType(TableSchemaCompositePartitionKeyPtrOutput{})
 }

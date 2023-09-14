@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Import
     /// 
-    /// KMS multi-Region replica keys can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:kms/replicaExternalKey:ReplicaExternalKey example 1234abcd-12ab-34cd-56ef-1234567890ab

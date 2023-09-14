@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks NodeJS application layer resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,6 +83,10 @@ type NodejsAppLayer struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -98,6 +104,7 @@ func NewNodejsAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NodejsAppLayer
 	err := ctx.RegisterResource("aws:opsworks/nodejsAppLayer:NodejsAppLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -160,6 +167,10 @@ type nodejsAppLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -208,6 +219,10 @@ type NodejsAppLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -258,6 +273,10 @@ type nodejsAppLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -303,6 +322,10 @@ type NodejsAppLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -331,6 +354,12 @@ func (i *NodejsAppLayer) ToNodejsAppLayerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerOutput)
 }
 
+func (i *NodejsAppLayer) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayer] {
+	return pulumix.Output[*NodejsAppLayer]{
+		OutputState: i.ToNodejsAppLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NodejsAppLayerArrayInput is an input type that accepts NodejsAppLayerArray and NodejsAppLayerArrayOutput values.
 // You can construct a concrete instance of `NodejsAppLayerArrayInput` via:
 //
@@ -354,6 +383,12 @@ func (i NodejsAppLayerArray) ToNodejsAppLayerArrayOutput() NodejsAppLayerArrayOu
 
 func (i NodejsAppLayerArray) ToNodejsAppLayerArrayOutputWithContext(ctx context.Context) NodejsAppLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerArrayOutput)
+}
+
+func (i NodejsAppLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*NodejsAppLayer] {
+	return pulumix.Output[[]*NodejsAppLayer]{
+		OutputState: i.ToNodejsAppLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NodejsAppLayerMapInput is an input type that accepts NodejsAppLayerMap and NodejsAppLayerMapOutput values.
@@ -381,6 +416,12 @@ func (i NodejsAppLayerMap) ToNodejsAppLayerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerMapOutput)
 }
 
+func (i NodejsAppLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodejsAppLayer] {
+	return pulumix.Output[map[string]*NodejsAppLayer]{
+		OutputState: i.ToNodejsAppLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerOutput) ElementType() reflect.Type {
@@ -393,6 +434,12 @@ func (o NodejsAppLayerOutput) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
 
 func (o NodejsAppLayerOutput) ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput {
 	return o
+}
+
+func (o NodejsAppLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayer] {
+	return pulumix.Output[*NodejsAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -506,6 +553,10 @@ func (o NodejsAppLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following extra optional arguments, all lists of Chef recipe names, allow
+// custom Chef recipes to be applied to layer instances at the five different
+// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 func (o NodejsAppLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -534,6 +585,12 @@ func (o NodejsAppLayerArrayOutput) ToNodejsAppLayerArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o NodejsAppLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NodejsAppLayer] {
+	return pulumix.Output[[]*NodejsAppLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NodejsAppLayerArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NodejsAppLayer {
 		return vs[0].([]*NodejsAppLayer)[vs[1].(int)]
@@ -552,6 +609,12 @@ func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutput() NodejsAppLayerMapOu
 
 func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutputWithContext(ctx context.Context) NodejsAppLayerMapOutput {
 	return o
+}
+
+func (o NodejsAppLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodejsAppLayer] {
+	return pulumix.Output[map[string]*NodejsAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerMapOutput) MapIndex(k pulumi.StringInput) NodejsAppLayerOutput {

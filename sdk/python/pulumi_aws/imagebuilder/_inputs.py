@@ -29,6 +29,8 @@ __all__ = [
     'ImageOutputResourceArgs',
     'ImageOutputResourceAmiArgs',
     'ImageOutputResourceContainerArgs',
+    'ImagePipelineImageScanningConfigurationArgs',
+    'ImagePipelineImageScanningConfigurationEcrConfigurationArgs',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineScheduleArgs',
     'ImageRecipeBlockDeviceMappingArgs',
@@ -415,6 +417,8 @@ class DistributionConfigurationDistributionArgs:
                  license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] region: AWS Region for the distribution.
+               
+               The following arguments are optional:
         :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         :param pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgs']]] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
@@ -438,6 +442,8 @@ class DistributionConfigurationDistributionArgs:
     def region(self) -> pulumi.Input[str]:
         """
         AWS Region for the distribution.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "region")
 
@@ -1193,6 +1199,80 @@ class ImageOutputResourceContainerArgs:
 
 
 @pulumi.input_type
+class ImagePipelineImageScanningConfigurationArgs:
+    def __init__(__self__, *,
+                 ecr_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs']] = None,
+                 image_scanning_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs'] ecr_configuration: Configuration block with ECR configuration for image scanning. Detailed below.
+        :param pulumi.Input[bool] image_scanning_enabled: Whether image scans are enabled. Defaults to `false`.
+        """
+        if ecr_configuration is not None:
+            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+        if image_scanning_enabled is not None:
+            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfiguration")
+    def ecr_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs']]:
+        """
+        Configuration block with ECR configuration for image scanning. Detailed below.
+        """
+        return pulumi.get(self, "ecr_configuration")
+
+    @ecr_configuration.setter
+    def ecr_configuration(self, value: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs']]):
+        pulumi.set(self, "ecr_configuration", value)
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether image scans are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+    @image_scanning_enabled.setter
+    def image_scanning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_scanning_enabled", value)
+
+
+@pulumi.input_type
+class ImagePipelineImageScanningConfigurationEcrConfigurationArgs:
+    def __init__(__self__, *,
+                 container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] repository_name: The name of the repository to scan
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "container_tags")
+
+    @container_tags.setter
+    def container_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_tags", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the repository to scan
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+
+@pulumi.input_type
 class ImagePipelineImageTestsConfigurationArgs:
     def __init__(__self__, *,
                  image_tests_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1239,6 +1319,8 @@ class ImagePipelineScheduleArgs:
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] schedule_expression: Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
         :param pulumi.Input[str] timezone: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
         """
@@ -1253,6 +1335,8 @@ class ImagePipelineScheduleArgs:
     def schedule_expression(self) -> pulumi.Input[str]:
         """
         Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -1656,6 +1740,8 @@ class InfrastructureConfigurationLoggingS3LogsArgs:
                  s3_key_prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 Bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] s3_key_prefix: Prefix to use for S3 logs. Defaults to `/`.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -1667,6 +1753,8 @@ class InfrastructureConfigurationLoggingS3LogsArgs:
     def s3_bucket_name(self) -> pulumi.Input[str]:
         """
         Name of the S3 Bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_bucket_name")
 

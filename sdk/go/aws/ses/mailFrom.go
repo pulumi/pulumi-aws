@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES domain MAIL FROM resource.
@@ -25,8 +27,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +114,7 @@ import (
 //
 // ## Import
 //
-// MAIL FROM domain can be imported using the `domain` attribute, e.g.,
+// Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
 //
 // ```sh
 //
@@ -127,6 +129,8 @@ type MailFrom struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain pulumi.StringOutput `pulumi:"mailFromDomain"`
 }
 
@@ -143,6 +147,7 @@ func NewMailFrom(ctx *pulumi.Context,
 	if args.MailFromDomain == nil {
 		return nil, errors.New("invalid value for required argument 'MailFromDomain'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MailFrom
 	err := ctx.RegisterResource("aws:ses/mailFrom:MailFrom", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +175,8 @@ type mailFromState struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain *string `pulumi:"domain"`
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain *string `pulumi:"mailFromDomain"`
 }
 
@@ -179,6 +186,8 @@ type MailFromState struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringPtrInput
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain pulumi.StringPtrInput
 }
 
@@ -192,6 +201,8 @@ type mailFromArgs struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain string `pulumi:"domain"`
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain string `pulumi:"mailFromDomain"`
 }
 
@@ -202,6 +213,8 @@ type MailFromArgs struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringInput
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain pulumi.StringInput
 }
 
@@ -226,6 +239,12 @@ func (i *MailFrom) ToMailFromOutput() MailFromOutput {
 
 func (i *MailFrom) ToMailFromOutputWithContext(ctx context.Context) MailFromOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromOutput)
+}
+
+func (i *MailFrom) ToOutput(ctx context.Context) pulumix.Output[*MailFrom] {
+	return pulumix.Output[*MailFrom]{
+		OutputState: i.ToMailFromOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MailFromArrayInput is an input type that accepts MailFromArray and MailFromArrayOutput values.
@@ -253,6 +272,12 @@ func (i MailFromArray) ToMailFromArrayOutputWithContext(ctx context.Context) Mai
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromArrayOutput)
 }
 
+func (i MailFromArray) ToOutput(ctx context.Context) pulumix.Output[[]*MailFrom] {
+	return pulumix.Output[[]*MailFrom]{
+		OutputState: i.ToMailFromArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MailFromMapInput is an input type that accepts MailFromMap and MailFromMapOutput values.
 // You can construct a concrete instance of `MailFromMapInput` via:
 //
@@ -278,6 +303,12 @@ func (i MailFromMap) ToMailFromMapOutputWithContext(ctx context.Context) MailFro
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromMapOutput)
 }
 
+func (i MailFromMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MailFrom] {
+	return pulumix.Output[map[string]*MailFrom]{
+		OutputState: i.ToMailFromMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MailFromOutput struct{ *pulumi.OutputState }
 
 func (MailFromOutput) ElementType() reflect.Type {
@@ -292,6 +323,12 @@ func (o MailFromOutput) ToMailFromOutputWithContext(ctx context.Context) MailFro
 	return o
 }
 
+func (o MailFromOutput) ToOutput(ctx context.Context) pulumix.Output[*MailFrom] {
+	return pulumix.Output[*MailFrom]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 func (o MailFromOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringPtrOutput { return v.BehaviorOnMxFailure }).(pulumi.StringPtrOutput)
@@ -303,6 +340,8 @@ func (o MailFromOutput) Domain() pulumi.StringOutput {
 }
 
 // Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+//
+// The following arguments are optional:
 func (o MailFromOutput) MailFromDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.MailFromDomain }).(pulumi.StringOutput)
 }
@@ -319,6 +358,12 @@ func (o MailFromArrayOutput) ToMailFromArrayOutput() MailFromArrayOutput {
 
 func (o MailFromArrayOutput) ToMailFromArrayOutputWithContext(ctx context.Context) MailFromArrayOutput {
 	return o
+}
+
+func (o MailFromArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MailFrom] {
+	return pulumix.Output[[]*MailFrom]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MailFromArrayOutput) Index(i pulumi.IntInput) MailFromOutput {
@@ -339,6 +384,12 @@ func (o MailFromMapOutput) ToMailFromMapOutput() MailFromMapOutput {
 
 func (o MailFromMapOutput) ToMailFromMapOutputWithContext(ctx context.Context) MailFromMapOutput {
 	return o
+}
+
+func (o MailFromMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MailFrom] {
+	return pulumix.Output[map[string]*MailFrom]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MailFromMapOutput) MapIndex(k pulumi.StringInput) MailFromOutput {

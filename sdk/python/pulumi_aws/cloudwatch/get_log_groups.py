@@ -100,10 +100,10 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroups:getLogGroups', __args__, opts=opts, typ=GetLogGroupsResult).value
 
     return AwaitableGetLogGroupsResult(
-        arns=__ret__.arns,
-        id=__ret__.id,
-        log_group_name_prefix=__ret__.log_group_name_prefix,
-        log_group_names=__ret__.log_group_names)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        log_group_name_prefix=pulumi.get(__ret__, 'log_group_name_prefix'),
+        log_group_names=pulumi.get(__ret__, 'log_group_names'))
 
 
 @_utilities.lift_output_func(get_log_groups)

@@ -81,12 +81,16 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
      * @return Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -234,6 +238,8 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param subnetIds Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -245,6 +251,8 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param subnetIds Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -254,6 +262,8 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param subnetIds Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Serial console access state can be imported, e.g.,
+// Using `pulumi import`, import serial console access state. For example:
 //
 // ```sh
 //
@@ -63,6 +65,7 @@ func NewSerialConsoleAccess(ctx *pulumi.Context,
 		args = &SerialConsoleAccessArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SerialConsoleAccess
 	err := ctx.RegisterResource("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, args, &resource, opts...)
 	if err != nil {
@@ -132,6 +135,12 @@ func (i *SerialConsoleAccess) ToSerialConsoleAccessOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SerialConsoleAccessOutput)
 }
 
+func (i *SerialConsoleAccess) ToOutput(ctx context.Context) pulumix.Output[*SerialConsoleAccess] {
+	return pulumix.Output[*SerialConsoleAccess]{
+		OutputState: i.ToSerialConsoleAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SerialConsoleAccessArrayInput is an input type that accepts SerialConsoleAccessArray and SerialConsoleAccessArrayOutput values.
 // You can construct a concrete instance of `SerialConsoleAccessArrayInput` via:
 //
@@ -155,6 +164,12 @@ func (i SerialConsoleAccessArray) ToSerialConsoleAccessArrayOutput() SerialConso
 
 func (i SerialConsoleAccessArray) ToSerialConsoleAccessArrayOutputWithContext(ctx context.Context) SerialConsoleAccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SerialConsoleAccessArrayOutput)
+}
+
+func (i SerialConsoleAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*SerialConsoleAccess] {
+	return pulumix.Output[[]*SerialConsoleAccess]{
+		OutputState: i.ToSerialConsoleAccessArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SerialConsoleAccessMapInput is an input type that accepts SerialConsoleAccessMap and SerialConsoleAccessMapOutput values.
@@ -182,6 +197,12 @@ func (i SerialConsoleAccessMap) ToSerialConsoleAccessMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SerialConsoleAccessMapOutput)
 }
 
+func (i SerialConsoleAccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SerialConsoleAccess] {
+	return pulumix.Output[map[string]*SerialConsoleAccess]{
+		OutputState: i.ToSerialConsoleAccessMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SerialConsoleAccessOutput struct{ *pulumi.OutputState }
 
 func (SerialConsoleAccessOutput) ElementType() reflect.Type {
@@ -194,6 +215,12 @@ func (o SerialConsoleAccessOutput) ToSerialConsoleAccessOutput() SerialConsoleAc
 
 func (o SerialConsoleAccessOutput) ToSerialConsoleAccessOutputWithContext(ctx context.Context) SerialConsoleAccessOutput {
 	return o
+}
+
+func (o SerialConsoleAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*SerialConsoleAccess] {
+	return pulumix.Output[*SerialConsoleAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -215,6 +242,12 @@ func (o SerialConsoleAccessArrayOutput) ToSerialConsoleAccessArrayOutputWithCont
 	return o
 }
 
+func (o SerialConsoleAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SerialConsoleAccess] {
+	return pulumix.Output[[]*SerialConsoleAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SerialConsoleAccessArrayOutput) Index(i pulumi.IntInput) SerialConsoleAccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SerialConsoleAccess {
 		return vs[0].([]*SerialConsoleAccess)[vs[1].(int)]
@@ -233,6 +266,12 @@ func (o SerialConsoleAccessMapOutput) ToSerialConsoleAccessMapOutput() SerialCon
 
 func (o SerialConsoleAccessMapOutput) ToSerialConsoleAccessMapOutputWithContext(ctx context.Context) SerialConsoleAccessMapOutput {
 	return o
+}
+
+func (o SerialConsoleAccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SerialConsoleAccess] {
+	return pulumix.Output[map[string]*SerialConsoleAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SerialConsoleAccessMapOutput) MapIndex(k pulumi.StringInput) SerialConsoleAccessOutput {

@@ -106,7 +106,7 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// ## Import
     /// 
-    /// `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
+    /// Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
@@ -135,6 +135,8 @@ namespace Pulumi.Aws.DataPipeline
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("pipelineObjects")]
         public Output<ImmutableArray<Outputs.PipelineDefinitionPipelineObject>> PipelineObjects { get; private set; } = null!;
@@ -220,6 +222,8 @@ namespace Pulumi.Aws.DataPipeline
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.PipelineDefinitionPipelineObjectArgs> PipelineObjects
         {
@@ -270,6 +274,8 @@ namespace Pulumi.Aws.DataPipeline
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.PipelineDefinitionPipelineObjectGetArgs> PipelineObjects
         {

@@ -120,11 +120,11 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr', __args__, opts=opts, typ=GetIpamPreviewNextCidrResult).value
 
     return AwaitableGetIpamPreviewNextCidrResult(
-        cidr=__ret__.cidr,
-        disallowed_cidrs=__ret__.disallowed_cidrs,
-        id=__ret__.id,
-        ipam_pool_id=__ret__.ipam_pool_id,
-        netmask_length=__ret__.netmask_length)
+        cidr=pulumi.get(__ret__, 'cidr'),
+        disallowed_cidrs=pulumi.get(__ret__, 'disallowed_cidrs'),
+        id=pulumi.get(__ret__, 'id'),
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
+        netmask_length=pulumi.get(__ret__, 'netmask_length'))
 
 
 @_utilities.lift_output_func(get_ipam_preview_next_cidr)

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
     ///     {
     ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         Cidr = "172.2.0.0/16",
+    ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
     ///     var exampleVpcIpamPreviewNextCidr = new Aws.Ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", new()

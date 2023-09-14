@@ -221,15 +221,73 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Using Structured Logging Destinations
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.transfer.Server;
+ * import com.pulumi.aws.transfer.ServerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var transferLogGroup = new LogGroup(&#34;transferLogGroup&#34;, LogGroupArgs.builder()        
+ *             .namePrefix(&#34;transfer_test_&#34;)
+ *             .build());
+ * 
+ *         final var transferAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;transfer.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var iamForTransfer = new Role(&#34;iamForTransfer&#34;, RoleArgs.builder()        
+ *             .namePrefix(&#34;iam_for_transfer_&#34;)
+ *             .assumeRolePolicy(transferAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .managedPolicyArns(&#34;arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess&#34;)
+ *             .build());
+ * 
+ *         var transferServer = new Server(&#34;transferServer&#34;, ServerArgs.builder()        
+ *             .endpointType(&#34;PUBLIC&#34;)
+ *             .loggingRole(iamForTransfer.arn())
+ *             .protocols(&#34;SFTP&#34;)
+ *             .structuredLogDestinations(transferLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
- * Transfer Servers can be imported using the `server id`, e.g.,
+ * Using `pulumi import`, import Transfer Servers using the server `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:transfer/server:Server example s-12345678
  * ```
- * 
  *  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
  * 
  */
@@ -488,18 +546,32 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.protocols;
     }
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      * 
      */
     @Export(name="securityPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityPolicyName;
 
     /**
-     * @return Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * @return Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      * 
      */
     public Output<Optional<String>> securityPolicyName() {
         return Codegen.optional(this.securityPolicyName);
+    }
+    /**
+     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+     * 
+     */
+    @Export(name="structuredLogDestinations", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> structuredLogDestinations;
+
+    /**
+     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+     * 
+     */
+    public Output<Optional<List<String>>> structuredLogDestinations() {
+        return Codegen.optional(this.structuredLogDestinations);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CloudWatch Observability Access Manager Link.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch Observability Access Manager Link can be imported using the `arn`, e.g.,
+// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 //
 // ```sh
 //
@@ -72,6 +74,8 @@ type Link struct {
 	// ARN of the sink that is used for this link.
 	SinkArn pulumi.StringOutput `pulumi:"sinkArn"`
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -94,6 +98,7 @@ func NewLink(ctx *pulumi.Context,
 	if args.SinkIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SinkIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Link
 	err := ctx.RegisterResource("aws:oam/link:Link", name, args, &resource, opts...)
 	if err != nil {
@@ -129,6 +134,8 @@ type linkState struct {
 	// ARN of the sink that is used for this link.
 	SinkArn *string `pulumi:"sinkArn"`
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier *string `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -149,6 +156,8 @@ type LinkState struct {
 	// ARN of the sink that is used for this link.
 	SinkArn pulumi.StringPtrInput
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -165,6 +174,8 @@ type linkArgs struct {
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -177,6 +188,8 @@ type LinkArgs struct {
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayInput
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -205,6 +218,12 @@ func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
 }
 
+func (i *Link) ToOutput(ctx context.Context) pulumix.Output[*Link] {
+	return pulumix.Output[*Link]{
+		OutputState: i.ToLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkArrayInput is an input type that accepts LinkArray and LinkArrayOutput values.
 // You can construct a concrete instance of `LinkArrayInput` via:
 //
@@ -228,6 +247,12 @@ func (i LinkArray) ToLinkArrayOutput() LinkArrayOutput {
 
 func (i LinkArray) ToLinkArrayOutputWithContext(ctx context.Context) LinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkArrayOutput)
+}
+
+func (i LinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*Link] {
+	return pulumix.Output[[]*Link]{
+		OutputState: i.ToLinkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkMapInput is an input type that accepts LinkMap and LinkMapOutput values.
@@ -255,6 +280,12 @@ func (i LinkMap) ToLinkMapOutputWithContext(ctx context.Context) LinkMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkMapOutput)
 }
 
+func (i LinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Link] {
+	return pulumix.Output[map[string]*Link]{
+		OutputState: i.ToLinkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkOutput struct{ *pulumi.OutputState }
 
 func (LinkOutput) ElementType() reflect.Type {
@@ -267,6 +298,12 @@ func (o LinkOutput) ToLinkOutput() LinkOutput {
 
 func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
+}
+
+func (o LinkOutput) ToOutput(ctx context.Context) pulumix.Output[*Link] {
+	return pulumix.Output[*Link]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the link.
@@ -300,6 +337,8 @@ func (o LinkOutput) SinkArn() pulumi.StringOutput {
 }
 
 // Identifier of the sink to use to create this link.
+//
+// The following arguments are optional:
 func (o LinkOutput) SinkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SinkIdentifier }).(pulumi.StringOutput)
 }
@@ -327,6 +366,12 @@ func (o LinkArrayOutput) ToLinkArrayOutputWithContext(ctx context.Context) LinkA
 	return o
 }
 
+func (o LinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Link] {
+	return pulumix.Output[[]*Link]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkArrayOutput) Index(i pulumi.IntInput) LinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Link {
 		return vs[0].([]*Link)[vs[1].(int)]
@@ -345,6 +390,12 @@ func (o LinkMapOutput) ToLinkMapOutput() LinkMapOutput {
 
 func (o LinkMapOutput) ToLinkMapOutputWithContext(ctx context.Context) LinkMapOutput {
 	return o
+}
+
+func (o LinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Link] {
+	return pulumix.Output[map[string]*Link]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkMapOutput) MapIndex(k pulumi.StringInput) LinkOutput {

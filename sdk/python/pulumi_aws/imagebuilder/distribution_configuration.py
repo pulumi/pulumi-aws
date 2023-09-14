@@ -23,6 +23,8 @@ class DistributionConfigurationArgs:
         """
         The set of arguments for constructing a DistributionConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: Description of the distribution configuration.
         :param pulumi.Input[str] name: Name of the distribution configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,6 +42,8 @@ class DistributionConfigurationArgs:
     def distributions(self) -> pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]:
         """
         One or more configuration blocks with distribution settings. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "distributions")
 
@@ -102,6 +106,8 @@ class _DistributionConfigurationState:
         :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
         :param pulumi.Input[str] description: Description of the distribution configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -176,6 +182,8 @@ class _DistributionConfigurationState:
     def distributions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]]:
         """
         One or more configuration blocks with distribution settings. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "distributions")
 
@@ -258,7 +266,7 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -268,6 +276,8 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the distribution configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -305,7 +315,7 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -379,6 +389,8 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
         :param pulumi.Input[str] description: Description of the distribution configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -434,6 +446,8 @@ class DistributionConfiguration(pulumi.CustomResource):
     def distributions(self) -> pulumi.Output[Sequence['outputs.DistributionConfigurationDistribution']]:
         """
         One or more configuration blocks with distribution settings. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "distributions")
 

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker User Profiles can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name

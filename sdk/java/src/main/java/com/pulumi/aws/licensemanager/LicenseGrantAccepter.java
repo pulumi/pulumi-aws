@@ -18,7 +18,6 @@ import javax.annotation.Nullable;
  * Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -41,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new LicenseGrantAccepter(&#34;test&#34;, LicenseGrantAccepterArgs.builder()        
- *             .name(&#34;arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329&#34;)
+ *             .grantArn(&#34;arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329&#34;)
  *             .build());
  * 
  *     }
@@ -50,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_licensemanager_grant_accepter` can be imported using the grant arn.
+ * Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
  * 
  * ```sh
  *  $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329

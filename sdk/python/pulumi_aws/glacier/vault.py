@@ -260,7 +260,7 @@ class Vault(pulumi.CustomResource):
 
         ## Import
 
-        Glacier Vaults can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
         ```sh
          $ pulumi import aws:glacier/vault:Vault archive my_archive
@@ -321,7 +321,7 @@ class Vault(pulumi.CustomResource):
 
         ## Import
 
-        Glacier Vaults can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
         ```sh
          $ pulumi import aws:glacier/vault:Vault archive my_archive

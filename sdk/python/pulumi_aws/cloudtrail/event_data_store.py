@@ -387,7 +387,7 @@ class EventDataStore(pulumi.CustomResource):
 
         ## Import
 
-        Event data stores can be imported using their `arn`, e.g.,
+        Using `pulumi import`, import event data stores using their `arn`. For example:
 
         ```sh
          $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
@@ -466,7 +466,7 @@ class EventDataStore(pulumi.CustomResource):
 
         ## Import
 
-        Event data stores can be imported using their `arn`, e.g.,
+        Using `pulumi import`, import event data stores using their `arn`. For example:
 
         ```sh
          $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf

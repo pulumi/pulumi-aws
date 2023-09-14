@@ -43,6 +43,8 @@ namespace Pulumi.Aws.Dlm.Outputs
         public readonly ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsSchedule> Schedules;
         /// <summary>
         /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+        /// 
+        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TargetTags;
 

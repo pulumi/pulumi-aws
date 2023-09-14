@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Config Organization Custom Policy Rule can be imported using the `name` argument, e.g.,
+ * Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
@@ -264,12 +264,16 @@ public class OrganizationCustomPolicyRule extends com.pulumi.resources.CustomRes
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="triggerTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> triggerTypes;
 
     /**
      * @return List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> triggerTypes() {

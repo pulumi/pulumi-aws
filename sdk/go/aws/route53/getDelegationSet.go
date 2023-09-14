@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opts ...pulumi.InvokeOption) (*LookupDelegationSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDelegationSetResult
 	err := ctx.Invoke("aws:route53/getDelegationSet:getDelegationSet", args, &rv, opts...)
 	if err != nil {
@@ -53,6 +56,8 @@ func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opt
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetArgs struct {
 	// Delegation set ID.
+	//
+	// The following attribute is additionally exported:
 	Id string `pulumi:"id"`
 }
 
@@ -80,6 +85,8 @@ func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutp
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetOutputArgs struct {
 	// Delegation set ID.
+	//
+	// The following attribute is additionally exported:
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -100,6 +107,12 @@ func (o LookupDelegationSetResultOutput) ToLookupDelegationSetResultOutput() Loo
 
 func (o LookupDelegationSetResultOutput) ToLookupDelegationSetResultOutputWithContext(ctx context.Context) LookupDelegationSetResultOutput {
 	return o
+}
+
+func (o LookupDelegationSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDelegationSetResult] {
+	return pulumix.Output[LookupDelegationSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDelegationSetResultOutput) Arn() pulumi.StringOutput {

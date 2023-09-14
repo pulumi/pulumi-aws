@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables AWS Shield Advanced for a specific AWS resource.
@@ -24,9 +26,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //				return err
 //			}
 //			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
@@ -70,7 +72,7 @@ import (
 //
 // ## Import
 //
-// Shield protection resources can be imported by specifying their ID e.g.,
+// Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
 //
 // ```sh
 //
@@ -102,6 +104,7 @@ func NewProtection(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Protection
 	err := ctx.RegisterResource("aws:shield/protection:Protection", name, args, &resource, opts...)
 	if err != nil {
@@ -195,6 +198,12 @@ func (i *Protection) ToProtectionOutputWithContext(ctx context.Context) Protecti
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionOutput)
 }
 
+func (i *Protection) ToOutput(ctx context.Context) pulumix.Output[*Protection] {
+	return pulumix.Output[*Protection]{
+		OutputState: i.ToProtectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProtectionArrayInput is an input type that accepts ProtectionArray and ProtectionArrayOutput values.
 // You can construct a concrete instance of `ProtectionArrayInput` via:
 //
@@ -218,6 +227,12 @@ func (i ProtectionArray) ToProtectionArrayOutput() ProtectionArrayOutput {
 
 func (i ProtectionArray) ToProtectionArrayOutputWithContext(ctx context.Context) ProtectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionArrayOutput)
+}
+
+func (i ProtectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Protection] {
+	return pulumix.Output[[]*Protection]{
+		OutputState: i.ToProtectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProtectionMapInput is an input type that accepts ProtectionMap and ProtectionMapOutput values.
@@ -245,6 +260,12 @@ func (i ProtectionMap) ToProtectionMapOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionMapOutput)
 }
 
+func (i ProtectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Protection] {
+	return pulumix.Output[map[string]*Protection]{
+		OutputState: i.ToProtectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProtectionOutput struct{ *pulumi.OutputState }
 
 func (ProtectionOutput) ElementType() reflect.Type {
@@ -257,6 +278,12 @@ func (o ProtectionOutput) ToProtectionOutput() ProtectionOutput {
 
 func (o ProtectionOutput) ToProtectionOutputWithContext(ctx context.Context) ProtectionOutput {
 	return o
+}
+
+func (o ProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Protection] {
+	return pulumix.Output[*Protection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Protection.
@@ -298,6 +325,12 @@ func (o ProtectionArrayOutput) ToProtectionArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ProtectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Protection] {
+	return pulumix.Output[[]*Protection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectionArrayOutput) Index(i pulumi.IntInput) ProtectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Protection {
 		return vs[0].([]*Protection)[vs[1].(int)]
@@ -316,6 +349,12 @@ func (o ProtectionMapOutput) ToProtectionMapOutput() ProtectionMapOutput {
 
 func (o ProtectionMapOutput) ToProtectionMapOutputWithContext(ctx context.Context) ProtectionMapOutput {
 	return o
+}
+
+func (o ProtectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Protection] {
+	return pulumix.Output[map[string]*Protection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectionMapOutput) MapIndex(k pulumi.StringInput) ProtectionOutput {

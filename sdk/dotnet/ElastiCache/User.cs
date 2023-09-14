@@ -91,7 +91,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// ElastiCache users can be imported using the `user_id`, e.g.,
+    /// Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:elasticache/user:User my_user userId1
@@ -153,6 +153,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The username of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -267,6 +269,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The username of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -353,6 +357,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The username of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

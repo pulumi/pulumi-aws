@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a VPC's default network ACL. This resource can manage the default network ACL of the default or a non-default VPC.
@@ -31,7 +33,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,7 +129,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,7 +168,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -188,7 +190,7 @@ import (
 //
 // ## Import
 //
-// Default Network ACLs can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Default Network ACLs using the `id`. For example:
 //
 // ```sh
 //
@@ -201,6 +203,8 @@ type DefaultNetworkAcl struct {
 	// ARN of the Default Network ACL
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId pulumi.StringOutput `pulumi:"defaultNetworkAclId"`
 	// Configuration block for an egress rule. Detailed below.
 	Egress DefaultNetworkAclEgressArrayOutput `pulumi:"egress"`
@@ -228,6 +232,7 @@ func NewDefaultNetworkAcl(ctx *pulumi.Context,
 	if args.DefaultNetworkAclId == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultNetworkAclId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultNetworkAcl
 	err := ctx.RegisterResource("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, args, &resource, opts...)
 	if err != nil {
@@ -253,6 +258,8 @@ type defaultNetworkAclState struct {
 	// ARN of the Default Network ACL
 	Arn *string `pulumi:"arn"`
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId *string `pulumi:"defaultNetworkAclId"`
 	// Configuration block for an egress rule. Detailed below.
 	Egress []DefaultNetworkAclEgress `pulumi:"egress"`
@@ -274,6 +281,8 @@ type DefaultNetworkAclState struct {
 	// ARN of the Default Network ACL
 	Arn pulumi.StringPtrInput
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId pulumi.StringPtrInput
 	// Configuration block for an egress rule. Detailed below.
 	Egress DefaultNetworkAclEgressArrayInput
@@ -297,6 +306,8 @@ func (DefaultNetworkAclState) ElementType() reflect.Type {
 
 type defaultNetworkAclArgs struct {
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId string `pulumi:"defaultNetworkAclId"`
 	// Configuration block for an egress rule. Detailed below.
 	Egress []DefaultNetworkAclEgress `pulumi:"egress"`
@@ -311,6 +322,8 @@ type defaultNetworkAclArgs struct {
 // The set of arguments for constructing a DefaultNetworkAcl resource.
 type DefaultNetworkAclArgs struct {
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId pulumi.StringInput
 	// Configuration block for an egress rule. Detailed below.
 	Egress DefaultNetworkAclEgressArrayInput
@@ -345,6 +358,12 @@ func (i *DefaultNetworkAcl) ToDefaultNetworkAclOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultNetworkAclOutput)
 }
 
+func (i *DefaultNetworkAcl) ToOutput(ctx context.Context) pulumix.Output[*DefaultNetworkAcl] {
+	return pulumix.Output[*DefaultNetworkAcl]{
+		OutputState: i.ToDefaultNetworkAclOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DefaultNetworkAclArrayInput is an input type that accepts DefaultNetworkAclArray and DefaultNetworkAclArrayOutput values.
 // You can construct a concrete instance of `DefaultNetworkAclArrayInput` via:
 //
@@ -368,6 +387,12 @@ func (i DefaultNetworkAclArray) ToDefaultNetworkAclArrayOutput() DefaultNetworkA
 
 func (i DefaultNetworkAclArray) ToDefaultNetworkAclArrayOutputWithContext(ctx context.Context) DefaultNetworkAclArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultNetworkAclArrayOutput)
+}
+
+func (i DefaultNetworkAclArray) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultNetworkAcl] {
+	return pulumix.Output[[]*DefaultNetworkAcl]{
+		OutputState: i.ToDefaultNetworkAclArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DefaultNetworkAclMapInput is an input type that accepts DefaultNetworkAclMap and DefaultNetworkAclMapOutput values.
@@ -395,6 +420,12 @@ func (i DefaultNetworkAclMap) ToDefaultNetworkAclMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultNetworkAclMapOutput)
 }
 
+func (i DefaultNetworkAclMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultNetworkAcl] {
+	return pulumix.Output[map[string]*DefaultNetworkAcl]{
+		OutputState: i.ToDefaultNetworkAclMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DefaultNetworkAclOutput struct{ *pulumi.OutputState }
 
 func (DefaultNetworkAclOutput) ElementType() reflect.Type {
@@ -409,12 +440,20 @@ func (o DefaultNetworkAclOutput) ToDefaultNetworkAclOutputWithContext(ctx contex
 	return o
 }
 
+func (o DefaultNetworkAclOutput) ToOutput(ctx context.Context) pulumix.Output[*DefaultNetworkAcl] {
+	return pulumix.Output[*DefaultNetworkAcl]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Default Network ACL
 func (o DefaultNetworkAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+//
+// The following arguments are optional:
 func (o DefaultNetworkAclOutput) DefaultNetworkAclId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.DefaultNetworkAclId }).(pulumi.StringOutput)
 }
@@ -468,6 +507,12 @@ func (o DefaultNetworkAclArrayOutput) ToDefaultNetworkAclArrayOutputWithContext(
 	return o
 }
 
+func (o DefaultNetworkAclArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultNetworkAcl] {
+	return pulumix.Output[[]*DefaultNetworkAcl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DefaultNetworkAclArrayOutput) Index(i pulumi.IntInput) DefaultNetworkAclOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultNetworkAcl {
 		return vs[0].([]*DefaultNetworkAcl)[vs[1].(int)]
@@ -486,6 +531,12 @@ func (o DefaultNetworkAclMapOutput) ToDefaultNetworkAclMapOutput() DefaultNetwor
 
 func (o DefaultNetworkAclMapOutput) ToDefaultNetworkAclMapOutputWithContext(ctx context.Context) DefaultNetworkAclMapOutput {
 	return o
+}
+
+func (o DefaultNetworkAclMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultNetworkAcl] {
+	return pulumix.Output[map[string]*DefaultNetworkAcl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DefaultNetworkAclMapOutput) MapIndex(k pulumi.StringInput) DefaultNetworkAclOutput {

@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  *
- * > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `securityGroups` argument and a Client VPN endpoint resource with a `securityGroupIds` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -37,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
+ * Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
@@ -128,12 +126,6 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly splitTunnel!: pulumi.Output<boolean | undefined>;
     /**
-     * **Deprecated** The current state of the Client VPN endpoint.
-     *
-     * @deprecated This attribute has been deprecated.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -181,7 +173,6 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
             resourceInputs["sessionTimeoutHours"] = state ? state.sessionTimeoutHours : undefined;
             resourceInputs["splitTunnel"] = state ? state.splitTunnel : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transportProtocol"] = state ? state.transportProtocol : undefined;
@@ -219,7 +210,6 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["vpnPort"] = args ? args.vpnPort : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -287,12 +277,6 @@ export interface EndpointState {
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
     splitTunnel?: pulumi.Input<boolean>;
-    /**
-     * **Deprecated** The current state of the Client VPN endpoint.
-     *
-     * @deprecated This attribute has been deprecated.
-     */
-    status?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

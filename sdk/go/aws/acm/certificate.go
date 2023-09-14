@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ACM certificate resource allows requesting and management of certificates
@@ -56,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,7 +119,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -160,10 +162,48 @@ import (
 //	}
 //
 // ```
+// ### Referencing domainValidationOptions With forEach Based Resources
+//
+// See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			var example []*route53.Record
+//			for key0, val0 := range "TODO: For expression" {
+//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("example-%v", key0), &route53.RecordArgs{
+//					AllowOverwrite: pulumi.Bool(true),
+//					Name:           pulumi.Any(val0),
+//					Records: pulumi.StringArray{
+//						val0,
+//					},
+//					Ttl:    pulumi.Int(60),
+//					Type:   route53.RecordType(val0),
+//					ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				example = append(example, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Certificates can be imported using their ARN, e.g.,
+// Using `pulumi import`, import certificates using their ARN. For example:
 //
 // ```sh
 //
@@ -223,7 +263,7 @@ type Certificate struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod pulumi.StringOutput `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -244,6 +284,7 @@ func NewCertificate(ctx *pulumi.Context,
 		"privateKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:acm/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {
@@ -316,7 +357,7 @@ type certificateState struct {
 	Type *string `pulumi:"type"`
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod *string `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -374,7 +415,7 @@ type CertificateState struct {
 	Type pulumi.StringPtrInput
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails pulumi.StringArrayInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -412,7 +453,7 @@ type certificateArgs struct {
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod *string `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -447,7 +488,7 @@ type CertificateArgs struct {
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -477,6 +518,12 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
+func (i *Certificate) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: i.ToCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
@@ -500,6 +547,12 @@ func (i CertificateArray) ToCertificateArrayOutput() CertificateArrayOutput {
 
 func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateArrayOutput)
+}
+
+func (i CertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: i.ToCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
@@ -527,6 +580,12 @@ func (i CertificateMap) ToCertificateMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateMapOutput)
 }
 
+func (i CertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: i.ToCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
@@ -539,6 +598,12 @@ func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
 
 func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
 	return o
+}
+
+func (o CertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the certificate
@@ -654,7 +719,7 @@ func (o CertificateOutput) ValidationEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.ValidationEmails }).(pulumi.StringArrayOutput)
 }
 
-// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 func (o CertificateOutput) ValidationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ValidationMethod }).(pulumi.StringOutput)
 }
@@ -679,6 +744,12 @@ func (o CertificateArrayOutput) ToCertificateArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Certificate {
 		return vs[0].([]*Certificate)[vs[1].(int)]
@@ -697,6 +768,12 @@ func (o CertificateMapOutput) ToCertificateMapOutput() CertificateMapOutput {
 
 func (o CertificateMapOutput) ToCertificateMapOutputWithContext(ctx context.Context) CertificateMapOutput {
 	return o
+}
+
+func (o CertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateMapOutput) MapIndex(k pulumi.StringInput) CertificateOutput {

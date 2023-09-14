@@ -213,12 +213,16 @@ public final class PlatformApplicationState extends com.pulumi.resources.Resourc
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
      * 
+     * The following attributes are needed only when using APNS token credentials:
+     * 
      */
     @Import(name="successFeedbackSampleRate")
     private @Nullable Output<String> successFeedbackSampleRate;
 
     /**
      * @return The sample rate percentage (0-100) of successfully delivered messages.
+     * 
+     * The following attributes are needed only when using APNS token credentials:
      * 
      */
     public Optional<Output<String>> successFeedbackSampleRate() {
@@ -538,6 +542,8 @@ public final class PlatformApplicationState extends com.pulumi.resources.Resourc
         /**
          * @param successFeedbackSampleRate The sample rate percentage (0-100) of successfully delivered messages.
          * 
+         * The following attributes are needed only when using APNS token credentials:
+         * 
          * @return builder
          * 
          */
@@ -548,6 +554,8 @@ public final class PlatformApplicationState extends com.pulumi.resources.Resourc
 
         /**
          * @param successFeedbackSampleRate The sample rate percentage (0-100) of successfully delivered messages.
+         * 
+         * The following attributes are needed only when using APNS token credentials:
          * 
          * @return builder
          * 

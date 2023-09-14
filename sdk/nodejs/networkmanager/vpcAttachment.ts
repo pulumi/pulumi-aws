@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+ * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
@@ -118,6 +118,8 @@ export class VpcAttachment extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the VPC.
+     *
+     * The following arguments are optional:
      */
     public readonly vpcArn!: pulumi.Output<string>;
 
@@ -243,6 +245,8 @@ export interface VpcAttachmentState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the VPC.
+     *
+     * The following arguments are optional:
      */
     vpcArn?: pulumi.Input<string>;
 }
@@ -269,6 +273,8 @@ export interface VpcAttachmentArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the VPC.
+     *
+     * The following arguments are optional:
      */
     vpcArn: pulumi.Input<string>;
 }

@@ -22,7 +22,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -62,13 +62,6 @@ class GetInstanceResult:
         if db_parameter_groups and not isinstance(db_parameter_groups, list):
             raise TypeError("Expected argument 'db_parameter_groups' to be a list")
         pulumi.set(__self__, "db_parameter_groups", db_parameter_groups)
-        if db_security_groups and not isinstance(db_security_groups, list):
-            raise TypeError("Expected argument 'db_security_groups' to be a list")
-        if db_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""db_security_groups is deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""")
-
-        pulumi.set(__self__, "db_security_groups", db_security_groups)
         if db_subnet_group and not isinstance(db_subnet_group, str):
             raise TypeError("Expected argument 'db_subnet_group' to be a str")
         pulumi.set(__self__, "db_subnet_group", db_subnet_group)
@@ -105,6 +98,9 @@ class GetInstanceResult:
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
+        if max_allocated_storage and not isinstance(max_allocated_storage, int):
+            raise TypeError("Expected argument 'max_allocated_storage' to be a int")
+        pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
         if monitoring_interval and not isinstance(monitoring_interval, int):
             raise TypeError("Expected argument 'monitoring_interval' to be a int")
         pulumi.set(__self__, "monitoring_interval", monitoring_interval)
@@ -259,14 +255,6 @@ class GetInstanceResult:
         return pulumi.get(self, "db_parameter_groups")
 
     @property
-    @pulumi.getter(name="dbSecurityGroups")
-    def db_security_groups(self) -> Sequence[str]:
-        """
-        Provides List of DB security groups associated to this DB instance.
-        """
-        return pulumi.get(self, "db_security_groups")
-
-    @property
     @pulumi.getter(name="dbSubnetGroup")
     def db_subnet_group(self) -> str:
         """
@@ -363,6 +351,14 @@ class GetInstanceResult:
         return pulumi.get(self, "master_username")
 
     @property
+    @pulumi.getter(name="maxAllocatedStorage")
+    def max_allocated_storage(self) -> int:
+        """
+        The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        """
+        return pulumi.get(self, "max_allocated_storage")
+
+    @property
     @pulumi.getter(name="monitoringInterval")
     def monitoring_interval(self) -> int:
         """
@@ -406,7 +402,7 @@ class GetInstanceResult:
     @pulumi.getter
     def port(self) -> int:
         """
-        Database port.
+        Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
         """
         return pulumi.get(self, "port")
 
@@ -515,7 +511,6 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             db_instance_port=self.db_instance_port,
             db_name=self.db_name,
             db_parameter_groups=self.db_parameter_groups,
-            db_security_groups=self.db_security_groups,
             db_subnet_group=self.db_subnet_group,
             enabled_cloudwatch_logs_exports=self.enabled_cloudwatch_logs_exports,
             endpoint=self.endpoint,
@@ -528,6 +523,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             license_model=self.license_model,
             master_user_secrets=self.master_user_secrets,
             master_username=self.master_username,
+            max_allocated_storage=self.max_allocated_storage,
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
             multi_az=self.multi_az,
@@ -563,7 +559,8 @@ def get_instance(db_instance_identifier: Optional[str] = None,
     ```
 
 
-    :param str db_instance_identifier: Name of the RDS instance
+    :param str db_instance_identifier: Name of the RDS instance.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
@@ -572,53 +569,53 @@ def get_instance(db_instance_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        address=__ret__.address,
-        allocated_storage=__ret__.allocated_storage,
-        auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
-        availability_zone=__ret__.availability_zone,
-        backup_retention_period=__ret__.backup_retention_period,
-        ca_cert_identifier=__ret__.ca_cert_identifier,
-        db_cluster_identifier=__ret__.db_cluster_identifier,
-        db_instance_arn=__ret__.db_instance_arn,
-        db_instance_class=__ret__.db_instance_class,
-        db_instance_identifier=__ret__.db_instance_identifier,
-        db_instance_port=__ret__.db_instance_port,
-        db_name=__ret__.db_name,
-        db_parameter_groups=__ret__.db_parameter_groups,
-        db_security_groups=__ret__.db_security_groups,
-        db_subnet_group=__ret__.db_subnet_group,
-        enabled_cloudwatch_logs_exports=__ret__.enabled_cloudwatch_logs_exports,
-        endpoint=__ret__.endpoint,
-        engine=__ret__.engine,
-        engine_version=__ret__.engine_version,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        iops=__ret__.iops,
-        kms_key_id=__ret__.kms_key_id,
-        license_model=__ret__.license_model,
-        master_user_secrets=__ret__.master_user_secrets,
-        master_username=__ret__.master_username,
-        monitoring_interval=__ret__.monitoring_interval,
-        monitoring_role_arn=__ret__.monitoring_role_arn,
-        multi_az=__ret__.multi_az,
-        network_type=__ret__.network_type,
-        option_group_memberships=__ret__.option_group_memberships,
-        port=__ret__.port,
-        preferred_backup_window=__ret__.preferred_backup_window,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        publicly_accessible=__ret__.publicly_accessible,
-        replicate_source_db=__ret__.replicate_source_db,
-        resource_id=__ret__.resource_id,
-        storage_encrypted=__ret__.storage_encrypted,
-        storage_throughput=__ret__.storage_throughput,
-        storage_type=__ret__.storage_type,
-        tags=__ret__.tags,
-        timezone=__ret__.timezone,
-        vpc_security_groups=__ret__.vpc_security_groups)
+        address=pulumi.get(__ret__, 'address'),
+        allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
+        auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
+        ca_cert_identifier=pulumi.get(__ret__, 'ca_cert_identifier'),
+        db_cluster_identifier=pulumi.get(__ret__, 'db_cluster_identifier'),
+        db_instance_arn=pulumi.get(__ret__, 'db_instance_arn'),
+        db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
+        db_instance_identifier=pulumi.get(__ret__, 'db_instance_identifier'),
+        db_instance_port=pulumi.get(__ret__, 'db_instance_port'),
+        db_name=pulumi.get(__ret__, 'db_name'),
+        db_parameter_groups=pulumi.get(__ret__, 'db_parameter_groups'),
+        db_subnet_group=pulumi.get(__ret__, 'db_subnet_group'),
+        enabled_cloudwatch_logs_exports=pulumi.get(__ret__, 'enabled_cloudwatch_logs_exports'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine=pulumi.get(__ret__, 'engine'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        iops=pulumi.get(__ret__, 'iops'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        license_model=pulumi.get(__ret__, 'license_model'),
+        master_user_secrets=pulumi.get(__ret__, 'master_user_secrets'),
+        master_username=pulumi.get(__ret__, 'master_username'),
+        max_allocated_storage=pulumi.get(__ret__, 'max_allocated_storage'),
+        monitoring_interval=pulumi.get(__ret__, 'monitoring_interval'),
+        monitoring_role_arn=pulumi.get(__ret__, 'monitoring_role_arn'),
+        multi_az=pulumi.get(__ret__, 'multi_az'),
+        network_type=pulumi.get(__ret__, 'network_type'),
+        option_group_memberships=pulumi.get(__ret__, 'option_group_memberships'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        replicate_source_db=pulumi.get(__ret__, 'replicate_source_db'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
+        storage_throughput=pulumi.get(__ret__, 'storage_throughput'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        timezone=pulumi.get(__ret__, 'timezone'),
+        vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = None,
+def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -634,6 +631,7 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = No
     ```
 
 
-    :param str db_instance_identifier: Name of the RDS instance
+    :param str db_instance_identifier: Name of the RDS instance.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
     """
     ...

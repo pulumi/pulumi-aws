@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Registries can be imported using `arn`, e.g.,
+    /// Using `pulumi import`, import Glue Registries using `arn`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example

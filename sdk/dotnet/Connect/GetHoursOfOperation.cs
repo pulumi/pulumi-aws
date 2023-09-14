@@ -206,10 +206,6 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (**Deprecated**) ARN of the Hours of Operation.
-        /// </summary>
-        public readonly string HoursOfOperationArn;
-        /// <summary>
         /// The identifier for the hours of operation.
         /// </summary>
         public readonly string HoursOfOperationId;
@@ -242,8 +238,6 @@ namespace Pulumi.Aws.Connect
 
             string description,
 
-            string hoursOfOperationArn,
-
             string hoursOfOperationId,
 
             string id,
@@ -259,7 +253,6 @@ namespace Pulumi.Aws.Connect
             Arn = arn;
             Configs = configs;
             Description = description;
-            HoursOfOperationArn = hoursOfOperationArn;
             HoursOfOperationId = hoursOfOperationId;
             Id = id;
             InstanceId = instanceId;

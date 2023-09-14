@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppStream stack.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_stack` can be imported using the id, e.g.,
+// Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 //
 // ```sh
 //
@@ -114,6 +116,8 @@ type Stack struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl pulumi.StringOutput `pulumi:"feedbackUrl"`
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
@@ -138,6 +142,7 @@ func NewStack(ctx *pulumi.Context,
 		args = &StackArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
 	err := ctx.RegisterResource("aws:appstream/stack:Stack", name, args, &resource, opts...)
 	if err != nil {
@@ -179,6 +184,8 @@ type stackState struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl *string `pulumi:"feedbackUrl"`
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
@@ -216,6 +223,8 @@ type StackState struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl pulumi.StringPtrInput
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
@@ -253,6 +262,8 @@ type stackArgs struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl *string `pulumi:"feedbackUrl"`
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
@@ -286,6 +297,8 @@ type StackArgs struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl pulumi.StringPtrInput
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
@@ -325,6 +338,12 @@ func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackOutput)
 }
 
+func (i *Stack) ToOutput(ctx context.Context) pulumix.Output[*Stack] {
+	return pulumix.Output[*Stack]{
+		OutputState: i.ToStackOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackArrayInput is an input type that accepts StackArray and StackArrayOutput values.
 // You can construct a concrete instance of `StackArrayInput` via:
 //
@@ -348,6 +367,12 @@ func (i StackArray) ToStackArrayOutput() StackArrayOutput {
 
 func (i StackArray) ToStackArrayOutputWithContext(ctx context.Context) StackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackArrayOutput)
+}
+
+func (i StackArray) ToOutput(ctx context.Context) pulumix.Output[[]*Stack] {
+	return pulumix.Output[[]*Stack]{
+		OutputState: i.ToStackArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StackMapInput is an input type that accepts StackMap and StackMapOutput values.
@@ -375,6 +400,12 @@ func (i StackMap) ToStackMapOutputWithContext(ctx context.Context) StackMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StackMapOutput)
 }
 
+func (i StackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stack] {
+	return pulumix.Output[map[string]*Stack]{
+		OutputState: i.ToStackMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackOutput struct{ *pulumi.OutputState }
 
 func (StackOutput) ElementType() reflect.Type {
@@ -387,6 +418,12 @@ func (o StackOutput) ToStackOutput() StackOutput {
 
 func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
+}
+
+func (o StackOutput) ToOutput(ctx context.Context) pulumix.Output[*Stack] {
+	return pulumix.Output[*Stack]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
@@ -432,6 +469,8 @@ func (o StackOutput) FeedbackUrl() pulumi.StringOutput {
 }
 
 // Unique name for the AppStream stack.
+//
+// The following arguments are optional:
 func (o StackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -482,6 +521,12 @@ func (o StackArrayOutput) ToStackArrayOutputWithContext(ctx context.Context) Sta
 	return o
 }
 
+func (o StackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Stack] {
+	return pulumix.Output[[]*Stack]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StackArrayOutput) Index(i pulumi.IntInput) StackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stack {
 		return vs[0].([]*Stack)[vs[1].(int)]
@@ -500,6 +545,12 @@ func (o StackMapOutput) ToStackMapOutput() StackMapOutput {
 
 func (o StackMapOutput) ToStackMapOutputWithContext(ctx context.Context) StackMapOutput {
 	return o
+}
+
+func (o StackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stack] {
+	return pulumix.Output[map[string]*Stack]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackMapOutput) MapIndex(k pulumi.StringInput) StackOutput {

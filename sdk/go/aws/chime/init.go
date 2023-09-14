@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings":
+		r = &SdkvoiceGlobalSettings{}
+	case "aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication":
+		r = &SdkvoiceSipMediaApplication{}
+	case "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule":
+		r = &SdkvoiceSipRule{}
 	case "aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain":
 		r = &SdkvoiceVoiceProfileDomain{}
 	case "aws:chime/voiceConnector:VoiceConnector":
@@ -46,10 +52,25 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"chime/sdkvoiceGlobalSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"chime/sdkvoiceSipMediaApplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"chime/sdkvoiceSipRule",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"chime/sdkvoiceVoiceProfileDomain",

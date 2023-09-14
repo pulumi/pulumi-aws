@@ -97,12 +97,18 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
     /**
      * @return ID of the VPC in which the specific VPC Endpoint is used.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<String> vpcId() {
@@ -206,6 +212,9 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param vpcId ID of the VPC in which the specific VPC Endpoint is used.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

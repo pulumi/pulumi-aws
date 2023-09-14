@@ -64,12 +64,16 @@ public final class SharedDirectoryArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="target", required=true)
     private Output<SharedDirectoryTargetArgs> target;
 
     /**
      * @return Identifier for the directory consumer account with whom the directory is to be shared. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<SharedDirectoryTargetArgs> target() {
@@ -169,6 +173,8 @@ public final class SharedDirectoryArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param target Identifier for the directory consumer account with whom the directory is to be shared. See below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class SharedDirectoryArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param target Identifier for the directory consumer account with whom the directory is to be shared. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -228,13 +228,13 @@ import javax.annotation.Nullable;
  *             .displayName(sns.display_name())
  *             .policy(sns_topic_policy.json())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sns&#34;)
+ *                 .provider(aws.sns())
  *                 .build());
  * 
  *         var sqs_queue = new Queue(&#34;sqs-queue&#34;, QueueArgs.builder()        
  *             .policy(sqs_queue_policy.json())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sqs&#34;)
+ *                 .provider(aws.sqs())
  *                 .build());
  * 
  *         var sns_topicTopicSubscription = new TopicSubscription(&#34;sns-topicTopicSubscription&#34;, TopicSubscriptionArgs.builder()        
@@ -242,7 +242,7 @@ import javax.annotation.Nullable;
  *             .protocol(&#34;sqs&#34;)
  *             .endpoint(sqs_queue.arn())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sns2sqs&#34;)
+ *                 .provider(aws.sns2sqs())
  *                 .build());
  * 
  *     }
@@ -251,7 +251,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+ * Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
@@ -459,12 +459,16 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the SNS topic to subscribe to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="topic", refs={String.class}, tree="[0]")
     private Output<String> topic;
 
     /**
      * @return ARN of the SNS topic to subscribe to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> topic() {

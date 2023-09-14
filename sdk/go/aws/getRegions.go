@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `getRegion` data source.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +73,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,6 +100,7 @@ import (
 //
 // ```
 func GetRegions(ctx *pulumi.Context, args *GetRegionsArgs, opts ...pulumi.InvokeOption) (*GetRegionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegionsResult
 	err := ctx.Invoke("aws:index/getRegions:getRegions", args, &rv, opts...)
 	if err != nil {
@@ -112,13 +115,15 @@ type GetRegionsArgs struct {
 	AllRegions *bool `pulumi:"allRegions"`
 	// Configuration block(s) to use as filters. Detailed below.
 	Filters []GetRegionsFilter `pulumi:"filters"`
+	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getRegions.
 type GetRegionsResult struct {
 	AllRegions *bool              `pulumi:"allRegions"`
 	Filters    []GetRegionsFilter `pulumi:"filters"`
-	// The provider-assigned unique ID for this managed resource.
+	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Id string `pulumi:"id"`
 	// Names of regions that meets the criteria.
 	Names []string `pulumi:"names"`
@@ -143,6 +148,8 @@ type GetRegionsOutputArgs struct {
 	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
 	// Configuration block(s) to use as filters. Detailed below.
 	Filters GetRegionsFilterArrayInput `pulumi:"filters"`
+	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (GetRegionsOutputArgs) ElementType() reflect.Type {
@@ -164,6 +171,12 @@ func (o GetRegionsResultOutput) ToGetRegionsResultOutputWithContext(ctx context.
 	return o
 }
 
+func (o GetRegionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRegionsResult] {
+	return pulumix.Output[GetRegionsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetRegionsResultOutput) AllRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRegionsResult) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
 }
@@ -172,7 +185,7 @@ func (o GetRegionsResultOutput) Filters() GetRegionsFilterArrayOutput {
 	return o.ApplyT(func(v GetRegionsResult) []GetRegionsFilter { return v.Filters }).(GetRegionsFilterArrayOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
+// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 func (o GetRegionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionsResult) string { return v.Id }).(pulumi.StringOutput)
 }

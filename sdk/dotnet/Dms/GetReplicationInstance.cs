@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Dms
     public sealed class GetReplicationInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// The replication instance identifier.
         /// </summary>
         [Input("replicationInstanceId", required: true)]
         public string ReplicationInstanceId { get; set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Dms
     public sealed class GetReplicationInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// The replication instance identifier.
         /// </summary>
         [Input("replicationInstanceId", required: true)]
         public Input<string> ReplicationInstanceId { get; set; } = null!;
@@ -118,19 +118,11 @@ namespace Pulumi.Aws.Dms
     public sealed class GetReplicationInstanceResult
     {
         /// <summary>
-        /// (Default: 50, Min: 5, Max: 6144) The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         /// </summary>
         public readonly int AllocatedStorage;
         /// <summary>
-        /// (Default: false) Indicates that major version upgrades are allowed.
-        /// </summary>
-        public readonly bool AllowMajorVersionUpgrade;
-        /// <summary>
-        /// (Default: false) Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-        /// </summary>
-        public readonly bool ApplyImmediately;
-        /// <summary>
-        /// (Default: false) Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+        /// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         /// </summary>
         public readonly bool AutoMinorVersionUpgrade;
         /// <summary>
@@ -146,19 +138,23 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>
-        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        /// Specifies if the replication instance is a multi-az deployment.
         /// </summary>
         public readonly bool MultiAz;
+        /// <summary>
+        /// The type of IP address protocol used by the replication instance.
+        /// </summary>
+        public readonly string NetworkType;
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         /// </summary>
         public readonly string PreferredMaintenanceWindow;
         /// <summary>
-        /// (Default: false) Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+        /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         /// </summary>
         public readonly bool PubliclyAccessible;
         /// <summary>
@@ -166,7 +162,7 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         public readonly string ReplicationInstanceArn;
         /// <summary>
-        /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+        /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
         /// </summary>
         public readonly string ReplicationInstanceClass;
         public readonly string ReplicationInstanceId;
@@ -179,22 +175,18 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         public readonly ImmutableArray<string> ReplicationInstancePublicIps;
         /// <summary>
-        /// (Optional) A subnet group to associate with the replication instance.
+        /// A subnet group to associate with the replication instance.
         /// </summary>
         public readonly string ReplicationSubnetGroupId;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// (Optional) A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+        /// A set of VPC security group IDs that are used with the replication instance.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
         private GetReplicationInstanceResult(
             int allocatedStorage,
-
-            bool allowMajorVersionUpgrade,
-
-            bool applyImmediately,
 
             bool autoMinorVersionUpgrade,
 
@@ -207,6 +199,8 @@ namespace Pulumi.Aws.Dms
             string kmsKeyArn,
 
             bool multiAz,
+
+            string networkType,
 
             string preferredMaintenanceWindow,
 
@@ -229,14 +223,13 @@ namespace Pulumi.Aws.Dms
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             AllocatedStorage = allocatedStorage;
-            AllowMajorVersionUpgrade = allowMajorVersionUpgrade;
-            ApplyImmediately = applyImmediately;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             AvailabilityZone = availabilityZone;
             EngineVersion = engineVersion;
             Id = id;
             KmsKeyArn = kmsKeyArn;
             MultiAz = multiAz;
+            NetworkType = networkType;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             PubliclyAccessible = publiclyAccessible;
             ReplicationInstanceArn = replicationInstanceArn;

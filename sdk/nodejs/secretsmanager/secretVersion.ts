@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
+ * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
@@ -80,6 +80,8 @@ export class SecretVersion extends pulumi.CustomResource {
     public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+     *
+     * > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      */
     public readonly versionStages!: pulumi.Output<string[]>;
 
@@ -147,6 +149,8 @@ export interface SecretVersionState {
     versionId?: pulumi.Input<string>;
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+     *
+     * > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      */
     versionStages?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -169,6 +173,8 @@ export interface SecretVersionArgs {
     secretString?: pulumi.Input<string>;
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+     *
+     * > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      */
     versionStages?: pulumi.Input<pulumi.Input<string>[]>;
 }

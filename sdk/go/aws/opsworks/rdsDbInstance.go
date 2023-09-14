@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks RDS DB Instance resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,6 +82,7 @@ func NewRdsDbInstance(ctx *pulumi.Context,
 		"dbPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RdsDbInstance
 	err := ctx.RegisterResource("aws:opsworks/rdsDbInstance:RdsDbInstance", name, args, &resource, opts...)
 	if err != nil {
@@ -173,6 +176,12 @@ func (i *RdsDbInstance) ToRdsDbInstanceOutputWithContext(ctx context.Context) Rd
 	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceOutput)
 }
 
+func (i *RdsDbInstance) ToOutput(ctx context.Context) pulumix.Output[*RdsDbInstance] {
+	return pulumix.Output[*RdsDbInstance]{
+		OutputState: i.ToRdsDbInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RdsDbInstanceArrayInput is an input type that accepts RdsDbInstanceArray and RdsDbInstanceArrayOutput values.
 // You can construct a concrete instance of `RdsDbInstanceArrayInput` via:
 //
@@ -196,6 +205,12 @@ func (i RdsDbInstanceArray) ToRdsDbInstanceArrayOutput() RdsDbInstanceArrayOutpu
 
 func (i RdsDbInstanceArray) ToRdsDbInstanceArrayOutputWithContext(ctx context.Context) RdsDbInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceArrayOutput)
+}
+
+func (i RdsDbInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*RdsDbInstance] {
+	return pulumix.Output[[]*RdsDbInstance]{
+		OutputState: i.ToRdsDbInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RdsDbInstanceMapInput is an input type that accepts RdsDbInstanceMap and RdsDbInstanceMapOutput values.
@@ -223,6 +238,12 @@ func (i RdsDbInstanceMap) ToRdsDbInstanceMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceMapOutput)
 }
 
+func (i RdsDbInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RdsDbInstance] {
+	return pulumix.Output[map[string]*RdsDbInstance]{
+		OutputState: i.ToRdsDbInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RdsDbInstanceOutput struct{ *pulumi.OutputState }
 
 func (RdsDbInstanceOutput) ElementType() reflect.Type {
@@ -235,6 +256,12 @@ func (o RdsDbInstanceOutput) ToRdsDbInstanceOutput() RdsDbInstanceOutput {
 
 func (o RdsDbInstanceOutput) ToRdsDbInstanceOutputWithContext(ctx context.Context) RdsDbInstanceOutput {
 	return o
+}
+
+func (o RdsDbInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*RdsDbInstance] {
+	return pulumix.Output[*RdsDbInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A db password
@@ -271,6 +298,12 @@ func (o RdsDbInstanceArrayOutput) ToRdsDbInstanceArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o RdsDbInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RdsDbInstance] {
+	return pulumix.Output[[]*RdsDbInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RdsDbInstanceArrayOutput) Index(i pulumi.IntInput) RdsDbInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RdsDbInstance {
 		return vs[0].([]*RdsDbInstance)[vs[1].(int)]
@@ -289,6 +322,12 @@ func (o RdsDbInstanceMapOutput) ToRdsDbInstanceMapOutput() RdsDbInstanceMapOutpu
 
 func (o RdsDbInstanceMapOutput) ToRdsDbInstanceMapOutputWithContext(ctx context.Context) RdsDbInstanceMapOutput {
 	return o
+}
+
+func (o RdsDbInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RdsDbInstance] {
+	return pulumix.Output[map[string]*RdsDbInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RdsDbInstanceMapOutput) MapIndex(k pulumi.StringInput) RdsDbInstanceOutput {

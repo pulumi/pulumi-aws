@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -55,6 +57,7 @@ import (
 //
 // ```
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("aws:lb/getLoadBalancer:getLoadBalancer", args, &rv, opts...)
 	if err != nil {
@@ -70,6 +73,8 @@ type LookupLoadBalancerArgs struct {
 	// Unique name of the load balancer.
 	Name *string `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -125,6 +130,8 @@ type LookupLoadBalancerOutputArgs struct {
 	// Unique name of the load balancer.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -145,6 +152,12 @@ func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutput() Looku
 
 func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithContext(ctx context.Context) LookupLoadBalancerResultOutput {
 	return o
+}
+
+func (o LookupLoadBalancerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoadBalancerResult] {
+	return pulumix.Output[LookupLoadBalancerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLoadBalancerResultOutput) AccessLogs() GetLoadBalancerAccessLogsOutput {

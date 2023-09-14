@@ -13,14 +13,14 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementOrStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
-        private InputList<Inputs.RuleGroupRuleStatementOrStatementStatementGetArgs>? _statements;
+        private InputList<Inputs.RuleGroupRuleStatementGetArgs>? _statements;
 
         /// <summary>
-        /// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        /// The statements to combine.
         /// </summary>
-        public InputList<Inputs.RuleGroupRuleStatementOrStatementStatementGetArgs> Statements
+        public InputList<Inputs.RuleGroupRuleStatementGetArgs> Statements
         {
-            get => _statements ?? (_statements = new InputList<Inputs.RuleGroupRuleStatementOrStatementStatementGetArgs>());
+            get => _statements ?? (_statements = new InputList<Inputs.RuleGroupRuleStatementGetArgs>());
             set => _statements = value;
         }
 

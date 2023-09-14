@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.Route` provides details about a specific Route.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -58,6 +60,7 @@ import (
 //
 // ```
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult
 	err := ctx.Invoke("aws:ec2/getRoute:getRoute", args, &rv, opts...)
 	if err != nil {
@@ -91,6 +94,8 @@ type LookupRouteArgs struct {
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// ID of the specific Route Table containing the Route entry.
+	//
+	// The following arguments are optional:
 	RouteTableId string `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -156,6 +161,8 @@ type LookupRouteOutputArgs struct {
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// ID of the specific Route Table containing the Route entry.
+	//
+	// The following arguments are optional:
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
@@ -180,6 +187,12 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutput() LookupRouteResultOu
 
 func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx context.Context) LookupRouteResultOutput {
 	return o
+}
+
+func (o LookupRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteResult] {
+	return pulumix.Output[LookupRouteResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRouteResultOutput) CarrierGatewayId() pulumi.StringOutput {

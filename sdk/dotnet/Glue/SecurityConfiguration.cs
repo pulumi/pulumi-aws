@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Security Configurations can be imported using `name`, e.g.,
+    /// Using `pulumi import`, import Glue Security Configurations using `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example

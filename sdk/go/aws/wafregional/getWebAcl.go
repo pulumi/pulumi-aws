@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.InvokeOption) (*LookupWebAclResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWebAclResult
 	err := ctx.Invoke("aws:wafregional/getWebAcl:getWebAcl", args, &rv, opts...)
 	if err != nil {
@@ -95,6 +98,12 @@ func (o LookupWebAclResultOutput) ToLookupWebAclResultOutput() LookupWebAclResul
 
 func (o LookupWebAclResultOutput) ToLookupWebAclResultOutputWithContext(ctx context.Context) LookupWebAclResultOutput {
 	return o
+}
+
+func (o LookupWebAclResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWebAclResult] {
+	return pulumix.Output[LookupWebAclResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

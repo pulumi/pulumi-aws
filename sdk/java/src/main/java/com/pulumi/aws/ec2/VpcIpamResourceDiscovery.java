@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IPAMs can be imported using the `ipam resource discovery id`, e.g.
+ * Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492

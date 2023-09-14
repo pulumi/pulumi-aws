@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Service can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
@@ -136,12 +136,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

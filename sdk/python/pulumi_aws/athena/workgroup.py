@@ -289,7 +289,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Import
 
-        Athena Workgroups can be imported using their name, e.g.,
+        Using `pulumi import`, import Athena Workgroups using their name. For example:
 
         ```sh
          $ pulumi import aws:athena/workgroup:Workgroup example example
@@ -334,7 +334,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Import
 
-        Athena Workgroups can be imported using their name, e.g.,
+        Using `pulumi import`, import Athena Workgroups using their name. For example:
 
         ```sh
          $ pulumi import aws:athena/workgroup:Workgroup example example

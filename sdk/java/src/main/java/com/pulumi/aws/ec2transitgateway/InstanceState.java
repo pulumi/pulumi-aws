@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+ * Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
@@ -117,12 +117,16 @@ public class InstanceState extends com.pulumi.resources.CustomResource {
     /**
      * State of the instance. Valid values are `stopped`, `running`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
      * @return State of the instance. Valid values are `stopped`, `running`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> state() {

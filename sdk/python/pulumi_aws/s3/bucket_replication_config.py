@@ -311,7 +311,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket replication configuration can be imported using the `bucket`, e.g.
+        Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 
         ```sh
          $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
@@ -474,7 +474,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket replication configuration can be imported using the `bucket`, e.g.
+        Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 
         ```sh
          $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name

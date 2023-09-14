@@ -11,14 +11,55 @@ import * as utilities from "../utilities";
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
  *
  * ## Example Usage
+ * ### Example Event Based Policy Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const exampleLifecyclePolicy = new aws.dlm.LifecyclePolicy("exampleLifecyclePolicy", {
+ *     description: "tf-acc-basic",
+ *     executionRoleArn: aws_iam_role.example.arn,
+ *     policyDetails: {
+ *         policyType: "EVENT_BASED_POLICY",
+ *         action: {
+ *             name: "tf-acc-basic",
+ *             crossRegionCopies: [{
+ *                 encryptionConfiguration: {},
+ *                 retainRule: {
+ *                     interval: 15,
+ *                     intervalUnit: "MONTHS",
+ *                 },
+ *                 target: "us-east-1",
+ *             }],
+ *         },
+ *         eventSource: {
+ *             type: "MANAGED_CWE",
+ *             parameters: {
+ *                 descriptionRegex: "^.*Created for policy: policy-1234567890abcdef0.*$",
+ *                 eventType: "shareSnapshot",
+ *                 snapshotOwners: [current.then(current => current.accountId)],
+ *             },
+ *         },
+ *     },
+ * });
+ * const examplePolicy = aws.iam.getPolicy({
+ *     name: "AWSDataLifecycleManagerServiceRole",
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ *     role: aws_iam_role.example.id,
+ *     policyArn: examplePolicy.then(examplePolicy => examplePolicy.arn),
+ * });
+ * ```
  *
  * ## Import
  *
- * DLM lifecycle policies can be imported by their policy ID
+ * In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
- * ```
+ *  to = aws_dlm_lifecycle_policy.example
+ *
+ *  id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**
@@ -69,7 +110,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -146,7 +187,7 @@ export interface LifecyclePolicyState {
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -176,7 +217,7 @@ export interface LifecyclePolicyArgs {
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

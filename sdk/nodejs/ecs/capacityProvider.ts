@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS Capacity Providers can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates and manages an AWS XRay Sampling Rule.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,7 +36,7 @@ import (
 //				FixedRate:     pulumi.Float64(0.05),
 //				Host:          pulumi.String("*"),
 //				HttpMethod:    pulumi.String("*"),
-//				Priority:      pulumi.Int(10000),
+//				Priority:      pulumi.Int(9999),
 //				ReservoirSize: pulumi.Int(1),
 //				ResourceArn:   pulumi.String("*"),
 //				RuleName:      pulumi.String("example"),
@@ -54,7 +56,7 @@ import (
 //
 // ## Import
 //
-// XRay Sampling Rules can be imported using the name, e.g.,
+// Using `pulumi import`, import XRay Sampling Rules using the name. For example:
 //
 // ```sh
 //
@@ -133,6 +135,7 @@ func NewSamplingRule(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamplingRule
 	err := ctx.RegisterResource("aws:xray/samplingRule:SamplingRule", name, args, &resource, opts...)
 	if err != nil {
@@ -306,6 +309,12 @@ func (i *SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) Samp
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleOutput)
 }
 
+func (i *SamplingRule) ToOutput(ctx context.Context) pulumix.Output[*SamplingRule] {
+	return pulumix.Output[*SamplingRule]{
+		OutputState: i.ToSamplingRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SamplingRuleArrayInput is an input type that accepts SamplingRuleArray and SamplingRuleArrayOutput values.
 // You can construct a concrete instance of `SamplingRuleArrayInput` via:
 //
@@ -329,6 +338,12 @@ func (i SamplingRuleArray) ToSamplingRuleArrayOutput() SamplingRuleArrayOutput {
 
 func (i SamplingRuleArray) ToSamplingRuleArrayOutputWithContext(ctx context.Context) SamplingRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleArrayOutput)
+}
+
+func (i SamplingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SamplingRule] {
+	return pulumix.Output[[]*SamplingRule]{
+		OutputState: i.ToSamplingRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SamplingRuleMapInput is an input type that accepts SamplingRuleMap and SamplingRuleMapOutput values.
@@ -356,6 +371,12 @@ func (i SamplingRuleMap) ToSamplingRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleMapOutput)
 }
 
+func (i SamplingRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamplingRule] {
+	return pulumix.Output[map[string]*SamplingRule]{
+		OutputState: i.ToSamplingRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SamplingRuleOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleOutput) ElementType() reflect.Type {
@@ -368,6 +389,12 @@ func (o SamplingRuleOutput) ToSamplingRuleOutput() SamplingRuleOutput {
 
 func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput {
 	return o
+}
+
+func (o SamplingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SamplingRule] {
+	return pulumix.Output[*SamplingRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the sampling rule.
@@ -459,6 +486,12 @@ func (o SamplingRuleArrayOutput) ToSamplingRuleArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o SamplingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SamplingRule] {
+	return pulumix.Output[[]*SamplingRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SamplingRuleArrayOutput) Index(i pulumi.IntInput) SamplingRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SamplingRule {
 		return vs[0].([]*SamplingRule)[vs[1].(int)]
@@ -477,6 +510,12 @@ func (o SamplingRuleMapOutput) ToSamplingRuleMapOutput() SamplingRuleMapOutput {
 
 func (o SamplingRuleMapOutput) ToSamplingRuleMapOutputWithContext(ctx context.Context) SamplingRuleMapOutput {
 	return o
+}
+
+func (o SamplingRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamplingRule] {
+	return pulumix.Output[map[string]*SamplingRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SamplingRuleMapOutput) MapIndex(k pulumi.StringInput) SamplingRuleOutput {

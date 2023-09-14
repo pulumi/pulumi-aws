@@ -10,12 +10,16 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Manages a Lambda Provisioned Concurrency Configuration.
+ * 
+ * &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
  * 
  * ## Example Usage
  * ### Alias Name
@@ -83,10 +87,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+ *  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
  * ```
  * 
  */
@@ -123,6 +127,8 @@ public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomRes
     /**
      * Lambda Function version or Lambda Alias name.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output<String> qualifier;
@@ -130,9 +136,25 @@ public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomRes
     /**
      * @return Lambda Function version or Lambda Alias name.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> qualifier() {
         return this.qualifier;
+    }
+    /**
+     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * 
+     */
+    @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipDestroy;
+
+    /**
+     * @return Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * 
+     */
+    public Output<Optional<Boolean>> skipDestroy() {
+        return Codegen.optional(this.skipDestroy);
     }
 
     /**

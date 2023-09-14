@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.glue.CatalogTableArgs;
 import com.pulumi.aws.glue.inputs.CatalogTableState;
+import com.pulumi.aws.glue.outputs.CatalogTableOpenTableFormatInput;
 import com.pulumi.aws.glue.outputs.CatalogTablePartitionIndex;
 import com.pulumi.aws.glue.outputs.CatalogTablePartitionKey;
 import com.pulumi.aws.glue.outputs.CatalogTableStorageDescriptor;
@@ -129,7 +130,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+ * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
@@ -169,12 +170,16 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
+     * The follow arguments are optional:
+     * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
      * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     * 
+     * The follow arguments are optional:
      * 
      */
     public Output<String> databaseName() {
@@ -207,6 +212,20 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configuration block for open table formats. See `open_table_format_input` below.
+     * 
+     */
+    @Export(name="openTableFormatInput", refs={CatalogTableOpenTableFormatInput.class}, tree="[0]")
+    private Output</* @Nullable */ CatalogTableOpenTableFormatInput> openTableFormatInput;
+
+    /**
+     * @return Configuration block for open table formats. See `open_table_format_input` below.
+     * 
+     */
+    public Output<Optional<CatalogTableOpenTableFormatInput>> openTableFormatInput() {
+        return Codegen.optional(this.openTableFormatInput);
     }
     /**
      * Owner of the table.

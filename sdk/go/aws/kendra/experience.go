@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Kendra Experience.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +57,7 @@ import (
 //
 // ## Import
 //
-// Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+// Using `pulumi import`, import Kendra Experience using the unique identifiers of the experience and index separated by a slash (`/`). For example:
 //
 // ```sh
 //
@@ -80,6 +82,8 @@ type Experience struct {
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The current processing status of your Amazon Kendra experience.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -98,6 +102,7 @@ func NewExperience(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Experience
 	err := ctx.RegisterResource("aws:kendra/experience:Experience", name, args, &resource, opts...)
 	if err != nil {
@@ -135,6 +140,8 @@ type experienceState struct {
 	// A name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn *string `pulumi:"roleArn"`
 	// The current processing status of your Amazon Kendra experience.
 	Status *string `pulumi:"status"`
@@ -156,6 +163,8 @@ type ExperienceState struct {
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn pulumi.StringPtrInput
 	// The current processing status of your Amazon Kendra experience.
 	Status pulumi.StringPtrInput
@@ -175,6 +184,8 @@ type experienceArgs struct {
 	// A name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -189,6 +200,8 @@ type ExperienceArgs struct {
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn pulumi.StringInput
 }
 
@@ -213,6 +226,12 @@ func (i *Experience) ToExperienceOutput() ExperienceOutput {
 
 func (i *Experience) ToExperienceOutputWithContext(ctx context.Context) ExperienceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceOutput)
+}
+
+func (i *Experience) ToOutput(ctx context.Context) pulumix.Output[*Experience] {
+	return pulumix.Output[*Experience]{
+		OutputState: i.ToExperienceOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ExperienceArrayInput is an input type that accepts ExperienceArray and ExperienceArrayOutput values.
@@ -240,6 +259,12 @@ func (i ExperienceArray) ToExperienceArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceArrayOutput)
 }
 
+func (i ExperienceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Experience] {
+	return pulumix.Output[[]*Experience]{
+		OutputState: i.ToExperienceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperienceMapInput is an input type that accepts ExperienceMap and ExperienceMapOutput values.
 // You can construct a concrete instance of `ExperienceMapInput` via:
 //
@@ -265,6 +290,12 @@ func (i ExperienceMap) ToExperienceMapOutputWithContext(ctx context.Context) Exp
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceMapOutput)
 }
 
+func (i ExperienceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Experience] {
+	return pulumix.Output[map[string]*Experience]{
+		OutputState: i.ToExperienceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperienceOutput struct{ *pulumi.OutputState }
 
 func (ExperienceOutput) ElementType() reflect.Type {
@@ -277,6 +308,12 @@ func (o ExperienceOutput) ToExperienceOutput() ExperienceOutput {
 
 func (o ExperienceOutput) ToExperienceOutputWithContext(ctx context.Context) ExperienceOutput {
 	return o
+}
+
+func (o ExperienceOutput) ToOutput(ctx context.Context) pulumix.Output[*Experience] {
+	return pulumix.Output[*Experience]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Experience.
@@ -315,6 +352,8 @@ func (o ExperienceOutput) Name() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+//
+// The following arguments are optional:
 func (o ExperienceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -338,6 +377,12 @@ func (o ExperienceArrayOutput) ToExperienceArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ExperienceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Experience] {
+	return pulumix.Output[[]*Experience]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExperienceArrayOutput) Index(i pulumi.IntInput) ExperienceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Experience {
 		return vs[0].([]*Experience)[vs[1].(int)]
@@ -356,6 +401,12 @@ func (o ExperienceMapOutput) ToExperienceMapOutput() ExperienceMapOutput {
 
 func (o ExperienceMapOutput) ToExperienceMapOutputWithContext(ctx context.Context) ExperienceMapOutput {
 	return o
+}
+
+func (o ExperienceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Experience] {
+	return pulumix.Output[map[string]*Experience]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperienceMapOutput) MapIndex(k pulumi.StringInput) ExperienceOutput {

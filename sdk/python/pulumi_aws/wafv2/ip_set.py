@@ -24,7 +24,7 @@ class IpSetArgs:
         The set of arguments for constructing a IpSet resource.
         :param pulumi.Input[str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         :param pulumi.Input[str] description: A friendly description of the IP set.
         :param pulumi.Input[str] name: A friendly name of the IP set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -68,7 +68,7 @@ class IpSetArgs:
     @pulumi.getter
     def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+        Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         """
         return pulumi.get(self, "addresses")
 
@@ -127,7 +127,7 @@ class _IpSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IpSet resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP set.
         :param pulumi.Input[str] description: A friendly description of the IP set.
         :param pulumi.Input[str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
@@ -159,7 +159,7 @@ class _IpSetState:
     @pulumi.getter
     def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+        Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         """
         return pulumi.get(self, "addresses")
 
@@ -298,7 +298,7 @@ class IpSet(pulumi.CustomResource):
 
         ## Import
 
-        WAFv2 IP Sets can be imported using `ID/name/scope`
+        Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
 
         ```sh
          $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
@@ -306,7 +306,7 @@ class IpSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         :param pulumi.Input[str] description: A friendly description of the IP set.
         :param pulumi.Input[str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         :param pulumi.Input[str] name: A friendly name of the IP set.
@@ -344,7 +344,7 @@ class IpSet(pulumi.CustomResource):
 
         ## Import
 
-        WAFv2 IP Sets can be imported using `ID/name/scope`
+        Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
 
         ```sh
          $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
@@ -419,7 +419,7 @@ class IpSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP set.
         :param pulumi.Input[str] description: A friendly description of the IP set.
         :param pulumi.Input[str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
@@ -447,7 +447,7 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter
     def addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+        Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         """
         return pulumi.get(self, "addresses")
 

@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, maintenance_window=None, network_type=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_outpost_arn=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, maintenance_window=None, network_type=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_outpost_arn=None, replication_group_id=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -86,13 +86,6 @@ class GetClusterResult:
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if security_group_names and not isinstance(security_group_names, list):
-            raise TypeError("Expected argument 'security_group_names' to be a list")
-        if security_group_names is not None:
-            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-
-        pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_retention_limit and not isinstance(snapshot_retention_limit, int):
             raise TypeError("Expected argument 'snapshot_retention_limit' to be a int")
         pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
@@ -273,14 +266,6 @@ class GetClusterResult:
         return pulumi.get(self, "security_group_ids")
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Sequence[str]:
-        """
-        List of security group names associated with this cache cluster.
-        """
-        return pulumi.get(self, "security_group_names")
-
-    @property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> int:
         """
@@ -342,7 +327,6 @@ class AwaitableGetClusterResult(GetClusterResult):
             preferred_outpost_arn=self.preferred_outpost_arn,
             replication_group_id=self.replication_group_id,
             security_group_ids=self.security_group_ids,
-            security_group_names=self.security_group_names,
             snapshot_retention_limit=self.snapshot_retention_limit,
             snapshot_window=self.snapshot_window,
             subnet_group_name=self.subnet_group_name,
@@ -375,32 +359,31 @@ def get_cluster(cluster_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        availability_zone=__ret__.availability_zone,
-        cache_nodes=__ret__.cache_nodes,
-        cluster_address=__ret__.cluster_address,
-        cluster_id=__ret__.cluster_id,
-        configuration_endpoint=__ret__.configuration_endpoint,
-        engine=__ret__.engine,
-        engine_version=__ret__.engine_version,
-        id=__ret__.id,
-        ip_discovery=__ret__.ip_discovery,
-        log_delivery_configurations=__ret__.log_delivery_configurations,
-        maintenance_window=__ret__.maintenance_window,
-        network_type=__ret__.network_type,
-        node_type=__ret__.node_type,
-        notification_topic_arn=__ret__.notification_topic_arn,
-        num_cache_nodes=__ret__.num_cache_nodes,
-        parameter_group_name=__ret__.parameter_group_name,
-        port=__ret__.port,
-        preferred_outpost_arn=__ret__.preferred_outpost_arn,
-        replication_group_id=__ret__.replication_group_id,
-        security_group_ids=__ret__.security_group_ids,
-        security_group_names=__ret__.security_group_names,
-        snapshot_retention_limit=__ret__.snapshot_retention_limit,
-        snapshot_window=__ret__.snapshot_window,
-        subnet_group_name=__ret__.subnet_group_name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        cache_nodes=pulumi.get(__ret__, 'cache_nodes'),
+        cluster_address=pulumi.get(__ret__, 'cluster_address'),
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        configuration_endpoint=pulumi.get(__ret__, 'configuration_endpoint'),
+        engine=pulumi.get(__ret__, 'engine'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_discovery=pulumi.get(__ret__, 'ip_discovery'),
+        log_delivery_configurations=pulumi.get(__ret__, 'log_delivery_configurations'),
+        maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
+        network_type=pulumi.get(__ret__, 'network_type'),
+        node_type=pulumi.get(__ret__, 'node_type'),
+        notification_topic_arn=pulumi.get(__ret__, 'notification_topic_arn'),
+        num_cache_nodes=pulumi.get(__ret__, 'num_cache_nodes'),
+        parameter_group_name=pulumi.get(__ret__, 'parameter_group_name'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_outpost_arn=pulumi.get(__ret__, 'preferred_outpost_arn'),
+        replication_group_id=pulumi.get(__ret__, 'replication_group_id'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
+        snapshot_window=pulumi.get(__ret__, 'snapshot_window'),
+        subnet_group_name=pulumi.get(__ret__, 'subnet_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cluster)

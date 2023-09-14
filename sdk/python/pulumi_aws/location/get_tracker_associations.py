@@ -89,9 +89,9 @@ def get_tracker_associations(tracker_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:location/getTrackerAssociations:getTrackerAssociations', __args__, opts=opts, typ=GetTrackerAssociationsResult).value
 
     return AwaitableGetTrackerAssociationsResult(
-        consumer_arns=__ret__.consumer_arns,
-        id=__ret__.id,
-        tracker_name=__ret__.tracker_name)
+        consumer_arns=pulumi.get(__ret__, 'consumer_arns'),
+        id=pulumi.get(__ret__, 'id'),
+        tracker_name=pulumi.get(__ret__, 'tracker_name'))
 
 
 @_utilities.lift_output_func(get_tracker_associations)

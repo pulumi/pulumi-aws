@@ -18,6 +18,7 @@ yarn.lock
 **/pulumiManifest.go
 
 ci-scripts
+provider/shim/coverage.txt
 provider/**/schema-embed.json
 **/version.txt
 **/nuget

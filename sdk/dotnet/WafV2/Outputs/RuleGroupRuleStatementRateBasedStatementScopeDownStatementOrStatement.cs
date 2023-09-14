@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement
     {
         /// <summary>
-        /// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatement> Statements;
 
         [OutputConstructor]
-        private RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementStatement> statements)
+        private RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(ImmutableArray<Outputs.RuleGroupRuleStatement> statements)
         {
             Statements = statements;
         }

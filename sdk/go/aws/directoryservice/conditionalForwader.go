@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //
 // ## Import
 //
-// Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.,
+// Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
 //
 // ```sh
 //
@@ -80,6 +82,7 @@ func NewConditionalForwader(ctx *pulumi.Context,
 	if args.RemoteDomainName == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteDomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConditionalForwader
 	err := ctx.RegisterResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, args, &resource, opts...)
 	if err != nil {
@@ -165,6 +168,12 @@ func (i *ConditionalForwader) ToConditionalForwaderOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionalForwaderOutput)
 }
 
+func (i *ConditionalForwader) ToOutput(ctx context.Context) pulumix.Output[*ConditionalForwader] {
+	return pulumix.Output[*ConditionalForwader]{
+		OutputState: i.ToConditionalForwaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConditionalForwaderArrayInput is an input type that accepts ConditionalForwaderArray and ConditionalForwaderArrayOutput values.
 // You can construct a concrete instance of `ConditionalForwaderArrayInput` via:
 //
@@ -188,6 +197,12 @@ func (i ConditionalForwaderArray) ToConditionalForwaderArrayOutput() Conditional
 
 func (i ConditionalForwaderArray) ToConditionalForwaderArrayOutputWithContext(ctx context.Context) ConditionalForwaderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionalForwaderArrayOutput)
+}
+
+func (i ConditionalForwaderArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConditionalForwader] {
+	return pulumix.Output[[]*ConditionalForwader]{
+		OutputState: i.ToConditionalForwaderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConditionalForwaderMapInput is an input type that accepts ConditionalForwaderMap and ConditionalForwaderMapOutput values.
@@ -215,6 +230,12 @@ func (i ConditionalForwaderMap) ToConditionalForwaderMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionalForwaderMapOutput)
 }
 
+func (i ConditionalForwaderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConditionalForwader] {
+	return pulumix.Output[map[string]*ConditionalForwader]{
+		OutputState: i.ToConditionalForwaderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConditionalForwaderOutput struct{ *pulumi.OutputState }
 
 func (ConditionalForwaderOutput) ElementType() reflect.Type {
@@ -227,6 +248,12 @@ func (o ConditionalForwaderOutput) ToConditionalForwaderOutput() ConditionalForw
 
 func (o ConditionalForwaderOutput) ToConditionalForwaderOutputWithContext(ctx context.Context) ConditionalForwaderOutput {
 	return o
+}
+
+func (o ConditionalForwaderOutput) ToOutput(ctx context.Context) pulumix.Output[*ConditionalForwader] {
+	return pulumix.Output[*ConditionalForwader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of directory.
@@ -258,6 +285,12 @@ func (o ConditionalForwaderArrayOutput) ToConditionalForwaderArrayOutputWithCont
 	return o
 }
 
+func (o ConditionalForwaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConditionalForwader] {
+	return pulumix.Output[[]*ConditionalForwader]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConditionalForwaderArrayOutput) Index(i pulumi.IntInput) ConditionalForwaderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConditionalForwader {
 		return vs[0].([]*ConditionalForwader)[vs[1].(int)]
@@ -276,6 +309,12 @@ func (o ConditionalForwaderMapOutput) ToConditionalForwaderMapOutput() Condition
 
 func (o ConditionalForwaderMapOutput) ToConditionalForwaderMapOutputWithContext(ctx context.Context) ConditionalForwaderMapOutput {
 	return o
+}
+
+func (o ConditionalForwaderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConditionalForwader] {
+	return pulumix.Output[map[string]*ConditionalForwader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConditionalForwaderMapOutput) MapIndex(k pulumi.StringInput) ConditionalForwaderOutput {

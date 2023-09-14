@@ -4,7 +4,8 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings;
-import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings;
+import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings;
+import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings;
@@ -16,29 +17,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
+    /**
+     * @return Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings ancillarySourceSettings;
-    private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings dvbTdtSettings;
+    /**
+     * @return Arib Source Settings.
+     * 
+     */
+    private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings aribSourceSettings;
+    /**
+     * @return DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * 
+     */
+    private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings dvbSubSourceSettings;
+    /**
+     * @return Embedded Source Settings. See Embedded Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings embeddedSourceSettings;
+    /**
+     * @return SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings scte20SourceSettings;
+    /**
+     * @return SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings scte27SourceSettings;
+    /**
+     * @return Teletext Source Settings. See Teletext Source Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings teletextSourceSettings;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings() {}
+    /**
+     * @return Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings> ancillarySourceSettings() {
         return Optional.ofNullable(this.ancillarySourceSettings);
     }
-    public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings> dvbTdtSettings() {
-        return Optional.ofNullable(this.dvbTdtSettings);
+    /**
+     * @return Arib Source Settings.
+     * 
+     */
+    public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings> aribSourceSettings() {
+        return Optional.ofNullable(this.aribSourceSettings);
     }
+    /**
+     * @return DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * 
+     */
+    public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings> dvbSubSourceSettings() {
+        return Optional.ofNullable(this.dvbSubSourceSettings);
+    }
+    /**
+     * @return Embedded Source Settings. See Embedded Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings> embeddedSourceSettings() {
         return Optional.ofNullable(this.embeddedSourceSettings);
     }
+    /**
+     * @return SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings> scte20SourceSettings() {
         return Optional.ofNullable(this.scte20SourceSettings);
     }
+    /**
+     * @return SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings> scte27SourceSettings() {
         return Optional.ofNullable(this.scte27SourceSettings);
     }
+    /**
+     * @return Teletext Source Settings. See Teletext Source Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings> teletextSourceSettings() {
         return Optional.ofNullable(this.teletextSourceSettings);
     }
@@ -53,7 +114,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings ancillarySourceSettings;
-        private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings dvbTdtSettings;
+        private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings aribSourceSettings;
+        private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings dvbSubSourceSettings;
         private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings embeddedSourceSettings;
         private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings scte20SourceSettings;
         private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings scte27SourceSettings;
@@ -62,7 +124,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         public Builder(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ancillarySourceSettings = defaults.ancillarySourceSettings;
-    	      this.dvbTdtSettings = defaults.dvbTdtSettings;
+    	      this.aribSourceSettings = defaults.aribSourceSettings;
+    	      this.dvbSubSourceSettings = defaults.dvbSubSourceSettings;
     	      this.embeddedSourceSettings = defaults.embeddedSourceSettings;
     	      this.scte20SourceSettings = defaults.scte20SourceSettings;
     	      this.scte27SourceSettings = defaults.scte27SourceSettings;
@@ -75,8 +138,13 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         @CustomType.Setter
-        public Builder dvbTdtSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings dvbTdtSettings) {
-            this.dvbTdtSettings = dvbTdtSettings;
+        public Builder aribSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings aribSourceSettings) {
+            this.aribSourceSettings = aribSourceSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dvbSubSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings dvbSubSourceSettings) {
+            this.dvbSubSourceSettings = dvbSubSourceSettings;
             return this;
         }
         @CustomType.Setter
@@ -102,7 +170,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings build() {
             final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings();
             o.ancillarySourceSettings = ancillarySourceSettings;
-            o.dvbTdtSettings = dvbTdtSettings;
+            o.aribSourceSettings = aribSourceSettings;
+            o.dvbSubSourceSettings = dvbSubSourceSettings;
             o.embeddedSourceSettings = embeddedSourceSettings;
             o.scte20SourceSettings = scte20SourceSettings;
             o.scte27SourceSettings = scte27SourceSettings;

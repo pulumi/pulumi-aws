@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Opsworks Instances can be imported using the `instance id`, e.g.,
+ * Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
@@ -262,6 +262,8 @@ export class Instance extends pulumi.CustomResource {
     public readonly sshKeyName!: pulumi.Output<string>;
     /**
      * Identifier of the stack the instance will belong to.
+     *
+     * The following arguments are optional:
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -564,6 +566,8 @@ export interface InstanceState {
     sshKeyName?: pulumi.Input<string>;
     /**
      * Identifier of the stack the instance will belong to.
+     *
+     * The following arguments are optional:
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -690,6 +694,8 @@ export interface InstanceArgs {
     sshKeyName?: pulumi.Input<string>;
     /**
      * Identifier of the stack the instance will belong to.
+     *
+     * The following arguments are optional:
      */
     stackId: pulumi.Input<string>;
     /**

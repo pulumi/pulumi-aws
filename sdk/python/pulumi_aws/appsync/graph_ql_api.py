@@ -25,6 +25,7 @@ class GraphQLApiArgs:
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GraphQLApi resource.
@@ -37,6 +38,7 @@ class GraphQLApiArgs:
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -56,6 +58,8 @@ class GraphQLApiArgs:
             pulumi.set(__self__, "tags", tags)
         if user_pool_config is not None:
             pulumi.set(__self__, "user_pool_config", user_pool_config)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
         if xray_enabled is not None:
             pulumi.set(__self__, "xray_enabled", xray_enabled)
 
@@ -168,6 +172,18 @@ class GraphQLApiArgs:
         pulumi.set(self, "user_pool_config", value)
 
     @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -195,6 +211,7 @@ class _GraphQLApiState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GraphQLApi resources.
@@ -210,6 +227,7 @@ class _GraphQLApiState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         if additional_authentication_providers is not None:
@@ -236,6 +254,8 @@ class _GraphQLApiState:
             pulumi.set(__self__, "uris", uris)
         if user_pool_config is not None:
             pulumi.set(__self__, "user_pool_config", user_pool_config)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
         if xray_enabled is not None:
             pulumi.set(__self__, "xray_enabled", xray_enabled)
 
@@ -384,6 +404,18 @@ class _GraphQLApiState:
         pulumi.set(self, "user_pool_config", value)
 
     @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -410,133 +442,11 @@ class GraphQLApi(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an AppSync GraphQL API.
-
-        ## Example Usage
-        ### API Key Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
-        ```
-        ### AWS IAM Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
-        ```
-        ### AWS Cognito User Pool Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AMAZON_COGNITO_USER_POOLS",
-            user_pool_config=aws.appsync.GraphQLApiUserPoolConfigArgs(
-                aws_region=data["aws_region"]["current"]["name"],
-                default_action="DENY",
-                user_pool_id=aws_cognito_user_pool["example"]["id"],
-            ))
-        ```
-        ### OpenID Connect Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            openid_connect_config=aws.appsync.GraphQLApiOpenidConnectConfigArgs(
-                issuer="https://example.com",
-            ))
-        ```
-        ### AWS Lambda Authorizer Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_LAMBDA",
-            lambda_authorizer_config=aws.appsync.GraphQLApiLambdaAuthorizerConfigArgs(
-                authorizer_uri="arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-            ))
-        appsync_lambda_authorizer = aws.lambda_.Permission("appsyncLambdaAuthorizer",
-            action="lambda:InvokeFunction",
-            function="custom_lambda_authorizer",
-            principal="appsync.amazonaws.com",
-            source_arn=example.arn)
-        ```
-        ### With Multiple Authentication Providers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            additional_authentication_providers=[aws.appsync.GraphQLApiAdditionalAuthenticationProviderArgs(
-                authentication_type="AWS_IAM",
-            )],
-            authentication_type="API_KEY")
-        ```
-        ### With Schema
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            schema=\"\"\"schema {
-        	query: Query
-        }
-        type Query {
-          test: Int
-        }
-
-        \"\"\")
-        ```
-        ### Enabling Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appsync.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
-            role=example_role.name)
-        # ... other configuration ...
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", log_config=aws.appsync.GraphQLApiLogConfigArgs(
-            cloudwatch_logs_role_arn=example_role.arn,
-            field_log_level="ERROR",
-        ))
-        ```
-
-        ## Import
-
-        AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
-        ```
-
+        Create a GraphQLApi resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
@@ -548,6 +458,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         ...
@@ -557,130 +468,7 @@ class GraphQLApi(pulumi.CustomResource):
                  args: GraphQLApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppSync GraphQL API.
-
-        ## Example Usage
-        ### API Key Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
-        ```
-        ### AWS IAM Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
-        ```
-        ### AWS Cognito User Pool Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AMAZON_COGNITO_USER_POOLS",
-            user_pool_config=aws.appsync.GraphQLApiUserPoolConfigArgs(
-                aws_region=data["aws_region"]["current"]["name"],
-                default_action="DENY",
-                user_pool_id=aws_cognito_user_pool["example"]["id"],
-            ))
-        ```
-        ### OpenID Connect Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            openid_connect_config=aws.appsync.GraphQLApiOpenidConnectConfigArgs(
-                issuer="https://example.com",
-            ))
-        ```
-        ### AWS Lambda Authorizer Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_LAMBDA",
-            lambda_authorizer_config=aws.appsync.GraphQLApiLambdaAuthorizerConfigArgs(
-                authorizer_uri="arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-            ))
-        appsync_lambda_authorizer = aws.lambda_.Permission("appsyncLambdaAuthorizer",
-            action="lambda:InvokeFunction",
-            function="custom_lambda_authorizer",
-            principal="appsync.amazonaws.com",
-            source_arn=example.arn)
-        ```
-        ### With Multiple Authentication Providers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            additional_authentication_providers=[aws.appsync.GraphQLApiAdditionalAuthenticationProviderArgs(
-                authentication_type="AWS_IAM",
-            )],
-            authentication_type="API_KEY")
-        ```
-        ### With Schema
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            schema=\"\"\"schema {
-        	query: Query
-        }
-        type Query {
-          test: Int
-        }
-
-        \"\"\")
-        ```
-        ### Enabling Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appsync.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
-            role=example_role.name)
-        # ... other configuration ...
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", log_config=aws.appsync.GraphQLApiLogConfigArgs(
-            cloudwatch_logs_role_arn=example_role.arn,
-            field_log_level="ERROR",
-        ))
-        ```
-
-        ## Import
-
-        AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
-        ```
-
+        Create a GraphQLApi resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GraphQLApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -705,6 +493,7 @@ class GraphQLApi(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -726,6 +515,7 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_pool_config"] = user_pool_config
+            __props__.__dict__["visibility"] = visibility
             __props__.__dict__["xray_enabled"] = xray_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -752,6 +542,7 @@ class GraphQLApi(pulumi.CustomResource):
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+            visibility: Optional[pulumi.Input[str]] = None,
             xray_enabled: Optional[pulumi.Input[bool]] = None) -> 'GraphQLApi':
         """
         Get an existing GraphQLApi resource's state with the given name, id, and optional extra
@@ -772,6 +563,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -790,6 +582,7 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["uris"] = uris
         __props__.__dict__["user_pool_config"] = user_pool_config
+        __props__.__dict__["visibility"] = visibility
         __props__.__dict__["xray_enabled"] = xray_enabled
         return GraphQLApi(resource_name, opts=opts, __props__=__props__)
 
@@ -888,6 +681,14 @@ class GraphQLApi(pulumi.CustomResource):
         Amazon Cognito User Pool configuration. Defined below.
         """
         return pulumi.get(self, "user_pool_config")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        """
+        return pulumi.get(self, "visibility")
 
     @property
     @pulumi.getter(name="xrayEnabled")

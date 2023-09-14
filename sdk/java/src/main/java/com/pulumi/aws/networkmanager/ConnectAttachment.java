@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_networkmanager_connect_attachment` can be imported using the attachment ID, e.g.
+ * Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
@@ -126,12 +126,16 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
     /**
      * Options for creating an attachment.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="options", refs={ConnectAttachmentOptions.class}, tree="[0]")
     private Output<ConnectAttachmentOptions> options;
 
     /**
      * @return Options for creating an attachment.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ConnectAttachmentOptions> options() {

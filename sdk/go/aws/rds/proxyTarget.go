@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS DB proxy target resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +73,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewProxyTarget(ctx, "exampleProxyTarget", &rds.ProxyTargetArgs{
-//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
+//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Identifier),
 //				DbProxyName:          exampleProxy.Name,
 //				TargetGroupName:      exampleProxyDefaultTargetGroup.Name,
 //			})
@@ -86,7 +88,13 @@ import (
 //
 // ## Import
 //
-// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
+// Instances:
+//
+// Provisioned Clusters:
+//
+// __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
+//
+// Instances:
 //
 // ```sh
 //
@@ -94,7 +102,7 @@ import (
 //
 // ```
 //
-//	Provisioned Clusters
+//	Provisioned Clusters:
 //
 // ```sh
 //
@@ -105,6 +113,8 @@ type ProxyTarget struct {
 	pulumi.CustomResourceState
 
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrOutput `pulumi:"dbInstanceIdentifier"`
@@ -139,6 +149,7 @@ func NewProxyTarget(ctx *pulumi.Context,
 	if args.TargetGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyTarget
 	err := ctx.RegisterResource("aws:rds/proxyTarget:ProxyTarget", name, args, &resource, opts...)
 	if err != nil {
@@ -162,6 +173,8 @@ func GetProxyTarget(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ProxyTarget resources.
 type proxyTargetState struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
@@ -185,6 +198,8 @@ type proxyTargetState struct {
 
 type ProxyTargetState struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrInput
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrInput
@@ -212,6 +227,8 @@ func (ProxyTargetState) ElementType() reflect.Type {
 
 type proxyTargetArgs struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
@@ -224,6 +241,8 @@ type proxyTargetArgs struct {
 // The set of arguments for constructing a ProxyTarget resource.
 type ProxyTargetArgs struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrInput
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrInput
@@ -256,6 +275,12 @@ func (i *ProxyTarget) ToProxyTargetOutputWithContext(ctx context.Context) ProxyT
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetOutput)
 }
 
+func (i *ProxyTarget) ToOutput(ctx context.Context) pulumix.Output[*ProxyTarget] {
+	return pulumix.Output[*ProxyTarget]{
+		OutputState: i.ToProxyTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProxyTargetArrayInput is an input type that accepts ProxyTargetArray and ProxyTargetArrayOutput values.
 // You can construct a concrete instance of `ProxyTargetArrayInput` via:
 //
@@ -279,6 +304,12 @@ func (i ProxyTargetArray) ToProxyTargetArrayOutput() ProxyTargetArrayOutput {
 
 func (i ProxyTargetArray) ToProxyTargetArrayOutputWithContext(ctx context.Context) ProxyTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetArrayOutput)
+}
+
+func (i ProxyTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyTarget] {
+	return pulumix.Output[[]*ProxyTarget]{
+		OutputState: i.ToProxyTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProxyTargetMapInput is an input type that accepts ProxyTargetMap and ProxyTargetMapOutput values.
@@ -306,6 +337,12 @@ func (i ProxyTargetMap) ToProxyTargetMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetMapOutput)
 }
 
+func (i ProxyTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyTarget] {
+	return pulumix.Output[map[string]*ProxyTarget]{
+		OutputState: i.ToProxyTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProxyTargetOutput struct{ *pulumi.OutputState }
 
 func (ProxyTargetOutput) ElementType() reflect.Type {
@@ -320,7 +357,15 @@ func (o ProxyTargetOutput) ToProxyTargetOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o ProxyTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*ProxyTarget] {
+	return pulumix.Output[*ProxyTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 // DB cluster identifier.
+//
+// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 func (o ProxyTargetOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -384,6 +429,12 @@ func (o ProxyTargetArrayOutput) ToProxyTargetArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ProxyTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyTarget] {
+	return pulumix.Output[[]*ProxyTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProxyTargetArrayOutput) Index(i pulumi.IntInput) ProxyTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProxyTarget {
 		return vs[0].([]*ProxyTarget)[vs[1].(int)]
@@ -402,6 +453,12 @@ func (o ProxyTargetMapOutput) ToProxyTargetMapOutput() ProxyTargetMapOutput {
 
 func (o ProxyTargetMapOutput) ToProxyTargetMapOutputWithContext(ctx context.Context) ProxyTargetMapOutput {
 	return o
+}
+
+func (o ProxyTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyTarget] {
+	return pulumix.Output[map[string]*ProxyTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProxyTargetMapOutput) MapIndex(k pulumi.StringInput) ProxyTargetOutput {

@@ -41,6 +41,8 @@ class BrokerArgs:
         :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] apply_immediately: Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[str] authentication_strategy: Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
@@ -133,6 +135,8 @@ class BrokerArgs:
     def users(self) -> pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "users")
 
@@ -381,6 +385,8 @@ class _BrokerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+               
+               The following arguments are optional:
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -695,6 +701,8 @@ class _BrokerState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "users")
 
@@ -784,7 +792,7 @@ class Broker(pulumi.CustomResource):
 
         ## Import
 
-        MQ Brokers can be imported using their broker id, e.g.,
+        Using `pulumi import`, import MQ Brokers using their broker id. For example:
 
         ```sh
          $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -811,6 +819,8 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -874,7 +884,7 @@ class Broker(pulumi.CustomResource):
 
         ## Import
 
-        MQ Brokers can be imported using their broker id, e.g.,
+        Using `pulumi import`, import MQ Brokers using their broker id. For example:
 
         ```sh
          $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -1025,6 +1035,8 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1238,6 +1250,8 @@ class Broker(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Sequence['outputs.BrokerUser']]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "users")
 

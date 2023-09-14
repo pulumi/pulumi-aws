@@ -26,6 +26,14 @@ import * as utilities from "../utilities";
  *     websiteUrl: "https://www.examplecorp.com",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
+ *
+ * ```sh
+ *  $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+ * ```
  */
 export class PrimaryContact extends pulumi.CustomResource {
     /**

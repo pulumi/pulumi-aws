@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift usage limits can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Redshift usage limits using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example

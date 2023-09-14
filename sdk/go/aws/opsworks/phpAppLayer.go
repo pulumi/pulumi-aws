@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks PHP application layer resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +43,7 @@ import (
 //
 // ## Import
 //
-// OpsWorks PHP Application Layers can be imported using the `id`, e.g.,
+// Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For example:
 //
 // ```sh
 //
@@ -89,6 +91,10 @@ type PhpAppLayer struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -106,6 +112,7 @@ func NewPhpAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PhpAppLayer
 	err := ctx.RegisterResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -166,6 +173,10 @@ type phpAppLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -212,6 +223,10 @@ type PhpAppLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -260,6 +275,10 @@ type phpAppLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -303,6 +322,10 @@ type PhpAppLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -331,6 +354,12 @@ func (i *PhpAppLayer) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpApp
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerOutput)
 }
 
+func (i *PhpAppLayer) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayer] {
+	return pulumix.Output[*PhpAppLayer]{
+		OutputState: i.ToPhpAppLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PhpAppLayerArrayInput is an input type that accepts PhpAppLayerArray and PhpAppLayerArrayOutput values.
 // You can construct a concrete instance of `PhpAppLayerArrayInput` via:
 //
@@ -354,6 +383,12 @@ func (i PhpAppLayerArray) ToPhpAppLayerArrayOutput() PhpAppLayerArrayOutput {
 
 func (i PhpAppLayerArray) ToPhpAppLayerArrayOutputWithContext(ctx context.Context) PhpAppLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerArrayOutput)
+}
+
+func (i PhpAppLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*PhpAppLayer] {
+	return pulumix.Output[[]*PhpAppLayer]{
+		OutputState: i.ToPhpAppLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PhpAppLayerMapInput is an input type that accepts PhpAppLayerMap and PhpAppLayerMapOutput values.
@@ -381,6 +416,12 @@ func (i PhpAppLayerMap) ToPhpAppLayerMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerMapOutput)
 }
 
+func (i PhpAppLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PhpAppLayer] {
+	return pulumix.Output[map[string]*PhpAppLayer]{
+		OutputState: i.ToPhpAppLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhpAppLayerOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerOutput) ElementType() reflect.Type {
@@ -393,6 +434,12 @@ func (o PhpAppLayerOutput) ToPhpAppLayerOutput() PhpAppLayerOutput {
 
 func (o PhpAppLayerOutput) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput {
 	return o
+}
+
+func (o PhpAppLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayer] {
+	return pulumix.Output[*PhpAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -499,6 +546,10 @@ func (o PhpAppLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following extra optional arguments, all lists of Chef recipe names, allow
+// custom Chef recipes to be applied to layer instances at the five different
+// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 func (o PhpAppLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PhpAppLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -527,6 +578,12 @@ func (o PhpAppLayerArrayOutput) ToPhpAppLayerArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o PhpAppLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PhpAppLayer] {
+	return pulumix.Output[[]*PhpAppLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PhpAppLayerArrayOutput) Index(i pulumi.IntInput) PhpAppLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PhpAppLayer {
 		return vs[0].([]*PhpAppLayer)[vs[1].(int)]
@@ -545,6 +602,12 @@ func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutput() PhpAppLayerMapOutput {
 
 func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutputWithContext(ctx context.Context) PhpAppLayerMapOutput {
 	return o
+}
+
+func (o PhpAppLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PhpAppLayer] {
+	return pulumix.Output[map[string]*PhpAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerMapOutput) MapIndex(k pulumi.StringInput) PhpAppLayerOutput {

@@ -119,11 +119,11 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts, typ=GetDirectConnectGatewayAttachmentResult).value
 
     return AwaitableGetDirectConnectGatewayAttachmentResult(
-        dx_gateway_id=__ret__.dx_gateway_id,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id)
+        dx_gateway_id=pulumi.get(__ret__, 'dx_gateway_id'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 
 
 @_utilities.lift_output_func(get_direct_connect_gateway_attachment)

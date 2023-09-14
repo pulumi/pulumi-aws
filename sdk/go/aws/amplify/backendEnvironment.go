@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amplify Backend Environment resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.,
+// Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
 //
 // ```sh
 //
@@ -83,6 +85,7 @@ func NewBackendEnvironment(ctx *pulumi.Context,
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BackendEnvironment
 	err := ctx.RegisterResource("aws:amplify/backendEnvironment:BackendEnvironment", name, args, &resource, opts...)
 	if err != nil {
@@ -180,6 +183,12 @@ func (i *BackendEnvironment) ToBackendEnvironmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BackendEnvironmentOutput)
 }
 
+func (i *BackendEnvironment) ToOutput(ctx context.Context) pulumix.Output[*BackendEnvironment] {
+	return pulumix.Output[*BackendEnvironment]{
+		OutputState: i.ToBackendEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackendEnvironmentArrayInput is an input type that accepts BackendEnvironmentArray and BackendEnvironmentArrayOutput values.
 // You can construct a concrete instance of `BackendEnvironmentArrayInput` via:
 //
@@ -203,6 +212,12 @@ func (i BackendEnvironmentArray) ToBackendEnvironmentArrayOutput() BackendEnviro
 
 func (i BackendEnvironmentArray) ToBackendEnvironmentArrayOutputWithContext(ctx context.Context) BackendEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackendEnvironmentArrayOutput)
+}
+
+func (i BackendEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackendEnvironment] {
+	return pulumix.Output[[]*BackendEnvironment]{
+		OutputState: i.ToBackendEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BackendEnvironmentMapInput is an input type that accepts BackendEnvironmentMap and BackendEnvironmentMapOutput values.
@@ -230,6 +245,12 @@ func (i BackendEnvironmentMap) ToBackendEnvironmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BackendEnvironmentMapOutput)
 }
 
+func (i BackendEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackendEnvironment] {
+	return pulumix.Output[map[string]*BackendEnvironment]{
+		OutputState: i.ToBackendEnvironmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (BackendEnvironmentOutput) ElementType() reflect.Type {
@@ -242,6 +263,12 @@ func (o BackendEnvironmentOutput) ToBackendEnvironmentOutput() BackendEnvironmen
 
 func (o BackendEnvironmentOutput) ToBackendEnvironmentOutputWithContext(ctx context.Context) BackendEnvironmentOutput {
 	return o
+}
+
+func (o BackendEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*BackendEnvironment] {
+	return pulumix.Output[*BackendEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Unique ID for an Amplify app.
@@ -283,6 +310,12 @@ func (o BackendEnvironmentArrayOutput) ToBackendEnvironmentArrayOutputWithContex
 	return o
 }
 
+func (o BackendEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackendEnvironment] {
+	return pulumix.Output[[]*BackendEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BackendEnvironmentArrayOutput) Index(i pulumi.IntInput) BackendEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackendEnvironment {
 		return vs[0].([]*BackendEnvironment)[vs[1].(int)]
@@ -301,6 +334,12 @@ func (o BackendEnvironmentMapOutput) ToBackendEnvironmentMapOutput() BackendEnvi
 
 func (o BackendEnvironmentMapOutput) ToBackendEnvironmentMapOutputWithContext(ctx context.Context) BackendEnvironmentMapOutput {
 	return o
+}
+
+func (o BackendEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackendEnvironment] {
+	return pulumix.Output[map[string]*BackendEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendEnvironmentMapOutput) MapIndex(k pulumi.StringInput) BackendEnvironmentOutput {

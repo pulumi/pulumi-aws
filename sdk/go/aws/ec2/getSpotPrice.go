@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about most recent Spot Price for a given EC2 instance.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +49,7 @@ import (
 //
 // ```
 func GetSpotPrice(ctx *pulumi.Context, args *GetSpotPriceArgs, opts ...pulumi.InvokeOption) (*GetSpotPriceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSpotPriceResult
 	err := ctx.Invoke("aws:ec2/getSpotPrice:getSpotPrice", args, &rv, opts...)
 	if err != nil {
@@ -118,6 +121,12 @@ func (o GetSpotPriceResultOutput) ToGetSpotPriceResultOutput() GetSpotPriceResul
 
 func (o GetSpotPriceResultOutput) ToGetSpotPriceResultOutputWithContext(ctx context.Context) GetSpotPriceResultOutput {
 	return o
+}
+
+func (o GetSpotPriceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpotPriceResult] {
+	return pulumix.Output[GetSpotPriceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpotPriceResultOutput) AvailabilityZone() pulumi.StringPtrOutput {

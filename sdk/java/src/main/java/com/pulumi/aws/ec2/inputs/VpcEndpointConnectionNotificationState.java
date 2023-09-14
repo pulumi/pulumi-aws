@@ -19,12 +19,16 @@ public final class VpcEndpointConnectionNotificationState extends com.pulumi.res
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
+     * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+     * 
      */
     @Import(name="connectionEvents")
     private @Nullable Output<List<String>> connectionEvents;
 
     /**
      * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     * 
+     * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
      * 
      */
     public Optional<Output<List<String>>> connectionEvents() {
@@ -138,6 +142,8 @@ public final class VpcEndpointConnectionNotificationState extends com.pulumi.res
         /**
          * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
          * 
+         * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -149,6 +155,8 @@ public final class VpcEndpointConnectionNotificationState extends com.pulumi.res
         /**
          * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
          * 
+         * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +166,8 @@ public final class VpcEndpointConnectionNotificationState extends com.pulumi.res
 
         /**
          * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+         * 
+         * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
          * 
          * @return builder
          * 

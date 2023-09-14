@@ -144,29 +144,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-     * 
-     * @deprecated
-     * use `ipv6_addresses` attribute instead
-     * 
-     */
-    @Deprecated /* use `ipv6_addresses` attribute instead */
-    @Import(name="ipv6Address")
-    private @Nullable Output<String> ipv6Address;
-
-    /**
-     * @return (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-     * 
-     * @deprecated
-     * use `ipv6_addresses` attribute instead
-     * 
-     */
-    @Deprecated /* use `ipv6_addresses` attribute instead */
-    public Optional<Output<String>> ipv6Address() {
-        return Optional.ofNullable(this.ipv6Address);
-    }
-
-    /**
      * List of IPv6 addresses for the Lightsail instance.
      * 
      */
@@ -344,7 +321,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.cpuCount = $.cpuCount;
         this.createdAt = $.createdAt;
         this.ipAddressType = $.ipAddressType;
-        this.ipv6Address = $.ipv6Address;
         this.ipv6Addresses = $.ipv6Addresses;
         this.isStaticIp = $.isStaticIp;
         this.keyPairName = $.keyPairName;
@@ -544,35 +520,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
-        }
-
-        /**
-         * @param ipv6Address (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use `ipv6_addresses` attribute instead
-         * 
-         */
-        @Deprecated /* use `ipv6_addresses` attribute instead */
-        public Builder ipv6Address(@Nullable Output<String> ipv6Address) {
-            $.ipv6Address = ipv6Address;
-            return this;
-        }
-
-        /**
-         * @param ipv6Address (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use `ipv6_addresses` attribute instead
-         * 
-         */
-        @Deprecated /* use `ipv6_addresses` attribute instead */
-        public Builder ipv6Address(String ipv6Address) {
-            return ipv6Address(Output.of(ipv6Address));
         }
 
         /**

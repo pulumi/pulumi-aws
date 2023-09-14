@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -118,7 +119,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect connections can be imported using the `connection id`, e.g.,
+ * Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
@@ -312,12 +313,16 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      * 
+     * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+     * 
      */
     @Export(name="requestMacsec", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requestMacsec;
 
     /**
      * @return Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
      * 
      */
     public Output<Optional<Boolean>> requestMacsec() {
@@ -369,14 +374,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The VLAN ID.
      * 
      */
-    @Export(name="vlanId", refs={String.class}, tree="[0]")
-    private Output<String> vlanId;
+    @Export(name="vlanId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> vlanId;
 
     /**
      * @return The VLAN ID.
      * 
      */
-    public Output<String> vlanId() {
+    public Output<Integer> vlanId() {
         return this.vlanId;
     }
 

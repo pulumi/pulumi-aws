@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DomainAdvancedSecurityOptions struct {
 	// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
@@ -55,6 +59,12 @@ func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsOutput)
 }
 
+func (i DomainAdvancedSecurityOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAdvancedSecurityOptions] {
+	return pulumix.Output[DomainAdvancedSecurityOptions]{
+		OutputState: i.ToDomainAdvancedSecurityOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
 	return i.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Background())
 }
@@ -96,6 +106,12 @@ func (i *domainAdvancedSecurityOptionsPtrType) ToDomainAdvancedSecurityOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsPtrOutput)
 }
 
+func (i *domainAdvancedSecurityOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainAdvancedSecurityOptions] {
+	return pulumix.Output[*DomainAdvancedSecurityOptions]{
+		OutputState: i.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainAdvancedSecurityOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainAdvancedSecurityOptionsOutput) ElementType() reflect.Type {
@@ -118,6 +134,12 @@ func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptions {
 		return &v
 	}).(DomainAdvancedSecurityOptionsPtrOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAdvancedSecurityOptions] {
+	return pulumix.Output[DomainAdvancedSecurityOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
@@ -154,6 +176,12 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) ToDomainAdvancedSecurityOptionsP
 
 func (o DomainAdvancedSecurityOptionsPtrOutput) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
 	return o
+}
+
+func (o DomainAdvancedSecurityOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAdvancedSecurityOptions] {
+	return pulumix.Output[*DomainAdvancedSecurityOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainAdvancedSecurityOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsOutput {
@@ -247,6 +275,12 @@ func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput)
 }
 
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAdvancedSecurityOptionsMasterUserOptions] {
+	return pulumix.Output[DomainAdvancedSecurityOptionsMasterUserOptions]{
+		OutputState: i.ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
 	return i.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Background())
 }
@@ -288,6 +322,12 @@ func (i *domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ToDomainAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
 }
 
+func (i *domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainAdvancedSecurityOptionsMasterUserOptions] {
+	return pulumix.Output[*DomainAdvancedSecurityOptionsMasterUserOptions]{
+		OutputState: i.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainAdvancedSecurityOptionsMasterUserOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ElementType() reflect.Type {
@@ -310,6 +350,12 @@ func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAdvancedSecurityOptionsMasterUserOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
 		return &v
 	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAdvancedSecurityOptionsMasterUserOptions] {
+	return pulumix.Output[DomainAdvancedSecurityOptionsMasterUserOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
@@ -339,6 +385,12 @@ func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToDomainAdvance
 
 func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
 	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAdvancedSecurityOptionsMasterUserOptions] {
+	return pulumix.Output[*DomainAdvancedSecurityOptionsMasterUserOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
@@ -422,6 +474,12 @@ func (i DomainAutoTuneOptionsArgs) ToDomainAutoTuneOptionsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsOutput)
 }
 
+func (i DomainAutoTuneOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAutoTuneOptions] {
+	return pulumix.Output[DomainAutoTuneOptions]{
+		OutputState: i.ToDomainAutoTuneOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainAutoTuneOptionsArgs) ToDomainAutoTuneOptionsPtrOutput() DomainAutoTuneOptionsPtrOutput {
 	return i.ToDomainAutoTuneOptionsPtrOutputWithContext(context.Background())
 }
@@ -463,6 +521,12 @@ func (i *domainAutoTuneOptionsPtrType) ToDomainAutoTuneOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsPtrOutput)
 }
 
+func (i *domainAutoTuneOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainAutoTuneOptions] {
+	return pulumix.Output[*DomainAutoTuneOptions]{
+		OutputState: i.ToDomainAutoTuneOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainAutoTuneOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainAutoTuneOptionsOutput) ElementType() reflect.Type {
@@ -485,6 +549,12 @@ func (o DomainAutoTuneOptionsOutput) ToDomainAutoTuneOptionsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAutoTuneOptions) *DomainAutoTuneOptions {
 		return &v
 	}).(DomainAutoTuneOptionsPtrOutput)
+}
+
+func (o DomainAutoTuneOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAutoTuneOptions] {
+	return pulumix.Output[DomainAutoTuneOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
@@ -516,6 +586,12 @@ func (o DomainAutoTuneOptionsPtrOutput) ToDomainAutoTuneOptionsPtrOutput() Domai
 
 func (o DomainAutoTuneOptionsPtrOutput) ToDomainAutoTuneOptionsPtrOutputWithContext(ctx context.Context) DomainAutoTuneOptionsPtrOutput {
 	return o
+}
+
+func (o DomainAutoTuneOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAutoTuneOptions] {
+	return pulumix.Output[*DomainAutoTuneOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainAutoTuneOptionsPtrOutput) Elem() DomainAutoTuneOptionsOutput {
@@ -599,6 +675,12 @@ func (i DomainAutoTuneOptionsMaintenanceScheduleArgs) ToDomainAutoTuneOptionsMai
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsMaintenanceScheduleOutput)
 }
 
+func (i DomainAutoTuneOptionsMaintenanceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAutoTuneOptionsMaintenanceSchedule] {
+	return pulumix.Output[DomainAutoTuneOptionsMaintenanceSchedule]{
+		OutputState: i.ToDomainAutoTuneOptionsMaintenanceScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainAutoTuneOptionsMaintenanceScheduleArrayInput is an input type that accepts DomainAutoTuneOptionsMaintenanceScheduleArray and DomainAutoTuneOptionsMaintenanceScheduleArrayOutput values.
 // You can construct a concrete instance of `DomainAutoTuneOptionsMaintenanceScheduleArrayInput` via:
 //
@@ -624,6 +706,12 @@ func (i DomainAutoTuneOptionsMaintenanceScheduleArray) ToDomainAutoTuneOptionsMa
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsMaintenanceScheduleArrayOutput)
 }
 
+func (i DomainAutoTuneOptionsMaintenanceScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainAutoTuneOptionsMaintenanceSchedule] {
+	return pulumix.Output[[]DomainAutoTuneOptionsMaintenanceSchedule]{
+		OutputState: i.ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainAutoTuneOptionsMaintenanceScheduleOutput struct{ *pulumi.OutputState }
 
 func (DomainAutoTuneOptionsMaintenanceScheduleOutput) ElementType() reflect.Type {
@@ -636,6 +724,12 @@ func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) ToDomainAutoTuneOptionsM
 
 func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) ToDomainAutoTuneOptionsMaintenanceScheduleOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleOutput {
 	return o
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAutoTuneOptionsMaintenanceSchedule] {
+	return pulumix.Output[DomainAutoTuneOptionsMaintenanceSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
@@ -667,6 +761,12 @@ func (o DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) ToDomainAutoTuneOpt
 
 func (o DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
 	return o
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainAutoTuneOptionsMaintenanceSchedule] {
+	return pulumix.Output[[]DomainAutoTuneOptionsMaintenanceSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) Index(i pulumi.IntInput) DomainAutoTuneOptionsMaintenanceScheduleOutput {
@@ -712,6 +812,12 @@ func (i DomainAutoTuneOptionsMaintenanceScheduleDurationArgs) ToDomainAutoTuneOp
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsMaintenanceScheduleDurationOutput)
 }
 
+func (i DomainAutoTuneOptionsMaintenanceScheduleDurationArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAutoTuneOptionsMaintenanceScheduleDuration] {
+	return pulumix.Output[DomainAutoTuneOptionsMaintenanceScheduleDuration]{
+		OutputState: i.ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainAutoTuneOptionsMaintenanceScheduleDurationOutput struct{ *pulumi.OutputState }
 
 func (DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) ElementType() reflect.Type {
@@ -724,6 +830,12 @@ func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) ToDomainAutoTune
 
 func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleDurationOutput {
 	return o
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAutoTuneOptionsMaintenanceScheduleDuration] {
+	return pulumix.Output[DomainAutoTuneOptionsMaintenanceScheduleDuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
@@ -748,7 +860,8 @@ type DomainClusterConfig struct {
 	// Number of instances in the cluster.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType              *string `pulumi:"instanceType"`
+	MultiAzWithStandbyEnabled *bool   `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount *int `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -784,7 +897,8 @@ type DomainClusterConfigArgs struct {
 	// Number of instances in the cluster.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	InstanceType              pulumi.StringPtrInput `pulumi:"instanceType"`
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput   `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -807,6 +921,12 @@ func (i DomainClusterConfigArgs) ToDomainClusterConfigOutput() DomainClusterConf
 
 func (i DomainClusterConfigArgs) ToDomainClusterConfigOutputWithContext(ctx context.Context) DomainClusterConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigOutput)
+}
+
+func (i DomainClusterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainClusterConfig] {
+	return pulumix.Output[DomainClusterConfig]{
+		OutputState: i.ToDomainClusterConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DomainClusterConfigArgs) ToDomainClusterConfigPtrOutput() DomainClusterConfigPtrOutput {
@@ -850,6 +970,12 @@ func (i *domainClusterConfigPtrType) ToDomainClusterConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigPtrOutput)
 }
 
+func (i *domainClusterConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainClusterConfig] {
+	return pulumix.Output[*DomainClusterConfig]{
+		OutputState: i.ToDomainClusterConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (DomainClusterConfigOutput) ElementType() reflect.Type {
@@ -872,6 +998,12 @@ func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainClusterConfig) *DomainClusterConfig {
 		return &v
 	}).(DomainClusterConfigPtrOutput)
+}
+
+func (o DomainClusterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainClusterConfig] {
+	return pulumix.Output[DomainClusterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block containing cold storage configuration. Detailed below.
@@ -902,6 +1034,10 @@ func (o DomainClusterConfigOutput) InstanceCount() pulumi.IntPtrOutput {
 // Instance type of data nodes in the cluster.
 func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
@@ -941,6 +1077,12 @@ func (o DomainClusterConfigPtrOutput) ToDomainClusterConfigPtrOutput() DomainClu
 
 func (o DomainClusterConfigPtrOutput) ToDomainClusterConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigPtrOutput {
 	return o
+}
+
+func (o DomainClusterConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainClusterConfig] {
+	return pulumix.Output[*DomainClusterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
@@ -1011,6 +1153,15 @@ func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 		}
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultiAzWithStandbyEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
@@ -1096,6 +1247,12 @@ func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStor
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsOutput)
 }
 
+func (i DomainClusterConfigColdStorageOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainClusterConfigColdStorageOptions] {
+	return pulumix.Output[DomainClusterConfigColdStorageOptions]{
+		OutputState: i.ToDomainClusterConfigColdStorageOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
 	return i.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Background())
 }
@@ -1137,6 +1294,12 @@ func (i *domainClusterConfigColdStorageOptionsPtrType) ToDomainClusterConfigCold
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsPtrOutput)
 }
 
+func (i *domainClusterConfigColdStorageOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainClusterConfigColdStorageOptions] {
+	return pulumix.Output[*DomainClusterConfigColdStorageOptions]{
+		OutputState: i.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainClusterConfigColdStorageOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainClusterConfigColdStorageOptionsOutput) ElementType() reflect.Type {
@@ -1161,6 +1324,12 @@ func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdSt
 	}).(DomainClusterConfigColdStorageOptionsPtrOutput)
 }
 
+func (o DomainClusterConfigColdStorageOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainClusterConfigColdStorageOptions] {
+	return pulumix.Output[DomainClusterConfigColdStorageOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
 func (o DomainClusterConfigColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfigColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -1178,6 +1347,12 @@ func (o DomainClusterConfigColdStorageOptionsPtrOutput) ToDomainClusterConfigCol
 
 func (o DomainClusterConfigColdStorageOptionsPtrOutput) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
 	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainClusterConfigColdStorageOptions] {
+	return pulumix.Output[*DomainClusterConfigColdStorageOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainClusterConfigColdStorageOptionsPtrOutput) Elem() DomainClusterConfigColdStorageOptionsOutput {
@@ -1233,6 +1408,12 @@ func (i DomainClusterConfigZoneAwarenessConfigArgs) ToDomainClusterConfigZoneAwa
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigZoneAwarenessConfigOutput)
 }
 
+func (i DomainClusterConfigZoneAwarenessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[DomainClusterConfigZoneAwarenessConfig]{
+		OutputState: i.ToDomainClusterConfigZoneAwarenessConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainClusterConfigZoneAwarenessConfigArgs) ToDomainClusterConfigZoneAwarenessConfigPtrOutput() DomainClusterConfigZoneAwarenessConfigPtrOutput {
 	return i.ToDomainClusterConfigZoneAwarenessConfigPtrOutputWithContext(context.Background())
 }
@@ -1274,6 +1455,12 @@ func (i *domainClusterConfigZoneAwarenessConfigPtrType) ToDomainClusterConfigZon
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
+func (i *domainClusterConfigZoneAwarenessConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[*DomainClusterConfigZoneAwarenessConfig]{
+		OutputState: i.ToDomainClusterConfigZoneAwarenessConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainClusterConfigZoneAwarenessConfigOutput struct{ *pulumi.OutputState }
 
 func (DomainClusterConfigZoneAwarenessConfigOutput) ElementType() reflect.Type {
@@ -1298,6 +1485,12 @@ func (o DomainClusterConfigZoneAwarenessConfigOutput) ToDomainClusterConfigZoneA
 	}).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
+func (o DomainClusterConfigZoneAwarenessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[DomainClusterConfigZoneAwarenessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
 func (o DomainClusterConfigZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
@@ -1315,6 +1508,12 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) ToDomainClusterConfigZo
 
 func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) ToDomainClusterConfigZoneAwarenessConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigZoneAwarenessConfigPtrOutput {
 	return o
+}
+
+func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[*DomainClusterConfigZoneAwarenessConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) Elem() DomainClusterConfigZoneAwarenessConfigOutput {
@@ -1382,6 +1581,12 @@ func (i DomainCognitoOptionsArgs) ToDomainCognitoOptionsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCognitoOptionsOutput)
 }
 
+func (i DomainCognitoOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainCognitoOptions] {
+	return pulumix.Output[DomainCognitoOptions]{
+		OutputState: i.ToDomainCognitoOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainCognitoOptionsArgs) ToDomainCognitoOptionsPtrOutput() DomainCognitoOptionsPtrOutput {
 	return i.ToDomainCognitoOptionsPtrOutputWithContext(context.Background())
 }
@@ -1423,6 +1628,12 @@ func (i *domainCognitoOptionsPtrType) ToDomainCognitoOptionsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCognitoOptionsPtrOutput)
 }
 
+func (i *domainCognitoOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainCognitoOptions] {
+	return pulumix.Output[*DomainCognitoOptions]{
+		OutputState: i.ToDomainCognitoOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainCognitoOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainCognitoOptionsOutput) ElementType() reflect.Type {
@@ -1445,6 +1656,12 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainCognitoOptions) *DomainCognitoOptions {
 		return &v
 	}).(DomainCognitoOptionsPtrOutput)
+}
+
+func (o DomainCognitoOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainCognitoOptions] {
+	return pulumix.Output[DomainCognitoOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
@@ -1479,6 +1696,12 @@ func (o DomainCognitoOptionsPtrOutput) ToDomainCognitoOptionsPtrOutput() DomainC
 
 func (o DomainCognitoOptionsPtrOutput) ToDomainCognitoOptionsPtrOutputWithContext(ctx context.Context) DomainCognitoOptionsPtrOutput {
 	return o
+}
+
+func (o DomainCognitoOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainCognitoOptions] {
+	return pulumix.Output[*DomainCognitoOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
@@ -1580,6 +1803,12 @@ func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput)
 }
 
+func (i DomainDomainEndpointOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainDomainEndpointOptions] {
+	return pulumix.Output[DomainDomainEndpointOptions]{
+		OutputState: i.ToDomainDomainEndpointOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
 	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
 }
@@ -1621,6 +1850,12 @@ func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsPtrOutput)
 }
 
+func (i *domainDomainEndpointOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainDomainEndpointOptions] {
+	return pulumix.Output[*DomainDomainEndpointOptions]{
+		OutputState: i.ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainDomainEndpointOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainDomainEndpointOptionsOutput) ElementType() reflect.Type {
@@ -1643,6 +1878,12 @@ func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDomainEndpointOptions) *DomainDomainEndpointOptions {
 		return &v
 	}).(DomainDomainEndpointOptionsPtrOutput)
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainDomainEndpointOptions] {
+	return pulumix.Output[DomainDomainEndpointOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Fully qualified domain for your custom endpoint.
@@ -1682,6 +1923,12 @@ func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOu
 
 func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
 	return o
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainDomainEndpointOptions] {
+	return pulumix.Output[*DomainDomainEndpointOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptionsOutput {
@@ -1793,6 +2040,12 @@ func (i DomainEbsOptionsArgs) ToDomainEbsOptionsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsOutput)
 }
 
+func (i DomainEbsOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainEbsOptions] {
+	return pulumix.Output[DomainEbsOptions]{
+		OutputState: i.ToDomainEbsOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainEbsOptionsArgs) ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPtrOutput {
 	return i.ToDomainEbsOptionsPtrOutputWithContext(context.Background())
 }
@@ -1834,6 +2087,12 @@ func (i *domainEbsOptionsPtrType) ToDomainEbsOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsPtrOutput)
 }
 
+func (i *domainEbsOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainEbsOptions] {
+	return pulumix.Output[*DomainEbsOptions]{
+		OutputState: i.ToDomainEbsOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainEbsOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainEbsOptionsOutput) ElementType() reflect.Type {
@@ -1856,6 +2115,12 @@ func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEbsOptions) *DomainEbsOptions {
 		return &v
 	}).(DomainEbsOptionsPtrOutput)
+}
+
+func (o DomainEbsOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainEbsOptions] {
+	return pulumix.Output[DomainEbsOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether EBS volumes are attached to data nodes in the domain.
@@ -1895,6 +2160,12 @@ func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutput() DomainEbsOption
 
 func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx context.Context) DomainEbsOptionsPtrOutput {
 	return o
+}
+
+func (o DomainEbsOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainEbsOptions] {
+	return pulumix.Output[*DomainEbsOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
@@ -1994,6 +2265,12 @@ func (i DomainEncryptAtRestArgs) ToDomainEncryptAtRestOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEncryptAtRestOutput)
 }
 
+func (i DomainEncryptAtRestArgs) ToOutput(ctx context.Context) pulumix.Output[DomainEncryptAtRest] {
+	return pulumix.Output[DomainEncryptAtRest]{
+		OutputState: i.ToDomainEncryptAtRestOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainEncryptAtRestArgs) ToDomainEncryptAtRestPtrOutput() DomainEncryptAtRestPtrOutput {
 	return i.ToDomainEncryptAtRestPtrOutputWithContext(context.Background())
 }
@@ -2035,6 +2312,12 @@ func (i *domainEncryptAtRestPtrType) ToDomainEncryptAtRestPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEncryptAtRestPtrOutput)
 }
 
+func (i *domainEncryptAtRestPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainEncryptAtRest] {
+	return pulumix.Output[*DomainEncryptAtRest]{
+		OutputState: i.ToDomainEncryptAtRestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainEncryptAtRestOutput struct{ *pulumi.OutputState }
 
 func (DomainEncryptAtRestOutput) ElementType() reflect.Type {
@@ -2059,6 +2342,12 @@ func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestPtrOutputWithContext(ctx
 	}).(DomainEncryptAtRestPtrOutput)
 }
 
+func (o DomainEncryptAtRestOutput) ToOutput(ctx context.Context) pulumix.Output[DomainEncryptAtRest] {
+	return pulumix.Output[DomainEncryptAtRest]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
 func (o DomainEncryptAtRestOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -2081,6 +2370,12 @@ func (o DomainEncryptAtRestPtrOutput) ToDomainEncryptAtRestPtrOutput() DomainEnc
 
 func (o DomainEncryptAtRestPtrOutput) ToDomainEncryptAtRestPtrOutputWithContext(ctx context.Context) DomainEncryptAtRestPtrOutput {
 	return o
+}
+
+func (o DomainEncryptAtRestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainEncryptAtRest] {
+	return pulumix.Output[*DomainEncryptAtRest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
@@ -2154,6 +2449,12 @@ func (i DomainLogPublishingOptionArgs) ToDomainLogPublishingOptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainLogPublishingOptionOutput)
 }
 
+func (i DomainLogPublishingOptionArgs) ToOutput(ctx context.Context) pulumix.Output[DomainLogPublishingOption] {
+	return pulumix.Output[DomainLogPublishingOption]{
+		OutputState: i.ToDomainLogPublishingOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainLogPublishingOptionArrayInput is an input type that accepts DomainLogPublishingOptionArray and DomainLogPublishingOptionArrayOutput values.
 // You can construct a concrete instance of `DomainLogPublishingOptionArrayInput` via:
 //
@@ -2179,6 +2480,12 @@ func (i DomainLogPublishingOptionArray) ToDomainLogPublishingOptionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DomainLogPublishingOptionArrayOutput)
 }
 
+func (i DomainLogPublishingOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainLogPublishingOption] {
+	return pulumix.Output[[]DomainLogPublishingOption]{
+		OutputState: i.ToDomainLogPublishingOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainLogPublishingOptionOutput struct{ *pulumi.OutputState }
 
 func (DomainLogPublishingOptionOutput) ElementType() reflect.Type {
@@ -2191,6 +2498,12 @@ func (o DomainLogPublishingOptionOutput) ToDomainLogPublishingOptionOutput() Dom
 
 func (o DomainLogPublishingOptionOutput) ToDomainLogPublishingOptionOutputWithContext(ctx context.Context) DomainLogPublishingOptionOutput {
 	return o
+}
+
+func (o DomainLogPublishingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DomainLogPublishingOption] {
+	return pulumix.Output[DomainLogPublishingOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Cloudwatch log group to which log needs to be published.
@@ -2220,6 +2533,12 @@ func (o DomainLogPublishingOptionArrayOutput) ToDomainLogPublishingOptionArrayOu
 
 func (o DomainLogPublishingOptionArrayOutput) ToDomainLogPublishingOptionArrayOutputWithContext(ctx context.Context) DomainLogPublishingOptionArrayOutput {
 	return o
+}
+
+func (o DomainLogPublishingOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainLogPublishingOption] {
+	return pulumix.Output[[]DomainLogPublishingOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) DomainLogPublishingOptionOutput {
@@ -2259,6 +2578,12 @@ func (i DomainNodeToNodeEncryptionArgs) ToDomainNodeToNodeEncryptionOutput() Dom
 
 func (i DomainNodeToNodeEncryptionArgs) ToDomainNodeToNodeEncryptionOutputWithContext(ctx context.Context) DomainNodeToNodeEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeToNodeEncryptionOutput)
+}
+
+func (i DomainNodeToNodeEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[DomainNodeToNodeEncryption] {
+	return pulumix.Output[DomainNodeToNodeEncryption]{
+		OutputState: i.ToDomainNodeToNodeEncryptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DomainNodeToNodeEncryptionArgs) ToDomainNodeToNodeEncryptionPtrOutput() DomainNodeToNodeEncryptionPtrOutput {
@@ -2302,6 +2627,12 @@ func (i *domainNodeToNodeEncryptionPtrType) ToDomainNodeToNodeEncryptionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeToNodeEncryptionPtrOutput)
 }
 
+func (i *domainNodeToNodeEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainNodeToNodeEncryption] {
+	return pulumix.Output[*DomainNodeToNodeEncryption]{
+		OutputState: i.ToDomainNodeToNodeEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainNodeToNodeEncryptionOutput struct{ *pulumi.OutputState }
 
 func (DomainNodeToNodeEncryptionOutput) ElementType() reflect.Type {
@@ -2326,6 +2657,12 @@ func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionPtrOutputW
 	}).(DomainNodeToNodeEncryptionPtrOutput)
 }
 
+func (o DomainNodeToNodeEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[DomainNodeToNodeEncryption] {
+	return pulumix.Output[DomainNodeToNodeEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -2343,6 +2680,12 @@ func (o DomainNodeToNodeEncryptionPtrOutput) ToDomainNodeToNodeEncryptionPtrOutp
 
 func (o DomainNodeToNodeEncryptionPtrOutput) ToDomainNodeToNodeEncryptionPtrOutputWithContext(ctx context.Context) DomainNodeToNodeEncryptionPtrOutput {
 	return o
+}
+
+func (o DomainNodeToNodeEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainNodeToNodeEncryption] {
+	return pulumix.Output[*DomainNodeToNodeEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainNodeToNodeEncryptionPtrOutput) Elem() DomainNodeToNodeEncryptionOutput {
@@ -2363,6 +2706,525 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type DomainOffPeakWindowOptions struct {
+	// Enabled disabled toggle for off-peak update window.
+	Enabled       *bool                                    `pulumi:"enabled"`
+	OffPeakWindow *DomainOffPeakWindowOptionsOffPeakWindow `pulumi:"offPeakWindow"`
+}
+
+// DomainOffPeakWindowOptionsInput is an input type that accepts DomainOffPeakWindowOptionsArgs and DomainOffPeakWindowOptionsOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsInput` via:
+//
+//	DomainOffPeakWindowOptionsArgs{...}
+type DomainOffPeakWindowOptionsInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput
+	ToDomainOffPeakWindowOptionsOutputWithContext(context.Context) DomainOffPeakWindowOptionsOutput
+}
+
+type DomainOffPeakWindowOptionsArgs struct {
+	// Enabled disabled toggle for off-peak update window.
+	Enabled       pulumi.BoolPtrInput                             `pulumi:"enabled"`
+	OffPeakWindow DomainOffPeakWindowOptionsOffPeakWindowPtrInput `pulumi:"offPeakWindow"`
+}
+
+func (DomainOffPeakWindowOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput {
+	return i.ToDomainOffPeakWindowOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOutput)
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainOffPeakWindowOptions] {
+	return pulumix.Output[DomainOffPeakWindowOptions]{
+		OutputState: i.ToDomainOffPeakWindowOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOutput).ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowOptionsPtrInput is an input type that accepts DomainOffPeakWindowOptionsArgs, DomainOffPeakWindowOptionsPtr and DomainOffPeakWindowOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsPtrInput` via:
+//
+//	        DomainOffPeakWindowOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput
+	ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Context) DomainOffPeakWindowOptionsPtrOutput
+}
+
+type domainOffPeakWindowOptionsPtrType DomainOffPeakWindowOptionsArgs
+
+func DomainOffPeakWindowOptionsPtr(v *DomainOffPeakWindowOptionsArgs) DomainOffPeakWindowOptionsPtrInput {
+	return (*domainOffPeakWindowOptionsPtrType)(v)
+}
+
+func (*domainOffPeakWindowOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowOptionsPtrType) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowOptionsPtrType) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
+func (i *domainOffPeakWindowOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainOffPeakWindowOptions] {
+	return pulumix.Output[*DomainOffPeakWindowOptions]{
+		OutputState: i.ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DomainOffPeakWindowOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return o.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindowOptions) *DomainOffPeakWindowOptions {
+		return &v
+	}).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainOffPeakWindowOptions] {
+	return pulumix.Output[DomainOffPeakWindowOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled disabled toggle for off-peak update window.
+func (o DomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsOutput) OffPeakWindow() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptions) *DomainOffPeakWindowOptionsOffPeakWindow { return v.OffPeakWindow }).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainOffPeakWindowOptions] {
+	return pulumix.Output[*DomainOffPeakWindowOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) Elem() DomainOffPeakWindowOptionsOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) DomainOffPeakWindowOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindowOptions
+		return ret
+	}).(DomainOffPeakWindowOptionsOutput)
+}
+
+// Enabled disabled toggle for off-peak update window.
+func (o DomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) OffPeakWindow() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *DomainOffPeakWindowOptionsOffPeakWindow {
+		if v == nil {
+			return nil
+		}
+		return v.OffPeakWindow
+	}).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindow struct {
+	// 10h window for updates
+	WindowStartTime *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime `pulumi:"windowStartTime"`
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowArgs and DomainOffPeakWindowOptionsOffPeakWindowOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowInput` via:
+//
+//	DomainOffPeakWindowOptionsOffPeakWindowArgs{...}
+type DomainOffPeakWindowOptionsOffPeakWindowInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowOutput() DomainOffPeakWindowOptionsOffPeakWindowOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowOutput
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowArgs struct {
+	// 10h window for updates
+	WindowStartTime DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput `pulumi:"windowStartTime"`
+}
+
+func (DomainOffPeakWindowOptionsOffPeakWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowOutput() DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToOutput(ctx context.Context) pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: i.ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowOutput).ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowPtrInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowArgs, DomainOffPeakWindowOptionsOffPeakWindowPtr and DomainOffPeakWindowOptionsOffPeakWindowPtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowPtrInput` via:
+//
+//	        DomainOffPeakWindowOptionsOffPeakWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowOptionsOffPeakWindowPtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput
+}
+
+type domainOffPeakWindowOptionsOffPeakWindowPtrType DomainOffPeakWindowOptionsOffPeakWindowArgs
+
+func DomainOffPeakWindowOptionsOffPeakWindowPtr(v *DomainOffPeakWindowOptionsOffPeakWindowArgs) DomainOffPeakWindowOptionsOffPeakWindowPtrInput {
+	return (*domainOffPeakWindowOptionsOffPeakWindowPtrType)(v)
+}
+
+func (*domainOffPeakWindowOptionsOffPeakWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowPtrType) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowPtrType) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: i.ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowOutput() DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindowOptionsOffPeakWindow) *DomainOffPeakWindowOptionsOffPeakWindow {
+		return &v
+	}).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToOutput(ctx context.Context) pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: o.OutputState,
+	}
+}
+
+// 10h window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) WindowStartTime() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindow) *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return v.WindowStartTime
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) Elem() DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindow) DomainOffPeakWindowOptionsOffPeakWindow {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindowOptionsOffPeakWindow
+		return ret
+	}).(DomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+// 10h window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) WindowStartTime() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindow) *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		if v == nil {
+			return nil
+		}
+		return v.WindowStartTime
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime struct {
+	// Starting hour of the 10-hour window for updates
+	Hours *int `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes *int `pulumi:"minutes"`
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs and DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput` via:
+//
+//	DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...}
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs struct {
+	// Starting hour of the 10-hour window for updates
+	Hours pulumi.IntPtrInput `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
+}
+
+func (DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToOutput(ctx context.Context) pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput).ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs, DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtr and DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput` via:
+//
+//	        DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput
+}
+
+type domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs
+
+func DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtr(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput {
+	return (*domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType)(v)
+}
+
+func (*domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return &v
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToOutput(ctx context.Context) pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Starting hour of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Hours }).(pulumi.IntPtrOutput)
+}
+
+// Starting minute of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Elem() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime
+		return ret
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
+}
+
+// Starting hour of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Starting minute of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainSamlOptionsSamlOptions struct {
@@ -2422,6 +3284,12 @@ func (i DomainSamlOptionsSamlOptionsArgs) ToDomainSamlOptionsSamlOptionsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsOutput)
 }
 
+func (i DomainSamlOptionsSamlOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSamlOptionsSamlOptions] {
+	return pulumix.Output[DomainSamlOptionsSamlOptions]{
+		OutputState: i.ToDomainSamlOptionsSamlOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainSamlOptionsSamlOptionsArgs) ToDomainSamlOptionsSamlOptionsPtrOutput() DomainSamlOptionsSamlOptionsPtrOutput {
 	return i.ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(context.Background())
 }
@@ -2463,6 +3331,12 @@ func (i *domainSamlOptionsSamlOptionsPtrType) ToDomainSamlOptionsSamlOptionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsPtrOutput)
 }
 
+func (i *domainSamlOptionsSamlOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainSamlOptionsSamlOptions] {
+	return pulumix.Output[*DomainSamlOptionsSamlOptions]{
+		OutputState: i.ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainSamlOptionsSamlOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainSamlOptionsSamlOptionsOutput) ElementType() reflect.Type {
@@ -2485,6 +3359,12 @@ func (o DomainSamlOptionsSamlOptionsOutput) ToDomainSamlOptionsSamlOptionsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSamlOptionsSamlOptions) *DomainSamlOptionsSamlOptions {
 		return &v
 	}).(DomainSamlOptionsSamlOptionsPtrOutput)
+}
+
+func (o DomainSamlOptionsSamlOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSamlOptionsSamlOptions] {
+	return pulumix.Output[DomainSamlOptionsSamlOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether SAML authentication is enabled.
@@ -2534,6 +3414,12 @@ func (o DomainSamlOptionsSamlOptionsPtrOutput) ToDomainSamlOptionsSamlOptionsPtr
 
 func (o DomainSamlOptionsSamlOptionsPtrOutput) ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsPtrOutput {
 	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSamlOptionsSamlOptions] {
+	return pulumix.Output[*DomainSamlOptionsSamlOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainSamlOptionsSamlOptionsPtrOutput) Elem() DomainSamlOptionsSamlOptionsOutput {
@@ -2653,6 +3539,12 @@ func (i DomainSamlOptionsSamlOptionsIdpArgs) ToDomainSamlOptionsSamlOptionsIdpOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsIdpOutput)
 }
 
+func (i DomainSamlOptionsSamlOptionsIdpArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSamlOptionsSamlOptionsIdp] {
+	return pulumix.Output[DomainSamlOptionsSamlOptionsIdp]{
+		OutputState: i.ToDomainSamlOptionsSamlOptionsIdpOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainSamlOptionsSamlOptionsIdpArgs) ToDomainSamlOptionsSamlOptionsIdpPtrOutput() DomainSamlOptionsSamlOptionsIdpPtrOutput {
 	return i.ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(context.Background())
 }
@@ -2694,6 +3586,12 @@ func (i *domainSamlOptionsSamlOptionsIdpPtrType) ToDomainSamlOptionsSamlOptionsI
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsIdpPtrOutput)
 }
 
+func (i *domainSamlOptionsSamlOptionsIdpPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainSamlOptionsSamlOptionsIdp] {
+	return pulumix.Output[*DomainSamlOptionsSamlOptionsIdp]{
+		OutputState: i.ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainSamlOptionsSamlOptionsIdpOutput struct{ *pulumi.OutputState }
 
 func (DomainSamlOptionsSamlOptionsIdpOutput) ElementType() reflect.Type {
@@ -2718,6 +3616,12 @@ func (o DomainSamlOptionsSamlOptionsIdpOutput) ToDomainSamlOptionsSamlOptionsIdp
 	}).(DomainSamlOptionsSamlOptionsIdpPtrOutput)
 }
 
+func (o DomainSamlOptionsSamlOptionsIdpOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSamlOptionsSamlOptionsIdp] {
+	return pulumix.Output[DomainSamlOptionsSamlOptionsIdp]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Unique Entity ID of the application in SAML Identity Provider.
 func (o DomainSamlOptionsSamlOptionsIdpOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainSamlOptionsSamlOptionsIdp) string { return v.EntityId }).(pulumi.StringOutput)
@@ -2740,6 +3644,12 @@ func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) ToDomainSamlOptionsSamlOptions
 
 func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpPtrOutput {
 	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSamlOptionsSamlOptionsIdp] {
+	return pulumix.Output[*DomainSamlOptionsSamlOptionsIdp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) Elem() DomainSamlOptionsSamlOptionsIdpOutput {
@@ -2805,6 +3715,12 @@ func (i DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSnapshotOptionsOutput)
 }
 
+func (i DomainSnapshotOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSnapshotOptions] {
+	return pulumix.Output[DomainSnapshotOptions]{
+		OutputState: i.ToDomainSnapshotOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsPtrOutput() DomainSnapshotOptionsPtrOutput {
 	return i.ToDomainSnapshotOptionsPtrOutputWithContext(context.Background())
 }
@@ -2846,6 +3762,12 @@ func (i *domainSnapshotOptionsPtrType) ToDomainSnapshotOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSnapshotOptionsPtrOutput)
 }
 
+func (i *domainSnapshotOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainSnapshotOptions] {
+	return pulumix.Output[*DomainSnapshotOptions]{
+		OutputState: i.ToDomainSnapshotOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainSnapshotOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainSnapshotOptionsOutput) ElementType() reflect.Type {
@@ -2870,6 +3792,12 @@ func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsPtrOutputWithContext
 	}).(DomainSnapshotOptionsPtrOutput)
 }
 
+func (o DomainSnapshotOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSnapshotOptions] {
+	return pulumix.Output[DomainSnapshotOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Hour during which the service takes an automated daily snapshot of the indices in the domain.
 func (o DomainSnapshotOptionsOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
@@ -2887,6 +3815,12 @@ func (o DomainSnapshotOptionsPtrOutput) ToDomainSnapshotOptionsPtrOutput() Domai
 
 func (o DomainSnapshotOptionsPtrOutput) ToDomainSnapshotOptionsPtrOutputWithContext(ctx context.Context) DomainSnapshotOptionsPtrOutput {
 	return o
+}
+
+func (o DomainSnapshotOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSnapshotOptions] {
+	return pulumix.Output[*DomainSnapshotOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
@@ -2907,6 +3841,167 @@ func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntP
 		}
 		return &v.AutomatedSnapshotStartHour
 	}).(pulumi.IntPtrOutput)
+}
+
+type DomainSoftwareUpdateOptions struct {
+	// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+	AutoSoftwareUpdateEnabled *bool `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+// DomainSoftwareUpdateOptionsInput is an input type that accepts DomainSoftwareUpdateOptionsArgs and DomainSoftwareUpdateOptionsOutput values.
+// You can construct a concrete instance of `DomainSoftwareUpdateOptionsInput` via:
+//
+//	DomainSoftwareUpdateOptionsArgs{...}
+type DomainSoftwareUpdateOptionsInput interface {
+	pulumi.Input
+
+	ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput
+	ToDomainSoftwareUpdateOptionsOutputWithContext(context.Context) DomainSoftwareUpdateOptionsOutput
+}
+
+type DomainSoftwareUpdateOptionsArgs struct {
+	// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+	AutoSoftwareUpdateEnabled pulumi.BoolPtrInput `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+func (DomainSoftwareUpdateOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput {
+	return i.ToDomainSoftwareUpdateOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsOutput)
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSoftwareUpdateOptions] {
+	return pulumix.Output[DomainSoftwareUpdateOptions]{
+		OutputState: i.ToDomainSoftwareUpdateOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsOutput).ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainSoftwareUpdateOptionsPtrInput is an input type that accepts DomainSoftwareUpdateOptionsArgs, DomainSoftwareUpdateOptionsPtr and DomainSoftwareUpdateOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainSoftwareUpdateOptionsPtrInput` via:
+//
+//	        DomainSoftwareUpdateOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainSoftwareUpdateOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput
+	ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Context) DomainSoftwareUpdateOptionsPtrOutput
+}
+
+type domainSoftwareUpdateOptionsPtrType DomainSoftwareUpdateOptionsArgs
+
+func DomainSoftwareUpdateOptionsPtr(v *DomainSoftwareUpdateOptionsArgs) DomainSoftwareUpdateOptionsPtrInput {
+	return (*domainSoftwareUpdateOptionsPtrType)(v)
+}
+
+func (*domainSoftwareUpdateOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsPtrOutput)
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainSoftwareUpdateOptions] {
+	return pulumix.Output[*DomainSoftwareUpdateOptions]{
+		OutputState: i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DomainSoftwareUpdateOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainSoftwareUpdateOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSoftwareUpdateOptions) *DomainSoftwareUpdateOptions {
+		return &v
+	}).(DomainSoftwareUpdateOptionsPtrOutput)
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSoftwareUpdateOptions] {
+	return pulumix.Output[DomainSoftwareUpdateOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+func (o DomainSoftwareUpdateOptionsOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainSoftwareUpdateOptions) *bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainSoftwareUpdateOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSoftwareUpdateOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSoftwareUpdateOptions] {
+	return pulumix.Output[*DomainSoftwareUpdateOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) Elem() DomainSoftwareUpdateOptionsOutput {
+	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) DomainSoftwareUpdateOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSoftwareUpdateOptions
+		return ret
+	}).(DomainSoftwareUpdateOptionsOutput)
+}
+
+// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+func (o DomainSoftwareUpdateOptionsPtrOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSoftwareUpdateEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainVpcOptions struct {
@@ -2950,6 +4045,12 @@ func (i DomainVpcOptionsArgs) ToDomainVpcOptionsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsOutput)
 }
 
+func (i DomainVpcOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainVpcOptions] {
+	return pulumix.Output[DomainVpcOptions]{
+		OutputState: i.ToDomainVpcOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainVpcOptionsArgs) ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPtrOutput {
 	return i.ToDomainVpcOptionsPtrOutputWithContext(context.Background())
 }
@@ -2991,6 +4092,12 @@ func (i *domainVpcOptionsPtrType) ToDomainVpcOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsPtrOutput)
 }
 
+func (i *domainVpcOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainVpcOptions] {
+	return pulumix.Output[*DomainVpcOptions]{
+		OutputState: i.ToDomainVpcOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainVpcOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainVpcOptionsOutput) ElementType() reflect.Type {
@@ -3013,6 +4120,12 @@ func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainVpcOptions) *DomainVpcOptions {
 		return &v
 	}).(DomainVpcOptionsPtrOutput)
+}
+
+func (o DomainVpcOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainVpcOptions] {
+	return pulumix.Output[DomainVpcOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutput {
@@ -3045,6 +4158,12 @@ func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutput() DomainVpcOption
 
 func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx context.Context) DomainVpcOptionsPtrOutput {
 	return o
+}
+
+func (o DomainVpcOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainVpcOptions] {
+	return pulumix.Output[*DomainVpcOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
@@ -3136,6 +4255,12 @@ func (i OutboundConnectionLocalDomainInfoArgs) ToOutboundConnectionLocalDomainIn
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionLocalDomainInfoOutput)
 }
 
+func (i OutboundConnectionLocalDomainInfoArgs) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionLocalDomainInfo] {
+	return pulumix.Output[OutboundConnectionLocalDomainInfo]{
+		OutputState: i.ToOutboundConnectionLocalDomainInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OutboundConnectionLocalDomainInfoArgs) ToOutboundConnectionLocalDomainInfoPtrOutput() OutboundConnectionLocalDomainInfoPtrOutput {
 	return i.ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(context.Background())
 }
@@ -3177,6 +4302,12 @@ func (i *outboundConnectionLocalDomainInfoPtrType) ToOutboundConnectionLocalDoma
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionLocalDomainInfoPtrOutput)
 }
 
+func (i *outboundConnectionLocalDomainInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionLocalDomainInfo] {
+	return pulumix.Output[*OutboundConnectionLocalDomainInfo]{
+		OutputState: i.ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutboundConnectionLocalDomainInfoOutput struct{ *pulumi.OutputState }
 
 func (OutboundConnectionLocalDomainInfoOutput) ElementType() reflect.Type {
@@ -3199,6 +4330,12 @@ func (o OutboundConnectionLocalDomainInfoOutput) ToOutboundConnectionLocalDomain
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundConnectionLocalDomainInfo) *OutboundConnectionLocalDomainInfo {
 		return &v
 	}).(OutboundConnectionLocalDomainInfoPtrOutput)
+}
+
+func (o OutboundConnectionLocalDomainInfoOutput) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionLocalDomainInfo] {
+	return pulumix.Output[OutboundConnectionLocalDomainInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the local domain.
@@ -3228,6 +4365,12 @@ func (o OutboundConnectionLocalDomainInfoPtrOutput) ToOutboundConnectionLocalDom
 
 func (o OutboundConnectionLocalDomainInfoPtrOutput) ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionLocalDomainInfoPtrOutput {
 	return o
+}
+
+func (o OutboundConnectionLocalDomainInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionLocalDomainInfo] {
+	return pulumix.Output[*OutboundConnectionLocalDomainInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutboundConnectionLocalDomainInfoPtrOutput) Elem() OutboundConnectionLocalDomainInfoOutput {
@@ -3311,6 +4454,12 @@ func (i OutboundConnectionRemoteDomainInfoArgs) ToOutboundConnectionRemoteDomain
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionRemoteDomainInfoOutput)
 }
 
+func (i OutboundConnectionRemoteDomainInfoArgs) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionRemoteDomainInfo] {
+	return pulumix.Output[OutboundConnectionRemoteDomainInfo]{
+		OutputState: i.ToOutboundConnectionRemoteDomainInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OutboundConnectionRemoteDomainInfoArgs) ToOutboundConnectionRemoteDomainInfoPtrOutput() OutboundConnectionRemoteDomainInfoPtrOutput {
 	return i.ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(context.Background())
 }
@@ -3352,6 +4501,12 @@ func (i *outboundConnectionRemoteDomainInfoPtrType) ToOutboundConnectionRemoteDo
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionRemoteDomainInfoPtrOutput)
 }
 
+func (i *outboundConnectionRemoteDomainInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionRemoteDomainInfo] {
+	return pulumix.Output[*OutboundConnectionRemoteDomainInfo]{
+		OutputState: i.ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutboundConnectionRemoteDomainInfoOutput struct{ *pulumi.OutputState }
 
 func (OutboundConnectionRemoteDomainInfoOutput) ElementType() reflect.Type {
@@ -3374,6 +4529,12 @@ func (o OutboundConnectionRemoteDomainInfoOutput) ToOutboundConnectionRemoteDoma
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundConnectionRemoteDomainInfo) *OutboundConnectionRemoteDomainInfo {
 		return &v
 	}).(OutboundConnectionRemoteDomainInfoPtrOutput)
+}
+
+func (o OutboundConnectionRemoteDomainInfoOutput) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionRemoteDomainInfo] {
+	return pulumix.Output[OutboundConnectionRemoteDomainInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the remote domain.
@@ -3403,6 +4564,12 @@ func (o OutboundConnectionRemoteDomainInfoPtrOutput) ToOutboundConnectionRemoteD
 
 func (o OutboundConnectionRemoteDomainInfoPtrOutput) ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionRemoteDomainInfoPtrOutput {
 	return o
+}
+
+func (o OutboundConnectionRemoteDomainInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionRemoteDomainInfo] {
+	return pulumix.Output[*OutboundConnectionRemoteDomainInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutboundConnectionRemoteDomainInfoPtrOutput) Elem() OutboundConnectionRemoteDomainInfoOutput {
@@ -3445,9 +4612,796 @@ func (o OutboundConnectionRemoteDomainInfoPtrOutput) Region() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerlessCollectionTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// ServerlessCollectionTimeoutsInput is an input type that accepts ServerlessCollectionTimeoutsArgs and ServerlessCollectionTimeoutsOutput values.
+// You can construct a concrete instance of `ServerlessCollectionTimeoutsInput` via:
+//
+//	ServerlessCollectionTimeoutsArgs{...}
+type ServerlessCollectionTimeoutsInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput
+	ToServerlessCollectionTimeoutsOutputWithContext(context.Context) ServerlessCollectionTimeoutsOutput
+}
+
+type ServerlessCollectionTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ServerlessCollectionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput {
+	return i.ToServerlessCollectionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsOutput)
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessCollectionTimeouts] {
+	return pulumix.Output[ServerlessCollectionTimeouts]{
+		OutputState: i.ToServerlessCollectionTimeoutsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return i.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsOutput).ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServerlessCollectionTimeoutsPtrInput is an input type that accepts ServerlessCollectionTimeoutsArgs, ServerlessCollectionTimeoutsPtr and ServerlessCollectionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServerlessCollectionTimeoutsPtrInput` via:
+//
+//	        ServerlessCollectionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessCollectionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput
+	ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Context) ServerlessCollectionTimeoutsPtrOutput
+}
+
+type serverlessCollectionTimeoutsPtrType ServerlessCollectionTimeoutsArgs
+
+func ServerlessCollectionTimeoutsPtr(v *ServerlessCollectionTimeoutsArgs) ServerlessCollectionTimeoutsPtrInput {
+	return (*serverlessCollectionTimeoutsPtrType)(v)
+}
+
+func (*serverlessCollectionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (i *serverlessCollectionTimeoutsPtrType) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return i.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessCollectionTimeoutsPtrType) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsPtrOutput)
+}
+
+func (i *serverlessCollectionTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCollectionTimeouts] {
+	return pulumix.Output[*ServerlessCollectionTimeouts]{
+		OutputState: i.ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServerlessCollectionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return o.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCollectionTimeouts) *ServerlessCollectionTimeouts {
+		return &v
+	}).(ServerlessCollectionTimeoutsPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCollectionTimeouts] {
+	return pulumix.Output[ServerlessCollectionTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerlessCollectionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCollectionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCollectionTimeouts] {
+	return pulumix.Output[*ServerlessCollectionTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Elem() ServerlessCollectionTimeoutsOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) ServerlessCollectionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCollectionTimeouts
+		return ret
+	}).(ServerlessCollectionTimeoutsOutput)
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptions struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata string `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout *int `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute *string `pulumi:"userAttribute"`
+}
+
+// ServerlessSecurityConfigSamlOptionsInput is an input type that accepts ServerlessSecurityConfigSamlOptionsArgs and ServerlessSecurityConfigSamlOptionsOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigSamlOptionsInput` via:
+//
+//	ServerlessSecurityConfigSamlOptionsArgs{...}
+type ServerlessSecurityConfigSamlOptionsInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput
+	ToServerlessSecurityConfigSamlOptionsOutputWithContext(context.Context) ServerlessSecurityConfigSamlOptionsOutput
+}
+
+type ServerlessSecurityConfigSamlOptionsArgs struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata pulumi.StringInput `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
+}
+
+func (ServerlessSecurityConfigSamlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsOutput)
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[ServerlessSecurityConfigSamlOptions]{
+		OutputState: i.ToServerlessSecurityConfigSamlOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsOutput).ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerlessSecurityConfigSamlOptionsPtrInput is an input type that accepts ServerlessSecurityConfigSamlOptionsArgs, ServerlessSecurityConfigSamlOptionsPtr and ServerlessSecurityConfigSamlOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigSamlOptionsPtrInput` via:
+//
+//	        ServerlessSecurityConfigSamlOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessSecurityConfigSamlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput
+	ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput
+}
+
+type serverlessSecurityConfigSamlOptionsPtrType ServerlessSecurityConfigSamlOptionsArgs
+
+func ServerlessSecurityConfigSamlOptionsPtr(v *ServerlessSecurityConfigSamlOptionsArgs) ServerlessSecurityConfigSamlOptionsPtrInput {
+	return (*serverlessSecurityConfigSamlOptionsPtrType)(v)
+}
+
+func (*serverlessSecurityConfigSamlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i *serverlessSecurityConfigSamlOptionsPtrType) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessSecurityConfigSamlOptionsPtrType) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+func (i *serverlessSecurityConfigSamlOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[*ServerlessSecurityConfigSamlOptions]{
+		OutputState: i.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServerlessSecurityConfigSamlOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigSamlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessSecurityConfigSamlOptions) *ServerlessSecurityConfigSamlOptions {
+		return &v
+	}).(ServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[ServerlessSecurityConfigSamlOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Group attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o ServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o ServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigSamlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[*ServerlessSecurityConfigSamlOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) Elem() ServerlessSecurityConfigSamlOptionsOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) ServerlessSecurityConfigSamlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessSecurityConfigSamlOptions
+		return ret
+	}).(ServerlessSecurityConfigSamlOptionsOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// ServerlessVpcEndpointTimeoutsInput is an input type that accepts ServerlessVpcEndpointTimeoutsArgs and ServerlessVpcEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `ServerlessVpcEndpointTimeoutsInput` via:
+//
+//	ServerlessVpcEndpointTimeoutsArgs{...}
+type ServerlessVpcEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput
+	ToServerlessVpcEndpointTimeoutsOutputWithContext(context.Context) ServerlessVpcEndpointTimeoutsOutput
+}
+
+type ServerlessVpcEndpointTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ServerlessVpcEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput {
+	return i.ToServerlessVpcEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsOutput)
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessVpcEndpointTimeouts] {
+	return pulumix.Output[ServerlessVpcEndpointTimeouts]{
+		OutputState: i.ToServerlessVpcEndpointTimeoutsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return i.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsOutput).ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServerlessVpcEndpointTimeoutsPtrInput is an input type that accepts ServerlessVpcEndpointTimeoutsArgs, ServerlessVpcEndpointTimeoutsPtr and ServerlessVpcEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServerlessVpcEndpointTimeoutsPtrInput` via:
+//
+//	        ServerlessVpcEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessVpcEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput
+	ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Context) ServerlessVpcEndpointTimeoutsPtrOutput
+}
+
+type serverlessVpcEndpointTimeoutsPtrType ServerlessVpcEndpointTimeoutsArgs
+
+func ServerlessVpcEndpointTimeoutsPtr(v *ServerlessVpcEndpointTimeoutsArgs) ServerlessVpcEndpointTimeoutsPtrInput {
+	return (*serverlessVpcEndpointTimeoutsPtrType)(v)
+}
+
+func (*serverlessVpcEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *serverlessVpcEndpointTimeoutsPtrType) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return i.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessVpcEndpointTimeoutsPtrType) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsPtrOutput)
+}
+
+func (i *serverlessVpcEndpointTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessVpcEndpointTimeouts] {
+	return pulumix.Output[*ServerlessVpcEndpointTimeouts]{
+		OutputState: i.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServerlessVpcEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessVpcEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessVpcEndpointTimeouts) *ServerlessVpcEndpointTimeouts {
+		return &v
+	}).(ServerlessVpcEndpointTimeoutsPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessVpcEndpointTimeouts] {
+	return pulumix.Output[ServerlessVpcEndpointTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessVpcEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessVpcEndpointTimeouts] {
+	return pulumix.Output[*ServerlessVpcEndpointTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Elem() ServerlessVpcEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) ServerlessVpcEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessVpcEndpointTimeouts
+		return ret
+	}).(ServerlessVpcEndpointTimeoutsOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointVpcOptions struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+	SubnetIds []string `pulumi:"subnetIds"`
+	VpcId     *string  `pulumi:"vpcId"`
+}
+
+// VpcEndpointVpcOptionsInput is an input type that accepts VpcEndpointVpcOptionsArgs and VpcEndpointVpcOptionsOutput values.
+// You can construct a concrete instance of `VpcEndpointVpcOptionsInput` via:
+//
+//	VpcEndpointVpcOptionsArgs{...}
+type VpcEndpointVpcOptionsInput interface {
+	pulumi.Input
+
+	ToVpcEndpointVpcOptionsOutput() VpcEndpointVpcOptionsOutput
+	ToVpcEndpointVpcOptionsOutputWithContext(context.Context) VpcEndpointVpcOptionsOutput
+}
+
+type VpcEndpointVpcOptionsArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+}
+
+func (VpcEndpointVpcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsOutput() VpcEndpointVpcOptionsOutput {
+	return i.ToVpcEndpointVpcOptionsOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointVpcOptionsOutput)
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[VpcEndpointVpcOptions] {
+	return pulumix.Output[VpcEndpointVpcOptions]{
+		OutputState: i.ToVpcEndpointVpcOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return i.ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointVpcOptionsOutput).ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointVpcOptionsPtrInput is an input type that accepts VpcEndpointVpcOptionsArgs, VpcEndpointVpcOptionsPtr and VpcEndpointVpcOptionsPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointVpcOptionsPtrInput` via:
+//
+//	        VpcEndpointVpcOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcEndpointVpcOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput
+	ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Context) VpcEndpointVpcOptionsPtrOutput
+}
+
+type vpcEndpointVpcOptionsPtrType VpcEndpointVpcOptionsArgs
+
+func VpcEndpointVpcOptionsPtr(v *VpcEndpointVpcOptionsArgs) VpcEndpointVpcOptionsPtrInput {
+	return (*vpcEndpointVpcOptionsPtrType)(v)
+}
+
+func (*vpcEndpointVpcOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (i *vpcEndpointVpcOptionsPtrType) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return i.ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointVpcOptionsPtrType) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointVpcOptionsPtrOutput)
+}
+
+func (i *vpcEndpointVpcOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointVpcOptions] {
+	return pulumix.Output[*VpcEndpointVpcOptions]{
+		OutputState: i.ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type VpcEndpointVpcOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointVpcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsOutput() VpcEndpointVpcOptionsOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return o.ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointVpcOptions) *VpcEndpointVpcOptions {
+		return &v
+	}).(VpcEndpointVpcOptionsPtrOutput)
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[VpcEndpointVpcOptions] {
+	return pulumix.Output[VpcEndpointVpcOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o VpcEndpointVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+func (o VpcEndpointVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+func (o VpcEndpointVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o VpcEndpointVpcOptionsOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointVpcOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointVpcOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointVpcOptions] {
+	return pulumix.Output[*VpcEndpointVpcOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) Elem() VpcEndpointVpcOptionsOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) VpcEndpointVpcOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointVpcOptions
+		return ret
+	}).(VpcEndpointVpcOptionsOutput)
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+func (o VpcEndpointVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+func (o VpcEndpointVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDomainAdvancedSecurityOption struct {
 	AnonymousAuthEnabled bool `pulumi:"anonymousAuthEnabled"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
 	InternalUserDatabaseEnabled bool `pulumi:"internalUserDatabaseEnabled"`
@@ -3466,7 +5420,7 @@ type GetDomainAdvancedSecurityOptionInput interface {
 
 type GetDomainAdvancedSecurityOptionArgs struct {
 	AnonymousAuthEnabled pulumi.BoolInput `pulumi:"anonymousAuthEnabled"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
 	InternalUserDatabaseEnabled pulumi.BoolInput `pulumi:"internalUserDatabaseEnabled"`
@@ -3482,6 +5436,12 @@ func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOu
 
 func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionOutput)
+}
+
+func (i GetDomainAdvancedSecurityOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainAdvancedSecurityOption] {
+	return pulumix.Output[GetDomainAdvancedSecurityOption]{
+		OutputState: i.ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetDomainAdvancedSecurityOptionArrayInput is an input type that accepts GetDomainAdvancedSecurityOptionArray and GetDomainAdvancedSecurityOptionArrayOutput values.
@@ -3509,6 +5469,12 @@ func (i GetDomainAdvancedSecurityOptionArray) ToGetDomainAdvancedSecurityOptionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionArrayOutput)
 }
 
+func (i GetDomainAdvancedSecurityOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAdvancedSecurityOption] {
+	return pulumix.Output[[]GetDomainAdvancedSecurityOption]{
+		OutputState: i.ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainAdvancedSecurityOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainAdvancedSecurityOptionOutput) ElementType() reflect.Type {
@@ -3523,11 +5489,17 @@ func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOption
 	return o
 }
 
+func (o GetDomainAdvancedSecurityOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainAdvancedSecurityOption] {
+	return pulumix.Output[GetDomainAdvancedSecurityOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainAdvancedSecurityOptionOutput) AnonymousAuthEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.AnonymousAuthEnabled }).(pulumi.BoolOutput)
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainAdvancedSecurityOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -3549,6 +5521,12 @@ func (o GetDomainAdvancedSecurityOptionArrayOutput) ToGetDomainAdvancedSecurityO
 
 func (o GetDomainAdvancedSecurityOptionArrayOutput) ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionArrayOutput {
 	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAdvancedSecurityOption] {
+	return pulumix.Output[[]GetDomainAdvancedSecurityOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDomainAdvancedSecurityOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAdvancedSecurityOptionOutput {
@@ -3598,6 +5576,12 @@ func (i GetDomainAutoTuneOptionArgs) ToGetDomainAutoTuneOptionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionOutput)
 }
 
+func (i GetDomainAutoTuneOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainAutoTuneOption] {
+	return pulumix.Output[GetDomainAutoTuneOption]{
+		OutputState: i.ToGetDomainAutoTuneOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainAutoTuneOptionArrayInput is an input type that accepts GetDomainAutoTuneOptionArray and GetDomainAutoTuneOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainAutoTuneOptionArrayInput` via:
 //
@@ -3623,6 +5607,12 @@ func (i GetDomainAutoTuneOptionArray) ToGetDomainAutoTuneOptionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionArrayOutput)
 }
 
+func (i GetDomainAutoTuneOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAutoTuneOption] {
+	return pulumix.Output[[]GetDomainAutoTuneOption]{
+		OutputState: i.ToGetDomainAutoTuneOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainAutoTuneOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainAutoTuneOptionOutput) ElementType() reflect.Type {
@@ -3635,6 +5625,12 @@ func (o GetDomainAutoTuneOptionOutput) ToGetDomainAutoTuneOptionOutput() GetDoma
 
 func (o GetDomainAutoTuneOptionOutput) ToGetDomainAutoTuneOptionOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionOutput {
 	return o
+}
+
+func (o GetDomainAutoTuneOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainAutoTuneOption] {
+	return pulumix.Output[GetDomainAutoTuneOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Auto-Tune desired state for the domain.
@@ -3666,6 +5662,12 @@ func (o GetDomainAutoTuneOptionArrayOutput) ToGetDomainAutoTuneOptionArrayOutput
 
 func (o GetDomainAutoTuneOptionArrayOutput) ToGetDomainAutoTuneOptionArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionArrayOutput {
 	return o
+}
+
+func (o GetDomainAutoTuneOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAutoTuneOption] {
+	return pulumix.Output[[]GetDomainAutoTuneOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDomainAutoTuneOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAutoTuneOptionOutput {
@@ -3715,6 +5717,12 @@ func (i GetDomainAutoTuneOptionMaintenanceScheduleArgs) ToGetDomainAutoTuneOptio
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleOutput)
 }
 
+func (i GetDomainAutoTuneOptionMaintenanceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainAutoTuneOptionMaintenanceSchedule] {
+	return pulumix.Output[GetDomainAutoTuneOptionMaintenanceSchedule]{
+		OutputState: i.ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainAutoTuneOptionMaintenanceScheduleArrayInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleArray and GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput values.
 // You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleArrayInput` via:
 //
@@ -3740,6 +5748,12 @@ func (i GetDomainAutoTuneOptionMaintenanceScheduleArray) ToGetDomainAutoTuneOpti
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput)
 }
 
+func (i GetDomainAutoTuneOptionMaintenanceScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceSchedule] {
+	return pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceSchedule]{
+		OutputState: i.ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainAutoTuneOptionMaintenanceScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetDomainAutoTuneOptionMaintenanceScheduleOutput) ElementType() reflect.Type {
@@ -3752,6 +5766,12 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToGetDomainAutoTuneOpt
 
 func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleOutput {
 	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainAutoTuneOptionMaintenanceSchedule] {
+	return pulumix.Output[GetDomainAutoTuneOptionMaintenanceSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cron expression for an Auto-Tune maintenance schedule.
@@ -3783,6 +5803,12 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) ToGetDomainAutoTu
 
 func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
 	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceSchedule] {
+	return pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) Index(i pulumi.IntInput) GetDomainAutoTuneOptionMaintenanceScheduleOutput {
@@ -3828,6 +5854,12 @@ func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ToGetDomainAutoT
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput)
 }
 
+func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainAutoTuneOptionMaintenanceScheduleDuration] {
+	return pulumix.Output[GetDomainAutoTuneOptionMaintenanceScheduleDuration]{
+		OutputState: i.ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleDurationArray and GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput values.
 // You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput` via:
 //
@@ -3853,6 +5885,12 @@ func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ToGetDomainAuto
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput)
 }
 
+func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceScheduleDuration] {
+	return pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceScheduleDuration]{
+		OutputState: i.ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput struct{ *pulumi.OutputState }
 
 func (GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ElementType() reflect.Type {
@@ -3865,6 +5903,12 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToGetDomainAut
 
 func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
 	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainAutoTuneOptionMaintenanceScheduleDuration] {
+	return pulumix.Output[GetDomainAutoTuneOptionMaintenanceScheduleDuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Unit of time.
@@ -3891,6 +5935,12 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) ToGetDoma
 	return o
 }
 
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceScheduleDuration] {
+	return pulumix.Output[[]GetDomainAutoTuneOptionMaintenanceScheduleDuration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) Index(i pulumi.IntInput) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAutoTuneOptionMaintenanceScheduleDuration {
 		return vs[0].([]GetDomainAutoTuneOptionMaintenanceScheduleDuration)[vs[1].(int)]
@@ -3909,7 +5959,8 @@ type GetDomainClusterConfig struct {
 	// Number of instances in the cluster.
 	InstanceCount int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType              string `pulumi:"instanceType"`
+	MultiAzWithStandbyEnabled bool   `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
 	WarmCount int `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -3945,7 +5996,8 @@ type GetDomainClusterConfigArgs struct {
 	// Number of instances in the cluster.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	InstanceType              pulumi.StringInput `pulumi:"instanceType"`
+	MultiAzWithStandbyEnabled pulumi.BoolInput   `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
 	WarmCount pulumi.IntInput `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -3968,6 +6020,12 @@ func (i GetDomainClusterConfigArgs) ToGetDomainClusterConfigOutput() GetDomainCl
 
 func (i GetDomainClusterConfigArgs) ToGetDomainClusterConfigOutputWithContext(ctx context.Context) GetDomainClusterConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigOutput)
+}
+
+func (i GetDomainClusterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainClusterConfig] {
+	return pulumix.Output[GetDomainClusterConfig]{
+		OutputState: i.ToGetDomainClusterConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetDomainClusterConfigArrayInput is an input type that accepts GetDomainClusterConfigArray and GetDomainClusterConfigArrayOutput values.
@@ -3995,6 +6053,12 @@ func (i GetDomainClusterConfigArray) ToGetDomainClusterConfigArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigArrayOutput)
 }
 
+func (i GetDomainClusterConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainClusterConfig] {
+	return pulumix.Output[[]GetDomainClusterConfig]{
+		OutputState: i.ToGetDomainClusterConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigOutput) ElementType() reflect.Type {
@@ -4007,6 +6071,12 @@ func (o GetDomainClusterConfigOutput) ToGetDomainClusterConfigOutput() GetDomain
 
 func (o GetDomainClusterConfigOutput) ToGetDomainClusterConfigOutputWithContext(ctx context.Context) GetDomainClusterConfigOutput {
 	return o
+}
+
+func (o GetDomainClusterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainClusterConfig] {
+	return pulumix.Output[GetDomainClusterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block containing cold storage configuration.
@@ -4037,6 +6107,10 @@ func (o GetDomainClusterConfigOutput) InstanceCount() pulumi.IntOutput {
 // Instance type of data nodes in the cluster.
 func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o GetDomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolOutput)
 }
 
 // Number of warm nodes in the cluster.
@@ -4080,6 +6154,12 @@ func (o GetDomainClusterConfigArrayOutput) ToGetDomainClusterConfigArrayOutputWi
 	return o
 }
 
+func (o GetDomainClusterConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainClusterConfig] {
+	return pulumix.Output[[]GetDomainClusterConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainClusterConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfig {
 		return vs[0].([]GetDomainClusterConfig)[vs[1].(int)]
@@ -4087,7 +6167,7 @@ func (o GetDomainClusterConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClu
 }
 
 type GetDomainClusterConfigColdStorageOption struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -4103,7 +6183,7 @@ type GetDomainClusterConfigColdStorageOptionInput interface {
 }
 
 type GetDomainClusterConfigColdStorageOptionArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -4117,6 +6197,12 @@ func (i GetDomainClusterConfigColdStorageOptionArgs) ToGetDomainClusterConfigCol
 
 func (i GetDomainClusterConfigColdStorageOptionArgs) ToGetDomainClusterConfigColdStorageOptionOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigColdStorageOptionOutput)
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainClusterConfigColdStorageOption] {
+	return pulumix.Output[GetDomainClusterConfigColdStorageOption]{
+		OutputState: i.ToGetDomainClusterConfigColdStorageOptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetDomainClusterConfigColdStorageOptionArrayInput is an input type that accepts GetDomainClusterConfigColdStorageOptionArray and GetDomainClusterConfigColdStorageOptionArrayOutput values.
@@ -4144,6 +6230,12 @@ func (i GetDomainClusterConfigColdStorageOptionArray) ToGetDomainClusterConfigCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigColdStorageOptionArrayOutput)
 }
 
+func (i GetDomainClusterConfigColdStorageOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainClusterConfigColdStorageOption] {
+	return pulumix.Output[[]GetDomainClusterConfigColdStorageOption]{
+		OutputState: i.ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainClusterConfigColdStorageOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigColdStorageOptionOutput) ElementType() reflect.Type {
@@ -4158,7 +6250,13 @@ func (o GetDomainClusterConfigColdStorageOptionOutput) ToGetDomainClusterConfigC
 	return o
 }
 
-// Whether node to node encryption is enabled.
+func (o GetDomainClusterConfigColdStorageOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainClusterConfigColdStorageOption] {
+	return pulumix.Output[GetDomainClusterConfigColdStorageOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainClusterConfigColdStorageOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainClusterConfigColdStorageOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4175,6 +6273,12 @@ func (o GetDomainClusterConfigColdStorageOptionArrayOutput) ToGetDomainClusterCo
 
 func (o GetDomainClusterConfigColdStorageOptionArrayOutput) ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionArrayOutput {
 	return o
+}
+
+func (o GetDomainClusterConfigColdStorageOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainClusterConfigColdStorageOption] {
+	return pulumix.Output[[]GetDomainClusterConfigColdStorageOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDomainClusterConfigColdStorageOptionArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigColdStorageOptionOutput {
@@ -4216,6 +6320,12 @@ func (i GetDomainClusterConfigZoneAwarenessConfigArgs) ToGetDomainClusterConfigZ
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigZoneAwarenessConfigOutput)
 }
 
+func (i GetDomainClusterConfigZoneAwarenessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[GetDomainClusterConfigZoneAwarenessConfig]{
+		OutputState: i.ToGetDomainClusterConfigZoneAwarenessConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainClusterConfigZoneAwarenessConfigArrayInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArray and GetDomainClusterConfigZoneAwarenessConfigArrayOutput values.
 // You can construct a concrete instance of `GetDomainClusterConfigZoneAwarenessConfigArrayInput` via:
 //
@@ -4241,6 +6351,12 @@ func (i GetDomainClusterConfigZoneAwarenessConfigArray) ToGetDomainClusterConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigZoneAwarenessConfigArrayOutput)
 }
 
+func (i GetDomainClusterConfigZoneAwarenessConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[[]GetDomainClusterConfigZoneAwarenessConfig]{
+		OutputState: i.ToGetDomainClusterConfigZoneAwarenessConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainClusterConfigZoneAwarenessConfigOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigZoneAwarenessConfigOutput) ElementType() reflect.Type {
@@ -4253,6 +6369,12 @@ func (o GetDomainClusterConfigZoneAwarenessConfigOutput) ToGetDomainClusterConfi
 
 func (o GetDomainClusterConfigZoneAwarenessConfigOutput) ToGetDomainClusterConfigZoneAwarenessConfigOutputWithContext(ctx context.Context) GetDomainClusterConfigZoneAwarenessConfigOutput {
 	return o
+}
+
+func (o GetDomainClusterConfigZoneAwarenessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[GetDomainClusterConfigZoneAwarenessConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of availability zones used.
@@ -4274,6 +6396,12 @@ func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) ToGetDomainCluster
 	return o
 }
 
+func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainClusterConfigZoneAwarenessConfig] {
+	return pulumix.Output[[]GetDomainClusterConfigZoneAwarenessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigZoneAwarenessConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfigZoneAwarenessConfig {
 		return vs[0].([]GetDomainClusterConfigZoneAwarenessConfig)[vs[1].(int)]
@@ -4281,7 +6409,7 @@ func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) Index(i pulumi.Int
 }
 
 type GetDomainCognitoOption struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// Cognito Identity pool used by the domain.
 	IdentityPoolId string `pulumi:"identityPoolId"`
@@ -4303,7 +6431,7 @@ type GetDomainCognitoOptionInput interface {
 }
 
 type GetDomainCognitoOptionArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Cognito Identity pool used by the domain.
 	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
@@ -4323,6 +6451,12 @@ func (i GetDomainCognitoOptionArgs) ToGetDomainCognitoOptionOutput() GetDomainCo
 
 func (i GetDomainCognitoOptionArgs) ToGetDomainCognitoOptionOutputWithContext(ctx context.Context) GetDomainCognitoOptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainCognitoOptionOutput)
+}
+
+func (i GetDomainCognitoOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainCognitoOption] {
+	return pulumix.Output[GetDomainCognitoOption]{
+		OutputState: i.ToGetDomainCognitoOptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetDomainCognitoOptionArrayInput is an input type that accepts GetDomainCognitoOptionArray and GetDomainCognitoOptionArrayOutput values.
@@ -4350,6 +6484,12 @@ func (i GetDomainCognitoOptionArray) ToGetDomainCognitoOptionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainCognitoOptionArrayOutput)
 }
 
+func (i GetDomainCognitoOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainCognitoOption] {
+	return pulumix.Output[[]GetDomainCognitoOption]{
+		OutputState: i.ToGetDomainCognitoOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainCognitoOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainCognitoOptionOutput) ElementType() reflect.Type {
@@ -4364,7 +6504,13 @@ func (o GetDomainCognitoOptionOutput) ToGetDomainCognitoOptionOutputWithContext(
 	return o
 }
 
-// Whether node to node encryption is enabled.
+func (o GetDomainCognitoOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainCognitoOption] {
+	return pulumix.Output[GetDomainCognitoOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainCognitoOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainCognitoOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4396,6 +6542,12 @@ func (o GetDomainCognitoOptionArrayOutput) ToGetDomainCognitoOptionArrayOutput()
 
 func (o GetDomainCognitoOptionArrayOutput) ToGetDomainCognitoOptionArrayOutputWithContext(ctx context.Context) GetDomainCognitoOptionArrayOutput {
 	return o
+}
+
+func (o GetDomainCognitoOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainCognitoOption] {
+	return pulumix.Output[[]GetDomainCognitoOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDomainCognitoOptionArrayOutput) Index(i pulumi.IntInput) GetDomainCognitoOptionOutput {
@@ -4453,6 +6605,12 @@ func (i GetDomainEbsOptionArgs) ToGetDomainEbsOptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEbsOptionOutput)
 }
 
+func (i GetDomainEbsOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainEbsOption] {
+	return pulumix.Output[GetDomainEbsOption]{
+		OutputState: i.ToGetDomainEbsOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainEbsOptionArrayInput is an input type that accepts GetDomainEbsOptionArray and GetDomainEbsOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainEbsOptionArrayInput` via:
 //
@@ -4478,6 +6636,12 @@ func (i GetDomainEbsOptionArray) ToGetDomainEbsOptionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEbsOptionArrayOutput)
 }
 
+func (i GetDomainEbsOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainEbsOption] {
+	return pulumix.Output[[]GetDomainEbsOption]{
+		OutputState: i.ToGetDomainEbsOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainEbsOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEbsOptionOutput) ElementType() reflect.Type {
@@ -4490,6 +6654,12 @@ func (o GetDomainEbsOptionOutput) ToGetDomainEbsOptionOutput() GetDomainEbsOptio
 
 func (o GetDomainEbsOptionOutput) ToGetDomainEbsOptionOutputWithContext(ctx context.Context) GetDomainEbsOptionOutput {
 	return o
+}
+
+func (o GetDomainEbsOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainEbsOption] {
+	return pulumix.Output[GetDomainEbsOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether EBS volumes are attached to data nodes in the domain.
@@ -4531,6 +6701,12 @@ func (o GetDomainEbsOptionArrayOutput) ToGetDomainEbsOptionArrayOutputWithContex
 	return o
 }
 
+func (o GetDomainEbsOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainEbsOption] {
+	return pulumix.Output[[]GetDomainEbsOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainEbsOptionArrayOutput) Index(i pulumi.IntInput) GetDomainEbsOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainEbsOption {
 		return vs[0].([]GetDomainEbsOption)[vs[1].(int)]
@@ -4538,7 +6714,7 @@ func (o GetDomainEbsOptionArrayOutput) Index(i pulumi.IntInput) GetDomainEbsOpti
 }
 
 type GetDomainEncryptionAtRest struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// KMS key id used to encrypt data at rest.
 	KmsKeyId string `pulumi:"kmsKeyId"`
@@ -4556,7 +6732,7 @@ type GetDomainEncryptionAtRestInput interface {
 }
 
 type GetDomainEncryptionAtRestArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// KMS key id used to encrypt data at rest.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
@@ -4572,6 +6748,12 @@ func (i GetDomainEncryptionAtRestArgs) ToGetDomainEncryptionAtRestOutput() GetDo
 
 func (i GetDomainEncryptionAtRestArgs) ToGetDomainEncryptionAtRestOutputWithContext(ctx context.Context) GetDomainEncryptionAtRestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEncryptionAtRestOutput)
+}
+
+func (i GetDomainEncryptionAtRestArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainEncryptionAtRest] {
+	return pulumix.Output[GetDomainEncryptionAtRest]{
+		OutputState: i.ToGetDomainEncryptionAtRestOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetDomainEncryptionAtRestArrayInput is an input type that accepts GetDomainEncryptionAtRestArray and GetDomainEncryptionAtRestArrayOutput values.
@@ -4599,6 +6781,12 @@ func (i GetDomainEncryptionAtRestArray) ToGetDomainEncryptionAtRestArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEncryptionAtRestArrayOutput)
 }
 
+func (i GetDomainEncryptionAtRestArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainEncryptionAtRest] {
+	return pulumix.Output[[]GetDomainEncryptionAtRest]{
+		OutputState: i.ToGetDomainEncryptionAtRestArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainEncryptionAtRestOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEncryptionAtRestOutput) ElementType() reflect.Type {
@@ -4613,7 +6801,13 @@ func (o GetDomainEncryptionAtRestOutput) ToGetDomainEncryptionAtRestOutputWithCo
 	return o
 }
 
-// Whether node to node encryption is enabled.
+func (o GetDomainEncryptionAtRestOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainEncryptionAtRest] {
+	return pulumix.Output[GetDomainEncryptionAtRest]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainEncryptionAtRestOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainEncryptionAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4637,6 +6831,12 @@ func (o GetDomainEncryptionAtRestArrayOutput) ToGetDomainEncryptionAtRestArrayOu
 	return o
 }
 
+func (o GetDomainEncryptionAtRestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainEncryptionAtRest] {
+	return pulumix.Output[[]GetDomainEncryptionAtRest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainEncryptionAtRestArrayOutput) Index(i pulumi.IntInput) GetDomainEncryptionAtRestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainEncryptionAtRest {
 		return vs[0].([]GetDomainEncryptionAtRest)[vs[1].(int)]
@@ -4646,7 +6846,7 @@ func (o GetDomainEncryptionAtRestArrayOutput) Index(i pulumi.IntInput) GetDomain
 type GetDomainLogPublishingOption struct {
 	// CloudWatch Log Group where the logs are published.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// Type of OpenSearch log being published.
 	LogType string `pulumi:"logType"`
@@ -4666,7 +6866,7 @@ type GetDomainLogPublishingOptionInput interface {
 type GetDomainLogPublishingOptionArgs struct {
 	// CloudWatch Log Group where the logs are published.
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Type of OpenSearch log being published.
 	LogType pulumi.StringInput `pulumi:"logType"`
@@ -4682,6 +6882,12 @@ func (i GetDomainLogPublishingOptionArgs) ToGetDomainLogPublishingOptionOutput()
 
 func (i GetDomainLogPublishingOptionArgs) ToGetDomainLogPublishingOptionOutputWithContext(ctx context.Context) GetDomainLogPublishingOptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainLogPublishingOptionOutput)
+}
+
+func (i GetDomainLogPublishingOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainLogPublishingOption] {
+	return pulumix.Output[GetDomainLogPublishingOption]{
+		OutputState: i.ToGetDomainLogPublishingOptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetDomainLogPublishingOptionArrayInput is an input type that accepts GetDomainLogPublishingOptionArray and GetDomainLogPublishingOptionArrayOutput values.
@@ -4709,6 +6915,12 @@ func (i GetDomainLogPublishingOptionArray) ToGetDomainLogPublishingOptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainLogPublishingOptionArrayOutput)
 }
 
+func (i GetDomainLogPublishingOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainLogPublishingOption] {
+	return pulumix.Output[[]GetDomainLogPublishingOption]{
+		OutputState: i.ToGetDomainLogPublishingOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainLogPublishingOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainLogPublishingOptionOutput) ElementType() reflect.Type {
@@ -4723,12 +6935,18 @@ func (o GetDomainLogPublishingOptionOutput) ToGetDomainLogPublishingOptionOutput
 	return o
 }
 
+func (o GetDomainLogPublishingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainLogPublishingOption] {
+	return pulumix.Output[GetDomainLogPublishingOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // CloudWatch Log Group where the logs are published.
 func (o GetDomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainLogPublishingOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainLogPublishingOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4752,6 +6970,12 @@ func (o GetDomainLogPublishingOptionArrayOutput) ToGetDomainLogPublishingOptionA
 	return o
 }
 
+func (o GetDomainLogPublishingOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainLogPublishingOption] {
+	return pulumix.Output[[]GetDomainLogPublishingOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) GetDomainLogPublishingOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainLogPublishingOption {
 		return vs[0].([]GetDomainLogPublishingOption)[vs[1].(int)]
@@ -4759,7 +6983,7 @@ func (o GetDomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) GetDom
 }
 
 type GetDomainNodeToNodeEncryption struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -4775,7 +6999,7 @@ type GetDomainNodeToNodeEncryptionInput interface {
 }
 
 type GetDomainNodeToNodeEncryptionArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -4789,6 +7013,12 @@ func (i GetDomainNodeToNodeEncryptionArgs) ToGetDomainNodeToNodeEncryptionOutput
 
 func (i GetDomainNodeToNodeEncryptionArgs) ToGetDomainNodeToNodeEncryptionOutputWithContext(ctx context.Context) GetDomainNodeToNodeEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNodeToNodeEncryptionOutput)
+}
+
+func (i GetDomainNodeToNodeEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainNodeToNodeEncryption] {
+	return pulumix.Output[GetDomainNodeToNodeEncryption]{
+		OutputState: i.ToGetDomainNodeToNodeEncryptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetDomainNodeToNodeEncryptionArrayInput is an input type that accepts GetDomainNodeToNodeEncryptionArray and GetDomainNodeToNodeEncryptionArrayOutput values.
@@ -4816,6 +7046,12 @@ func (i GetDomainNodeToNodeEncryptionArray) ToGetDomainNodeToNodeEncryptionArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNodeToNodeEncryptionArrayOutput)
 }
 
+func (i GetDomainNodeToNodeEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainNodeToNodeEncryption] {
+	return pulumix.Output[[]GetDomainNodeToNodeEncryption]{
+		OutputState: i.ToGetDomainNodeToNodeEncryptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainNodeToNodeEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainNodeToNodeEncryptionOutput) ElementType() reflect.Type {
@@ -4830,7 +7066,13 @@ func (o GetDomainNodeToNodeEncryptionOutput) ToGetDomainNodeToNodeEncryptionOutp
 	return o
 }
 
-// Whether node to node encryption is enabled.
+func (o GetDomainNodeToNodeEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainNodeToNodeEncryption] {
+	return pulumix.Output[GetDomainNodeToNodeEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4849,10 +7091,447 @@ func (o GetDomainNodeToNodeEncryptionArrayOutput) ToGetDomainNodeToNodeEncryptio
 	return o
 }
 
+func (o GetDomainNodeToNodeEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainNodeToNodeEncryption] {
+	return pulumix.Output[[]GetDomainNodeToNodeEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainNodeToNodeEncryptionArrayOutput) Index(i pulumi.IntInput) GetDomainNodeToNodeEncryptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainNodeToNodeEncryption {
 		return vs[0].([]GetDomainNodeToNodeEncryption)[vs[1].(int)]
 	}).(GetDomainNodeToNodeEncryptionOutput)
+}
+
+type GetDomainOffPeakWindowOptions struct {
+	// Enabled disabled toggle for off-peak update window
+	Enabled        bool                                         `pulumi:"enabled"`
+	OffPeakWindows []GetDomainOffPeakWindowOptionsOffPeakWindow `pulumi:"offPeakWindows"`
+}
+
+// GetDomainOffPeakWindowOptionsInput is an input type that accepts GetDomainOffPeakWindowOptionsArgs and GetDomainOffPeakWindowOptionsOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsInput` via:
+//
+//	GetDomainOffPeakWindowOptionsArgs{...}
+type GetDomainOffPeakWindowOptionsInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOutput() GetDomainOffPeakWindowOptionsOutput
+	ToGetDomainOffPeakWindowOptionsOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOutput
+}
+
+type GetDomainOffPeakWindowOptionsArgs struct {
+	// Enabled disabled toggle for off-peak update window
+	Enabled        pulumi.BoolInput                                     `pulumi:"enabled"`
+	OffPeakWindows GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput `pulumi:"offPeakWindows"`
+}
+
+func (GetDomainOffPeakWindowOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsOutput() GetDomainOffPeakWindowOptionsOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOutput)
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainOffPeakWindowOptions] {
+	return pulumix.Output[GetDomainOffPeakWindowOptions]{
+		OutputState: i.ToGetDomainOffPeakWindowOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return i.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOutput).ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx)
+}
+
+// GetDomainOffPeakWindowOptionsPtrInput is an input type that accepts GetDomainOffPeakWindowOptionsArgs, GetDomainOffPeakWindowOptionsPtr and GetDomainOffPeakWindowOptionsPtrOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsPtrInput` via:
+//
+//	        GetDomainOffPeakWindowOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDomainOffPeakWindowOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput
+	ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsPtrOutput
+}
+
+type getDomainOffPeakWindowOptionsPtrType GetDomainOffPeakWindowOptionsArgs
+
+func GetDomainOffPeakWindowOptionsPtr(v *GetDomainOffPeakWindowOptionsArgs) GetDomainOffPeakWindowOptionsPtrInput {
+	return (*getDomainOffPeakWindowOptionsPtrType)(v)
+}
+
+func (*getDomainOffPeakWindowOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i *getDomainOffPeakWindowOptionsPtrType) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return i.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getDomainOffPeakWindowOptionsPtrType) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsPtrOutput)
+}
+
+func (i *getDomainOffPeakWindowOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetDomainOffPeakWindowOptions] {
+	return pulumix.Output[*GetDomainOffPeakWindowOptions]{
+		OutputState: i.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDomainOffPeakWindowOptionsOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsOutput() GetDomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return o.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDomainOffPeakWindowOptions) *GetDomainOffPeakWindowOptions {
+		return &v
+	}).(GetDomainOffPeakWindowOptionsPtrOutput)
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainOffPeakWindowOptions] {
+	return pulumix.Output[GetDomainOffPeakWindowOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled disabled toggle for off-peak update window
+func (o GetDomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) OffPeakWindows() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) []GetDomainOffPeakWindowOptionsOffPeakWindow {
+		return v.OffPeakWindows
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetDomainOffPeakWindowOptions] {
+	return pulumix.Output[*GetDomainOffPeakWindowOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) Elem() GetDomainOffPeakWindowOptionsOutput {
+	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) GetDomainOffPeakWindowOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GetDomainOffPeakWindowOptions
+		return ret
+	}).(GetDomainOffPeakWindowOptionsOutput)
+}
+
+// Enabled disabled toggle for off-peak update window
+func (o GetDomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) OffPeakWindows() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) []GetDomainOffPeakWindowOptionsOffPeakWindow {
+		if v == nil {
+			return nil
+		}
+		return v.OffPeakWindows
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindow struct {
+	// 10h window for updates
+	WindowStartTimes []GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime `pulumi:"windowStartTimes"`
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowArgs and GetDomainOffPeakWindowOptionsOffPeakWindowOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowArgs{...}
+type GetDomainOffPeakWindowOptionsOffPeakWindowInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowOutput() GetDomainOffPeakWindowOptionsOffPeakWindowOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowArgs struct {
+	// 10h window for updates
+	WindowStartTimes GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput `pulumi:"windowStartTimes"`
+}
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutput() GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: i.ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowArray and GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowArray{ GetDomainOffPeakWindowOptionsOffPeakWindowArgs{...} }
+type GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowArray []GetDomainOffPeakWindowOptionsOffPeakWindowInput
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: i.ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutput() GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: o.OutputState,
+	}
+}
+
+// 10h window for updates
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowOutput) WindowStartTimes() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindow) []GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return v.WindowStartTimes
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindow] {
+	return pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindow]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) Index(i pulumi.IntInput) GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainOffPeakWindowOptionsOffPeakWindow {
+		return vs[0].([]GetDomainOffPeakWindowOptionsOffPeakWindow)[vs[1].(int)]
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime struct {
+	// Starting hour of the 10-hour window for updates
+	Hours int `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes int `pulumi:"minutes"`
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs and GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...}
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs struct {
+	// Starting hour of the 10-hour window for updates
+	Hours pulumi.IntInput `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: i.ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray and GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray{ GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...} }
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray []GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput)
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: i.ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Starting hour of the 10-hour window for updates
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Hours() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) int { return v.Hours }).(pulumi.IntOutput)
+}
+
+// Starting minute of the 10-hour window for updates
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime] {
+	return pulumix.Output[[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) Index(i pulumi.IntInput) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return vs[0].([]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)[vs[1].(int)]
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
 }
 
 type GetDomainSnapshotOption struct {
@@ -4888,6 +7567,12 @@ func (i GetDomainSnapshotOptionArgs) ToGetDomainSnapshotOptionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSnapshotOptionOutput)
 }
 
+func (i GetDomainSnapshotOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainSnapshotOption] {
+	return pulumix.Output[GetDomainSnapshotOption]{
+		OutputState: i.ToGetDomainSnapshotOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainSnapshotOptionArrayInput is an input type that accepts GetDomainSnapshotOptionArray and GetDomainSnapshotOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainSnapshotOptionArrayInput` via:
 //
@@ -4913,6 +7598,12 @@ func (i GetDomainSnapshotOptionArray) ToGetDomainSnapshotOptionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSnapshotOptionArrayOutput)
 }
 
+func (i GetDomainSnapshotOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainSnapshotOption] {
+	return pulumix.Output[[]GetDomainSnapshotOption]{
+		OutputState: i.ToGetDomainSnapshotOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainSnapshotOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainSnapshotOptionOutput) ElementType() reflect.Type {
@@ -4925,6 +7616,12 @@ func (o GetDomainSnapshotOptionOutput) ToGetDomainSnapshotOptionOutput() GetDoma
 
 func (o GetDomainSnapshotOptionOutput) ToGetDomainSnapshotOptionOutputWithContext(ctx context.Context) GetDomainSnapshotOptionOutput {
 	return o
+}
+
+func (o GetDomainSnapshotOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainSnapshotOption] {
+	return pulumix.Output[GetDomainSnapshotOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Hour during which the service takes an automated daily snapshot of the indices in the domain.
@@ -4946,10 +7643,137 @@ func (o GetDomainSnapshotOptionArrayOutput) ToGetDomainSnapshotOptionArrayOutput
 	return o
 }
 
+func (o GetDomainSnapshotOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainSnapshotOption] {
+	return pulumix.Output[[]GetDomainSnapshotOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainSnapshotOptionArrayOutput) Index(i pulumi.IntInput) GetDomainSnapshotOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainSnapshotOption {
 		return vs[0].([]GetDomainSnapshotOption)[vs[1].(int)]
 	}).(GetDomainSnapshotOptionOutput)
+}
+
+type GetDomainSoftwareUpdateOption struct {
+	// Enabled or disabled.
+	AutoSoftwareUpdateEnabled bool `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+// GetDomainSoftwareUpdateOptionInput is an input type that accepts GetDomainSoftwareUpdateOptionArgs and GetDomainSoftwareUpdateOptionOutput values.
+// You can construct a concrete instance of `GetDomainSoftwareUpdateOptionInput` via:
+//
+//	GetDomainSoftwareUpdateOptionArgs{...}
+type GetDomainSoftwareUpdateOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainSoftwareUpdateOptionOutput() GetDomainSoftwareUpdateOptionOutput
+	ToGetDomainSoftwareUpdateOptionOutputWithContext(context.Context) GetDomainSoftwareUpdateOptionOutput
+}
+
+type GetDomainSoftwareUpdateOptionArgs struct {
+	// Enabled or disabled.
+	AutoSoftwareUpdateEnabled pulumi.BoolInput `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+func (GetDomainSoftwareUpdateOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (i GetDomainSoftwareUpdateOptionArgs) ToGetDomainSoftwareUpdateOptionOutput() GetDomainSoftwareUpdateOptionOutput {
+	return i.ToGetDomainSoftwareUpdateOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainSoftwareUpdateOptionArgs) ToGetDomainSoftwareUpdateOptionOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSoftwareUpdateOptionOutput)
+}
+
+func (i GetDomainSoftwareUpdateOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[GetDomainSoftwareUpdateOption]{
+		OutputState: i.ToGetDomainSoftwareUpdateOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDomainSoftwareUpdateOptionArrayInput is an input type that accepts GetDomainSoftwareUpdateOptionArray and GetDomainSoftwareUpdateOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainSoftwareUpdateOptionArrayInput` via:
+//
+//	GetDomainSoftwareUpdateOptionArray{ GetDomainSoftwareUpdateOptionArgs{...} }
+type GetDomainSoftwareUpdateOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainSoftwareUpdateOptionArrayOutput() GetDomainSoftwareUpdateOptionArrayOutput
+	ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(context.Context) GetDomainSoftwareUpdateOptionArrayOutput
+}
+
+type GetDomainSoftwareUpdateOptionArray []GetDomainSoftwareUpdateOptionInput
+
+func (GetDomainSoftwareUpdateOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (i GetDomainSoftwareUpdateOptionArray) ToGetDomainSoftwareUpdateOptionArrayOutput() GetDomainSoftwareUpdateOptionArrayOutput {
+	return i.ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainSoftwareUpdateOptionArray) ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSoftwareUpdateOptionArrayOutput)
+}
+
+func (i GetDomainSoftwareUpdateOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[[]GetDomainSoftwareUpdateOption]{
+		OutputState: i.ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDomainSoftwareUpdateOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainSoftwareUpdateOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (o GetDomainSoftwareUpdateOptionOutput) ToGetDomainSoftwareUpdateOptionOutput() GetDomainSoftwareUpdateOptionOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionOutput) ToGetDomainSoftwareUpdateOptionOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[GetDomainSoftwareUpdateOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled or disabled.
+func (o GetDomainSoftwareUpdateOptionOutput) AutoSoftwareUpdateEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainSoftwareUpdateOption) bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolOutput)
+}
+
+type GetDomainSoftwareUpdateOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainSoftwareUpdateOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) ToGetDomainSoftwareUpdateOptionArrayOutput() GetDomainSoftwareUpdateOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[[]GetDomainSoftwareUpdateOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) Index(i pulumi.IntInput) GetDomainSoftwareUpdateOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainSoftwareUpdateOption {
+		return vs[0].([]GetDomainSoftwareUpdateOption)[vs[1].(int)]
+	}).(GetDomainSoftwareUpdateOptionOutput)
 }
 
 type GetDomainVpcOption struct {
@@ -4997,6 +7821,12 @@ func (i GetDomainVpcOptionArgs) ToGetDomainVpcOptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainVpcOptionOutput)
 }
 
+func (i GetDomainVpcOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainVpcOption] {
+	return pulumix.Output[GetDomainVpcOption]{
+		OutputState: i.ToGetDomainVpcOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainVpcOptionArrayInput is an input type that accepts GetDomainVpcOptionArray and GetDomainVpcOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainVpcOptionArrayInput` via:
 //
@@ -5022,6 +7852,12 @@ func (i GetDomainVpcOptionArray) ToGetDomainVpcOptionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainVpcOptionArrayOutput)
 }
 
+func (i GetDomainVpcOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainVpcOption] {
+	return pulumix.Output[[]GetDomainVpcOption]{
+		OutputState: i.ToGetDomainVpcOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainVpcOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainVpcOptionOutput) ElementType() reflect.Type {
@@ -5034,6 +7870,12 @@ func (o GetDomainVpcOptionOutput) ToGetDomainVpcOptionOutput() GetDomainVpcOptio
 
 func (o GetDomainVpcOptionOutput) ToGetDomainVpcOptionOutputWithContext(ctx context.Context) GetDomainVpcOptionOutput {
 	return o
+}
+
+func (o GetDomainVpcOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainVpcOption] {
+	return pulumix.Output[GetDomainVpcOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Availability zones used by the domain.
@@ -5070,10 +7912,234 @@ func (o GetDomainVpcOptionArrayOutput) ToGetDomainVpcOptionArrayOutputWithContex
 	return o
 }
 
+func (o GetDomainVpcOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainVpcOption] {
+	return pulumix.Output[[]GetDomainVpcOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainVpcOption {
 		return vs[0].([]GetDomainVpcOption)[vs[1].(int)]
 	}).(GetDomainVpcOptionOutput)
+}
+
+type GetServerlessSecurityConfigSamlOptions struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute string `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata string `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout int `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute string `pulumi:"userAttribute"`
+}
+
+// GetServerlessSecurityConfigSamlOptionsInput is an input type that accepts GetServerlessSecurityConfigSamlOptionsArgs and GetServerlessSecurityConfigSamlOptionsOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionsInput` via:
+//
+//	GetServerlessSecurityConfigSamlOptionsArgs{...}
+type GetServerlessSecurityConfigSamlOptionsInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput
+	ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionsOutput
+}
+
+type GetServerlessSecurityConfigSamlOptionsArgs struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata pulumi.StringInput `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout pulumi.IntInput `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute pulumi.StringInput `pulumi:"userAttribute"`
+}
+
+func (GetServerlessSecurityConfigSamlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsOutput)
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[GetServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[GetServerlessSecurityConfigSamlOptions]{
+		OutputState: i.ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsOutput).ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx)
+}
+
+// GetServerlessSecurityConfigSamlOptionsPtrInput is an input type that accepts GetServerlessSecurityConfigSamlOptionsArgs, GetServerlessSecurityConfigSamlOptionsPtr and GetServerlessSecurityConfigSamlOptionsPtrOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionsPtrInput` via:
+//
+//	        GetServerlessSecurityConfigSamlOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServerlessSecurityConfigSamlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput
+	ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput
+}
+
+type getServerlessSecurityConfigSamlOptionsPtrType GetServerlessSecurityConfigSamlOptionsArgs
+
+func GetServerlessSecurityConfigSamlOptionsPtr(v *GetServerlessSecurityConfigSamlOptionsArgs) GetServerlessSecurityConfigSamlOptionsPtrInput {
+	return (*getServerlessSecurityConfigSamlOptionsPtrType)(v)
+}
+
+func (*getServerlessSecurityConfigSamlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i *getServerlessSecurityConfigSamlOptionsPtrType) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getServerlessSecurityConfigSamlOptionsPtrType) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+func (i *getServerlessSecurityConfigSamlOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[*GetServerlessSecurityConfigSamlOptions]{
+		OutputState: i.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetServerlessSecurityConfigSamlOptionsOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigSamlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServerlessSecurityConfigSamlOptions) *GetServerlessSecurityConfigSamlOptions {
+		return &v
+	}).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[GetServerlessSecurityConfigSamlOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Group attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.GroupAttribute }).(pulumi.StringOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) int { return v.SessionTimeout }).(pulumi.IntOutput)
+}
+
+// User attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.UserAttribute }).(pulumi.StringOutput)
+}
+
+type GetServerlessSecurityConfigSamlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigSamlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetServerlessSecurityConfigSamlOptions] {
+	return pulumix.Output[*GetServerlessSecurityConfigSamlOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) Elem() GetServerlessSecurityConfigSamlOptionsOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) GetServerlessSecurityConfigSamlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GetServerlessSecurityConfigSamlOptions
+		return ret
+	}).(GetServerlessSecurityConfigSamlOptionsOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserAttribute
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -5104,18 +8170,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionArrayInput)(nil)).Elem(), DomainLogPublishingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionInput)(nil)).Elem(), DomainNodeToNodeEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionPtrInput)(nil)).Elem(), DomainNodeToNodeEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsPtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowPtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsPtrInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsIdpInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsIdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsIdpPtrInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsIdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsPtrInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsPtrInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsPtrInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsPtrInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointVpcOptionsInput)(nil)).Elem(), VpcEndpointVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointVpcOptionsPtrInput)(nil)).Elem(), VpcEndpointVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
@@ -5140,10 +8222,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainLogPublishingOptionArrayInput)(nil)).Elem(), GetDomainLogPublishingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionArrayInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsPtrInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionInput)(nil)).Elem(), GetDomainSnapshotOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionArrayInput)(nil)).Elem(), GetDomainSnapshotOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSoftwareUpdateOptionInput)(nil)).Elem(), GetDomainSoftwareUpdateOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSoftwareUpdateOptionArrayInput)(nil)).Elem(), GetDomainSoftwareUpdateOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionInput)(nil)).Elem(), GetDomainVpcOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})
@@ -5171,18 +8263,34 @@ func init() {
 	pulumi.RegisterOutputType(DomainLogPublishingOptionArrayOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsIdpOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsIdpPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainSoftwareUpdateOptionsOutput{})
+	pulumi.RegisterOutputType(DomainSoftwareUpdateOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointVpcOptionsOutput{})
+	pulumi.RegisterOutputType(VpcEndpointVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionOutput{})
@@ -5207,8 +8315,18 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainLogPublishingOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainNodeToNodeEncryptionOutput{})
 	pulumi.RegisterOutputType(GetDomainNodeToNodeEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainSnapshotOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainSnapshotOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainSoftwareUpdateOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainSoftwareUpdateOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionsOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionsPtrOutput{})
 }

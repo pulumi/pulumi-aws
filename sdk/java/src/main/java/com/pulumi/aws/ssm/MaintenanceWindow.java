@@ -54,9 +54,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSM
+ * Using `pulumi import`, import SSM
  * 
- * Maintenance Windows can be imported using the `maintenance window id`, e.g.,
+ * Maintenance Windows using the maintenance window `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789

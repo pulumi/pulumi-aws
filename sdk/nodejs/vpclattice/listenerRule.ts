@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Lattice Listener Rule can be imported using the `example_id_arg`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
  *
  * ```sh
  *  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
@@ -139,6 +139,8 @@ export class ListenerRule extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     *
+     * The following arguments are optional:
      */
     public readonly priority!: pulumi.Output<number>;
     /**
@@ -240,6 +242,8 @@ export interface ListenerRuleState {
     name?: pulumi.Input<string>;
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     *
+     * The following arguments are optional:
      */
     priority?: pulumi.Input<number>;
     /**
@@ -282,6 +286,8 @@ export interface ListenerRuleArgs {
     name?: pulumi.Input<string>;
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     *
+     * The following arguments are optional:
      */
     priority: pulumi.Input<number>;
     /**

@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example

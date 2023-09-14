@@ -257,23 +257,23 @@ def get_signing_job(job_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:signer/getSigningJob:getSigningJob', __args__, opts=opts, typ=GetSigningJobResult).value
 
     return AwaitableGetSigningJobResult(
-        completed_at=__ret__.completed_at,
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        job_id=__ret__.job_id,
-        job_invoker=__ret__.job_invoker,
-        job_owner=__ret__.job_owner,
-        platform_display_name=__ret__.platform_display_name,
-        platform_id=__ret__.platform_id,
-        profile_name=__ret__.profile_name,
-        profile_version=__ret__.profile_version,
-        requested_by=__ret__.requested_by,
-        revocation_records=__ret__.revocation_records,
-        signature_expires_at=__ret__.signature_expires_at,
-        signed_objects=__ret__.signed_objects,
-        sources=__ret__.sources,
-        status=__ret__.status,
-        status_reason=__ret__.status_reason)
+        completed_at=pulumi.get(__ret__, 'completed_at'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        job_id=pulumi.get(__ret__, 'job_id'),
+        job_invoker=pulumi.get(__ret__, 'job_invoker'),
+        job_owner=pulumi.get(__ret__, 'job_owner'),
+        platform_display_name=pulumi.get(__ret__, 'platform_display_name'),
+        platform_id=pulumi.get(__ret__, 'platform_id'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        profile_version=pulumi.get(__ret__, 'profile_version'),
+        requested_by=pulumi.get(__ret__, 'requested_by'),
+        revocation_records=pulumi.get(__ret__, 'revocation_records'),
+        signature_expires_at=pulumi.get(__ret__, 'signature_expires_at'),
+        signed_objects=pulumi.get(__ret__, 'signed_objects'),
+        sources=pulumi.get(__ret__, 'sources'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'))
 
 
 @_utilities.lift_output_func(get_signing_job)

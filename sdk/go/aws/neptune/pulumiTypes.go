@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ClusterParameterGroupParameter struct {
 	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
@@ -51,6 +55,12 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
+func (i ClusterParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
@@ -76,6 +86,12 @@ func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterArrayOutput)
 }
 
+func (i ClusterParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -88,6 +104,12 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 
 func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
 	return o
+}
+
+func (o ClusterParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
@@ -117,6 +139,12 @@ func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParame
 
 func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParameterArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParameterArrayOutput {
 	return o
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParameterOutput {
@@ -162,6 +190,12 @@ func (i ClusterServerlessV2ScalingConfigurationArgs) ToClusterServerlessV2Scalin
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessV2ScalingConfigurationOutput)
 }
 
+func (i ClusterServerlessV2ScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[ClusterServerlessV2ScalingConfiguration]{
+		OutputState: i.ToClusterServerlessV2ScalingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterServerlessV2ScalingConfigurationArgs) ToClusterServerlessV2ScalingConfigurationPtrOutput() ClusterServerlessV2ScalingConfigurationPtrOutput {
 	return i.ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -203,6 +237,12 @@ func (i *clusterServerlessV2ScalingConfigurationPtrType) ToClusterServerlessV2Sc
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
+func (i *clusterServerlessV2ScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[*ClusterServerlessV2ScalingConfiguration]{
+		OutputState: i.ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterServerlessV2ScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterServerlessV2ScalingConfigurationOutput) ElementType() reflect.Type {
@@ -227,6 +267,12 @@ func (o ClusterServerlessV2ScalingConfigurationOutput) ToClusterServerlessV2Scal
 	}).(ClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
+func (o ClusterServerlessV2ScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[ClusterServerlessV2ScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
 func (o ClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
@@ -249,6 +295,12 @@ func (o ClusterServerlessV2ScalingConfigurationPtrOutput) ToClusterServerlessV2S
 
 func (o ClusterServerlessV2ScalingConfigurationPtrOutput) ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessV2ScalingConfigurationPtrOutput {
 	return o
+}
+
+func (o ClusterServerlessV2ScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[*ClusterServerlessV2ScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterServerlessV2ScalingConfigurationPtrOutput) Elem() ClusterServerlessV2ScalingConfigurationOutput {
@@ -318,6 +370,12 @@ func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMember
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberOutput)
 }
 
+func (i GlobalClusterGlobalClusterMemberArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[GlobalClusterGlobalClusterMember]{
+		OutputState: i.ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GlobalClusterGlobalClusterMemberArrayInput is an input type that accepts GlobalClusterGlobalClusterMemberArray and GlobalClusterGlobalClusterMemberArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterGlobalClusterMemberArrayInput` via:
 //
@@ -343,6 +401,12 @@ func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMembe
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberArrayOutput)
 }
 
+func (i GlobalClusterGlobalClusterMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[[]GlobalClusterGlobalClusterMember]{
+		OutputState: i.ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalClusterGlobalClusterMemberOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterGlobalClusterMemberOutput) ElementType() reflect.Type {
@@ -355,6 +419,12 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 
 func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
 	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[GlobalClusterGlobalClusterMember]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of member DB Cluster.
@@ -379,6 +449,12 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalCluste
 
 func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberArrayOutput {
 	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[[]GlobalClusterGlobalClusterMember]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GlobalClusterGlobalClusterMemberOutput {
@@ -428,6 +504,12 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
+func (i ParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
+	return pulumix.Output[ParameterGroupParameter]{
+		OutputState: i.ToParameterGroupParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
@@ -453,6 +535,12 @@ func (i ParameterGroupParameterArray) ToParameterGroupParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterArrayOutput)
 }
 
+func (i ParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
+	return pulumix.Output[[]ParameterGroupParameter]{
+		OutputState: i.ToParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -465,6 +553,12 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutput() Paramet
 
 func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContext(ctx context.Context) ParameterGroupParameterOutput {
 	return o
+}
+
+func (o ParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
+	return pulumix.Output[ParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
@@ -494,6 +588,12 @@ func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutput
 
 func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutputWithContext(ctx context.Context) ParameterGroupParameterArrayOutput {
 	return o
+}
+
+func (o ParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
+	return pulumix.Output[[]ParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGroupParameterOutput {

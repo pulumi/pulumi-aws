@@ -153,7 +153,8 @@ utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => r
 
 export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
-utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
+export const getCanonicalUserIdOutput: typeof import("./getCanonicalUserId").getCanonicalUserIdOutput = null as any;
+utilities.lazyLoad(exports, ["getCanonicalUserId","getCanonicalUserIdOutput"], () => require("./getCanonicalUserId"));
 
 export { GetObjectArgs, GetObjectResult, GetObjectOutputArgs } from "./getObject";
 export const getObject: typeof import("./getObject").getObject = null as any;

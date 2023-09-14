@@ -35,12 +35,11 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// `aws_imagebuilder_components` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+    /// Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
     /// ```
-    /// 
     ///  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:imagebuilder/component:Component")]
@@ -138,12 +137,16 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// 
+        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
 
         /// <summary>
         /// Version of the component.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -262,12 +265,16 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// 
+        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
         /// Version of the component.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -390,12 +397,16 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// 
+        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
         /// Version of the component.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

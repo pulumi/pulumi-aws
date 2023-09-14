@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a link.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.InvokeOption) (*LookupLinkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLinkResult
 	err := ctx.Invoke("aws:networkmanager/getLink:getLink", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o LookupLinkResultOutput) ToLookupLinkResultOutput() LookupLinkResultOutpu
 
 func (o LookupLinkResultOutput) ToLookupLinkResultOutputWithContext(ctx context.Context) LookupLinkResultOutput {
 	return o
+}
+
+func (o LookupLinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLinkResult] {
+	return pulumix.Output[LookupLinkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the link.

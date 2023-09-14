@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Prefix Lists can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Prefix Lists using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be

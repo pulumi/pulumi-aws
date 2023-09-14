@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Network Insights Analyses can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
@@ -82,6 +82,8 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisForwardPathComponent[]>;
     /**
      * ID of the Network Insights Path to run an analysis on.
+     *
+     * The following arguments are optional:
      */
     public readonly networkInsightsPathId!: pulumi.Output<string>;
     /**
@@ -201,6 +203,8 @@ export interface NetworkInsightsAnalysisState {
     forwardPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisForwardPathComponent>[]>;
     /**
      * ID of the Network Insights Path to run an analysis on.
+     *
+     * The following arguments are optional:
      */
     networkInsightsPathId?: pulumi.Input<string>;
     /**
@@ -251,6 +255,8 @@ export interface NetworkInsightsAnalysisArgs {
     filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of the Network Insights Path to run an analysis on.
+     *
+     * The following arguments are optional:
      */
     networkInsightsPathId: pulumi.Input<string>;
     /**

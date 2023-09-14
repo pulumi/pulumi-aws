@@ -43,6 +43,8 @@ namespace Pulumi.Aws.LB.Outputs
         public readonly string? TargetGroupArn;
         /// <summary>
         /// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Type;
 

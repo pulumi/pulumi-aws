@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudformation Stacks can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack

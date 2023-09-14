@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     privateDnsEnabled: false,
  *     securityGroupIds: [aws_security_group.test.id],
  * }, {
- *     provider: "aws.alternate",
+ *     provider: aws.alternate,
  * });
  * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", {
  *     vpcEndpointServiceId: exampleVpcEndpointService.id,
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
+ * Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263

@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MAIL FROM domain can be imported using the `domain` attribute, e.g.,
+ * Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
@@ -153,12 +153,16 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output<String> mailFromDomain;
 
     /**
      * @return Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> mailFromDomain() {

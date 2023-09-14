@@ -66,12 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Use the `user_name` to import a user. For example
+ * Using `pulumi import`, import a user using the `user_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:memorydb/user:User example my-user
  * ```
- * 
  *  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
  * 
  */
@@ -164,12 +163,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * Name of the MemoryDB user. Up to 40 characters.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
      * @return Name of the MemoryDB user. Up to 40 characters.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {

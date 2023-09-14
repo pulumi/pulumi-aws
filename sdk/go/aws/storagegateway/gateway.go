@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
@@ -23,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +68,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,7 +101,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,7 +129,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -157,7 +159,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -185,7 +187,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -209,7 +211,7 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -217,19 +219,7 @@ import (
 //
 // ```
 //
-//	Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. terraform resource "aws_storagegateway_gateway" "example" {
-//
-// # ... other configuration ...
-//
-//	gateway_ip_address = aws_instance.sgw.private_ip
-//
-// # There is no Storage Gateway API for reading gateway_ip_address
-//
-//	lifecycle {
-//
-//	ignore_changes = ["gateway_ip_address"]
-//
-//	} }
+//	Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 type Gateway struct {
 	pulumi.CustomResourceState
 
@@ -303,6 +293,7 @@ func NewGateway(ctx *pulumi.Context,
 		"smbGuestPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Gateway
 	err := ctx.RegisterResource("aws:storagegateway/gateway:Gateway", name, args, &resource, opts...)
 	if err != nil {
@@ -528,6 +519,12 @@ func (i *Gateway) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayOutput)
 }
 
+func (i *Gateway) ToOutput(ctx context.Context) pulumix.Output[*Gateway] {
+	return pulumix.Output[*Gateway]{
+		OutputState: i.ToGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayArrayInput is an input type that accepts GatewayArray and GatewayArrayOutput values.
 // You can construct a concrete instance of `GatewayArrayInput` via:
 //
@@ -551,6 +548,12 @@ func (i GatewayArray) ToGatewayArrayOutput() GatewayArrayOutput {
 
 func (i GatewayArray) ToGatewayArrayOutputWithContext(ctx context.Context) GatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayArrayOutput)
+}
+
+func (i GatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*Gateway] {
+	return pulumix.Output[[]*Gateway]{
+		OutputState: i.ToGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GatewayMapInput is an input type that accepts GatewayMap and GatewayMapOutput values.
@@ -578,6 +581,12 @@ func (i GatewayMap) ToGatewayMapOutputWithContext(ctx context.Context) GatewayMa
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayMapOutput)
 }
 
+func (i GatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Gateway] {
+	return pulumix.Output[map[string]*Gateway]{
+		OutputState: i.ToGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayOutput struct{ *pulumi.OutputState }
 
 func (GatewayOutput) ElementType() reflect.Type {
@@ -590,6 +599,12 @@ func (o GatewayOutput) ToGatewayOutput() GatewayOutput {
 
 func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput {
 	return o
+}
+
+func (o GatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*Gateway] {
+	return pulumix.Output[*Gateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -726,6 +741,12 @@ func (o GatewayArrayOutput) ToGatewayArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Gateway] {
+	return pulumix.Output[[]*Gateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayArrayOutput) Index(i pulumi.IntInput) GatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Gateway {
 		return vs[0].([]*Gateway)[vs[1].(int)]
@@ -744,6 +765,12 @@ func (o GatewayMapOutput) ToGatewayMapOutput() GatewayMapOutput {
 
 func (o GatewayMapOutput) ToGatewayMapOutputWithContext(ctx context.Context) GatewayMapOutput {
 	return o
+}
+
+func (o GatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Gateway] {
+	return pulumix.Output[map[string]*Gateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayMapOutput) MapIndex(k pulumi.StringInput) GatewayOutput {

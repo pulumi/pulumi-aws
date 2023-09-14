@@ -100,12 +100,16 @@ public final class NetworkInsightsAnalysisState extends com.pulumi.resources.Res
     /**
      * ID of the Network Insights Path to run an analysis on.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="networkInsightsPathId")
     private @Nullable Output<String> networkInsightsPathId;
 
     /**
      * @return ID of the Network Insights Path to run an analysis on.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> networkInsightsPathId() {
@@ -433,6 +437,8 @@ public final class NetworkInsightsAnalysisState extends com.pulumi.resources.Res
         /**
          * @param networkInsightsPathId ID of the Network Insights Path to run an analysis on.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -443,6 +449,8 @@ public final class NetworkInsightsAnalysisState extends com.pulumi.resources.Res
 
         /**
          * @param networkInsightsPathId ID of the Network Insights Path to run an analysis on.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

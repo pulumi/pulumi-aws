@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
  *
- * > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -22,7 +20,10 @@ import * as utilities from "../utilities";
  *         "REDSHIFT",
  *         "QUICKSIGHT",
  *     ],
- *     additionalSchemaElements: ["RESOURCES"],
+ *     additionalSchemaElements: [
+ *         "RESOURCES",
+ *         "SPLIT_COST_ALLOCATION_DATA",
+ *     ],
  *     compression: "GZIP",
  *     format: "textORcsv",
  *     reportName: "example-cur-report-definition",
@@ -34,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Report Definitions can be imported using the `report_name`, e.g.,
+ * Using `pulumi import`, import Report Definitions using the `report_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
@@ -73,7 +74,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly additionalArtifacts!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      */
     public readonly additionalSchemaElements!: pulumi.Output<string[]>;
     /**
@@ -192,7 +193,7 @@ export interface ReportDefinitionState {
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      */
     additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -246,7 +247,7 @@ export interface ReportDefinitionArgs {
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      */
     additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
     /**

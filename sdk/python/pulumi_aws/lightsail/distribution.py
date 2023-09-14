@@ -32,6 +32,8 @@ class DistributionArgs:
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
         :param pulumi.Input['DistributionOriginArgs'] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         :param pulumi.Input['DistributionCacheBehaviorSettingsArgs'] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
         :param pulumi.Input[str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
@@ -101,6 +103,8 @@ class DistributionArgs:
     def cache_behavior_settings(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsArgs']]:
         """
         An object that describes the cache behavior settings of the distribution. Detailed below
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cache_behavior_settings")
 
@@ -213,6 +217,8 @@ class _DistributionState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the distribution.
         :param pulumi.Input[str] bundle_id: Bundle ID to use for the distribution.
         :param pulumi.Input['DistributionCacheBehaviorSettingsArgs'] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
         :param pulumi.Input[str] created_at: The timestamp when the distribution was created.
@@ -315,6 +321,8 @@ class _DistributionState:
     def cache_behavior_settings(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsArgs']]:
         """
         An object that describes the cache behavior settings of the distribution. Detailed below
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cache_behavior_settings")
 
@@ -645,7 +653,7 @@ class Distribution(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Distribution can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
         ```sh
          $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
@@ -655,6 +663,8 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bundle_id: Bundle ID to use for the distribution.
         :param pulumi.Input[pulumi.InputType['DistributionCacheBehaviorSettingsArgs']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorArgs']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
@@ -784,7 +794,7 @@ class Distribution(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Distribution can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
         ```sh
          $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
@@ -891,6 +901,8 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the distribution.
         :param pulumi.Input[str] bundle_id: Bundle ID to use for the distribution.
         :param pulumi.Input[pulumi.InputType['DistributionCacheBehaviorSettingsArgs']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorArgs']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
         :param pulumi.Input[str] created_at: The timestamp when the distribution was created.
@@ -966,6 +978,8 @@ class Distribution(pulumi.CustomResource):
     def cache_behavior_settings(self) -> pulumi.Output[Optional['outputs.DistributionCacheBehaviorSettings']]:
         """
         An object that describes the cache behavior settings of the distribution. Detailed below
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cache_behavior_settings")
 

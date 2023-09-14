@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// SSM associations can be imported using the `association_id`, e.g.,
+    /// Using `pulumi import`, import SSM associations using the `association_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> DocumentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         /// </summary>
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> MaxConcurrency { get; private set; } = null!;
 
         /// <summary>
-        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         /// </summary>
         [Output("maxErrors")]
         public Output<string?> MaxErrors { get; private set; } = null!;
@@ -225,6 +225,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> ScheduleExpression { get; private set; } = null!;
 
         /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        /// </summary>
+        [Output("syncCompliance")]
+        public Output<string?> SyncCompliance { get; private set; } = null!;
+
+        /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
         [Output("targets")]
@@ -232,6 +238,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Output("waitForSuccessTimeoutSeconds")]
         public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
@@ -313,7 +321,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
-        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
@@ -325,7 +333,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? MaxConcurrency { get; set; }
 
         /// <summary>
-        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         /// </summary>
         [Input("maxErrors")]
         public Input<string>? MaxErrors { get; set; }
@@ -360,6 +368,12 @@ namespace Pulumi.Aws.Ssm
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        /// </summary>
+        [Input("syncCompliance")]
+        public Input<string>? SyncCompliance { get; set; }
+
         [Input("targets")]
         private InputList<Inputs.AssociationTargetArgs>? _targets;
 
@@ -374,6 +388,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
@@ -429,7 +445,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
-        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
@@ -441,7 +457,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? MaxConcurrency { get; set; }
 
         /// <summary>
-        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         /// </summary>
         [Input("maxErrors")]
         public Input<string>? MaxErrors { get; set; }
@@ -476,6 +492,12 @@ namespace Pulumi.Aws.Ssm
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        /// </summary>
+        [Input("syncCompliance")]
+        public Input<string>? SyncCompliance { get; set; }
+
         [Input("targets")]
         private InputList<Inputs.AssociationTargetGetArgs>? _targets;
 
@@ -490,6 +512,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }

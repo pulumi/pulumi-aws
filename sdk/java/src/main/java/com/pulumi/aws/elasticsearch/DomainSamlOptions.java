@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Elasticsearch domains can be imported using the `domain_name`, e.g.,
+ * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
@@ -87,12 +87,16 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
     /**
      * Name of the domain.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
      * @return Name of the domain.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> domainName() {

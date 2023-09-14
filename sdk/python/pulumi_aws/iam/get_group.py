@@ -127,12 +127,12 @@ def get_group(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        arn=__ret__.arn,
-        group_id=__ret__.group_id,
-        group_name=__ret__.group_name,
-        id=__ret__.id,
-        path=__ret__.path,
-        users=__ret__.users)
+        arn=pulumi.get(__ret__, 'arn'),
+        group_id=pulumi.get(__ret__, 'group_id'),
+        group_name=pulumi.get(__ret__, 'group_name'),
+        id=pulumi.get(__ret__, 'id'),
+        path=pulumi.get(__ret__, 'path'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_group)

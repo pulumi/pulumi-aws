@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the specified alternate contact attached to an AWS Account.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/account"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +46,13 @@ import (
 //
 // ## Import
 //
-// The Alternate Contact for the current account can be imported using the `alternate_contact_type`, e.g.,
+// Import the Alternate Contact for the current account:
+//
+// Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+//
+// __Using `pulumi import` to import__ the Alternate Contact for the current or another account using the `alternate_contact_type`. For example:
+//
+// Import the Alternate Contact for the current account:
 //
 // ```sh
 //
@@ -52,7 +60,7 @@ import (
 //
 // ```
 //
-//	If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
+//	Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
 //
 // ```sh
 //
@@ -95,6 +103,7 @@ func NewAlternativeContact(ctx *pulumi.Context,
 	if args.Title == nil {
 		return nil, errors.New("invalid value for required argument 'Title'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlternativeContact
 	err := ctx.RegisterResource("aws:account/alternativeContact:AlternativeContact", name, args, &resource, opts...)
 	if err != nil {
@@ -204,6 +213,12 @@ func (i *AlternativeContact) ToAlternativeContactOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AlternativeContactOutput)
 }
 
+func (i *AlternativeContact) ToOutput(ctx context.Context) pulumix.Output[*AlternativeContact] {
+	return pulumix.Output[*AlternativeContact]{
+		OutputState: i.ToAlternativeContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlternativeContactArrayInput is an input type that accepts AlternativeContactArray and AlternativeContactArrayOutput values.
 // You can construct a concrete instance of `AlternativeContactArrayInput` via:
 //
@@ -227,6 +242,12 @@ func (i AlternativeContactArray) ToAlternativeContactArrayOutput() AlternativeCo
 
 func (i AlternativeContactArray) ToAlternativeContactArrayOutputWithContext(ctx context.Context) AlternativeContactArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlternativeContactArrayOutput)
+}
+
+func (i AlternativeContactArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlternativeContact] {
+	return pulumix.Output[[]*AlternativeContact]{
+		OutputState: i.ToAlternativeContactArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlternativeContactMapInput is an input type that accepts AlternativeContactMap and AlternativeContactMapOutput values.
@@ -254,6 +275,12 @@ func (i AlternativeContactMap) ToAlternativeContactMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlternativeContactMapOutput)
 }
 
+func (i AlternativeContactMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlternativeContact] {
+	return pulumix.Output[map[string]*AlternativeContact]{
+		OutputState: i.ToAlternativeContactMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlternativeContactOutput struct{ *pulumi.OutputState }
 
 func (AlternativeContactOutput) ElementType() reflect.Type {
@@ -266,6 +293,12 @@ func (o AlternativeContactOutput) ToAlternativeContactOutput() AlternativeContac
 
 func (o AlternativeContactOutput) ToAlternativeContactOutputWithContext(ctx context.Context) AlternativeContactOutput {
 	return o
+}
+
+func (o AlternativeContactOutput) ToOutput(ctx context.Context) pulumix.Output[*AlternativeContact] {
+	return pulumix.Output[*AlternativeContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -312,6 +345,12 @@ func (o AlternativeContactArrayOutput) ToAlternativeContactArrayOutputWithContex
 	return o
 }
 
+func (o AlternativeContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlternativeContact] {
+	return pulumix.Output[[]*AlternativeContact]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlternativeContactArrayOutput) Index(i pulumi.IntInput) AlternativeContactOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlternativeContact {
 		return vs[0].([]*AlternativeContact)[vs[1].(int)]
@@ -330,6 +369,12 @@ func (o AlternativeContactMapOutput) ToAlternativeContactMapOutput() Alternative
 
 func (o AlternativeContactMapOutput) ToAlternativeContactMapOutputWithContext(ctx context.Context) AlternativeContactMapOutput {
 	return o
+}
+
+func (o AlternativeContactMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlternativeContact] {
+	return pulumix.Output[map[string]*AlternativeContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlternativeContactMapOutput) MapIndex(k pulumi.StringInput) AlternativeContactOutput {

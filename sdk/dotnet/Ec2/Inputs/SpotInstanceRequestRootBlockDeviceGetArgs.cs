@@ -71,6 +71,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+        /// 
+        /// Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

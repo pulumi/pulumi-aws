@@ -44,11 +44,11 @@ namespace Pulumi.Aws.EmrContainers
     /// 
     /// ## Import
     /// 
-    /// EKS Clusters can be imported using the `id`, e.g.
+    /// In TODO v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-    /// ```
+    ///  to = aws_emrcontainers_virtual_cluster.example
+    /// 
+    ///  id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `TODO import`, import EKS Clusters using the `id`. For exampleconsole % TODO import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
     /// </summary>
     [AwsResourceType("aws:emrcontainers/virtualCluster:VirtualCluster")]
     public partial class VirtualCluster : global::Pulumi.CustomResource
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.EmrContainers
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.EmrContainers
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.EmrContainers
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

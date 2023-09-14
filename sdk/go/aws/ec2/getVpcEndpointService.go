@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPC Endpoint Service data source details about a specific service that
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +62,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,6 +113,7 @@ import (
 //
 // ```
 func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServiceArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcEndpointServiceResult
 	err := ctx.Invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", args, &rv, opts...)
 	if err != nil {
@@ -130,6 +133,8 @@ type LookupVpcEndpointServiceArgs struct {
 	// Service type, `Gateway` or `Interface`.
 	ServiceType *string `pulumi:"serviceType"`
 	// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	//
+	// > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `serviceName` pattern of `com.amazonaws.<region>.<service>`.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -189,6 +194,8 @@ type LookupVpcEndpointServiceOutputArgs struct {
 	// Service type, `Gateway` or `Interface`.
 	ServiceType pulumi.StringPtrInput `pulumi:"serviceType"`
 	// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	//
+	// > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `serviceName` pattern of `com.amazonaws.<region>.<service>`.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -209,6 +216,12 @@ func (o LookupVpcEndpointServiceResultOutput) ToLookupVpcEndpointServiceResultOu
 
 func (o LookupVpcEndpointServiceResultOutput) ToLookupVpcEndpointServiceResultOutputWithContext(ctx context.Context) LookupVpcEndpointServiceResultOutput {
 	return o
+}
+
+func (o LookupVpcEndpointServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcEndpointServiceResult] {
+	return pulumix.Output[LookupVpcEndpointServiceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.

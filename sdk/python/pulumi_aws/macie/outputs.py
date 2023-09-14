@@ -13,7 +13,6 @@ from . import outputs
 __all__ = [
     'FindingsFilterFindingCriteria',
     'FindingsFilterFindingCriteriaCriterion',
-    'S3BucketAssociationClassificationType',
 ]
 
 @pulumi.output_type
@@ -152,57 +151,5 @@ class FindingsFilterFindingCriteriaCriterion(dict):
         The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         """
         return pulumi.get(self, "neqs")
-
-
-@pulumi.output_type
-class S3BucketAssociationClassificationType(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "oneTime":
-            suggest = "one_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in S3BucketAssociationClassificationType. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        S3BucketAssociationClassificationType.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        S3BucketAssociationClassificationType.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 continuous: Optional[str] = None,
-                 one_time: Optional[str] = None):
-        """
-        :param str continuous: A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-               The only valid value is the default value, `FULL`.
-        :param str one_time: A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-               Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        """
-        if continuous is not None:
-            pulumi.set(__self__, "continuous", continuous)
-        if one_time is not None:
-            pulumi.set(__self__, "one_time", one_time)
-
-    @property
-    @pulumi.getter
-    def continuous(self) -> Optional[str]:
-        """
-        A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-        The only valid value is the default value, `FULL`.
-        """
-        return pulumi.get(self, "continuous")
-
-    @property
-    @pulumi.getter(name="oneTime")
-    def one_time(self) -> Optional[str]:
-        """
-        A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-        Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        """
-        return pulumi.get(self, "one_time")
 
 

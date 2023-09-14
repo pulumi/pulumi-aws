@@ -89,8 +89,8 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var s3Stream = new Aws.Kinesis.FirehoseDeliveryStream("s3Stream", new()
     ///     {
-    ///         Destination = "s3",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///         Destination = "extended_s3",
+    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
     ///             RoleArn = firehoseToS3Role.Arn,
     ///             BucketArn = bucket.Arn,
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// CloudWatch metric streams can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
@@ -307,6 +307,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("outputFormat")]
         public Output<string> OutputFormat { get; private set; } = null!;
@@ -437,6 +439,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("outputFormat", required: true)]
         public Input<string> OutputFormat { get; set; } = null!;
@@ -547,6 +551,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }

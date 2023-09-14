@@ -43,6 +43,7 @@ import * as utilities from "../utilities";
  * const fleet = new aws.iot.ProvisioningTemplate("fleet", {
  *     description: "My provisioning template",
  *     provisioningRoleArn: iotFleetProvisioning.arn,
+ *     enabled: true,
  *     templateBody: devicePolicyPolicy.name.apply(name => JSON.stringify({
  *         Parameters: {
  *             SerialNumber: {
@@ -72,7 +73,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IoT fleet provisioning templates can be imported using the `name`, e.g.
+ * Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly string CloudwatchLogGroupArn;
         /// <summary>
-        /// Whether node to node encryption is enabled.
+        /// Enabled disabled toggle for off-peak update window
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

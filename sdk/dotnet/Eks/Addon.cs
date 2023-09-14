@@ -12,11 +12,6 @@ namespace Pulumi.Aws.Eks
     /// <summary>
     /// Manages an EKS add-on.
     /// 
-    /// &gt; **Note:** Amazon EKS add-on can only be used with Amazon EKS Clusters
-    /// running version 1.18 with platform version eks.3 or later
-    /// because add-ons rely on the Server-side Apply Kubernetes feature,
-    /// which is only available in Kubernetes 1.18 and later.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -35,11 +30,9 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// ## Example Update add-on usage with resolve_conflicts and PRESERVE
+    /// ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
     /// 
-    /// `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
-    /// 
-    /// &gt; **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+    /// `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -53,8 +46,8 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         AddonName = "coredns",
-    ///         AddonVersion = "v1.8.7-eksbuild.3",
-    ///         ResolveConflicts = "PRESERVE",
+    ///         AddonVersion = "v1.10.1-eksbuild.1",
+    ///         ResolveConflictsOnUpdate = "PRESERVE",
     ///     });
     /// 
     /// });
@@ -84,6 +77,7 @@ namespace Pulumi.Aws.Eks
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -91,11 +85,27 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Addon("example", new()
     ///     {
-    ///         AddonName = "coredns",
-    ///         AddonVersion = "v1.8.7-eksbuild.3",
     ///         ClusterName = "mycluster",
-    ///         ConfigurationValues = "{\"replicaCount\":4,\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"}}}",
-    ///         ResolveConflicts = "OVERWRITE",
+    ///         AddonName = "coredns",
+    ///         AddonVersion = "v1.10.1-eksbuild.1",
+    ///         ResolveConflictsOnCreate = "OVERWRITE",
+    ///         ConfigurationValues = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["replicaCount"] = 4,
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["limits"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["cpu"] = "100m",
+    ///                     ["memory"] = "150Mi",
+    ///                 },
+    ///                 ["requests"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["cpu"] = "100m",
+    ///                     ["memory"] = "150Mi",
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });
@@ -103,7 +113,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
+    /// Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
@@ -134,6 +144,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
@@ -163,12 +175,22 @@ namespace Pulumi.Aws.Eks
         public Output<bool?> Preserve { get; private set; } = null!;
 
         /// <summary>
-        /// Define how to resolve parameter value conflicts
-        /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Output("resolveConflicts")]
         public Output<string?> ResolveConflicts { get; private set; } = null!;
+
+        /// <summary>
+        /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+        /// </summary>
+        [Output("resolveConflictsOnCreate")]
+        public Output<string?> ResolveConflictsOnCreate { get; private set; } = null!;
+
+        /// <summary>
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Output("resolveConflictsOnUpdate")]
+        public Output<string?> ResolveConflictsOnUpdate { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an
@@ -176,6 +198,11 @@ namespace Pulumi.Aws.Eks
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
         /// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        /// in the Amazon EKS User Guide.
+        /// 
+        /// &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        /// provider created for your cluster. For more information, [see Enabling IAM roles
+        /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         /// in the Amazon EKS User Guide.
         /// </summary>
         [Output("serviceAccountRoleArn")]
@@ -255,6 +282,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -272,12 +301,22 @@ namespace Pulumi.Aws.Eks
         public Input<bool>? Preserve { get; set; }
 
         /// <summary>
-        /// Define how to resolve parameter value conflicts
-        /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflicts")]
         public Input<string>? ResolveConflicts { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnCreate")]
+        public Input<string>? ResolveConflictsOnCreate { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnUpdate")]
+        public Input<string>? ResolveConflictsOnUpdate { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an
@@ -285,6 +324,11 @@ namespace Pulumi.Aws.Eks
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
         /// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        /// in the Amazon EKS User Guide.
+        /// 
+        /// &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        /// provider created for your cluster. For more information, [see Enabling IAM roles
+        /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         /// in the Amazon EKS User Guide.
         /// </summary>
         [Input("serviceAccountRoleArn")]
@@ -332,6 +376,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
@@ -361,12 +407,22 @@ namespace Pulumi.Aws.Eks
         public Input<bool>? Preserve { get; set; }
 
         /// <summary>
-        /// Define how to resolve parameter value conflicts
-        /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflicts")]
         public Input<string>? ResolveConflicts { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnCreate")]
+        public Input<string>? ResolveConflictsOnCreate { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnUpdate")]
+        public Input<string>? ResolveConflictsOnUpdate { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an
@@ -374,6 +430,11 @@ namespace Pulumi.Aws.Eks
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
         /// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        /// in the Amazon EKS User Guide.
+        /// 
+        /// &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        /// provider created for your cluster. For more information, [see Enabling IAM roles
+        /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         /// in the Amazon EKS User Guide.
         /// </summary>
         [Input("serviceAccountRoleArn")]

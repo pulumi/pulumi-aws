@@ -181,6 +181,8 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
 
     :param str firewall_rule_group_association_id: The identifier for the association.
+           
+           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
@@ -188,20 +190,20 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation', __args__, opts=opts, typ=GetResolverFirewallRuleGroupAssociationResult).value
 
     return AwaitableGetResolverFirewallRuleGroupAssociationResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        creator_request_id=__ret__.creator_request_id,
-        firewall_rule_group_association_id=__ret__.firewall_rule_group_association_id,
-        firewall_rule_group_id=__ret__.firewall_rule_group_id,
-        id=__ret__.id,
-        managed_owner_name=__ret__.managed_owner_name,
-        modification_time=__ret__.modification_time,
-        mutation_protection=__ret__.mutation_protection,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        creator_request_id=pulumi.get(__ret__, 'creator_request_id'),
+        firewall_rule_group_association_id=pulumi.get(__ret__, 'firewall_rule_group_association_id'),
+        firewall_rule_group_id=pulumi.get(__ret__, 'firewall_rule_group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        managed_owner_name=pulumi.get(__ret__, 'managed_owner_name'),
+        modification_time=pulumi.get(__ret__, 'modification_time'),
+        mutation_protection=pulumi.get(__ret__, 'mutation_protection'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_resolver_firewall_rule_group_association)
@@ -225,5 +227,7 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
 
     :param str firewall_rule_group_association_id: The identifier for the association.
+           
+           The following attribute is additionally exported:
     """
     ...

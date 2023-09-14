@@ -58,8 +58,8 @@ import * as utilities from "../utilities";
  * });
  * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
- *     destination: "s3",
- *     s3Configuration: {
+ *     destination: "extended_s3",
+ *     extendedS3Configuration: {
  *         roleArn: firehoseRole.arn,
  *         bucketArn: bucket.arn,
  *     },
@@ -153,7 +153,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MSK clusters can be imported using the cluster `arn`, e.g.,
+ * Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -219,6 +219,18 @@ export class Cluster extends pulumi.CustomResource {
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string>;
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslIam!: pulumi.Output<string>;
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslScram!: pulumi.Output<string>;
+    /**
+     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    public /*out*/ readonly bootstrapBrokersVpcConnectivityTls!: pulumi.Output<string>;
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
@@ -306,6 +318,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapBrokersSaslIam"] = state ? state.bootstrapBrokersSaslIam : undefined;
             resourceInputs["bootstrapBrokersSaslScram"] = state ? state.bootstrapBrokersSaslScram : undefined;
             resourceInputs["bootstrapBrokersTls"] = state ? state.bootstrapBrokersTls : undefined;
+            resourceInputs["bootstrapBrokersVpcConnectivitySaslIam"] = state ? state.bootstrapBrokersVpcConnectivitySaslIam : undefined;
+            resourceInputs["bootstrapBrokersVpcConnectivitySaslScram"] = state ? state.bootstrapBrokersVpcConnectivitySaslScram : undefined;
+            resourceInputs["bootstrapBrokersVpcConnectivityTls"] = state ? state.bootstrapBrokersVpcConnectivityTls : undefined;
             resourceInputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
             resourceInputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
@@ -353,6 +368,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapBrokersSaslIam"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersSaslScram"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersTls"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokersVpcConnectivitySaslIam"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokersVpcConnectivitySaslScram"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokersVpcConnectivityTls"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["zookeeperConnectString"] = undefined /*out*/;
@@ -399,6 +417,18 @@ export interface ClusterState {
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     bootstrapBrokersTls?: pulumi.Input<string>;
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    bootstrapBrokersVpcConnectivitySaslIam?: pulumi.Input<string>;
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    bootstrapBrokersVpcConnectivitySaslScram?: pulumi.Input<string>;
+    /**
+     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    bootstrapBrokersVpcConnectivityTls?: pulumi.Input<string>;
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */

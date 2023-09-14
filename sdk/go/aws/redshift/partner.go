@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a new Amazon Redshift Partner Integration.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Redshift usage limits can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 //
 // ```sh
 //
@@ -87,6 +89,7 @@ func NewPartner(ctx *pulumi.Context,
 	if args.PartnerName == nil {
 		return nil, errors.New("invalid value for required argument 'PartnerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Partner
 	err := ctx.RegisterResource("aws:redshift/partner:Partner", name, args, &resource, opts...)
 	if err != nil {
@@ -188,6 +191,12 @@ func (i *Partner) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerOutput)
 }
 
+func (i *Partner) ToOutput(ctx context.Context) pulumix.Output[*Partner] {
+	return pulumix.Output[*Partner]{
+		OutputState: i.ToPartnerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PartnerArrayInput is an input type that accepts PartnerArray and PartnerArrayOutput values.
 // You can construct a concrete instance of `PartnerArrayInput` via:
 //
@@ -211,6 +220,12 @@ func (i PartnerArray) ToPartnerArrayOutput() PartnerArrayOutput {
 
 func (i PartnerArray) ToPartnerArrayOutputWithContext(ctx context.Context) PartnerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerArrayOutput)
+}
+
+func (i PartnerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Partner] {
+	return pulumix.Output[[]*Partner]{
+		OutputState: i.ToPartnerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PartnerMapInput is an input type that accepts PartnerMap and PartnerMapOutput values.
@@ -238,6 +253,12 @@ func (i PartnerMap) ToPartnerMapOutputWithContext(ctx context.Context) PartnerMa
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerMapOutput)
 }
 
+func (i PartnerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Partner] {
+	return pulumix.Output[map[string]*Partner]{
+		OutputState: i.ToPartnerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartnerOutput struct{ *pulumi.OutputState }
 
 func (PartnerOutput) ElementType() reflect.Type {
@@ -250,6 +271,12 @@ func (o PartnerOutput) ToPartnerOutput() PartnerOutput {
 
 func (o PartnerOutput) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput {
 	return o
+}
+
+func (o PartnerOutput) ToOutput(ctx context.Context) pulumix.Output[*Partner] {
+	return pulumix.Output[*Partner]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Web Services account ID that owns the cluster.
@@ -296,6 +323,12 @@ func (o PartnerArrayOutput) ToPartnerArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o PartnerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Partner] {
+	return pulumix.Output[[]*Partner]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PartnerArrayOutput) Index(i pulumi.IntInput) PartnerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Partner {
 		return vs[0].([]*Partner)[vs[1].(int)]
@@ -314,6 +347,12 @@ func (o PartnerMapOutput) ToPartnerMapOutput() PartnerMapOutput {
 
 func (o PartnerMapOutput) ToPartnerMapOutputWithContext(ctx context.Context) PartnerMapOutput {
 	return o
+}
+
+func (o PartnerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Partner] {
+	return pulumix.Output[map[string]*Partner]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnerMapOutput) MapIndex(k pulumi.StringInput) PartnerOutput {

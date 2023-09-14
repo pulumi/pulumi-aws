@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+ * Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
  *
  * ```sh
  *  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
@@ -87,6 +87,8 @@ export class Thesaurus extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     public readonly sourceS3Path!: pulumi.Output<outputs.kendra.ThesaurusSourceS3Path>;
     /**
@@ -179,6 +181,8 @@ export interface ThesaurusState {
     roleArn?: pulumi.Input<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
     /**
@@ -218,6 +222,8 @@ export interface ThesaurusArgs {
     roleArn: pulumi.Input<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
     /**

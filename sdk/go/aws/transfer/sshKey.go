@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer User SSH Key resource.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -115,7 +117,7 @@ import (
 //
 // ## Import
 //
-// Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
+// Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
 //
 // ```sh
 //
@@ -149,6 +151,7 @@ func NewSshKey(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SshKey
 	err := ctx.RegisterResource("aws:transfer/sshKey:SshKey", name, args, &resource, opts...)
 	if err != nil {
@@ -234,6 +237,12 @@ func (i *SshKey) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyOutput)
 }
 
+func (i *SshKey) ToOutput(ctx context.Context) pulumix.Output[*SshKey] {
+	return pulumix.Output[*SshKey]{
+		OutputState: i.ToSshKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SshKeyArrayInput is an input type that accepts SshKeyArray and SshKeyArrayOutput values.
 // You can construct a concrete instance of `SshKeyArrayInput` via:
 //
@@ -257,6 +266,12 @@ func (i SshKeyArray) ToSshKeyArrayOutput() SshKeyArrayOutput {
 
 func (i SshKeyArray) ToSshKeyArrayOutputWithContext(ctx context.Context) SshKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyArrayOutput)
+}
+
+func (i SshKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SshKey] {
+	return pulumix.Output[[]*SshKey]{
+		OutputState: i.ToSshKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SshKeyMapInput is an input type that accepts SshKeyMap and SshKeyMapOutput values.
@@ -284,6 +299,12 @@ func (i SshKeyMap) ToSshKeyMapOutputWithContext(ctx context.Context) SshKeyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyMapOutput)
 }
 
+func (i SshKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshKey] {
+	return pulumix.Output[map[string]*SshKey]{
+		OutputState: i.ToSshKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SshKeyOutput struct{ *pulumi.OutputState }
 
 func (SshKeyOutput) ElementType() reflect.Type {
@@ -296,6 +317,12 @@ func (o SshKeyOutput) ToSshKeyOutput() SshKeyOutput {
 
 func (o SshKeyOutput) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutput {
 	return o
+}
+
+func (o SshKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*SshKey] {
+	return pulumix.Output[*SshKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The public key portion of an SSH key pair.
@@ -327,6 +354,12 @@ func (o SshKeyArrayOutput) ToSshKeyArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o SshKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SshKey] {
+	return pulumix.Output[[]*SshKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SshKeyArrayOutput) Index(i pulumi.IntInput) SshKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SshKey {
 		return vs[0].([]*SshKey)[vs[1].(int)]
@@ -345,6 +378,12 @@ func (o SshKeyMapOutput) ToSshKeyMapOutput() SshKeyMapOutput {
 
 func (o SshKeyMapOutput) ToSshKeyMapOutputWithContext(ctx context.Context) SshKeyMapOutput {
 	return o
+}
+
+func (o SshKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshKey] {
+	return pulumix.Output[map[string]*SshKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SshKeyMapOutput) MapIndex(k pulumi.StringInput) SshKeyOutput {

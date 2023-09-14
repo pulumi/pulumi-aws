@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight folder can be imported using the AWS account ID and folder ID name separated by a comma (`,`) e.g.,
+ * Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
  *
  * ```sh
  *  $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
@@ -121,6 +121,8 @@ export class Folder extends pulumi.CustomResource {
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * Display name for the folder.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -222,6 +224,8 @@ export interface FolderState {
     lastUpdatedTime?: pulumi.Input<string>;
     /**
      * Display name for the folder.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -260,6 +264,8 @@ export interface FolderArgs {
     folderType?: pulumi.Input<string>;
     /**
      * Display name for the folder.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

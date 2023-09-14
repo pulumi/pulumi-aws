@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Comprehend Document Classifier can be imported using the ARN, e.g.,
+ * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
@@ -101,6 +101,8 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -239,6 +241,8 @@ export interface DocumentClassifierState {
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -316,6 +320,8 @@ export interface DocumentClassifierArgs {
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

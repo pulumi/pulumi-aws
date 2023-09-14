@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type HostVpcConfiguration struct {
 	// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
@@ -55,6 +59,12 @@ func (i HostVpcConfigurationArgs) ToHostVpcConfigurationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(HostVpcConfigurationOutput)
 }
 
+func (i HostVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[HostVpcConfiguration] {
+	return pulumix.Output[HostVpcConfiguration]{
+		OutputState: i.ToHostVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i HostVpcConfigurationArgs) ToHostVpcConfigurationPtrOutput() HostVpcConfigurationPtrOutput {
 	return i.ToHostVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -96,6 +106,12 @@ func (i *hostVpcConfigurationPtrType) ToHostVpcConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HostVpcConfigurationPtrOutput)
 }
 
+func (i *hostVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*HostVpcConfiguration] {
+	return pulumix.Output[*HostVpcConfiguration]{
+		OutputState: i.ToHostVpcConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (HostVpcConfigurationOutput) ElementType() reflect.Type {
@@ -118,6 +134,12 @@ func (o HostVpcConfigurationOutput) ToHostVpcConfigurationPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostVpcConfiguration) *HostVpcConfiguration {
 		return &v
 	}).(HostVpcConfigurationPtrOutput)
+}
+
+func (o HostVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[HostVpcConfiguration] {
+	return pulumix.Output[HostVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
@@ -152,6 +174,12 @@ func (o HostVpcConfigurationPtrOutput) ToHostVpcConfigurationPtrOutput() HostVpc
 
 func (o HostVpcConfigurationPtrOutput) ToHostVpcConfigurationPtrOutputWithContext(ctx context.Context) HostVpcConfigurationPtrOutput {
 	return o
+}
+
+func (o HostVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HostVpcConfiguration] {
+	return pulumix.Output[*HostVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostVpcConfigurationPtrOutput) Elem() HostVpcConfigurationOutput {

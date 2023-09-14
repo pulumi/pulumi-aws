@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +85,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +122,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -141,7 +143,7 @@ import (
 //
 // ## Import
 //
-// The current EMR Block Public Access Configuration can be imported, e.g.,
+// Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
 //
 // ```sh
 //
@@ -152,6 +154,8 @@ type BlockPublicAccessConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules pulumi.BoolOutput `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput `pulumi:"permittedPublicSecurityGroupRuleRanges"`
@@ -167,6 +171,7 @@ func NewBlockPublicAccessConfiguration(ctx *pulumi.Context,
 	if args.BlockPublicSecurityGroupRules == nil {
 		return nil, errors.New("invalid value for required argument 'BlockPublicSecurityGroupRules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BlockPublicAccessConfiguration
 	err := ctx.RegisterResource("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -190,6 +195,8 @@ func GetBlockPublicAccessConfiguration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BlockPublicAccessConfiguration resources.
 type blockPublicAccessConfigurationState struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules *bool `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
@@ -197,6 +204,8 @@ type blockPublicAccessConfigurationState struct {
 
 type BlockPublicAccessConfigurationState struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules pulumi.BoolPtrInput
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
@@ -208,6 +217,8 @@ func (BlockPublicAccessConfigurationState) ElementType() reflect.Type {
 
 type blockPublicAccessConfigurationArgs struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules bool `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
@@ -216,6 +227,8 @@ type blockPublicAccessConfigurationArgs struct {
 // The set of arguments for constructing a BlockPublicAccessConfiguration resource.
 type BlockPublicAccessConfigurationArgs struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules pulumi.BoolInput
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
@@ -244,6 +257,12 @@ func (i *BlockPublicAccessConfiguration) ToBlockPublicAccessConfigurationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationOutput)
 }
 
+func (i *BlockPublicAccessConfiguration) ToOutput(ctx context.Context) pulumix.Output[*BlockPublicAccessConfiguration] {
+	return pulumix.Output[*BlockPublicAccessConfiguration]{
+		OutputState: i.ToBlockPublicAccessConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BlockPublicAccessConfigurationArrayInput is an input type that accepts BlockPublicAccessConfigurationArray and BlockPublicAccessConfigurationArrayOutput values.
 // You can construct a concrete instance of `BlockPublicAccessConfigurationArrayInput` via:
 //
@@ -267,6 +286,12 @@ func (i BlockPublicAccessConfigurationArray) ToBlockPublicAccessConfigurationArr
 
 func (i BlockPublicAccessConfigurationArray) ToBlockPublicAccessConfigurationArrayOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationArrayOutput)
+}
+
+func (i BlockPublicAccessConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BlockPublicAccessConfiguration] {
+	return pulumix.Output[[]*BlockPublicAccessConfiguration]{
+		OutputState: i.ToBlockPublicAccessConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BlockPublicAccessConfigurationMapInput is an input type that accepts BlockPublicAccessConfigurationMap and BlockPublicAccessConfigurationMapOutput values.
@@ -294,6 +319,12 @@ func (i BlockPublicAccessConfigurationMap) ToBlockPublicAccessConfigurationMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationMapOutput)
 }
 
+func (i BlockPublicAccessConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BlockPublicAccessConfiguration] {
+	return pulumix.Output[map[string]*BlockPublicAccessConfiguration]{
+		OutputState: i.ToBlockPublicAccessConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BlockPublicAccessConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BlockPublicAccessConfigurationOutput) ElementType() reflect.Type {
@@ -308,7 +339,15 @@ func (o BlockPublicAccessConfigurationOutput) ToBlockPublicAccessConfigurationOu
 	return o
 }
 
+func (o BlockPublicAccessConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*BlockPublicAccessConfiguration] {
+	return pulumix.Output[*BlockPublicAccessConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enable or disable EMR Block Public Access.
+//
+// The following arguments are optional:
 func (o BlockPublicAccessConfigurationOutput) BlockPublicSecurityGroupRules() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BlockPublicAccessConfiguration) pulumi.BoolOutput { return v.BlockPublicSecurityGroupRules }).(pulumi.BoolOutput)
 }
@@ -334,6 +373,12 @@ func (o BlockPublicAccessConfigurationArrayOutput) ToBlockPublicAccessConfigurat
 	return o
 }
 
+func (o BlockPublicAccessConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BlockPublicAccessConfiguration] {
+	return pulumix.Output[[]*BlockPublicAccessConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BlockPublicAccessConfigurationArrayOutput) Index(i pulumi.IntInput) BlockPublicAccessConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BlockPublicAccessConfiguration {
 		return vs[0].([]*BlockPublicAccessConfiguration)[vs[1].(int)]
@@ -352,6 +397,12 @@ func (o BlockPublicAccessConfigurationMapOutput) ToBlockPublicAccessConfiguratio
 
 func (o BlockPublicAccessConfigurationMapOutput) ToBlockPublicAccessConfigurationMapOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationMapOutput {
 	return o
+}
+
+func (o BlockPublicAccessConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BlockPublicAccessConfiguration] {
+	return pulumix.Output[map[string]*BlockPublicAccessConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BlockPublicAccessConfigurationMapOutput) MapIndex(k pulumi.StringInput) BlockPublicAccessConfigurationOutput {

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudformation.StackSetArgs;
 import com.pulumi.aws.cloudformation.inputs.StackSetState;
 import com.pulumi.aws.cloudformation.outputs.StackSetAutoDeployment;
+import com.pulumi.aws.cloudformation.outputs.StackSetManagedExecution;
 import com.pulumi.aws.cloudformation.outputs.StackSetOperationPreferences;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -117,10 +118,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFormation StackSets can be imported using the `name`, e.g.,
+ * Import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+ * 
+ * Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+ * ```
+ *  Using `TODO import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
  * ```
  * 
  */
@@ -223,6 +231,20 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      */
     public Output<String> executionRoleName() {
         return this.executionRoleName;
+    }
+    /**
+     * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+     * 
+     */
+    @Export(name="managedExecution", refs={StackSetManagedExecution.class}, tree="[0]")
+    private Output</* @Nullable */ StackSetManagedExecution> managedExecution;
+
+    /**
+     * @return Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+     * 
+     */
+    public Output<Optional<StackSetManagedExecution>> managedExecution() {
+        return Codegen.optional(this.managedExecution);
     }
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.

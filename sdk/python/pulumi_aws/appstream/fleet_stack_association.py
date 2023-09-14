@@ -107,7 +107,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_fleet = aws.appstream.Fleet("exampleFleet",
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
             compute_capacity=aws.appstream.FleetComputeCapacityArgs(
                 desired_instances=1,
@@ -120,7 +120,7 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
@@ -147,7 +147,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_fleet = aws.appstream.Fleet("exampleFleet",
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
             compute_capacity=aws.appstream.FleetComputeCapacityArgs(
                 desired_instances=1,
@@ -160,7 +160,7 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName

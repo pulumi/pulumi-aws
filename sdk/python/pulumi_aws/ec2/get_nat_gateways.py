@@ -96,6 +96,9 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
     :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
@@ -106,11 +109,11 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNatGateways:getNatGateways', __args__, opts=opts, typ=GetNatGatewaysResult).value
 
     return AwaitableGetNatGatewaysResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_nat_gateways)
@@ -125,6 +128,9 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     ...

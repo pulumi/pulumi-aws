@@ -83,6 +83,10 @@ export interface GetWindowsFileSystemResult {
      */
     readonly deploymentType: string;
     /**
+     * The SSD IOPS configuration for the file system.
+     */
+    readonly diskIopsConfigurations: outputs.fsx.GetWindowsFileSystemDiskIopsConfiguration[];
+    /**
      * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      */
     readonly dnsName: string;

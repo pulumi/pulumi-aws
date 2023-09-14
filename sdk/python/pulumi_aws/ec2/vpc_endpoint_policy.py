@@ -131,7 +131,7 @@ class VpcEndpointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint Policies can be imported using the `id`, e.g.
+        Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
@@ -181,7 +181,7 @@ class VpcEndpointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint Policies can be imported using the `id`, e.g.
+        Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57

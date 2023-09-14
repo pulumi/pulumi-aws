@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito Resource Server.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +85,7 @@ import (
 //
 // ## Import
 //
-// `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+// Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
 //
 // ```sh
 //
@@ -117,6 +119,7 @@ func NewResourceServer(ctx *pulumi.Context,
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceServer
 	err := ctx.RegisterResource("aws:cognito/resourceServer:ResourceServer", name, args, &resource, opts...)
 	if err != nil {
@@ -210,6 +213,12 @@ func (i *ResourceServer) ToResourceServerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceServerOutput)
 }
 
+func (i *ResourceServer) ToOutput(ctx context.Context) pulumix.Output[*ResourceServer] {
+	return pulumix.Output[*ResourceServer]{
+		OutputState: i.ToResourceServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceServerArrayInput is an input type that accepts ResourceServerArray and ResourceServerArrayOutput values.
 // You can construct a concrete instance of `ResourceServerArrayInput` via:
 //
@@ -233,6 +242,12 @@ func (i ResourceServerArray) ToResourceServerArrayOutput() ResourceServerArrayOu
 
 func (i ResourceServerArray) ToResourceServerArrayOutputWithContext(ctx context.Context) ResourceServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceServerArrayOutput)
+}
+
+func (i ResourceServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceServer] {
+	return pulumix.Output[[]*ResourceServer]{
+		OutputState: i.ToResourceServerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceServerMapInput is an input type that accepts ResourceServerMap and ResourceServerMapOutput values.
@@ -260,6 +275,12 @@ func (i ResourceServerMap) ToResourceServerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceServerMapOutput)
 }
 
+func (i ResourceServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceServer] {
+	return pulumix.Output[map[string]*ResourceServer]{
+		OutputState: i.ToResourceServerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceServerOutput struct{ *pulumi.OutputState }
 
 func (ResourceServerOutput) ElementType() reflect.Type {
@@ -272,6 +293,12 @@ func (o ResourceServerOutput) ToResourceServerOutput() ResourceServerOutput {
 
 func (o ResourceServerOutput) ToResourceServerOutputWithContext(ctx context.Context) ResourceServerOutput {
 	return o
+}
+
+func (o ResourceServerOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceServer] {
+	return pulumix.Output[*ResourceServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An identifier for the resource server.
@@ -312,6 +339,12 @@ func (o ResourceServerArrayOutput) ToResourceServerArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ResourceServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceServer] {
+	return pulumix.Output[[]*ResourceServer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceServerArrayOutput) Index(i pulumi.IntInput) ResourceServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceServer {
 		return vs[0].([]*ResourceServer)[vs[1].(int)]
@@ -330,6 +363,12 @@ func (o ResourceServerMapOutput) ToResourceServerMapOutput() ResourceServerMapOu
 
 func (o ResourceServerMapOutput) ToResourceServerMapOutputWithContext(ctx context.Context) ResourceServerMapOutput {
 	return o
+}
+
+func (o ResourceServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceServer] {
+	return pulumix.Output[map[string]*ResourceServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceServerMapOutput) MapIndex(k pulumi.StringInput) ResourceServerOutput {

@@ -30,12 +30,16 @@ public final class GetPermissionsDatabase extends com.pulumi.resources.InvokeArg
     /**
      * Name of the database resource. Unique to the Data Catalog.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
      * @return Name of the database resource. Unique to the Data Catalog.
+     * 
+     * The following argument is optional:
      * 
      */
     public String name() {
@@ -80,6 +84,8 @@ public final class GetPermissionsDatabase extends com.pulumi.resources.InvokeArg
 
         /**
          * @param name Name of the database resource. Unique to the Data Catalog.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

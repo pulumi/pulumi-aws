@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.Vpc` provides details about a specific VPC.
@@ -16,6 +18,7 @@ import (
 // an input variable and needs to, for example, determine the CIDR block of that
 // VPC.
 func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOption) (*LookupVpcResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcResult
 	err := ctx.Invoke("aws:ec2/getVpc:getVpc", args, &rv, opts...)
 	if err != nil {
@@ -42,6 +45,9 @@ type LookupVpcArgs struct {
 	State *string `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPC.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -109,6 +115,9 @@ type LookupVpcOutputArgs struct {
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPC.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -129,6 +138,12 @@ func (o LookupVpcResultOutput) ToLookupVpcResultOutput() LookupVpcResultOutput {
 
 func (o LookupVpcResultOutput) ToLookupVpcResultOutputWithContext(ctx context.Context) LookupVpcResultOutput {
 	return o
+}
+
+func (o LookupVpcResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcResult] {
+	return pulumix.Output[LookupVpcResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of VPC

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+    /// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
@@ -60,6 +60,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Tag option value.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -124,6 +126,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Tag option value.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -153,6 +157,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Tag option value.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

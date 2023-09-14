@@ -16,9 +16,327 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
     /// 
+    /// ## Example Usage
+    /// ### S3 Origin
+    /// 
+    /// The example below creates a CloudFront distribution with an S3 origin.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "My bucket" },
+    ///         },
+    ///     });
+    /// 
+    ///     var bAcl = new Aws.S3.BucketAclV2("bAcl", new()
+    ///     {
+    ///         Bucket = bucketV2.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var s3OriginId = "myS3Origin";
+    /// 
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     {
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             {
+    ///                 DomainName = bucketV2.BucketRegionalDomainName,
+    ///                 OriginAccessControlId = aws_cloudfront_origin_access_control.Default.Id,
+    ///                 OriginId = s3OriginId,
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         IsIpv6Enabled = true,
+    ///         Comment = "Some comment",
+    ///         DefaultRootObject = "index.html",
+    ///         LoggingConfig = new Aws.CloudFront.Inputs.DistributionLoggingConfigArgs
+    ///         {
+    ///             IncludeCookies = false,
+    ///             Bucket = "mylogs.s3.amazonaws.com",
+    ///             Prefix = "myprefix",
+    ///         },
+    ///         Aliases = new[]
+    ///         {
+    ///             "mysite.example.com",
+    ///             "yoursite.example.com",
+    ///         },
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "DELETE",
+    ///                 "GET",
+    ///                 "HEAD",
+    ///                 "OPTIONS",
+    ///                 "PATCH",
+    ///                 "POST",
+    ///                 "PUT",
+    ///             },
+    ///             CachedMethods = new[]
+    ///             {
+    ///                 "GET",
+    ///                 "HEAD",
+    ///             },
+    ///             TargetOriginId = s3OriginId,
+    ///             ForwardedValues = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs
+    ///             {
+    ///                 QueryString = false,
+    ///                 Cookies = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs
+    ///                 {
+    ///                     Forward = "none",
+    ///                 },
+    ///             },
+    ///             ViewerProtocolPolicy = "allow-all",
+    ///             MinTtl = 0,
+    ///             DefaultTtl = 3600,
+    ///             MaxTtl = 86400,
+    ///         },
+    ///         OrderedCacheBehaviors = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             {
+    ///                 PathPattern = "/content/immutable/*",
+    ///                 AllowedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 CachedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 TargetOriginId = s3OriginId,
+    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
+    ///                 {
+    ///                     QueryString = false,
+    ///                     Headers = new[]
+    ///                     {
+    ///                         "Origin",
+    ///                     },
+    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                     {
+    ///                         Forward = "none",
+    ///                     },
+    ///                 },
+    ///                 MinTtl = 0,
+    ///                 DefaultTtl = 86400,
+    ///                 MaxTtl = 31536000,
+    ///                 Compress = true,
+    ///                 ViewerProtocolPolicy = "redirect-to-https",
+    ///             },
+    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             {
+    ///                 PathPattern = "/content/*",
+    ///                 AllowedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 CachedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                 },
+    ///                 TargetOriginId = s3OriginId,
+    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
+    ///                 {
+    ///                     QueryString = false,
+    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                     {
+    ///                         Forward = "none",
+    ///                     },
+    ///                 },
+    ///                 MinTtl = 0,
+    ///                 DefaultTtl = 3600,
+    ///                 MaxTtl = 86400,
+    ///                 Compress = true,
+    ///                 ViewerProtocolPolicy = "redirect-to-https",
+    ///             },
+    ///         },
+    ///         PriceClass = "PriceClass_200",
+    ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
+    ///         {
+    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
+    ///             {
+    ///                 RestrictionType = "whitelist",
+    ///                 Locations = new[]
+    ///                 {
+    ///                     "US",
+    ///                     "CA",
+    ///                     "GB",
+    ///                     "DE",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
+    ///         {
+    ///             CloudfrontDefaultCertificate = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Failover Routing
+    /// 
+    /// The example below creates a CloudFront distribution with an origin group for failover routing.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     {
+    ///         OriginGroups = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOriginGroupArgs
+    ///             {
+    ///                 OriginId = "groupS3",
+    ///                 FailoverCriteria = new Aws.CloudFront.Inputs.DistributionOriginGroupFailoverCriteriaArgs
+    ///                 {
+    ///                     StatusCodes = new[]
+    ///                     {
+    ///                         403,
+    ///                         404,
+    ///                         500,
+    ///                         502,
+    ///                     },
+    ///                 },
+    ///                 Members = new[]
+    ///                 {
+    ///                     new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
+    ///                     {
+    ///                         OriginId = "primaryS3",
+    ///                     },
+    ///                     new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
+    ///                     {
+    ///                         OriginId = "failoverS3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             {
+    ///                 DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
+    ///                 OriginId = "primaryS3",
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 {
+    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
+    ///                 },
+    ///             },
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             {
+    ///                 DomainName = aws_s3_bucket.Failover.Bucket_regional_domain_name,
+    ///                 OriginId = "failoverS3",
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 {
+    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             TargetOriginId = "groupS3",
+    ///         },
+    ///     });
+    /// 
+    ///     // ... other configuration ...
+    /// });
+    /// ```
+    /// ### With Managed Caching Policy
+    /// 
+    /// The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var s3OriginId = "myS3Origin";
+    /// 
+    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     {
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             {
+    ///                 DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
+    ///                 OriginId = "myS3Origin",
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 {
+    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         IsIpv6Enabled = true,
+    ///         Comment = "Some comment",
+    ///         DefaultRootObject = "index.html",
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             CachePolicyId = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "GET",
+    ///                 "HEAD",
+    ///                 "OPTIONS",
+    ///             },
+    ///             TargetOriginId = s3OriginId,
+    ///         },
+    ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
+    ///         {
+    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
+    ///             {
+    ///                 RestrictionType = "whitelist",
+    ///                 Locations = new[]
+    ///                 {
+    ///                     "US",
+    ///                     "CA",
+    ///                     "GB",
+    ///                     "DE",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
+    ///         {
+    ///             CloudfrontDefaultCertificate = true,
+    ///         },
+    ///     });
+    /// 
+    ///     // ... other configuration ...
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// CloudFront Distributions can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
@@ -50,6 +368,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        /// </summary>
+        [Output("continuousDeploymentPolicyId")]
+        public Output<string?> ContinuousDeploymentPolicyId { get; private set; } = null!;
 
         /// <summary>
         /// One or more custom error response elements (multiples allowed).
@@ -158,6 +482,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("retainOnDelete")]
         public Output<bool?> RetainOnDelete { get; private set; } = null!;
+
+        /// <summary>
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// </summary>
+        [Output("staging")]
+        public Output<bool?> Staging { get; private set; } = null!;
 
         /// <summary>
         /// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
@@ -271,6 +601,12 @@ namespace Pulumi.Aws.CloudFront
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        /// </summary>
+        [Input("continuousDeploymentPolicyId")]
+        public Input<string>? ContinuousDeploymentPolicyId { get; set; }
+
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseArgs>? _customErrorResponses;
 
@@ -373,6 +709,12 @@ namespace Pulumi.Aws.CloudFront
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
 
+        /// <summary>
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// </summary>
+        [Input("staging")]
+        public Input<bool>? Staging { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -440,6 +782,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        /// </summary>
+        [Input("continuousDeploymentPolicyId")]
+        public Input<string>? ContinuousDeploymentPolicyId { get; set; }
 
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseGetArgs>? _customErrorResponses;
@@ -572,6 +920,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
+
+        /// <summary>
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// </summary>
+        [Input("staging")]
+        public Input<bool>? Staging { get; set; }
 
         /// <summary>
         /// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.

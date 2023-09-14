@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Rate Based Rule Resource
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +65,7 @@ import (
 //
 // ## Import
 //
-// WAF Rated Based Rule can be imported using the id, e.g.,
+// Using `pulumi import`, import WAF Rated Based Rule using the id. For example:
 //
 // ```sh
 //
@@ -107,6 +109,7 @@ func NewRateBasedRule(ctx *pulumi.Context,
 	if args.RateLimit == nil {
 		return nil, errors.New("invalid value for required argument 'RateLimit'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RateBasedRule
 	err := ctx.RegisterResource("aws:waf/rateBasedRule:RateBasedRule", name, args, &resource, opts...)
 	if err != nil {
@@ -224,6 +227,12 @@ func (i *RateBasedRule) ToRateBasedRuleOutputWithContext(ctx context.Context) Ra
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleOutput)
 }
 
+func (i *RateBasedRule) ToOutput(ctx context.Context) pulumix.Output[*RateBasedRule] {
+	return pulumix.Output[*RateBasedRule]{
+		OutputState: i.ToRateBasedRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RateBasedRuleArrayInput is an input type that accepts RateBasedRuleArray and RateBasedRuleArrayOutput values.
 // You can construct a concrete instance of `RateBasedRuleArrayInput` via:
 //
@@ -247,6 +256,12 @@ func (i RateBasedRuleArray) ToRateBasedRuleArrayOutput() RateBasedRuleArrayOutpu
 
 func (i RateBasedRuleArray) ToRateBasedRuleArrayOutputWithContext(ctx context.Context) RateBasedRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleArrayOutput)
+}
+
+func (i RateBasedRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*RateBasedRule] {
+	return pulumix.Output[[]*RateBasedRule]{
+		OutputState: i.ToRateBasedRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RateBasedRuleMapInput is an input type that accepts RateBasedRuleMap and RateBasedRuleMapOutput values.
@@ -274,6 +289,12 @@ func (i RateBasedRuleMap) ToRateBasedRuleMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleMapOutput)
 }
 
+func (i RateBasedRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RateBasedRule] {
+	return pulumix.Output[map[string]*RateBasedRule]{
+		OutputState: i.ToRateBasedRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RateBasedRuleOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRuleOutput) ElementType() reflect.Type {
@@ -286,6 +307,12 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutput() RateBasedRuleOutput {
 
 func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
 	return o
+}
+
+func (o RateBasedRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*RateBasedRule] {
+	return pulumix.Output[*RateBasedRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN)
@@ -342,6 +369,12 @@ func (o RateBasedRuleArrayOutput) ToRateBasedRuleArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o RateBasedRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RateBasedRule] {
+	return pulumix.Output[[]*RateBasedRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RateBasedRuleArrayOutput) Index(i pulumi.IntInput) RateBasedRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RateBasedRule {
 		return vs[0].([]*RateBasedRule)[vs[1].(int)]
@@ -360,6 +393,12 @@ func (o RateBasedRuleMapOutput) ToRateBasedRuleMapOutput() RateBasedRuleMapOutpu
 
 func (o RateBasedRuleMapOutput) ToRateBasedRuleMapOutputWithContext(ctx context.Context) RateBasedRuleMapOutput {
 	return o
+}
+
+func (o RateBasedRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RateBasedRule] {
+	return pulumix.Output[map[string]*RateBasedRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RateBasedRuleMapOutput) MapIndex(k pulumi.StringInput) RateBasedRuleOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Target resource.
@@ -25,8 +27,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,9 +98,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -242,7 +244,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -287,8 +289,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -341,8 +343,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -432,7 +434,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -469,7 +471,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -509,8 +511,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -559,6 +561,7 @@ import (
 //								Type: pulumi.String("Service"),
 //								Identifiers: pulumi.StringArray{
 //									pulumi.String("events.amazonaws.com"),
+//									pulumi.String("delivery.logs.amazonaws.com"),
 //								},
 //							},
 //						},
@@ -578,6 +581,7 @@ import (
 //								Type: pulumi.String("Service"),
 //								Identifiers: pulumi.StringArray{
 //									pulumi.String("events.amazonaws.com"),
+//									pulumi.String("delivery.logs.amazonaws.com"),
 //								},
 //							},
 //						},
@@ -617,7 +621,7 @@ import (
 //
 // ## Import
 //
-// EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+// Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
 // ```sh
 //
@@ -655,9 +659,13 @@ type EventTarget struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule pulumi.StringOutput `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayOutput `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrOutput `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrOutput `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -677,6 +685,7 @@ func NewEventTarget(ctx *pulumi.Context,
 	if args.Rule == nil {
 		return nil, errors.New("invalid value for required argument 'Rule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventTarget
 	err := ctx.RegisterResource("aws:cloudwatch/eventTarget:EventTarget", name, args, &resource, opts...)
 	if err != nil {
@@ -727,9 +736,13 @@ type eventTargetState struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule *string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -765,9 +778,13 @@ type EventTargetState struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -807,9 +824,13 @@ type eventTargetArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -846,9 +867,13 @@ type EventTargetArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule pulumi.StringInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -878,6 +903,12 @@ func (i *EventTarget) ToEventTargetOutputWithContext(ctx context.Context) EventT
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetOutput)
 }
 
+func (i *EventTarget) ToOutput(ctx context.Context) pulumix.Output[*EventTarget] {
+	return pulumix.Output[*EventTarget]{
+		OutputState: i.ToEventTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTargetArrayInput is an input type that accepts EventTargetArray and EventTargetArrayOutput values.
 // You can construct a concrete instance of `EventTargetArrayInput` via:
 //
@@ -901,6 +932,12 @@ func (i EventTargetArray) ToEventTargetArrayOutput() EventTargetArrayOutput {
 
 func (i EventTargetArray) ToEventTargetArrayOutputWithContext(ctx context.Context) EventTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetArrayOutput)
+}
+
+func (i EventTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventTarget] {
+	return pulumix.Output[[]*EventTarget]{
+		OutputState: i.ToEventTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventTargetMapInput is an input type that accepts EventTargetMap and EventTargetMapOutput values.
@@ -928,6 +965,12 @@ func (i EventTargetMap) ToEventTargetMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetMapOutput)
 }
 
+func (i EventTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventTarget] {
+	return pulumix.Output[map[string]*EventTarget]{
+		OutputState: i.ToEventTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetOutput) ElementType() reflect.Type {
@@ -940,6 +983,12 @@ func (o EventTargetOutput) ToEventTargetOutput() EventTargetOutput {
 
 func (o EventTargetOutput) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
 	return o
+}
+
+func (o EventTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTarget] {
+	return pulumix.Output[*EventTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the target.
@@ -1009,6 +1058,8 @@ func (o EventTargetOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // The name of the rule you want to add targets to.
+//
+// The following arguments are optional:
 func (o EventTargetOutput) Rule() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringOutput { return v.Rule }).(pulumi.StringOutput)
 }
@@ -1016,6 +1067,11 @@ func (o EventTargetOutput) Rule() pulumi.StringOutput {
 // Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 func (o EventTargetOutput) RunCommandTargets() EventTargetRunCommandTargetArrayOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetRunCommandTargetArrayOutput { return v.RunCommandTargets }).(EventTargetRunCommandTargetArrayOutput)
+}
+
+// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+func (o EventTargetOutput) SagemakerPipelineTarget() EventTargetSagemakerPipelineTargetPtrOutput {
+	return o.ApplyT(func(v *EventTarget) EventTargetSagemakerPipelineTargetPtrOutput { return v.SagemakerPipelineTarget }).(EventTargetSagemakerPipelineTargetPtrOutput)
 }
 
 // Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
@@ -1042,6 +1098,12 @@ func (o EventTargetArrayOutput) ToEventTargetArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o EventTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventTarget] {
+	return pulumix.Output[[]*EventTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventTargetArrayOutput) Index(i pulumi.IntInput) EventTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventTarget {
 		return vs[0].([]*EventTarget)[vs[1].(int)]
@@ -1060,6 +1122,12 @@ func (o EventTargetMapOutput) ToEventTargetMapOutput() EventTargetMapOutput {
 
 func (o EventTargetMapOutput) ToEventTargetMapOutputWithContext(ctx context.Context) EventTargetMapOutput {
 	return o
+}
+
+func (o EventTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventTarget] {
+	return pulumix.Output[map[string]*EventTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetMapOutput) MapIndex(k pulumi.StringInput) EventTargetOutput {

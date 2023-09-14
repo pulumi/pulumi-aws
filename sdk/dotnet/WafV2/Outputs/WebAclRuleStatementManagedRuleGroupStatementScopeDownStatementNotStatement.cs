@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement
     {
         /// <summary>
-        /// Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.WebAclRuleStatement> Statements;
 
         [OutputConstructor]
-        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement(ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatement> statements)
+        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement(ImmutableArray<Outputs.WebAclRuleStatement> statements)
         {
             Statements = statements;
         }

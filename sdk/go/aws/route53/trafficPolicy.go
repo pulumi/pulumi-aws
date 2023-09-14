@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route53 Traffic Policy.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,8 +30,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
-//				Comment:  pulumi.String("example comment"),
-//				Document: pulumi.String("{\n  \"AWSPolicyFormatVersion\": \"2015-10-01\",\n  \"RecordType\": \"A\",\n  \"Endpoints\": {\n    \"endpoint-start-NkPh\": {\n      \"Type\": \"value\",\n      \"Value\": \"10.0.0.2\"\n    }\n  },\n  \"StartEndpoint\": \"endpoint-start-NkPh\"\n}\n\n"),
+//				Comment: pulumi.String("example comment"),
+//				Document: pulumi.String(`{
+//	  "AWSPolicyFormatVersion": "2015-10-01",
+//	  "RecordType": "A",
+//	  "Endpoints": {
+//	    "endpoint-start-NkPh": {
+//	      "Type": "value",
+//	      "Value": "10.0.0.2"
+//	    }
+//	  },
+//	  "StartEndpoint": "endpoint-start-NkPh"
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -42,7 +57,7 @@ import (
 //
 // ## Import
 //
-// Route53 Traffic Policy can be imported using the `id` and `version`, e.g.
+// Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
 //
 // ```sh
 //
@@ -55,6 +70,8 @@ type TrafficPolicy struct {
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document pulumi.StringOutput `pulumi:"document"`
 	// Name of the traffic policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -74,6 +91,7 @@ func NewTrafficPolicy(ctx *pulumi.Context,
 	if args.Document == nil {
 		return nil, errors.New("invalid value for required argument 'Document'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficPolicy
 	err := ctx.RegisterResource("aws:route53/trafficPolicy:TrafficPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -99,6 +117,8 @@ type trafficPolicyState struct {
 	// Comment for the traffic policy.
 	Comment *string `pulumi:"comment"`
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document *string `pulumi:"document"`
 	// Name of the traffic policy.
 	Name *string `pulumi:"name"`
@@ -112,6 +132,8 @@ type TrafficPolicyState struct {
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrInput
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document pulumi.StringPtrInput
 	// Name of the traffic policy.
 	Name pulumi.StringPtrInput
@@ -129,6 +151,8 @@ type trafficPolicyArgs struct {
 	// Comment for the traffic policy.
 	Comment *string `pulumi:"comment"`
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document string `pulumi:"document"`
 	// Name of the traffic policy.
 	Name *string `pulumi:"name"`
@@ -139,6 +163,8 @@ type TrafficPolicyArgs struct {
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrInput
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document pulumi.StringInput
 	// Name of the traffic policy.
 	Name pulumi.StringPtrInput
@@ -167,6 +193,12 @@ func (i *TrafficPolicy) ToTrafficPolicyOutputWithContext(ctx context.Context) Tr
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyOutput)
 }
 
+func (i *TrafficPolicy) ToOutput(ctx context.Context) pulumix.Output[*TrafficPolicy] {
+	return pulumix.Output[*TrafficPolicy]{
+		OutputState: i.ToTrafficPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrafficPolicyArrayInput is an input type that accepts TrafficPolicyArray and TrafficPolicyArrayOutput values.
 // You can construct a concrete instance of `TrafficPolicyArrayInput` via:
 //
@@ -190,6 +222,12 @@ func (i TrafficPolicyArray) ToTrafficPolicyArrayOutput() TrafficPolicyArrayOutpu
 
 func (i TrafficPolicyArray) ToTrafficPolicyArrayOutputWithContext(ctx context.Context) TrafficPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyArrayOutput)
+}
+
+func (i TrafficPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficPolicy] {
+	return pulumix.Output[[]*TrafficPolicy]{
+		OutputState: i.ToTrafficPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TrafficPolicyMapInput is an input type that accepts TrafficPolicyMap and TrafficPolicyMapOutput values.
@@ -217,6 +255,12 @@ func (i TrafficPolicyMap) ToTrafficPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyMapOutput)
 }
 
+func (i TrafficPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficPolicy] {
+	return pulumix.Output[map[string]*TrafficPolicy]{
+		OutputState: i.ToTrafficPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrafficPolicyOutput struct{ *pulumi.OutputState }
 
 func (TrafficPolicyOutput) ElementType() reflect.Type {
@@ -231,12 +275,20 @@ func (o TrafficPolicyOutput) ToTrafficPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o TrafficPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficPolicy] {
+	return pulumix.Output[*TrafficPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Comment for the traffic policy.
 func (o TrafficPolicyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficPolicy) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+//
+// The following arguments are optional:
 func (o TrafficPolicyOutput) Document() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficPolicy) pulumi.StringOutput { return v.Document }).(pulumi.StringOutput)
 }
@@ -270,6 +322,12 @@ func (o TrafficPolicyArrayOutput) ToTrafficPolicyArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o TrafficPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficPolicy] {
+	return pulumix.Output[[]*TrafficPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrafficPolicyArrayOutput) Index(i pulumi.IntInput) TrafficPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficPolicy {
 		return vs[0].([]*TrafficPolicy)[vs[1].(int)]
@@ -288,6 +346,12 @@ func (o TrafficPolicyMapOutput) ToTrafficPolicyMapOutput() TrafficPolicyMapOutpu
 
 func (o TrafficPolicyMapOutput) ToTrafficPolicyMapOutputWithContext(ctx context.Context) TrafficPolicyMapOutput {
 	return o
+}
+
+func (o TrafficPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficPolicy] {
+	return pulumix.Output[map[string]*TrafficPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrafficPolicyMapOutput) MapIndex(k pulumi.StringInput) TrafficPolicyOutput {

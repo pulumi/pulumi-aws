@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Ec2
     ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
-    ///         CidrBlock = "172.2.0.0/16",
+    ///         CidrBlock = "172.20.0.0/16",
     ///     });
     /// 
     ///     var inSecondaryCidr = new Aws.Ec2.Subnet("inSecondaryCidr", new()
     ///     {
     ///         VpcId = secondaryCidr.VpcId,
-    ///         CidrBlock = "172.2.0.0/24",
+    ///         CidrBlock = "172.20.0.0/24",
     ///     });
     /// 
     /// });
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Subnets can be imported using the `subnet id`, e.g.,
+    /// Using `pulumi import`, import subnets using the subnet `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra Experience.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupExperience(ctx *pulumi.Context, args *LookupExperienceArgs, opts ...pulumi.InvokeOption) (*LookupExperienceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExperienceResult
 	err := ctx.Invoke("aws:kendra/getExperience:getExperience", args, &rv, opts...)
 	if err != nil {
@@ -121,6 +124,12 @@ func (o LookupExperienceResultOutput) ToLookupExperienceResultOutput() LookupExp
 
 func (o LookupExperienceResultOutput) ToLookupExperienceResultOutputWithContext(ctx context.Context) LookupExperienceResultOutput {
 	return o
+}
+
+func (o LookupExperienceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupExperienceResult] {
+	return pulumix.Output[LookupExperienceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Experience.

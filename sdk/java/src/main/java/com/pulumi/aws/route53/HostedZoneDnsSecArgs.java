@@ -18,12 +18,16 @@ public final class HostedZoneDnsSecArgs extends com.pulumi.resources.ResourceArg
     /**
      * Identifier of the Route 53 Hosted Zone.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="hostedZoneId", required=true)
     private Output<String> hostedZoneId;
 
     /**
      * @return Identifier of the Route 53 Hosted Zone.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> hostedZoneId() {
@@ -73,6 +77,8 @@ public final class HostedZoneDnsSecArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param hostedZoneId Identifier of the Route 53 Hosted Zone.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -83,6 +89,8 @@ public final class HostedZoneDnsSecArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param hostedZoneId Identifier of the Route 53 Hosted Zone.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

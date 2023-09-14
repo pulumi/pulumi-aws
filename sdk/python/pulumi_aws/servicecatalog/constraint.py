@@ -26,6 +26,8 @@ class ConstraintArgs:
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
         :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] description: Description of the constraint.
         """
@@ -79,6 +81,8 @@ class ConstraintArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -131,6 +135,8 @@ class _ConstraintState:
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
         :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+               
+               The following arguments are optional:
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -235,6 +241,8 @@ class _ConstraintState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -280,7 +288,7 @@ class Constraint(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
@@ -294,6 +302,8 @@ class Constraint(pulumi.CustomResource):
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
         :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -326,7 +336,7 @@ class Constraint(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
@@ -410,6 +420,8 @@ class Constraint(pulumi.CustomResource):
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
         :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -483,6 +495,8 @@ class Constraint(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

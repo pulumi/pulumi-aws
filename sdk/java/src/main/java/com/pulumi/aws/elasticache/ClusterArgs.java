@@ -118,10 +118,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      * Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-     * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Import(name="engineVersion")
@@ -131,10 +132,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      * @return Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-     * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -283,12 +285,16 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the parameter group to associate with this cache cluster.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="parameterGroupName")
     private @Nullable Output<String> parameterGroupName;
 
     /**
      * @return The name of the parameter group to associate with this cache cluster.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> parameterGroupName() {
@@ -368,29 +374,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
-    }
-
-    /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Import(name="securityGroupNames")
-    private @Nullable Output<List<String>> securityGroupNames;
-
-    /**
-     * @return List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<List<String>>> securityGroupNames() {
-        return Optional.ofNullable(this.securityGroupNames);
     }
 
     /**
@@ -483,6 +466,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * 
+     */
+    @Import(name="transitEncryptionEnabled")
+    private @Nullable Output<Boolean> transitEncryptionEnabled;
+
+    /**
+     * @return Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * 
+     */
+    public Optional<Output<Boolean>> transitEncryptionEnabled() {
+        return Optional.ofNullable(this.transitEncryptionEnabled);
+    }
+
     private ClusterArgs() {}
 
     private ClusterArgs(ClusterArgs $) {
@@ -508,13 +506,13 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.preferredOutpostArn = $.preferredOutpostArn;
         this.replicationGroupId = $.replicationGroupId;
         this.securityGroupIds = $.securityGroupIds;
-        this.securityGroupNames = $.securityGroupNames;
         this.snapshotArns = $.snapshotArns;
         this.snapshotName = $.snapshotName;
         this.snapshotRetentionLimit = $.snapshotRetentionLimit;
         this.snapshotWindow = $.snapshotWindow;
         this.subnetGroupName = $.subnetGroupName;
         this.tags = $.tags;
+        this.transitEncryptionEnabled = $.transitEncryptionEnabled;
     }
 
     public static Builder builder() {
@@ -669,10 +667,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @param engineVersion Version number of the cache engine to be used.
          * If not set, defaults to the latest version.
          * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-         * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+         * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+         * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -686,10 +685,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @param engineVersion Version number of the cache engine to be used.
          * If not set, defaults to the latest version.
          * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-         * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+         * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+         * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -904,6 +904,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameterGroupName The name of the parameter group to associate with this cache cluster.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -914,6 +916,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param parameterGroupName The name of the parameter group to associate with this cache cluster.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1048,49 +1052,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupNames List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(@Nullable Output<List<String>> securityGroupNames) {
-            $.securityGroupNames = securityGroupNames;
-            return this;
-        }
-
-        /**
-         * @param securityGroupNames List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(List<String> securityGroupNames) {
-            return securityGroupNames(Output.of(securityGroupNames));
-        }
-
-        /**
-         * @param securityGroupNames List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(String... securityGroupNames) {
-            return securityGroupNames(List.of(securityGroupNames));
-        }
-
-        /**
          * @param snapshotArns Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
          * 
          * @return builder
@@ -1214,6 +1175,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param transitEncryptionEnabled Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitEncryptionEnabled(@Nullable Output<Boolean> transitEncryptionEnabled) {
+            $.transitEncryptionEnabled = transitEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param transitEncryptionEnabled Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitEncryptionEnabled(Boolean transitEncryptionEnabled) {
+            return transitEncryptionEnabled(Output.of(transitEncryptionEnabled));
         }
 
         public ClusterArgs build() {

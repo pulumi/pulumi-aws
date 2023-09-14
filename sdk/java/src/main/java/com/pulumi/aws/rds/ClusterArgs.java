@@ -87,14 +87,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+     * Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
      * 
      */
     @Import(name="backtrackWindow")
     private @Nullable Output<Integer> backtrackWindow;
 
     /**
-     * @return The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+     * @return Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
      * 
      */
     public Optional<Output<Integer>> backtrackWindow() {
@@ -102,14 +102,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The days to retain backups for. Default `1`
+     * Days to retain backups for. Default `1`
      * 
      */
     @Import(name="backupRetentionPeriod")
     private @Nullable Output<Integer> backupRetentionPeriod;
 
     /**
-     * @return The days to retain backups for. Default `1`
+     * @return Days to retain backups for. Default `1`
      * 
      */
     public Optional<Output<Integer>> backupRetentionPeriod() {
@@ -237,18 +237,33 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     @Import(name="dbSubnetGroupName")
     private @Nullable Output<String> dbSubnetGroupName;
 
     /**
-     * @return A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * @return DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     public Optional<Output<String>> dbSubnetGroupName() {
         return Optional.ofNullable(this.dbSubnetGroupName);
+    }
+
+    /**
+     * For use with RDS Custom.
+     * 
+     */
+    @Import(name="dbSystemId")
+    private @Nullable Output<String> dbSystemId;
+
+    /**
+     * @return For use with RDS Custom.
+     * 
+     */
+    public Optional<Output<String>> dbSystemId() {
+        return Optional.ofNullable(this.dbSystemId);
     }
 
     /**
@@ -312,29 +327,29 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    @Import(name="engine")
-    private @Nullable Output<Either<String,EngineType>> engine;
+    @Import(name="engine", required=true)
+    private Output<Either<String,EngineType>> engine;
 
     /**
-     * @return The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * @return Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    public Optional<Output<Either<String,EngineType>>> engine() {
-        return Optional.ofNullable(this.engine);
+    public Output<Either<String,EngineType>> engine() {
+        return this.engine;
     }
 
     /**
-     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     @Import(name="engineMode")
     private @Nullable Output<Either<String,EngineMode>> engineMode;
 
     /**
-     * @return The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * @return Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     public Optional<Output<Either<String,EngineMode>>> engineMode() {
@@ -342,14 +357,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+     * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+     * @return Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -357,14 +372,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+     * Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     @Import(name="finalSnapshotIdentifier")
     private @Nullable Output<String> finalSnapshotIdentifier;
 
     /**
-     * @return The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+     * @return Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     public Optional<Output<String>> finalSnapshotIdentifier() {
@@ -372,14 +387,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The global cluster identifier specified on `aws.rds.GlobalCluster`.
+     * Global cluster identifier specified on `aws.rds.GlobalCluster`.
      * 
      */
     @Import(name="globalClusterIdentifier")
     private @Nullable Output<String> globalClusterIdentifier;
 
     /**
-     * @return The global cluster identifier specified on `aws.rds.GlobalCluster`.
+     * @return Global cluster identifier specified on `aws.rds.GlobalCluster`.
      * 
      */
     public Optional<Output<String>> globalClusterIdentifier() {
@@ -402,14 +417,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     * List of ARNs for the IAM roles to associate to the RDS Cluster.
      * 
      */
     @Import(name="iamRoles")
     private @Nullable Output<List<String>> iamRoles;
 
     /**
-     * @return A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     * @return List of ARNs for the IAM roles to associate to the RDS Cluster.
      * 
      */
     public Optional<Output<List<String>>> iamRoles() {
@@ -417,14 +432,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required for Multi-AZ DB cluster) The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     * Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
      * 
      */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
     /**
-     * @return (Required for Multi-AZ DB cluster) The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     * @return Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -432,14 +447,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -477,14 +492,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
     @Import(name="masterUserSecretKmsKeyId")
     private @Nullable Output<String> masterUserSecretKmsKeyId;
 
     /**
-     * @return The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * @return Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
     public Optional<Output<String>> masterUserSecretKmsKeyId() {
@@ -507,14 +522,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      * 
      */
     @Import(name="networkType")
     private @Nullable Output<String> networkType;
 
     /**
-     * @return The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     * @return Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      * 
      */
     public Optional<Output<String>> networkType() {
@@ -522,14 +537,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port on which the DB accepts connections
+     * Port on which the DB accepts connections
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port on which the DB accepts connections
+     * @return Port on which the DB accepts connections
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -537,14 +552,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
     @Import(name="preferredBackupWindow")
     private @Nullable Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * @return Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
     public Optional<Output<String>> preferredBackupWindow() {
@@ -552,14 +567,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * @return Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -756,6 +771,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.dbClusterParameterGroupName = $.dbClusterParameterGroupName;
         this.dbInstanceParameterGroupName = $.dbInstanceParameterGroupName;
         this.dbSubnetGroupName = $.dbSubnetGroupName;
+        this.dbSystemId = $.dbSystemId;
         this.deletionProtection = $.deletionProtection;
         this.enableGlobalWriteForwarding = $.enableGlobalWriteForwarding;
         this.enableHttpEndpoint = $.enableHttpEndpoint;
@@ -904,7 +920,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backtrackWindow The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+         * @param backtrackWindow Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
          * 
          * @return builder
          * 
@@ -915,7 +931,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backtrackWindow The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+         * @param backtrackWindow Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
          * 
          * @return builder
          * 
@@ -925,7 +941,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionPeriod The days to retain backups for. Default `1`
+         * @param backupRetentionPeriod Days to retain backups for. Default `1`
          * 
          * @return builder
          * 
@@ -936,7 +952,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionPeriod The days to retain backups for. Default `1`
+         * @param backupRetentionPeriod Days to retain backups for. Default `1`
          * 
          * @return builder
          * 
@@ -1124,7 +1140,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSubnetGroupName A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+         * @param dbSubnetGroupName DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
          * 
          * @return builder
          * 
@@ -1135,13 +1151,34 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSubnetGroupName A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+         * @param dbSubnetGroupName DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
          * 
          * @return builder
          * 
          */
         public Builder dbSubnetGroupName(String dbSubnetGroupName) {
             return dbSubnetGroupName(Output.of(dbSubnetGroupName));
+        }
+
+        /**
+         * @param dbSystemId For use with RDS Custom.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dbSystemId(@Nullable Output<String> dbSystemId) {
+            $.dbSystemId = dbSystemId;
+            return this;
+        }
+
+        /**
+         * @param dbSystemId For use with RDS Custom.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dbSystemId(String dbSystemId) {
+            return dbSystemId(Output.of(dbSystemId));
         }
 
         /**
@@ -1239,18 +1276,18 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+         * @param engine Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 
          */
-        public Builder engine(@Nullable Output<Either<String,EngineType>> engine) {
+        public Builder engine(Output<Either<String,EngineType>> engine) {
             $.engine = engine;
             return this;
         }
 
         /**
-         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+         * @param engine Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 
@@ -1260,7 +1297,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+         * @param engine Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 
@@ -1270,7 +1307,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+         * @param engine Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 
@@ -1280,7 +1317,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -1291,7 +1328,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -1301,7 +1338,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -1311,7 +1348,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineMode The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+         * @param engineMode Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
          * 
          * @return builder
          * 
@@ -1321,7 +1358,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+         * @param engineVersion Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -1332,7 +1369,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+         * @param engineVersion Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -1342,7 +1379,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotIdentifier The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+         * @param finalSnapshotIdentifier Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
          * 
          * @return builder
          * 
@@ -1353,7 +1390,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotIdentifier The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+         * @param finalSnapshotIdentifier Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
          * 
          * @return builder
          * 
@@ -1363,7 +1400,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalClusterIdentifier The global cluster identifier specified on `aws.rds.GlobalCluster`.
+         * @param globalClusterIdentifier Global cluster identifier specified on `aws.rds.GlobalCluster`.
          * 
          * @return builder
          * 
@@ -1374,7 +1411,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalClusterIdentifier The global cluster identifier specified on `aws.rds.GlobalCluster`.
+         * @param globalClusterIdentifier Global cluster identifier specified on `aws.rds.GlobalCluster`.
          * 
          * @return builder
          * 
@@ -1405,7 +1442,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoles A List of ARNs for the IAM roles to associate to the RDS Cluster.
+         * @param iamRoles List of ARNs for the IAM roles to associate to the RDS Cluster.
          * 
          * @return builder
          * 
@@ -1416,7 +1453,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoles A List of ARNs for the IAM roles to associate to the RDS Cluster.
+         * @param iamRoles List of ARNs for the IAM roles to associate to the RDS Cluster.
          * 
          * @return builder
          * 
@@ -1426,7 +1463,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoles A List of ARNs for the IAM roles to associate to the RDS Cluster.
+         * @param iamRoles List of ARNs for the IAM roles to associate to the RDS Cluster.
          * 
          * @return builder
          * 
@@ -1436,7 +1473,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iops (Required for Multi-AZ DB cluster) The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+         * @param iops Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
          * 
          * @return builder
          * 
@@ -1447,7 +1484,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iops (Required for Multi-AZ DB cluster) The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+         * @param iops Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
          * 
          * @return builder
          * 
@@ -1457,7 +1494,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -1468,7 +1505,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -1520,7 +1557,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterUserSecretKmsKeyId The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+         * @param masterUserSecretKmsKeyId Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
          * 
          * @return builder
          * 
@@ -1531,7 +1568,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterUserSecretKmsKeyId The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+         * @param masterUserSecretKmsKeyId Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
          * 
          * @return builder
          * 
@@ -1562,7 +1599,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkType The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+         * @param networkType Network type of the cluster. Valid values: `IPV4`, `DUAL`.
          * 
          * @return builder
          * 
@@ -1573,7 +1610,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkType The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+         * @param networkType Network type of the cluster. Valid values: `IPV4`, `DUAL`.
          * 
          * @return builder
          * 
@@ -1583,7 +1620,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the DB accepts connections
+         * @param port Port on which the DB accepts connections
          * 
          * @return builder
          * 
@@ -1594,7 +1631,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the DB accepts connections
+         * @param port Port on which the DB accepts connections
          * 
          * @return builder
          * 
@@ -1604,7 +1641,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
          * 
          * @return builder
          * 
@@ -1615,7 +1652,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
          * 
          * @return builder
          * 
@@ -1625,7 +1662,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
          * 
          * @return builder
          * 
@@ -1636,7 +1673,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
          * 
          * @return builder
          * 
@@ -1896,6 +1933,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
+            $.engine = Objects.requireNonNull($.engine, "expected parameter 'engine' to be non-null");
             return $;
         }
     }

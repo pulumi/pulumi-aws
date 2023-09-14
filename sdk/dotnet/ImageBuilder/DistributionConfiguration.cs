@@ -60,7 +60,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+    /// Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -95,6 +95,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// One or more configuration blocks with distribution settings. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("distributions")]
         public Output<ImmutableArray<Outputs.DistributionConfigurationDistribution>> Distributions { get; private set; } = null!;
@@ -174,6 +176,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// One or more configuration blocks with distribution settings. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionArgs> Distributions
         {
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// One or more configuration blocks with distribution settings. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionGetArgs> Distributions
         {

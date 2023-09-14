@@ -15,8 +15,6 @@ __all__ = ['DefaultVpcArgs', 'DefaultVpc']
 class DefaultVpcArgs:
     def __init__(__self__, *,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -32,16 +30,6 @@ class DefaultVpcArgs:
         """
         if assign_generated_ipv6_cidr_block is not None:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
-        if enable_classiclink is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink is not None:
-            pulumi.set(__self__, "enable_classiclink", enable_classiclink)
-        if enable_classiclink_dns_support is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink_dns_support is not None:
-            pulumi.set(__self__, "enable_classiclink_dns_support", enable_classiclink_dns_support)
         if enable_dns_hostnames is not None:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
@@ -69,24 +57,6 @@ class DefaultVpcArgs:
     @assign_generated_ipv6_cidr_block.setter
     def assign_generated_ipv6_cidr_block(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "assign_generated_ipv6_cidr_block", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclink")
-    def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_classiclink")
-
-    @enable_classiclink.setter
-    def enable_classiclink(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclinkDnsSupport")
-    def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_classiclink_dns_support")
-
-    @enable_classiclink_dns_support.setter
-    def enable_classiclink_dns_support(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink_dns_support", value)
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
@@ -183,8 +153,6 @@ class _DefaultVpcState:
                  default_route_table_id: Optional[pulumi.Input[str]] = None,
                  default_security_group_id: Optional[pulumi.Input[str]] = None,
                  dhcp_options_id: Optional[pulumi.Input[str]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -220,16 +188,6 @@ class _DefaultVpcState:
             pulumi.set(__self__, "default_security_group_id", default_security_group_id)
         if dhcp_options_id is not None:
             pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
-        if enable_classiclink is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink is not None:
-            pulumi.set(__self__, "enable_classiclink", enable_classiclink)
-        if enable_classiclink_dns_support is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink_dns_support is not None:
-            pulumi.set(__self__, "enable_classiclink_dns_support", enable_classiclink_dns_support)
         if enable_dns_hostnames is not None:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
@@ -326,24 +284,6 @@ class _DefaultVpcState:
     @dhcp_options_id.setter
     def dhcp_options_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dhcp_options_id", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclink")
-    def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_classiclink")
-
-    @enable_classiclink.setter
-    def enable_classiclink(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclinkDnsSupport")
-    def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_classiclink_dns_support")
-
-    @enable_classiclink_dns_support.setter
-    def enable_classiclink_dns_support(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink_dns_support", value)
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
@@ -493,8 +433,6 @@ class DefaultVpc(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -533,7 +471,7 @@ class DefaultVpc(pulumi.CustomResource):
 
         ## Import
 
-        Default VPCs can be imported using the `vpc id`, e.g.,
+        Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
@@ -577,7 +515,7 @@ class DefaultVpc(pulumi.CustomResource):
 
         ## Import
 
-        Default VPCs can be imported using the `vpc id`, e.g.,
+        Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
@@ -599,8 +537,6 @@ class DefaultVpc(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -620,14 +556,6 @@ class DefaultVpc(pulumi.CustomResource):
             __props__ = DefaultVpcArgs.__new__(DefaultVpcArgs)
 
             __props__.__dict__["assign_generated_ipv6_cidr_block"] = assign_generated_ipv6_cidr_block
-            if enable_classiclink is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["enable_classiclink"] = enable_classiclink
-            if enable_classiclink_dns_support is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
             __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
             __props__.__dict__["enable_dns_support"] = enable_dns_support
             __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
@@ -666,8 +594,6 @@ class DefaultVpc(pulumi.CustomResource):
             default_route_table_id: Optional[pulumi.Input[str]] = None,
             default_security_group_id: Optional[pulumi.Input[str]] = None,
             dhcp_options_id: Optional[pulumi.Input[str]] = None,
-            enable_classiclink: Optional[pulumi.Input[bool]] = None,
-            enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
             enable_dns_support: Optional[pulumi.Input[bool]] = None,
             enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -705,8 +631,6 @@ class DefaultVpc(pulumi.CustomResource):
         __props__.__dict__["default_route_table_id"] = default_route_table_id
         __props__.__dict__["default_security_group_id"] = default_security_group_id
         __props__.__dict__["dhcp_options_id"] = dhcp_options_id
-        __props__.__dict__["enable_classiclink"] = enable_classiclink
-        __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
         __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
         __props__.__dict__["enable_dns_support"] = enable_dns_support
         __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
@@ -761,16 +685,6 @@ class DefaultVpc(pulumi.CustomResource):
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dhcp_options_id")
-
-    @property
-    @pulumi.getter(name="enableClassiclink")
-    def enable_classiclink(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_classiclink")
-
-    @property
-    @pulumi.getter(name="enableClassiclinkDnsSupport")
-    def enable_classiclink_dns_support(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_classiclink_dns_support")
 
     @property
     @pulumi.getter(name="enableDnsHostnames")

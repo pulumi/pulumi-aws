@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network ACLs can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Network ACLs using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18

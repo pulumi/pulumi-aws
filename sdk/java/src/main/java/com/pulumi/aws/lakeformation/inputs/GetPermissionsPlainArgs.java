@@ -114,12 +114,16 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      * 
+     * One of the following is required:
+     * 
      */
     @Import(name="principal", required=true)
     private String principal;
 
     /**
      * @return Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+     * 
+     * One of the following is required:
      * 
      */
     public String principal() {
@@ -144,12 +148,16 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * Configuration block for a table with columns resource. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tableWithColumns")
     private @Nullable GetPermissionsTableWithColumns tableWithColumns;
 
     /**
      * @return Configuration block for a table with columns resource. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<GetPermissionsTableWithColumns> tableWithColumns() {
@@ -257,6 +265,8 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param principal Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
          * 
+         * One of the following is required:
+         * 
          * @return builder
          * 
          */
@@ -278,6 +288,8 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param tableWithColumns Configuration block for a table with columns resource. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

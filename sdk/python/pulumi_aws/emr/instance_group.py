@@ -32,6 +32,28 @@ class InstanceGroupArgs:
         :param pulumi.Input[str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               {
+               "Classification": "hadoop-env",
+               "Configurations": [
+               {
+               "Classification": "export",
+               "Properties": {
+               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+               }
+               }
+               ],
+               "Properties": {}
+               }
+               ]
+               
+               \"\"\")
+               ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -107,6 +129,28 @@ class InstanceGroupArgs:
     def configurations_json(self) -> Optional[pulumi.Input[str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+        {
+        "Classification": "hadoop-env",
+        "Configurations": [
+        {
+        "Classification": "export",
+        "Properties": {
+        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+        }
+        }
+        ],
+        "Properties": {}
+        }
+        ]
+
+        \"\"\")
+        ```
         """
         return pulumi.get(self, "configurations_json")
 
@@ -183,6 +227,28 @@ class _InstanceGroupState:
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               {
+               "Classification": "hadoop-env",
+               "Configurations": [
+               {
+               "Classification": "export",
+               "Properties": {
+               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+               }
+               }
+               ],
+               "Properties": {}
+               }
+               ]
+               
+               \"\"\")
+               ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -255,6 +321,28 @@ class _InstanceGroupState:
     def configurations_json(self) -> Optional[pulumi.Input[str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+        {
+        "Classification": "hadoop-env",
+        "Configurations": [
+        {
+        "Classification": "export",
+        "Properties": {
+        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+        }
+        }
+        ],
+        "Properties": {}
+        }
+        ]
+
+        \"\"\")
+        ```
         """
         return pulumi.get(self, "configurations_json")
 
@@ -384,7 +472,7 @@ class InstanceGroup(pulumi.CustomResource):
 
         ## Import
 
-        EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
+        Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
 
         ```sh
          $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
@@ -396,6 +484,28 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               {
+               "Classification": "hadoop-env",
+               "Configurations": [
+               {
+               "Classification": "export",
+               "Properties": {
+               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+               }
+               }
+               ],
+               "Properties": {}
+               }
+               ]
+               
+               \"\"\")
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -430,7 +540,7 @@ class InstanceGroup(pulumi.CustomResource):
 
         ## Import
 
-        EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
+        Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
 
         ```sh
          $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
@@ -516,6 +626,28 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               {
+               "Classification": "hadoop-env",
+               "Configurations": [
+               {
+               "Classification": "export",
+               "Properties": {
+               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+               }
+               }
+               ],
+               "Properties": {}
+               }
+               ]
+               
+               \"\"\")
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -570,6 +702,28 @@ class InstanceGroup(pulumi.CustomResource):
     def configurations_json(self) -> pulumi.Output[Optional[str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+        {
+        "Classification": "hadoop-env",
+        "Configurations": [
+        {
+        "Classification": "export",
+        "Properties": {
+        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+        }
+        }
+        ],
+        "Properties": {}
+        }
+        ]
+
+        \"\"\")
+        ```
         """
         return pulumi.get(self, "configurations_json")
 

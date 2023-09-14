@@ -282,6 +282,11 @@ export module Principals {
     export const SsmPrincipal: Principal = {Service: "ssm.amazonaws.com"};
 
     /**
+     * Service Principal for State Machine
+     */
+    export const StateMachinePrincipal: Principal = {Service: "states.amazonaws.com"};
+
+    /**
      * Service Principal for Storage Gateway
      */
     export const StorageGatewayPrincipal: Principal = {Service: "storagegateway.amazonaws.com"};

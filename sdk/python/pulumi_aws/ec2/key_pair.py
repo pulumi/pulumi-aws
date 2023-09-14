@@ -266,11 +266,12 @@ class KeyPair(pulumi.CustomResource):
 
         ## Import
 
-        Key Pairs can be imported using the `key_name`, e.g.,
+        Using `pulumi import`, import Key Pairs using the `key_name`. For example:
 
         ```sh
          $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
         ```
+         ~> __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,11 +308,12 @@ class KeyPair(pulumi.CustomResource):
 
         ## Import
 
-        Key Pairs can be imported using the `key_name`, e.g.,
+        Using `pulumi import`, import Key Pairs using the `key_name`. For example:
 
         ```sh
          $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
         ```
+         ~> __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 
         :param str resource_name: The name of the resource.
         :param KeyPairArgs args: The arguments to use to populate this resource's properties.

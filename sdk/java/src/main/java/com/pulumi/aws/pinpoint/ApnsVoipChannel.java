@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a Pinpoint APNs VoIP Channel resource.
  * 
+ * &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -56,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Channel using the `application-id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
- * ```
+ *  to = aws_pinpoint_apns_voip_channel.apns_voip
+ * 
+ *  id = &#34;application-id&#34; } Using `TODO import`, import Pinpoint APNs VoIP Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_voip_channel.apns_voip application-id
  * 
  */
 @ResourceType(type="aws:pinpoint/apnsVoipChannel:ApnsVoipChannel")
@@ -113,6 +114,10 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
      * 
+     * One of the following sets of credentials is also required.
+     * 
+     * If you choose to use __Certificate credentials__ you will have to provide:
+     * 
      */
     @Export(name="defaultAuthenticationMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultAuthenticationMethod;
@@ -122,6 +127,10 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
+     * 
+     * One of the following sets of credentials is also required.
+     * 
+     * If you choose to use __Certificate credentials__ you will have to provide:
      * 
      */
     public Output<Optional<String>> defaultAuthenticationMethod() {
@@ -144,12 +153,16 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
     /**
      * The Certificate Private Key file (ie. `.key` file).
      * 
+     * If you choose to use __Key credentials__ you will have to provide:
+     * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
      * @return The Certificate Private Key file (ie. `.key` file).
+     * 
+     * If you choose to use __Key credentials__ you will have to provide:
      * 
      */
     public Output<Optional<String>> privateKey() {

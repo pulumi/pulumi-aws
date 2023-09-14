@@ -21,7 +21,7 @@ class ResolverFirewallDomainListArgs:
         The set of arguments for constructing a ResolverFirewallDomainList resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if domains is not None:
             pulumi.set(__self__, "domains", domains)
@@ -58,7 +58,7 @@ class ResolverFirewallDomainListArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -80,7 +80,7 @@ class _ResolverFirewallDomainListState:
         :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) of the domain list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -134,7 +134,7 @@ class _ResolverFirewallDomainListState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -178,17 +178,21 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver DNS Firewall domain lists can be imported using the Route 53 Resolver DNS Firewall domain list ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import
 
-        ```sh
-         $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
-        ```
+        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleterraform import {
+
+         to = aws_route53_resolver_firewall_domain_list.example
+
+         id = "rslvr-fdl-0123456789abcdef" } Using `TODO import`, import
+
+        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -210,11 +214,15 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver DNS Firewall domain lists can be imported using the Route 53 Resolver DNS Firewall domain list ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import
 
-        ```sh
-         $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
-        ```
+        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleterraform import {
+
+         to = aws_route53_resolver_firewall_domain_list.example
+
+         id = "rslvr-fdl-0123456789abcdef" } Using `TODO import`, import
+
+        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param ResolverFirewallDomainListArgs args: The arguments to use to populate this resource's properties.
@@ -273,7 +281,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) of the domain list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -315,7 +323,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

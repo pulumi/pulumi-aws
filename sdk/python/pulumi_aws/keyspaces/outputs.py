@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'TableCapacitySpecification',
+    'TableClientSideTimestamps',
     'TableComment',
     'TableEncryptionSpecification',
     'TablePointInTimeRecovery',
@@ -85,6 +86,24 @@ class TableCapacitySpecification(dict):
         The throughput capacity specified for write operations defined in write capacity units (WCUs).
         """
         return pulumi.get(self, "write_capacity_units")
+
+
+@pulumi.output_type
+class TableClientSideTimestamps(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

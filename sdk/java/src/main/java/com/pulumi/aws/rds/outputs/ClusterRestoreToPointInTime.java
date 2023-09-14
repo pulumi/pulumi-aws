@@ -24,7 +24,7 @@ public final class ClusterRestoreToPointInTime {
      */
     private @Nullable String restoreType;
     /**
-     * @return The identifier of the source database cluster from which to restore.
+     * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
     private String sourceClusterIdentifier;
@@ -51,7 +51,7 @@ public final class ClusterRestoreToPointInTime {
         return Optional.ofNullable(this.restoreType);
     }
     /**
-     * @return The identifier of the source database cluster from which to restore.
+     * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
     public String sourceClusterIdentifier() {

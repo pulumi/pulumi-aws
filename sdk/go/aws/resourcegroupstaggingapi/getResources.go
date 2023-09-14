@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about resource tagging.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroupstaggingapi"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroupstaggingapi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroupstaggingapi"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroupstaggingapi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroupstaggingapi"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroupstaggingapi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,6 +99,7 @@ import (
 //
 // ```
 func GetResources(ctx *pulumi.Context, args *GetResourcesArgs, opts ...pulumi.InvokeOption) (*GetResourcesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResourcesResult
 	err := ctx.Invoke("aws:resourcegroupstaggingapi/getResources:getResources", args, &rv, opts...)
 	if err != nil {
@@ -176,6 +179,12 @@ func (o GetResourcesResultOutput) ToGetResourcesResultOutput() GetResourcesResul
 
 func (o GetResourcesResultOutput) ToGetResourcesResultOutputWithContext(ctx context.Context) GetResourcesResultOutput {
 	return o
+}
+
+func (o GetResourcesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResult] {
+	return pulumix.Output[GetResourcesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetResourcesResultOutput) ExcludeCompliantResources() pulumi.BoolPtrOutput {

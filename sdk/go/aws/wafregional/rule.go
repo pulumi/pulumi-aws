@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an WAF Regional Rule Resource for use with Application Load Balancer.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +72,7 @@ import (
 //
 // ## Import
 //
-// WAF Regional Rule can be imported using the id, e.g.,
+// Using `pulumi import`, import WAF Regional Rule using the id. For example:
 //
 // ```sh
 //
@@ -104,6 +106,7 @@ func NewRule(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws:wafregional/rule:Rule", name, args, &resource, opts...)
 	if err != nil {
@@ -205,6 +208,12 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
 }
 
+func (i *Rule) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
+	return pulumix.Output[*Rule]{
+		OutputState: i.ToRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleArrayInput is an input type that accepts RuleArray and RuleArrayOutput values.
 // You can construct a concrete instance of `RuleArrayInput` via:
 //
@@ -228,6 +237,12 @@ func (i RuleArray) ToRuleArrayOutput() RuleArrayOutput {
 
 func (i RuleArray) ToRuleArrayOutputWithContext(ctx context.Context) RuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleArrayOutput)
+}
+
+func (i RuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*Rule] {
+	return pulumix.Output[[]*Rule]{
+		OutputState: i.ToRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RuleMapInput is an input type that accepts RuleMap and RuleMapOutput values.
@@ -255,6 +270,12 @@ func (i RuleMap) ToRuleMapOutputWithContext(ctx context.Context) RuleMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMapOutput)
 }
 
+func (i RuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Rule] {
+	return pulumix.Output[map[string]*Rule]{
+		OutputState: i.ToRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleOutput struct{ *pulumi.OutputState }
 
 func (RuleOutput) ElementType() reflect.Type {
@@ -267,6 +288,12 @@ func (o RuleOutput) ToRuleOutput() RuleOutput {
 
 func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
+}
+
+func (o RuleOutput) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
+	return pulumix.Output[*Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the WAF Regional Rule.
@@ -313,6 +340,12 @@ func (o RuleArrayOutput) ToRuleArrayOutputWithContext(ctx context.Context) RuleA
 	return o
 }
 
+func (o RuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Rule] {
+	return pulumix.Output[[]*Rule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleArrayOutput) Index(i pulumi.IntInput) RuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Rule {
 		return vs[0].([]*Rule)[vs[1].(int)]
@@ -331,6 +364,12 @@ func (o RuleMapOutput) ToRuleMapOutput() RuleMapOutput {
 
 func (o RuleMapOutput) ToRuleMapOutputWithContext(ctx context.Context) RuleMapOutput {
 	return o
+}
+
+func (o RuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Rule] {
+	return pulumix.Output[map[string]*Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleMapOutput) MapIndex(k pulumi.StringInput) RuleOutput {

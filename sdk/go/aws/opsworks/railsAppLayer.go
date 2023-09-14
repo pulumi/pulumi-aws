@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks Ruby on Rails application layer resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,6 +93,10 @@ type RailsAppLayer struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -108,6 +114,7 @@ func NewRailsAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RailsAppLayer
 	err := ctx.RegisterResource("aws:opsworks/railsAppLayer:RailsAppLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -180,6 +187,10 @@ type railsAppLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -238,6 +249,10 @@ type RailsAppLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -298,6 +313,10 @@ type railsAppLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -353,6 +372,10 @@ type RailsAppLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -381,6 +404,12 @@ func (i *RailsAppLayer) ToRailsAppLayerOutputWithContext(ctx context.Context) Ra
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerOutput)
 }
 
+func (i *RailsAppLayer) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayer] {
+	return pulumix.Output[*RailsAppLayer]{
+		OutputState: i.ToRailsAppLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RailsAppLayerArrayInput is an input type that accepts RailsAppLayerArray and RailsAppLayerArrayOutput values.
 // You can construct a concrete instance of `RailsAppLayerArrayInput` via:
 //
@@ -404,6 +433,12 @@ func (i RailsAppLayerArray) ToRailsAppLayerArrayOutput() RailsAppLayerArrayOutpu
 
 func (i RailsAppLayerArray) ToRailsAppLayerArrayOutputWithContext(ctx context.Context) RailsAppLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerArrayOutput)
+}
+
+func (i RailsAppLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*RailsAppLayer] {
+	return pulumix.Output[[]*RailsAppLayer]{
+		OutputState: i.ToRailsAppLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RailsAppLayerMapInput is an input type that accepts RailsAppLayerMap and RailsAppLayerMapOutput values.
@@ -431,6 +466,12 @@ func (i RailsAppLayerMap) ToRailsAppLayerMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerMapOutput)
 }
 
+func (i RailsAppLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RailsAppLayer] {
+	return pulumix.Output[map[string]*RailsAppLayer]{
+		OutputState: i.ToRailsAppLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RailsAppLayerOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerOutput) ElementType() reflect.Type {
@@ -443,6 +484,12 @@ func (o RailsAppLayerOutput) ToRailsAppLayerOutput() RailsAppLayerOutput {
 
 func (o RailsAppLayerOutput) ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput {
 	return o
+}
+
+func (o RailsAppLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayer] {
+	return pulumix.Output[*RailsAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Keyword for the app server to use. Defaults to "apachePassenger".
@@ -579,6 +626,10 @@ func (o RailsAppLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following extra optional arguments, all lists of Chef recipe names, allow
+// custom Chef recipes to be applied to layer instances at the five different
+// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 func (o RailsAppLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -607,6 +658,12 @@ func (o RailsAppLayerArrayOutput) ToRailsAppLayerArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o RailsAppLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RailsAppLayer] {
+	return pulumix.Output[[]*RailsAppLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RailsAppLayerArrayOutput) Index(i pulumi.IntInput) RailsAppLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RailsAppLayer {
 		return vs[0].([]*RailsAppLayer)[vs[1].(int)]
@@ -625,6 +682,12 @@ func (o RailsAppLayerMapOutput) ToRailsAppLayerMapOutput() RailsAppLayerMapOutpu
 
 func (o RailsAppLayerMapOutput) ToRailsAppLayerMapOutputWithContext(ctx context.Context) RailsAppLayerMapOutput {
 	return o
+}
+
+func (o RailsAppLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RailsAppLayer] {
+	return pulumix.Output[map[string]*RailsAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerMapOutput) MapIndex(k pulumi.StringInput) RailsAppLayerOutput {

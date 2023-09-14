@@ -26,6 +26,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha? Captcha;
         /// <summary>
+        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge? Challenge;
+        /// <summary>
         /// Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount? Count;
@@ -38,11 +42,14 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha? captcha,
 
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge? challenge,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount? count)
         {
             Allow = allow;
             Block = block;
             Captcha = captcha;
+            Challenge = challenge;
             Count = count;
         }
     }

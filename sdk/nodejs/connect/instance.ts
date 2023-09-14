@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Connect instances can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Connect instances using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2

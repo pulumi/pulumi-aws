@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  *  $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -272,12 +272,16 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
+     * The following attributes are optional:
+     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
      * @return The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     * 
+     * The following attributes are optional:
      * 
      */
     public Output<String> version() {

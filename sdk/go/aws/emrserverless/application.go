@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EMR Serverless Application.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,13 +113,11 @@ import (
 //
 // ## Import
 //
-// EMR Severless applications can be imported using the `id`, e.g.
+// In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_emrserverless_application.example
 //
-//	$ pulumi import aws:emrserverless/application:Application example id
-//
-// ```
+//	id = "id" } Using `TODO import`, import EMR Severless applications using the `id`. For exampleconsole % TODO import aws_emrserverless_application.example id
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -141,7 +141,7 @@ type Application struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -162,6 +162,7 @@ func NewApplication(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:emrserverless/application:Application", name, args, &resource, opts...)
 	if err != nil {
@@ -204,7 +205,7 @@ type applicationState struct {
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -233,7 +234,7 @@ type ApplicationState struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -264,7 +265,7 @@ type applicationArgs struct {
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type string `pulumi:"type"`
@@ -290,7 +291,7 @@ type ApplicationArgs struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type pulumi.StringInput
@@ -319,6 +320,12 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
+func (i *Application) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: i.ToApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
@@ -342,6 +349,12 @@ func (i ApplicationArray) ToApplicationArrayOutput() ApplicationArrayOutput {
 
 func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Context) ApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArrayOutput)
+}
+
+func (i ApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Application] {
+	return pulumix.Output[[]*Application]{
+		OutputState: i.ToApplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
@@ -369,6 +382,12 @@ func (i ApplicationMap) ToApplicationMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMapOutput)
 }
 
+func (i ApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Application] {
+	return pulumix.Output[map[string]*Application]{
+		OutputState: i.ToApplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
@@ -381,6 +400,12 @@ func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
 
 func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
 	return o
+}
+
+func (o ApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
@@ -433,7 +458,7 @@ func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -462,6 +487,12 @@ func (o ApplicationArrayOutput) ToApplicationArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Application] {
+	return pulumix.Output[[]*Application]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationArrayOutput) Index(i pulumi.IntInput) ApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Application {
 		return vs[0].([]*Application)[vs[1].(int)]
@@ -480,6 +511,12 @@ func (o ApplicationMapOutput) ToApplicationMapOutput() ApplicationMapOutput {
 
 func (o ApplicationMapOutput) ToApplicationMapOutputWithContext(ctx context.Context) ApplicationMapOutput {
 	return o
+}
+
+func (o ApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Application] {
+	return pulumix.Output[map[string]*Application]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMapOutput) MapIndex(k pulumi.StringInput) ApplicationOutput {

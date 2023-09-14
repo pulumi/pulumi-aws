@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ## Import
     /// 
-    /// `aws_acmpca_policy` can be imported using the `resource_arn` value.
+    /// Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012

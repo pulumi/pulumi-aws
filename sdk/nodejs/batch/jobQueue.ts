@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Batch Job Queue can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
@@ -119,6 +122,7 @@ export class JobQueue extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.batch.JobQueueTimeouts | undefined>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -141,6 +145,7 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as JobQueueArgs | undefined;
             if ((!args || args.computeEnvironments === undefined) && !opts.urn) {
@@ -158,6 +163,7 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -205,6 +211,7 @@ export interface JobQueueState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts>;
 }
 
 /**
@@ -238,4 +245,5 @@ export interface JobQueueArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts>;
 }

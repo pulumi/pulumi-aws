@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Direct Connect Connection.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectionResult
 	err := ctx.Invoke("aws:directconnect/getConnection:getConnection", args, &rv, opts...)
 	if err != nil {
@@ -76,7 +79,7 @@ type LookupConnectionResult struct {
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The VLAN ID.
-	VlanId string `pulumi:"vlanId"`
+	VlanId int `pulumi:"vlanId"`
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
@@ -117,6 +120,12 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutput() LookupCon
 
 func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(ctx context.Context) LookupConnectionResultOutput {
 	return o
+}
+
+func (o LookupConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectionResult] {
+	return pulumix.Output[LookupConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the connection.
@@ -169,8 +178,8 @@ func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The VLAN ID.
-func (o LookupConnectionResultOutput) VlanId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.VlanId }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) VlanId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupConnectionResult) int { return v.VlanId }).(pulumi.IntOutput)
 }
 
 func init() {

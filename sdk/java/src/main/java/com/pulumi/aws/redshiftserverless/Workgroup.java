@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+ * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
@@ -236,12 +236,16 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
     /**
      * The name of the workgroup.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output<String> workgroupName;
 
     /**
      * @return The name of the workgroup.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> workgroupName() {

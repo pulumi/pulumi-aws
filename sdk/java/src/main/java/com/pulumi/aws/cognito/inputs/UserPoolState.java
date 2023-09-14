@@ -304,6 +304,8 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -311,20 +313,22 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Name of the user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     @Import(name="passwordPolicy")
     private @Nullable Output<UserPoolPasswordPolicyArgs> passwordPolicy;
 
     /**
-     * @return Configuration blocked for information about the user pool password policy. Detailed below.
+     * @return Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     public Optional<Output<UserPoolPasswordPolicyArgs>> passwordPolicy() {
@@ -362,14 +366,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     @Import(name="smsConfiguration")
     private @Nullable Output<UserPoolSmsConfigurationArgs> smsConfiguration;
 
     /**
-     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     public Optional<Output<UserPoolSmsConfigurationArgs>> smsConfiguration() {
@@ -967,6 +971,8 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the user pool.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -978,6 +984,8 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the user pool.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -986,7 +994,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordPolicy Configuration blocked for information about the user pool password policy. Detailed below.
+         * @param passwordPolicy Configuration block for information about the user pool password policy. Detailed below.
          * 
          * @return builder
          * 
@@ -997,7 +1005,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordPolicy Configuration blocked for information about the user pool password policy. Detailed below.
+         * @param passwordPolicy Configuration block for information about the user pool password policy. Detailed below.
          * 
          * @return builder
          * 
@@ -1059,7 +1067,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
          * 
          * @return builder
          * 
@@ -1070,7 +1078,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
          * 
          * @return builder
          * 

@@ -25,6 +25,9 @@ import javax.annotation.Nullable;
  * Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
  * instances to be requested on the Spot market.
  * 
+ * &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+ * We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+ * 
  * ## Example Usage
  * ### Using launch specifications
  * ```java
@@ -231,7 +234,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+ * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
  * import com.pulumi.aws.ec2.LaunchTemplate;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.ec2.SpotFleetRequest;
@@ -252,8 +255,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
- *             .vpcId(var_.vpc_id())
+ *         final var example = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+ *             .filters(GetSubnetsFilterArgs.builder()
+ *                 .name(&#34;vpc-id&#34;)
+ *                 .values(var_.vpc_id())
+ *                 .build())
  *             .build());
  * 
  *         var fooLaunchTemplate = new LaunchTemplate(&#34;fooLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
@@ -274,13 +280,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .overrides(                
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(data.aws_subnets().example().ids()[0])
+ *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]))
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(data.aws_subnets().example().ids()[1])
+ *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(data.aws_subnets().example().ids()[2])
+ *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[2]))
  *                         .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -293,7 +299,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Spot Fleet Requests can be imported using `id`, e.g.,
+ * Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
@@ -437,6 +443,12 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
      * 
+     * **Note**: This takes in similar but not
+     * identical inputs as `aws.ec2.Instance`.  There are limitations on
+     * what you can specify. See the list of officially supported inputs in the
+     * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+     * a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
+     * 
      */
     @Export(name="launchSpecifications", refs={List.class,SpotFleetRequestLaunchSpecification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpotFleetRequestLaunchSpecification>> launchSpecifications;
@@ -445,6 +457,12 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * @return Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+     * 
+     * **Note**: This takes in similar but not
+     * identical inputs as `aws.ec2.Instance`.  There are limitations on
+     * what you can specify. See the list of officially supported inputs in the
+     * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+     * a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      * 
      */
     public Output<Optional<List<SpotFleetRequestLaunchSpecification>>> launchSpecifications() {

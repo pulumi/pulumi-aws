@@ -35,12 +35,16 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
     /**
      * Specifies a monthly recurrence pattern for running the job.
      * 
+     * The `s3_job_definition` object supports the following:
+     * 
      */
     @Import(name="monthlySchedule")
     private @Nullable Output<Integer> monthlySchedule;
 
     /**
      * @return Specifies a monthly recurrence pattern for running the job.
+     * 
+     * The `s3_job_definition` object supports the following:
      * 
      */
     public Optional<Output<Integer>> monthlySchedule() {
@@ -112,6 +116,8 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
         /**
          * @param monthlySchedule Specifies a monthly recurrence pattern for running the job.
          * 
+         * The `s3_job_definition` object supports the following:
+         * 
          * @return builder
          * 
          */
@@ -122,6 +128,8 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
 
         /**
          * @param monthlySchedule Specifies a monthly recurrence pattern for running the job.
+         * 
+         * The `s3_job_definition` object supports the following:
          * 
          * @return builder
          * 

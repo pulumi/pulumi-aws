@@ -808,12 +808,16 @@ public final class EksFunctions {
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetNodeGroupsResult> getNodeGroups(GetNodeGroupsArgs args) {
         return getNodeGroups(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(GetNodeGroupsPlainArgs args) {
@@ -822,12 +826,16 @@ public final class EksFunctions {
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetNodeGroupsResult> getNodeGroups(GetNodeGroupsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getNodeGroups:getNodeGroups", TypeShape.of(GetNodeGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(GetNodeGroupsPlainArgs args, InvokeOptions options) {

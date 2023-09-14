@@ -24,7 +24,7 @@ class ConnectArgs:
         The set of arguments for constructing a Connect resource.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[str] transport_attachment_id: The underlaying VPC attachment
-        :param pulumi.Input[str] protocol: The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        :param pulumi.Input[str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -68,7 +68,7 @@ class ConnectArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        The tunnel protocol. Valid values: `gre`. Default is `gre`.
         """
         return pulumi.get(self, "protocol")
 
@@ -125,7 +125,7 @@ class _ConnectState:
                  transport_attachment_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Connect resources.
-        :param pulumi.Input[str] protocol: The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        :param pulumi.Input[str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -152,7 +152,7 @@ class _ConnectState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        The tunnel protocol. Valid values: `gre`. Default is `gre`.
         """
         return pulumi.get(self, "protocol")
 
@@ -265,7 +265,7 @@ class Connect(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
@@ -273,7 +273,7 @@ class Connect(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] protocol: The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        :param pulumi.Input[str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -306,7 +306,7 @@ class Connect(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
@@ -377,7 +377,7 @@ class Connect(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] protocol: The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        :param pulumi.Input[str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -402,7 +402,7 @@ class Connect(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        The tunnel protocol. Valid values: `gre`. Default is `gre`.
         """
         return pulumi.get(self, "protocol")
 

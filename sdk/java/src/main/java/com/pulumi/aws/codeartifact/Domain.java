@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeArtifact Domain can be imported using the CodeArtifact Domain arn, e.g.,
+ * Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
  * 
  * ```sh
  *  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
@@ -78,14 +78,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The total size of all assets in the domain.
      * 
      */
-    @Export(name="assetSizeBytes", refs={Integer.class}, tree="[0]")
-    private Output<Integer> assetSizeBytes;
+    @Export(name="assetSizeBytes", refs={String.class}, tree="[0]")
+    private Output<String> assetSizeBytes;
 
     /**
      * @return The total size of all assets in the domain.
      * 
      */
-    public Output<Integer> assetSizeBytes() {
+    public Output<String> assetSizeBytes() {
         return this.assetSizeBytes;
     }
     /**

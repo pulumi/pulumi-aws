@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,12 +23,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:msk/cluster:Cluster":
 		r = &Cluster{}
+	case "aws:msk/clusterPolicy:ClusterPolicy":
+		r = &ClusterPolicy{}
 	case "aws:msk/configuration:Configuration":
 		r = &Configuration{}
 	case "aws:msk/scramSecretAssociation:ScramSecretAssociation":
 		r = &ScramSecretAssociation{}
 	case "aws:msk/serverlessCluster:ServerlessCluster":
 		r = &ServerlessCluster{}
+	case "aws:msk/vpcConnection:VpcConnection":
+		r = &VpcConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,13 +42,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
 		"msk/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"msk/clusterPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -60,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"msk/serverlessCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"msk/vpcConnection",
 		&module{version},
 	)
 }

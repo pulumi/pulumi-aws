@@ -150,14 +150,14 @@ def get_export(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigatewayv2/getExport:getExport', __args__, opts=opts, typ=GetExportResult).value
 
     return AwaitableGetExportResult(
-        api_id=__ret__.api_id,
-        body=__ret__.body,
-        export_version=__ret__.export_version,
-        id=__ret__.id,
-        include_extensions=__ret__.include_extensions,
-        output_type=__ret__.output_type,
-        specification=__ret__.specification,
-        stage_name=__ret__.stage_name)
+        api_id=pulumi.get(__ret__, 'api_id'),
+        body=pulumi.get(__ret__, 'body'),
+        export_version=pulumi.get(__ret__, 'export_version'),
+        id=pulumi.get(__ret__, 'id'),
+        include_extensions=pulumi.get(__ret__, 'include_extensions'),
+        output_type=pulumi.get(__ret__, 'output_type'),
+        specification=pulumi.get(__ret__, 'specification'),
+        stage_name=pulumi.get(__ret__, 'stage_name'))
 
 
 @_utilities.lift_output_func(get_export)

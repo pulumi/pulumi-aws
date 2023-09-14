@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Elasticsearch Domain.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,8 +57,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -111,9 +113,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -173,10 +175,135 @@ import (
 //	}
 //
 // ```
+// ### VPC based ES
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// vpc := cfg.RequireObject("vpc")
+// domain := "tf-test";
+// if param := cfg.Get("domain"); param != ""{
+// domain = param
+// }
+// selectedVpc, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+// Tags: interface{}{
+// Name: vpc,
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// selectedSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// Filters: []ec2.GetSubnetsFilter{
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// selectedVpc.Id,
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Tier": "private",
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// currentRegion, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// esSecurityGroup, err := ec2.NewSecurityGroup(ctx, "esSecurityGroup", &ec2.SecurityGroupArgs{
+// Description: pulumi.String("Managed by Pulumi"),
+// VpcId: *pulumi.String(selectedVpc.Id),
+// Ingress: ec2.SecurityGroupIngressArray{
+// &ec2.SecurityGroupIngressArgs{
+// FromPort: pulumi.Int(443),
+// ToPort: pulumi.Int(443),
+// Protocol: pulumi.String("tcp"),
+// CidrBlocks: pulumi.StringArray{
+// *pulumi.String(selectedVpc.CidrBlock),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// esServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "esServiceLinkedRole", &iam.ServiceLinkedRoleArgs{
+// AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticsearch.NewDomain(ctx, "esDomain", &elasticsearch.DomainArgs{
+// ElasticsearchVersion: pulumi.String("6.3"),
+// ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+// InstanceType: pulumi.String("m4.large.elasticsearch"),
+// ZoneAwarenessEnabled: pulumi.Bool(true),
+// },
+// VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
+// SubnetIds: pulumi.StringArray{
+// *pulumi.String(selectedSubnets.Ids[0]),
+// *pulumi.String(selectedSubnets.Ids[1]),
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// esSecurityGroup.ID(),
+// },
+// },
+// AdvancedOptions: pulumi.StringMap{
+// "rest.action.multi.allow_explicit_index": pulumi.String("true"),
+// },
+//
+//	AccessPolicies: pulumi.Any(fmt.Sprintf(`{
+//		"Version": "2012-10-17",
+//		"Statement": [
+//			{
+//				"Action": "es:*",
+//				"Principal": "*",
+//				"Effect": "Allow",
+//				"Resource": "arn:aws:es:%v:%v:domain/%v/*"
+//			}
+//		]
+//	}
+//
+// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
+// Tags: pulumi.StringMap{
+// "Domain": pulumi.String("TestDomain"),
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// esServiceLinkedRole,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //
-// Elasticsearch domains can be imported using the `domain_name`, e.g.,
+// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 //
 // ```sh
 //
@@ -205,6 +332,8 @@ type Domain struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsOutput `pulumi:"ebsOptions"`
@@ -239,6 +368,7 @@ func NewDomain(ctx *pulumi.Context,
 		args = &DomainArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:elasticsearch/domain:Domain", name, args, &resource, opts...)
 	if err != nil {
@@ -280,6 +410,8 @@ type domainState struct {
 	// Unique identifier for the domain.
 	DomainId *string `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
@@ -327,6 +459,8 @@ type DomainState struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
@@ -374,6 +508,8 @@ type domainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
@@ -410,6 +546,8 @@ type DomainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
@@ -452,6 +590,12 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
+func (i *Domain) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: i.ToDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainArrayInput is an input type that accepts DomainArray and DomainArrayOutput values.
 // You can construct a concrete instance of `DomainArrayInput` via:
 //
@@ -475,6 +619,12 @@ func (i DomainArray) ToDomainArrayOutput() DomainArrayOutput {
 
 func (i DomainArray) ToDomainArrayOutputWithContext(ctx context.Context) DomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainArrayOutput)
+}
+
+func (i DomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: i.ToDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainMapInput is an input type that accepts DomainMap and DomainMapOutput values.
@@ -502,6 +652,12 @@ func (i DomainMap) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainMapOutput)
 }
 
+func (i DomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: i.ToDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
@@ -514,6 +670,12 @@ func (o DomainOutput) ToDomainOutput() DomainOutput {
 
 func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return o
+}
+
+func (o DomainOutput) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IAM policy document specifying the access policies for the domain.
@@ -562,6 +724,8 @@ func (o DomainOutput) DomainId() pulumi.StringOutput {
 }
 
 // Name of the domain.
+//
+// The following arguments are optional:
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -637,6 +801,12 @@ func (o DomainArrayOutput) ToDomainArrayOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainArrayOutput) Index(i pulumi.IntInput) DomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Domain {
 		return vs[0].([]*Domain)[vs[1].(int)]
@@ -655,6 +825,12 @@ func (o DomainMapOutput) ToDomainMapOutput() DomainMapOutput {
 
 func (o DomainMapOutput) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOutput {
 	return o
+}
+
+func (o DomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainMapOutput) MapIndex(k pulumi.StringInput) DomainOutput {

@@ -70,7 +70,11 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
-    /// `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
+    /// With an account target:
+    /// 
+    /// Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
+    /// 
+    /// With an account target:
     /// 
     /// ```sh
     ///  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678

@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Lambda function URLs can be imported using the `function_name` or `function_name/qualifier`, e.g.,
+ * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
  *
  * ```sh
  *  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function

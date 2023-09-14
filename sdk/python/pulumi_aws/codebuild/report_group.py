@@ -287,7 +287,7 @@ class ReportGroup(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.,
+        Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 
         ```sh
          $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
@@ -348,7 +348,7 @@ class ReportGroup(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.,
+        Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 
         ```sh
          $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name

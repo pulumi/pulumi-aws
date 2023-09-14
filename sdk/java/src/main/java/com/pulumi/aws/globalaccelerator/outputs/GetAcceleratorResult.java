@@ -17,12 +17,9 @@ public final class GetAcceleratorResult {
     private String arn;
     private List<GetAcceleratorAttribute> attributes;
     private String dnsName;
+    private String dualStackDnsName;
     private Boolean enabled;
     private String hostedZoneId;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     private String ipAddressType;
     private List<GetAcceleratorIpSet> ipSets;
@@ -39,16 +36,15 @@ public final class GetAcceleratorResult {
     public String dnsName() {
         return this.dnsName;
     }
+    public String dualStackDnsName() {
+        return this.dualStackDnsName;
+    }
     public Boolean enabled() {
         return this.enabled;
     }
     public String hostedZoneId() {
         return this.hostedZoneId;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }
@@ -77,6 +73,7 @@ public final class GetAcceleratorResult {
         private String arn;
         private List<GetAcceleratorAttribute> attributes;
         private String dnsName;
+        private String dualStackDnsName;
         private Boolean enabled;
         private String hostedZoneId;
         private String id;
@@ -90,6 +87,7 @@ public final class GetAcceleratorResult {
     	      this.arn = defaults.arn;
     	      this.attributes = defaults.attributes;
     	      this.dnsName = defaults.dnsName;
+    	      this.dualStackDnsName = defaults.dualStackDnsName;
     	      this.enabled = defaults.enabled;
     	      this.hostedZoneId = defaults.hostedZoneId;
     	      this.id = defaults.id;
@@ -115,6 +113,11 @@ public final class GetAcceleratorResult {
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dualStackDnsName(String dualStackDnsName) {
+            this.dualStackDnsName = Objects.requireNonNull(dualStackDnsName);
             return this;
         }
         @CustomType.Setter
@@ -160,6 +163,7 @@ public final class GetAcceleratorResult {
             o.arn = arn;
             o.attributes = attributes;
             o.dnsName = dnsName;
+            o.dualStackDnsName = dualStackDnsName;
             o.enabled = enabled;
             o.hostedZoneId = hostedZoneId;
             o.id = id;

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Kendra Index resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +83,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,15 +104,45 @@ import (
 //	}
 //
 // ```
-// ### With Document Metadata Configuration Updates
-// ### Specifying the predefined elements
+// ### With user group resolution configuration
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				UserGroupResolutionConfiguration: &kendra.IndexUserGroupResolutionConfigurationArgs{
+//					UserGroupResolutionMode: pulumi.String("AWS_SSO"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Document Metadata Configuration Updates
+// ### Specifying the predefined elements
+//
+// Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -271,6 +303,20 @@ import (
 //							Facetable:   pulumi.Bool(false),
 //							Searchable:  pulumi.Bool(false),
 //							Sortable:    pulumi.Bool(false),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: nil,
+//						},
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Name: pulumi.String("_tenant_id"),
+//						Type: pulumi.String("STRING_VALUE"),
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(false),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
@@ -324,7 +370,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -485,6 +531,20 @@ import (
 //							Facetable:   pulumi.Bool(false),
 //							Searchable:  pulumi.Bool(false),
 //							Sortable:    pulumi.Bool(false),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: nil,
+//						},
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Name: pulumi.String("_tenant_id"),
+//						Type: pulumi.String("STRING_VALUE"),
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(false),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
@@ -593,7 +653,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -620,7 +680,7 @@ import (
 //
 // ## Import
 //
-// Amazon Kendra Indexes can be imported using its `id`, e.g.,
+// Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 //
 // ```sh
 //
@@ -679,6 +739,7 @@ func NewIndex(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Index
 	err := ctx.RegisterResource("aws:kendra/index:Index", name, args, &resource, opts...)
 	if err != nil {
@@ -860,6 +921,12 @@ func (i *Index) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IndexOutput)
 }
 
+func (i *Index) ToOutput(ctx context.Context) pulumix.Output[*Index] {
+	return pulumix.Output[*Index]{
+		OutputState: i.ToIndexOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IndexArrayInput is an input type that accepts IndexArray and IndexArrayOutput values.
 // You can construct a concrete instance of `IndexArrayInput` via:
 //
@@ -883,6 +950,12 @@ func (i IndexArray) ToIndexArrayOutput() IndexArrayOutput {
 
 func (i IndexArray) ToIndexArrayOutputWithContext(ctx context.Context) IndexArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IndexArrayOutput)
+}
+
+func (i IndexArray) ToOutput(ctx context.Context) pulumix.Output[[]*Index] {
+	return pulumix.Output[[]*Index]{
+		OutputState: i.ToIndexArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IndexMapInput is an input type that accepts IndexMap and IndexMapOutput values.
@@ -910,6 +983,12 @@ func (i IndexMap) ToIndexMapOutputWithContext(ctx context.Context) IndexMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IndexMapOutput)
 }
 
+func (i IndexMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Index] {
+	return pulumix.Output[map[string]*Index]{
+		OutputState: i.ToIndexMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexOutput struct{ *pulumi.OutputState }
 
 func (IndexOutput) ElementType() reflect.Type {
@@ -922,6 +1001,12 @@ func (o IndexOutput) ToIndexOutput() IndexOutput {
 
 func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 	return o
+}
+
+func (o IndexOutput) ToOutput(ctx context.Context) pulumix.Output[*Index] {
+	return pulumix.Output[*Index]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Index.
@@ -1035,6 +1120,12 @@ func (o IndexArrayOutput) ToIndexArrayOutputWithContext(ctx context.Context) Ind
 	return o
 }
 
+func (o IndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Index] {
+	return pulumix.Output[[]*Index]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexArrayOutput) Index(i pulumi.IntInput) IndexOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Index {
 		return vs[0].([]*Index)[vs[1].(int)]
@@ -1053,6 +1144,12 @@ func (o IndexMapOutput) ToIndexMapOutput() IndexMapOutput {
 
 func (o IndexMapOutput) ToIndexMapOutputWithContext(ctx context.Context) IndexMapOutput {
 	return o
+}
+
+func (o IndexMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Index] {
+	return pulumix.Output[map[string]*Index]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexMapOutput) MapIndex(k pulumi.StringInput) IndexOutput {

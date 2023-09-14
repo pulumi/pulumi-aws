@@ -80,6 +80,8 @@ def get_outpost_instance_type(arn: Optional[str] = None,
 
 
     :param str arn: Outpost ARN.
+           
+           The following arguments are optional:
     :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
     """
@@ -91,10 +93,10 @@ def get_outpost_instance_type(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpostInstanceType:getOutpostInstanceType', __args__, opts=opts, typ=GetOutpostInstanceTypeResult).value
 
     return AwaitableGetOutpostInstanceTypeResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        instance_type=__ret__.instance_type,
-        preferred_instance_types=__ret__.preferred_instance_types)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'))
 
 
 @_utilities.lift_output_func(get_outpost_instance_type)
@@ -107,6 +109,8 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
 
 
     :param str arn: Outpost ARN.
+           
+           The following arguments are optional:
     :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
     """

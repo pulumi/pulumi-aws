@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect User Hierarchy Group resource. For more information see
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +88,7 @@ import (
 //
 // ## Import
 //
-// Amazon Connect User Hierarchy Groups can be imported using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -127,6 +129,7 @@ func NewUserHierarchyGroup(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserHierarchyGroup
 	err := ctx.RegisterResource("aws:connect/userHierarchyGroup:UserHierarchyGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -244,6 +247,12 @@ func (i *UserHierarchyGroup) ToUserHierarchyGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyGroupOutput)
 }
 
+func (i *UserHierarchyGroup) ToOutput(ctx context.Context) pulumix.Output[*UserHierarchyGroup] {
+	return pulumix.Output[*UserHierarchyGroup]{
+		OutputState: i.ToUserHierarchyGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserHierarchyGroupArrayInput is an input type that accepts UserHierarchyGroupArray and UserHierarchyGroupArrayOutput values.
 // You can construct a concrete instance of `UserHierarchyGroupArrayInput` via:
 //
@@ -267,6 +276,12 @@ func (i UserHierarchyGroupArray) ToUserHierarchyGroupArrayOutput() UserHierarchy
 
 func (i UserHierarchyGroupArray) ToUserHierarchyGroupArrayOutputWithContext(ctx context.Context) UserHierarchyGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyGroupArrayOutput)
+}
+
+func (i UserHierarchyGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserHierarchyGroup] {
+	return pulumix.Output[[]*UserHierarchyGroup]{
+		OutputState: i.ToUserHierarchyGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserHierarchyGroupMapInput is an input type that accepts UserHierarchyGroupMap and UserHierarchyGroupMapOutput values.
@@ -294,6 +309,12 @@ func (i UserHierarchyGroupMap) ToUserHierarchyGroupMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyGroupMapOutput)
 }
 
+func (i UserHierarchyGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserHierarchyGroup] {
+	return pulumix.Output[map[string]*UserHierarchyGroup]{
+		OutputState: i.ToUserHierarchyGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserHierarchyGroupOutput struct{ *pulumi.OutputState }
 
 func (UserHierarchyGroupOutput) ElementType() reflect.Type {
@@ -306,6 +327,12 @@ func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutput() UserHierarchyGrou
 
 func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutputWithContext(ctx context.Context) UserHierarchyGroupOutput {
 	return o
+}
+
+func (o UserHierarchyGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*UserHierarchyGroup] {
+	return pulumix.Output[*UserHierarchyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the hierarchy group.
@@ -368,6 +395,12 @@ func (o UserHierarchyGroupArrayOutput) ToUserHierarchyGroupArrayOutputWithContex
 	return o
 }
 
+func (o UserHierarchyGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserHierarchyGroup] {
+	return pulumix.Output[[]*UserHierarchyGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserHierarchyGroupArrayOutput) Index(i pulumi.IntInput) UserHierarchyGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserHierarchyGroup {
 		return vs[0].([]*UserHierarchyGroup)[vs[1].(int)]
@@ -386,6 +419,12 @@ func (o UserHierarchyGroupMapOutput) ToUserHierarchyGroupMapOutput() UserHierarc
 
 func (o UserHierarchyGroupMapOutput) ToUserHierarchyGroupMapOutputWithContext(ctx context.Context) UserHierarchyGroupMapOutput {
 	return o
+}
+
+func (o UserHierarchyGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserHierarchyGroup] {
+	return pulumix.Output[map[string]*UserHierarchyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserHierarchyGroupMapOutput) MapIndex(k pulumi.StringInput) UserHierarchyGroupOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts ...pulumi.InvokeOption) (*GetQuicksightGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQuicksightGroupResult
 	err := ctx.Invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args, &rv, opts...)
 	if err != nil {
@@ -54,6 +57,8 @@ type GetQuicksightGroupArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The name of the group that you want to match.
+	//
+	// The following arguments are optional:
 	GroupName string `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -92,6 +97,8 @@ type GetQuicksightGroupOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// The name of the group that you want to match.
+	//
+	// The following arguments are optional:
 	GroupName pulumi.StringInput `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
@@ -114,6 +121,12 @@ func (o GetQuicksightGroupResultOutput) ToGetQuicksightGroupResultOutput() GetQu
 
 func (o GetQuicksightGroupResultOutput) ToGetQuicksightGroupResultOutputWithContext(ctx context.Context) GetQuicksightGroupResultOutput {
 	return o
+}
+
+func (o GetQuicksightGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQuicksightGroupResult] {
+	return pulumix.Output[GetQuicksightGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the group.

@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Runner Services can be imported by using the `arn`, e.g.,
+ * Using `pulumi import`, import App Runner Services using the `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
@@ -186,6 +186,8 @@ export class Service extends pulumi.CustomResource {
     public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     *
+     * The following arguments are optional:
      */
     public readonly sourceConfiguration!: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
     /**
@@ -302,6 +304,8 @@ export interface ServiceState {
     serviceUrl?: pulumi.Input<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     *
+     * The following arguments are optional:
      */
     sourceConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**
@@ -352,6 +356,8 @@ export interface ServiceArgs {
     serviceName: pulumi.Input<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     *
+     * The following arguments are optional:
      */
     sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**

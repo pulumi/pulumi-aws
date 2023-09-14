@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM role.
@@ -27,7 +29,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +74,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,7 +124,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -190,7 +192,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -222,7 +224,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -299,7 +301,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -321,7 +323,7 @@ import (
 //
 // ## Import
 //
-// IAM Roles can be imported using the `name`, e.g.,
+// Using `pulumi import`, import IAM Roles using the `name`. For example:
 //
 // ```sh
 //
@@ -334,6 +336,10 @@ type Role struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy pulumi.StringOutput `pulumi:"assumeRolePolicy"`
 	// Creation date of the IAM role.
 	CreateDate pulumi.StringOutput `pulumi:"createDate"`
@@ -354,8 +360,6 @@ type Role struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
-	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-	RoleLastUseds RoleRoleLastUsedArrayOutput `pulumi:"roleLastUseds"`
 	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -374,6 +378,7 @@ func NewRole(ctx *pulumi.Context,
 	if args.AssumeRolePolicy == nil {
 		return nil, errors.New("invalid value for required argument 'AssumeRolePolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Role
 	err := ctx.RegisterResource("aws:iam/role:Role", name, args, &resource, opts...)
 	if err != nil {
@@ -399,6 +404,10 @@ type roleState struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn *string `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy interface{} `pulumi:"assumeRolePolicy"`
 	// Creation date of the IAM role.
 	CreateDate *string `pulumi:"createDate"`
@@ -419,8 +428,6 @@ type roleState struct {
 	Path *string `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-	RoleLastUseds []RoleRoleLastUsed `pulumi:"roleLastUseds"`
 	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -433,6 +440,10 @@ type RoleState struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn pulumi.StringPtrInput
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy pulumi.Input
 	// Creation date of the IAM role.
 	CreateDate pulumi.StringPtrInput
@@ -453,8 +464,6 @@ type RoleState struct {
 	Path pulumi.StringPtrInput
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-	RoleLastUseds RoleRoleLastUsedArrayInput
 	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -469,6 +478,10 @@ func (RoleState) ElementType() reflect.Type {
 
 type roleArgs struct {
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy interface{} `pulumi:"assumeRolePolicy"`
 	// Description of the role.
 	Description *string `pulumi:"description"`
@@ -494,6 +507,10 @@ type roleArgs struct {
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy pulumi.Input
 	// Description of the role.
 	Description pulumi.StringPtrInput
@@ -539,6 +556,12 @@ func (i *Role) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleOutput)
 }
 
+func (i *Role) ToOutput(ctx context.Context) pulumix.Output[*Role] {
+	return pulumix.Output[*Role]{
+		OutputState: i.ToRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RoleArrayInput is an input type that accepts RoleArray and RoleArrayOutput values.
 // You can construct a concrete instance of `RoleArrayInput` via:
 //
@@ -562,6 +585,12 @@ func (i RoleArray) ToRoleArrayOutput() RoleArrayOutput {
 
 func (i RoleArray) ToRoleArrayOutputWithContext(ctx context.Context) RoleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleArrayOutput)
+}
+
+func (i RoleArray) ToOutput(ctx context.Context) pulumix.Output[[]*Role] {
+	return pulumix.Output[[]*Role]{
+		OutputState: i.ToRoleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RoleMapInput is an input type that accepts RoleMap and RoleMapOutput values.
@@ -589,6 +618,12 @@ func (i RoleMap) ToRoleMapOutputWithContext(ctx context.Context) RoleMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleMapOutput)
 }
 
+func (i RoleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Role] {
+	return pulumix.Output[map[string]*Role]{
+		OutputState: i.ToRoleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RoleOutput struct{ *pulumi.OutputState }
 
 func (RoleOutput) ElementType() reflect.Type {
@@ -603,12 +638,22 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
+func (o RoleOutput) ToOutput(ctx context.Context) pulumix.Output[*Role] {
+	return pulumix.Output[*Role]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) specifying the role.
 func (o RoleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Policy that grants an entity permission to assume the role.
+//
+// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+//
+// The following arguments are optional:
 func (o RoleOutput) AssumeRolePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.AssumeRolePolicy }).(pulumi.StringOutput)
 }
@@ -662,11 +707,6 @@ func (o RoleOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-func (o RoleOutput) RoleLastUseds() RoleRoleLastUsedArrayOutput {
-	return o.ApplyT(func(v *Role) RoleRoleLastUsedArrayOutput { return v.RoleLastUseds }).(RoleRoleLastUsedArrayOutput)
-}
-
 // Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RoleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -696,6 +736,12 @@ func (o RoleArrayOutput) ToRoleArrayOutputWithContext(ctx context.Context) RoleA
 	return o
 }
 
+func (o RoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Role] {
+	return pulumix.Output[[]*Role]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RoleArrayOutput) Index(i pulumi.IntInput) RoleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Role {
 		return vs[0].([]*Role)[vs[1].(int)]
@@ -714,6 +760,12 @@ func (o RoleMapOutput) ToRoleMapOutput() RoleMapOutput {
 
 func (o RoleMapOutput) ToRoleMapOutputWithContext(ctx context.Context) RoleMapOutput {
 	return o
+}
+
+func (o RoleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Role] {
+	return pulumix.Output[map[string]*Role]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoleMapOutput) MapIndex(k pulumi.StringInput) RoleOutput {

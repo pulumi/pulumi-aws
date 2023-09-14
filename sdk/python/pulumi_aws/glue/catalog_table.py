@@ -20,6 +20,7 @@ class CatalogTableArgs:
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
@@ -33,9 +34,12 @@ class CatalogTableArgs:
         """
         The set of arguments for constructing a CatalogTable resource.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputArgs'] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
@@ -54,6 +58,8 @@ class CatalogTableArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if open_table_format_input is not None:
+            pulumi.set(__self__, "open_table_format_input", open_table_format_input)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
         if parameters is not None:
@@ -80,6 +86,8 @@ class CatalogTableArgs:
     def database_name(self) -> pulumi.Input[str]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+
+        The follow arguments are optional:
         """
         return pulumi.get(self, "database_name")
 
@@ -122,6 +130,18 @@ class CatalogTableArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openTableFormatInput")
+    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]:
+        """
+        Configuration block for open table formats. See `open_table_format_input` below.
+        """
+        return pulumi.get(self, "open_table_format_input")
+
+    @open_table_format_input.setter
+    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]):
+        pulumi.set(self, "open_table_format_input", value)
 
     @property
     @pulumi.getter
@@ -252,6 +272,7 @@ class _CatalogTableState:
                  database_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
@@ -267,8 +288,11 @@ class _CatalogTableState:
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputArgs'] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
@@ -290,6 +314,8 @@ class _CatalogTableState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if open_table_format_input is not None:
+            pulumi.set(__self__, "open_table_format_input", open_table_format_input)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
         if parameters is not None:
@@ -340,6 +366,8 @@ class _CatalogTableState:
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+
+        The follow arguments are optional:
         """
         return pulumi.get(self, "database_name")
 
@@ -370,6 +398,18 @@ class _CatalogTableState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openTableFormatInput")
+    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]:
+        """
+        Configuration block for open table formats. See `open_table_format_input` below.
+        """
+        return pulumi.get(self, "open_table_format_input")
+
+    @open_table_format_input.setter
+    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]):
+        pulumi.set(self, "open_table_format_input", value)
 
     @property
     @pulumi.getter
@@ -501,6 +541,7 @@ class CatalogTable(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
@@ -581,7 +622,7 @@ class CatalogTable(pulumi.CustomResource):
 
         ## Import
 
-        Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+        Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
         ```sh
          $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
@@ -591,8 +632,11 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
+        :param pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
@@ -679,7 +723,7 @@ class CatalogTable(pulumi.CustomResource):
 
         ## Import
 
-        Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+        Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
         ```sh
          $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
@@ -704,6 +748,7 @@ class CatalogTable(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
@@ -729,6 +774,7 @@ class CatalogTable(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["open_table_format_input"] = open_table_format_input
             __props__.__dict__["owner"] = owner
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["partition_indices"] = partition_indices
@@ -755,6 +801,7 @@ class CatalogTable(pulumi.CustomResource):
             database_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
@@ -775,8 +822,11 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
+        :param pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
@@ -797,6 +847,7 @@ class CatalogTable(pulumi.CustomResource):
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["open_table_format_input"] = open_table_format_input
         __props__.__dict__["owner"] = owner
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["partition_indices"] = partition_indices
@@ -830,6 +881,8 @@ class CatalogTable(pulumi.CustomResource):
     def database_name(self) -> pulumi.Output[str]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+
+        The follow arguments are optional:
         """
         return pulumi.get(self, "database_name")
 
@@ -848,6 +901,14 @@ class CatalogTable(pulumi.CustomResource):
         Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="openTableFormatInput")
+    def open_table_format_input(self) -> pulumi.Output[Optional['outputs.CatalogTableOpenTableFormatInput']]:
+        """
+        Configuration block for open table formats. See `open_table_format_input` below.
+        """
+        return pulumi.get(self, "open_table_format_input")
 
     @property
     @pulumi.getter

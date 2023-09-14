@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Place Index.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...pulumi.InvokeOption) (*LookupPlaceIndexResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPlaceIndexResult
 	err := ctx.Invoke("aws:location/getPlaceIndex:getPlaceIndex", args, &rv, opts...)
 	if err != nil {
@@ -113,6 +116,12 @@ func (o LookupPlaceIndexResultOutput) ToLookupPlaceIndexResultOutput() LookupPla
 
 func (o LookupPlaceIndexResultOutput) ToLookupPlaceIndexResultOutputWithContext(ctx context.Context) LookupPlaceIndexResultOutput {
 	return o
+}
+
+func (o LookupPlaceIndexResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPlaceIndexResult] {
+	return pulumix.Output[LookupPlaceIndexResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Timestamp for when the place index resource was created in ISO 8601 format.

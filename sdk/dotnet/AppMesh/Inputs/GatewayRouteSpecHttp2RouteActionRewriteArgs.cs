@@ -19,6 +19,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs>? Hostname { get; set; }
 
         /// <summary>
+        /// Exact path to rewrite.
+        /// </summary>
+        [Input("path")]
+        public Input<Inputs.GatewayRouteSpecHttp2RouteActionRewritePathArgs>? Path { get; set; }
+
+        /// <summary>
         /// Specified beginning characters to rewrite.
         /// </summary>
         [Input("prefix")]

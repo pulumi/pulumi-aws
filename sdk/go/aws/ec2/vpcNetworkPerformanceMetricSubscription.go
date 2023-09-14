@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an Infrastructure Performance subscription.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,6 +69,7 @@ func NewVpcNetworkPerformanceMetricSubscription(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcNetworkPerformanceMetricSubscription
 	err := ctx.RegisterResource("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription", name, args, &resource, opts...)
 	if err != nil {
@@ -164,6 +167,12 @@ func (i *VpcNetworkPerformanceMetricSubscription) ToVpcNetworkPerformanceMetricS
 	return pulumi.ToOutputWithContext(ctx, i).(VpcNetworkPerformanceMetricSubscriptionOutput)
 }
 
+func (i *VpcNetworkPerformanceMetricSubscription) ToOutput(ctx context.Context) pulumix.Output[*VpcNetworkPerformanceMetricSubscription] {
+	return pulumix.Output[*VpcNetworkPerformanceMetricSubscription]{
+		OutputState: i.ToVpcNetworkPerformanceMetricSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcNetworkPerformanceMetricSubscriptionArrayInput is an input type that accepts VpcNetworkPerformanceMetricSubscriptionArray and VpcNetworkPerformanceMetricSubscriptionArrayOutput values.
 // You can construct a concrete instance of `VpcNetworkPerformanceMetricSubscriptionArrayInput` via:
 //
@@ -187,6 +196,12 @@ func (i VpcNetworkPerformanceMetricSubscriptionArray) ToVpcNetworkPerformanceMet
 
 func (i VpcNetworkPerformanceMetricSubscriptionArray) ToVpcNetworkPerformanceMetricSubscriptionArrayOutputWithContext(ctx context.Context) VpcNetworkPerformanceMetricSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcNetworkPerformanceMetricSubscriptionArrayOutput)
+}
+
+func (i VpcNetworkPerformanceMetricSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcNetworkPerformanceMetricSubscription] {
+	return pulumix.Output[[]*VpcNetworkPerformanceMetricSubscription]{
+		OutputState: i.ToVpcNetworkPerformanceMetricSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcNetworkPerformanceMetricSubscriptionMapInput is an input type that accepts VpcNetworkPerformanceMetricSubscriptionMap and VpcNetworkPerformanceMetricSubscriptionMapOutput values.
@@ -214,6 +229,12 @@ func (i VpcNetworkPerformanceMetricSubscriptionMap) ToVpcNetworkPerformanceMetri
 	return pulumi.ToOutputWithContext(ctx, i).(VpcNetworkPerformanceMetricSubscriptionMapOutput)
 }
 
+func (i VpcNetworkPerformanceMetricSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcNetworkPerformanceMetricSubscription] {
+	return pulumix.Output[map[string]*VpcNetworkPerformanceMetricSubscription]{
+		OutputState: i.ToVpcNetworkPerformanceMetricSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcNetworkPerformanceMetricSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (VpcNetworkPerformanceMetricSubscriptionOutput) ElementType() reflect.Type {
@@ -226,6 +247,12 @@ func (o VpcNetworkPerformanceMetricSubscriptionOutput) ToVpcNetworkPerformanceMe
 
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) ToVpcNetworkPerformanceMetricSubscriptionOutputWithContext(ctx context.Context) VpcNetworkPerformanceMetricSubscriptionOutput {
 	return o
+}
+
+func (o VpcNetworkPerformanceMetricSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcNetworkPerformanceMetricSubscription] {
+	return pulumix.Output[*VpcNetworkPerformanceMetricSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
@@ -267,6 +294,12 @@ func (o VpcNetworkPerformanceMetricSubscriptionArrayOutput) ToVpcNetworkPerforma
 	return o
 }
 
+func (o VpcNetworkPerformanceMetricSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcNetworkPerformanceMetricSubscription] {
+	return pulumix.Output[[]*VpcNetworkPerformanceMetricSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcNetworkPerformanceMetricSubscriptionArrayOutput) Index(i pulumi.IntInput) VpcNetworkPerformanceMetricSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcNetworkPerformanceMetricSubscription {
 		return vs[0].([]*VpcNetworkPerformanceMetricSubscription)[vs[1].(int)]
@@ -285,6 +318,12 @@ func (o VpcNetworkPerformanceMetricSubscriptionMapOutput) ToVpcNetworkPerformanc
 
 func (o VpcNetworkPerformanceMetricSubscriptionMapOutput) ToVpcNetworkPerformanceMetricSubscriptionMapOutputWithContext(ctx context.Context) VpcNetworkPerformanceMetricSubscriptionMapOutput {
 	return o
+}
+
+func (o VpcNetworkPerformanceMetricSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcNetworkPerformanceMetricSubscription] {
+	return pulumix.Output[map[string]*VpcNetworkPerformanceMetricSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcNetworkPerformanceMetricSubscriptionMapOutput) MapIndex(k pulumi.StringInput) VpcNetworkPerformanceMetricSubscriptionOutput {

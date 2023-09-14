@@ -125,16 +125,24 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     @Import(name="overwrite")
     private @Nullable Output<Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * @return Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     public Optional<Output<Boolean>> overwrite() {
         return Optional.ofNullable(this.overwrite);
     }
@@ -172,12 +180,16 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<Either<String,ParameterType>> type;
 
     /**
      * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Either<String,ParameterType>> type() {
@@ -187,12 +199,16 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
+     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
      * @return Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+     * 
+     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 
      */
     public Optional<Output<String>> value() {
@@ -382,22 +398,30 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
          * 
          * @return builder
          * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
          */
+        @Deprecated /* this attribute has been deprecated */
         public Builder overwrite(@Nullable Output<Boolean> overwrite) {
             $.overwrite = overwrite;
             return this;
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
          * 
          * @return builder
          * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
          */
+        @Deprecated /* this attribute has been deprecated */
         public Builder overwrite(Boolean overwrite) {
             return overwrite(Output.of(overwrite));
         }
@@ -447,6 +471,8 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -458,6 +484,8 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -467,6 +495,8 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -478,6 +508,8 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -487,6 +519,8 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param value Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+         * 
+         * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
          * 
          * @return builder
          * 
@@ -498,6 +532,8 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param value Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+         * 
+         * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
          * 
          * @return builder
          * 

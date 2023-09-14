@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon API Gateway Version 2 route.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +59,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,13 +99,15 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.,
+// Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
 //
 // ```
+//
+//	-> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -149,6 +153,7 @@ func NewRoute(ctx *pulumi.Context,
 	if args.RouteKey == nil {
 		return nil, errors.New("invalid value for required argument 'RouteKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:apigatewayv2/route:Route", name, args, &resource, opts...)
 	if err != nil {
@@ -318,6 +323,12 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteOutput)
 }
 
+func (i *Route) ToOutput(ctx context.Context) pulumix.Output[*Route] {
+	return pulumix.Output[*Route]{
+		OutputState: i.ToRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteArrayInput is an input type that accepts RouteArray and RouteArrayOutput values.
 // You can construct a concrete instance of `RouteArrayInput` via:
 //
@@ -341,6 +352,12 @@ func (i RouteArray) ToRouteArrayOutput() RouteArrayOutput {
 
 func (i RouteArray) ToRouteArrayOutputWithContext(ctx context.Context) RouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteArrayOutput)
+}
+
+func (i RouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*Route] {
+	return pulumix.Output[[]*Route]{
+		OutputState: i.ToRouteArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteMapInput is an input type that accepts RouteMap and RouteMapOutput values.
@@ -368,6 +385,12 @@ func (i RouteMap) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapOutput)
 }
 
+func (i RouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Route] {
+	return pulumix.Output[map[string]*Route]{
+		OutputState: i.ToRouteMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
@@ -380,6 +403,12 @@ func (o RouteOutput) ToRouteOutput() RouteOutput {
 
 func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
+}
+
+func (o RouteOutput) ToOutput(ctx context.Context) pulumix.Output[*Route] {
+	return pulumix.Output[*Route]{
+		OutputState: o.OutputState,
+	}
 }
 
 // API identifier.
@@ -459,6 +488,12 @@ func (o RouteArrayOutput) ToRouteArrayOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
+func (o RouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Route] {
+	return pulumix.Output[[]*Route]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteArrayOutput) Index(i pulumi.IntInput) RouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Route {
 		return vs[0].([]*Route)[vs[1].(int)]
@@ -477,6 +512,12 @@ func (o RouteMapOutput) ToRouteMapOutput() RouteMapOutput {
 
 func (o RouteMapOutput) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutput {
 	return o
+}
+
+func (o RouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Route] {
+	return pulumix.Output[map[string]*Route]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteMapOutput) MapIndex(k pulumi.StringInput) RouteOutput {

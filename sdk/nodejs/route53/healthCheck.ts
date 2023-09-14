@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Health Checks can be imported using the `health check id`, e.g.,
+ * Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
@@ -142,6 +142,8 @@ export class HealthCheck extends pulumi.CustomResource {
      * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+     *
+     * > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -153,7 +155,7 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public readonly failureThreshold!: pulumi.Output<number>;
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
     public readonly fqdn!: pulumi.Output<string | undefined>;
     /**
@@ -313,6 +315,8 @@ export interface HealthCheckState {
      * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+     *
+     * > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      */
     disabled?: pulumi.Input<boolean>;
     /**
@@ -324,7 +328,7 @@ export interface HealthCheckState {
      */
     failureThreshold?: pulumi.Input<number>;
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
     fqdn?: pulumi.Input<string>;
     /**
@@ -411,6 +415,8 @@ export interface HealthCheckArgs {
      * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+     *
+     * > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      */
     disabled?: pulumi.Input<boolean>;
     /**
@@ -422,7 +428,7 @@ export interface HealthCheckArgs {
      */
     failureThreshold?: pulumi.Input<number>;
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
     fqdn?: pulumi.Input<string>;
     /**

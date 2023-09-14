@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// IoT Things Groups can be imported using the name, e.g.
+    /// Using `pulumi import`, import IoT Things Groups using the name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iot/thingGroup:ThingGroup example example

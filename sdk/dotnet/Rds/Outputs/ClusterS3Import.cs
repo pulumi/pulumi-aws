@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class ClusterS3Import
     {
         /// <summary>
-        /// The bucket name where your backup is stored
+        /// Bucket name where your backup is stored
         /// </summary>
         public readonly string BucketName;
         /// <summary>
@@ -31,6 +31,8 @@ namespace Pulumi.Aws.Rds.Outputs
         public readonly string SourceEngine;
         /// <summary>
         /// Version of the source engine used to make the backup
+        /// 
+        /// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
         /// </summary>
         public readonly string SourceEngineVersion;
 

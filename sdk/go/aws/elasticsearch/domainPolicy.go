@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
@@ -22,8 +24,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +90,7 @@ func NewDomainPolicy(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainPolicy
 	err := ctx.RegisterResource("aws:elasticsearch/domainPolicy:DomainPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -165,6 +168,12 @@ func (i *DomainPolicy) ToDomainPolicyOutputWithContext(ctx context.Context) Doma
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyOutput)
 }
 
+func (i *DomainPolicy) ToOutput(ctx context.Context) pulumix.Output[*DomainPolicy] {
+	return pulumix.Output[*DomainPolicy]{
+		OutputState: i.ToDomainPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainPolicyArrayInput is an input type that accepts DomainPolicyArray and DomainPolicyArrayOutput values.
 // You can construct a concrete instance of `DomainPolicyArrayInput` via:
 //
@@ -188,6 +197,12 @@ func (i DomainPolicyArray) ToDomainPolicyArrayOutput() DomainPolicyArrayOutput {
 
 func (i DomainPolicyArray) ToDomainPolicyArrayOutputWithContext(ctx context.Context) DomainPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyArrayOutput)
+}
+
+func (i DomainPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainPolicy] {
+	return pulumix.Output[[]*DomainPolicy]{
+		OutputState: i.ToDomainPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainPolicyMapInput is an input type that accepts DomainPolicyMap and DomainPolicyMapOutput values.
@@ -215,6 +230,12 @@ func (i DomainPolicyMap) ToDomainPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPolicyMapOutput)
 }
 
+func (i DomainPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainPolicy] {
+	return pulumix.Output[map[string]*DomainPolicy]{
+		OutputState: i.ToDomainPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainPolicyOutput struct{ *pulumi.OutputState }
 
 func (DomainPolicyOutput) ElementType() reflect.Type {
@@ -227,6 +248,12 @@ func (o DomainPolicyOutput) ToDomainPolicyOutput() DomainPolicyOutput {
 
 func (o DomainPolicyOutput) ToDomainPolicyOutputWithContext(ctx context.Context) DomainPolicyOutput {
 	return o
+}
+
+func (o DomainPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainPolicy] {
+	return pulumix.Output[*DomainPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IAM policy document specifying the access policies for the domain
@@ -253,6 +280,12 @@ func (o DomainPolicyArrayOutput) ToDomainPolicyArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o DomainPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainPolicy] {
+	return pulumix.Output[[]*DomainPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainPolicyArrayOutput) Index(i pulumi.IntInput) DomainPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainPolicy {
 		return vs[0].([]*DomainPolicy)[vs[1].(int)]
@@ -271,6 +304,12 @@ func (o DomainPolicyMapOutput) ToDomainPolicyMapOutput() DomainPolicyMapOutput {
 
 func (o DomainPolicyMapOutput) ToDomainPolicyMapOutputWithContext(ctx context.Context) DomainPolicyMapOutput {
 	return o
+}
+
+func (o DomainPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainPolicy] {
+	return pulumix.Output[map[string]*DomainPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainPolicyMapOutput) MapIndex(k pulumi.StringInput) DomainPolicyOutput {

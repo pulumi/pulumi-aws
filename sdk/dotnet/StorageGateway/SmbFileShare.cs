@@ -60,7 +60,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_storagegateway_smb_file_share` can be imported by using the SMB File Share Amazon Resource Name (ARN), e.g.,
+    /// Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678

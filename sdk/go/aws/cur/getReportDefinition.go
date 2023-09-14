@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information on an AWS Cost and Usage Report Definition.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cur"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cur"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupReportDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReportDefinitionResult
 	err := ctx.Invoke("aws:cur/getReportDefinition:getReportDefinition", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o LookupReportDefinitionResultOutput) ToLookupReportDefinitionResultOutput
 
 func (o LookupReportDefinitionResultOutput) ToLookupReportDefinitionResultOutputWithContext(ctx context.Context) LookupReportDefinitionResultOutput {
 	return o
+}
+
+func (o LookupReportDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReportDefinitionResult] {
+	return pulumix.Output[LookupReportDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of additional artifacts.

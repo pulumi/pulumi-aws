@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Scheduler Schedule Group resource.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Schedule groups can be imported using the `name`. For example
+// Using `pulumi import`, import schedule groups using the `name`. For example:
 //
 // ```sh
 //
@@ -77,6 +79,7 @@ func NewScheduleGroup(ctx *pulumi.Context,
 		args = &ScheduleGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduleGroup
 	err := ctx.RegisterResource("aws:scheduler/scheduleGroup:ScheduleGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -182,6 +185,12 @@ func (i *ScheduleGroup) ToScheduleGroupOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleGroupOutput)
 }
 
+func (i *ScheduleGroup) ToOutput(ctx context.Context) pulumix.Output[*ScheduleGroup] {
+	return pulumix.Output[*ScheduleGroup]{
+		OutputState: i.ToScheduleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduleGroupArrayInput is an input type that accepts ScheduleGroupArray and ScheduleGroupArrayOutput values.
 // You can construct a concrete instance of `ScheduleGroupArrayInput` via:
 //
@@ -205,6 +214,12 @@ func (i ScheduleGroupArray) ToScheduleGroupArrayOutput() ScheduleGroupArrayOutpu
 
 func (i ScheduleGroupArray) ToScheduleGroupArrayOutputWithContext(ctx context.Context) ScheduleGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleGroupArrayOutput)
+}
+
+func (i ScheduleGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduleGroup] {
+	return pulumix.Output[[]*ScheduleGroup]{
+		OutputState: i.ToScheduleGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScheduleGroupMapInput is an input type that accepts ScheduleGroupMap and ScheduleGroupMapOutput values.
@@ -232,6 +247,12 @@ func (i ScheduleGroupMap) ToScheduleGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleGroupMapOutput)
 }
 
+func (i ScheduleGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduleGroup] {
+	return pulumix.Output[map[string]*ScheduleGroup]{
+		OutputState: i.ToScheduleGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleGroupOutput struct{ *pulumi.OutputState }
 
 func (ScheduleGroupOutput) ElementType() reflect.Type {
@@ -244,6 +265,12 @@ func (o ScheduleGroupOutput) ToScheduleGroupOutput() ScheduleGroupOutput {
 
 func (o ScheduleGroupOutput) ToScheduleGroupOutputWithContext(ctx context.Context) ScheduleGroupOutput {
 	return o
+}
+
+func (o ScheduleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleGroup] {
+	return pulumix.Output[*ScheduleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the schedule group.
@@ -300,6 +327,12 @@ func (o ScheduleGroupArrayOutput) ToScheduleGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ScheduleGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduleGroup] {
+	return pulumix.Output[[]*ScheduleGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduleGroupArrayOutput) Index(i pulumi.IntInput) ScheduleGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduleGroup {
 		return vs[0].([]*ScheduleGroup)[vs[1].(int)]
@@ -318,6 +351,12 @@ func (o ScheduleGroupMapOutput) ToScheduleGroupMapOutput() ScheduleGroupMapOutpu
 
 func (o ScheduleGroupMapOutput) ToScheduleGroupMapOutputWithContext(ctx context.Context) ScheduleGroupMapOutput {
 	return o
+}
+
+func (o ScheduleGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduleGroup] {
+	return pulumix.Output[map[string]*ScheduleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleGroupMapOutput) MapIndex(k pulumi.StringInput) ScheduleGroupOutput {

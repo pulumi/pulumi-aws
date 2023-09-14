@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AppConfig Applications can be imported using their application ID, e.g.,
+ * Using `pulumi import`, import AppConfig Applications using their application ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:appconfig/application:Application example 71rxuzt

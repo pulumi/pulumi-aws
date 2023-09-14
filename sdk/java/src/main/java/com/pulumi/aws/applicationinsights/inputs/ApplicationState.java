@@ -125,12 +125,16 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the resource group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
      * @return Name of the resource group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -350,6 +354,8 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroupName Name of the resource group.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -360,6 +366,8 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param resourceGroupName Name of the resource group.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

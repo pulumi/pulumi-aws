@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.glue.inputs;
 
+import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputArgs;
 import com.pulumi.aws.glue.inputs.CatalogTablePartitionIndexArgs;
 import com.pulumi.aws.glue.inputs.CatalogTablePartitionKeyArgs;
 import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
@@ -55,12 +56,16 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
+     * The follow arguments are optional:
+     * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
      * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     * 
+     * The follow arguments are optional:
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -95,6 +100,21 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Configuration block for open table formats. See `open_table_format_input` below.
+     * 
+     */
+    @Import(name="openTableFormatInput")
+    private @Nullable Output<CatalogTableOpenTableFormatInputArgs> openTableFormatInput;
+
+    /**
+     * @return Configuration block for open table formats. See `open_table_format_input` below.
+     * 
+     */
+    public Optional<Output<CatalogTableOpenTableFormatInputArgs>> openTableFormatInput() {
+        return Optional.ofNullable(this.openTableFormatInput);
     }
 
     /**
@@ -255,6 +275,7 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
         this.databaseName = $.databaseName;
         this.description = $.description;
         this.name = $.name;
+        this.openTableFormatInput = $.openTableFormatInput;
         this.owner = $.owner;
         this.parameters = $.parameters;
         this.partitionIndices = $.partitionIndices;
@@ -330,6 +351,8 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
          * 
+         * The follow arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -340,6 +363,8 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+         * 
+         * The follow arguments are optional:
          * 
          * @return builder
          * 
@@ -388,6 +413,27 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param openTableFormatInput Configuration block for open table formats. See `open_table_format_input` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder openTableFormatInput(@Nullable Output<CatalogTableOpenTableFormatInputArgs> openTableFormatInput) {
+            $.openTableFormatInput = openTableFormatInput;
+            return this;
+        }
+
+        /**
+         * @param openTableFormatInput Configuration block for open table formats. See `open_table_format_input` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder openTableFormatInput(CatalogTableOpenTableFormatInputArgs openTableFormatInput) {
+            return openTableFormatInput(Output.of(openTableFormatInput));
         }
 
         /**

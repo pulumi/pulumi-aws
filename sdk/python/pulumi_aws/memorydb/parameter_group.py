@@ -25,6 +25,8 @@ class ParameterGroupArgs:
         """
         The set of arguments for constructing a ParameterGroup resource.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -48,6 +50,8 @@ class ParameterGroupArgs:
     def family(self) -> pulumi.Input[str]:
         """
         The engine version that the parameter group can be used with.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 
@@ -132,6 +136,8 @@ class _ParameterGroupState:
         :param pulumi.Input[str] arn: The ARN of the parameter group.
         :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
@@ -184,6 +190,8 @@ class _ParameterGroupState:
     def family(self) -> Optional[pulumi.Input[str]]:
         """
         The engine version that the parameter group can be used with.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 
@@ -285,7 +293,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a parameter group. For example
+        Using `pulumi import`, import a parameter group using the `name`. For example:
 
         ```sh
          $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
@@ -295,6 +303,8 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
@@ -327,7 +337,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a parameter group. For example
+        Using `pulumi import`, import a parameter group using the `name`. For example:
 
         ```sh
          $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
@@ -401,6 +411,8 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the parameter group.
         :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
@@ -442,6 +454,8 @@ class ParameterGroup(pulumi.CustomResource):
     def family(self) -> pulumi.Output[str]:
         """
         The engine version that the parameter group can be used with.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 

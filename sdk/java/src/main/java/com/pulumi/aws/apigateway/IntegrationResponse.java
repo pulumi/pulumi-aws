@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_api_gateway_integration_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+ * Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
@@ -214,12 +214,16 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
     /**
      * HTTP status code.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output<String> statusCode;
 
     /**
      * @return HTTP status code.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> statusCode() {

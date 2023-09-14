@@ -20,6 +20,8 @@ class AnalyzerArgs:
         """
         The set of arguments for constructing a Analyzer resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
@@ -34,6 +36,8 @@ class AnalyzerArgs:
     def analyzer_name(self) -> pulumi.Input[str]:
         """
         Name of the Analyzer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "analyzer_name")
 
@@ -77,6 +81,8 @@ class _AnalyzerState:
         """
         Input properties used for looking up and filtering Analyzer resources.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] arn: ARN of the Analyzer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -98,6 +104,8 @@ class _AnalyzerState:
     def analyzer_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the Analyzer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "analyzer_name")
 
@@ -190,7 +198,7 @@ class Analyzer(pulumi.CustomResource):
 
         ## Import
 
-        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+        Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
 
         ```sh
          $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
@@ -199,6 +207,8 @@ class Analyzer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
@@ -235,7 +245,7 @@ class Analyzer(pulumi.CustomResource):
 
         ## Import
 
-        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+        Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
 
         ```sh
          $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
@@ -298,6 +308,8 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] arn: ARN of the Analyzer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -319,6 +331,8 @@ class Analyzer(pulumi.CustomResource):
     def analyzer_name(self) -> pulumi.Output[str]:
         """
         Name of the Analyzer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "analyzer_name")
 

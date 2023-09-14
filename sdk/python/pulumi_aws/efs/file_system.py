@@ -182,6 +182,7 @@ class _FileSystemState:
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  number_of_mount_targets: Optional[pulumi.Input[int]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
@@ -203,6 +204,7 @@ class _FileSystemState:
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[str] name: The value of the file system's `Name` tag.
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
@@ -228,6 +230,8 @@ class _FileSystemState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if lifecycle_policies is not None:
             pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if number_of_mount_targets is not None:
             pulumi.set(__self__, "number_of_mount_targets", number_of_mount_targets)
         if owner_id is not None:
@@ -343,6 +347,18 @@ class _FileSystemState:
     @lifecycle_policies.setter
     def lifecycle_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]):
         pulumi.set(self, "lifecycle_policies", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the file system's `Name` tag.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="numberOfMountTargets")
@@ -483,7 +499,7 @@ class FileSystem(pulumi.CustomResource):
 
         ## Import
 
-        The EFS file systems can be imported using the `id`, e.g.,
+        Using `pulumi import`, import the EFS file systems using the `id`. For example:
 
         ```sh
          $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -537,7 +553,7 @@ class FileSystem(pulumi.CustomResource):
 
         ## Import
 
-        The EFS file systems can be imported using the `id`, e.g.,
+        Using `pulumi import`, import the EFS file systems using the `id`. For example:
 
         ```sh
          $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -588,6 +604,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_id"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["name"] = None
             __props__.__dict__["number_of_mount_targets"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["size_in_bytes"] = None
@@ -610,6 +627,7 @@ class FileSystem(pulumi.CustomResource):
             encrypted: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
             number_of_mount_targets: Optional[pulumi.Input[int]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             performance_mode: Optional[pulumi.Input[str]] = None,
@@ -636,6 +654,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[str] name: The value of the file system's `Name` tag.
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
@@ -657,6 +676,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["encrypted"] = encrypted
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["lifecycle_policies"] = lifecycle_policies
+        __props__.__dict__["name"] = name
         __props__.__dict__["number_of_mount_targets"] = number_of_mount_targets
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["performance_mode"] = performance_mode
@@ -733,6 +753,14 @@ class FileSystem(pulumi.CustomResource):
         A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         """
         return pulumi.get(self, "lifecycle_policies")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The value of the file system's `Name` tag.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="numberOfMountTargets")

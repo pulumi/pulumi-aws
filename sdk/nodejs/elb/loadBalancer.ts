@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ELBs can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import ELBs using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
@@ -192,11 +192,14 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly sourceSecurityGroupId!: pulumi.Output<string>;
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Exactly one of `availabilityZones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -361,11 +364,14 @@ export interface LoadBalancerState {
      */
     sourceSecurityGroupId?: pulumi.Input<string>;
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Exactly one of `availabilityZones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -447,11 +453,14 @@ export interface LoadBalancerArgs {
      */
     sourceSecurityGroup?: pulumi.Input<string>;
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Exactly one of `availabilityZones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

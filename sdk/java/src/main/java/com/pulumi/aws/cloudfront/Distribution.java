@@ -36,8 +36,9 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
  * 
  * ## Example Usage
+ * ### S3 Origin
  * 
- * The following example below creates a CloudFront distribution with an S3 origin.
+ * The example below creates a CloudFront distribution with an S3 origin.
  * ```java
  * package generated_program;
  * 
@@ -194,8 +195,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With Failover Routing
  * 
- * The example below creates a CloudFront distribution with an origin group for failover routing:
+ * The example below creates a CloudFront distribution with an origin group for failover routing.
  * ```java
  * package generated_program;
  * 
@@ -263,9 +265,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With Managed Caching Policy
  * 
- * CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
- * 
+ * The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
  * ```java
  * package generated_program;
  * 
@@ -313,7 +315,6 @@ import javax.annotation.Nullable;
  *                     &#34;GET&#34;,
  *                     &#34;HEAD&#34;,
  *                     &#34;OPTIONS&#34;)
- *                 .pathPattern(&#34;/content/*&#34;)
  *                 .targetOriginId(s3OriginId)
  *                 .build())
  *             .restrictions(DistributionRestrictionsArgs.builder()
@@ -337,7 +338,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront Distributions can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
@@ -401,6 +402,20 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
+    }
+    /**
+     * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+     * 
+     */
+    @Export(name="continuousDeploymentPolicyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> continuousDeploymentPolicyId;
+
+    /**
+     * @return Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+     * 
+     */
+    public Output<Optional<String>> continuousDeploymentPolicyId() {
+        return Codegen.optional(this.continuousDeploymentPolicyId);
     }
     /**
      * One or more custom error response elements (multiples allowed).
@@ -653,6 +668,20 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> retainOnDelete() {
         return Codegen.optional(this.retainOnDelete);
+    }
+    /**
+     * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+     * 
+     */
+    @Export(name="staging", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> staging;
+
+    /**
+     * @return A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> staging() {
+        return Codegen.optional(this.staging);
     }
     /**
      * Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.

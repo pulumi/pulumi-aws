@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Access Point.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,9 +56,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,7 +94,13 @@ import (
 //
 // ## Import
 //
-// For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
+// Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
+//
+// Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+//
+// __Using `pulumi import` to import.__ For example:
+//
+// Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 //
 // ```sh
 //
@@ -100,7 +108,7 @@ import (
 //
 // ```
 //
-//	For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
+//	Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
 //
 // ```sh
 //
@@ -128,6 +136,8 @@ type AccessPoint struct {
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
 	NetworkOrigin pulumi.StringOutput `pulumi:"networkOrigin"`
@@ -149,6 +159,7 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws:s3/accessPoint:AccessPoint", name, args, &resource, opts...)
 	if err != nil {
@@ -189,6 +200,8 @@ type accessPointState struct {
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
 	NetworkOrigin *string `pulumi:"networkOrigin"`
@@ -219,6 +232,8 @@ type AccessPointState struct {
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolPtrInput
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
 	NetworkOrigin pulumi.StringPtrInput
@@ -242,6 +257,8 @@ type accessPointArgs struct {
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
 	Policy *string `pulumi:"policy"`
@@ -260,6 +277,8 @@ type AccessPointArgs struct {
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
 	Policy pulumi.StringPtrInput
@@ -292,6 +311,12 @@ func (i *AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) Access
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointOutput)
 }
 
+func (i *AccessPoint) ToOutput(ctx context.Context) pulumix.Output[*AccessPoint] {
+	return pulumix.Output[*AccessPoint]{
+		OutputState: i.ToAccessPointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessPointArrayInput is an input type that accepts AccessPointArray and AccessPointArrayOutput values.
 // You can construct a concrete instance of `AccessPointArrayInput` via:
 //
@@ -315,6 +340,12 @@ func (i AccessPointArray) ToAccessPointArrayOutput() AccessPointArrayOutput {
 
 func (i AccessPointArray) ToAccessPointArrayOutputWithContext(ctx context.Context) AccessPointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointArrayOutput)
+}
+
+func (i AccessPointArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPoint] {
+	return pulumix.Output[[]*AccessPoint]{
+		OutputState: i.ToAccessPointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccessPointMapInput is an input type that accepts AccessPointMap and AccessPointMapOutput values.
@@ -342,6 +373,12 @@ func (i AccessPointMap) ToAccessPointMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointMapOutput)
 }
 
+func (i AccessPointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPoint] {
+	return pulumix.Output[map[string]*AccessPoint]{
+		OutputState: i.ToAccessPointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointOutput struct{ *pulumi.OutputState }
 
 func (AccessPointOutput) ElementType() reflect.Type {
@@ -354,6 +391,12 @@ func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {
 
 func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
 	return o
+}
+
+func (o AccessPointOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPoint] {
+	return pulumix.Output[*AccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
@@ -398,6 +441,8 @@ func (o AccessPointOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
 }
 
 // Name you want to assign to this access point.
+//
+// The following arguments are optional:
 func (o AccessPointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -438,6 +483,12 @@ func (o AccessPointArrayOutput) ToAccessPointArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o AccessPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPoint] {
+	return pulumix.Output[[]*AccessPoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccessPointArrayOutput) Index(i pulumi.IntInput) AccessPointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessPoint {
 		return vs[0].([]*AccessPoint)[vs[1].(int)]
@@ -456,6 +507,12 @@ func (o AccessPointMapOutput) ToAccessPointMapOutput() AccessPointMapOutput {
 
 func (o AccessPointMapOutput) ToAccessPointMapOutputWithContext(ctx context.Context) AccessPointMapOutput {
 	return o
+}
+
+func (o AccessPointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPoint] {
+	return pulumix.Output[map[string]*AccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointMapOutput) MapIndex(k pulumi.StringInput) AccessPointOutput {

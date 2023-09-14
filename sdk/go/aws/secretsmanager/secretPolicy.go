@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Secrets Manager secret policy.
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +75,7 @@ import (
 //
 // ## Import
 //
-// `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -88,6 +90,8 @@ type SecretPolicy struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
 
@@ -104,6 +108,7 @@ func NewSecretPolicy(ctx *pulumi.Context,
 	if args.SecretArn == nil {
 		return nil, errors.New("invalid value for required argument 'SecretArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecretPolicy
 	err := ctx.RegisterResource("aws:secretsmanager/secretPolicy:SecretPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -131,6 +136,8 @@ type secretPolicyState struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy *string `pulumi:"policy"`
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -140,6 +147,8 @@ type SecretPolicyState struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringPtrInput
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn pulumi.StringPtrInput
 }
 
@@ -153,6 +162,8 @@ type secretPolicyArgs struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy string `pulumi:"policy"`
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -163,6 +174,8 @@ type SecretPolicyArgs struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringInput
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn pulumi.StringInput
 }
 
@@ -187,6 +200,12 @@ func (i *SecretPolicy) ToSecretPolicyOutput() SecretPolicyOutput {
 
 func (i *SecretPolicy) ToSecretPolicyOutputWithContext(ctx context.Context) SecretPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPolicyOutput)
+}
+
+func (i *SecretPolicy) ToOutput(ctx context.Context) pulumix.Output[*SecretPolicy] {
+	return pulumix.Output[*SecretPolicy]{
+		OutputState: i.ToSecretPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecretPolicyArrayInput is an input type that accepts SecretPolicyArray and SecretPolicyArrayOutput values.
@@ -214,6 +233,12 @@ func (i SecretPolicyArray) ToSecretPolicyArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPolicyArrayOutput)
 }
 
+func (i SecretPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecretPolicy] {
+	return pulumix.Output[[]*SecretPolicy]{
+		OutputState: i.ToSecretPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecretPolicyMapInput is an input type that accepts SecretPolicyMap and SecretPolicyMapOutput values.
 // You can construct a concrete instance of `SecretPolicyMapInput` via:
 //
@@ -239,6 +264,12 @@ func (i SecretPolicyMap) ToSecretPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPolicyMapOutput)
 }
 
+func (i SecretPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretPolicy] {
+	return pulumix.Output[map[string]*SecretPolicy]{
+		OutputState: i.ToSecretPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecretPolicyOutput struct{ *pulumi.OutputState }
 
 func (SecretPolicyOutput) ElementType() reflect.Type {
@@ -253,6 +284,12 @@ func (o SecretPolicyOutput) ToSecretPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SecretPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SecretPolicy] {
+	return pulumix.Output[*SecretPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 func (o SecretPolicyOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.BoolPtrOutput { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
@@ -264,6 +301,8 @@ func (o SecretPolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // Secret ARN.
+//
+// The following arguments are optional:
 func (o SecretPolicyOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -280,6 +319,12 @@ func (o SecretPolicyArrayOutput) ToSecretPolicyArrayOutput() SecretPolicyArrayOu
 
 func (o SecretPolicyArrayOutput) ToSecretPolicyArrayOutputWithContext(ctx context.Context) SecretPolicyArrayOutput {
 	return o
+}
+
+func (o SecretPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecretPolicy] {
+	return pulumix.Output[[]*SecretPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecretPolicyArrayOutput) Index(i pulumi.IntInput) SecretPolicyOutput {
@@ -300,6 +345,12 @@ func (o SecretPolicyMapOutput) ToSecretPolicyMapOutput() SecretPolicyMapOutput {
 
 func (o SecretPolicyMapOutput) ToSecretPolicyMapOutputWithContext(ctx context.Context) SecretPolicyMapOutput {
 	return o
+}
+
+func (o SecretPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretPolicy] {
+	return pulumix.Output[map[string]*SecretPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecretPolicyMapOutput) MapIndex(k pulumi.StringInput) SecretPolicyOutput {

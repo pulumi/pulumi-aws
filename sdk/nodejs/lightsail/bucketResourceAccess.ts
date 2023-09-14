@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_lightsail_bucket_resource_access` can be imported by using the `id` attribute, e.g.,
+ * Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
  *
  * ```sh
  *  $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance

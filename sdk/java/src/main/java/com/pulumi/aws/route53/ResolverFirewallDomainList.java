@@ -48,11 +48,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- *  Route 53 Resolver DNS Firewall domain lists can be imported using the Route 53 Resolver DNS Firewall domain list ID, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import
  * 
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
- * ```
+ * Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleterraform import {
+ * 
+ *  to = aws_route53_resolver_firewall_domain_list.example
+ * 
+ *  id = &#34;rslvr-fdl-0123456789abcdef&#34; } Using `TODO import`, import
+ * 
+ * Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
  * 
  */
 @ResourceType(type="aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList")
@@ -100,14 +104,14 @@ public class ResolverFirewallDomainList extends com.pulumi.resources.CustomResou
         return this.name;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

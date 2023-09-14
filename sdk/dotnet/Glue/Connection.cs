@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Connections can be imported using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`, e.g.,
+    /// Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection

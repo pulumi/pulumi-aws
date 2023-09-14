@@ -33,10 +33,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Elastic Beanstalk Applications can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticbeanstalk/application:Application my_test tf-test-name
+ *  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
  * ```
  */
 export class Application extends pulumi.CustomResource {

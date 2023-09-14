@@ -38,7 +38,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Use the `name` to import an ACL. For example
+    /// Using `pulumi import`, import an ACL using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:memorydb/acl:Acl example my-acl

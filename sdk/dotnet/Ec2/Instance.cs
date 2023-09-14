@@ -63,6 +63,63 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// ### Spot instance example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var thisAmi = Aws.Ec2.GetAmi.Invoke(new()
+    ///     {
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+    ///             {
+    ///                 Name = "architecture",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "arm64",
+    ///                 },
+    ///             },
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+    ///             {
+    ///                 Name = "name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "al2023-ami-2023*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var thisInstance = new Aws.Ec2.Instance("thisInstance", new()
+    ///     {
+    ///         Ami = thisAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
+    ///         {
+    ///             SpotOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs
+    ///             {
+    ///                 MaxPrice = "0.0031",
+    ///             },
+    ///         },
+    ///         InstanceType = "t4g.nano",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test-spot" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Network and credit specification example
     /// 
     /// ```csharp
@@ -221,7 +278,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Instances can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import instances using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/instance:Instance web i-12345678
@@ -256,6 +313,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.InstanceCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
@@ -355,6 +414,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("instanceInitiatedShutdownBehavior")]
         public Output<string> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this is a Spot Instance or a Scheduled Instance.
+        /// </summary>
+        [Output("instanceLifecycle")]
+        public Output<string> InstanceLifecycle { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        /// </summary>
+        [Output("instanceMarketOptions")]
+        public Output<Outputs.InstanceInstanceMarketOptions> InstanceMarketOptions { get; private set; } = null!;
 
         /// <summary>
         /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
@@ -490,6 +561,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -499,6 +572,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("sourceDestCheck")]
         public Output<bool?> SourceDestCheck { get; private set; } = null!;
+
+        /// <summary>
+        /// If the request is a Spot Instance request, the ID of the request.
+        /// </summary>
+        [Output("spotInstanceRequestId")]
+        public Output<string> SpotInstanceRequestId { get; private set; } = null!;
 
         /// <summary>
         /// VPC Subnet ID to launch in.
@@ -544,6 +623,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         [Output("volumeTags")]
         public Output<ImmutableDictionary<string, string>?> VolumeTags { get; private set; } = null!;
@@ -620,6 +701,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.InstanceCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
@@ -731,6 +814,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
+
+        /// <summary>
+        /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        /// </summary>
+        [Input("instanceMarketOptions")]
+        public Input<Inputs.InstanceInstanceMarketOptionsArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
         /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -845,6 +934,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Obsolete(@"Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.")]
         public InputList<string> SecurityGroups
@@ -906,6 +997,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {
@@ -959,6 +1052,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.InstanceCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
@@ -1070,6 +1165,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
+
+        /// <summary>
+        /// Indicates whether this is a Spot Instance or a Scheduled Instance.
+        /// </summary>
+        [Input("instanceLifecycle")]
+        public Input<string>? InstanceLifecycle { get; set; }
+
+        /// <summary>
+        /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        /// </summary>
+        [Input("instanceMarketOptions")]
+        public Input<Inputs.InstanceInstanceMarketOptionsGetArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
         /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
@@ -1226,6 +1333,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Obsolete(@"Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.")]
         public InputList<string> SecurityGroups
@@ -1239,6 +1348,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("sourceDestCheck")]
         public Input<bool>? SourceDestCheck { get; set; }
+
+        /// <summary>
+        /// If the request is a Spot Instance request, the ID of the request.
+        /// </summary>
+        [Input("spotInstanceRequestId")]
+        public Input<string>? SpotInstanceRequestId { get; set; }
 
         /// <summary>
         /// VPC Subnet ID to launch in.
@@ -1299,6 +1414,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {

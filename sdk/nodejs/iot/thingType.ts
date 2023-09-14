@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IOT Thing Types can be imported using the name, e.g.,
+ * Using `pulumi import`, import IOT Thing Types using the name. For example:
  *
  * ```sh
  *  $ pulumi import aws:iot/thingType:ThingType example example

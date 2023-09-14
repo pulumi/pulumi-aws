@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Serial console access state can be imported, e.g.,
+ * Using `pulumi import`, import serial console access state. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default

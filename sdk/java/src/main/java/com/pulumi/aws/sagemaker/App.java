@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Apps can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import SageMaker Apps using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name

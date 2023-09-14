@@ -100,16 +100,21 @@ import {Bucket} from "./index";
  *
  * ## Import
  *
- * Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+ * Import using the `id`, which is the bucket name and the key together:
+ *
+ * Import using S3 URL syntax:
+ *
+ * __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
+ *
+ * Import using the `id`, which is the bucket name and the key together:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
+ *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
  * ```
- *
- *  Additionally, s3 url syntax can be used, e.g.,
+ *  Import using S3 URL syntax:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
+ *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
  * ```
  */
 export class BucketObjectv2 extends pulumi.CustomResource {
@@ -141,9 +146,9 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     }
 
     /**
-     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      */
-    public readonly acl!: pulumi.Output<string | undefined>;
+    public readonly acl!: pulumi.Output<string>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
@@ -190,6 +195,8 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -242,6 +249,10 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      */
     public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
@@ -328,7 +339,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
  */
 export interface BucketObjectv2State {
     /**
-     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      */
     acl?: pulumi.Input<string>;
     /**
@@ -377,6 +388,8 @@ export interface BucketObjectv2State {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     key?: pulumi.Input<string>;
     /**
@@ -429,6 +442,10 @@ export interface BucketObjectv2State {
     versionId?: pulumi.Input<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      */
     websiteRedirect?: pulumi.Input<string>;
 }
@@ -438,7 +455,7 @@ export interface BucketObjectv2State {
  */
 export interface BucketObjectv2Args {
     /**
-     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      */
     acl?: pulumi.Input<string>;
     /**
@@ -487,6 +504,8 @@ export interface BucketObjectv2Args {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     key?: pulumi.Input<string>;
     /**
@@ -531,6 +550,10 @@ export interface BucketObjectv2Args {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      */
     websiteRedirect?: pulumi.Input<string>;
 }

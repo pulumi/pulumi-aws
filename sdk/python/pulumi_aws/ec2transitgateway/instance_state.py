@@ -21,6 +21,8 @@ class InstanceStateArgs:
         The set of arguments for constructing a InstanceState resource.
         :param pulumi.Input[str] instance_id: ID of the instance.
         :param pulumi.Input[str] state: State of the instance. Valid values are `stopped`, `running`.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         """
         pulumi.set(__self__, "instance_id", instance_id)
@@ -45,6 +47,8 @@ class InstanceStateArgs:
     def state(self) -> pulumi.Input[str]:
         """
         State of the instance. Valid values are `stopped`, `running`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "state")
 
@@ -76,6 +80,8 @@ class _InstanceStateState:
         :param pulumi.Input[bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         :param pulumi.Input[str] instance_id: ID of the instance.
         :param pulumi.Input[str] state: State of the instance. Valid values are `stopped`, `running`.
+               
+               The following arguments are optional:
         """
         if force is not None:
             pulumi.set(__self__, "force", force)
@@ -113,6 +119,8 @@ class _InstanceStateState:
     def state(self) -> Optional[pulumi.Input[str]]:
         """
         State of the instance. Valid values are `stopped`, `running`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "state")
 
@@ -166,7 +174,7 @@ class InstanceState(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+        Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
@@ -177,6 +185,8 @@ class InstanceState(pulumi.CustomResource):
         :param pulumi.Input[bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         :param pulumi.Input[str] instance_id: ID of the instance.
         :param pulumi.Input[str] state: State of the instance. Valid values are `stopped`, `running`.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -220,7 +230,7 @@ class InstanceState(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+        Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
@@ -283,6 +293,8 @@ class InstanceState(pulumi.CustomResource):
         :param pulumi.Input[bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         :param pulumi.Input[str] instance_id: ID of the instance.
         :param pulumi.Input[str] state: State of the instance. Valid values are `stopped`, `running`.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -314,6 +326,8 @@ class InstanceState(pulumi.CustomResource):
     def state(self) -> pulumi.Output[str]:
         """
         State of the instance. Valid values are `stopped`, `running`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "state")
 

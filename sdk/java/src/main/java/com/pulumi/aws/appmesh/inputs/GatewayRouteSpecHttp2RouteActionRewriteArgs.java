@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs;
+import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteActionRewritePathArgs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteActionRewritePrefixArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class GatewayRouteSpecHttp2RouteActionRewriteArgs extends com.pulum
     }
 
     /**
+     * Exact path to rewrite.
+     * 
+     */
+    @Import(name="path")
+    private @Nullable Output<GatewayRouteSpecHttp2RouteActionRewritePathArgs> path;
+
+    /**
+     * @return Exact path to rewrite.
+     * 
+     */
+    public Optional<Output<GatewayRouteSpecHttp2RouteActionRewritePathArgs>> path() {
+        return Optional.ofNullable(this.path);
+    }
+
+    /**
      * Specified beginning characters to rewrite.
      * 
      */
@@ -50,6 +66,7 @@ public final class GatewayRouteSpecHttp2RouteActionRewriteArgs extends com.pulum
 
     private GatewayRouteSpecHttp2RouteActionRewriteArgs(GatewayRouteSpecHttp2RouteActionRewriteArgs $) {
         this.hostname = $.hostname;
+        this.path = $.path;
         this.prefix = $.prefix;
     }
 
@@ -90,6 +107,27 @@ public final class GatewayRouteSpecHttp2RouteActionRewriteArgs extends com.pulum
          */
         public Builder hostname(GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs hostname) {
             return hostname(Output.of(hostname));
+        }
+
+        /**
+         * @param path Exact path to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(@Nullable Output<GatewayRouteSpecHttp2RouteActionRewritePathArgs> path) {
+            $.path = path;
+            return this;
+        }
+
+        /**
+         * @param path Exact path to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(GatewayRouteSpecHttp2RouteActionRewritePathArgs path) {
+            return path(Output.of(path));
         }
 
         /**

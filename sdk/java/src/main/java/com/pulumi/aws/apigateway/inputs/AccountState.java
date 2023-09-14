@@ -18,6 +18,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     public static final AccountState Empty = new AccountState();
 
     /**
+     * The version of the API keys used for the account.
+     * 
+     */
+    @Import(name="apiKeyVersion")
+    private @Nullable Output<String> apiKeyVersion;
+
+    /**
+     * @return The version of the API keys used for the account.
+     * 
+     */
+    public Optional<Output<String>> apiKeyVersion() {
+        return Optional.ofNullable(this.apiKeyVersion);
+    }
+
+    /**
      * ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      * 
      */
@@ -30,6 +45,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> cloudwatchRoleArn() {
         return Optional.ofNullable(this.cloudwatchRoleArn);
+    }
+
+    /**
+     * A list of features supported for the account.
+     * 
+     */
+    @Import(name="features")
+    private @Nullable Output<List<String>> features;
+
+    /**
+     * @return A list of features supported for the account.
+     * 
+     */
+    public Optional<Output<List<String>>> features() {
+        return Optional.ofNullable(this.features);
     }
 
     /**
@@ -50,7 +80,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private AccountState() {}
 
     private AccountState(AccountState $) {
+        this.apiKeyVersion = $.apiKeyVersion;
         this.cloudwatchRoleArn = $.cloudwatchRoleArn;
+        this.features = $.features;
         this.throttleSettings = $.throttleSettings;
     }
 
@@ -73,6 +105,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param apiKeyVersion The version of the API keys used for the account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyVersion(@Nullable Output<String> apiKeyVersion) {
+            $.apiKeyVersion = apiKeyVersion;
+            return this;
+        }
+
+        /**
+         * @param apiKeyVersion The version of the API keys used for the account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyVersion(String apiKeyVersion) {
+            return apiKeyVersion(Output.of(apiKeyVersion));
+        }
+
+        /**
          * @param cloudwatchRoleArn ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
          * 
          * @return builder
@@ -91,6 +144,37 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cloudwatchRoleArn(String cloudwatchRoleArn) {
             return cloudwatchRoleArn(Output.of(cloudwatchRoleArn));
+        }
+
+        /**
+         * @param features A list of features supported for the account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(@Nullable Output<List<String>> features) {
+            $.features = features;
+            return this;
+        }
+
+        /**
+         * @param features A list of features supported for the account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(List<String> features) {
+            return features(Output.of(features));
+        }
+
+        /**
+         * @param features A list of features supported for the account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(String... features) {
+            return features(List.of(features));
         }
 
         /**

@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Endpoints can be imported using the `endpoint_id`, e.g.,
+ * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
@@ -303,6 +303,8 @@ export class S3Endpoint extends pulumi.CustomResource {
     public readonly serverSideEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
+     *
+     * The following arguments are optional:
      */
     public readonly serviceAccessRoleArn!: pulumi.Output<string>;
     /**
@@ -653,6 +655,8 @@ export interface S3EndpointState {
     serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
+     *
+     * The following arguments are optional:
      */
     serviceAccessRoleArn?: pulumi.Input<string>;
     /**
@@ -855,6 +859,8 @@ export interface S3EndpointArgs {
     serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
+     *
+     * The following arguments are optional:
      */
     serviceAccessRoleArn: pulumi.Input<string>;
     /**

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_vpc_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+// Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 //
 // ```sh
 //
@@ -68,9 +70,9 @@ type VpcAttachment struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTableAssociation"`
+	TransitGatewayDefaultRouteTableAssociation pulumi.BoolOutput `pulumi:"transitGatewayDefaultRouteTableAssociation"`
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTablePropagation"`
+	TransitGatewayDefaultRouteTablePropagation pulumi.BoolOutput `pulumi:"transitGatewayDefaultRouteTablePropagation"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 	// Identifier of EC2 VPC.
@@ -95,6 +97,7 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws:ec2transitgateway/vpcAttachment:VpcAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -236,6 +239,12 @@ func (i *VpcAttachment) ToVpcAttachmentOutputWithContext(ctx context.Context) Vp
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOutput)
 }
 
+func (i *VpcAttachment) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachment] {
+	return pulumix.Output[*VpcAttachment]{
+		OutputState: i.ToVpcAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcAttachmentArrayInput is an input type that accepts VpcAttachmentArray and VpcAttachmentArrayOutput values.
 // You can construct a concrete instance of `VpcAttachmentArrayInput` via:
 //
@@ -259,6 +268,12 @@ func (i VpcAttachmentArray) ToVpcAttachmentArrayOutput() VpcAttachmentArrayOutpu
 
 func (i VpcAttachmentArray) ToVpcAttachmentArrayOutputWithContext(ctx context.Context) VpcAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentArrayOutput)
+}
+
+func (i VpcAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAttachment] {
+	return pulumix.Output[[]*VpcAttachment]{
+		OutputState: i.ToVpcAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcAttachmentMapInput is an input type that accepts VpcAttachmentMap and VpcAttachmentMapOutput values.
@@ -286,6 +301,12 @@ func (i VpcAttachmentMap) ToVpcAttachmentMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentMapOutput)
 }
 
+func (i VpcAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAttachment] {
+	return pulumix.Output[map[string]*VpcAttachment]{
+		OutputState: i.ToVpcAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentOutput) ElementType() reflect.Type {
@@ -298,6 +319,12 @@ func (o VpcAttachmentOutput) ToVpcAttachmentOutput() VpcAttachmentOutput {
 
 func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput {
 	return o
+}
+
+func (o VpcAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachment] {
+	return pulumix.Output[*VpcAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -331,13 +358,13 @@ func (o VpcAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTableAssociation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolPtrOutput { return v.TransitGatewayDefaultRouteTableAssociation }).(pulumi.BoolPtrOutput)
+func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTableAssociation() pulumi.BoolOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolOutput { return v.TransitGatewayDefaultRouteTableAssociation }).(pulumi.BoolOutput)
 }
 
 // Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTablePropagation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolPtrOutput { return v.TransitGatewayDefaultRouteTablePropagation }).(pulumi.BoolPtrOutput)
+func (o VpcAttachmentOutput) TransitGatewayDefaultRouteTablePropagation() pulumi.BoolOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolOutput { return v.TransitGatewayDefaultRouteTablePropagation }).(pulumi.BoolOutput)
 }
 
 // Identifier of EC2 Transit Gateway.
@@ -369,6 +396,12 @@ func (o VpcAttachmentArrayOutput) ToVpcAttachmentArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o VpcAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAttachment] {
+	return pulumix.Output[[]*VpcAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcAttachmentArrayOutput) Index(i pulumi.IntInput) VpcAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcAttachment {
 		return vs[0].([]*VpcAttachment)[vs[1].(int)]
@@ -387,6 +420,12 @@ func (o VpcAttachmentMapOutput) ToVpcAttachmentMapOutput() VpcAttachmentMapOutpu
 
 func (o VpcAttachmentMapOutput) ToVpcAttachmentMapOutputWithContext(ctx context.Context) VpcAttachmentMapOutput {
 	return o
+}
+
+func (o VpcAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAttachment] {
+	return pulumix.Output[map[string]*VpcAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAttachmentMapOutput) MapIndex(k pulumi.StringInput) VpcAttachmentOutput {

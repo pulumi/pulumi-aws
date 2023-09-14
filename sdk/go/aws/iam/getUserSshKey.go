@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a SSH public key associated with the specified IAM user.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func GetUserSshKey(ctx *pulumi.Context, args *GetUserSshKeyArgs, opts ...pulumi.InvokeOption) (*GetUserSshKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserSshKeyResult
 	err := ctx.Invoke("aws:iam/getUserSshKey:getUserSshKey", args, &rv, opts...)
 	if err != nil {
@@ -113,6 +116,12 @@ func (o GetUserSshKeyResultOutput) ToGetUserSshKeyResultOutput() GetUserSshKeyRe
 
 func (o GetUserSshKeyResultOutput) ToGetUserSshKeyResultOutputWithContext(ctx context.Context) GetUserSshKeyResultOutput {
 	return o
+}
+
+func (o GetUserSshKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserSshKeyResult] {
+	return pulumix.Output[GetUserSshKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserSshKeyResultOutput) Encoding() pulumi.StringOutput {

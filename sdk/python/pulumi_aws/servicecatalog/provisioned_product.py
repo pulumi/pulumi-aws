@@ -35,6 +35,8 @@ class ProvisionedProductArgs:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
@@ -105,6 +107,8 @@ class ProvisionedProductArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         User-friendly name of the provisioned product.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -286,6 +290,8 @@ class _ProvisionedProductState:
         :param pulumi.Input[str] last_successful_provisioning_record_id: Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         :param pulumi.Input[str] launch_role_arn: ARN of the launch role associated with the provisioned product.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]] outputs: The set of outputs for the product created.
         :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
@@ -469,6 +475,8 @@ class _ProvisionedProductState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         User-friendly name of the provisioned product.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -721,7 +729,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_provisioned_product` can be imported using the provisioned product ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
@@ -732,6 +740,8 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
@@ -782,7 +792,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_provisioned_product` can be imported using the provisioned product ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
@@ -905,6 +915,8 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[str] last_successful_provisioning_record_id: Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         :param pulumi.Input[str] launch_role_arn: ARN of the launch role associated with the provisioned product.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductOutputArgs']]]] outputs: The set of outputs for the product created.
         :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
@@ -1031,6 +1043,8 @@ class ProvisionedProduct(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         User-friendly name of the provisioned product.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

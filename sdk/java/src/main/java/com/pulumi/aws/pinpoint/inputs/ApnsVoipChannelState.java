@@ -67,6 +67,10 @@ public final class ApnsVoipChannelState extends com.pulumi.resources.ResourceArg
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
      * 
+     * One of the following sets of credentials is also required.
+     * 
+     * If you choose to use __Certificate credentials__ you will have to provide:
+     * 
      */
     @Import(name="defaultAuthenticationMethod")
     private @Nullable Output<String> defaultAuthenticationMethod;
@@ -76,6 +80,10 @@ public final class ApnsVoipChannelState extends com.pulumi.resources.ResourceArg
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
+     * 
+     * One of the following sets of credentials is also required.
+     * 
+     * If you choose to use __Certificate credentials__ you will have to provide:
      * 
      */
     public Optional<Output<String>> defaultAuthenticationMethod() {
@@ -100,12 +108,16 @@ public final class ApnsVoipChannelState extends com.pulumi.resources.ResourceArg
     /**
      * The Certificate Private Key file (ie. `.key` file).
      * 
+     * If you choose to use __Key credentials__ you will have to provide:
+     * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
      * @return The Certificate Private Key file (ie. `.key` file).
+     * 
+     * If you choose to use __Key credentials__ you will have to provide:
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -258,6 +270,10 @@ public final class ApnsVoipChannelState extends com.pulumi.resources.ResourceArg
          * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
          * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
          * 
+         * One of the following sets of credentials is also required.
+         * 
+         * If you choose to use __Certificate credentials__ you will have to provide:
+         * 
          * @return builder
          * 
          */
@@ -271,6 +287,10 @@ public final class ApnsVoipChannelState extends com.pulumi.resources.ResourceArg
          * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
          * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
          * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
+         * 
+         * One of the following sets of credentials is also required.
+         * 
+         * If you choose to use __Certificate credentials__ you will have to provide:
          * 
          * @return builder
          * 
@@ -303,6 +323,8 @@ public final class ApnsVoipChannelState extends com.pulumi.resources.ResourceArg
         /**
          * @param privateKey The Certificate Private Key file (ie. `.key` file).
          * 
+         * If you choose to use __Key credentials__ you will have to provide:
+         * 
          * @return builder
          * 
          */
@@ -313,6 +335,8 @@ public final class ApnsVoipChannelState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param privateKey The Certificate Private Key file (ie. `.key` file).
+         * 
+         * If you choose to use __Key credentials__ you will have to provide:
          * 
          * @return builder
          * 

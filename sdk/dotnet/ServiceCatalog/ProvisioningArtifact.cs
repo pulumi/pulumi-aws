@@ -41,7 +41,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// `aws_servicecatalog_provisioning_artifact` can be imported using the provisioning artifact ID and product ID separated by a colon, e.g.,
+    /// Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
@@ -112,6 +112,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("templateUrl")]
         public Output<string?> TemplateUrl { get; private set; } = null!;
@@ -218,6 +220,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("templateUrl")]
         public Input<string>? TemplateUrl { get; set; }
@@ -298,6 +302,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("templateUrl")]
         public Input<string>? TemplateUrl { get; set; }

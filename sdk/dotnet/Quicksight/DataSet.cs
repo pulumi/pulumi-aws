@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+    /// Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
@@ -356,6 +356,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("physicalTableMaps")]
         public Output<ImmutableArray<Outputs.DataSetPhysicalTableMap>> PhysicalTableMaps { get; private set; } = null!;
@@ -526,11 +528,13 @@ namespace Pulumi.Aws.Quicksight
             set => _permissions = value;
         }
 
-        [Input("physicalTableMaps", required: true)]
+        [Input("physicalTableMaps")]
         private InputList<Inputs.DataSetPhysicalTableMapArgs>? _physicalTableMaps;
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapArgs> PhysicalTableMaps
         {
@@ -685,6 +689,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapGetArgs> PhysicalTableMaps
         {

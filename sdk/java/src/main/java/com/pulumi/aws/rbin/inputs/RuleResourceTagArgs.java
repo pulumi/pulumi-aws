@@ -18,12 +18,16 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The tag key.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="resourceTagKey", required=true)
     private Output<String> resourceTagKey;
 
     /**
      * @return The tag key.
+     * 
+     * The following argument is optional:
      * 
      */
     public Output<String> resourceTagKey() {
@@ -73,6 +77,8 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param resourceTagKey The tag key.
          * 
+         * The following argument is optional:
+         * 
          * @return builder
          * 
          */
@@ -83,6 +89,8 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param resourceTagKey The tag key.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

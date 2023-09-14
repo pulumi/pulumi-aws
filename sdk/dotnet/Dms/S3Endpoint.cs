@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Endpoints can be imported using the `endpoint_id`, e.g.,
+    /// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
@@ -394,6 +394,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("serviceAccessRoleArn")]
         public Output<string> ServiceAccessRoleArn { get; private set; } = null!;
@@ -734,6 +736,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceAccessRoleArn", required: true)]
         public Input<string> ServiceAccessRoleArn { get; set; } = null!;
@@ -1048,6 +1052,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }

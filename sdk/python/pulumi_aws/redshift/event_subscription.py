@@ -388,7 +388,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Event Subscriptions can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
 
         ```sh
          $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
@@ -443,7 +443,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Event Subscriptions can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
 
         ```sh
          $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub

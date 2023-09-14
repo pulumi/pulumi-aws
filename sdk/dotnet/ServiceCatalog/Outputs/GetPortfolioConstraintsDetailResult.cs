@@ -24,6 +24,8 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         public readonly string Owner;
         /// <summary>
         /// Portfolio identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string PortfolioId;
         /// <summary>

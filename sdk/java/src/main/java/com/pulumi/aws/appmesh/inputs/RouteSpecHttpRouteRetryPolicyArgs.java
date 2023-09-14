@@ -70,12 +70,16 @@ public final class RouteSpecHttpRouteRetryPolicyArgs extends com.pulumi.resource
     /**
      * List of TCP retry events. The only valid value is `connection-error`.
      * 
+     * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+     * 
      */
     @Import(name="tcpRetryEvents")
     private @Nullable Output<List<String>> tcpRetryEvents;
 
     /**
      * @return List of TCP retry events. The only valid value is `connection-error`.
+     * 
+     * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
      * 
      */
     public Optional<Output<List<String>>> tcpRetryEvents() {
@@ -191,6 +195,8 @@ public final class RouteSpecHttpRouteRetryPolicyArgs extends com.pulumi.resource
         /**
          * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`.
          * 
+         * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+         * 
          * @return builder
          * 
          */
@@ -202,6 +208,8 @@ public final class RouteSpecHttpRouteRetryPolicyArgs extends com.pulumi.resource
         /**
          * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`.
          * 
+         * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+         * 
          * @return builder
          * 
          */
@@ -211,6 +219,8 @@ public final class RouteSpecHttpRouteRetryPolicyArgs extends com.pulumi.resource
 
         /**
          * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`.
+         * 
+         * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
          * 
          * @return builder
          * 

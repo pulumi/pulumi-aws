@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway Connect Peer.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupConnectPeer(ctx *pulumi.Context, args *LookupConnectPeerArgs, opts ...pulumi.InvokeOption) (*LookupConnectPeerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectPeerResult
 	err := ctx.Invoke("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args, &rv, opts...)
 	if err != nil {
@@ -94,8 +97,12 @@ type LookupConnectPeerResult struct {
 	// EC2 Transit Gateway Connect Peer ARN
 	Arn string `pulumi:"arn"`
 	// BGP ASN number assigned customer device
-	BgpAsn  string                 `pulumi:"bgpAsn"`
-	Filters []GetConnectPeerFilter `pulumi:"filters"`
+	BgpAsn string `pulumi:"bgpAsn"`
+	// The IP address assigned to customer device, which is used as BGP IP address.
+	BgpPeerAddress string `pulumi:"bgpPeerAddress"`
+	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+	BgpTransitGatewayAddresses []string               `pulumi:"bgpTransitGatewayAddresses"`
+	Filters                    []GetConnectPeerFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// CIDR blocks that will be used for addressing within the tunnel.
@@ -153,6 +160,12 @@ func (o LookupConnectPeerResultOutput) ToLookupConnectPeerResultOutputWithContex
 	return o
 }
 
+func (o LookupConnectPeerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectPeerResult] {
+	return pulumix.Output[LookupConnectPeerResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // EC2 Transit Gateway Connect Peer ARN
 func (o LookupConnectPeerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Arn }).(pulumi.StringOutput)
@@ -161,6 +174,16 @@ func (o LookupConnectPeerResultOutput) Arn() pulumi.StringOutput {
 // BGP ASN number assigned customer device
 func (o LookupConnectPeerResultOutput) BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpAsn }).(pulumi.StringOutput)
+}
+
+// The IP address assigned to customer device, which is used as BGP IP address.
+func (o LookupConnectPeerResultOutput) BgpPeerAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpPeerAddress }).(pulumi.StringOutput)
+}
+
+// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+func (o LookupConnectPeerResultOutput) BgpTransitGatewayAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) []string { return v.BgpTransitGatewayAddresses }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupConnectPeerResultOutput) Filters() GetConnectPeerFilterArrayOutput {

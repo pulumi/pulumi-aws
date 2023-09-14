@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Hsm Client Certificates support import by `hsm_client_certificate_identifier`, e.g., console
+ * Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
  *
  * ```sh
  *  $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example

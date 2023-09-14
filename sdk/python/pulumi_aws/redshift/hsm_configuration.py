@@ -310,7 +310,7 @@ class HsmConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
+        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
 
         ```sh
          $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
@@ -352,7 +352,7 @@ class HsmConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
+        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
 
         ```sh
          $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example

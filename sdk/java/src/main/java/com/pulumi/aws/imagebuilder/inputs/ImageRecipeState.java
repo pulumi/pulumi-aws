@@ -218,12 +218,16 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
+     * The following attributes are optional:
+     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
      * @return The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     * 
+     * The following attributes are optional:
      * 
      */
     public Optional<Output<String>> version() {
@@ -579,6 +583,8 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param version The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
          * 
+         * The following attributes are optional:
+         * 
          * @return builder
          * 
          */
@@ -589,6 +595,8 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+         * 
+         * The following attributes are optional:
          * 
          * @return builder
          * 

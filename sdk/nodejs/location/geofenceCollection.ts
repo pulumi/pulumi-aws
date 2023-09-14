@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Location Geofence Collection can be imported using the `collection_name`, e.g.,
+ * Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
@@ -58,6 +58,8 @@ export class GeofenceCollection extends pulumi.CustomResource {
     public /*out*/ readonly collectionArn!: pulumi.Output<string>;
     /**
      * The name of the geofence collection.
+     *
+     * The following arguments are optional:
      */
     public readonly collectionName!: pulumi.Output<string>;
     /**
@@ -132,6 +134,8 @@ export interface GeofenceCollectionState {
     collectionArn?: pulumi.Input<string>;
     /**
      * The name of the geofence collection.
+     *
+     * The following arguments are optional:
      */
     collectionName?: pulumi.Input<string>;
     /**
@@ -163,6 +167,8 @@ export interface GeofenceCollectionState {
 export interface GeofenceCollectionArgs {
     /**
      * The name of the geofence collection.
+     *
+     * The following arguments are optional:
      */
     collectionName: pulumi.Input<string>;
     /**

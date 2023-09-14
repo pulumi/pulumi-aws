@@ -82,7 +82,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Import
     /// 
-    /// Opsworks Instances can be imported using the `instance id`, e.g.,
+    /// Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
@@ -327,6 +327,8 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
@@ -583,6 +585,8 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("stackId", required: true)]
         public Input<string> StackId { get; set; } = null!;
@@ -891,6 +895,8 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }

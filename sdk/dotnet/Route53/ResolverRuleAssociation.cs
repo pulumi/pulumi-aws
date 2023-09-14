@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route53 Resolver rule associations can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example

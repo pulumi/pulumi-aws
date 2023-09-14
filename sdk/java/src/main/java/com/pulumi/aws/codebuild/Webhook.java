@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeBuild Webhooks can be imported using the CodeBuild Project name, e.g.,
+ * Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName

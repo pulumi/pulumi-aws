@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SESv2 (Simple Email V2) Dedicated IP Pool can be imported using the `pool_name`, e.g.,
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
@@ -70,6 +70,8 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the dedicated IP pool.
+     *
+     * The following arguments are optional:
      */
     public readonly poolName!: pulumi.Output<string>;
     /**
@@ -126,6 +128,8 @@ export interface DedicatedIpPoolState {
     arn?: pulumi.Input<string>;
     /**
      * Name of the dedicated IP pool.
+     *
+     * The following arguments are optional:
      */
     poolName?: pulumi.Input<string>;
     /**
@@ -145,6 +149,8 @@ export interface DedicatedIpPoolState {
 export interface DedicatedIpPoolArgs {
     /**
      * Name of the dedicated IP pool.
+     *
+     * The following arguments are optional:
      */
     poolName: pulumi.Input<string>;
     /**

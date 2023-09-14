@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IVS (Interactive Video) Playback Key Pair can be imported using the ARN, e.g.,
+ * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
@@ -105,12 +105,16 @@ public class PlaybackKeyPair extends com.pulumi.resources.CustomResource {
     /**
      * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
      * @return Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> publicKey() {

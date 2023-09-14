@@ -84,12 +84,16 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether the scaling policy is enabled or disabled. Default: `true`.
      * 
+     * The following argument is only available to &#34;SimpleScaling&#34; and &#34;StepScaling&#34; type policies:
+     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
      * @return Whether the scaling policy is enabled or disabled. Default: `true`.
+     * 
+     * The following argument is only available to &#34;SimpleScaling&#34; and &#34;StepScaling&#34; type policies:
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -129,12 +133,16 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     /**
      * Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
      * 
+     * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
+     * 
      */
     @Import(name="minAdjustmentMagnitude")
     private @Nullable Output<Integer> minAdjustmentMagnitude;
 
     /**
      * @return Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+     * 
+     * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
      * 
      */
     public Optional<Output<Integer>> minAdjustmentMagnitude() {
@@ -209,6 +217,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
+     * The following fields are available in step adjustments:
+     * 
      */
     @Import(name="stepAdjustments")
     private @Nullable Output<List<PolicyStepAdjustmentArgs>> stepAdjustments;
@@ -217,6 +227,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * @return Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
+     * The following fields are available in step adjustments:
+     * 
      */
     public Optional<Output<List<PolicyStepAdjustmentArgs>>> stepAdjustments() {
         return Optional.ofNullable(this.stepAdjustments);
@@ -224,6 +236,43 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Target tracking policy. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
+     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
+     *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
+     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+     *                     .build())
+     *                 .targetValue(40)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following fields are available in target tracking configuration:
      * 
      */
     @Import(name="targetTrackingConfiguration")
@@ -231,6 +280,43 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Target tracking policy. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
+     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
+     *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
+     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+     *                     .build())
+     *                 .targetValue(40)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following fields are available in target tracking configuration:
      * 
      */
     public Optional<Output<PolicyTargetTrackingConfigurationArgs>> targetTrackingConfiguration() {
@@ -361,6 +447,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param enabled Whether the scaling policy is enabled or disabled. Default: `true`.
          * 
+         * The following argument is only available to &#34;SimpleScaling&#34; and &#34;StepScaling&#34; type policies:
+         * 
          * @return builder
          * 
          */
@@ -371,6 +459,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enabled Whether the scaling policy is enabled or disabled. Default: `true`.
+         * 
+         * The following argument is only available to &#34;SimpleScaling&#34; and &#34;StepScaling&#34; type policies:
          * 
          * @return builder
          * 
@@ -424,6 +514,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param minAdjustmentMagnitude Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
          * 
+         * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
+         * 
          * @return builder
          * 
          */
@@ -434,6 +526,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param minAdjustmentMagnitude Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+         * 
+         * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
          * 
          * @return builder
          * 
@@ -534,6 +628,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
+         * The following fields are available in step adjustments:
+         * 
          * @return builder
          * 
          */
@@ -546,6 +642,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
+         * The following fields are available in step adjustments:
+         * 
          * @return builder
          * 
          */
@@ -557,6 +655,8 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
+         * The following fields are available in step adjustments:
+         * 
          * @return builder
          * 
          */
@@ -566,6 +666,43 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
+         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+         *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
+         *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
+         *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+         *                     .build())
+         *                 .targetValue(40)
+         *                 .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
+         * 
+         * The following fields are available in target tracking configuration:
          * 
          * @return builder
          * 
@@ -577,6 +714,43 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
+         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+         *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
+         *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
+         *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
+         *                     .build())
+         *                 .targetValue(40)
+         *                 .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
+         * 
+         * The following fields are available in target tracking configuration:
          * 
          * @return builder
          * 

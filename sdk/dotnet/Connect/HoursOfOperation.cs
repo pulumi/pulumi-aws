@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+    /// Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
@@ -96,12 +96,6 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-        /// </summary>
-        [Output("hoursOfOperationArn")]
-        public Output<string> HoursOfOperationArn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the hours of operation.
@@ -264,12 +258,6 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-        /// </summary>
-        [Input("hoursOfOperationArn")]
-        public Input<string>? HoursOfOperationArn { get; set; }
 
         /// <summary>
         /// The identifier for the hours of operation.

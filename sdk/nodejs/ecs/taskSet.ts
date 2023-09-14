@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
+ * Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:
  *
  * ```sh
  *  $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
@@ -132,6 +132,8 @@ export class TaskSet extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     *
+     * The following arguments are optional:
      */
     public readonly taskDefinition!: pulumi.Output<string>;
     /**
@@ -287,6 +289,8 @@ export interface TaskSetState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     *
+     * The following arguments are optional:
      */
     taskDefinition?: pulumi.Input<string>;
     /**
@@ -357,6 +361,8 @@ export interface TaskSetArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     *
+     * The following arguments are optional:
      */
     taskDefinition: pulumi.Input<string>;
     /**

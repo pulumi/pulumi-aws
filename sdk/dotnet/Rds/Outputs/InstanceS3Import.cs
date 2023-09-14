@@ -31,6 +31,8 @@ namespace Pulumi.Aws.Rds.Outputs
         public readonly string SourceEngine;
         /// <summary>
         /// Version of the source engine used to make the backup
+        /// 
+        /// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
         /// </summary>
         public readonly string SourceEngineVersion;
 

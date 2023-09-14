@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
     /**
-     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
      * 
      */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition;
@@ -31,7 +31,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
 
     private DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration() {}
     /**
-     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
      * 
      */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition> condition() {

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.apigatewayv2.VpcLink("example", {
  *     securityGroupIds: [data.aws_security_group.example.id],
- *     subnetIds: data.aws_subnet_ids.example.ids,
+ *     subnetIds: data.aws_subnets.example.ids,
  *     tags: {
  *         Usage: "example",
  *     },
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,
+ * Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
  *
  * ```sh
  *  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee

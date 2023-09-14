@@ -26,6 +26,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getDomain:getDomain", {
         "domainName": args.domainName,
+        "offPeakWindowOptions": args.offPeakWindowOptions,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,10 @@ export interface GetDomainArgs {
      * Name of the domain.
      */
     domainName: string;
+    /**
+     * Off Peak update options
+     */
+    offPeakWindowOptions?: inputs.opensearch.GetDomainOffPeakWindowOptions;
     /**
      * Tags assigned to the domain.
      */
@@ -114,7 +119,9 @@ export interface GetDomainResult {
      */
     readonly id: string;
     /**
-     * Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+     *
+     * @deprecated use 'dashboard_endpoint' attribute instead
      */
     readonly kibanaEndpoint: string;
     /**
@@ -126,6 +133,10 @@ export interface GetDomainResult {
      */
     readonly nodeToNodeEncryptions: outputs.opensearch.GetDomainNodeToNodeEncryption[];
     /**
+     * Off Peak update options
+     */
+    readonly offPeakWindowOptions?: outputs.opensearch.GetDomainOffPeakWindowOptions;
+    /**
      * Status of a configuration change in the domain.
      */
     readonly processing: boolean;
@@ -133,6 +144,10 @@ export interface GetDomainResult {
      * Domain snapshot related options.
      */
     readonly snapshotOptions: outputs.opensearch.GetDomainSnapshotOption[];
+    /**
+     * Software update options for the domain
+     */
+    readonly softwareUpdateOptions: outputs.opensearch.GetDomainSoftwareUpdateOption[];
     /**
      * Tags assigned to the domain.
      */
@@ -168,6 +183,10 @@ export interface GetDomainOutputArgs {
      * Name of the domain.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Off Peak update options
+     */
+    offPeakWindowOptions?: pulumi.Input<inputs.opensearch.GetDomainOffPeakWindowOptionsArgs>;
     /**
      * Tags assigned to the domain.
      */

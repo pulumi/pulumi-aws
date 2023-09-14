@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.,
+ * Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
  *
  * ```sh
  *  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'

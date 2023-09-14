@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Step Function State Machine resource
@@ -23,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +66,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +75,49 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
 //				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//				Type:    pulumi.String("EXPRESS"),
+//				Definition: pulumi.String(fmt.Sprintf(`{
+//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//	  "StartAt": "HelloWorld",
+//	  "States": {
+//	    "HelloWorld": {
+//	      "Type": "Task",
+//	      "Resource": "%v",
+//	      "End": true
+//	    }
+//	  }
+//	}
+//
+// `, aws_lambda_function.Lambda.Arn)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Publish (Publish SFN version)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//				Publish: pulumi.Bool(true),
 //				Type:    pulumi.String("EXPRESS"),
 //				Definition: pulumi.String(fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -108,7 +153,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -148,7 +193,7 @@ import (
 //
 // ## Import
 //
-// State Machines can be imported using the `arn`, e.g.,
+// Using `pulumi import`, import State Machines using the `arn`. For example:
 //
 // ```sh
 //
@@ -163,15 +208,20 @@ type StateMachine struct {
 	// The date the state machine was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-	Definition pulumi.StringOutput `pulumi:"definition"`
+	Definition  pulumi.StringOutput `pulumi:"definition"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// Set to true to publish a version of the state machine during creation. Default: false.
+	Publish    pulumi.BoolPtrOutput `pulumi:"publish"`
+	RevisionId pulumi.StringOutput  `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn                pulumi.StringOutput `pulumi:"roleArn"`
+	StateMachineVersionArn pulumi.StringOutput `pulumi:"stateMachineVersionArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,7 +231,8 @@ type StateMachine struct {
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationOutput `pulumi:"tracingConfiguration"`
 	// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type               pulumi.StringPtrOutput `pulumi:"type"`
+	VersionDescription pulumi.StringOutput    `pulumi:"versionDescription"`
 }
 
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
@@ -197,6 +248,7 @@ func NewStateMachine(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StateMachine
 	err := ctx.RegisterResource("aws:sfn/stateMachine:StateMachine", name, args, &resource, opts...)
 	if err != nil {
@@ -224,15 +276,20 @@ type stateMachineState struct {
 	// The date the state machine was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-	Definition *string `pulumi:"definition"`
+	Definition  *string `pulumi:"definition"`
+	Description *string `pulumi:"description"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Set to true to publish a version of the state machine during creation. Default: false.
+	Publish    *bool   `pulumi:"publish"`
+	RevisionId *string `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn                *string `pulumi:"roleArn"`
+	StateMachineVersionArn *string `pulumi:"stateMachineVersionArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -242,7 +299,8 @@ type stateMachineState struct {
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 	// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-	Type *string `pulumi:"type"`
+	Type               *string `pulumi:"type"`
+	VersionDescription *string `pulumi:"versionDescription"`
 }
 
 type StateMachineState struct {
@@ -251,15 +309,20 @@ type StateMachineState struct {
 	// The date the state machine was created.
 	CreationDate pulumi.StringPtrInput
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-	Definition pulumi.StringPtrInput
+	Definition  pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// Set to true to publish a version of the state machine during creation. Default: false.
+	Publish    pulumi.BoolPtrInput
+	RevisionId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn pulumi.StringPtrInput
+	RoleArn                pulumi.StringPtrInput
+	StateMachineVersionArn pulumi.StringPtrInput
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -269,7 +332,8 @@ type StateMachineState struct {
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationPtrInput
 	// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-	Type pulumi.StringPtrInput
+	Type               pulumi.StringPtrInput
+	VersionDescription pulumi.StringPtrInput
 }
 
 func (StateMachineState) ElementType() reflect.Type {
@@ -285,6 +349,8 @@ type stateMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Set to true to publish a version of the state machine during creation. Default: false.
+	Publish *bool `pulumi:"publish"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -305,6 +371,8 @@ type StateMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// Set to true to publish a version of the state machine during creation. Default: false.
+	Publish pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -338,6 +406,12 @@ func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) Stat
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
 }
 
+func (i *StateMachine) ToOutput(ctx context.Context) pulumix.Output[*StateMachine] {
+	return pulumix.Output[*StateMachine]{
+		OutputState: i.ToStateMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StateMachineArrayInput is an input type that accepts StateMachineArray and StateMachineArrayOutput values.
 // You can construct a concrete instance of `StateMachineArrayInput` via:
 //
@@ -361,6 +435,12 @@ func (i StateMachineArray) ToStateMachineArrayOutput() StateMachineArrayOutput {
 
 func (i StateMachineArray) ToStateMachineArrayOutputWithContext(ctx context.Context) StateMachineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineArrayOutput)
+}
+
+func (i StateMachineArray) ToOutput(ctx context.Context) pulumix.Output[[]*StateMachine] {
+	return pulumix.Output[[]*StateMachine]{
+		OutputState: i.ToStateMachineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StateMachineMapInput is an input type that accepts StateMachineMap and StateMachineMapOutput values.
@@ -388,6 +468,12 @@ func (i StateMachineMap) ToStateMachineMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineMapOutput)
 }
 
+func (i StateMachineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StateMachine] {
+	return pulumix.Output[map[string]*StateMachine]{
+		OutputState: i.ToStateMachineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineOutput struct{ *pulumi.OutputState }
 
 func (StateMachineOutput) ElementType() reflect.Type {
@@ -400,6 +486,12 @@ func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {
 
 func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
 	return o
+}
+
+func (o StateMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachine] {
+	return pulumix.Output[*StateMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the state machine.
@@ -417,6 +509,10 @@ func (o StateMachineOutput) Definition() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Definition }).(pulumi.StringOutput)
 }
 
+func (o StateMachineOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
 // Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 func (o StateMachineOutput) LoggingConfiguration() StateMachineLoggingConfigurationOutput {
 	return o.ApplyT(func(v *StateMachine) StateMachineLoggingConfigurationOutput { return v.LoggingConfiguration }).(StateMachineLoggingConfigurationOutput)
@@ -432,9 +528,22 @@ func (o StateMachineOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
+// Set to true to publish a version of the state machine during creation. Default: false.
+func (o StateMachineOutput) Publish() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
+}
+
+func (o StateMachineOutput) RevisionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 func (o StateMachineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o StateMachineOutput) StateMachineVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.StateMachineVersionArn }).(pulumi.StringOutput)
 }
 
 // The current status of the state machine. Either `ACTIVE` or `DELETING`.
@@ -462,6 +571,10 @@ func (o StateMachineOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+func (o StateMachineOutput) VersionDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.VersionDescription }).(pulumi.StringOutput)
+}
+
 type StateMachineArrayOutput struct{ *pulumi.OutputState }
 
 func (StateMachineArrayOutput) ElementType() reflect.Type {
@@ -474,6 +587,12 @@ func (o StateMachineArrayOutput) ToStateMachineArrayOutput() StateMachineArrayOu
 
 func (o StateMachineArrayOutput) ToStateMachineArrayOutputWithContext(ctx context.Context) StateMachineArrayOutput {
 	return o
+}
+
+func (o StateMachineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StateMachine] {
+	return pulumix.Output[[]*StateMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineArrayOutput) Index(i pulumi.IntInput) StateMachineOutput {
@@ -494,6 +613,12 @@ func (o StateMachineMapOutput) ToStateMachineMapOutput() StateMachineMapOutput {
 
 func (o StateMachineMapOutput) ToStateMachineMapOutputWithContext(ctx context.Context) StateMachineMapOutput {
 	return o
+}
+
+func (o StateMachineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StateMachine] {
+	return pulumix.Output[map[string]*StateMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineMapOutput) MapIndex(k pulumi.StringInput) StateMachineOutput {

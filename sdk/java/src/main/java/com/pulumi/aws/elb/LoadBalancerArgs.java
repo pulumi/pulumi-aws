@@ -256,14 +256,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the ELB.
+     * @return A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     public Optional<Output<List<String>>> subnets() {
@@ -273,12 +273,18 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * Exactly one of `availability_zones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * Exactly one of `availability_zones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -690,7 +696,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the ELB.
+         * @param subnets A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
          * 
          * @return builder
          * 
@@ -701,7 +707,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the ELB.
+         * @param subnets A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
          * 
          * @return builder
          * 
@@ -711,7 +717,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the ELB.
+         * @param subnets A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
          * 
          * @return builder
          * 
@@ -723,6 +729,9 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * Exactly one of `availability_zones` or `subnets` must be specified: this
+         * determines if the ELB exists in a VPC or in EC2-classic.
+         * 
          * @return builder
          * 
          */
@@ -733,6 +742,9 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * Exactly one of `availability_zones` or `subnets` must be specified: this
+         * determines if the ELB exists in a VPC or in EC2-classic.
          * 
          * @return builder
          * 

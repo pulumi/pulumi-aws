@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a single-Region or multi-Region primary KMS key.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // ## Import
 //
-// KMS Keys can be imported using the `id`, e.g.,
+// Using `pulumi import`, import KMS Keys using the `id`. For example:
 //
 // ```sh
 //
@@ -85,6 +87,8 @@ type Key struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -99,6 +103,7 @@ func NewKey(ctx *pulumi.Context,
 		args = &KeyArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Key
 	err := ctx.RegisterResource("aws:kms/key:Key", name, args, &resource, opts...)
 	if err != nil {
@@ -151,6 +156,8 @@ type keyState struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy *string `pulumi:"policy"`
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -189,6 +196,8 @@ type KeyState struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolPtrInput
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy pulumi.StringPtrInput
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -227,6 +236,8 @@ type keyArgs struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy *string `pulumi:"policy"`
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -260,6 +271,8 @@ type KeyArgs struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolPtrInput
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy pulumi.StringPtrInput
 	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -288,6 +301,12 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
 }
 
+func (i *Key) ToOutput(ctx context.Context) pulumix.Output[*Key] {
+	return pulumix.Output[*Key]{
+		OutputState: i.ToKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KeyArrayInput is an input type that accepts KeyArray and KeyArrayOutput values.
 // You can construct a concrete instance of `KeyArrayInput` via:
 //
@@ -311,6 +330,12 @@ func (i KeyArray) ToKeyArrayOutput() KeyArrayOutput {
 
 func (i KeyArray) ToKeyArrayOutputWithContext(ctx context.Context) KeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyArrayOutput)
+}
+
+func (i KeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Key] {
+	return pulumix.Output[[]*Key]{
+		OutputState: i.ToKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KeyMapInput is an input type that accepts KeyMap and KeyMapOutput values.
@@ -338,6 +363,12 @@ func (i KeyMap) ToKeyMapOutputWithContext(ctx context.Context) KeyMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyMapOutput)
 }
 
+func (i KeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Key] {
+	return pulumix.Output[map[string]*Key]{
+		OutputState: i.ToKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyOutput struct{ *pulumi.OutputState }
 
 func (KeyOutput) ElementType() reflect.Type {
@@ -350,6 +381,12 @@ func (o KeyOutput) ToKeyOutput() KeyOutput {
 
 func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
+}
+
+func (o KeyOutput) ToOutput(ctx context.Context) pulumix.Output[*Key] {
+	return pulumix.Output[*Key]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the key.
@@ -415,6 +452,8 @@ func (o KeyOutput) MultiRegion() pulumi.BoolOutput {
 }
 
 // A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+//
+// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 func (o KeyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
@@ -443,6 +482,12 @@ func (o KeyArrayOutput) ToKeyArrayOutputWithContext(ctx context.Context) KeyArra
 	return o
 }
 
+func (o KeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Key] {
+	return pulumix.Output[[]*Key]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyArrayOutput) Index(i pulumi.IntInput) KeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Key {
 		return vs[0].([]*Key)[vs[1].(int)]
@@ -461,6 +506,12 @@ func (o KeyMapOutput) ToKeyMapOutput() KeyMapOutput {
 
 func (o KeyMapOutput) ToKeyMapOutputWithContext(ctx context.Context) KeyMapOutput {
 	return o
+}
+
+func (o KeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Key] {
+	return pulumix.Output[map[string]*Key]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyMapOutput) MapIndex(k pulumi.StringInput) KeyOutput {

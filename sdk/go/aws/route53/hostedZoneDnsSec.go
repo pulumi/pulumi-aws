@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
@@ -25,9 +27,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,7 +108,7 @@ import (
 //
 // ## Import
 //
-// `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
+// Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
 //
 // ```sh
 //
@@ -117,6 +119,8 @@ type HostedZoneDnsSec struct {
 	pulumi.CustomResourceState
 
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrOutput `pulumi:"signingStatus"`
@@ -132,6 +136,7 @@ func NewHostedZoneDnsSec(ctx *pulumi.Context,
 	if args.HostedZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'HostedZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedZoneDnsSec
 	err := ctx.RegisterResource("aws:route53/hostedZoneDnsSec:HostedZoneDnsSec", name, args, &resource, opts...)
 	if err != nil {
@@ -155,6 +160,8 @@ func GetHostedZoneDnsSec(ctx *pulumi.Context,
 // Input properties used for looking up and filtering HostedZoneDnsSec resources.
 type hostedZoneDnsSecState struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus *string `pulumi:"signingStatus"`
@@ -162,6 +169,8 @@ type hostedZoneDnsSecState struct {
 
 type HostedZoneDnsSecState struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId pulumi.StringPtrInput
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrInput
@@ -173,6 +182,8 @@ func (HostedZoneDnsSecState) ElementType() reflect.Type {
 
 type hostedZoneDnsSecArgs struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId string `pulumi:"hostedZoneId"`
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus *string `pulumi:"signingStatus"`
@@ -181,6 +192,8 @@ type hostedZoneDnsSecArgs struct {
 // The set of arguments for constructing a HostedZoneDnsSec resource.
 type HostedZoneDnsSecArgs struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId pulumi.StringInput
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrInput
@@ -209,6 +222,12 @@ func (i *HostedZoneDnsSec) ToHostedZoneDnsSecOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneDnsSecOutput)
 }
 
+func (i *HostedZoneDnsSec) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneDnsSec] {
+	return pulumix.Output[*HostedZoneDnsSec]{
+		OutputState: i.ToHostedZoneDnsSecOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostedZoneDnsSecArrayInput is an input type that accepts HostedZoneDnsSecArray and HostedZoneDnsSecArrayOutput values.
 // You can construct a concrete instance of `HostedZoneDnsSecArrayInput` via:
 //
@@ -232,6 +251,12 @@ func (i HostedZoneDnsSecArray) ToHostedZoneDnsSecArrayOutput() HostedZoneDnsSecA
 
 func (i HostedZoneDnsSecArray) ToHostedZoneDnsSecArrayOutputWithContext(ctx context.Context) HostedZoneDnsSecArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneDnsSecArrayOutput)
+}
+
+func (i HostedZoneDnsSecArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedZoneDnsSec] {
+	return pulumix.Output[[]*HostedZoneDnsSec]{
+		OutputState: i.ToHostedZoneDnsSecArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostedZoneDnsSecMapInput is an input type that accepts HostedZoneDnsSecMap and HostedZoneDnsSecMapOutput values.
@@ -259,6 +284,12 @@ func (i HostedZoneDnsSecMap) ToHostedZoneDnsSecMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneDnsSecMapOutput)
 }
 
+func (i HostedZoneDnsSecMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedZoneDnsSec] {
+	return pulumix.Output[map[string]*HostedZoneDnsSec]{
+		OutputState: i.ToHostedZoneDnsSecMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostedZoneDnsSecOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneDnsSecOutput) ElementType() reflect.Type {
@@ -273,7 +304,15 @@ func (o HostedZoneDnsSecOutput) ToHostedZoneDnsSecOutputWithContext(ctx context.
 	return o
 }
 
+func (o HostedZoneDnsSecOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneDnsSec] {
+	return pulumix.Output[*HostedZoneDnsSec]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier of the Route 53 Hosted Zone.
+//
+// The following arguments are optional:
 func (o HostedZoneDnsSecOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedZoneDnsSec) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
@@ -297,6 +336,12 @@ func (o HostedZoneDnsSecArrayOutput) ToHostedZoneDnsSecArrayOutputWithContext(ct
 	return o
 }
 
+func (o HostedZoneDnsSecArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedZoneDnsSec] {
+	return pulumix.Output[[]*HostedZoneDnsSec]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostedZoneDnsSecArrayOutput) Index(i pulumi.IntInput) HostedZoneDnsSecOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedZoneDnsSec {
 		return vs[0].([]*HostedZoneDnsSec)[vs[1].(int)]
@@ -315,6 +360,12 @@ func (o HostedZoneDnsSecMapOutput) ToHostedZoneDnsSecMapOutput() HostedZoneDnsSe
 
 func (o HostedZoneDnsSecMapOutput) ToHostedZoneDnsSecMapOutputWithContext(ctx context.Context) HostedZoneDnsSecMapOutput {
 	return o
+}
+
+func (o HostedZoneDnsSecMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedZoneDnsSec] {
+	return pulumix.Output[map[string]*HostedZoneDnsSec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostedZoneDnsSecMapOutput) MapIndex(k pulumi.StringInput) HostedZoneDnsSecOutput {

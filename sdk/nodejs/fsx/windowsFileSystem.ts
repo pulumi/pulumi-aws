@@ -56,25 +56,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * FSx File Systems can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import FSx File Systems using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
  * ```
- *
- *  Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the provider configuration on an imported resource, the povider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_fsx_windows_file_system" "example" {
- *
- * # ... other configuration ...
- *
- *  security_group_ids = [aws_security_group.example.id]
- *
- * # There is no FSx API for reading security_group_ids
- *
- *  lifecycle {
- *
- *  ignore_changes = [security_group_ids]
- *
- *  } }
+ *  Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
  */
 export class WindowsFileSystem extends pulumi.CustomResource {
     /**
@@ -117,7 +104,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      */
     public readonly auditLogConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
@@ -140,6 +127,10 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
+    /**
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     */
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
@@ -173,7 +164,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
      */
     public readonly selfManagedActiveDirectory!: pulumi.Output<outputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
     /**
@@ -202,6 +193,8 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     *
+     * The following arguments are optional:
      */
     public readonly throughputCapacity!: pulumi.Output<number>;
     /**
@@ -235,6 +228,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
             resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
@@ -269,6 +263,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -311,7 +306,7 @@ export interface WindowsFileSystemState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      */
     auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
@@ -334,6 +329,10 @@ export interface WindowsFileSystemState {
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     deploymentType?: pulumi.Input<string>;
+    /**
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     */
+    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
@@ -367,7 +366,7 @@ export interface WindowsFileSystemState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
      */
     selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
     /**
@@ -396,6 +395,8 @@ export interface WindowsFileSystemState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     *
+     * The following arguments are optional:
      */
     throughputCapacity?: pulumi.Input<number>;
     /**
@@ -421,7 +422,7 @@ export interface WindowsFileSystemArgs {
      */
     aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      */
     auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
@@ -445,6 +446,10 @@ export interface WindowsFileSystemArgs {
      */
     deploymentType?: pulumi.Input<string>;
     /**
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     */
+    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string>;
@@ -457,7 +462,7 @@ export interface WindowsFileSystemArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
      */
     selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
     /**
@@ -482,6 +487,8 @@ export interface WindowsFileSystemArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     *
+     * The following arguments are optional:
      */
     throughputCapacity: pulumi.Input<number>;
     /**

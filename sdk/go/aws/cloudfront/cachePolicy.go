@@ -8,19 +8,21 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
 //
-// The following example below creates a CloudFront cache policy.
+// Use the `cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +72,7 @@ import (
 //
 // ## Import
 //
-// Cloudfront Cache Policies can be imported using the `id`, e.g.,
+// Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
 //
 // ```sh
 //
@@ -80,19 +82,19 @@ import (
 type CachePolicy struct {
 	pulumi.CustomResourceState
 
-	// A comment to describe the cache policy.
+	// Description for the cache policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
 	DefaultTtl pulumi.IntPtrOutput `pulumi:"defaultTtl"`
-	// The current version of the cache policy.
+	// Current version of the cache policy.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl pulumi.IntPtrOutput `pulumi:"maxTtl"`
-	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
 	MinTtl pulumi.IntPtrOutput `pulumi:"minTtl"`
-	// A unique name to identify the cache policy.
+	// Unique name used to identify the cache policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+	// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginOutput `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
@@ -106,6 +108,7 @@ func NewCachePolicy(ctx *pulumi.Context,
 	if args.ParametersInCacheKeyAndForwardedToOrigin == nil {
 		return nil, errors.New("invalid value for required argument 'ParametersInCacheKeyAndForwardedToOrigin'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CachePolicy
 	err := ctx.RegisterResource("aws:cloudfront/cachePolicy:CachePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -128,36 +131,36 @@ func GetCachePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CachePolicy resources.
 type cachePolicyState struct {
-	// A comment to describe the cache policy.
+	// Description for the cache policy.
 	Comment *string `pulumi:"comment"`
-	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
 	DefaultTtl *int `pulumi:"defaultTtl"`
-	// The current version of the cache policy.
+	// Current version of the cache policy.
 	Etag *string `pulumi:"etag"`
-	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl *int `pulumi:"maxTtl"`
-	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
 	MinTtl *int `pulumi:"minTtl"`
-	// A unique name to identify the cache policy.
+	// Unique name used to identify the cache policy.
 	Name *string `pulumi:"name"`
-	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+	// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
 	ParametersInCacheKeyAndForwardedToOrigin *CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
 type CachePolicyState struct {
-	// A comment to describe the cache policy.
+	// Description for the cache policy.
 	Comment pulumi.StringPtrInput
-	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
 	DefaultTtl pulumi.IntPtrInput
-	// The current version of the cache policy.
+	// Current version of the cache policy.
 	Etag pulumi.StringPtrInput
-	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl pulumi.IntPtrInput
-	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
 	MinTtl pulumi.IntPtrInput
-	// A unique name to identify the cache policy.
+	// Unique name used to identify the cache policy.
 	Name pulumi.StringPtrInput
-	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+	// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput
 }
 
@@ -166,33 +169,33 @@ func (CachePolicyState) ElementType() reflect.Type {
 }
 
 type cachePolicyArgs struct {
-	// A comment to describe the cache policy.
+	// Description for the cache policy.
 	Comment *string `pulumi:"comment"`
-	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
 	DefaultTtl *int `pulumi:"defaultTtl"`
-	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl *int `pulumi:"maxTtl"`
-	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
 	MinTtl *int `pulumi:"minTtl"`
-	// A unique name to identify the cache policy.
+	// Unique name used to identify the cache policy.
 	Name *string `pulumi:"name"`
-	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+	// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
 // The set of arguments for constructing a CachePolicy resource.
 type CachePolicyArgs struct {
-	// A comment to describe the cache policy.
+	// Description for the cache policy.
 	Comment pulumi.StringPtrInput
-	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
 	DefaultTtl pulumi.IntPtrInput
-	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl pulumi.IntPtrInput
-	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
 	MinTtl pulumi.IntPtrInput
-	// A unique name to identify the cache policy.
+	// Unique name used to identify the cache policy.
 	Name pulumi.StringPtrInput
-	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+	// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginInput
 }
 
@@ -217,6 +220,12 @@ func (i *CachePolicy) ToCachePolicyOutput() CachePolicyOutput {
 
 func (i *CachePolicy) ToCachePolicyOutputWithContext(ctx context.Context) CachePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyOutput)
+}
+
+func (i *CachePolicy) ToOutput(ctx context.Context) pulumix.Output[*CachePolicy] {
+	return pulumix.Output[*CachePolicy]{
+		OutputState: i.ToCachePolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CachePolicyArrayInput is an input type that accepts CachePolicyArray and CachePolicyArrayOutput values.
@@ -244,6 +253,12 @@ func (i CachePolicyArray) ToCachePolicyArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyArrayOutput)
 }
 
+func (i CachePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*CachePolicy] {
+	return pulumix.Output[[]*CachePolicy]{
+		OutputState: i.ToCachePolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CachePolicyMapInput is an input type that accepts CachePolicyMap and CachePolicyMapOutput values.
 // You can construct a concrete instance of `CachePolicyMapInput` via:
 //
@@ -269,6 +284,12 @@ func (i CachePolicyMap) ToCachePolicyMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyMapOutput)
 }
 
+func (i CachePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CachePolicy] {
+	return pulumix.Output[map[string]*CachePolicy]{
+		OutputState: i.ToCachePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CachePolicyOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyOutput) ElementType() reflect.Type {
@@ -283,37 +304,43 @@ func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// A comment to describe the cache policy.
+func (o CachePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*CachePolicy] {
+	return pulumix.Output[*CachePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Description for the cache policy.
 func (o CachePolicyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
 func (o CachePolicyOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.IntPtrOutput { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// The current version of the cache policy.
+// Current version of the cache policy.
 func (o CachePolicyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 func (o CachePolicyOutput) MaxTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.IntPtrOutput { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
 
-// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
 func (o CachePolicyOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.IntPtrOutput { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
-// A unique name to identify the cache policy.
+// Unique name used to identify the cache policy.
 func (o CachePolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
 func (o CachePolicyOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
 	return o.ApplyT(func(v *CachePolicy) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
 		return v.ParametersInCacheKeyAndForwardedToOrigin
@@ -334,6 +361,12 @@ func (o CachePolicyArrayOutput) ToCachePolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CachePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CachePolicy] {
+	return pulumix.Output[[]*CachePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CachePolicyArrayOutput) Index(i pulumi.IntInput) CachePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CachePolicy {
 		return vs[0].([]*CachePolicy)[vs[1].(int)]
@@ -352,6 +385,12 @@ func (o CachePolicyMapOutput) ToCachePolicyMapOutput() CachePolicyMapOutput {
 
 func (o CachePolicyMapOutput) ToCachePolicyMapOutputWithContext(ctx context.Context) CachePolicyMapOutput {
 	return o
+}
+
+func (o CachePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CachePolicy] {
+	return pulumix.Output[map[string]*CachePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CachePolicyMapOutput) MapIndex(k pulumi.StringInput) CachePolicyOutput {

@@ -68,6 +68,9 @@ export interface GetVpcEndpointArgs {
     tags?: {[key: string]: string};
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     vpcId?: string;
 }
@@ -85,9 +88,12 @@ export interface GetVpcEndpointResult {
      */
     readonly cidrBlocks: string[];
     /**
-     * DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
      */
     readonly dnsEntries: outputs.ec2.GetVpcEndpointDnsEntry[];
+    /**
+     * DNS options for the VPC Endpoint. DNS options blocks are documented below.
+     */
     readonly dnsOptions: outputs.ec2.GetVpcEndpointDnsOption[];
     readonly filters?: outputs.ec2.GetVpcEndpointFilter[];
     readonly id: string;
@@ -188,6 +194,9 @@ export interface GetVpcEndpointOutputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     vpcId?: pulumi.Input<string>;
 }

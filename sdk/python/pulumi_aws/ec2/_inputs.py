@@ -49,6 +49,8 @@ __all__ = [
     'InstanceEbsBlockDeviceArgs',
     'InstanceEnclaveOptionsArgs',
     'InstanceEphemeralBlockDeviceArgs',
+    'InstanceInstanceMarketOptionsArgs',
+    'InstanceInstanceMarketOptionsSpotOptionsArgs',
     'InstanceLaunchTemplateArgs',
     'InstanceMaintenanceOptionsArgs',
     'InstanceMetadataOptionsArgs',
@@ -269,7 +271,6 @@ __all__ = [
     'GetSecurityGroupsFilterArgs',
     'GetSpotPriceFilterArgs',
     'GetSubnetFilterArgs',
-    'GetSubnetIdsFilterArgs',
     'GetSubnetsFilterArgs',
     'GetTransitGatewayRouteTablesFilterArgs',
     'GetVpcDhcpOptionsFilterArgs',
@@ -279,6 +280,9 @@ __all__ = [
     'GetVpcIamPoolCidrsFilterArgs',
     'GetVpcIamPoolFilterArgs',
     'GetVpcIamPoolsFilterArgs',
+    'GetVpcIpamPoolCidrsFilterArgs',
+    'GetVpcIpamPoolFilterArgs',
+    'GetVpcIpamPoolsFilterArgs',
     'GetVpcPeeringConnectionFilterArgs',
     'GetVpcPeeringConnectionsFilterArgs',
     'GetVpcsFilterArgs',
@@ -305,6 +309,8 @@ class AmiCopyEbsBlockDeviceArgs:
         :param pulumi.Input[int] iops: Number of I/O operations per second the
                created volumes will support.
         :param pulumi.Input[str] outpost_arn: ARN of the Outpost on which the snapshot is stored.
+               
+               > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         :param pulumi.Input[str] snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -388,6 +394,8 @@ class AmiCopyEbsBlockDeviceArgs:
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -509,6 +517,8 @@ class AmiEbsBlockDeviceArgs:
         :param pulumi.Input[int] iops: Number of I/O operations per second the
                created volumes will support.
         :param pulumi.Input[str] outpost_arn: ARN of the Outpost on which the snapshot is stored.
+               
+               > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         :param pulumi.Input[str] snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -591,6 +601,8 @@ class AmiEbsBlockDeviceArgs:
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -710,6 +722,8 @@ class AmiFromInstanceEbsBlockDeviceArgs:
         :param pulumi.Input[int] iops: Number of I/O operations per second the
                created volumes will support.
         :param pulumi.Input[str] outpost_arn: ARN of the Outpost on which the snapshot is stored.
+               
+               > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         :param pulumi.Input[str] snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -793,6 +807,8 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -912,10 +928,14 @@ class DefaultNetworkAclEgressArgs:
         :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         :param pulumi.Input[int] rule_no: The rule number. Used for ordering.
         :param pulumi.Input[int] to_port: The to port to match.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a valid network mask.
         :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
         :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
+               
+               > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "from_port", from_port)
@@ -984,6 +1004,8 @@ class DefaultNetworkAclEgressArgs:
     def to_port(self) -> pulumi.Input[int]:
         """
         The to port to match.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "to_port")
 
@@ -1032,6 +1054,8 @@ class DefaultNetworkAclEgressArgs:
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv6 CIDR block.
+
+        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -1058,10 +1082,14 @@ class DefaultNetworkAclIngressArgs:
         :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         :param pulumi.Input[int] rule_no: The rule number. Used for ordering.
         :param pulumi.Input[int] to_port: The to port to match.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a valid network mask.
         :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
         :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
+               
+               > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "from_port", from_port)
@@ -1130,6 +1158,8 @@ class DefaultNetworkAclIngressArgs:
     def to_port(self) -> pulumi.Input[int]:
         """
         The to port to match.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "to_port")
 
@@ -1178,6 +1208,8 @@ class DefaultNetworkAclIngressArgs:
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv6 CIDR block.
+
+        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -1205,6 +1237,8 @@ class DefaultRouteTableRouteArgs:
         :param pulumi.Input[str] cidr_block: The CIDR block of the route.
         :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination of the route.
+               
+               One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
@@ -1214,6 +1248,8 @@ class DefaultRouteTableRouteArgs:
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
@@ -1269,6 +1305,8 @@ class DefaultRouteTableRouteArgs:
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a managed prefix list destination of the route.
+
+        One of the following target arguments must be supplied:
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -1377,6 +1415,8 @@ class DefaultRouteTableRouteArgs:
     def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
@@ -1999,12 +2039,16 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: The accelerator types that must be on the instance type. Default is any accelerator type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+               
+               If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: The CPU manufacturers to include. Default is any manufacturer.
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+               
+               If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
@@ -2012,8 +2056,12 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+               
+               If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
         :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
@@ -2150,6 +2198,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+
+        If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -2211,6 +2261,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -2295,6 +2347,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
         """
         The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -2319,6 +2373,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
         """
         The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -3056,6 +3112,8 @@ class InstanceCapacityReservationSpecificationArgs:
         """
         :param pulumi.Input[str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
         :param pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+               
+               For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         if capacity_reservation_preference is not None:
             pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
@@ -3079,6 +3137,8 @@ class InstanceCapacityReservationSpecificationArgs:
     def capacity_reservation_target(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']]:
         """
         Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+
+        For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         return pulumi.get(self, "capacity_reservation_target")
 
@@ -3136,6 +3196,8 @@ class InstanceCpuOptionsArgs:
         :param pulumi.Input[str] amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[int] core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+               
+               For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
@@ -3173,6 +3235,8 @@ class InstanceCpuOptionsArgs:
     def threads_per_core(self) -> Optional[pulumi.Input[int]]:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+
+        For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         return pulumi.get(self, "threads_per_core")
 
@@ -3230,6 +3294,8 @@ class InstanceEbsBlockDeviceArgs:
         :param pulumi.Input[str] volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -3378,6 +3444,8 @@ class InstanceEbsBlockDeviceArgs:
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         return pulumi.get(self, "volume_type")
 
@@ -3392,6 +3460,8 @@ class InstanceEnclaveOptionsArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+               
+               For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3401,6 +3471,8 @@ class InstanceEnclaveOptionsArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         return pulumi.get(self, "enabled")
 
@@ -3419,6 +3491,8 @@ class InstanceEphemeralBlockDeviceArgs:
         :param pulumi.Input[str] device_name: Name of the block device to mount on the instance.
         :param pulumi.Input[bool] no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+               
+               Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         pulumi.set(__self__, "device_name", device_name)
         if no_device is not None:
@@ -3455,12 +3529,124 @@ class InstanceEphemeralBlockDeviceArgs:
     def virtual_name(self) -> Optional[pulumi.Input[str]]:
         """
         [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+
+        Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         return pulumi.get(self, "virtual_name")
 
     @virtual_name.setter
     def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
+
+
+@pulumi.input_type
+class InstanceInstanceMarketOptionsArgs:
+    def __init__(__self__, *,
+                 market_type: Optional[pulumi.Input[str]] = None,
+                 spot_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']] = None):
+        """
+        :param pulumi.Input[str] market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+        :param pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs'] spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+        """
+        if market_type is not None:
+            pulumi.set(__self__, "market_type", market_type)
+        if spot_options is not None:
+            pulumi.set(__self__, "spot_options", spot_options)
+
+    @property
+    @pulumi.getter(name="marketType")
+    def market_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+        """
+        return pulumi.get(self, "market_type")
+
+    @market_type.setter
+    def market_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "market_type", value)
+
+    @property
+    @pulumi.getter(name="spotOptions")
+    def spot_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']]:
+        """
+        Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+        """
+        return pulumi.get(self, "spot_options")
+
+    @spot_options.setter
+    def spot_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']]):
+        pulumi.set(self, "spot_options", value)
+
+
+@pulumi.input_type
+class InstanceInstanceMarketOptionsSpotOptionsArgs:
+    def __init__(__self__, *,
+                 instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
+                 max_price: Optional[pulumi.Input[str]] = None,
+                 spot_instance_type: Optional[pulumi.Input[str]] = None,
+                 valid_until: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_interruption_behavior: The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+        :param pulumi.Input[str] max_price: The maximum hourly price that you're willing to pay for a Spot Instance.
+        :param pulumi.Input[str] spot_instance_type: The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+        :param pulumi.Input[str] valid_until: The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+        """
+        if instance_interruption_behavior is not None:
+            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
+        if max_price is not None:
+            pulumi.set(__self__, "max_price", max_price)
+        if spot_instance_type is not None:
+            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
+        if valid_until is not None:
+            pulumi.set(__self__, "valid_until", valid_until)
+
+    @property
+    @pulumi.getter(name="instanceInterruptionBehavior")
+    def instance_interruption_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+        """
+        return pulumi.get(self, "instance_interruption_behavior")
+
+    @instance_interruption_behavior.setter
+    def instance_interruption_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_interruption_behavior", value)
+
+    @property
+    @pulumi.getter(name="maxPrice")
+    def max_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum hourly price that you're willing to pay for a Spot Instance.
+        """
+        return pulumi.get(self, "max_price")
+
+    @max_price.setter
+    def max_price(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_price", value)
+
+    @property
+    @pulumi.getter(name="spotInstanceType")
+    def spot_instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+        """
+        return pulumi.get(self, "spot_instance_type")
+
+    @spot_instance_type.setter
+    def spot_instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_instance_type", value)
+
+    @property
+    @pulumi.getter(name="validUntil")
+    def valid_until(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+        """
+        return pulumi.get(self, "valid_until")
+
+    @valid_until.setter
+    def valid_until(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "valid_until", value)
 
 
 @pulumi.input_type
@@ -3545,17 +3731,23 @@ class InstanceMaintenanceOptionsArgs:
 class InstanceMetadataOptionsArgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
+                 http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
                  http_tokens: Optional[pulumi.Input[str]] = None,
                  instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+        :param pulumi.Input[str] http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
         :param pulumi.Input[int] http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+               
+               For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -3574,6 +3766,18 @@ class InstanceMetadataOptionsArgs:
     @http_endpoint.setter
     def http_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_endpoint", value)
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        """
+        return pulumi.get(self, "http_protocol_ipv6")
+
+    @http_protocol_ipv6.setter
+    def http_protocol_ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_protocol_ipv6", value)
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
@@ -3604,6 +3808,8 @@ class InstanceMetadataOptionsArgs:
     def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
         """
         Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         return pulumi.get(self, "instance_metadata_tags")
 
@@ -3760,6 +3966,8 @@ class InstanceRootBlockDeviceArgs:
         :param pulumi.Input[str] volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -3895,6 +4103,8 @@ class InstanceRootBlockDeviceArgs:
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         return pulumi.get(self, "volume_type")
 
@@ -4497,6 +4707,8 @@ class LaunchTemplateCpuOptionsArgs:
         :param pulumi.Input[int] threads_per_core: The number of threads per CPU core.
                To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
                Otherwise, specify the default value of 2.
+               
+               Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
@@ -4536,6 +4748,8 @@ class LaunchTemplateCpuOptionsArgs:
         The number of threads per CPU core.
         To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
         Otherwise, specify the default value of 2.
+
+        Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
         """
         return pulumi.get(self, "threads_per_core")
 
@@ -4623,6 +4837,8 @@ class LaunchTemplateEnclaveOptionsArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] enabled: If set to `true`, Nitro Enclaves will be enabled on the instance.
+               
+               For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -4632,6 +4848,8 @@ class LaunchTemplateEnclaveOptionsArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         If set to `true`, Nitro Enclaves will be enabled on the instance.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         return pulumi.get(self, "enabled")
 
@@ -4860,24 +5078,58 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+               
+               > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
+               
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+               
+               > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
@@ -4966,6 +5218,10 @@ class LaunchTemplateInstanceRequirementsArgs:
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -4978,6 +5234,10 @@ class LaunchTemplateInstanceRequirementsArgs:
     def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator names. Default is any acclerator.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -5002,6 +5262,10 @@ class LaunchTemplateInstanceRequirementsArgs:
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator types. Default is any accelerator type.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -5014,6 +5278,8 @@ class LaunchTemplateInstanceRequirementsArgs:
     def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+
+        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -5062,6 +5328,12 @@ class LaunchTemplateInstanceRequirementsArgs:
     def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of CPU manufacturer names. Default is any manufacturer.
+
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -5074,6 +5346,8 @@ class LaunchTemplateInstanceRequirementsArgs:
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -5086,6 +5360,10 @@ class LaunchTemplateInstanceRequirementsArgs:
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance generation names. Default is any generation.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -5110,6 +5388,10 @@ class LaunchTemplateInstanceRequirementsArgs:
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of local storage type names. Default any storage type.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -5158,6 +5440,8 @@ class LaunchTemplateInstanceRequirementsArgs:
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
         """
         The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -5182,6 +5466,8 @@ class LaunchTemplateInstanceRequirementsArgs:
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
         """
         The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -5605,11 +5891,13 @@ class LaunchTemplateMetadataOptionsArgs:
                  http_tokens: Optional[pulumi.Input[str]] = None,
                  instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `enabled` or `disabled`.
-        :param pulumi.Input[str] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
-        :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
-        :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+        :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        :param pulumi.Input[str] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
+        :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
+               
+               For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -5626,7 +5914,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpEndpoint")
     def http_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the metadata service is available. Can be `enabled` or `disabled`.
+        Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         """
         return pulumi.get(self, "http_endpoint")
 
@@ -5638,7 +5926,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpProtocolIpv6")
     def http_protocol_ipv6(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+        Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
         """
         return pulumi.get(self, "http_protocol_ipv6")
 
@@ -5650,7 +5938,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
         """
         return pulumi.get(self, "http_put_response_hop_limit")
 
@@ -5662,7 +5950,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         return pulumi.get(self, "http_tokens")
 
@@ -5674,7 +5962,9 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="instanceMetadataTags")
     def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+        Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         return pulumi.get(self, "instance_metadata_tags")
 
@@ -6312,6 +6602,8 @@ class NetworkAclEgressArgs:
         :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a
                valid network mask.
         :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
         """
@@ -6408,6 +6700,8 @@ class NetworkAclEgressArgs:
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
         """
         The ICMP type code to be used. Default 0.
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         """
         return pulumi.get(self, "icmp_code")
 
@@ -6462,6 +6756,8 @@ class NetworkAclIngressArgs:
         :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a
                valid network mask.
         :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
         """
@@ -6558,6 +6854,8 @@ class NetworkAclIngressArgs:
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
         """
         The ICMP type code to be used. Default 0.
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         """
         return pulumi.get(self, "icmp_code")
 
@@ -11660,143 +11958,47 @@ class NetworkInterfaceAttachmentArgs:
 @pulumi.input_type
 class PeeringConnectionOptionsAccepterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC. This option is not supported for inter-region VPC peering.
-        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection. This option is not supported for inter-region VPC peering.
+        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
 class PeeringConnectionOptionsRequesterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC. This option is not supported for inter-region VPC peering.
-        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection. This option is not supported for inter-region VPC peering.
+        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
@@ -11808,7 +12010,6 @@ class RouteTableRouteArgs:
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
-                 instance_id: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -11821,9 +12022,10 @@ class RouteTableRouteArgs:
         :param pulumi.Input[str] cidr_block: The CIDR block of the route.
         :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination of the route.
+               
+               One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
-        :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
+        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         :param pulumi.Input[str] ipv6_cidr_block: The Ipv6 CIDR block of the route.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
@@ -11831,6 +12033,8 @@ class RouteTableRouteArgs:
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         if carrier_gateway_id is not None:
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
@@ -11844,11 +12048,6 @@ class RouteTableRouteArgs:
             pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
-        if instance_id is not None:
-            warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         if local_gateway_id is not None:
@@ -11905,6 +12104,8 @@ class RouteTableRouteArgs:
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a managed prefix list destination of the route.
+
+        One of the following target arguments must be supplied:
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -11928,25 +12129,13 @@ class RouteTableRouteArgs:
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier of a VPC internet gateway or a virtual private gateway.
+        Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
     def gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gateway_id", value)
-
-    @property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of an EC2 instance.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "instance_id", value)
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
@@ -12025,6 +12214,8 @@ class RouteTableRouteArgs:
     def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
@@ -12049,6 +12240,10 @@ class SecurityGroupEgressArgs:
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
         :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
+               
+               The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
         :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
@@ -12101,6 +12296,10 @@ class SecurityGroupEgressArgs:
     def to_port(self) -> pulumi.Input[int]:
         """
         End range port (or ICMP code if protocol is `icmp`).
+
+        The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
         """
         return pulumi.get(self, "to_port")
 
@@ -12196,6 +12395,10 @@ class SecurityGroupIngressArgs:
         """
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
         :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+               
+               The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
         :param pulumi.Input[str] description: Description of this ingress rule.
@@ -12237,6 +12440,10 @@ class SecurityGroupIngressArgs:
     def protocol(self) -> pulumi.Input[str]:
         """
         Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+
+        The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "protocol")
 
@@ -12874,6 +13081,10 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
         :param pulumi.Input[str] id: The ID of the launch template. Conflicts with `name`.
         :param pulumi.Input[str] name: The name of the launch template. Conflicts with `id`.
         :param pulumi.Input[str] version: Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+               
+               **Note:** The specified launch template can specify only a subset of the
+               inputs of `ec2.LaunchTemplate`.  There are limitations on
+               what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -12911,6 +13122,10 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+
+        **Note:** The specified launch template can specify only a subset of the
+        inputs of `ec2.LaunchTemplate`.  There are limitations on
+        what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
         """
         return pulumi.get(self, "version")
 
@@ -13067,25 +13282,59 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         """
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+               
+               > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
+               
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+               
+               > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
@@ -13153,6 +13402,10 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -13165,6 +13418,10 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator names. Default is any acclerator.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -13189,6 +13446,10 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of accelerator types. Default is any accelerator type.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -13201,6 +13462,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+
+        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -13249,6 +13512,12 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of CPU manufacturer names. Default is any manufacturer.
+
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -13261,6 +13530,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -13273,6 +13544,10 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of instance generation names. Default is any generation.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -13297,6 +13572,10 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of local storage type names. Default any storage type.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -13357,6 +13636,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
         """
         The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -13381,6 +13662,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
         """
         The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -13818,6 +14101,8 @@ class SpotInstanceRequestCapacityReservationSpecificationArgs:
         """
         :param pulumi.Input[str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+               
+               For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         if capacity_reservation_preference is not None:
             pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
@@ -13841,6 +14126,8 @@ class SpotInstanceRequestCapacityReservationSpecificationArgs:
     def capacity_reservation_target(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']]:
         """
         Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+
+        For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         return pulumi.get(self, "capacity_reservation_target")
 
@@ -13898,6 +14185,8 @@ class SpotInstanceRequestCpuOptionsArgs:
         :param pulumi.Input[str] amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[int] core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+               
+               For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
@@ -13935,6 +14224,8 @@ class SpotInstanceRequestCpuOptionsArgs:
     def threads_per_core(self) -> Optional[pulumi.Input[int]]:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+
+        For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         return pulumi.get(self, "threads_per_core")
 
@@ -13991,6 +14282,8 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -14136,6 +14429,8 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         return pulumi.get(self, "volume_type")
 
@@ -14150,6 +14445,8 @@ class SpotInstanceRequestEnclaveOptionsArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+               
+               For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -14159,6 +14456,8 @@ class SpotInstanceRequestEnclaveOptionsArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         return pulumi.get(self, "enabled")
 
@@ -14177,6 +14476,8 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
         :param pulumi.Input[str] device_name: Name of the block device to mount on the instance.
         :param pulumi.Input[bool] no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+               
+               Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         pulumi.set(__self__, "device_name", device_name)
         if no_device is not None:
@@ -14213,6 +14514,8 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
     def virtual_name(self) -> Optional[pulumi.Input[str]]:
         """
         [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+
+        Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         return pulumi.get(self, "virtual_name")
 
@@ -14303,17 +14606,23 @@ class SpotInstanceRequestMaintenanceOptionsArgs:
 class SpotInstanceRequestMetadataOptionsArgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
+                 http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
                  http_tokens: Optional[pulumi.Input[str]] = None,
                  instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+        :param pulumi.Input[str] http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
         :param pulumi.Input[int] http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+               
+               For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -14332,6 +14641,18 @@ class SpotInstanceRequestMetadataOptionsArgs:
     @http_endpoint.setter
     def http_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_endpoint", value)
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        """
+        return pulumi.get(self, "http_protocol_ipv6")
+
+    @http_protocol_ipv6.setter
+    def http_protocol_ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_protocol_ipv6", value)
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
@@ -14362,6 +14683,8 @@ class SpotInstanceRequestMetadataOptionsArgs:
     def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
         """
         Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         return pulumi.get(self, "instance_metadata_tags")
 
@@ -14517,6 +14840,8 @@ class SpotInstanceRequestRootBlockDeviceArgs:
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -14649,6 +14974,8 @@ class SpotInstanceRequestRootBlockDeviceArgs:
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         return pulumi.get(self, "volume_type")
 
@@ -14777,12 +15104,16 @@ class VpcEndpointDnsEntryArgs:
 @pulumi.input_type
 class VpcEndpointDnsOptionsArgs:
     def __init__(__self__, *,
-                 dns_record_ip_type: Optional[pulumi.Input[str]] = None):
+                 dns_record_ip_type: Optional[pulumi.Input[str]] = None,
+                 private_dns_only_for_inbound_resolver_endpoint: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] dns_record_ip_type: The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        :param pulumi.Input[bool] private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
         """
         if dns_record_ip_type is not None:
             pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+        if private_dns_only_for_inbound_resolver_endpoint is not None:
+            pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
 
     @property
     @pulumi.getter(name="dnsRecordIpType")
@@ -14795,6 +15126,18 @@ class VpcEndpointDnsOptionsArgs:
     @dns_record_ip_type.setter
     def dns_record_ip_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_record_ip_type", value)
+
+    @property
+    @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
+    def private_dns_only_for_inbound_resolver_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
+        """
+        return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
+
+    @private_dns_only_for_inbound_resolver_endpoint.setter
+    def private_dns_only_for_inbound_resolver_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_dns_only_for_inbound_resolver_endpoint", value)
 
 
 @pulumi.input_type
@@ -14954,45 +15297,13 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
 @pulumi.input_type
 class VpcPeeringConnectionAccepterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
                private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15006,61 +15317,18 @@ class VpcPeeringConnectionAccepterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
 class VpcPeeringConnectionAccepterAccepterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Indicates whether a local ClassicLink connection can communicate
-               with the peer VPC over the VPC Peering Connection.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Indicates whether a local VPC can resolve public DNS hostnames to
                private IP addresses when queried from instances in a peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Indicates whether a local VPC can communicate with a ClassicLink
-               connection in the peer VPC over the VPC Peering Connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local ClassicLink connection can communicate
-        with the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15074,60 +15342,18 @@ class VpcPeeringConnectionAccepterAccepterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local VPC can communicate with a ClassicLink
-        connection in the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
 class VpcPeeringConnectionAccepterRequesterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Indicates whether a local ClassicLink connection can communicate
-               with the peer VPC over the VPC Peering Connection.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Indicates whether a local VPC can resolve public DNS hostnames to
                private IP addresses when queried from instances in a peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Indicates whether a local VPC can communicate with a ClassicLink
-               connection in the peer VPC over the VPC Peering Connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local ClassicLink connection can communicate
-        with the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15142,62 +15368,17 @@ class VpcPeeringConnectionAccepterRequesterArgs:
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local VPC can communicate with a ClassicLink
-        connection in the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
-
 
 @pulumi.input_type
 class VpcPeeringConnectionRequesterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
                private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15211,20 +15392,6 @@ class VpcPeeringConnectionRequesterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
@@ -17004,49 +17171,6 @@ class GetSubnetFilterArgs:
 
 
 @pulumi.input_type
-class GetSubnetIdsFilterArgs:
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-               For example, if matching against tag `Name`, use:
-        :param Sequence[str] values: Set of values that are accepted for the given field.
-               Subnet IDs will be selected if any one of the given values match.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        For example, if matching against tag `Name`, use:
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given field.
-        Subnet IDs will be selected if any one of the given values match.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[str]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
 class GetSubnetsFilterArgs:
     def __init__(__self__, *,
                  name: str,
@@ -17055,6 +17179,16 @@ class GetSubnetsFilterArgs:
         :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+                   name="tag:Name",
+                   values=[""],
+               )])
+               ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -17068,6 +17202,16 @@ class GetSubnetsFilterArgs:
         Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="tag:Name",
+            values=[""],
+        )])
+        ```
         """
         return pulumi.get(self, "name")
 
@@ -17352,6 +17496,107 @@ class GetVpcIamPoolFilterArgs:
 
 @pulumi.input_type
 class GetVpcIamPoolsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter. Filter names are case-sensitive.
+        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The filter values. Filter values are case-sensitive.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetVpcIpamPoolCidrsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetVpcIpamPoolFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter. Filter names are case-sensitive.
+        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The filter values. Filter values are case-sensitive.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetVpcIpamPoolsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

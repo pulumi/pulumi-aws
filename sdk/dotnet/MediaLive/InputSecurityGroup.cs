@@ -43,7 +43,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// MediaLive InputSecurityGroup can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
@@ -75,6 +75,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("whitelistRules")]
         public Output<ImmutableArray<Outputs.InputSecurityGroupWhitelistRule>> WhitelistRules { get; private set; } = null!;
@@ -142,6 +144,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.InputSecurityGroupWhitelistRuleArgs> WhitelistRules
         {
@@ -200,6 +204,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.InputSecurityGroupWhitelistRuleGetArgs> WhitelistRules
         {

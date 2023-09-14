@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A QuickSight Template can be imported using the AWS account ID and template ID separated by a comma (`,`) e.g.,
+ * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
@@ -275,12 +275,16 @@ public class Template extends com.pulumi.resources.CustomResource {
     /**
      * A description of the current template version being created/updated.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="versionDescription", refs={String.class}, tree="[0]")
     private Output<String> versionDescription;
 
     /**
      * @return A description of the current template version being created/updated.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> versionDescription() {

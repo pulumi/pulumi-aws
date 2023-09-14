@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
+ * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -192,6 +192,8 @@ export class Service extends pulumi.CustomResource {
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -392,6 +394,8 @@ export interface ServiceState {
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancer>[]>;
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -514,6 +518,8 @@ export interface ServiceArgs {
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancer>[]>;
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

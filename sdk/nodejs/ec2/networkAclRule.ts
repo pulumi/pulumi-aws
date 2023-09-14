@@ -36,13 +36,20 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+ * __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
+ *
+ * Using the procotol's string value:
+ *
+ * Using the procotol's decimal value:
+ *
+ * __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
+ *
+ * Using the procotol's string value:
  *
  * ```sh
  *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
  * ```
- *
- *  Or by the procotol's decimal valueconsole
+ *  Using the procotol's decimal value:
  *
  * ```sh
  *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
@@ -90,6 +97,12 @@ export class NetworkAclRule extends pulumi.CustomResource {
     public readonly fromPort!: pulumi.Output<number | undefined>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+     *
+     * > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+     *
+     * > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+     *
+     * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
     public readonly icmpCode!: pulumi.Output<number | undefined>;
     /**
@@ -194,6 +207,12 @@ export interface NetworkAclRuleState {
     fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+     *
+     * > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+     *
+     * > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+     *
+     * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
     icmpCode?: pulumi.Input<number>;
     /**
@@ -244,6 +263,12 @@ export interface NetworkAclRuleArgs {
     fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+     *
+     * > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+     *
+     * > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+     *
+     * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
     icmpCode?: pulumi.Input<number>;
     /**

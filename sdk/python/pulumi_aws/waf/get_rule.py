@@ -76,8 +76,8 @@ def get_rule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:waf/getRule:getRule', __args__, opts=opts, typ=GetRuleResult).value
 
     return AwaitableGetRuleResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_rule)

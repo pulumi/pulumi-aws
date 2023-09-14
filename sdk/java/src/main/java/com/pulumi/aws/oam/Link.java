@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Observability Access Manager Link can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
@@ -151,12 +151,16 @@ public class Link extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the sink to use to create this link.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="sinkIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sinkIdentifier;
 
     /**
      * @return Identifier of the sink to use to create this link.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> sinkIdentifier() {

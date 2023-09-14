@@ -30,9 +30,7 @@ public final class WebAclRuleStatementByteMatchStatement {
      */
     private String searchString;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     private List<WebAclRuleStatementByteMatchStatementTextTransformation> textTransformations;
@@ -60,9 +58,7 @@ public final class WebAclRuleStatementByteMatchStatement {
         return this.searchString;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     public List<WebAclRuleStatementByteMatchStatementTextTransformation> textTransformations() {

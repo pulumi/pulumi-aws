@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS instance resource.  A DB instance is an isolated database
@@ -55,7 +57,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +122,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,8 +158,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -192,7 +194,7 @@ import (
 //
 // ## Import
 //
-// DB Instances can be imported using the `identifier`, e.g.,
+// Using `pulumi import`, import DB Instances using the `identifier`. For example:
 //
 // ```sh
 //
@@ -230,6 +232,8 @@ type Instance struct {
 	// uses low-downtime updates,
 	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod pulumi.IntOutput `pulumi:"backupRetentionPeriod"`
+	// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+	BackupTarget pulumi.StringOutput `pulumi:"backupTarget"`
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringOutput `pulumi:"backupWindow"`
@@ -248,6 +252,10 @@ type Instance struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrOutput `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrOutput `pulumi:"customerOwnedIpEnabled"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringOutput `pulumi:"dbName"`
@@ -273,7 +281,7 @@ type Instance struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The running version of the database.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -286,11 +294,9 @@ type Instance struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"iamDatabaseAuthenticationEnabled"`
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
@@ -336,8 +342,8 @@ type Instance struct {
 	MonitoringRoleArn pulumi.StringOutput `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-	Name pulumi.StringOutput `pulumi:"name"`
+	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName pulumi.StringOutput `pulumi:"ncharCharacterSetName"`
@@ -383,12 +389,6 @@ type Instance struct {
 	RestoreToPointInTime InstanceRestoreToPointInTimePtrOutput `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrOutput `pulumi:"s3Import"`
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -448,6 +448,7 @@ func NewInstance(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws:rds/instance:Instance", name, args, &resource, opts...)
 	if err != nil {
@@ -498,6 +499,8 @@ type instanceState struct {
 	// uses low-downtime updates,
 	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+	BackupTarget *string `pulumi:"backupTarget"`
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
@@ -516,6 +519,10 @@ type instanceState struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName *string `pulumi:"dbName"`
@@ -541,7 +548,7 @@ type instanceState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
-	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The running version of the database.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -554,11 +561,9 @@ type instanceState struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance type of the RDS instance.
 	InstanceClass *string `pulumi:"instanceClass"`
@@ -604,7 +609,7 @@ type instanceState struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
 	Name *string `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -651,12 +656,6 @@ type instanceState struct {
 	RestoreToPointInTime *InstanceRestoreToPointInTime `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import *InstanceS3Import `pulumi:"s3Import"`
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -728,6 +727,8 @@ type InstanceState struct {
 	// uses low-downtime updates,
 	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod pulumi.IntPtrInput
+	// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+	BackupTarget pulumi.StringPtrInput
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
@@ -746,6 +747,10 @@ type InstanceState struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringPtrInput
@@ -771,7 +776,7 @@ type InstanceState struct {
 	Endpoint pulumi.StringPtrInput
 	// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
-	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
 	EngineVersion pulumi.StringPtrInput
 	// The running version of the database.
 	EngineVersionActual pulumi.StringPtrInput
@@ -784,11 +789,9 @@ type InstanceState struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringPtrInput
@@ -834,7 +837,7 @@ type InstanceState struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
 	Name pulumi.StringPtrInput
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -881,12 +884,6 @@ type InstanceState struct {
 	RestoreToPointInTime InstanceRestoreToPointInTimePtrInput
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrInput
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayInput
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -958,6 +955,8 @@ type instanceArgs struct {
 	// uses low-downtime updates,
 	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+	BackupTarget *string `pulumi:"backupTarget"`
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
@@ -976,6 +975,10 @@ type instanceArgs struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName *string `pulumi:"dbName"`
@@ -999,7 +1002,7 @@ type instanceArgs struct {
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
-	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
@@ -1008,11 +1011,9 @@ type instanceArgs struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance type of the RDS instance.
 	InstanceClass string `pulumi:"instanceClass"`
@@ -1052,7 +1053,7 @@ type instanceArgs struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
 	Name *string `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1096,12 +1097,6 @@ type instanceArgs struct {
 	RestoreToPointInTime *InstanceRestoreToPointInTime `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import *InstanceS3Import `pulumi:"s3Import"`
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -1166,6 +1161,8 @@ type InstanceArgs struct {
 	// uses low-downtime updates,
 	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod pulumi.IntPtrInput
+	// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+	BackupTarget pulumi.StringPtrInput
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
@@ -1184,6 +1181,10 @@ type InstanceArgs struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringPtrInput
@@ -1207,7 +1208,7 @@ type InstanceArgs struct {
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
-	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+	// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
@@ -1216,11 +1217,9 @@ type InstanceArgs struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringInput
@@ -1260,7 +1259,7 @@ type InstanceArgs struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
 	Name pulumi.StringPtrInput
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1304,12 +1303,6 @@ type InstanceArgs struct {
 	RestoreToPointInTime InstanceRestoreToPointInTimePtrInput
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrInput
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayInput
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -1371,6 +1364,12 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceOutput)
 }
 
+func (i *Instance) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
+	return pulumix.Output[*Instance]{
+		OutputState: i.ToInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
@@ -1394,6 +1393,12 @@ func (i InstanceArray) ToInstanceArrayOutput() InstanceArrayOutput {
 
 func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) InstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceArrayOutput)
+}
+
+func (i InstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
+	return pulumix.Output[[]*Instance]{
+		OutputState: i.ToInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
@@ -1421,6 +1426,12 @@ func (i InstanceMap) ToInstanceMapOutputWithContext(ctx context.Context) Instanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMapOutput)
 }
 
+func (i InstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
+	return pulumix.Output[map[string]*Instance]{
+		OutputState: i.ToInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceOutput struct{ *pulumi.OutputState }
 
 func (InstanceOutput) ElementType() reflect.Type {
@@ -1433,6 +1444,12 @@ func (o InstanceOutput) ToInstanceOutput() InstanceOutput {
 
 func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) InstanceOutput {
 	return o
+}
+
+func (o InstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
+	return pulumix.Output[*Instance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the DNS address of the DB instance.
@@ -1487,6 +1504,11 @@ func (o InstanceOutput) BackupRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
 }
 
+// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+func (o InstanceOutput) BackupTarget() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BackupTarget }).(pulumi.StringOutput)
+}
+
 // The daily time range (in UTC) during which automated backups are created if they are enabled.
 // Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 func (o InstanceOutput) BackupWindow() pulumi.StringOutput {
@@ -1523,6 +1545,10 @@ func (o InstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
 }
 
 // Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+//
+// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+// Replicate database managed by the provider will promote the database to a fully
+// standalone database.
 func (o InstanceOutput) CustomerOwnedIpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.CustomerOwnedIpEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1578,7 +1604,7 @@ func (o InstanceOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+// The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
 func (o InstanceOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -1606,14 +1632,12 @@ func (o InstanceOutput) IamDatabaseAuthenticationEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.IamDatabaseAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the RDS instance,
-// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 func (o InstanceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Creates a unique
-// identifier beginning with the specified prefix. Conflicts with `identifier`.
+// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 func (o InstanceOutput) IdentifierPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.IdentifierPrefix }).(pulumi.StringOutput)
 }
@@ -1704,9 +1728,9 @@ func (o InstanceOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
 }
 
-// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-func (o InstanceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+// Deprecated: This property has been deprecated. Please use 'dbName' instead.
+func (o InstanceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
@@ -1802,15 +1826,6 @@ func (o InstanceOutput) S3Import() InstanceS3ImportPtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceS3ImportPtrOutput { return v.S3Import }).(InstanceS3ImportPtrOutput)
 }
 
-// List of DB Security Groups to
-// associate. Only used for [DB Instances on the _EC2-Classic_
-// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-//
-// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-func (o InstanceOutput) SecurityGroupNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
-}
-
 // Determines whether a final DB snapshot is
 // created before the DB instance is deleted. If true is specified, no DBSnapshot
 // is created. If false is specified, a DB snapshot is created before the DB
@@ -1898,6 +1913,12 @@ func (o InstanceArrayOutput) ToInstanceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o InstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
+	return pulumix.Output[[]*Instance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceArrayOutput) Index(i pulumi.IntInput) InstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Instance {
 		return vs[0].([]*Instance)[vs[1].(int)]
@@ -1916,6 +1937,12 @@ func (o InstanceMapOutput) ToInstanceMapOutput() InstanceMapOutput {
 
 func (o InstanceMapOutput) ToInstanceMapOutputWithContext(ctx context.Context) InstanceMapOutput {
 	return o
+}
+
+func (o InstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
+	return pulumix.Output[map[string]*Instance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceMapOutput) MapIndex(k pulumi.StringInput) InstanceOutput {

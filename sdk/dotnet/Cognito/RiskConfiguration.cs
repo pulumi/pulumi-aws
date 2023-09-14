@@ -39,11 +39,18 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Cognito Risk Configurations can be imported using the `id`, e.g.,
+    /// Import using the user pool ID:
+    /// 
+    /// Import using the user pool ID and Client ID separated by a `:`:
+    /// 
+    /// __Using `pulumi import` to import__ Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:
+    /// 
+    /// Import using the user pool ID:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
     /// ```
+    ///  Import using the user pool ID and Client ID separated by a `:`:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example

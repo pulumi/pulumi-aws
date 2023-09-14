@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const main = new aws.ses.ActiveReceiptRuleSet("main", {ruleSetName: "primary-rules"});
  * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
+ * ```
  */
 export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     /**

@@ -247,7 +247,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+        Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
 
         ```sh
          $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
@@ -316,7 +316,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+        Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
 
         ```sh
          $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket

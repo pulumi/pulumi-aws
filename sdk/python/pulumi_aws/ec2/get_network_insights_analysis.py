@@ -245,22 +245,22 @@ def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['G
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAnalysisResult).value
 
     return AwaitableGetNetworkInsightsAnalysisResult(
-        alternate_path_hints=__ret__.alternate_path_hints,
-        arn=__ret__.arn,
-        explanations=__ret__.explanations,
-        filter_in_arns=__ret__.filter_in_arns,
-        filters=__ret__.filters,
-        forward_path_components=__ret__.forward_path_components,
-        id=__ret__.id,
-        network_insights_analysis_id=__ret__.network_insights_analysis_id,
-        network_insights_path_id=__ret__.network_insights_path_id,
-        path_found=__ret__.path_found,
-        return_path_components=__ret__.return_path_components,
-        start_date=__ret__.start_date,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        tags=__ret__.tags,
-        warning_message=__ret__.warning_message)
+        alternate_path_hints=pulumi.get(__ret__, 'alternate_path_hints'),
+        arn=pulumi.get(__ret__, 'arn'),
+        explanations=pulumi.get(__ret__, 'explanations'),
+        filter_in_arns=pulumi.get(__ret__, 'filter_in_arns'),
+        filters=pulumi.get(__ret__, 'filters'),
+        forward_path_components=pulumi.get(__ret__, 'forward_path_components'),
+        id=pulumi.get(__ret__, 'id'),
+        network_insights_analysis_id=pulumi.get(__ret__, 'network_insights_analysis_id'),
+        network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
+        path_found=pulumi.get(__ret__, 'path_found'),
+        return_path_components=pulumi.get(__ret__, 'return_path_components'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        tags=pulumi.get(__ret__, 'tags'),
+        warning_message=pulumi.get(__ret__, 'warning_message'))
 
 
 @_utilities.lift_output_func(get_network_insights_analysis)

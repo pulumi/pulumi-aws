@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DB event subscription resource.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,7 +35,7 @@ import (
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.6.17"),
 //				InstanceClass:      pulumi.String("db.t2.micro"),
-//				Name:               pulumi.String("mydb"),
+//				DbName:             pulumi.String("mydb"),
 //				Username:           pulumi.String("foo"),
 //				Password:           pulumi.String("bar"),
 //				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
@@ -50,7 +52,7 @@ import (
 //				SnsTopic:   defaultTopic.Arn,
 //				SourceType: pulumi.String("db-instance"),
 //				SourceIds: pulumi.StringArray{
-//					defaultInstance.ID(),
+//					defaultInstance.Identifier,
 //				},
 //				EventCategories: pulumi.StringArray{
 //					pulumi.String("availability"),
@@ -76,7 +78,7 @@ import (
 //
 // ## Import
 //
-// DB Event Subscriptions can be imported using the `name`, e.g.,
+// Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
 //
 // ```sh
 //
@@ -102,7 +104,7 @@ type EventSubscription struct {
 	SnsTopic pulumi.StringOutput `pulumi:"snsTopic"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
-	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -120,6 +122,7 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopic == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopic'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:rds/eventSubscription:EventSubscription", name, args, &resource, opts...)
 	if err != nil {
@@ -158,7 +161,7 @@ type eventSubscriptionState struct {
 	SnsTopic *string `pulumi:"snsTopic"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds []string `pulumi:"sourceIds"`
-	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
 	SourceType *string `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -183,7 +186,7 @@ type EventSubscriptionState struct {
 	SnsTopic pulumi.StringPtrInput
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds pulumi.StringArrayInput
-	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -208,7 +211,7 @@ type eventSubscriptionArgs struct {
 	SnsTopic string `pulumi:"snsTopic"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds []string `pulumi:"sourceIds"`
-	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
 	SourceType *string `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -228,7 +231,7 @@ type EventSubscriptionArgs struct {
 	SnsTopic pulumi.StringInput
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds pulumi.StringArrayInput
-	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -257,6 +260,12 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
 }
 
+func (i *EventSubscription) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
+	return pulumix.Output[*EventSubscription]{
+		OutputState: i.ToEventSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionArrayInput is an input type that accepts EventSubscriptionArray and EventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionArrayInput` via:
 //
@@ -280,6 +289,12 @@ func (i EventSubscriptionArray) ToEventSubscriptionArrayOutput() EventSubscripti
 
 func (i EventSubscriptionArray) ToEventSubscriptionArrayOutputWithContext(ctx context.Context) EventSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionArrayOutput)
+}
+
+func (i EventSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventSubscription] {
+	return pulumix.Output[[]*EventSubscription]{
+		OutputState: i.ToEventSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventSubscriptionMapInput is an input type that accepts EventSubscriptionMap and EventSubscriptionMapOutput values.
@@ -307,6 +322,12 @@ func (i EventSubscriptionMap) ToEventSubscriptionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionMapOutput)
 }
 
+func (i EventSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSubscription] {
+	return pulumix.Output[map[string]*EventSubscription]{
+		OutputState: i.ToEventSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
@@ -319,6 +340,12 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOu
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
 	return o
+}
+
+func (o EventSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
+	return pulumix.Output[*EventSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of the RDS event notification subscription
@@ -361,7 +388,7 @@ func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
 func (o EventSubscriptionOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
 }
@@ -390,6 +417,12 @@ func (o EventSubscriptionArrayOutput) ToEventSubscriptionArrayOutputWithContext(
 	return o
 }
 
+func (o EventSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventSubscription] {
+	return pulumix.Output[[]*EventSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionArrayOutput) Index(i pulumi.IntInput) EventSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventSubscription {
 		return vs[0].([]*EventSubscription)[vs[1].(int)]
@@ -408,6 +441,12 @@ func (o EventSubscriptionMapOutput) ToEventSubscriptionMapOutput() EventSubscrip
 
 func (o EventSubscriptionMapOutput) ToEventSubscriptionMapOutputWithContext(ctx context.Context) EventSubscriptionMapOutput {
 	return o
+}
+
+func (o EventSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSubscription] {
+	return pulumix.Output[map[string]*EventSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionMapOutput) MapIndex(k pulumi.StringInput) EventSubscriptionOutput {

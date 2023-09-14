@@ -7,12 +7,111 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := worklink.NewFleet(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Network Configuration Usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := worklink.NewFleet(ctx, "example", &worklink.FleetArgs{
+// Network: &worklink.FleetNetworkArgs{
+// VpcId: pulumi.Any(aws_vpc.Test.Id),
+// SubnetIds: pulumi.StringArray{
+// %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:worklink-fleet:Fleet.pp:3,26-47),
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.Test.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// Identity Provider Configuration Usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := worklink.NewFleet(ctx, "test", &worklink.FleetArgs{
+//				IdentityProvider: &worklink.FleetIdentityProviderArgs{
+//					Type:         pulumi.String("SAML"),
+//					SamlMetadata: readFileOrPanic("saml-metadata.xml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// WorkLink can be imported using the ARN, e.g.,
+// Using `pulumi import`, import WorkLink using the ARN. For example:
 //
 // ```sh
 //
@@ -43,6 +142,10 @@ type Fleet struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network FleetNetworkPtrOutput `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation pulumi.BoolPtrOutput `pulumi:"optimizeForEndUserLocation"`
 }
 
@@ -53,6 +156,7 @@ func NewFleet(ctx *pulumi.Context,
 		args = &FleetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:worklink/fleet:Fleet", name, args, &resource, opts...)
 	if err != nil {
@@ -96,6 +200,10 @@ type fleetState struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network *FleetNetwork `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation *bool `pulumi:"optimizeForEndUserLocation"`
 }
 
@@ -121,6 +229,10 @@ type FleetState struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network FleetNetworkPtrInput
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation pulumi.BoolPtrInput
 }
 
@@ -142,6 +254,10 @@ type fleetArgs struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network *FleetNetwork `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation *bool `pulumi:"optimizeForEndUserLocation"`
 }
 
@@ -160,6 +276,10 @@ type FleetArgs struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network FleetNetworkPtrInput
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation pulumi.BoolPtrInput
 }
 
@@ -184,6 +304,12 @@ func (i *Fleet) ToFleetOutput() FleetOutput {
 
 func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetOutput)
+}
+
+func (i *Fleet) ToOutput(ctx context.Context) pulumix.Output[*Fleet] {
+	return pulumix.Output[*Fleet]{
+		OutputState: i.ToFleetOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FleetArrayInput is an input type that accepts FleetArray and FleetArrayOutput values.
@@ -211,6 +337,12 @@ func (i FleetArray) ToFleetArrayOutputWithContext(ctx context.Context) FleetArra
 	return pulumi.ToOutputWithContext(ctx, i).(FleetArrayOutput)
 }
 
+func (i FleetArray) ToOutput(ctx context.Context) pulumix.Output[[]*Fleet] {
+	return pulumix.Output[[]*Fleet]{
+		OutputState: i.ToFleetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FleetMapInput is an input type that accepts FleetMap and FleetMapOutput values.
 // You can construct a concrete instance of `FleetMapInput` via:
 //
@@ -236,6 +368,12 @@ func (i FleetMap) ToFleetMapOutputWithContext(ctx context.Context) FleetMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FleetMapOutput)
 }
 
+func (i FleetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Fleet] {
+	return pulumix.Output[map[string]*Fleet]{
+		OutputState: i.ToFleetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetOutput struct{ *pulumi.OutputState }
 
 func (FleetOutput) ElementType() reflect.Type {
@@ -248,6 +386,12 @@ func (o FleetOutput) ToFleetOutput() FleetOutput {
 
 func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
+}
+
+func (o FleetOutput) ToOutput(ctx context.Context) pulumix.Output[*Fleet] {
+	return pulumix.Output[*Fleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the created WorkLink Fleet.
@@ -301,6 +445,10 @@ func (o FleetOutput) Network() FleetNetworkPtrOutput {
 }
 
 // The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+//
+// **network** requires the following:
+//
+// > **NOTE:** `network` is cannot removed without force recreating.
 func (o FleetOutput) OptimizeForEndUserLocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.BoolPtrOutput { return v.OptimizeForEndUserLocation }).(pulumi.BoolPtrOutput)
 }
@@ -317,6 +465,12 @@ func (o FleetArrayOutput) ToFleetArrayOutput() FleetArrayOutput {
 
 func (o FleetArrayOutput) ToFleetArrayOutputWithContext(ctx context.Context) FleetArrayOutput {
 	return o
+}
+
+func (o FleetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Fleet] {
+	return pulumix.Output[[]*Fleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetArrayOutput) Index(i pulumi.IntInput) FleetOutput {
@@ -337,6 +491,12 @@ func (o FleetMapOutput) ToFleetMapOutput() FleetMapOutput {
 
 func (o FleetMapOutput) ToFleetMapOutputWithContext(ctx context.Context) FleetMapOutput {
 	return o
+}
+
+func (o FleetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Fleet] {
+	return pulumix.Output[map[string]*Fleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetMapOutput) MapIndex(k pulumi.StringInput) FleetOutput {

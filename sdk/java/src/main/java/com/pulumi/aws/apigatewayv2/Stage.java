@@ -57,11 +57,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+ * Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
  * ```
+ *  -&gt; __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
  * 
  */
 @ResourceType(type="aws:apigatewayv2/stage:Stage")
@@ -219,12 +220,16 @@ public class Stage extends com.pulumi.resources.CustomResource {
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the stage. Must be between 1 and 128 characters in length.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a version of a CloudFormation Type.
@@ -22,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// `aws_cloudformation_type` can be imported with their type version Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -108,6 +110,7 @@ func NewCloudFormationType(ctx *pulumi.Context,
 	if args.TypeName == nil {
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationType
 	err := ctx.RegisterResource("aws:cloudformation/cloudFormationType:CloudFormationType", name, args, &resource, opts...)
 	if err != nil {
@@ -257,6 +260,12 @@ func (i *CloudFormationType) ToCloudFormationTypeOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypeOutput)
 }
 
+func (i *CloudFormationType) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationType] {
+	return pulumix.Output[*CloudFormationType]{
+		OutputState: i.ToCloudFormationTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CloudFormationTypeArrayInput is an input type that accepts CloudFormationTypeArray and CloudFormationTypeArrayOutput values.
 // You can construct a concrete instance of `CloudFormationTypeArrayInput` via:
 //
@@ -280,6 +289,12 @@ func (i CloudFormationTypeArray) ToCloudFormationTypeArrayOutput() CloudFormatio
 
 func (i CloudFormationTypeArray) ToCloudFormationTypeArrayOutputWithContext(ctx context.Context) CloudFormationTypeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypeArrayOutput)
+}
+
+func (i CloudFormationTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]*CloudFormationType] {
+	return pulumix.Output[[]*CloudFormationType]{
+		OutputState: i.ToCloudFormationTypeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CloudFormationTypeMapInput is an input type that accepts CloudFormationTypeMap and CloudFormationTypeMapOutput values.
@@ -307,6 +322,12 @@ func (i CloudFormationTypeMap) ToCloudFormationTypeMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypeMapOutput)
 }
 
+func (i CloudFormationTypeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudFormationType] {
+	return pulumix.Output[map[string]*CloudFormationType]{
+		OutputState: i.ToCloudFormationTypeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CloudFormationTypeOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationTypeOutput) ElementType() reflect.Type {
@@ -319,6 +340,12 @@ func (o CloudFormationTypeOutput) ToCloudFormationTypeOutput() CloudFormationTyp
 
 func (o CloudFormationTypeOutput) ToCloudFormationTypeOutputWithContext(ctx context.Context) CloudFormationTypeOutput {
 	return o
+}
+
+func (o CloudFormationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationType] {
+	return pulumix.Output[*CloudFormationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
@@ -420,6 +447,12 @@ func (o CloudFormationTypeArrayOutput) ToCloudFormationTypeArrayOutputWithContex
 	return o
 }
 
+func (o CloudFormationTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CloudFormationType] {
+	return pulumix.Output[[]*CloudFormationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CloudFormationTypeArrayOutput) Index(i pulumi.IntInput) CloudFormationTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CloudFormationType {
 		return vs[0].([]*CloudFormationType)[vs[1].(int)]
@@ -438,6 +471,12 @@ func (o CloudFormationTypeMapOutput) ToCloudFormationTypeMapOutput() CloudFormat
 
 func (o CloudFormationTypeMapOutput) ToCloudFormationTypeMapOutputWithContext(ctx context.Context) CloudFormationTypeMapOutput {
 	return o
+}
+
+func (o CloudFormationTypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudFormationType] {
+	return pulumix.Output[map[string]*CloudFormationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CloudFormationTypeMapOutput) MapIndex(k pulumi.StringInput) CloudFormationTypeOutput {

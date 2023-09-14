@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fis.ExperimentTemplateArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateState;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateAction;
+import com.pulumi.aws.fis.outputs.ExperimentTemplateLogConfiguration;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateStopCondition;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateTarget;
 import com.pulumi.core.Output;
@@ -83,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * FIS Experiment Templates can be imported using the `id`, e.g.
+ * Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
@@ -121,6 +122,20 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
+     * The configuration for experiment logging. See below.
+     * 
+     */
+    @Export(name="logConfiguration", refs={ExperimentTemplateLogConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ExperimentTemplateLogConfiguration> logConfiguration;
+
+    /**
+     * @return The configuration for experiment logging. See below.
+     * 
+     */
+    public Output<Optional<ExperimentTemplateLogConfiguration>> logConfiguration() {
+        return Codegen.optional(this.logConfiguration);
+    }
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      * 
      */
@@ -137,12 +152,16 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
     /**
      * When an ongoing experiment should be stopped. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="stopConditions", refs={List.class,ExperimentTemplateStopCondition.class}, tree="[0,1]")
     private Output<List<ExperimentTemplateStopCondition>> stopConditions;
 
     /**
      * @return When an ongoing experiment should be stopped. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<ExperimentTemplateStopCondition>> stopConditions() {

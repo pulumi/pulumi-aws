@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MediaLive Multiplex can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
@@ -125,12 +125,16 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
     /**
      * name of Multiplex.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return name of Multiplex.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

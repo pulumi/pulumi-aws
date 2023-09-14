@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
 func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoipPoolsResult
 	err := ctx.Invoke("aws:ec2/getCoipPools:getCoipPools", args, &rv, opts...)
 	if err != nil {
@@ -23,6 +26,9 @@ func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.In
 // A collection of arguments for invoking getCoipPools.
 type GetCoipPoolsArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
@@ -55,6 +61,9 @@ func GetCoipPoolsOutput(ctx *pulumi.Context, args GetCoipPoolsOutputArgs, opts .
 // A collection of arguments for invoking getCoipPools.
 type GetCoipPoolsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetCoipPoolsFilterArrayInput `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
@@ -78,6 +87,12 @@ func (o GetCoipPoolsResultOutput) ToGetCoipPoolsResultOutput() GetCoipPoolsResul
 
 func (o GetCoipPoolsResultOutput) ToGetCoipPoolsResultOutputWithContext(ctx context.Context) GetCoipPoolsResultOutput {
 	return o
+}
+
+func (o GetCoipPoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoipPoolsResult] {
+	return pulumix.Output[GetCoipPoolsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetCoipPoolsResultOutput) Filters() GetCoipPoolsFilterArrayOutput {

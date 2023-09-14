@@ -223,8 +223,12 @@ def get_permissions(catalog_id: Optional[str] = None,
     :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
     :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+           
+           One of the following is required:
     :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
     :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -240,18 +244,18 @@ def get_permissions(catalog_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lakeformation/getPermissions:getPermissions', __args__, opts=opts, typ=GetPermissionsResult).value
 
     return AwaitableGetPermissionsResult(
-        catalog_id=__ret__.catalog_id,
-        catalog_resource=__ret__.catalog_resource,
-        data_location=__ret__.data_location,
-        database=__ret__.database,
-        id=__ret__.id,
-        lf_tag=__ret__.lf_tag,
-        lf_tag_policy=__ret__.lf_tag_policy,
-        permissions=__ret__.permissions,
-        permissions_with_grant_options=__ret__.permissions_with_grant_options,
-        principal=__ret__.principal,
-        table=__ret__.table,
-        table_with_columns=__ret__.table_with_columns)
+        catalog_id=pulumi.get(__ret__, 'catalog_id'),
+        catalog_resource=pulumi.get(__ret__, 'catalog_resource'),
+        data_location=pulumi.get(__ret__, 'data_location'),
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        lf_tag=pulumi.get(__ret__, 'lf_tag'),
+        lf_tag_policy=pulumi.get(__ret__, 'lf_tag_policy'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        permissions_with_grant_options=pulumi.get(__ret__, 'permissions_with_grant_options'),
+        principal=pulumi.get(__ret__, 'principal'),
+        table=pulumi.get(__ret__, 'table'),
+        table_with_columns=pulumi.get(__ret__, 'table_with_columns'))
 
 
 @_utilities.lift_output_func(get_permissions)
@@ -327,7 +331,11 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
     :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+           
+           One of the following is required:
     :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
     :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+           
+           The following arguments are optional:
     """
     ...

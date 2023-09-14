@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeStar Connection.
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,13 +88,11 @@ import (
 //
 // ## Import
 //
-// CodeStar connections can be imported using the ARN, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import CodeStar connections using the ARN. For exampleterraform import {
 //
-// ```sh
+//	to = aws_codestarconnections_connection.test-connection
 //
-//	$ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-//
-// ```
+//	id = "arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `TODO import`, import CodeStar connections using the ARN. For exampleconsole % TODO import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +119,7 @@ func NewConnection(ctx *pulumi.Context,
 		args = &ConnectionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:codestarconnections/connection:Connection", name, args, &resource, opts...)
 	if err != nil {
@@ -224,6 +225,12 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
+func (i *Connection) ToOutput(ctx context.Context) pulumix.Output[*Connection] {
+	return pulumix.Output[*Connection]{
+		OutputState: i.ToConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
 // You can construct a concrete instance of `ConnectionArrayInput` via:
 //
@@ -247,6 +254,12 @@ func (i ConnectionArray) ToConnectionArrayOutput() ConnectionArrayOutput {
 
 func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context) ConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionArrayOutput)
+}
+
+func (i ConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Connection] {
+	return pulumix.Output[[]*Connection]{
+		OutputState: i.ToConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
@@ -274,6 +287,12 @@ func (i ConnectionMap) ToConnectionMapOutputWithContext(ctx context.Context) Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMapOutput)
 }
 
+func (i ConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connection] {
+	return pulumix.Output[map[string]*Connection]{
+		OutputState: i.ToConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
@@ -286,6 +305,12 @@ func (o ConnectionOutput) ToConnectionOutput() ConnectionOutput {
 
 func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) ConnectionOutput {
 	return o
+}
+
+func (o ConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Connection] {
+	return pulumix.Output[*Connection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The codestar connection ARN.
@@ -337,6 +362,12 @@ func (o ConnectionArrayOutput) ToConnectionArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Connection] {
+	return pulumix.Output[[]*Connection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionArrayOutput) Index(i pulumi.IntInput) ConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Connection {
 		return vs[0].([]*Connection)[vs[1].(int)]
@@ -355,6 +386,12 @@ func (o ConnectionMapOutput) ToConnectionMapOutput() ConnectionMapOutput {
 
 func (o ConnectionMapOutput) ToConnectionMapOutputWithContext(ctx context.Context) ConnectionMapOutput {
 	return o
+}
+
+func (o ConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connection] {
+	return pulumix.Output[map[string]*Connection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionMapOutput) MapIndex(k pulumi.StringInput) ConnectionOutput {

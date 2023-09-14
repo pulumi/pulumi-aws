@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cloudfront Response Headers Policies can be imported using the `id`, e.g.
+ * Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9

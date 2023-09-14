@@ -32,7 +32,7 @@ export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: 
  */
 export interface GetReplicationInstanceArgs {
     /**
-     * The replication instance identifier. This parameter is stored as a lowercase string.
+     * The replication instance identifier.
      */
     replicationInstanceId: string;
     tags?: {[key: string]: string};
@@ -43,19 +43,11 @@ export interface GetReplicationInstanceArgs {
  */
 export interface GetReplicationInstanceResult {
     /**
-     * (Default: 50, Min: 5, Max: 6144) The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+     * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     readonly allocatedStorage: number;
     /**
-     * (Default: false) Indicates that major version upgrades are allowed.
-     */
-    readonly allowMajorVersionUpgrade: boolean;
-    /**
-     * (Default: false) Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-     */
-    readonly applyImmediately: boolean;
-    /**
-     * (Default: false) Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+     * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      */
     readonly autoMinorVersionUpgrade: boolean;
     /**
@@ -71,19 +63,23 @@ export interface GetReplicationInstanceResult {
      */
     readonly id: string;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
      */
     readonly kmsKeyArn: string;
     /**
-     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+     * Specifies if the replication instance is a multi-az deployment.
      */
     readonly multiAz: boolean;
+    /**
+     * The type of IP address protocol used by the replication instance.
+     */
+    readonly networkType: string;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
     readonly preferredMaintenanceWindow: string;
     /**
-     * (Default: false) Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+     * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
     readonly publiclyAccessible: boolean;
     /**
@@ -91,7 +87,7 @@ export interface GetReplicationInstanceResult {
      */
     readonly replicationInstanceArn: string;
     /**
-     * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+     * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
      */
     readonly replicationInstanceClass: string;
     readonly replicationInstanceId: string;
@@ -104,12 +100,12 @@ export interface GetReplicationInstanceResult {
      */
     readonly replicationInstancePublicIps: string[];
     /**
-     * (Optional) A subnet group to associate with the replication instance.
+     * A subnet group to associate with the replication instance.
      */
     readonly replicationSubnetGroupId: string;
     readonly tags: {[key: string]: string};
     /**
-     * (Optional) A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+     * A set of VPC security group IDs that are used with the replication instance.
      */
     readonly vpcSecurityGroupIds: string[];
 }
@@ -136,7 +132,7 @@ export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputA
  */
 export interface GetReplicationInstanceOutputArgs {
     /**
-     * The replication instance identifier. This parameter is stored as a lowercase string.
+     * The replication instance identifier.
      */
     replicationInstanceId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

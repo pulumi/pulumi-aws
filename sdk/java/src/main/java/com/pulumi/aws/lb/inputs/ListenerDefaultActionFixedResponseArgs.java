@@ -18,12 +18,16 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
     /**
      * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
     /**
      * @return Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> contentType() {
@@ -89,6 +93,8 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
         /**
          * @param contentType Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -99,6 +105,8 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
 
         /**
          * @param contentType Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

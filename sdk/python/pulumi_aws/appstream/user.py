@@ -24,6 +24,8 @@ class UserArgs:
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[str] user_name: Email address of the user.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[str] first_name: First name, or given name, of the user.
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
@@ -57,6 +59,8 @@ class UserArgs:
     def user_name(self) -> pulumi.Input[str]:
         """
         Email address of the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -134,6 +138,8 @@ class _UserState:
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
         :param pulumi.Input[bool] send_email_notification: Send an email notification.
         :param pulumi.Input[str] user_name: Email address of the user.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -241,6 +247,8 @@ class _UserState:
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
         Email address of the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -279,7 +287,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
@@ -293,6 +301,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
         :param pulumi.Input[bool] send_email_notification: Send an email notification.
         :param pulumi.Input[str] user_name: Email address of the user.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -318,7 +328,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
@@ -399,6 +409,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
         :param pulumi.Input[bool] send_email_notification: Send an email notification.
         :param pulumi.Input[str] user_name: Email address of the user.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -475,6 +487,8 @@ class User(pulumi.CustomResource):
     def user_name(self) -> pulumi.Output[str]:
         """
         Email address of the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 

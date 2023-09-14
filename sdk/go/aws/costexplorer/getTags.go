@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific CE Tags.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption) (*GetTagsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTagsResult
 	err := ctx.Invoke("aws:costexplorer/getTags:getTags", args, &rv, opts...)
 	if err != nil {
@@ -60,6 +63,8 @@ type GetTagsArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey *string `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values.
+	//
+	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriod `pulumi:"timePeriod"`
 }
 
@@ -100,6 +105,8 @@ type GetTagsOutputArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values.
+	//
+	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriodInput `pulumi:"timePeriod"`
 }
 
@@ -120,6 +127,12 @@ func (o GetTagsResultOutput) ToGetTagsResultOutput() GetTagsResultOutput {
 
 func (o GetTagsResultOutput) ToGetTagsResultOutputWithContext(ctx context.Context) GetTagsResultOutput {
 	return o
+}
+
+func (o GetTagsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsResult] {
+	return pulumix.Output[GetTagsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTagsResultOutput) Filter() GetTagsFilterPtrOutput {

@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Direct Connect connections can be imported using the `connection id`, e.g.,
+ * Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
@@ -137,6 +137,8 @@ export class Connection extends pulumi.CustomResource {
     public readonly providerName!: pulumi.Output<string>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     *
+     * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      */
     public readonly requestMacsec!: pulumi.Output<boolean | undefined>;
     /**
@@ -154,7 +156,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The VLAN ID.
      */
-    public /*out*/ readonly vlanId!: pulumi.Output<string>;
+    public /*out*/ readonly vlanId!: pulumi.Output<number>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -277,6 +279,8 @@ export interface ConnectionState {
     providerName?: pulumi.Input<string>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     *
+     * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      */
     requestMacsec?: pulumi.Input<boolean>;
     /**
@@ -294,7 +298,7 @@ export interface ConnectionState {
     /**
      * The VLAN ID.
      */
-    vlanId?: pulumi.Input<string>;
+    vlanId?: pulumi.Input<number>;
 }
 
 /**
@@ -323,6 +327,8 @@ export interface ConnectionArgs {
     providerName?: pulumi.Input<string>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     *
+     * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      */
     requestMacsec?: pulumi.Input<boolean>;
     /**

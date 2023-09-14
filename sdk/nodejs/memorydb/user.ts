@@ -33,12 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `user_name` to import a user. For example
+ * Using `pulumi import`, import a user using the `user_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:memorydb/user:User example my-user
  * ```
- *
  *  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
  */
 export class User extends pulumi.CustomResource {
@@ -95,6 +94,8 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the MemoryDB user. Up to 40 characters.
+     *
+     * The following arguments are optional:
      */
     public readonly userName!: pulumi.Output<string>;
 
@@ -172,6 +173,8 @@ export interface UserState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the MemoryDB user. Up to 40 characters.
+     *
+     * The following arguments are optional:
      */
     userName?: pulumi.Input<string>;
 }
@@ -194,6 +197,8 @@ export interface UserArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the MemoryDB user. Up to 40 characters.
+     *
+     * The following arguments are optional:
      */
     userName: pulumi.Input<string>;
 }

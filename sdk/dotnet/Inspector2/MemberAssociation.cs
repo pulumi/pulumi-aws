@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// ## Import
     /// 
-    /// Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+    /// Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012

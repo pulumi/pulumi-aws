@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudfront Field Level Encryption Profile can be imported using the `id`, e.g.
+ * Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON

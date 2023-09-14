@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +65,7 @@ import (
 //
 // ## Import
 //
-// DB proxies can be imported using the `name`, e.g.,
+// Using `pulumi import`, import DB proxies using the `name`. For example:
 //
 // ```sh
 //
@@ -81,7 +83,7 @@ type Proxy struct {
 	DebugLogging pulumi.BoolPtrOutput `pulumi:"debugLogging"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 	EngineFamily pulumi.StringOutput `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout pulumi.IntOutput `pulumi:"idleClientTimeout"`
@@ -120,6 +122,7 @@ func NewProxy(ctx *pulumi.Context,
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Proxy
 	err := ctx.RegisterResource("aws:rds/proxy:Proxy", name, args, &resource, opts...)
 	if err != nil {
@@ -150,7 +153,7 @@ type proxyState struct {
 	DebugLogging *bool `pulumi:"debugLogging"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint *string `pulumi:"endpoint"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 	EngineFamily *string `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
@@ -179,7 +182,7 @@ type ProxyState struct {
 	DebugLogging pulumi.BoolPtrInput
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringPtrInput
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 	EngineFamily pulumi.StringPtrInput
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout pulumi.IntPtrInput
@@ -208,7 +211,7 @@ type proxyArgs struct {
 	Auths []ProxyAuth `pulumi:"auths"`
 	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 	EngineFamily string `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
@@ -232,7 +235,7 @@ type ProxyArgs struct {
 	Auths ProxyAuthArrayInput
 	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
 	DebugLogging pulumi.BoolPtrInput
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 	EngineFamily pulumi.StringInput
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout pulumi.IntPtrInput
@@ -273,6 +276,12 @@ func (i *Proxy) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyOutput)
 }
 
+func (i *Proxy) ToOutput(ctx context.Context) pulumix.Output[*Proxy] {
+	return pulumix.Output[*Proxy]{
+		OutputState: i.ToProxyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProxyArrayInput is an input type that accepts ProxyArray and ProxyArrayOutput values.
 // You can construct a concrete instance of `ProxyArrayInput` via:
 //
@@ -296,6 +305,12 @@ func (i ProxyArray) ToProxyArrayOutput() ProxyArrayOutput {
 
 func (i ProxyArray) ToProxyArrayOutputWithContext(ctx context.Context) ProxyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyArrayOutput)
+}
+
+func (i ProxyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Proxy] {
+	return pulumix.Output[[]*Proxy]{
+		OutputState: i.ToProxyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProxyMapInput is an input type that accepts ProxyMap and ProxyMapOutput values.
@@ -323,6 +338,12 @@ func (i ProxyMap) ToProxyMapOutputWithContext(ctx context.Context) ProxyMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyMapOutput)
 }
 
+func (i ProxyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Proxy] {
+	return pulumix.Output[map[string]*Proxy]{
+		OutputState: i.ToProxyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProxyOutput struct{ *pulumi.OutputState }
 
 func (ProxyOutput) ElementType() reflect.Type {
@@ -335,6 +356,12 @@ func (o ProxyOutput) ToProxyOutput() ProxyOutput {
 
 func (o ProxyOutput) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return o
+}
+
+func (o ProxyOutput) ToOutput(ctx context.Context) pulumix.Output[*Proxy] {
+	return pulumix.Output[*Proxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the proxy.
@@ -357,7 +384,7 @@ func (o ProxyOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 func (o ProxyOutput) EngineFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.EngineFamily }).(pulumi.StringOutput)
 }
@@ -416,6 +443,12 @@ func (o ProxyArrayOutput) ToProxyArrayOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
+func (o ProxyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Proxy] {
+	return pulumix.Output[[]*Proxy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProxyArrayOutput) Index(i pulumi.IntInput) ProxyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Proxy {
 		return vs[0].([]*Proxy)[vs[1].(int)]
@@ -434,6 +467,12 @@ func (o ProxyMapOutput) ToProxyMapOutput() ProxyMapOutput {
 
 func (o ProxyMapOutput) ToProxyMapOutputWithContext(ctx context.Context) ProxyMapOutput {
 	return o
+}
+
+func (o ProxyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Proxy] {
+	return pulumix.Output[map[string]*Proxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProxyMapOutput) MapIndex(k pulumi.StringInput) ProxyOutput {

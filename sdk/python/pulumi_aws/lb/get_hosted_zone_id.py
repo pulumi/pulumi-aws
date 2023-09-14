@@ -98,9 +98,9 @@ def get_hosted_zone_id(load_balancer_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lb/getHostedZoneId:getHostedZoneId', __args__, opts=opts, typ=GetHostedZoneIdResult).value
 
     return AwaitableGetHostedZoneIdResult(
-        id=__ret__.id,
-        load_balancer_type=__ret__.load_balancer_type,
-        region=__ret__.region)
+        id=pulumi.get(__ret__, 'id'),
+        load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
+        region=pulumi.get(__ret__, 'region'))
 
 
 @_utilities.lift_output_func(get_hosted_zone_id)

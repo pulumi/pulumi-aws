@@ -65,6 +65,7 @@ import * as utilities from "../utilities";
  *     vpcId: sampleVpc.id,
  *     cidrBlock: "10.1.1.0/24",
  * });
+ * const samplePlacementGroup = new aws.ec2.PlacementGroup("samplePlacementGroup", {strategy: "cluster"});
  * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
  *     computeEnvironmentName: "sample",
  *     computeResources: {
@@ -72,6 +73,7 @@ import * as utilities from "../utilities";
  *         instanceTypes: ["c4.large"],
  *         maxVcpus: 16,
  *         minVcpus: 0,
+ *         placementGroup: samplePlacementGroup.name,
  *         securityGroupIds: [sampleSecurityGroup.id],
  *         subnets: [sampleSubnet.id],
  *         type: "EC2",
@@ -105,13 +107,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+ * Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
  * ```
- *
- *  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
  */
 export class ComputeEnvironment extends pulumi.CustomResource {
     /**

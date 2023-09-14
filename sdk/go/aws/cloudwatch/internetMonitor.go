@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Internet Monitor Monitor resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Internet Monitor Monitors can be imported using the `monitor_name`, e.g.,
+// Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 //
 // ```sh
 //
@@ -53,11 +55,15 @@ type InternetMonitor struct {
 
 	// ARN of the Monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig InternetMonitorHealthEventsConfigPtrOutput `pulumi:"healthEventsConfig"`
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrOutput `pulumi:"internetMeasurementsLogDelivery"`
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
 	MaxCityNetworksToMonitor pulumi.IntPtrOutput `pulumi:"maxCityNetworksToMonitor"`
 	// The name of the monitor.
+	//
+	// The following arguments are optional:
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
@@ -81,6 +87,7 @@ func NewInternetMonitor(ctx *pulumi.Context,
 	if args.MonitorName == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InternetMonitor
 	err := ctx.RegisterResource("aws:cloudwatch/internetMonitor:InternetMonitor", name, args, &resource, opts...)
 	if err != nil {
@@ -105,11 +112,15 @@ func GetInternetMonitor(ctx *pulumi.Context,
 type internetMonitorState struct {
 	// ARN of the Monitor.
 	Arn *string `pulumi:"arn"`
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig *InternetMonitorHealthEventsConfig `pulumi:"healthEventsConfig"`
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery *InternetMonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
 	MaxCityNetworksToMonitor *int `pulumi:"maxCityNetworksToMonitor"`
 	// The name of the monitor.
+	//
+	// The following arguments are optional:
 	MonitorName *string `pulumi:"monitorName"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources []string `pulumi:"resources"`
@@ -126,11 +137,15 @@ type internetMonitorState struct {
 type InternetMonitorState struct {
 	// ARN of the Monitor.
 	Arn pulumi.StringPtrInput
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig InternetMonitorHealthEventsConfigPtrInput
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrInput
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
 	MaxCityNetworksToMonitor pulumi.IntPtrInput
 	// The name of the monitor.
+	//
+	// The following arguments are optional:
 	MonitorName pulumi.StringPtrInput
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayInput
@@ -149,11 +164,15 @@ func (InternetMonitorState) ElementType() reflect.Type {
 }
 
 type internetMonitorArgs struct {
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig *InternetMonitorHealthEventsConfig `pulumi:"healthEventsConfig"`
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery *InternetMonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
 	MaxCityNetworksToMonitor *int `pulumi:"maxCityNetworksToMonitor"`
 	// The name of the monitor.
+	//
+	// The following arguments are optional:
 	MonitorName string `pulumi:"monitorName"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources []string `pulumi:"resources"`
@@ -167,11 +186,15 @@ type internetMonitorArgs struct {
 
 // The set of arguments for constructing a InternetMonitor resource.
 type InternetMonitorArgs struct {
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig InternetMonitorHealthEventsConfigPtrInput
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrInput
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
 	MaxCityNetworksToMonitor pulumi.IntPtrInput
 	// The name of the monitor.
+	//
+	// The following arguments are optional:
 	MonitorName pulumi.StringInput
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayInput
@@ -206,6 +229,12 @@ func (i *InternetMonitor) ToInternetMonitorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorOutput)
 }
 
+func (i *InternetMonitor) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitor] {
+	return pulumix.Output[*InternetMonitor]{
+		OutputState: i.ToInternetMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InternetMonitorArrayInput is an input type that accepts InternetMonitorArray and InternetMonitorArrayOutput values.
 // You can construct a concrete instance of `InternetMonitorArrayInput` via:
 //
@@ -229,6 +258,12 @@ func (i InternetMonitorArray) ToInternetMonitorArrayOutput() InternetMonitorArra
 
 func (i InternetMonitorArray) ToInternetMonitorArrayOutputWithContext(ctx context.Context) InternetMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorArrayOutput)
+}
+
+func (i InternetMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*InternetMonitor] {
+	return pulumix.Output[[]*InternetMonitor]{
+		OutputState: i.ToInternetMonitorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InternetMonitorMapInput is an input type that accepts InternetMonitorMap and InternetMonitorMapOutput values.
@@ -256,6 +291,12 @@ func (i InternetMonitorMap) ToInternetMonitorMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorMapOutput)
 }
 
+func (i InternetMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetMonitor] {
+	return pulumix.Output[map[string]*InternetMonitor]{
+		OutputState: i.ToInternetMonitorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InternetMonitorOutput struct{ *pulumi.OutputState }
 
 func (InternetMonitorOutput) ElementType() reflect.Type {
@@ -270,9 +311,20 @@ func (o InternetMonitorOutput) ToInternetMonitorOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o InternetMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitor] {
+	return pulumix.Output[*InternetMonitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Monitor.
 func (o InternetMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+func (o InternetMonitorOutput) HealthEventsConfig() InternetMonitorHealthEventsConfigPtrOutput {
+	return o.ApplyT(func(v *InternetMonitor) InternetMonitorHealthEventsConfigPtrOutput { return v.HealthEventsConfig }).(InternetMonitorHealthEventsConfigPtrOutput)
 }
 
 // Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
@@ -288,6 +340,8 @@ func (o InternetMonitorOutput) MaxCityNetworksToMonitor() pulumi.IntPtrOutput {
 }
 
 // The name of the monitor.
+//
+// The following arguments are optional:
 func (o InternetMonitorOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
@@ -331,6 +385,12 @@ func (o InternetMonitorArrayOutput) ToInternetMonitorArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o InternetMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InternetMonitor] {
+	return pulumix.Output[[]*InternetMonitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InternetMonitorArrayOutput) Index(i pulumi.IntInput) InternetMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InternetMonitor {
 		return vs[0].([]*InternetMonitor)[vs[1].(int)]
@@ -349,6 +409,12 @@ func (o InternetMonitorMapOutput) ToInternetMonitorMapOutput() InternetMonitorMa
 
 func (o InternetMonitorMapOutput) ToInternetMonitorMapOutputWithContext(ctx context.Context) InternetMonitorMapOutput {
 	return o
+}
+
+func (o InternetMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetMonitor] {
+	return pulumix.Output[map[string]*InternetMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InternetMonitorMapOutput) MapIndex(k pulumi.StringInput) InternetMonitorOutput {

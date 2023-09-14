@@ -81,6 +81,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// Delegation set ID.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -95,6 +97,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// Delegation set ID.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

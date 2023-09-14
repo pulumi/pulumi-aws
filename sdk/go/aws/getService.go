@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to compose and decompose AWS service DNS names.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +77,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,6 +96,7 @@ import (
 //
 // ```
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceResult
 	err := ctx.Invoke("aws:index/getService:getService", args, &rv, opts...)
 	if err != nil {
@@ -106,6 +109,7 @@ func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.Invoke
 type GetServiceArgs struct {
 	// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
 	DnsName *string `pulumi:"dnsName"`
+	Id      *string `pulumi:"id"`
 	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
 	Region *string `pulumi:"region"`
 	// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
@@ -118,8 +122,7 @@ type GetServiceArgs struct {
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
-	DnsName string `pulumi:"dnsName"`
-	// The provider-assigned unique ID for this managed resource.
+	DnsName          string `pulumi:"dnsName"`
 	Id               string `pulumi:"id"`
 	Partition        string `pulumi:"partition"`
 	Region           string `pulumi:"region"`
@@ -147,6 +150,7 @@ func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pu
 type GetServiceOutputArgs struct {
 	// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	Id      pulumi.StringPtrInput `pulumi:"id"`
 	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
@@ -176,11 +180,16 @@ func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.
 	return o
 }
 
+func (o GetServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceResult] {
+	return pulumix.Output[GetServiceResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetServiceResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o GetServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }

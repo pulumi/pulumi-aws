@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DocumentDB Clusters can be imported using the `cluster_identifier`, e.g.,
+ * Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
  *
  * ```sh
  *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -182,7 +182,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -405,7 +405,7 @@ export interface ClusterState {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -524,7 +524,7 @@ export interface ClusterArgs {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**

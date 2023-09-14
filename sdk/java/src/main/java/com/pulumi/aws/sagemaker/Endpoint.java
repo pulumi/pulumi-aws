@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Endpoints can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import endpoints using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint

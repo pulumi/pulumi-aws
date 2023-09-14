@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.InternetMonitorArgs;
 import com.pulumi.aws.cloudwatch.inputs.InternetMonitorState;
+import com.pulumi.aws.cloudwatch.outputs.InternetMonitorHealthEventsConfig;
 import com.pulumi.aws.cloudwatch.outputs.InternetMonitorInternetMeasurementsLogDelivery;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -53,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Internet Monitor Monitors can be imported using the `monitor_name`, e.g.,
+ * Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
@@ -75,6 +76,20 @@ public class InternetMonitor extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+     * 
+     */
+    @Export(name="healthEventsConfig", refs={InternetMonitorHealthEventsConfig.class}, tree="[0]")
+    private Output</* @Nullable */ InternetMonitorHealthEventsConfig> healthEventsConfig;
+
+    /**
+     * @return Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+     * 
+     */
+    public Output<Optional<InternetMonitorHealthEventsConfig>> healthEventsConfig() {
+        return Codegen.optional(this.healthEventsConfig);
     }
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
@@ -107,12 +122,16 @@ public class InternetMonitor extends com.pulumi.resources.CustomResource {
     /**
      * The name of the monitor.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="monitorName", refs={String.class}, tree="[0]")
     private Output<String> monitorName;
 
     /**
      * @return The name of the monitor.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> monitorName() {

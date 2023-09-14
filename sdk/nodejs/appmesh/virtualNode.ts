@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         },
+ *         }],
  *         serviceDiscovery: {
  *             dns: {
  *                 hostname: "serviceb.simpleapp.local",
@@ -65,12 +65,12 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         },
+ *         }],
  *         serviceDiscovery: {
  *             awsCloudMap: {
  *                 attributes: {
@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  *                 timeoutMillis: 2000,
  *                 intervalMillis: 5000,
  *             },
- *         },
+ *         }],
  *         serviceDiscovery: {
  *             dns: {
  *                 hostname: "serviceb.simpleapp.local",
@@ -133,12 +133,12 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         },
+ *         }],
  *         serviceDiscovery: {
  *             dns: {
  *                 hostname: "serviceb.simpleapp.local",
@@ -157,7 +157,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.,
+ * Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1

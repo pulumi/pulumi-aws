@@ -147,7 +147,7 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch log resource policies can be imported using the policy name, e.g.,
+        Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
@@ -214,7 +214,7 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch log resource policies can be imported using the policy name, e.g.,
+        Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy

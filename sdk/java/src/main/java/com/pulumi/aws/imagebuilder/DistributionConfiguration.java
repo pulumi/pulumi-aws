@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  *  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -135,12 +135,16 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="distributions", refs={List.class,DistributionConfigurationDistribution.class}, tree="[0,1]")
     private Output<List<DistributionConfigurationDistribution>> distributions;
 
     /**
      * @return One or more configuration blocks with distribution settings. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<DistributionConfigurationDistribution>> distributions() {

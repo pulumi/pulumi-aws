@@ -35,6 +35,12 @@ class NetworkAclRuleArgs:
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
         :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+               
+               > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+               
+               > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[int] to_port: The to port to match.
@@ -147,6 +153,12 @@ class NetworkAclRuleArgs:
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
         """
         ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+
+        > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+
+        > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         """
         return pulumi.get(self, "icmp_code")
 
@@ -211,6 +223,12 @@ class _NetworkAclRuleState:
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
         :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+               
+               > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+               
+               > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
@@ -283,6 +301,12 @@ class _NetworkAclRuleState:
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
         """
         ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+
+        > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+
+        > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         """
         return pulumi.get(self, "icmp_code")
 
@@ -423,13 +447,20 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Import
 
-        Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+        __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
+
+        Using the procotol's string value:
+
+        Using the procotol's decimal value:
+
+        __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
+
+        Using the procotol's string value:
 
         ```sh
          $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
         ```
-
-         Or by the procotol's decimal valueconsole
+         Using the procotol's decimal value:
 
         ```sh
          $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
@@ -441,6 +472,12 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
         :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+               
+               > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+               
+               > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
@@ -486,13 +523,20 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Import
 
-        Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+        __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
+
+        Using the procotol's string value:
+
+        Using the procotol's decimal value:
+
+        __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
+
+        Using the procotol's string value:
 
         ```sh
          $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
         ```
-
-         Or by the procotol's decimal valueconsole
+         Using the procotol's decimal value:
 
         ```sh
          $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
@@ -584,6 +628,12 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
         :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+               
+               > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+               
+               > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
@@ -638,6 +688,12 @@ class NetworkAclRule(pulumi.CustomResource):
     def icmp_code(self) -> pulumi.Output[Optional[int]]:
         """
         ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+
+        > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+
+        > **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         """
         return pulumi.get(self, "icmp_code")
 

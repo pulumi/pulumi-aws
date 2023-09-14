@@ -16,14 +16,14 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFunctionUrlArgs Empty = new GetFunctionUrlArgs();
 
     /**
-     * he name (or ARN) of the Lambda function.
+     * The name (or ARN) of the Lambda function.
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return he name (or ARN) of the Lambda function.
+     * @return The name (or ARN) of the Lambda function.
      * 
      */
     public Output<String> functionName() {
@@ -71,7 +71,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName he name (or ARN) of the Lambda function.
+         * @param functionName The name (or ARN) of the Lambda function.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName he name (or ARN) of the Lambda function.
+         * @param functionName The name (or ARN) of the Lambda function.
          * 
          * @return builder
          * 

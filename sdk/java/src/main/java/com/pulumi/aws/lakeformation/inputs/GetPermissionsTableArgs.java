@@ -34,12 +34,16 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
     /**
      * Name of the database for the table. Unique to a Data Catalog.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
      * @return Name of the database for the table. Unique to a Data Catalog.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> databaseName() {
@@ -127,6 +131,8 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
         /**
          * @param databaseName Name of the database for the table. Unique to a Data Catalog.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
 
         /**
          * @param databaseName Name of the database for the table. Unique to a Data Catalog.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

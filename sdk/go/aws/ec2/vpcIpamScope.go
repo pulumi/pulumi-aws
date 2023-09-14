@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a scope for AWS IPAM.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,7 +61,7 @@ import (
 //
 // ## Import
 //
-// IPAMs can be imported using the `scope_id`, e.g.
+// Using `pulumi import`, import IPAMs using the `scope_id`. For example:
 //
 // ```sh
 //
@@ -97,6 +99,7 @@ func NewVpcIpamScope(ctx *pulumi.Context,
 	if args.IpamId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamScope
 	err := ctx.RegisterResource("aws:ec2/vpcIpamScope:VpcIpamScope", name, args, &resource, opts...)
 	if err != nil {
@@ -202,6 +205,12 @@ func (i *VpcIpamScope) ToVpcIpamScopeOutputWithContext(ctx context.Context) VpcI
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamScopeOutput)
 }
 
+func (i *VpcIpamScope) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamScope] {
+	return pulumix.Output[*VpcIpamScope]{
+		OutputState: i.ToVpcIpamScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcIpamScopeArrayInput is an input type that accepts VpcIpamScopeArray and VpcIpamScopeArrayOutput values.
 // You can construct a concrete instance of `VpcIpamScopeArrayInput` via:
 //
@@ -225,6 +234,12 @@ func (i VpcIpamScopeArray) ToVpcIpamScopeArrayOutput() VpcIpamScopeArrayOutput {
 
 func (i VpcIpamScopeArray) ToVpcIpamScopeArrayOutputWithContext(ctx context.Context) VpcIpamScopeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamScopeArrayOutput)
+}
+
+func (i VpcIpamScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamScope] {
+	return pulumix.Output[[]*VpcIpamScope]{
+		OutputState: i.ToVpcIpamScopeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcIpamScopeMapInput is an input type that accepts VpcIpamScopeMap and VpcIpamScopeMapOutput values.
@@ -252,6 +267,12 @@ func (i VpcIpamScopeMap) ToVpcIpamScopeMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamScopeMapOutput)
 }
 
+func (i VpcIpamScopeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamScope] {
+	return pulumix.Output[map[string]*VpcIpamScope]{
+		OutputState: i.ToVpcIpamScopeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcIpamScopeOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamScopeOutput) ElementType() reflect.Type {
@@ -264,6 +285,12 @@ func (o VpcIpamScopeOutput) ToVpcIpamScopeOutput() VpcIpamScopeOutput {
 
 func (o VpcIpamScopeOutput) ToVpcIpamScopeOutputWithContext(ctx context.Context) VpcIpamScopeOutput {
 	return o
+}
+
+func (o VpcIpamScopeOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamScope] {
+	return pulumix.Output[*VpcIpamScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the scope.
@@ -323,6 +350,12 @@ func (o VpcIpamScopeArrayOutput) ToVpcIpamScopeArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o VpcIpamScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamScope] {
+	return pulumix.Output[[]*VpcIpamScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIpamScopeArrayOutput) Index(i pulumi.IntInput) VpcIpamScopeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamScope {
 		return vs[0].([]*VpcIpamScope)[vs[1].(int)]
@@ -341,6 +374,12 @@ func (o VpcIpamScopeMapOutput) ToVpcIpamScopeMapOutput() VpcIpamScopeMapOutput {
 
 func (o VpcIpamScopeMapOutput) ToVpcIpamScopeMapOutputWithContext(ctx context.Context) VpcIpamScopeMapOutput {
 	return o
+}
+
+func (o VpcIpamScopeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamScope] {
+	return pulumix.Output[map[string]*VpcIpamScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIpamScopeMapOutput) MapIndex(k pulumi.StringInput) VpcIpamScopeOutput {

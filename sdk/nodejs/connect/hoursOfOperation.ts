@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
  *
  * ```sh
  *  $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
@@ -100,12 +100,6 @@ export class HoursOfOperation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     *
-     * @deprecated use 'arn' attribute instead
-     */
-    public /*out*/ readonly hoursOfOperationArn!: pulumi.Output<string>;
-    /**
      * The identifier for the hours of operation.
      */
     public /*out*/ readonly hoursOfOperationId!: pulumi.Output<string>;
@@ -146,7 +140,6 @@ export class HoursOfOperation extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configs"] = state ? state.configs : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["hoursOfOperationArn"] = state ? state.hoursOfOperationArn : undefined;
             resourceInputs["hoursOfOperationId"] = state ? state.hoursOfOperationId : undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -171,7 +164,6 @@ export class HoursOfOperation extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
             resourceInputs["hoursOfOperationId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -196,12 +188,6 @@ export interface HoursOfOperationState {
      * Specifies the description of the Hours of Operation.
      */
     description?: pulumi.Input<string>;
-    /**
-     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     *
-     * @deprecated use 'arn' attribute instead
-     */
-    hoursOfOperationArn?: pulumi.Input<string>;
     /**
      * The identifier for the hours of operation.
      */

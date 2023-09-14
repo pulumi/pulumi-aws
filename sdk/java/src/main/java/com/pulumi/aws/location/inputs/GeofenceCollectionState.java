@@ -34,12 +34,16 @@ public final class GeofenceCollectionState extends com.pulumi.resources.Resource
     /**
      * The name of the geofence collection.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="collectionName")
     private @Nullable Output<String> collectionName;
 
     /**
      * @return The name of the geofence collection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> collectionName() {
@@ -183,6 +187,8 @@ public final class GeofenceCollectionState extends com.pulumi.resources.Resource
         /**
          * @param collectionName The name of the geofence collection.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -193,6 +199,8 @@ public final class GeofenceCollectionState extends com.pulumi.resources.Resource
 
         /**
          * @param collectionName The name of the geofence collection.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -34,12 +34,16 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
     /**
      * Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
      * 
+     * &gt; **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
+     * 
      */
     @Import(name="retryDuration")
     private @Nullable Output<Integer> retryDuration;
 
     /**
      * @return Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+     * 
+     * &gt; **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
      * 
      */
     public Optional<Output<Integer>> retryDuration() {
@@ -95,6 +99,8 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
         /**
          * @param retryDuration Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
          * 
+         * &gt; **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
 
         /**
          * @param retryDuration Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+         * 
+         * &gt; **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
          * 
          * @return builder
          * 

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Neptune Parameter Groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg

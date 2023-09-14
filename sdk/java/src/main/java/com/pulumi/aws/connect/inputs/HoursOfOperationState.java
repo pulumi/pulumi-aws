@@ -64,29 +64,6 @@ public final class HoursOfOperationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     * 
-     * @deprecated
-     * use &#39;arn&#39; attribute instead
-     * 
-     */
-    @Deprecated /* use 'arn' attribute instead */
-    @Import(name="hoursOfOperationArn")
-    private @Nullable Output<String> hoursOfOperationArn;
-
-    /**
-     * @return (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     * 
-     * @deprecated
-     * use &#39;arn&#39; attribute instead
-     * 
-     */
-    @Deprecated /* use 'arn' attribute instead */
-    public Optional<Output<String>> hoursOfOperationArn() {
-        return Optional.ofNullable(this.hoursOfOperationArn);
-    }
-
-    /**
      * The identifier for the hours of operation.
      * 
      */
@@ -182,7 +159,6 @@ public final class HoursOfOperationState extends com.pulumi.resources.ResourceAr
         this.arn = $.arn;
         this.configs = $.configs;
         this.description = $.description;
-        this.hoursOfOperationArn = $.hoursOfOperationArn;
         this.hoursOfOperationId = $.hoursOfOperationId;
         this.instanceId = $.instanceId;
         this.name = $.name;
@@ -280,35 +256,6 @@ public final class HoursOfOperationState extends com.pulumi.resources.ResourceAr
          */
         public Builder description(String description) {
             return description(Output.of(description));
-        }
-
-        /**
-         * @param hoursOfOperationArn (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use &#39;arn&#39; attribute instead
-         * 
-         */
-        @Deprecated /* use 'arn' attribute instead */
-        public Builder hoursOfOperationArn(@Nullable Output<String> hoursOfOperationArn) {
-            $.hoursOfOperationArn = hoursOfOperationArn;
-            return this;
-        }
-
-        /**
-         * @param hoursOfOperationArn (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use &#39;arn&#39; attribute instead
-         * 
-         */
-        @Deprecated /* use 'arn' attribute instead */
-        public Builder hoursOfOperationArn(String hoursOfOperationArn) {
-            return hoursOfOperationArn(Output.of(hoursOfOperationArn));
         }
 
         /**

@@ -24,6 +24,8 @@ class CrawlerArgs:
                  delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
+                 hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]] = None,
+                 iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
                  lake_formation_configuration: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']] = None,
                  lineage_configuration: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']] = None,
@@ -42,8 +44,11 @@ class CrawlerArgs:
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
@@ -71,6 +76,10 @@ class CrawlerArgs:
             pulumi.set(__self__, "description", description)
         if dynamodb_targets is not None:
             pulumi.set(__self__, "dynamodb_targets", dynamodb_targets)
+        if hudi_targets is not None:
+            pulumi.set(__self__, "hudi_targets", hudi_targets)
+        if iceberg_targets is not None:
+            pulumi.set(__self__, "iceberg_targets", iceberg_targets)
         if jdbc_targets is not None:
             pulumi.set(__self__, "jdbc_targets", jdbc_targets)
         if lake_formation_configuration is not None:
@@ -156,6 +165,9 @@ class CrawlerArgs:
     @property
     @pulumi.getter(name="deltaTargets")
     def delta_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]:
+        """
+        List of nested Delta Lake target arguments. See Delta Target below.
+        """
         return pulumi.get(self, "delta_targets")
 
     @delta_targets.setter
@@ -185,6 +197,30 @@ class CrawlerArgs:
     @dynamodb_targets.setter
     def dynamodb_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]]):
         pulumi.set(self, "dynamodb_targets", value)
+
+    @property
+    @pulumi.getter(name="hudiTargets")
+    def hudi_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]:
+        """
+        List nested Hudi target arguments. See Iceberg Target below.
+        """
+        return pulumi.get(self, "hudi_targets")
+
+    @hudi_targets.setter
+    def hudi_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]):
+        pulumi.set(self, "hudi_targets", value)
+
+    @property
+    @pulumi.getter(name="icebergTargets")
+    def iceberg_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]:
+        """
+        List nested Iceberg target arguments. See Iceberg Target below.
+        """
+        return pulumi.get(self, "iceberg_targets")
+
+    @iceberg_targets.setter
+    def iceberg_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]):
+        pulumi.set(self, "iceberg_targets", value)
 
     @property
     @pulumi.getter(name="jdbcTargets")
@@ -342,6 +378,8 @@ class _CrawlerState:
                  delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
+                 hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]] = None,
+                 iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
                  lake_formation_configuration: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']] = None,
                  lineage_configuration: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']] = None,
@@ -362,8 +400,11 @@ class _CrawlerState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[str] database_name: Glue database where results are written.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
@@ -395,6 +436,10 @@ class _CrawlerState:
             pulumi.set(__self__, "description", description)
         if dynamodb_targets is not None:
             pulumi.set(__self__, "dynamodb_targets", dynamodb_targets)
+        if hudi_targets is not None:
+            pulumi.set(__self__, "hudi_targets", hudi_targets)
+        if iceberg_targets is not None:
+            pulumi.set(__self__, "iceberg_targets", iceberg_targets)
         if jdbc_targets is not None:
             pulumi.set(__self__, "jdbc_targets", jdbc_targets)
         if lake_formation_configuration is not None:
@@ -484,6 +529,9 @@ class _CrawlerState:
     @property
     @pulumi.getter(name="deltaTargets")
     def delta_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]:
+        """
+        List of nested Delta Lake target arguments. See Delta Target below.
+        """
         return pulumi.get(self, "delta_targets")
 
     @delta_targets.setter
@@ -513,6 +561,30 @@ class _CrawlerState:
     @dynamodb_targets.setter
     def dynamodb_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]]):
         pulumi.set(self, "dynamodb_targets", value)
+
+    @property
+    @pulumi.getter(name="hudiTargets")
+    def hudi_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]:
+        """
+        List nested Hudi target arguments. See Iceberg Target below.
+        """
+        return pulumi.get(self, "hudi_targets")
+
+    @hudi_targets.setter
+    def hudi_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]):
+        pulumi.set(self, "hudi_targets", value)
+
+    @property
+    @pulumi.getter(name="icebergTargets")
+    def iceberg_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]:
+        """
+        List nested Iceberg target arguments. See Iceberg Target below.
+        """
+        return pulumi.get(self, "iceberg_targets")
+
+    @iceberg_targets.setter
+    def iceberg_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]):
+        pulumi.set(self, "iceberg_targets", value)
 
     @property
     @pulumi.getter(name="jdbcTargets")
@@ -695,6 +767,8 @@ class Crawler(pulumi.CustomResource):
                  delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
+                 hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]]] = None,
+                 iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
                  lake_formation_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']]] = None,
                  lineage_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']]] = None,
@@ -821,7 +895,7 @@ class Crawler(pulumi.CustomResource):
 
         ## Import
 
-        Glue Crawlers can be imported using `name`, e.g.,
+        Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
         ```sh
          $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
@@ -832,8 +906,11 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[str] database_name: Glue database where results are written.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
@@ -966,7 +1043,7 @@ class Crawler(pulumi.CustomResource):
 
         ## Import
 
-        Glue Crawlers can be imported using `name`, e.g.,
+        Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
         ```sh
          $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
@@ -994,6 +1071,8 @@ class Crawler(pulumi.CustomResource):
                  delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
+                 hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]]] = None,
+                 iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
                  lake_formation_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']]] = None,
                  lineage_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']]] = None,
@@ -1025,6 +1104,8 @@ class Crawler(pulumi.CustomResource):
             __props__.__dict__["delta_targets"] = delta_targets
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamodb_targets"] = dynamodb_targets
+            __props__.__dict__["hudi_targets"] = hudi_targets
+            __props__.__dict__["iceberg_targets"] = iceberg_targets
             __props__.__dict__["jdbc_targets"] = jdbc_targets
             __props__.__dict__["lake_formation_configuration"] = lake_formation_configuration
             __props__.__dict__["lineage_configuration"] = lineage_configuration
@@ -1060,6 +1141,8 @@ class Crawler(pulumi.CustomResource):
             delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
+            hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]]] = None,
+            iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]]] = None,
             jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
             lake_formation_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']]] = None,
             lineage_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']]] = None,
@@ -1085,8 +1168,11 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[str] database_name: Glue database where results are written.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
@@ -1114,6 +1200,8 @@ class Crawler(pulumi.CustomResource):
         __props__.__dict__["delta_targets"] = delta_targets
         __props__.__dict__["description"] = description
         __props__.__dict__["dynamodb_targets"] = dynamodb_targets
+        __props__.__dict__["hudi_targets"] = hudi_targets
+        __props__.__dict__["iceberg_targets"] = iceberg_targets
         __props__.__dict__["jdbc_targets"] = jdbc_targets
         __props__.__dict__["lake_formation_configuration"] = lake_formation_configuration
         __props__.__dict__["lineage_configuration"] = lineage_configuration
@@ -1170,6 +1258,9 @@ class Crawler(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deltaTargets")
     def delta_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerDeltaTarget']]]:
+        """
+        List of nested Delta Lake target arguments. See Delta Target below.
+        """
         return pulumi.get(self, "delta_targets")
 
     @property
@@ -1187,6 +1278,22 @@ class Crawler(pulumi.CustomResource):
         List of nested DynamoDB target arguments. See Dynamodb Target below.
         """
         return pulumi.get(self, "dynamodb_targets")
+
+    @property
+    @pulumi.getter(name="hudiTargets")
+    def hudi_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerHudiTarget']]]:
+        """
+        List nested Hudi target arguments. See Iceberg Target below.
+        """
+        return pulumi.get(self, "hudi_targets")
+
+    @property
+    @pulumi.getter(name="icebergTargets")
+    def iceberg_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerIcebergTarget']]]:
+        """
+        List nested Iceberg target arguments. See Iceberg Target below.
+        """
+        return pulumi.get(self, "iceberg_targets")
 
     @property
     @pulumi.getter(name="jdbcTargets")

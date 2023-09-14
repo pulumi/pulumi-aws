@@ -21,17 +21,17 @@ import * as utilities from "../utilities";
  * for (const range = {value: 0}; range.value < 3; range.value++) {
  *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`exampleAmazonsesDkimRecord-${range.value}`, {
  *         zoneId: "ABCDEFGHIJ123",
- *         name: pulumi.interpolate`${exampleDomainDkim.dkimTokens}._domainkey`,
+ *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}._domainkey`),
  *         type: "CNAME",
  *         ttl: 600,
- *         records: [pulumi.interpolate`${exampleDomainDkim.dkimTokens}.dkim.amazonses.com`],
+ *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}.dkim.amazonses.com`)],
  *     }));
  * }
  * ```
  *
  * ## Import
  *
- * DKIM tokens can be imported using the `domain` attribute, e.g.,
+ * Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
  *
  * ```sh
  *  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com

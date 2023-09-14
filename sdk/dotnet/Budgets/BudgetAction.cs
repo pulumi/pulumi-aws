@@ -127,10 +127,10 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// ## Import
     /// 
-    /// Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
+    /// Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
+    ///  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
     /// ```
     /// </summary>
     [AwsResourceType("aws:budgets/budgetAction:BudgetAction")]

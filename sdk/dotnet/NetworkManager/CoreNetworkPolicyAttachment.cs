@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
     /// 
-    /// &gt; **NOTE on Core Networks and Policy Attachments:** For a given policy attachment, this resource is incompatible with using the `aws.networkmanager.CoreNetwork` resource `policy_document` argument. When using that argument and this resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference.
-    /// 
     /// &gt; **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
     /// 
     /// ## Example Usage
@@ -237,7 +235,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// `aws_networkmanager_core_network_policy_attachment` can be imported using the core network ID, e.g.
+    /// Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4

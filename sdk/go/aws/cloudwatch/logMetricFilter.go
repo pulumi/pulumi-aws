@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Log Metric Filter resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.,
+// Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 //
 // ```sh
 //
@@ -88,6 +90,7 @@ func NewLogMetricFilter(ctx *pulumi.Context,
 	if args.Pattern == nil {
 		return nil, errors.New("invalid value for required argument 'Pattern'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogMetricFilter
 	err := ctx.RegisterResource("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, args, &resource, opts...)
 	if err != nil {
@@ -185,6 +188,12 @@ func (i *LogMetricFilter) ToLogMetricFilterOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterOutput)
 }
 
+func (i *LogMetricFilter) ToOutput(ctx context.Context) pulumix.Output[*LogMetricFilter] {
+	return pulumix.Output[*LogMetricFilter]{
+		OutputState: i.ToLogMetricFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogMetricFilterArrayInput is an input type that accepts LogMetricFilterArray and LogMetricFilterArrayOutput values.
 // You can construct a concrete instance of `LogMetricFilterArrayInput` via:
 //
@@ -208,6 +217,12 @@ func (i LogMetricFilterArray) ToLogMetricFilterArrayOutput() LogMetricFilterArra
 
 func (i LogMetricFilterArray) ToLogMetricFilterArrayOutputWithContext(ctx context.Context) LogMetricFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterArrayOutput)
+}
+
+func (i LogMetricFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogMetricFilter] {
+	return pulumix.Output[[]*LogMetricFilter]{
+		OutputState: i.ToLogMetricFilterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogMetricFilterMapInput is an input type that accepts LogMetricFilterMap and LogMetricFilterMapOutput values.
@@ -235,6 +250,12 @@ func (i LogMetricFilterMap) ToLogMetricFilterMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMapOutput)
 }
 
+func (i LogMetricFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogMetricFilter] {
+	return pulumix.Output[map[string]*LogMetricFilter]{
+		OutputState: i.ToLogMetricFilterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogMetricFilterOutput struct{ *pulumi.OutputState }
 
 func (LogMetricFilterOutput) ElementType() reflect.Type {
@@ -247,6 +268,12 @@ func (o LogMetricFilterOutput) ToLogMetricFilterOutput() LogMetricFilterOutput {
 
 func (o LogMetricFilterOutput) ToLogMetricFilterOutputWithContext(ctx context.Context) LogMetricFilterOutput {
 	return o
+}
+
+func (o LogMetricFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*LogMetricFilter] {
+	return pulumix.Output[*LogMetricFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the log group to associate the metric filter with.
@@ -284,6 +311,12 @@ func (o LogMetricFilterArrayOutput) ToLogMetricFilterArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o LogMetricFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogMetricFilter] {
+	return pulumix.Output[[]*LogMetricFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogMetricFilterArrayOutput) Index(i pulumi.IntInput) LogMetricFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogMetricFilter {
 		return vs[0].([]*LogMetricFilter)[vs[1].(int)]
@@ -302,6 +335,12 @@ func (o LogMetricFilterMapOutput) ToLogMetricFilterMapOutput() LogMetricFilterMa
 
 func (o LogMetricFilterMapOutput) ToLogMetricFilterMapOutputWithContext(ctx context.Context) LogMetricFilterMapOutput {
 	return o
+}
+
+func (o LogMetricFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogMetricFilter] {
+	return pulumix.Output[map[string]*LogMetricFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogMetricFilterMapOutput) MapIndex(k pulumi.StringInput) LogMetricFilterOutput {

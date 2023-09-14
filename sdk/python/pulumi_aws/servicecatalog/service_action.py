@@ -26,6 +26,8 @@ class ServiceActionArgs:
         :param pulumi.Input[str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "definition", definition)
         if accept_language is not None:
@@ -76,6 +78,8 @@ class ServiceActionArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Self-service action name.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -97,6 +101,8 @@ class _ServiceActionState:
         :param pulumi.Input['ServiceActionDefinitionArgs'] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
+               
+               The following arguments are optional:
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -148,6 +154,8 @@ class _ServiceActionState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Self-service action name.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -185,7 +193,7 @@ class ServiceAction(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
@@ -197,6 +205,8 @@ class ServiceAction(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceActionDefinitionArgs']] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -223,7 +233,7 @@ class ServiceAction(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
@@ -288,6 +298,8 @@ class ServiceAction(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceActionDefinitionArgs']] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -328,6 +340,8 @@ class ServiceAction(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Self-service action name.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

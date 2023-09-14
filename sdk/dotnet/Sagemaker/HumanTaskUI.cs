@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
+    /// Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example

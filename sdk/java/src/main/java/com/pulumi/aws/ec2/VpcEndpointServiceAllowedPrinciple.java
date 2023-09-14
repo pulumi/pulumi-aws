@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrinciple;
  * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrincipleArgs;
  * import java.util.List;

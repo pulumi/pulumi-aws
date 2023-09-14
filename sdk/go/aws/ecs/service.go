@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,7 +76,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,7 +101,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -126,7 +128,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -158,7 +160,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -182,7 +184,7 @@ import (
 //
 // ## Import
 //
-// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
+// Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 //
 // ```sh
 //
@@ -223,6 +225,8 @@ type Service struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
@@ -259,6 +263,7 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:ecs/service:Service", name, args, &resource, opts...)
 	if err != nil {
@@ -312,6 +317,8 @@ type serviceState struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
@@ -373,6 +380,8 @@ type ServiceState struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers ServiceLoadBalancerArrayInput
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
@@ -438,6 +447,8 @@ type serviceArgs struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
@@ -498,6 +509,8 @@ type ServiceArgs struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers ServiceLoadBalancerArrayInput
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
@@ -548,6 +561,12 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
+func (i *Service) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: i.ToServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
@@ -571,6 +590,12 @@ func (i ServiceArray) ToServiceArrayOutput() ServiceArrayOutput {
 
 func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) ServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceArrayOutput)
+}
+
+func (i ServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: i.ToServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
@@ -598,6 +623,12 @@ func (i ServiceMap) ToServiceMapOutputWithContext(ctx context.Context) ServiceMa
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMapOutput)
 }
 
+func (i ServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: i.ToServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
@@ -610,6 +641,12 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+func (o ServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Information about the CloudWatch alarms. See below.
@@ -688,6 +725,8 @@ func (o ServiceOutput) LoadBalancers() ServiceLoadBalancerArrayOutput {
 }
 
 // Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+//
+// The following arguments are optional:
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -771,6 +810,12 @@ func (o ServiceArrayOutput) ToServiceArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceArrayOutput) Index(i pulumi.IntInput) ServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Service {
 		return vs[0].([]*Service)[vs[1].(int)]
@@ -789,6 +834,12 @@ func (o ServiceMapOutput) ToServiceMapOutput() ServiceMapOutput {
 
 func (o ServiceMapOutput) ToServiceMapOutputWithContext(ctx context.Context) ServiceMapOutput {
 	return o
+}
+
+func (o ServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceMapOutput) MapIndex(k pulumi.StringInput) ServiceOutput {

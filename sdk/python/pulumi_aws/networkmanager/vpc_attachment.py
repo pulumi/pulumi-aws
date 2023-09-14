@@ -26,6 +26,8 @@ class VpcAttachmentArgs:
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
+               
+               The following arguments are optional:
         :param pulumi.Input['VpcAttachmentOptionsArgs'] options: Options for the VPC attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -66,6 +68,8 @@ class VpcAttachmentArgs:
     def vpc_arn(self) -> pulumi.Input[str]:
         """
         The ARN of the VPC.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_arn")
 
@@ -133,6 +137,8 @@ class _VpcAttachmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -338,6 +344,8 @@ class _VpcAttachmentState:
     def vpc_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the VPC.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_arn")
 
@@ -375,7 +383,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+        Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
 
         ```sh
          $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
@@ -388,6 +396,8 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -413,7 +423,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+        Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
 
         ```sh
          $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
@@ -516,6 +526,8 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -655,6 +667,8 @@ class VpcAttachment(pulumi.CustomResource):
     def vpc_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the VPC.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_arn")
 

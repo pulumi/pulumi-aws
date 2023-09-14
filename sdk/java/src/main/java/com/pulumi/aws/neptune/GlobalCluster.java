@@ -148,23 +148,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_neptune_global_cluster` can be imported by using the Global Cluster identifier, e.g.
+ * Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
  * ```
- * 
- *  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from configuration or use `ignore_changes` to hide the difference, e.g. terraform resource &#34;aws_neptune_global_cluster&#34; &#34;example&#34; {
- * 
- * # ... other configuration ...
- * 
- * # There is no API for reading source_db_cluster_identifier
- * 
- *  lifecycle {
- * 
- *  ignore_changes = [source_db_cluster_identifier]
- * 
- *  } }
+ *  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:neptune/globalCluster:GlobalCluster")

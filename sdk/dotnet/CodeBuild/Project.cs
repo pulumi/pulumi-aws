@@ -170,7 +170,7 @@ namespace Pulumi.Aws.CodeBuild
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
     ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/standard:1.0",
+    ///             Image = "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
     ///             Type = "LINUX_CONTAINER",
     ///             ImagePullCredentialsType = "CODEBUILD",
     ///             EnvironmentVariables = new[]
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.CodeBuild
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
     ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/standard:1.0",
+    ///             Image = "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
     ///             Type = "LINUX_CONTAINER",
     ///             ImagePullCredentialsType = "CODEBUILD",
     ///             EnvironmentVariables = new[]
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Import
     /// 
-    /// CodeBuild Project can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import CodeBuild Project using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:codebuild/project:Project name project-name
@@ -426,6 +426,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("source")]
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
@@ -640,6 +642,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
@@ -834,6 +838,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("source")]
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }

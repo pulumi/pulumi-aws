@@ -281,7 +281,7 @@ class BotAlias(pulumi.CustomResource):
 
         ## Import
 
-        Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
+        Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
 
         ```sh
          $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
@@ -320,7 +320,7 @@ class BotAlias(pulumi.CustomResource):
 
         ## Import
 
-        Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
+        Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
 
         ```sh
          $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd

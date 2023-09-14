@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+        /// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         /// </summary>
         [Input("invocationCondition")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs>? InvocationCondition { get; set; }

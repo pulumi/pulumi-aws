@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Import
     /// 
-    /// Workspaces can be imported using their ID, e.g.,
+    /// Using `pulumi import`, import Workspaces using their ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv

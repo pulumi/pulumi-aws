@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic MapReduce Studio.
@@ -22,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // ## Import
 //
-// EMR studios can be imported using the `id`, e.g.,
+// Using `pulumi import`, import EMR studios using the `id`. For example:
 //
 // ```sh
 //
@@ -92,6 +94,8 @@ type Studio struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId pulumi.StringOutput `pulumi:"workspaceSecurityGroupId"`
 }
 
@@ -123,6 +127,7 @@ func NewStudio(ctx *pulumi.Context,
 	if args.WorkspaceSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceSecurityGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws:emr/studio:Studio", name, args, &resource, opts...)
 	if err != nil {
@@ -175,6 +180,8 @@ type studioState struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId *string `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId *string `pulumi:"workspaceSecurityGroupId"`
 }
 
@@ -209,6 +216,8 @@ type StudioState struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringPtrInput
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId pulumi.StringPtrInput
 }
 
@@ -242,6 +251,8 @@ type studioArgs struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId string `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId string `pulumi:"workspaceSecurityGroupId"`
 }
 
@@ -272,6 +283,8 @@ type StudioArgs struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringInput
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId pulumi.StringInput
 }
 
@@ -296,6 +309,12 @@ func (i *Studio) ToStudioOutput() StudioOutput {
 
 func (i *Studio) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioOutput)
+}
+
+func (i *Studio) ToOutput(ctx context.Context) pulumix.Output[*Studio] {
+	return pulumix.Output[*Studio]{
+		OutputState: i.ToStudioOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StudioArrayInput is an input type that accepts StudioArray and StudioArrayOutput values.
@@ -323,6 +342,12 @@ func (i StudioArray) ToStudioArrayOutputWithContext(ctx context.Context) StudioA
 	return pulumi.ToOutputWithContext(ctx, i).(StudioArrayOutput)
 }
 
+func (i StudioArray) ToOutput(ctx context.Context) pulumix.Output[[]*Studio] {
+	return pulumix.Output[[]*Studio]{
+		OutputState: i.ToStudioArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StudioMapInput is an input type that accepts StudioMap and StudioMapOutput values.
 // You can construct a concrete instance of `StudioMapInput` via:
 //
@@ -348,6 +373,12 @@ func (i StudioMap) ToStudioMapOutputWithContext(ctx context.Context) StudioMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(StudioMapOutput)
 }
 
+func (i StudioMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Studio] {
+	return pulumix.Output[map[string]*Studio]{
+		OutputState: i.ToStudioMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StudioOutput struct{ *pulumi.OutputState }
 
 func (StudioOutput) ElementType() reflect.Type {
@@ -360,6 +391,12 @@ func (o StudioOutput) ToStudioOutput() StudioOutput {
 
 func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 	return o
+}
+
+func (o StudioOutput) ToOutput(ctx context.Context) pulumix.Output[*Studio] {
+	return pulumix.Output[*Studio]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the studio.
@@ -437,6 +474,8 @@ func (o StudioOutput) VpcId() pulumi.StringOutput {
 }
 
 // The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+//
+// The following arguments are optional:
 func (o StudioOutput) WorkspaceSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.WorkspaceSecurityGroupId }).(pulumi.StringOutput)
 }
@@ -453,6 +492,12 @@ func (o StudioArrayOutput) ToStudioArrayOutput() StudioArrayOutput {
 
 func (o StudioArrayOutput) ToStudioArrayOutputWithContext(ctx context.Context) StudioArrayOutput {
 	return o
+}
+
+func (o StudioArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Studio] {
+	return pulumix.Output[[]*Studio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StudioArrayOutput) Index(i pulumi.IntInput) StudioOutput {
@@ -473,6 +518,12 @@ func (o StudioMapOutput) ToStudioMapOutput() StudioMapOutput {
 
 func (o StudioMapOutput) ToStudioMapOutputWithContext(ctx context.Context) StudioMapOutput {
 	return o
+}
+
+func (o StudioMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Studio] {
+	return pulumix.Output[map[string]*Studio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StudioMapOutput) MapIndex(k pulumi.StringInput) StudioOutput {

@@ -18,14 +18,14 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
     public static final NetworkInsightsPathArgs Empty = new NetworkInsightsPathArgs();
 
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
     /**
-     * @return ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * @return ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     public Output<String> destination() {
@@ -65,6 +65,8 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
@@ -72,20 +74,22 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
     /**
      * @return Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> protocol() {
         return this.protocol;
     }
 
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * @return ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
     public Output<String> source() {
@@ -153,7 +157,7 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destination ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+         * @param destination ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
          * 
          * @return builder
          * 
@@ -164,7 +168,7 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destination ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+         * @param destination ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
          * 
          * @return builder
          * 
@@ -218,6 +222,8 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         /**
          * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -229,6 +235,8 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         /**
          * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -237,7 +245,7 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param source ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+         * @param source ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
          * 
          * @return builder
          * 
@@ -248,7 +256,7 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param source ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+         * @param source ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
          * 
          * @return builder
          * 

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS NetworkManager SiteToSiteAttachment.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_site_to_site_vpn_attachment` can be imported using the attachment ID, e.g.
+// Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
 //
 // ```sh
 //
@@ -78,6 +80,8 @@ type SiteToSiteVpnAttachment struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the site-to-site VPN connection.
+	//
+	// The following arguments are optional:
 	VpnConnectionArn pulumi.StringOutput `pulumi:"vpnConnectionArn"`
 }
 
@@ -94,6 +98,7 @@ func NewSiteToSiteVpnAttachment(ctx *pulumi.Context,
 	if args.VpnConnectionArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpnConnectionArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SiteToSiteVpnAttachment
 	err := ctx.RegisterResource("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -141,6 +146,8 @@ type siteToSiteVpnAttachmentState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the site-to-site VPN connection.
+	//
+	// The following arguments are optional:
 	VpnConnectionArn *string `pulumi:"vpnConnectionArn"`
 }
 
@@ -170,6 +177,8 @@ type SiteToSiteVpnAttachmentState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the site-to-site VPN connection.
+	//
+	// The following arguments are optional:
 	VpnConnectionArn pulumi.StringPtrInput
 }
 
@@ -183,6 +192,8 @@ type siteToSiteVpnAttachmentArgs struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ARN of the site-to-site VPN connection.
+	//
+	// The following arguments are optional:
 	VpnConnectionArn string `pulumi:"vpnConnectionArn"`
 }
 
@@ -193,6 +204,8 @@ type SiteToSiteVpnAttachmentArgs struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ARN of the site-to-site VPN connection.
+	//
+	// The following arguments are optional:
 	VpnConnectionArn pulumi.StringInput
 }
 
@@ -217,6 +230,12 @@ func (i *SiteToSiteVpnAttachment) ToSiteToSiteVpnAttachmentOutput() SiteToSiteVp
 
 func (i *SiteToSiteVpnAttachment) ToSiteToSiteVpnAttachmentOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentOutput)
+}
+
+func (i *SiteToSiteVpnAttachment) ToOutput(ctx context.Context) pulumix.Output[*SiteToSiteVpnAttachment] {
+	return pulumix.Output[*SiteToSiteVpnAttachment]{
+		OutputState: i.ToSiteToSiteVpnAttachmentOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SiteToSiteVpnAttachmentArrayInput is an input type that accepts SiteToSiteVpnAttachmentArray and SiteToSiteVpnAttachmentArrayOutput values.
@@ -244,6 +263,12 @@ func (i SiteToSiteVpnAttachmentArray) ToSiteToSiteVpnAttachmentArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentArrayOutput)
 }
 
+func (i SiteToSiteVpnAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*SiteToSiteVpnAttachment] {
+	return pulumix.Output[[]*SiteToSiteVpnAttachment]{
+		OutputState: i.ToSiteToSiteVpnAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SiteToSiteVpnAttachmentMapInput is an input type that accepts SiteToSiteVpnAttachmentMap and SiteToSiteVpnAttachmentMapOutput values.
 // You can construct a concrete instance of `SiteToSiteVpnAttachmentMapInput` via:
 //
@@ -269,6 +294,12 @@ func (i SiteToSiteVpnAttachmentMap) ToSiteToSiteVpnAttachmentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentMapOutput)
 }
 
+func (i SiteToSiteVpnAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SiteToSiteVpnAttachment] {
+	return pulumix.Output[map[string]*SiteToSiteVpnAttachment]{
+		OutputState: i.ToSiteToSiteVpnAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SiteToSiteVpnAttachmentOutput struct{ *pulumi.OutputState }
 
 func (SiteToSiteVpnAttachmentOutput) ElementType() reflect.Type {
@@ -281,6 +312,12 @@ func (o SiteToSiteVpnAttachmentOutput) ToSiteToSiteVpnAttachmentOutput() SiteToS
 
 func (o SiteToSiteVpnAttachmentOutput) ToSiteToSiteVpnAttachmentOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*SiteToSiteVpnAttachment] {
+	return pulumix.Output[*SiteToSiteVpnAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the attachment.
@@ -344,6 +381,8 @@ func (o SiteToSiteVpnAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The ARN of the site-to-site VPN connection.
+//
+// The following arguments are optional:
 func (o SiteToSiteVpnAttachmentOutput) VpnConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.VpnConnectionArn }).(pulumi.StringOutput)
 }
@@ -360,6 +399,12 @@ func (o SiteToSiteVpnAttachmentArrayOutput) ToSiteToSiteVpnAttachmentArrayOutput
 
 func (o SiteToSiteVpnAttachmentArrayOutput) ToSiteToSiteVpnAttachmentArrayOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentArrayOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SiteToSiteVpnAttachment] {
+	return pulumix.Output[[]*SiteToSiteVpnAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SiteToSiteVpnAttachmentArrayOutput) Index(i pulumi.IntInput) SiteToSiteVpnAttachmentOutput {
@@ -380,6 +425,12 @@ func (o SiteToSiteVpnAttachmentMapOutput) ToSiteToSiteVpnAttachmentMapOutput() S
 
 func (o SiteToSiteVpnAttachmentMapOutput) ToSiteToSiteVpnAttachmentMapOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentMapOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SiteToSiteVpnAttachment] {
+	return pulumix.Output[map[string]*SiteToSiteVpnAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SiteToSiteVpnAttachmentMapOutput) MapIndex(k pulumi.StringInput) SiteToSiteVpnAttachmentOutput {

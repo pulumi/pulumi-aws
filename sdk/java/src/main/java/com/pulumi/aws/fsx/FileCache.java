@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Amazon File Cache cache can be imported using the resource `id`.
+ * Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
@@ -284,12 +284,16 @@ public class FileCache extends com.pulumi.resources.CustomResource {
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
      * @return A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> subnetIds() {

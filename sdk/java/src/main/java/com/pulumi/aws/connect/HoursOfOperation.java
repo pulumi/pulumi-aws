@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
@@ -132,24 +132,6 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
-    }
-    /**
-     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     * 
-     * @deprecated
-     * use &#39;arn&#39; attribute instead
-     * 
-     */
-    @Deprecated /* use 'arn' attribute instead */
-    @Export(name="hoursOfOperationArn", refs={String.class}, tree="[0]")
-    private Output<String> hoursOfOperationArn;
-
-    /**
-     * @return (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     * 
-     */
-    public Output<String> hoursOfOperationArn() {
-        return this.hoursOfOperationArn;
     }
     /**
      * The identifier for the hours of operation.

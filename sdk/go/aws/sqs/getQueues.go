@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SQS (Simple Queue) Queues.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetQueues(ctx *pulumi.Context, args *GetQueuesArgs, opts ...pulumi.InvokeOption) (*GetQueuesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQueuesResult
 	err := ctx.Invoke("aws:sqs/getQueues:getQueues", args, &rv, opts...)
 	if err != nil {
@@ -98,6 +101,12 @@ func (o GetQueuesResultOutput) ToGetQueuesResultOutput() GetQueuesResultOutput {
 
 func (o GetQueuesResultOutput) ToGetQueuesResultOutputWithContext(ctx context.Context) GetQueuesResultOutput {
 	return o
+}
+
+func (o GetQueuesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQueuesResult] {
+	return pulumix.Output[GetQueuesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

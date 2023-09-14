@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppSync Domain Name.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,
+// Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
 //
 // ```sh
 //
@@ -77,6 +79,7 @@ func NewDomainName(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainName
 	err := ctx.RegisterResource("aws:appsync/domainName:DomainName", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +173,12 @@ func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNa
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameOutput)
 }
 
+func (i *DomainName) ToOutput(ctx context.Context) pulumix.Output[*DomainName] {
+	return pulumix.Output[*DomainName]{
+		OutputState: i.ToDomainNameOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainNameArrayInput is an input type that accepts DomainNameArray and DomainNameArrayOutput values.
 // You can construct a concrete instance of `DomainNameArrayInput` via:
 //
@@ -193,6 +202,12 @@ func (i DomainNameArray) ToDomainNameArrayOutput() DomainNameArrayOutput {
 
 func (i DomainNameArray) ToDomainNameArrayOutputWithContext(ctx context.Context) DomainNameArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameArrayOutput)
+}
+
+func (i DomainNameArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainName] {
+	return pulumix.Output[[]*DomainName]{
+		OutputState: i.ToDomainNameArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainNameMapInput is an input type that accepts DomainNameMap and DomainNameMapOutput values.
@@ -220,6 +235,12 @@ func (i DomainNameMap) ToDomainNameMapOutputWithContext(ctx context.Context) Dom
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMapOutput)
 }
 
+func (i DomainNameMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainName] {
+	return pulumix.Output[map[string]*DomainName]{
+		OutputState: i.ToDomainNameMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainNameOutput struct{ *pulumi.OutputState }
 
 func (DomainNameOutput) ElementType() reflect.Type {
@@ -232,6 +253,12 @@ func (o DomainNameOutput) ToDomainNameOutput() DomainNameOutput {
 
 func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
 	return o
+}
+
+func (o DomainNameOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainName] {
+	return pulumix.Output[*DomainName]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Domain name that AppSync provides.
@@ -273,6 +300,12 @@ func (o DomainNameArrayOutput) ToDomainNameArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DomainNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainName] {
+	return pulumix.Output[[]*DomainName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainNameArrayOutput) Index(i pulumi.IntInput) DomainNameOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainName {
 		return vs[0].([]*DomainName)[vs[1].(int)]
@@ -291,6 +324,12 @@ func (o DomainNameMapOutput) ToDomainNameMapOutput() DomainNameMapOutput {
 
 func (o DomainNameMapOutput) ToDomainNameMapOutputWithContext(ctx context.Context) DomainNameMapOutput {
 	return o
+}
+
+func (o DomainNameMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainName] {
+	return pulumix.Output[map[string]*DomainName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainNameMapOutput) MapIndex(k pulumi.StringInput) DomainNameOutput {

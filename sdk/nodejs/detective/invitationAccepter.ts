@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
+ * Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d

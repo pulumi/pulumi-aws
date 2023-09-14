@@ -51,7 +51,7 @@ class GetRegionsResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         """
         return pulumi.get(self, "id")
 
@@ -78,6 +78,7 @@ class AwaitableGetRegionsResult(GetRegionsResult):
 
 def get_regions(all_regions: Optional[bool] = None,
                 filters: Optional[Sequence[pulumi.InputType['GetRegionsFilterArgs']]] = None,
+                id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionsResult:
     """
     Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `get_region` data source.
@@ -118,23 +119,26 @@ def get_regions(all_regions: Optional[bool] = None,
 
     :param bool all_regions: If true the source will query all regions regardless of availability.
     :param Sequence[pulumi.InputType['GetRegionsFilterArgs']] filters: Configuration block(s) to use as filters. Detailed below.
+    :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
     """
     __args__ = dict()
     __args__['allRegions'] = all_regions
     __args__['filters'] = filters
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getRegions:getRegions', __args__, opts=opts, typ=GetRegionsResult).value
 
     return AwaitableGetRegionsResult(
-        all_regions=__ret__.all_regions,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        names=__ret__.names)
+        all_regions=pulumi.get(__ret__, 'all_regions'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_regions)
 def get_regions_output(all_regions: Optional[pulumi.Input[Optional[bool]]] = None,
                        filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRegionsFilterArgs']]]]] = None,
+                       id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionsResult]:
     """
     Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `get_region` data source.
@@ -175,5 +179,6 @@ def get_regions_output(all_regions: Optional[pulumi.Input[Optional[bool]]] = Non
 
     :param bool all_regions: If true the source will query all regions regardless of availability.
     :param Sequence[pulumi.InputType['GetRegionsFilterArgs']] filters: Configuration block(s) to use as filters. Detailed below.
+    :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
     """
     ...

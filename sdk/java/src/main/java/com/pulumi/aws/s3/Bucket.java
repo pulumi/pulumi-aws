@@ -552,7 +552,6 @@ import javax.annotation.Nullable;
  * ```sh
  *  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
  * ```
- * 
  *  The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
  * 
  */
@@ -743,12 +742,16 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      * 
+     * &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
+     * 
      */
     @Export(name="objectLockConfiguration", refs={BucketObjectLockConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ BucketObjectLockConfiguration> objectLockConfiguration;
 
     /**
      * @return A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     * 
+     * &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
      * 
      */
     public Output<Optional<BucketObjectLockConfiguration>> objectLockConfiguration() {

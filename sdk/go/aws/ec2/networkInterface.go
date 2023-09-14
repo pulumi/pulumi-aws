@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic network interface (ENI) resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +71,11 @@ import (
 //
 // ## Import
 //
-// Network Interfaces can be imported using the `id`, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_network_interface.test
 //
-//	$ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
-//
-// ```
+//	id = "eni-e5aa89a3" } Using `TODO import`, import Network Interfaces using the `id`. For exampleconsole % TODO import aws_network_interface.test eni-e5aa89a3
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
@@ -124,6 +124,8 @@ type NetworkInterface struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -141,6 +143,7 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterface
 	err := ctx.RegisterResource("aws:ec2/networkInterface:NetworkInterface", name, args, &resource, opts...)
 	if err != nil {
@@ -208,6 +211,8 @@ type networkInterfaceState struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId *string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -261,6 +266,8 @@ type NetworkInterfaceState struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -309,6 +316,8 @@ type networkInterfaceArgs struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -352,6 +361,8 @@ type NetworkInterfaceArgs struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -380,6 +391,12 @@ func (i *NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
 }
 
+func (i *NetworkInterface) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
+	return pulumix.Output[*NetworkInterface]{
+		OutputState: i.ToNetworkInterfaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkInterfaceArrayInput is an input type that accepts NetworkInterfaceArray and NetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceArrayInput` via:
 //
@@ -403,6 +420,12 @@ func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutput() NetworkInterfaceA
 
 func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutputWithContext(ctx context.Context) NetworkInterfaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceArrayOutput)
+}
+
+func (i NetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterface] {
+	return pulumix.Output[[]*NetworkInterface]{
+		OutputState: i.ToNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkInterfaceMapInput is an input type that accepts NetworkInterfaceMap and NetworkInterfaceMapOutput values.
@@ -430,6 +453,12 @@ func (i NetworkInterfaceMap) ToNetworkInterfaceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceMapOutput)
 }
 
+func (i NetworkInterfaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterface] {
+	return pulumix.Output[map[string]*NetworkInterface]{
+		OutputState: i.ToNetworkInterfaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
@@ -442,6 +471,12 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutpu
 
 func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
 	return o
+}
+
+func (o NetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
+	return pulumix.Output[*NetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the network interface.
@@ -558,6 +593,8 @@ func (o NetworkInterfaceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 }
 
 // Subnet ID to create the ENI in.
+//
+// The following arguments are optional:
 func (o NetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -586,6 +623,12 @@ func (o NetworkInterfaceArrayOutput) ToNetworkInterfaceArrayOutputWithContext(ct
 	return o
 }
 
+func (o NetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterface] {
+	return pulumix.Output[[]*NetworkInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterface {
 		return vs[0].([]*NetworkInterface)[vs[1].(int)]
@@ -604,6 +647,12 @@ func (o NetworkInterfaceMapOutput) ToNetworkInterfaceMapOutput() NetworkInterfac
 
 func (o NetworkInterfaceMapOutput) ToNetworkInterfaceMapOutputWithContext(ctx context.Context) NetworkInterfaceMapOutput {
 	return o
+}
+
+func (o NetworkInterfaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterface] {
+	return pulumix.Output[map[string]*NetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInterfaceMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceOutput {

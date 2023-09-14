@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryResult
 	err := ctx.Invoke("aws:codecommit/getRepository:getRepository", args, &rv, opts...)
 	if err != nil {
@@ -103,6 +106,12 @@ func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutput() LookupRep
 
 func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(ctx context.Context) LookupRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRepositoryResult] {
+	return pulumix.Output[LookupRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the repository

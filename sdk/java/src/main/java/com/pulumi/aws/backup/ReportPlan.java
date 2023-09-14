@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Backup Report Plan can be imported using the `id` which corresponds to the name of the Backup Report Plan, e.g.,
+ * Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
  * 
  * ```sh
  *  $ pulumi import aws:backup/reportPlan:ReportPlan test &lt;id&gt;

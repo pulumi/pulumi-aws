@@ -110,6 +110,8 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str portfolio_id: Portfolio identifier.
+           
+           The following arguments are optional:
     :param str product_id: Product identifier.
     """
     __args__ = dict()
@@ -120,11 +122,11 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints', __args__, opts=opts, typ=GetPortfolioConstraintsResult).value
 
     return AwaitableGetPortfolioConstraintsResult(
-        accept_language=__ret__.accept_language,
-        details=__ret__.details,
-        id=__ret__.id,
-        portfolio_id=__ret__.portfolio_id,
-        product_id=__ret__.product_id)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        details=pulumi.get(__ret__, 'details'),
+        id=pulumi.get(__ret__, 'id'),
+        portfolio_id=pulumi.get(__ret__, 'portfolio_id'),
+        product_id=pulumi.get(__ret__, 'product_id'))
 
 
 @_utilities.lift_output_func(get_portfolio_constraints)
@@ -148,6 +150,8 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str portfolio_id: Portfolio identifier.
+           
+           The following arguments are optional:
     :param str product_id: Product identifier.
     """
     ...

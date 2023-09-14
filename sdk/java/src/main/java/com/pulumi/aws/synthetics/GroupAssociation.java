@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Synthetics Group Association can be imported in the form `canary_arn,group_name`, e.g.,
+ * Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename

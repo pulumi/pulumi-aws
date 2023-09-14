@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+ * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
@@ -69,6 +69,8 @@ export class Analyzer extends pulumi.CustomResource {
 
     /**
      * Name of the Analyzer.
+     *
+     * The following arguments are optional:
      */
     public readonly analyzerName!: pulumi.Output<string>;
     /**
@@ -128,6 +130,8 @@ export class Analyzer extends pulumi.CustomResource {
 export interface AnalyzerState {
     /**
      * Name of the Analyzer.
+     *
+     * The following arguments are optional:
      */
     analyzerName?: pulumi.Input<string>;
     /**
@@ -154,6 +158,8 @@ export interface AnalyzerState {
 export interface AnalyzerArgs {
     /**
      * Name of the Analyzer.
+     *
+     * The following arguments are optional:
      */
     analyzerName: pulumi.Input<string>;
     /**

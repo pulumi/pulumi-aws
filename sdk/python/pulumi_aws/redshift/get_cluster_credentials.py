@@ -161,15 +161,15 @@ def get_cluster_credentials(auto_create: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:redshift/getClusterCredentials:getClusterCredentials', __args__, opts=opts, typ=GetClusterCredentialsResult).value
 
     return AwaitableGetClusterCredentialsResult(
-        auto_create=__ret__.auto_create,
-        cluster_identifier=__ret__.cluster_identifier,
-        db_groups=__ret__.db_groups,
-        db_name=__ret__.db_name,
-        db_password=__ret__.db_password,
-        db_user=__ret__.db_user,
-        duration_seconds=__ret__.duration_seconds,
-        expiration=__ret__.expiration,
-        id=__ret__.id)
+        auto_create=pulumi.get(__ret__, 'auto_create'),
+        cluster_identifier=pulumi.get(__ret__, 'cluster_identifier'),
+        db_groups=pulumi.get(__ret__, 'db_groups'),
+        db_name=pulumi.get(__ret__, 'db_name'),
+        db_password=pulumi.get(__ret__, 'db_password'),
+        db_user=pulumi.get(__ret__, 'db_user'),
+        duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_cluster_credentials)

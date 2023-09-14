@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Component.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pulumi.InvokeOption) (*LookupComponentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupComponentResult
 	err := ctx.Invoke("aws:imagebuilder/getComponent:getComponent", args, &rv, opts...)
 	if err != nil {
@@ -125,6 +128,12 @@ func (o LookupComponentResultOutput) ToLookupComponentResultOutput() LookupCompo
 
 func (o LookupComponentResultOutput) ToLookupComponentResultOutputWithContext(ctx context.Context) LookupComponentResultOutput {
 	return o
+}
+
+func (o LookupComponentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupComponentResult] {
+	return pulumix.Output[LookupComponentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupComponentResultOutput) Arn() pulumi.StringOutput {

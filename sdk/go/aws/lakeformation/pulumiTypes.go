@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DataLakeSettingsCreateDatabaseDefaultPermission struct {
 	// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -47,6 +51,12 @@ func (i DataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToDataLakeSettingsC
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateDatabaseDefaultPermissionOutput)
 }
 
+func (i DataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: i.ToDataLakeSettingsCreateDatabaseDefaultPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput is an input type that accepts DataLakeSettingsCreateDatabaseDefaultPermissionArray and DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput` via:
 //
@@ -72,6 +82,12 @@ func (i DataLakeSettingsCreateDatabaseDefaultPermissionArray) ToDataLakeSettings
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput)
 }
 
+func (i DataLakeSettingsCreateDatabaseDefaultPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[[]DataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: i.ToDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataLakeSettingsCreateDatabaseDefaultPermissionOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsCreateDatabaseDefaultPermissionOutput) ElementType() reflect.Type {
@@ -84,6 +100,12 @@ func (o DataLakeSettingsCreateDatabaseDefaultPermissionOutput) ToDataLakeSetting
 
 func (o DataLakeSettingsCreateDatabaseDefaultPermissionOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionOutput {
 	return o
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -108,6 +130,12 @@ func (o DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) ToDataLakeSe
 
 func (o DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput {
 	return o
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[[]DataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) Index(i pulumi.IntInput) DataLakeSettingsCreateDatabaseDefaultPermissionOutput {
@@ -153,6 +181,12 @@ func (i DataLakeSettingsCreateTableDefaultPermissionArgs) ToDataLakeSettingsCrea
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateTableDefaultPermissionOutput)
 }
 
+func (i DataLakeSettingsCreateTableDefaultPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[DataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: i.ToDataLakeSettingsCreateTableDefaultPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataLakeSettingsCreateTableDefaultPermissionArrayInput is an input type that accepts DataLakeSettingsCreateTableDefaultPermissionArray and DataLakeSettingsCreateTableDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `DataLakeSettingsCreateTableDefaultPermissionArrayInput` via:
 //
@@ -178,6 +212,12 @@ func (i DataLakeSettingsCreateTableDefaultPermissionArray) ToDataLakeSettingsCre
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateTableDefaultPermissionArrayOutput)
 }
 
+func (i DataLakeSettingsCreateTableDefaultPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[[]DataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: i.ToDataLakeSettingsCreateTableDefaultPermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataLakeSettingsCreateTableDefaultPermissionOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsCreateTableDefaultPermissionOutput) ElementType() reflect.Type {
@@ -190,6 +230,12 @@ func (o DataLakeSettingsCreateTableDefaultPermissionOutput) ToDataLakeSettingsCr
 
 func (o DataLakeSettingsCreateTableDefaultPermissionOutput) ToDataLakeSettingsCreateTableDefaultPermissionOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionOutput {
 	return o
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[DataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -216,6 +262,12 @@ func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) ToDataLakeSetti
 	return o
 }
 
+func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[[]DataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulumi.IntInput) DataLakeSettingsCreateTableDefaultPermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeSettingsCreateTableDefaultPermission {
 		return vs[0].([]DataLakeSettingsCreateTableDefaultPermission)[vs[1].(int)]
@@ -224,6 +276,8 @@ func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulumi.
 
 type PermissionsDataLocation struct {
 	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	//
+	// The following argument is optional:
 	Arn string `pulumi:"arn"`
 	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
@@ -242,6 +296,8 @@ type PermissionsDataLocationInput interface {
 
 type PermissionsDataLocationArgs struct {
 	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	//
+	// The following argument is optional:
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
@@ -257,6 +313,12 @@ func (i PermissionsDataLocationArgs) ToPermissionsDataLocationOutput() Permissio
 
 func (i PermissionsDataLocationArgs) ToPermissionsDataLocationOutputWithContext(ctx context.Context) PermissionsDataLocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataLocationOutput)
+}
+
+func (i PermissionsDataLocationArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsDataLocation] {
+	return pulumix.Output[PermissionsDataLocation]{
+		OutputState: i.ToPermissionsDataLocationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PermissionsDataLocationArgs) ToPermissionsDataLocationPtrOutput() PermissionsDataLocationPtrOutput {
@@ -300,6 +362,12 @@ func (i *permissionsDataLocationPtrType) ToPermissionsDataLocationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataLocationPtrOutput)
 }
 
+func (i *permissionsDataLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDataLocation] {
+	return pulumix.Output[*PermissionsDataLocation]{
+		OutputState: i.ToPermissionsDataLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsDataLocationOutput struct{ *pulumi.OutputState }
 
 func (PermissionsDataLocationOutput) ElementType() reflect.Type {
@@ -324,7 +392,15 @@ func (o PermissionsDataLocationOutput) ToPermissionsDataLocationPtrOutputWithCon
 	}).(PermissionsDataLocationPtrOutput)
 }
 
+func (o PermissionsDataLocationOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsDataLocation] {
+	return pulumix.Output[PermissionsDataLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+//
+// The following argument is optional:
 func (o PermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -348,6 +424,12 @@ func (o PermissionsDataLocationPtrOutput) ToPermissionsDataLocationPtrOutputWith
 	return o
 }
 
+func (o PermissionsDataLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDataLocation] {
+	return pulumix.Output[*PermissionsDataLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionsDataLocationPtrOutput) Elem() PermissionsDataLocationOutput {
 	return o.ApplyT(func(v *PermissionsDataLocation) PermissionsDataLocation {
 		if v != nil {
@@ -359,6 +441,8 @@ func (o PermissionsDataLocationPtrOutput) Elem() PermissionsDataLocationOutput {
 }
 
 // Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+//
+// The following argument is optional:
 func (o PermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsDataLocation) *string {
 		if v == nil {
@@ -382,6 +466,8 @@ type PermissionsDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
 	Name string `pulumi:"name"`
 }
 
@@ -400,6 +486,8 @@ type PermissionsDatabaseArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -413,6 +501,12 @@ func (i PermissionsDatabaseArgs) ToPermissionsDatabaseOutput() PermissionsDataba
 
 func (i PermissionsDatabaseArgs) ToPermissionsDatabaseOutputWithContext(ctx context.Context) PermissionsDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDatabaseOutput)
+}
+
+func (i PermissionsDatabaseArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsDatabase] {
+	return pulumix.Output[PermissionsDatabase]{
+		OutputState: i.ToPermissionsDatabaseOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PermissionsDatabaseArgs) ToPermissionsDatabasePtrOutput() PermissionsDatabasePtrOutput {
@@ -456,6 +550,12 @@ func (i *permissionsDatabasePtrType) ToPermissionsDatabasePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDatabasePtrOutput)
 }
 
+func (i *permissionsDatabasePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDatabase] {
+	return pulumix.Output[*PermissionsDatabase]{
+		OutputState: i.ToPermissionsDatabasePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsDatabaseOutput struct{ *pulumi.OutputState }
 
 func (PermissionsDatabaseOutput) ElementType() reflect.Type {
@@ -480,12 +580,20 @@ func (o PermissionsDatabaseOutput) ToPermissionsDatabasePtrOutputWithContext(ctx
 	}).(PermissionsDatabasePtrOutput)
 }
 
+func (o PermissionsDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsDatabase] {
+	return pulumix.Output[PermissionsDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PermissionsDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
 func (o PermissionsDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsDatabase) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -502,6 +610,12 @@ func (o PermissionsDatabasePtrOutput) ToPermissionsDatabasePtrOutput() Permissio
 
 func (o PermissionsDatabasePtrOutput) ToPermissionsDatabasePtrOutputWithContext(ctx context.Context) PermissionsDatabasePtrOutput {
 	return o
+}
+
+func (o PermissionsDatabasePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDatabase] {
+	return pulumix.Output[*PermissionsDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsDatabasePtrOutput) Elem() PermissionsDatabaseOutput {
@@ -525,6 +639,8 @@ func (o PermissionsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
 }
 
 // Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
 func (o PermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsDatabase) *string {
 		if v == nil {
@@ -540,6 +656,8 @@ type PermissionsLfTag struct {
 	// The key-name for the tag.
 	Key string `pulumi:"key"`
 	// A list of possible values an attribute can take.
+	//
+	// The following argument is optional:
 	Values []string `pulumi:"values"`
 }
 
@@ -560,6 +678,8 @@ type PermissionsLfTagArgs struct {
 	// The key-name for the tag.
 	Key pulumi.StringInput `pulumi:"key"`
 	// A list of possible values an attribute can take.
+	//
+	// The following argument is optional:
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -573,6 +693,12 @@ func (i PermissionsLfTagArgs) ToPermissionsLfTagOutput() PermissionsLfTagOutput 
 
 func (i PermissionsLfTagArgs) ToPermissionsLfTagOutputWithContext(ctx context.Context) PermissionsLfTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagOutput)
+}
+
+func (i PermissionsLfTagArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsLfTag] {
+	return pulumix.Output[PermissionsLfTag]{
+		OutputState: i.ToPermissionsLfTagOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PermissionsLfTagArgs) ToPermissionsLfTagPtrOutput() PermissionsLfTagPtrOutput {
@@ -616,6 +742,12 @@ func (i *permissionsLfTagPtrType) ToPermissionsLfTagPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPtrOutput)
 }
 
+func (i *permissionsLfTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsLfTag] {
+	return pulumix.Output[*PermissionsLfTag]{
+		OutputState: i.ToPermissionsLfTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsLfTagOutput struct{ *pulumi.OutputState }
 
 func (PermissionsLfTagOutput) ElementType() reflect.Type {
@@ -640,6 +772,12 @@ func (o PermissionsLfTagOutput) ToPermissionsLfTagPtrOutputWithContext(ctx conte
 	}).(PermissionsLfTagPtrOutput)
 }
 
+func (o PermissionsLfTagOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsLfTag] {
+	return pulumix.Output[PermissionsLfTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PermissionsLfTagOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
@@ -651,6 +789,8 @@ func (o PermissionsLfTagOutput) Key() pulumi.StringOutput {
 }
 
 // A list of possible values an attribute can take.
+//
+// The following argument is optional:
 func (o PermissionsLfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -667,6 +807,12 @@ func (o PermissionsLfTagPtrOutput) ToPermissionsLfTagPtrOutput() PermissionsLfTa
 
 func (o PermissionsLfTagPtrOutput) ToPermissionsLfTagPtrOutputWithContext(ctx context.Context) PermissionsLfTagPtrOutput {
 	return o
+}
+
+func (o PermissionsLfTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsLfTag] {
+	return pulumix.Output[*PermissionsLfTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsLfTagPtrOutput) Elem() PermissionsLfTagOutput {
@@ -700,6 +846,8 @@ func (o PermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 // A list of possible values an attribute can take.
+//
+// The following argument is optional:
 func (o PermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionsLfTag) []string {
 		if v == nil {
@@ -713,6 +861,8 @@ type PermissionsLfTagPolicy struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	//
+	// The following argument is optional:
 	Expressions []PermissionsLfTagPolicyExpression `pulumi:"expressions"`
 	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 	ResourceType string `pulumi:"resourceType"`
@@ -733,6 +883,8 @@ type PermissionsLfTagPolicyArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	//
+	// The following argument is optional:
 	Expressions PermissionsLfTagPolicyExpressionArrayInput `pulumi:"expressions"`
 	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
@@ -748,6 +900,12 @@ func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyOutput() Permissions
 
 func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyOutputWithContext(ctx context.Context) PermissionsLfTagPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyOutput)
+}
+
+func (i PermissionsLfTagPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsLfTagPolicy] {
+	return pulumix.Output[PermissionsLfTagPolicy]{
+		OutputState: i.ToPermissionsLfTagPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyPtrOutput() PermissionsLfTagPolicyPtrOutput {
@@ -791,6 +949,12 @@ func (i *permissionsLfTagPolicyPtrType) ToPermissionsLfTagPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyPtrOutput)
 }
 
+func (i *permissionsLfTagPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsLfTagPolicy] {
+	return pulumix.Output[*PermissionsLfTagPolicy]{
+		OutputState: i.ToPermissionsLfTagPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsLfTagPolicyOutput struct{ *pulumi.OutputState }
 
 func (PermissionsLfTagPolicyOutput) ElementType() reflect.Type {
@@ -815,12 +979,20 @@ func (o PermissionsLfTagPolicyOutput) ToPermissionsLfTagPolicyPtrOutputWithConte
 	}).(PermissionsLfTagPolicyPtrOutput)
 }
 
+func (o PermissionsLfTagPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsLfTagPolicy] {
+	return pulumix.Output[PermissionsLfTagPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PermissionsLfTagPolicyOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsLfTagPolicy) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+//
+// The following argument is optional:
 func (o PermissionsLfTagPolicyOutput) Expressions() PermissionsLfTagPolicyExpressionArrayOutput {
 	return o.ApplyT(func(v PermissionsLfTagPolicy) []PermissionsLfTagPolicyExpression { return v.Expressions }).(PermissionsLfTagPolicyExpressionArrayOutput)
 }
@@ -844,6 +1016,12 @@ func (o PermissionsLfTagPolicyPtrOutput) ToPermissionsLfTagPolicyPtrOutputWithCo
 	return o
 }
 
+func (o PermissionsLfTagPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsLfTagPolicy] {
+	return pulumix.Output[*PermissionsLfTagPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionsLfTagPolicyPtrOutput) Elem() PermissionsLfTagPolicyOutput {
 	return o.ApplyT(func(v *PermissionsLfTagPolicy) PermissionsLfTagPolicy {
 		if v != nil {
@@ -865,6 +1043,8 @@ func (o PermissionsLfTagPolicyPtrOutput) CatalogId() pulumi.StringPtrOutput {
 }
 
 // A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+//
+// The following argument is optional:
 func (o PermissionsLfTagPolicyPtrOutput) Expressions() PermissionsLfTagPolicyExpressionArrayOutput {
 	return o.ApplyT(func(v *PermissionsLfTagPolicy) []PermissionsLfTagPolicyExpression {
 		if v == nil {
@@ -921,6 +1101,12 @@ func (i PermissionsLfTagPolicyExpressionArgs) ToPermissionsLfTagPolicyExpression
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyExpressionOutput)
 }
 
+func (i PermissionsLfTagPolicyExpressionArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsLfTagPolicyExpression] {
+	return pulumix.Output[PermissionsLfTagPolicyExpression]{
+		OutputState: i.ToPermissionsLfTagPolicyExpressionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PermissionsLfTagPolicyExpressionArrayInput is an input type that accepts PermissionsLfTagPolicyExpressionArray and PermissionsLfTagPolicyExpressionArrayOutput values.
 // You can construct a concrete instance of `PermissionsLfTagPolicyExpressionArrayInput` via:
 //
@@ -946,6 +1132,12 @@ func (i PermissionsLfTagPolicyExpressionArray) ToPermissionsLfTagPolicyExpressio
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyExpressionArrayOutput)
 }
 
+func (i PermissionsLfTagPolicyExpressionArray) ToOutput(ctx context.Context) pulumix.Output[[]PermissionsLfTagPolicyExpression] {
+	return pulumix.Output[[]PermissionsLfTagPolicyExpression]{
+		OutputState: i.ToPermissionsLfTagPolicyExpressionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsLfTagPolicyExpressionOutput struct{ *pulumi.OutputState }
 
 func (PermissionsLfTagPolicyExpressionOutput) ElementType() reflect.Type {
@@ -958,6 +1150,12 @@ func (o PermissionsLfTagPolicyExpressionOutput) ToPermissionsLfTagPolicyExpressi
 
 func (o PermissionsLfTagPolicyExpressionOutput) ToPermissionsLfTagPolicyExpressionOutputWithContext(ctx context.Context) PermissionsLfTagPolicyExpressionOutput {
 	return o
+}
+
+func (o PermissionsLfTagPolicyExpressionOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsLfTagPolicyExpression] {
+	return pulumix.Output[PermissionsLfTagPolicyExpression]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key-name of an LF-Tag.
@@ -984,6 +1182,12 @@ func (o PermissionsLfTagPolicyExpressionArrayOutput) ToPermissionsLfTagPolicyExp
 	return o
 }
 
+func (o PermissionsLfTagPolicyExpressionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PermissionsLfTagPolicyExpression] {
+	return pulumix.Output[[]PermissionsLfTagPolicyExpression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionsLfTagPolicyExpressionArrayOutput) Index(i pulumi.IntInput) PermissionsLfTagPolicyExpressionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionsLfTagPolicyExpression {
 		return vs[0].([]PermissionsLfTagPolicyExpression)[vs[1].(int)]
@@ -998,6 +1202,8 @@ type PermissionsTable struct {
 	// Name of the table.
 	Name *string `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+	//
+	// The following arguments are optional:
 	Wildcard *bool `pulumi:"wildcard"`
 }
 
@@ -1020,6 +1226,8 @@ type PermissionsTableArgs struct {
 	// Name of the table.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+	//
+	// The following arguments are optional:
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1033,6 +1241,12 @@ func (i PermissionsTableArgs) ToPermissionsTableOutput() PermissionsTableOutput 
 
 func (i PermissionsTableArgs) ToPermissionsTableOutputWithContext(ctx context.Context) PermissionsTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableOutput)
+}
+
+func (i PermissionsTableArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsTable] {
+	return pulumix.Output[PermissionsTable]{
+		OutputState: i.ToPermissionsTableOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PermissionsTableArgs) ToPermissionsTablePtrOutput() PermissionsTablePtrOutput {
@@ -1076,6 +1290,12 @@ func (i *permissionsTablePtrType) ToPermissionsTablePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTablePtrOutput)
 }
 
+func (i *permissionsTablePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTable] {
+	return pulumix.Output[*PermissionsTable]{
+		OutputState: i.ToPermissionsTablePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsTableOutput struct{ *pulumi.OutputState }
 
 func (PermissionsTableOutput) ElementType() reflect.Type {
@@ -1100,6 +1320,12 @@ func (o PermissionsTableOutput) ToPermissionsTablePtrOutputWithContext(ctx conte
 	}).(PermissionsTablePtrOutput)
 }
 
+func (o PermissionsTableOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsTable] {
+	return pulumix.Output[PermissionsTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PermissionsTableOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
@@ -1116,6 +1342,8 @@ func (o PermissionsTableOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Whether to use a wildcard representing every table under a database. Defaults to `false`.
+//
+// The following arguments are optional:
 func (o PermissionsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PermissionsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1132,6 +1360,12 @@ func (o PermissionsTablePtrOutput) ToPermissionsTablePtrOutput() PermissionsTabl
 
 func (o PermissionsTablePtrOutput) ToPermissionsTablePtrOutputWithContext(ctx context.Context) PermissionsTablePtrOutput {
 	return o
+}
+
+func (o PermissionsTablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTable] {
+	return pulumix.Output[*PermissionsTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsTablePtrOutput) Elem() PermissionsTableOutput {
@@ -1175,6 +1409,8 @@ func (o PermissionsTablePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Whether to use a wildcard representing every table under a database. Defaults to `false`.
+//
+// The following arguments are optional:
 func (o PermissionsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PermissionsTable) *bool {
 		if v == nil {
@@ -1196,6 +1432,8 @@ type PermissionsTableWithColumns struct {
 	// Name of the table resource.
 	Name string `pulumi:"name"`
 	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	//
+	// The following arguments are optional:
 	Wildcard *bool `pulumi:"wildcard"`
 }
 
@@ -1222,6 +1460,8 @@ type PermissionsTableWithColumnsArgs struct {
 	// Name of the table resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	//
+	// The following arguments are optional:
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1235,6 +1475,12 @@ func (i PermissionsTableWithColumnsArgs) ToPermissionsTableWithColumnsOutput() P
 
 func (i PermissionsTableWithColumnsArgs) ToPermissionsTableWithColumnsOutputWithContext(ctx context.Context) PermissionsTableWithColumnsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWithColumnsOutput)
+}
+
+func (i PermissionsTableWithColumnsArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableWithColumns] {
+	return pulumix.Output[PermissionsTableWithColumns]{
+		OutputState: i.ToPermissionsTableWithColumnsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PermissionsTableWithColumnsArgs) ToPermissionsTableWithColumnsPtrOutput() PermissionsTableWithColumnsPtrOutput {
@@ -1278,6 +1524,12 @@ func (i *permissionsTableWithColumnsPtrType) ToPermissionsTableWithColumnsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWithColumnsPtrOutput)
 }
 
+func (i *permissionsTableWithColumnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableWithColumns] {
+	return pulumix.Output[*PermissionsTableWithColumns]{
+		OutputState: i.ToPermissionsTableWithColumnsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsTableWithColumnsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsTableWithColumnsOutput) ElementType() reflect.Type {
@@ -1300,6 +1552,12 @@ func (o PermissionsTableWithColumnsOutput) ToPermissionsTableWithColumnsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsTableWithColumns) *PermissionsTableWithColumns {
 		return &v
 	}).(PermissionsTableWithColumnsPtrOutput)
+}
+
+func (o PermissionsTableWithColumnsOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableWithColumns] {
+	return pulumix.Output[PermissionsTableWithColumns]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -1328,6 +1586,8 @@ func (o PermissionsTableWithColumnsOutput) Name() pulumi.StringOutput {
 }
 
 // Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+//
+// The following arguments are optional:
 func (o PermissionsTableWithColumnsOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumns) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1344,6 +1604,12 @@ func (o PermissionsTableWithColumnsPtrOutput) ToPermissionsTableWithColumnsPtrOu
 
 func (o PermissionsTableWithColumnsPtrOutput) ToPermissionsTableWithColumnsPtrOutputWithContext(ctx context.Context) PermissionsTableWithColumnsPtrOutput {
 	return o
+}
+
+func (o PermissionsTableWithColumnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableWithColumns] {
+	return pulumix.Output[*PermissionsTableWithColumns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsTableWithColumnsPtrOutput) Elem() PermissionsTableWithColumnsOutput {
@@ -1407,6 +1673,8 @@ func (o PermissionsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+//
+// The following arguments are optional:
 func (o PermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PermissionsTableWithColumns) *bool {
 		if v == nil {
@@ -1420,6 +1688,8 @@ type ResourceLfTagsDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
 	Name string `pulumi:"name"`
 }
 
@@ -1438,6 +1708,8 @@ type ResourceLfTagsDatabaseArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1451,6 +1723,12 @@ func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabaseOutput() ResourceLfT
 
 func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabaseOutputWithContext(ctx context.Context) ResourceLfTagsDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsDatabaseOutput)
+}
+
+func (i ResourceLfTagsDatabaseArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsDatabase] {
+	return pulumix.Output[ResourceLfTagsDatabase]{
+		OutputState: i.ToResourceLfTagsDatabaseOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabasePtrOutput() ResourceLfTagsDatabasePtrOutput {
@@ -1494,6 +1772,12 @@ func (i *resourceLfTagsDatabasePtrType) ToResourceLfTagsDatabasePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsDatabasePtrOutput)
 }
 
+func (i *resourceLfTagsDatabasePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTagsDatabase] {
+	return pulumix.Output[*ResourceLfTagsDatabase]{
+		OutputState: i.ToResourceLfTagsDatabasePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceLfTagsDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ResourceLfTagsDatabaseOutput) ElementType() reflect.Type {
@@ -1518,12 +1802,20 @@ func (o ResourceLfTagsDatabaseOutput) ToResourceLfTagsDatabasePtrOutputWithConte
 	}).(ResourceLfTagsDatabasePtrOutput)
 }
 
+func (o ResourceLfTagsDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsDatabase] {
+	return pulumix.Output[ResourceLfTagsDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o ResourceLfTagsDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
 func (o ResourceLfTagsDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceLfTagsDatabase) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1540,6 +1832,12 @@ func (o ResourceLfTagsDatabasePtrOutput) ToResourceLfTagsDatabasePtrOutput() Res
 
 func (o ResourceLfTagsDatabasePtrOutput) ToResourceLfTagsDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagsDatabasePtrOutput {
 	return o
+}
+
+func (o ResourceLfTagsDatabasePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTagsDatabase] {
+	return pulumix.Output[*ResourceLfTagsDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceLfTagsDatabasePtrOutput) Elem() ResourceLfTagsDatabaseOutput {
@@ -1563,6 +1861,8 @@ func (o ResourceLfTagsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
 }
 
 // Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
 func (o ResourceLfTagsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsDatabase) *string {
 		if v == nil {
@@ -1578,6 +1878,8 @@ type ResourceLfTagsLfTag struct {
 	// Key name for an existing LF-tag.
 	Key string `pulumi:"key"`
 	// Value from the possible values for the LF-tag.
+	//
+	// The following argument is optional:
 	Value string `pulumi:"value"`
 }
 
@@ -1598,6 +1900,8 @@ type ResourceLfTagsLfTagArgs struct {
 	// Key name for an existing LF-tag.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Value from the possible values for the LF-tag.
+	//
+	// The following argument is optional:
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1611,6 +1915,12 @@ func (i ResourceLfTagsLfTagArgs) ToResourceLfTagsLfTagOutput() ResourceLfTagsLfT
 
 func (i ResourceLfTagsLfTagArgs) ToResourceLfTagsLfTagOutputWithContext(ctx context.Context) ResourceLfTagsLfTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsLfTagOutput)
+}
+
+func (i ResourceLfTagsLfTagArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsLfTag] {
+	return pulumix.Output[ResourceLfTagsLfTag]{
+		OutputState: i.ToResourceLfTagsLfTagOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceLfTagsLfTagArrayInput is an input type that accepts ResourceLfTagsLfTagArray and ResourceLfTagsLfTagArrayOutput values.
@@ -1638,6 +1948,12 @@ func (i ResourceLfTagsLfTagArray) ToResourceLfTagsLfTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsLfTagArrayOutput)
 }
 
+func (i ResourceLfTagsLfTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceLfTagsLfTag] {
+	return pulumix.Output[[]ResourceLfTagsLfTag]{
+		OutputState: i.ToResourceLfTagsLfTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceLfTagsLfTagOutput struct{ *pulumi.OutputState }
 
 func (ResourceLfTagsLfTagOutput) ElementType() reflect.Type {
@@ -1652,6 +1968,12 @@ func (o ResourceLfTagsLfTagOutput) ToResourceLfTagsLfTagOutputWithContext(ctx co
 	return o
 }
 
+func (o ResourceLfTagsLfTagOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsLfTag] {
+	return pulumix.Output[ResourceLfTagsLfTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o ResourceLfTagsLfTagOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
@@ -1663,6 +1985,8 @@ func (o ResourceLfTagsLfTagOutput) Key() pulumi.StringOutput {
 }
 
 // Value from the possible values for the LF-tag.
+//
+// The following argument is optional:
 func (o ResourceLfTagsLfTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceLfTagsLfTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1681,6 +2005,12 @@ func (o ResourceLfTagsLfTagArrayOutput) ToResourceLfTagsLfTagArrayOutputWithCont
 	return o
 }
 
+func (o ResourceLfTagsLfTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceLfTagsLfTag] {
+	return pulumix.Output[[]ResourceLfTagsLfTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceLfTagsLfTagArrayOutput) Index(i pulumi.IntInput) ResourceLfTagsLfTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceLfTagsLfTag {
 		return vs[0].([]ResourceLfTagsLfTag)[vs[1].(int)]
@@ -1695,6 +2025,8 @@ type ResourceLfTagsTable struct {
 	// Name of the table.
 	Name *string `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+	//
+	// The following arguments are optional:
 	Wildcard *bool `pulumi:"wildcard"`
 }
 
@@ -1717,6 +2049,8 @@ type ResourceLfTagsTableArgs struct {
 	// Name of the table.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+	//
+	// The following arguments are optional:
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1730,6 +2064,12 @@ func (i ResourceLfTagsTableArgs) ToResourceLfTagsTableOutput() ResourceLfTagsTab
 
 func (i ResourceLfTagsTableArgs) ToResourceLfTagsTableOutputWithContext(ctx context.Context) ResourceLfTagsTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableOutput)
+}
+
+func (i ResourceLfTagsTableArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsTable] {
+	return pulumix.Output[ResourceLfTagsTable]{
+		OutputState: i.ToResourceLfTagsTableOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ResourceLfTagsTableArgs) ToResourceLfTagsTablePtrOutput() ResourceLfTagsTablePtrOutput {
@@ -1773,6 +2113,12 @@ func (i *resourceLfTagsTablePtrType) ToResourceLfTagsTablePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTablePtrOutput)
 }
 
+func (i *resourceLfTagsTablePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTagsTable] {
+	return pulumix.Output[*ResourceLfTagsTable]{
+		OutputState: i.ToResourceLfTagsTablePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceLfTagsTableOutput struct{ *pulumi.OutputState }
 
 func (ResourceLfTagsTableOutput) ElementType() reflect.Type {
@@ -1797,6 +2143,12 @@ func (o ResourceLfTagsTableOutput) ToResourceLfTagsTablePtrOutputWithContext(ctx
 	}).(ResourceLfTagsTablePtrOutput)
 }
 
+func (o ResourceLfTagsTableOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsTable] {
+	return pulumix.Output[ResourceLfTagsTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o ResourceLfTagsTableOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
@@ -1813,6 +2165,8 @@ func (o ResourceLfTagsTableOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Whether to use a wildcard representing every table under a database. Defaults to `false`.
+//
+// The following arguments are optional:
 func (o ResourceLfTagsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1829,6 +2183,12 @@ func (o ResourceLfTagsTablePtrOutput) ToResourceLfTagsTablePtrOutput() ResourceL
 
 func (o ResourceLfTagsTablePtrOutput) ToResourceLfTagsTablePtrOutputWithContext(ctx context.Context) ResourceLfTagsTablePtrOutput {
 	return o
+}
+
+func (o ResourceLfTagsTablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTagsTable] {
+	return pulumix.Output[*ResourceLfTagsTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceLfTagsTablePtrOutput) Elem() ResourceLfTagsTableOutput {
@@ -1872,6 +2232,8 @@ func (o ResourceLfTagsTablePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Whether to use a wildcard representing every table under a database. Defaults to `false`.
+//
+// The following arguments are optional:
 func (o ResourceLfTagsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTable) *bool {
 		if v == nil {
@@ -1893,6 +2255,8 @@ type ResourceLfTagsTableWithColumns struct {
 	// Name of the table resource.
 	Name string `pulumi:"name"`
 	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	//
+	// The following arguments are optional:
 	Wildcard *bool `pulumi:"wildcard"`
 }
 
@@ -1919,6 +2283,8 @@ type ResourceLfTagsTableWithColumnsArgs struct {
 	// Name of the table resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	//
+	// The following arguments are optional:
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1932,6 +2298,12 @@ func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsOutp
 
 func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableWithColumnsOutput)
+}
+
+func (i ResourceLfTagsTableWithColumnsArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsTableWithColumns] {
+	return pulumix.Output[ResourceLfTagsTableWithColumns]{
+		OutputState: i.ToResourceLfTagsTableWithColumnsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsPtrOutput() ResourceLfTagsTableWithColumnsPtrOutput {
@@ -1975,6 +2347,12 @@ func (i *resourceLfTagsTableWithColumnsPtrType) ToResourceLfTagsTableWithColumns
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableWithColumnsPtrOutput)
 }
 
+func (i *resourceLfTagsTableWithColumnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTagsTableWithColumns] {
+	return pulumix.Output[*ResourceLfTagsTableWithColumns]{
+		OutputState: i.ToResourceLfTagsTableWithColumnsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceLfTagsTableWithColumnsOutput struct{ *pulumi.OutputState }
 
 func (ResourceLfTagsTableWithColumnsOutput) ElementType() reflect.Type {
@@ -1997,6 +2375,12 @@ func (o ResourceLfTagsTableWithColumnsOutput) ToResourceLfTagsTableWithColumnsPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagsTableWithColumns) *ResourceLfTagsTableWithColumns {
 		return &v
 	}).(ResourceLfTagsTableWithColumnsPtrOutput)
+}
+
+func (o ResourceLfTagsTableWithColumnsOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceLfTagsTableWithColumns] {
+	return pulumix.Output[ResourceLfTagsTableWithColumns]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -2025,6 +2409,8 @@ func (o ResourceLfTagsTableWithColumnsOutput) Name() pulumi.StringOutput {
 }
 
 // Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+//
+// The following arguments are optional:
 func (o ResourceLfTagsTableWithColumnsOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -2041,6 +2427,12 @@ func (o ResourceLfTagsTableWithColumnsPtrOutput) ToResourceLfTagsTableWithColumn
 
 func (o ResourceLfTagsTableWithColumnsPtrOutput) ToResourceLfTagsTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsPtrOutput {
 	return o
+}
+
+func (o ResourceLfTagsTableWithColumnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTagsTableWithColumns] {
+	return pulumix.Output[*ResourceLfTagsTableWithColumns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceLfTagsTableWithColumnsPtrOutput) Elem() ResourceLfTagsTableWithColumnsOutput {
@@ -2104,6 +2496,8 @@ func (o ResourceLfTagsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+//
+// The following arguments are optional:
 func (o ResourceLfTagsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) *bool {
 		if v == nil {
@@ -2150,6 +2544,12 @@ func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToGetDataLakeSet
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput)
 }
 
+func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[GetDataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: i.ToGetDataLakeSettingsCreateDatabaseDefaultPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput is an input type that accepts GetDataLakeSettingsCreateDatabaseDefaultPermissionArray and GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput` via:
 //
@@ -2175,6 +2575,12 @@ func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArray) ToGetDataLakeSe
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput)
 }
 
+func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[[]GetDataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: i.ToGetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput) ElementType() reflect.Type {
@@ -2187,6 +2593,12 @@ func (o GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput) ToGetDataLakeS
 
 func (o GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput) ToGetDataLakeSettingsCreateDatabaseDefaultPermissionOutputWithContext(ctx context.Context) GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput {
 	return o
+}
+
+func (o GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[GetDataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of permissions granted to the principal.
@@ -2211,6 +2623,12 @@ func (o GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) ToGetData
 
 func (o GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) ToGetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx context.Context) GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput {
 	return o
+}
+
+func (o GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataLakeSettingsCreateDatabaseDefaultPermission] {
+	return pulumix.Output[[]GetDataLakeSettingsCreateDatabaseDefaultPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput) Index(i pulumi.IntInput) GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput {
@@ -2256,6 +2674,12 @@ func (i GetDataLakeSettingsCreateTableDefaultPermissionArgs) ToGetDataLakeSettin
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateTableDefaultPermissionOutput)
 }
 
+func (i GetDataLakeSettingsCreateTableDefaultPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[GetDataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: i.ToGetDataLakeSettingsCreateTableDefaultPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDataLakeSettingsCreateTableDefaultPermissionArrayInput is an input type that accepts GetDataLakeSettingsCreateTableDefaultPermissionArray and GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput values.
 // You can construct a concrete instance of `GetDataLakeSettingsCreateTableDefaultPermissionArrayInput` via:
 //
@@ -2281,6 +2705,12 @@ func (i GetDataLakeSettingsCreateTableDefaultPermissionArray) ToGetDataLakeSetti
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput)
 }
 
+func (i GetDataLakeSettingsCreateTableDefaultPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[[]GetDataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: i.ToGetDataLakeSettingsCreateTableDefaultPermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDataLakeSettingsCreateTableDefaultPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetDataLakeSettingsCreateTableDefaultPermissionOutput) ElementType() reflect.Type {
@@ -2293,6 +2723,12 @@ func (o GetDataLakeSettingsCreateTableDefaultPermissionOutput) ToGetDataLakeSett
 
 func (o GetDataLakeSettingsCreateTableDefaultPermissionOutput) ToGetDataLakeSettingsCreateTableDefaultPermissionOutputWithContext(ctx context.Context) GetDataLakeSettingsCreateTableDefaultPermissionOutput {
 	return o
+}
+
+func (o GetDataLakeSettingsCreateTableDefaultPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[GetDataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of permissions granted to the principal.
@@ -2319,6 +2755,12 @@ func (o GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput) ToGetDataLak
 	return o
 }
 
+func (o GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataLakeSettingsCreateTableDefaultPermission] {
+	return pulumix.Output[[]GetDataLakeSettingsCreateTableDefaultPermission]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulumi.IntInput) GetDataLakeSettingsCreateTableDefaultPermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataLakeSettingsCreateTableDefaultPermission {
 		return vs[0].([]GetDataLakeSettingsCreateTableDefaultPermission)[vs[1].(int)]
@@ -2327,6 +2769,8 @@ func (o GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulu
 
 type GetPermissionsDataLocation struct {
 	// ARN that uniquely identifies the data location resource.
+	//
+	// The following argument is optional:
 	Arn string `pulumi:"arn"`
 	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
@@ -2345,6 +2789,8 @@ type GetPermissionsDataLocationInput interface {
 
 type GetPermissionsDataLocationArgs struct {
 	// ARN that uniquely identifies the data location resource.
+	//
+	// The following argument is optional:
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
@@ -2360,6 +2806,12 @@ func (i GetPermissionsDataLocationArgs) ToGetPermissionsDataLocationOutput() Get
 
 func (i GetPermissionsDataLocationArgs) ToGetPermissionsDataLocationOutputWithContext(ctx context.Context) GetPermissionsDataLocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataLocationOutput)
+}
+
+func (i GetPermissionsDataLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsDataLocation] {
+	return pulumix.Output[GetPermissionsDataLocation]{
+		OutputState: i.ToGetPermissionsDataLocationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetPermissionsDataLocationArgs) ToGetPermissionsDataLocationPtrOutput() GetPermissionsDataLocationPtrOutput {
@@ -2403,6 +2855,12 @@ func (i *getPermissionsDataLocationPtrType) ToGetPermissionsDataLocationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataLocationPtrOutput)
 }
 
+func (i *getPermissionsDataLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsDataLocation] {
+	return pulumix.Output[*GetPermissionsDataLocation]{
+		OutputState: i.ToGetPermissionsDataLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPermissionsDataLocationOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsDataLocationOutput) ElementType() reflect.Type {
@@ -2427,7 +2885,15 @@ func (o GetPermissionsDataLocationOutput) ToGetPermissionsDataLocationPtrOutputW
 	}).(GetPermissionsDataLocationPtrOutput)
 }
 
+func (o GetPermissionsDataLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsDataLocation] {
+	return pulumix.Output[GetPermissionsDataLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN that uniquely identifies the data location resource.
+//
+// The following argument is optional:
 func (o GetPermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -2451,6 +2917,12 @@ func (o GetPermissionsDataLocationPtrOutput) ToGetPermissionsDataLocationPtrOutp
 	return o
 }
 
+func (o GetPermissionsDataLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsDataLocation] {
+	return pulumix.Output[*GetPermissionsDataLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPermissionsDataLocationPtrOutput) Elem() GetPermissionsDataLocationOutput {
 	return o.ApplyT(func(v *GetPermissionsDataLocation) GetPermissionsDataLocation {
 		if v != nil {
@@ -2462,6 +2934,8 @@ func (o GetPermissionsDataLocationPtrOutput) Elem() GetPermissionsDataLocationOu
 }
 
 // ARN that uniquely identifies the data location resource.
+//
+// The following argument is optional:
 func (o GetPermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsDataLocation) *string {
 		if v == nil {
@@ -2485,6 +2959,8 @@ type GetPermissionsDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
 	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
 	Name string `pulumi:"name"`
 }
 
@@ -2503,6 +2979,8 @@ type GetPermissionsDatabaseArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2516,6 +2994,12 @@ func (i GetPermissionsDatabaseArgs) ToGetPermissionsDatabaseOutput() GetPermissi
 
 func (i GetPermissionsDatabaseArgs) ToGetPermissionsDatabaseOutputWithContext(ctx context.Context) GetPermissionsDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDatabaseOutput)
+}
+
+func (i GetPermissionsDatabaseArgs) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsDatabase] {
+	return pulumix.Output[GetPermissionsDatabase]{
+		OutputState: i.ToGetPermissionsDatabaseOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetPermissionsDatabaseArgs) ToGetPermissionsDatabasePtrOutput() GetPermissionsDatabasePtrOutput {
@@ -2559,6 +3043,12 @@ func (i *getPermissionsDatabasePtrType) ToGetPermissionsDatabasePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDatabasePtrOutput)
 }
 
+func (i *getPermissionsDatabasePtrType) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsDatabase] {
+	return pulumix.Output[*GetPermissionsDatabase]{
+		OutputState: i.ToGetPermissionsDatabasePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPermissionsDatabaseOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsDatabaseOutput) ElementType() reflect.Type {
@@ -2583,12 +3073,20 @@ func (o GetPermissionsDatabaseOutput) ToGetPermissionsDatabasePtrOutputWithConte
 	}).(GetPermissionsDatabasePtrOutput)
 }
 
+func (o GetPermissionsDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsDatabase] {
+	return pulumix.Output[GetPermissionsDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsDatabaseOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDatabase) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
 // Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
 func (o GetPermissionsDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDatabase) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2605,6 +3103,12 @@ func (o GetPermissionsDatabasePtrOutput) ToGetPermissionsDatabasePtrOutput() Get
 
 func (o GetPermissionsDatabasePtrOutput) ToGetPermissionsDatabasePtrOutputWithContext(ctx context.Context) GetPermissionsDatabasePtrOutput {
 	return o
+}
+
+func (o GetPermissionsDatabasePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsDatabase] {
+	return pulumix.Output[*GetPermissionsDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPermissionsDatabasePtrOutput) Elem() GetPermissionsDatabaseOutput {
@@ -2628,6 +3132,8 @@ func (o GetPermissionsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
 }
 
 // Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
 func (o GetPermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsDatabase) *string {
 		if v == nil {
@@ -2643,6 +3149,8 @@ type GetPermissionsLfTag struct {
 	// Key-name for the tag.
 	Key string `pulumi:"key"`
 	// List of possible values an attribute can take.
+	//
+	// The following argument is optional:
 	Values []string `pulumi:"values"`
 }
 
@@ -2663,6 +3171,8 @@ type GetPermissionsLfTagArgs struct {
 	// Key-name for the tag.
 	Key pulumi.StringInput `pulumi:"key"`
 	// List of possible values an attribute can take.
+	//
+	// The following argument is optional:
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2676,6 +3186,12 @@ func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagOutput() GetPermissionsLfT
 
 func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagOutputWithContext(ctx context.Context) GetPermissionsLfTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagOutput)
+}
+
+func (i GetPermissionsLfTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsLfTag] {
+	return pulumix.Output[GetPermissionsLfTag]{
+		OutputState: i.ToGetPermissionsLfTagOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagPtrOutput() GetPermissionsLfTagPtrOutput {
@@ -2719,6 +3235,12 @@ func (i *getPermissionsLfTagPtrType) ToGetPermissionsLfTagPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPtrOutput)
 }
 
+func (i *getPermissionsLfTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsLfTag] {
+	return pulumix.Output[*GetPermissionsLfTag]{
+		OutputState: i.ToGetPermissionsLfTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPermissionsLfTagOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsLfTagOutput) ElementType() reflect.Type {
@@ -2743,6 +3265,12 @@ func (o GetPermissionsLfTagOutput) ToGetPermissionsLfTagPtrOutputWithContext(ctx
 	}).(GetPermissionsLfTagPtrOutput)
 }
 
+func (o GetPermissionsLfTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsLfTag] {
+	return pulumix.Output[GetPermissionsLfTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsLfTagOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) string { return v.CatalogId }).(pulumi.StringOutput)
@@ -2754,6 +3282,8 @@ func (o GetPermissionsLfTagOutput) Key() pulumi.StringOutput {
 }
 
 // List of possible values an attribute can take.
+//
+// The following argument is optional:
 func (o GetPermissionsLfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2770,6 +3300,12 @@ func (o GetPermissionsLfTagPtrOutput) ToGetPermissionsLfTagPtrOutput() GetPermis
 
 func (o GetPermissionsLfTagPtrOutput) ToGetPermissionsLfTagPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPtrOutput {
 	return o
+}
+
+func (o GetPermissionsLfTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsLfTag] {
+	return pulumix.Output[*GetPermissionsLfTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPermissionsLfTagPtrOutput) Elem() GetPermissionsLfTagOutput {
@@ -2803,6 +3339,8 @@ func (o GetPermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 // List of possible values an attribute can take.
+//
+// The following argument is optional:
 func (o GetPermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTag) []string {
 		if v == nil {
@@ -2816,6 +3354,8 @@ type GetPermissionsLfTagPolicy struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
 	// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	//
+	// The following argument is optional:
 	Expressions []GetPermissionsLfTagPolicyExpression `pulumi:"expressions"`
 	// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 	ResourceType string `pulumi:"resourceType"`
@@ -2836,6 +3376,8 @@ type GetPermissionsLfTagPolicyArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	//
+	// The following argument is optional:
 	Expressions GetPermissionsLfTagPolicyExpressionArrayInput `pulumi:"expressions"`
 	// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
@@ -2851,6 +3393,12 @@ func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyOutput() GetPe
 
 func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyOutput)
+}
+
+func (i GetPermissionsLfTagPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsLfTagPolicy] {
+	return pulumix.Output[GetPermissionsLfTagPolicy]{
+		OutputState: i.ToGetPermissionsLfTagPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyPtrOutput() GetPermissionsLfTagPolicyPtrOutput {
@@ -2894,6 +3442,12 @@ func (i *getPermissionsLfTagPolicyPtrType) ToGetPermissionsLfTagPolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyPtrOutput)
 }
 
+func (i *getPermissionsLfTagPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsLfTagPolicy] {
+	return pulumix.Output[*GetPermissionsLfTagPolicy]{
+		OutputState: i.ToGetPermissionsLfTagPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPermissionsLfTagPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsLfTagPolicyOutput) ElementType() reflect.Type {
@@ -2918,12 +3472,20 @@ func (o GetPermissionsLfTagPolicyOutput) ToGetPermissionsLfTagPolicyPtrOutputWit
 	}).(GetPermissionsLfTagPolicyPtrOutput)
 }
 
+func (o GetPermissionsLfTagPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsLfTagPolicy] {
+	return pulumix.Output[GetPermissionsLfTagPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsLfTagPolicyOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTagPolicy) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
 // List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+//
+// The following argument is optional:
 func (o GetPermissionsLfTagPolicyOutput) Expressions() GetPermissionsLfTagPolicyExpressionArrayOutput {
 	return o.ApplyT(func(v GetPermissionsLfTagPolicy) []GetPermissionsLfTagPolicyExpression { return v.Expressions }).(GetPermissionsLfTagPolicyExpressionArrayOutput)
 }
@@ -2947,6 +3509,12 @@ func (o GetPermissionsLfTagPolicyPtrOutput) ToGetPermissionsLfTagPolicyPtrOutput
 	return o
 }
 
+func (o GetPermissionsLfTagPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsLfTagPolicy] {
+	return pulumix.Output[*GetPermissionsLfTagPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPermissionsLfTagPolicyPtrOutput) Elem() GetPermissionsLfTagPolicyOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) GetPermissionsLfTagPolicy {
 		if v != nil {
@@ -2968,6 +3536,8 @@ func (o GetPermissionsLfTagPolicyPtrOutput) CatalogId() pulumi.StringPtrOutput {
 }
 
 // List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+//
+// The following argument is optional:
 func (o GetPermissionsLfTagPolicyPtrOutput) Expressions() GetPermissionsLfTagPolicyExpressionArrayOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) []GetPermissionsLfTagPolicyExpression {
 		if v == nil {
@@ -3024,6 +3594,12 @@ func (i GetPermissionsLfTagPolicyExpressionArgs) ToGetPermissionsLfTagPolicyExpr
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyExpressionOutput)
 }
 
+func (i GetPermissionsLfTagPolicyExpressionArgs) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsLfTagPolicyExpression] {
+	return pulumix.Output[GetPermissionsLfTagPolicyExpression]{
+		OutputState: i.ToGetPermissionsLfTagPolicyExpressionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPermissionsLfTagPolicyExpressionArrayInput is an input type that accepts GetPermissionsLfTagPolicyExpressionArray and GetPermissionsLfTagPolicyExpressionArrayOutput values.
 // You can construct a concrete instance of `GetPermissionsLfTagPolicyExpressionArrayInput` via:
 //
@@ -3049,6 +3625,12 @@ func (i GetPermissionsLfTagPolicyExpressionArray) ToGetPermissionsLfTagPolicyExp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyExpressionArrayOutput)
 }
 
+func (i GetPermissionsLfTagPolicyExpressionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPermissionsLfTagPolicyExpression] {
+	return pulumix.Output[[]GetPermissionsLfTagPolicyExpression]{
+		OutputState: i.ToGetPermissionsLfTagPolicyExpressionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPermissionsLfTagPolicyExpressionOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsLfTagPolicyExpressionOutput) ElementType() reflect.Type {
@@ -3061,6 +3643,12 @@ func (o GetPermissionsLfTagPolicyExpressionOutput) ToGetPermissionsLfTagPolicyEx
 
 func (o GetPermissionsLfTagPolicyExpressionOutput) ToGetPermissionsLfTagPolicyExpressionOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyExpressionOutput {
 	return o
+}
+
+func (o GetPermissionsLfTagPolicyExpressionOutput) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsLfTagPolicyExpression] {
+	return pulumix.Output[GetPermissionsLfTagPolicyExpression]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key-name of an LF-Tag.
@@ -3087,6 +3675,12 @@ func (o GetPermissionsLfTagPolicyExpressionArrayOutput) ToGetPermissionsLfTagPol
 	return o
 }
 
+func (o GetPermissionsLfTagPolicyExpressionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPermissionsLfTagPolicyExpression] {
+	return pulumix.Output[[]GetPermissionsLfTagPolicyExpression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPermissionsLfTagPolicyExpressionArrayOutput) Index(i pulumi.IntInput) GetPermissionsLfTagPolicyExpressionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionsLfTagPolicyExpression {
 		return vs[0].([]GetPermissionsLfTagPolicyExpression)[vs[1].(int)]
@@ -3097,6 +3691,8 @@ type GetPermissionsTable struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
 	// Name of the database for the table. Unique to a Data Catalog.
+	//
+	// The following arguments are optional:
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table. At least one of `name` or `wildcard` is required.
 	Name string `pulumi:"name"`
@@ -3119,6 +3715,8 @@ type GetPermissionsTableArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Name of the database for the table. Unique to a Data Catalog.
+	//
+	// The following arguments are optional:
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table. At least one of `name` or `wildcard` is required.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3136,6 +3734,12 @@ func (i GetPermissionsTableArgs) ToGetPermissionsTableOutput() GetPermissionsTab
 
 func (i GetPermissionsTableArgs) ToGetPermissionsTableOutputWithContext(ctx context.Context) GetPermissionsTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableOutput)
+}
+
+func (i GetPermissionsTableArgs) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsTable] {
+	return pulumix.Output[GetPermissionsTable]{
+		OutputState: i.ToGetPermissionsTableOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetPermissionsTableArgs) ToGetPermissionsTablePtrOutput() GetPermissionsTablePtrOutput {
@@ -3179,6 +3783,12 @@ func (i *getPermissionsTablePtrType) ToGetPermissionsTablePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTablePtrOutput)
 }
 
+func (i *getPermissionsTablePtrType) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsTable] {
+	return pulumix.Output[*GetPermissionsTable]{
+		OutputState: i.ToGetPermissionsTablePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPermissionsTableOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsTableOutput) ElementType() reflect.Type {
@@ -3203,12 +3813,20 @@ func (o GetPermissionsTableOutput) ToGetPermissionsTablePtrOutputWithContext(ctx
 	}).(GetPermissionsTablePtrOutput)
 }
 
+func (o GetPermissionsTableOutput) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsTable] {
+	return pulumix.Output[GetPermissionsTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsTableOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTable) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
 // Name of the database for the table. Unique to a Data Catalog.
+//
+// The following arguments are optional:
 func (o GetPermissionsTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTable) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -3237,6 +3855,12 @@ func (o GetPermissionsTablePtrOutput) ToGetPermissionsTablePtrOutputWithContext(
 	return o
 }
 
+func (o GetPermissionsTablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsTable] {
+	return pulumix.Output[*GetPermissionsTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPermissionsTablePtrOutput) Elem() GetPermissionsTableOutput {
 	return o.ApplyT(func(v *GetPermissionsTable) GetPermissionsTable {
 		if v != nil {
@@ -3258,6 +3882,8 @@ func (o GetPermissionsTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
 }
 
 // Name of the database for the table. Unique to a Data Catalog.
+//
+// The following arguments are optional:
 func (o GetPermissionsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsTable) *string {
 		if v == nil {
@@ -3297,6 +3923,8 @@ type GetPermissionsTableWithColumns struct {
 	// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 	Wildcard *bool `pulumi:"wildcard"`
@@ -3323,6 +3951,8 @@ type GetPermissionsTableWithColumnsArgs struct {
 	// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
@@ -3338,6 +3968,12 @@ func (i GetPermissionsTableWithColumnsArgs) ToGetPermissionsTableWithColumnsOutp
 
 func (i GetPermissionsTableWithColumnsArgs) ToGetPermissionsTableWithColumnsOutputWithContext(ctx context.Context) GetPermissionsTableWithColumnsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableWithColumnsOutput)
+}
+
+func (i GetPermissionsTableWithColumnsArgs) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsTableWithColumns] {
+	return pulumix.Output[GetPermissionsTableWithColumns]{
+		OutputState: i.ToGetPermissionsTableWithColumnsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetPermissionsTableWithColumnsArgs) ToGetPermissionsTableWithColumnsPtrOutput() GetPermissionsTableWithColumnsPtrOutput {
@@ -3381,6 +4017,12 @@ func (i *getPermissionsTableWithColumnsPtrType) ToGetPermissionsTableWithColumns
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableWithColumnsPtrOutput)
 }
 
+func (i *getPermissionsTableWithColumnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsTableWithColumns] {
+	return pulumix.Output[*GetPermissionsTableWithColumns]{
+		OutputState: i.ToGetPermissionsTableWithColumnsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPermissionsTableWithColumnsOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsTableWithColumnsOutput) ElementType() reflect.Type {
@@ -3405,6 +4047,12 @@ func (o GetPermissionsTableWithColumnsOutput) ToGetPermissionsTableWithColumnsPt
 	}).(GetPermissionsTableWithColumnsPtrOutput)
 }
 
+func (o GetPermissionsTableWithColumnsOutput) ToOutput(ctx context.Context) pulumix.Output[GetPermissionsTableWithColumns] {
+	return pulumix.Output[GetPermissionsTableWithColumns]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsTableWithColumnsOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) string { return v.CatalogId }).(pulumi.StringOutput)
@@ -3426,6 +4074,8 @@ func (o GetPermissionsTableWithColumnsOutput) ExcludedColumnNames() pulumi.Strin
 }
 
 // Name of the table resource.
+//
+// The following arguments are optional:
 func (o GetPermissionsTableWithColumnsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3447,6 +4097,12 @@ func (o GetPermissionsTableWithColumnsPtrOutput) ToGetPermissionsTableWithColumn
 
 func (o GetPermissionsTableWithColumnsPtrOutput) ToGetPermissionsTableWithColumnsPtrOutputWithContext(ctx context.Context) GetPermissionsTableWithColumnsPtrOutput {
 	return o
+}
+
+func (o GetPermissionsTableWithColumnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetPermissionsTableWithColumns] {
+	return pulumix.Output[*GetPermissionsTableWithColumns]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPermissionsTableWithColumnsPtrOutput) Elem() GetPermissionsTableWithColumnsOutput {
@@ -3500,6 +4156,8 @@ func (o GetPermissionsTableWithColumnsPtrOutput) ExcludedColumnNames() pulumi.St
 }
 
 // Name of the table resource.
+//
+// The following arguments are optional:
 func (o GetPermissionsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsTableWithColumns) *string {
 		if v == nil {

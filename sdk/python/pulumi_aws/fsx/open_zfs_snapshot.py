@@ -210,7 +210,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        FSx OpenZFS snapshot can be imported using the `id`, e.g.,
+        Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
 
         ```sh
          $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
@@ -263,7 +263,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        FSx OpenZFS snapshot can be imported using the `id`, e.g.,
+        Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
 
         ```sh
          $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33

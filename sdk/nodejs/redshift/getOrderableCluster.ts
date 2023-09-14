@@ -61,7 +61,7 @@ export interface GetOrderableClusterArgs {
  */
 export interface GetOrderableClusterResult {
     /**
-     * List of Availability Zone names where the Redshit Cluster is available.
+     * List of Availability Zone names where the Redshift Cluster is available.
      */
     readonly availabilityZones: string[];
     readonly clusterType: string;

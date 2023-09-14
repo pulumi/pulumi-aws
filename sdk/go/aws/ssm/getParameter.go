@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Parameter data source.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pulumi.InvokeOption) (*LookupParameterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupParameterResult
 	err := ctx.Invoke("aws:ssm/getParameter:getParameter", args, &rv, opts...)
 	if err != nil {
@@ -53,6 +56,8 @@ type LookupParameterArgs struct {
 	// Name of the parameter.
 	Name string `pulumi:"name"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	WithDecryption *bool `pulumi:"withDecryption"`
 }
 
@@ -61,6 +66,7 @@ type LookupParameterResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
+	InsecureValue  string `pulumi:"insecureValue"`
 	Name           string `pulumi:"name"`
 	Type           string `pulumi:"type"`
 	Value          string `pulumi:"value"`
@@ -86,6 +92,8 @@ type LookupParameterOutputArgs struct {
 	// Name of the parameter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
 }
 
@@ -108,6 +116,12 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ct
 	return o
 }
 
+func (o LookupParameterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupParameterResult] {
+	return pulumix.Output[LookupParameterResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -115,6 +129,10 @@ func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupParameterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterResultOutput) InsecureValue() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.InsecureValue }).(pulumi.StringOutput)
 }
 
 func (o LookupParameterResultOutput) Name() pulumi.StringOutput {

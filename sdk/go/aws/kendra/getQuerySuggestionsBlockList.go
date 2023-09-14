@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupQuerySuggestionsBlockList(ctx *pulumi.Context, args *LookupQuerySuggestionsBlockListArgs, opts ...pulumi.InvokeOption) (*LookupQuerySuggestionsBlockListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuerySuggestionsBlockListResult
 	err := ctx.Invoke("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args, &rv, opts...)
 	if err != nil {
@@ -129,6 +132,12 @@ func (o LookupQuerySuggestionsBlockListResultOutput) ToLookupQuerySuggestionsBlo
 
 func (o LookupQuerySuggestionsBlockListResultOutput) ToLookupQuerySuggestionsBlockListResultOutputWithContext(ctx context.Context) LookupQuerySuggestionsBlockListResultOutput {
 	return o
+}
+
+func (o LookupQuerySuggestionsBlockListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQuerySuggestionsBlockListResult] {
+	return pulumix.Output[LookupQuerySuggestionsBlockListResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the block list.

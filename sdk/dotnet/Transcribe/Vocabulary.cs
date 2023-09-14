@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// ## Import
     /// 
-    /// Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+    /// Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
@@ -113,6 +113,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vocabularyName")]
         public Output<string> VocabularyName { get; private set; } = null!;
@@ -201,6 +203,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName", required: true)]
         public Input<string> VocabularyName { get; set; } = null!;
@@ -271,6 +275,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName")]
         public Input<string>? VocabularyName { get; set; }

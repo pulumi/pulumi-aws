@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
+ * Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example

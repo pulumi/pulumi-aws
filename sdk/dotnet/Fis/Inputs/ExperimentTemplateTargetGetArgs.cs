@@ -30,6 +30,20 @@ namespace Pulumi.Aws.Fis.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// The resource type parameters.
+        /// 
+        /// &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+        /// </summary>
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
+
         [Input("resourceArns")]
         private InputList<string>? _resourceArns;
 

@@ -61,9 +61,7 @@ import {Deployment, RestApi} from "./index";
  * ```
  * ### Managing the API Logging CloudWatch Log Group
  *
- * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `aws.cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.
- *
- * > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+ * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -83,7 +81,7 @@ import {Deployment, RestApi} from "./index";
  *
  * ## Import
  *
- * `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.,
+ * Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
  *
  * ```sh
  *  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example

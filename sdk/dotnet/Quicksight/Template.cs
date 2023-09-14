@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// A QuickSight Template can be imported using the AWS account ID and template ID separated by a comma (`,`) e.g.,
+    /// Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
@@ -124,6 +124,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// A description of the current template version being created/updated.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("versionDescription")]
         public Output<string> VersionDescription { get; private set; } = null!;
@@ -230,6 +232,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// A description of the current template version being created/updated.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("versionDescription", required: true)]
         public Input<string> VersionDescription { get; set; } = null!;
@@ -334,6 +338,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// A description of the current template version being created/updated.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }

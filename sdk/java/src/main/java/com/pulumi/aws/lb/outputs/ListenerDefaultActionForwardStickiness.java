@@ -15,6 +15,8 @@ public final class ListenerDefaultActionForwardStickiness {
     /**
      * @return Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
      * 
+     * The following arguments are optional:
+     * 
      */
     private Integer duration;
     /**
@@ -26,6 +28,8 @@ public final class ListenerDefaultActionForwardStickiness {
     private ListenerDefaultActionForwardStickiness() {}
     /**
      * @return Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Integer duration() {

@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Ram
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Tags attached to the RAM share
+        /// Tags attached to the resource share.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags attached to the RAM share
+        /// Tags attached to the resource share.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -247,14 +247,18 @@ namespace Pulumi.Aws.Ram
         /// ID of the AWS account that owns the resource share.
         /// </summary>
         public readonly string OwningAccountId;
+        /// <summary>
+        /// A list of resource ARNs associated with the resource share.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceArns;
         public readonly string ResourceOwner;
         public readonly string? ResourceShareStatus;
         /// <summary>
-        /// Status of the RAM share.
+        /// Status of the resource share.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Tags attached to the RAM share
+        /// Tags attached to the resource share.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -270,6 +274,8 @@ namespace Pulumi.Aws.Ram
 
             string owningAccountId,
 
+            ImmutableArray<string> resourceArns,
+
             string resourceOwner,
 
             string? resourceShareStatus,
@@ -283,6 +289,7 @@ namespace Pulumi.Aws.Ram
             Id = id;
             Name = name;
             OwningAccountId = owningAccountId;
+            ResourceArns = resourceArns;
             ResourceOwner = resourceOwner;
             ResourceShareStatus = resourceShareStatus;
             Status = status;

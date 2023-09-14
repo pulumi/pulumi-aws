@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker model resource.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,7 +84,7 @@ import (
 //
 // ## Import
 //
-// Models can be imported using the `name`, e.g.,
+// Using `pulumi import`, import models using the `name`. For example:
 //
 // ```sh
 //
@@ -107,6 +109,8 @@ type Model struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrOutput `pulumi:"primaryContainer"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -124,6 +128,7 @@ func NewModel(ctx *pulumi.Context,
 	if args.ExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws:sagemaker/model:Model", name, args, &resource, opts...)
 	if err != nil {
@@ -161,6 +166,8 @@ type modelState struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -184,6 +191,8 @@ type ModelState struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -209,6 +218,8 @@ type modelArgs struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
@@ -229,6 +240,8 @@ type ModelArgs struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags pulumi.StringMapInput
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrInput
@@ -257,6 +270,12 @@ func (i *Model) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelOutput)
 }
 
+func (i *Model) ToOutput(ctx context.Context) pulumix.Output[*Model] {
+	return pulumix.Output[*Model]{
+		OutputState: i.ToModelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ModelArrayInput is an input type that accepts ModelArray and ModelArrayOutput values.
 // You can construct a concrete instance of `ModelArrayInput` via:
 //
@@ -280,6 +299,12 @@ func (i ModelArray) ToModelArrayOutput() ModelArrayOutput {
 
 func (i ModelArray) ToModelArrayOutputWithContext(ctx context.Context) ModelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelArrayOutput)
+}
+
+func (i ModelArray) ToOutput(ctx context.Context) pulumix.Output[[]*Model] {
+	return pulumix.Output[[]*Model]{
+		OutputState: i.ToModelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ModelMapInput is an input type that accepts ModelMap and ModelMapOutput values.
@@ -307,6 +332,12 @@ func (i ModelMap) ToModelMapOutputWithContext(ctx context.Context) ModelMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ModelMapOutput)
 }
 
+func (i ModelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Model] {
+	return pulumix.Output[map[string]*Model]{
+		OutputState: i.ToModelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModelOutput struct{ *pulumi.OutputState }
 
 func (ModelOutput) ElementType() reflect.Type {
@@ -319,6 +350,12 @@ func (o ModelOutput) ToModelOutput() ModelOutput {
 
 func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
+}
+
+func (o ModelOutput) ToOutput(ctx context.Context) pulumix.Output[*Model] {
+	return pulumix.Output[*Model]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this model.
@@ -357,6 +394,8 @@ func (o ModelOutput) PrimaryContainer() ModelPrimaryContainerPtrOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The `primaryContainer` and `container` block both support:
 func (o ModelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -385,6 +424,12 @@ func (o ModelArrayOutput) ToModelArrayOutputWithContext(ctx context.Context) Mod
 	return o
 }
 
+func (o ModelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Model] {
+	return pulumix.Output[[]*Model]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ModelArrayOutput) Index(i pulumi.IntInput) ModelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Model {
 		return vs[0].([]*Model)[vs[1].(int)]
@@ -403,6 +448,12 @@ func (o ModelMapOutput) ToModelMapOutput() ModelMapOutput {
 
 func (o ModelMapOutput) ToModelMapOutputWithContext(ctx context.Context) ModelMapOutput {
 	return o
+}
+
+func (o ModelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Model] {
+	return pulumix.Output[map[string]*Model]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModelMapOutput) MapIndex(k pulumi.StringInput) ModelOutput {

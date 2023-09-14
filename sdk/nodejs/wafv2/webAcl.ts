@@ -7,240 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a WAFv2 Web ACL resource.
- *
- * > **Note:** In `fieldToMatch` blocks, _e.g._, in `byteMatchStatement`, the `body` block includes an optional argument `oversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversizeHandling` argument as **required** as soon as possible.
- *
- * ## Example Usage
- *
- * This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
- * ### Account Takeover Protection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const atp_example = new aws.wafv2.WebAcl("atp-example", {
- *     defaultAction: {
- *         allow: {},
- *     },
- *     description: "Example of a managed ATP rule.",
- *     rules: [{
- *         name: "atp-rule-1",
- *         overrideAction: {
- *             count: {},
- *         },
- *         priority: 1,
- *         statement: {
- *             managedRuleGroupStatement: {
- *                 managedRuleGroupConfigs: [{
- *                     awsManagedRulesAtpRuleSet: {
- *                         loginPath: "/api/1/signin",
- *                         requestInspection: {
- *                             passwordField: {
- *                                 identifier: "/password",
- *                             },
- *                             payloadType: "JSON",
- *                             usernameField: {
- *                                 identifier: "/email",
- *                             },
- *                         },
- *                         responseInspection: {
- *                             statusCode: {
- *                                 failureCodes: [403],
- *                                 successCodes: [200],
- *                             },
- *                         },
- *                     },
- *                 }],
- *                 name: "AWSManagedRulesATPRuleSet",
- *                 vendorName: "AWS",
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     scope: "CLOUDFRONT",
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * ```
- * ### Rate Based
- *
- * Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAcl("example", {
- *     defaultAction: {
- *         allow: {},
- *     },
- *     description: "Example of a Cloudfront rate based statement.",
- *     rules: [{
- *         action: {
- *             block: {},
- *         },
- *         name: "rule-1",
- *         priority: 1,
- *         statement: {
- *             rateBasedStatement: {
- *                 aggregateKeyType: "IP",
- *                 limit: 10000,
- *                 scopeDownStatement: {
- *                     geoMatchStatement: {
- *                         countryCodes: [
- *                             "US",
- *                             "NL",
- *                         ],
- *                     },
- *                 },
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     scope: "CLOUDFRONT",
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * ```
- * ### Rule Group Reference
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.RuleGroup("example", {
- *     capacity: 10,
- *     scope: "REGIONAL",
- *     rules: [
- *         {
- *             name: "rule-1",
- *             priority: 1,
- *             action: {
- *                 count: {},
- *             },
- *             statement: {
- *                 geoMatchStatement: {
- *                     countryCodes: ["NL"],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: false,
- *                 metricName: "friendly-rule-metric-name",
- *                 sampledRequestsEnabled: false,
- *             },
- *         },
- *         {
- *             name: "rule-to-exclude-a",
- *             priority: 10,
- *             action: {
- *                 allow: {},
- *             },
- *             statement: {
- *                 geoMatchStatement: {
- *                     countryCodes: ["US"],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: false,
- *                 metricName: "friendly-rule-metric-name",
- *                 sampledRequestsEnabled: false,
- *             },
- *         },
- *         {
- *             name: "rule-to-exclude-b",
- *             priority: 15,
- *             action: {
- *                 allow: {},
- *             },
- *             statement: {
- *                 geoMatchStatement: {
- *                     countryCodes: ["GB"],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: false,
- *                 metricName: "friendly-rule-metric-name",
- *                 sampledRequestsEnabled: false,
- *             },
- *         },
- *     ],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * const test = new aws.wafv2.WebAcl("test", {
- *     scope: "REGIONAL",
- *     defaultAction: {
- *         block: {},
- *     },
- *     rules: [{
- *         name: "rule-1",
- *         priority: 1,
- *         overrideAction: {
- *             count: {},
- *         },
- *         statement: {
- *             ruleGroupReferenceStatement: {
- *                 arn: example.arn,
- *                 excludedRules: [
- *                     {
- *                         name: "rule-to-exclude-b",
- *                     },
- *                     {
- *                         name: "rule-to-exclude-a",
- *                     },
- *                 ],
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * WAFv2 Web ACLs can be imported using `ID/Name/Scope` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
- */
 export class WebAcl extends pulumi.CustomResource {
     /**
      * Get an existing WebAcl resource's state with the given name, ID, and optional extra
@@ -274,11 +40,15 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     */
+    public readonly associationConfig!: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
+    /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
     /**
@@ -286,7 +56,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
     /**
@@ -337,6 +107,7 @@ export class WebAcl extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associationConfig"] = state ? state.associationConfig : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["captchaConfig"] = state ? state.captchaConfig : undefined;
             resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
@@ -361,6 +132,7 @@ export class WebAcl extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            resourceInputs["associationConfig"] = args ? args.associationConfig : undefined;
             resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
@@ -390,11 +162,15 @@ export interface WebAclState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     */
+    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
+    /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
     capacity?: pulumi.Input<number>;
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
     /**
@@ -402,7 +178,7 @@ export interface WebAclState {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
     /**
@@ -445,7 +221,11 @@ export interface WebAclState {
  */
 export interface WebAclArgs {
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     */
+    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
+    /**
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
     /**
@@ -453,7 +233,7 @@ export interface WebAclArgs {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
     /**

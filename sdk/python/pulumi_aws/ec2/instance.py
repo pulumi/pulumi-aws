@@ -37,6 +37,7 @@ class InstanceArgs:
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -68,6 +69,8 @@ class InstanceArgs:
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -84,6 +87,7 @@ class InstanceArgs:
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -100,6 +104,8 @@ class InstanceArgs:
         :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -108,6 +114,8 @@ class InstanceArgs:
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         if ami is not None:
@@ -156,6 +164,8 @@ class InstanceArgs:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if instance_initiated_shutdown_behavior is not None:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if ipv6_address_count is not None:
@@ -251,6 +261,8 @@ class InstanceArgs:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -264,6 +276,9 @@ class InstanceArgs:
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_core_count")
 
     @cpu_core_count.setter
@@ -288,6 +303,9 @@ class InstanceArgs:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_threads_per_core")
 
     @cpu_threads_per_core.setter
@@ -449,6 +467,18 @@ class InstanceArgs:
     @instance_initiated_shutdown_behavior.setter
     def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_initiated_shutdown_behavior", value)
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]:
+        """
+        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        """
+        return pulumi.get(self, "instance_market_options")
+
+    @instance_market_options.setter
+    def instance_market_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]):
+        pulumi.set(self, "instance_market_options", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -635,7 +665,12 @@ class InstanceArgs:
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
+        warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
+
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -731,6 +766,8 @@ class InstanceArgs:
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 
@@ -775,6 +812,8 @@ class _InstanceState:
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_lifecycle: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
                  instance_state: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -799,6 +838,7 @@ class _InstanceState:
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
+                 spot_instance_request_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -815,6 +855,8 @@ class _InstanceState:
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -831,6 +873,8 @@ class _InstanceState:
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
+        :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[str] instance_state: State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -854,7 +898,10 @@ class _InstanceState:
         :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        :param pulumi.Input[str] spot_instance_request_id: If the request is a Spot Instance request, the ID of the request.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -863,6 +910,8 @@ class _InstanceState:
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         if ami is not None:
@@ -913,6 +962,10 @@ class _InstanceState:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if instance_initiated_shutdown_behavior is not None:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_lifecycle is not None:
+            pulumi.set(__self__, "instance_lifecycle", instance_lifecycle)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
         if instance_state is not None:
             pulumi.set(__self__, "instance_state", instance_state)
         if instance_type is not None:
@@ -964,6 +1017,8 @@ class _InstanceState:
             pulumi.set(__self__, "security_groups", security_groups)
         if source_dest_check is not None:
             pulumi.set(__self__, "source_dest_check", source_dest_check)
+        if spot_instance_request_id is not None:
+            pulumi.set(__self__, "spot_instance_request_id", spot_instance_request_id)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -1036,6 +1091,8 @@ class _InstanceState:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -1049,6 +1106,9 @@ class _InstanceState:
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_core_count")
 
     @cpu_core_count.setter
@@ -1073,6 +1133,9 @@ class _InstanceState:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_threads_per_core")
 
     @cpu_threads_per_core.setter
@@ -1234,6 +1297,30 @@ class _InstanceState:
     @instance_initiated_shutdown_behavior.setter
     def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_initiated_shutdown_behavior", value)
+
+    @property
+    @pulumi.getter(name="instanceLifecycle")
+    def instance_lifecycle(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether this is a Spot Instance or a Scheduled Instance.
+        """
+        return pulumi.get(self, "instance_lifecycle")
+
+    @instance_lifecycle.setter
+    def instance_lifecycle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_lifecycle", value)
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]:
+        """
+        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        """
+        return pulumi.get(self, "instance_market_options")
+
+    @instance_market_options.setter
+    def instance_market_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]):
+        pulumi.set(self, "instance_market_options", value)
 
     @property
     @pulumi.getter(name="instanceState")
@@ -1504,7 +1591,12 @@ class _InstanceState:
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
+        warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
+
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -1522,6 +1614,18 @@ class _InstanceState:
     @source_dest_check.setter
     def source_dest_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "source_dest_check", value)
+
+    @property
+    @pulumi.getter(name="spotInstanceRequestId")
+    def spot_instance_request_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the request is a Spot Instance request, the ID of the request.
+        """
+        return pulumi.get(self, "spot_instance_request_id")
+
+    @spot_instance_request_id.setter
+    def spot_instance_request_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_instance_request_id", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -1612,6 +1716,8 @@ class _InstanceState:
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 
@@ -1657,6 +1763,7 @@ class Instance(pulumi.CustomResource):
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1712,6 +1819,36 @@ class Instance(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        ### Spot instance example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        this_ami = aws.ec2.get_ami(most_recent=True,
+            owners=["amazon"],
+            filters=[
+                aws.ec2.GetAmiFilterArgs(
+                    name="architecture",
+                    values=["arm64"],
+                ),
+                aws.ec2.GetAmiFilterArgs(
+                    name="name",
+                    values=["al2023-ami-2023*"],
+                ),
+            ])
+        this_instance = aws.ec2.Instance("thisInstance",
+            ami=this_ami.id,
+            instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
+                spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
+                    max_price="0.0031",
+                ),
+            ),
+            instance_type="t4g.nano",
+            tags={
+                "Name": "test-spot",
+            })
+        ```
         ### Network and credit specification example
 
         ```python
@@ -1802,7 +1939,7 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Instances can be imported using the `id`, e.g.,
+        Using `pulumi import`, import instances using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/instance:Instance web i-12345678
@@ -1814,6 +1951,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[pulumi.InputType['InstanceCpuOptionsArgs']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -1830,6 +1969,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -1846,6 +1986,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1854,6 +1996,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         ...
@@ -1891,6 +2035,36 @@ class Instance(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        ### Spot instance example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        this_ami = aws.ec2.get_ami(most_recent=True,
+            owners=["amazon"],
+            filters=[
+                aws.ec2.GetAmiFilterArgs(
+                    name="architecture",
+                    values=["arm64"],
+                ),
+                aws.ec2.GetAmiFilterArgs(
+                    name="name",
+                    values=["al2023-ami-2023*"],
+                ),
+            ])
+        this_instance = aws.ec2.Instance("thisInstance",
+            ami=this_ami.id,
+            instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
+                spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
+                    max_price="0.0031",
+                ),
+            ),
+            instance_type="t4g.nano",
+            tags={
+                "Name": "test-spot",
+            })
+        ```
         ### Network and credit specification example
 
         ```python
@@ -1981,7 +2155,7 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Instances can be imported using the `id`, e.g.,
+        Using `pulumi import`, import instances using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/instance:Instance web i-12345678
@@ -2022,6 +2196,7 @@ class Instance(pulumi.CustomResource):
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2082,6 +2257,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["host_resource_group_arn"] = host_resource_group_arn
             __props__.__dict__["iam_instance_profile"] = iam_instance_profile
             __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+            __props__.__dict__["instance_market_options"] = instance_market_options
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
@@ -2111,6 +2287,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["volume_tags"] = volume_tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
+            __props__.__dict__["instance_lifecycle"] = None
             __props__.__dict__["instance_state"] = None
             __props__.__dict__["outpost_arn"] = None
             __props__.__dict__["password_data"] = None
@@ -2118,6 +2295,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["private_dns"] = None
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
+            __props__.__dict__["spot_instance_request_id"] = None
             __props__.__dict__["tags_all"] = None
         super(Instance, __self__).__init__(
             'aws:ec2/instance:Instance',
@@ -2150,6 +2328,8 @@ class Instance(pulumi.CustomResource):
             host_resource_group_arn: Optional[pulumi.Input[str]] = None,
             iam_instance_profile: Optional[pulumi.Input[str]] = None,
             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+            instance_lifecycle: Optional[pulumi.Input[str]] = None,
+            instance_market_options: Optional[pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']]] = None,
             instance_state: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
             ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -2174,6 +2354,7 @@ class Instance(pulumi.CustomResource):
             secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             source_dest_check: Optional[pulumi.Input[bool]] = None,
+            spot_instance_request_id: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2195,6 +2376,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[pulumi.InputType['InstanceCpuOptionsArgs']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -2211,6 +2394,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
+        :param pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[str] instance_state: State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -2234,7 +2419,10 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        :param pulumi.Input[str] spot_instance_request_id: If the request is a Spot Instance request, the ID of the request.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -2243,6 +2431,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2270,6 +2460,8 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["host_resource_group_arn"] = host_resource_group_arn
         __props__.__dict__["iam_instance_profile"] = iam_instance_profile
         __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+        __props__.__dict__["instance_lifecycle"] = instance_lifecycle
+        __props__.__dict__["instance_market_options"] = instance_market_options
         __props__.__dict__["instance_state"] = instance_state
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["ipv6_address_count"] = ipv6_address_count
@@ -2294,6 +2486,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["secondary_private_ips"] = secondary_private_ips
         __props__.__dict__["security_groups"] = security_groups
         __props__.__dict__["source_dest_check"] = source_dest_check
+        __props__.__dict__["spot_instance_request_id"] = spot_instance_request_id
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -2342,6 +2535,8 @@ class Instance(pulumi.CustomResource):
     def capacity_reservation_specification(self) -> pulumi.Output['outputs.InstanceCapacityReservationSpecification']:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -2351,6 +2546,9 @@ class Instance(pulumi.CustomResource):
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_core_count")
 
     @property
@@ -2367,6 +2565,9 @@ class Instance(pulumi.CustomResource):
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_threads_per_core")
 
     @property
@@ -2472,6 +2673,22 @@ class Instance(pulumi.CustomResource):
         Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
+
+    @property
+    @pulumi.getter(name="instanceLifecycle")
+    def instance_lifecycle(self) -> pulumi.Output[str]:
+        """
+        Indicates whether this is a Spot Instance or a Scheduled Instance.
+        """
+        return pulumi.get(self, "instance_lifecycle")
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> pulumi.Output['outputs.InstanceInstanceMarketOptions']:
+        """
+        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        """
+        return pulumi.get(self, "instance_market_options")
 
     @property
     @pulumi.getter(name="instanceState")
@@ -2654,7 +2871,12 @@ class Instance(pulumi.CustomResource):
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
+        warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
+
         return pulumi.get(self, "security_groups")
 
     @property
@@ -2664,6 +2886,14 @@ class Instance(pulumi.CustomResource):
         Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         """
         return pulumi.get(self, "source_dest_check")
+
+    @property
+    @pulumi.getter(name="spotInstanceRequestId")
+    def spot_instance_request_id(self) -> pulumi.Output[str]:
+        """
+        If the request is a Spot Instance request, the ID of the request.
+        """
+        return pulumi.get(self, "spot_instance_request_id")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -2726,6 +2956,8 @@ class Instance(pulumi.CustomResource):
     def volume_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func GetRepositoryEndpoint(ctx *pulumi.Context, args *GetRepositoryEndpointArgs, opts ...pulumi.InvokeOption) (*GetRepositoryEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryEndpointResult
 	err := ctx.Invoke("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o GetRepositoryEndpointResultOutput) ToGetRepositoryEndpointResultOutput()
 
 func (o GetRepositoryEndpointResultOutput) ToGetRepositoryEndpointResultOutputWithContext(ctx context.Context) GetRepositoryEndpointResultOutput {
 	return o
+}
+
+func (o GetRepositoryEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryEndpointResult] {
+	return pulumix.Output[GetRepositoryEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRepositoryEndpointResultOutput) Domain() pulumi.StringOutput {

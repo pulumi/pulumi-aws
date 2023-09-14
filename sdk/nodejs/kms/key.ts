@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * KMS Keys can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import KMS Keys using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
@@ -112,6 +112,8 @@ export class Key extends pulumi.CustomResource {
     public readonly multiRegion!: pulumi.Output<boolean>;
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
+     *
+     * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
     public readonly policy!: pulumi.Output<string>;
     /**
@@ -229,6 +231,8 @@ export interface KeyState {
     multiRegion?: pulumi.Input<boolean>;
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
+     *
+     * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
     policy?: pulumi.Input<string>;
     /**
@@ -290,6 +294,8 @@ export interface KeyArgs {
     multiRegion?: pulumi.Input<boolean>;
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
+     *
+     * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
     policy?: pulumi.Input<string>;
     /**

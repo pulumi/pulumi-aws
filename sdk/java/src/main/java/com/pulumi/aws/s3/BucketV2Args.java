@@ -371,12 +371,16 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * The following arguments are deprecated, and will be removed in a future major version:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * The following arguments are deprecated, and will be removed in a future major version:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -995,6 +999,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * The following arguments are deprecated, and will be removed in a future major version:
+         * 
          * @return builder
          * 
          */
@@ -1005,6 +1011,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * The following arguments are deprecated, and will be removed in a future major version:
          * 
          * @return builder
          * 

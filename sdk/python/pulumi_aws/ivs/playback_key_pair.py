@@ -20,6 +20,8 @@ class PlaybackKeyPairArgs:
         """
         The set of arguments for constructing a PlaybackKeyPair resource.
         :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Playback Key Pair name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -34,6 +36,8 @@ class PlaybackKeyPairArgs:
     def public_key(self) -> pulumi.Input[str]:
         """
         Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "public_key")
 
@@ -81,6 +85,8 @@ class _PlaybackKeyPairState:
         :param pulumi.Input[str] fingerprint: Key-pair identifier.
         :param pulumi.Input[str] name: Playback Key Pair name.
         :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -138,6 +144,8 @@ class _PlaybackKeyPairState:
     def public_key(self) -> Optional[pulumi.Input[str]]:
         """
         Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "public_key")
 
@@ -194,7 +202,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Playback Key Pair can be imported using the ARN, e.g.,
+        Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
         ```sh
          $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
@@ -204,6 +212,8 @@ class PlaybackKeyPair(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Playback Key Pair name.
         :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -227,7 +237,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Playback Key Pair can be imported using the ARN, e.g.,
+        Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
         ```sh
          $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
@@ -295,6 +305,8 @@ class PlaybackKeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] fingerprint: Key-pair identifier.
         :param pulumi.Input[str] name: Playback Key Pair name.
         :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -339,6 +351,8 @@ class PlaybackKeyPair(pulumi.CustomResource):
     def public_key(self) -> pulumi.Output[str]:
         """
         Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "public_key")
 

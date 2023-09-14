@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages RDS Aurora Cluster Database Activity Streams.
@@ -28,8 +30,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,15 +87,13 @@ import (
 //
 // ## Import
 //
-// RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.
+// Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
 //
 // ```
-//
-//	[1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 type ClusterActivityStream struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +125,7 @@ func NewClusterActivityStream(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterActivityStream
 	err := ctx.RegisterResource("aws:rds/clusterActivityStream:ClusterActivityStream", name, args, &resource, opts...)
 	if err != nil {
@@ -222,6 +223,12 @@ func (i *ClusterActivityStream) ToClusterActivityStreamOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterActivityStreamOutput)
 }
 
+func (i *ClusterActivityStream) ToOutput(ctx context.Context) pulumix.Output[*ClusterActivityStream] {
+	return pulumix.Output[*ClusterActivityStream]{
+		OutputState: i.ToClusterActivityStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterActivityStreamArrayInput is an input type that accepts ClusterActivityStreamArray and ClusterActivityStreamArrayOutput values.
 // You can construct a concrete instance of `ClusterActivityStreamArrayInput` via:
 //
@@ -245,6 +252,12 @@ func (i ClusterActivityStreamArray) ToClusterActivityStreamArrayOutput() Cluster
 
 func (i ClusterActivityStreamArray) ToClusterActivityStreamArrayOutputWithContext(ctx context.Context) ClusterActivityStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterActivityStreamArrayOutput)
+}
+
+func (i ClusterActivityStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterActivityStream] {
+	return pulumix.Output[[]*ClusterActivityStream]{
+		OutputState: i.ToClusterActivityStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterActivityStreamMapInput is an input type that accepts ClusterActivityStreamMap and ClusterActivityStreamMapOutput values.
@@ -272,6 +285,12 @@ func (i ClusterActivityStreamMap) ToClusterActivityStreamMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterActivityStreamMapOutput)
 }
 
+func (i ClusterActivityStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterActivityStream] {
+	return pulumix.Output[map[string]*ClusterActivityStream]{
+		OutputState: i.ToClusterActivityStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterActivityStreamOutput struct{ *pulumi.OutputState }
 
 func (ClusterActivityStreamOutput) ElementType() reflect.Type {
@@ -284,6 +303,12 @@ func (o ClusterActivityStreamOutput) ToClusterActivityStreamOutput() ClusterActi
 
 func (o ClusterActivityStreamOutput) ToClusterActivityStreamOutputWithContext(ctx context.Context) ClusterActivityStreamOutput {
 	return o
+}
+
+func (o ClusterActivityStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterActivityStream] {
+	return pulumix.Output[*ClusterActivityStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
@@ -325,6 +350,12 @@ func (o ClusterActivityStreamArrayOutput) ToClusterActivityStreamArrayOutputWith
 	return o
 }
 
+func (o ClusterActivityStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterActivityStream] {
+	return pulumix.Output[[]*ClusterActivityStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterActivityStreamArrayOutput) Index(i pulumi.IntInput) ClusterActivityStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterActivityStream {
 		return vs[0].([]*ClusterActivityStream)[vs[1].(int)]
@@ -343,6 +374,12 @@ func (o ClusterActivityStreamMapOutput) ToClusterActivityStreamMapOutput() Clust
 
 func (o ClusterActivityStreamMapOutput) ToClusterActivityStreamMapOutputWithContext(ctx context.Context) ClusterActivityStreamMapOutput {
 	return o
+}
+
+func (o ClusterActivityStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterActivityStream] {
+	return pulumix.Output[map[string]*ClusterActivityStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterActivityStreamMapOutput) MapIndex(k pulumi.StringInput) ClusterActivityStreamOutput {

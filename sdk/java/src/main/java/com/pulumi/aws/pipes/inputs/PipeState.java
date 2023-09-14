@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.pipes.inputs;
 
+import com.pulumi.aws.pipes.inputs.PipeEnrichmentParametersArgs;
 import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
 import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
 import com.pulumi.core.Output;
@@ -19,14 +20,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     public static final PipeState Empty = new PipeState();
 
     /**
-     * ARN of this pipe.
+     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of this pipe.
+     * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -76,6 +77,21 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> enrichment() {
         return Optional.ofNullable(this.enrichment);
+    }
+
+    /**
+     * Parameters to configure enrichment for your pipe. Detailed below.
+     * 
+     */
+    @Import(name="enrichmentParameters")
+    private @Nullable Output<PipeEnrichmentParametersArgs> enrichmentParameters;
+
+    /**
+     * @return Parameters to configure enrichment for your pipe. Detailed below.
+     * 
+     */
+    public Optional<Output<PipeEnrichmentParametersArgs>> enrichmentParameters() {
+        return Optional.ofNullable(this.enrichmentParameters);
     }
 
     /**
@@ -139,14 +155,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters required to set up a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. Detailed below.
      * 
      */
     @Import(name="sourceParameters")
     private @Nullable Output<PipeSourceParametersArgs> sourceParameters;
 
     /**
-     * @return Parameters required to set up a source for the pipe. Detailed below.
+     * @return Parameters to configure a source for the pipe. Detailed below.
      * 
      */
     public Optional<Output<PipeSourceParametersArgs>> sourceParameters() {
@@ -186,6 +202,8 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Target resource of the pipe (typically an ARN).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="target")
     private @Nullable Output<String> target;
@@ -193,20 +211,22 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Target resource of the pipe (typically an ARN).
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> target() {
         return Optional.ofNullable(this.target);
     }
 
     /**
-     * Parameters required to set up a target for your pipe. Detailed below.
+     * Parameters to configure a target for your pipe. Detailed below.
      * 
      */
     @Import(name="targetParameters")
     private @Nullable Output<PipeTargetParametersArgs> targetParameters;
 
     /**
-     * @return Parameters required to set up a target for your pipe. Detailed below.
+     * @return Parameters to configure a target for your pipe. Detailed below.
      * 
      */
     public Optional<Output<PipeTargetParametersArgs>> targetParameters() {
@@ -220,6 +240,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.desiredState = $.desiredState;
         this.enrichment = $.enrichment;
+        this.enrichmentParameters = $.enrichmentParameters;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.roleArn = $.roleArn;
@@ -250,7 +271,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of this pipe.
+         * @param arn The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
          * 
          * @return builder
          * 
@@ -261,7 +282,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of this pipe.
+         * @param arn The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
          * 
          * @return builder
          * 
@@ -331,6 +352,27 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enrichment(String enrichment) {
             return enrichment(Output.of(enrichment));
+        }
+
+        /**
+         * @param enrichmentParameters Parameters to configure enrichment for your pipe. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichmentParameters(@Nullable Output<PipeEnrichmentParametersArgs> enrichmentParameters) {
+            $.enrichmentParameters = enrichmentParameters;
+            return this;
+        }
+
+        /**
+         * @param enrichmentParameters Parameters to configure enrichment for your pipe. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichmentParameters(PipeEnrichmentParametersArgs enrichmentParameters) {
+            return enrichmentParameters(Output.of(enrichmentParameters));
         }
 
         /**
@@ -418,7 +460,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceParameters Parameters required to set up a source for the pipe. Detailed below.
+         * @param sourceParameters Parameters to configure a source for the pipe. Detailed below.
          * 
          * @return builder
          * 
@@ -429,7 +471,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceParameters Parameters required to set up a source for the pipe. Detailed below.
+         * @param sourceParameters Parameters to configure a source for the pipe. Detailed below.
          * 
          * @return builder
          * 
@@ -483,6 +525,8 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param target Target resource of the pipe (typically an ARN).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -494,6 +538,8 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param target Target resource of the pipe (typically an ARN).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -502,7 +548,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetParameters Parameters required to set up a target for your pipe. Detailed below.
+         * @param targetParameters Parameters to configure a target for your pipe. Detailed below.
          * 
          * @return builder
          * 
@@ -513,7 +559,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetParameters Parameters required to set up a target for your pipe. Detailed below.
+         * @param targetParameters Parameters to configure a target for your pipe. Detailed below.
          * 
          * @return builder
          * 

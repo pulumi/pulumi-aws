@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon API Gateway Version 2 stage.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +45,15 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+// Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
 //
 // ```
+//
+//	-> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 type Stage struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +83,8 @@ type Stage struct {
 	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayOutput `pulumi:"routeSettings"`
@@ -100,6 +106,7 @@ func NewStage(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stage
 	err := ctx.RegisterResource("aws:apigatewayv2/stage:Stage", name, args, &resource, opts...)
 	if err != nil {
@@ -148,6 +155,8 @@ type stageState struct {
 	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -186,6 +195,8 @@ type StageState struct {
 	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringPtrInput
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput
@@ -219,6 +230,8 @@ type stageArgs struct {
 	// Description for the stage. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -247,6 +260,8 @@ type StageArgs struct {
 	// Description for the stage. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput
@@ -279,6 +294,12 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
 }
 
+func (i *Stage) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
+	return pulumix.Output[*Stage]{
+		OutputState: i.ToStageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StageArrayInput is an input type that accepts StageArray and StageArrayOutput values.
 // You can construct a concrete instance of `StageArrayInput` via:
 //
@@ -302,6 +323,12 @@ func (i StageArray) ToStageArrayOutput() StageArrayOutput {
 
 func (i StageArray) ToStageArrayOutputWithContext(ctx context.Context) StageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageArrayOutput)
+}
+
+func (i StageArray) ToOutput(ctx context.Context) pulumix.Output[[]*Stage] {
+	return pulumix.Output[[]*Stage]{
+		OutputState: i.ToStageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StageMapInput is an input type that accepts StageMap and StageMapOutput values.
@@ -329,6 +356,12 @@ func (i StageMap) ToStageMapOutputWithContext(ctx context.Context) StageMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StageMapOutput)
 }
 
+func (i StageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stage] {
+	return pulumix.Output[map[string]*Stage]{
+		OutputState: i.ToStageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StageOutput struct{ *pulumi.OutputState }
 
 func (StageOutput) ElementType() reflect.Type {
@@ -341,6 +374,12 @@ func (o StageOutput) ToStageOutput() StageOutput {
 
 func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
+}
+
+func (o StageOutput) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
+	return pulumix.Output[*Stage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Settings for logging access in this stage.
@@ -399,6 +438,8 @@ func (o StageOutput) InvokeUrl() pulumi.StringOutput {
 }
 
 // Name of the stage. Must be between 1 and 128 characters in length.
+//
+// The following arguments are optional:
 func (o StageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -437,6 +478,12 @@ func (o StageArrayOutput) ToStageArrayOutputWithContext(ctx context.Context) Sta
 	return o
 }
 
+func (o StageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Stage] {
+	return pulumix.Output[[]*Stage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StageArrayOutput) Index(i pulumi.IntInput) StageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stage {
 		return vs[0].([]*Stage)[vs[1].(int)]
@@ -455,6 +502,12 @@ func (o StageMapOutput) ToStageMapOutput() StageMapOutput {
 
 func (o StageMapOutput) ToStageMapOutputWithContext(ctx context.Context) StageMapOutput {
 	return o
+}
+
+func (o StageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stage] {
+	return pulumix.Output[map[string]*Stage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StageMapOutput) MapIndex(k pulumi.StringInput) StageOutput {

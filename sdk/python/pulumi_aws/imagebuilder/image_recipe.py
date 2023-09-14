@@ -31,6 +31,8 @@ class ImageRecipeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+               
+               The following attributes are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: Name of the image recipe.
@@ -86,6 +88,8 @@ class ImageRecipeArgs:
     def version(self) -> pulumi.Input[str]:
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 
@@ -212,6 +216,8 @@ class _ImageRecipeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         if arn is not None:
@@ -406,6 +412,8 @@ class _ImageRecipeState:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 
@@ -479,7 +487,7 @@ class ImageRecipe(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -496,6 +504,8 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
@@ -541,7 +551,7 @@ class ImageRecipe(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -648,6 +658,8 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -780,6 +792,8 @@ class ImageRecipe(pulumi.CustomResource):
     def version(self) -> pulumi.Output[str]:
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 

@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_provisioned_product` can be imported using the provisioned product ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
@@ -209,12 +209,16 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
     /**
      * User-friendly name of the provisioned product.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return User-friendly name of the provisioned product.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

@@ -279,7 +279,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Import
 
-        DeviceFarm Instance Profiles can be imported by their arn
+        Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
 
         ```sh
          $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
@@ -316,7 +316,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Import
 
-        DeviceFarm Instance Profiles can be imported by their arn
+        Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
 
         ```sh
          $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1

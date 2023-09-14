@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Load Balancer Listener Rule resource.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -244,7 +246,7 @@ import (
 //
 // ## Import
 //
-// Rules can be imported using their ARN, e.g.,
+// Using `pulumi import`, import rules using their ARN. For example:
 //
 // ```sh
 //
@@ -292,6 +294,7 @@ func NewListenerRule(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerRule
 	err := ctx.RegisterResource("aws:alb/listenerRule:ListenerRule", name, args, &resource, opts...)
 	if err != nil {
@@ -401,6 +404,12 @@ func (i *ListenerRule) ToListenerRuleOutputWithContext(ctx context.Context) List
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleOutput)
 }
 
+func (i *ListenerRule) ToOutput(ctx context.Context) pulumix.Output[*ListenerRule] {
+	return pulumix.Output[*ListenerRule]{
+		OutputState: i.ToListenerRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ListenerRuleArrayInput is an input type that accepts ListenerRuleArray and ListenerRuleArrayOutput values.
 // You can construct a concrete instance of `ListenerRuleArrayInput` via:
 //
@@ -424,6 +433,12 @@ func (i ListenerRuleArray) ToListenerRuleArrayOutput() ListenerRuleArrayOutput {
 
 func (i ListenerRuleArray) ToListenerRuleArrayOutputWithContext(ctx context.Context) ListenerRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleArrayOutput)
+}
+
+func (i ListenerRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ListenerRule] {
+	return pulumix.Output[[]*ListenerRule]{
+		OutputState: i.ToListenerRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ListenerRuleMapInput is an input type that accepts ListenerRuleMap and ListenerRuleMapOutput values.
@@ -451,6 +466,12 @@ func (i ListenerRuleMap) ToListenerRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMapOutput)
 }
 
+func (i ListenerRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ListenerRule] {
+	return pulumix.Output[map[string]*ListenerRule]{
+		OutputState: i.ToListenerRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerRuleOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleOutput) ElementType() reflect.Type {
@@ -463,6 +484,12 @@ func (o ListenerRuleOutput) ToListenerRuleOutput() ListenerRuleOutput {
 
 func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput {
 	return o
+}
+
+func (o ListenerRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRule] {
+	return pulumix.Output[*ListenerRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An Action block. Action blocks are documented below.
@@ -514,6 +541,12 @@ func (o ListenerRuleArrayOutput) ToListenerRuleArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ListenerRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ListenerRule] {
+	return pulumix.Output[[]*ListenerRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ListenerRuleArrayOutput) Index(i pulumi.IntInput) ListenerRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ListenerRule {
 		return vs[0].([]*ListenerRule)[vs[1].(int)]
@@ -532,6 +565,12 @@ func (o ListenerRuleMapOutput) ToListenerRuleMapOutput() ListenerRuleMapOutput {
 
 func (o ListenerRuleMapOutput) ToListenerRuleMapOutputWithContext(ctx context.Context) ListenerRuleMapOutput {
 	return o
+}
+
+func (o ListenerRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ListenerRule] {
+	return pulumix.Output[map[string]*ListenerRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerRuleMapOutput) MapIndex(k pulumi.StringInput) ListenerRuleOutput {

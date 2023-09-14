@@ -83,11 +83,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS SSM Activation can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
  * ```
+ *  -&gt; __Note:__ The `activation_code` attribute cannot be imported.
  * 
  */
 @ResourceType(type="aws:ssm/activation:Activation")

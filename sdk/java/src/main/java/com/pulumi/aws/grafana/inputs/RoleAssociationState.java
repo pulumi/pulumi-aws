@@ -64,12 +64,16 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
     /**
      * The workspace id.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
      * @return The workspace id.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -189,6 +193,8 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         /**
          * @param workspaceId The workspace id.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -199,6 +205,8 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param workspaceId The workspace id.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

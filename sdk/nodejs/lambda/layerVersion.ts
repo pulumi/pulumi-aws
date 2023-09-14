@@ -36,15 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Lambda Layers can be imported using `arn`.
+ * Using `pulumi import`, import Lambda Layers using `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lambda/layerVersion:LayerVersion \
+ *  $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
  * ```
- *
- *  aws_lambda_layer_version.test_layer \
- *
- *  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
  */
 export class LayerVersion extends pulumi.CustomResource {
     /**
@@ -104,6 +100,8 @@ export class LayerVersion extends pulumi.CustomResource {
     public /*out*/ readonly layerArn!: pulumi.Output<string>;
     /**
      * Unique name for your Lambda Layer
+     *
+     * The following arguments are optional:
      */
     public readonly layerName!: pulumi.Output<string>;
     /**
@@ -241,6 +239,8 @@ export interface LayerVersionState {
     layerArn?: pulumi.Input<string>;
     /**
      * Unique name for your Lambda Layer
+     *
+     * The following arguments are optional:
      */
     layerName?: pulumi.Input<string>;
     /**
@@ -307,6 +307,8 @@ export interface LayerVersionArgs {
     description?: pulumi.Input<string>;
     /**
      * Unique name for your Lambda Layer
+     *
+     * The following arguments are optional:
      */
     layerName: pulumi.Input<string>;
     /**

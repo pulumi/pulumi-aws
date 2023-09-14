@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `name` to import a snapshot. For example
+ * Using `pulumi import`, import a snapshot using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot

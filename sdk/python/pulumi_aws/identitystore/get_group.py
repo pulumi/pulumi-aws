@@ -38,10 +38,6 @@ class GetGroupResult:
         pulumi.set(__self__, "external_ids", external_ids)
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
-        if filter is not None:
-            warnings.warn("""Use the alternate_identifier attribute instead.""", DeprecationWarning)
-            pulumi.log.warn("""filter is deprecated: Use the alternate_identifier attribute instead.""")
-
         pulumi.set(__self__, "filter", filter)
         if group_id and not isinstance(group_id, str):
             raise TypeError("Expected argument 'group_id' to be a str")
@@ -85,6 +81,9 @@ class GetGroupResult:
     @property
     @pulumi.getter
     def filter(self) -> Optional['outputs.GetGroupFilterResult']:
+        warnings.warn("""Use the alternate_identifier attribute instead.""", DeprecationWarning)
+        pulumi.log.warn("""filter is deprecated: Use the alternate_identifier attribute instead.""")
+
         return pulumi.get(self, "filter")
 
     @property
@@ -134,7 +133,11 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
     :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
+           
+           > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -145,14 +148,14 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        alternate_identifier=__ret__.alternate_identifier,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        external_ids=__ret__.external_ids,
-        filter=__ret__.filter,
-        group_id=__ret__.group_id,
-        id=__ret__.id,
-        identity_store_id=__ret__.identity_store_id)
+        alternate_identifier=pulumi.get(__ret__, 'alternate_identifier'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        external_ids=pulumi.get(__ret__, 'external_ids'),
+        filter=pulumi.get(__ret__, 'filter'),
+        group_id=pulumi.get(__ret__, 'group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_store_id=pulumi.get(__ret__, 'identity_store_id'))
 
 
 @_utilities.lift_output_func(get_group)
@@ -168,6 +171,10 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi
     :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
+           
+           > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+           
+           The following arguments are optional:
     """
     ...

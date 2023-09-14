@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Faws.svg)](https://www.npmjs.com/package/@pulumi/aws)
 [![Python version](https://badge.fury.io/py/pulumi-aws.svg)](https://pypi.org/project/pulumi-aws)
 [![NuGet version](https://badge.fury.io/nu/pulumi.aws.svg)](https://badge.fury.io/nu/pulumi.aws)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-aws/sdk/v5/go)](https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v5/go)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-aws/sdk/v6/go)](https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v6/go)
 [![License](https://img.shields.io/github/license/pulumi/pulumi-aws)](https://github.com/pulumi/pulumi-aws/blob/master/LICENSE)
 
 # Amazon Web Services (AWS) provider
@@ -41,7 +41,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-aws/sdk/v5
+    $ go get github.com/pulumi/pulumi-aws/sdk/v6
 
 ### .NET
 
@@ -71,7 +71,7 @@ The following configuration points are available:
 
 - `aws:region` - (Required) This is the AWS region.
 
-- `aws:accessKey` - (Optional) This is the AWS access key. It can also be sourced from the 
+- `aws:accessKey` - (Optional) This is the AWS access key. It can also be sourced from the
   `AWS_ACCESS_KEY_ID` environment variable, or via a shared credentials file if `aws:profile` is specified.
 - `aws:secretKey` - (Optional) This is the AWS secret key. It can also be sourced from the
   `AWS_SECRET_ACCESS_KEY` environment variable, or via a shared credentials file if `aws:profile` is specified.
@@ -80,7 +80,7 @@ The following configuration points are available:
   `aws:profile` is specified, `~/.aws/credentials` will be used.
 - `aws:token` - (Optional) Session token for validating temporary credentials. Typically provided after successful
   identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided
-  afterward, not the 6 digit MFA code used to get temporary credentials. It can also be sourced from the 
+  afterward, not the 6 digit MFA code used to get temporary credentials. It can also be sourced from the
   `AWS_SESSION_TOKEN` environment variable.
 - `aws:maxRetries` - (Optional) This is the maximum number of times an API call is retried, in the case where requests
   are being throttled or experiencing transient failures. The delay between the subsequent API calls increases

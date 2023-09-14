@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,
+ * Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
  *
  * ```sh
  *  $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName

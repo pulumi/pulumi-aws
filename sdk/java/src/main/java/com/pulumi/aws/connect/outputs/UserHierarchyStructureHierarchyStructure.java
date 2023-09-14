@@ -18,6 +18,8 @@ public final class UserHierarchyStructureHierarchyStructure {
     /**
      * @return A block that defines the details of level five. The level block is documented below.
      * 
+     * Each level block supports the following arguments:
+     * 
      */
     private @Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive;
     /**
@@ -44,6 +46,8 @@ public final class UserHierarchyStructureHierarchyStructure {
     private UserHierarchyStructureHierarchyStructure() {}
     /**
      * @return A block that defines the details of level five. The level block is documented below.
+     * 
+     * Each level block supports the following arguments:
      * 
      */
     public Optional<UserHierarchyStructureHierarchyStructureLevelFive> levelFive() {

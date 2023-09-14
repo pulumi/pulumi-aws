@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Backup Global Settings can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Backup Global Settings using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012

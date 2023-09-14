@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MSK Connect Custom Plugin can be imported using the plugin's `arn`, e.g.,
+ * Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
@@ -88,6 +88,8 @@ export class CustomPlugin extends pulumi.CustomResource {
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
      * Information about the location of a custom plugin. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly location!: pulumi.Output<outputs.mskconnect.CustomPluginLocation>;
     /**
@@ -162,6 +164,8 @@ export interface CustomPluginState {
     latestRevision?: pulumi.Input<number>;
     /**
      * Information about the location of a custom plugin. See below.
+     *
+     * The following arguments are optional:
      */
     location?: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
     /**
@@ -188,6 +192,8 @@ export interface CustomPluginArgs {
     description?: pulumi.Input<string>;
     /**
      * Information about the location of a custom plugin. See below.
+     *
+     * The following arguments are optional:
      */
     location: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
     /**

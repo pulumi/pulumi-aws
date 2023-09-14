@@ -154,6 +154,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         [Output("authorizedSessionTagValueLists")]
         public Output<ImmutableArray<string>> AuthorizedSessionTagValueLists { get; private set; } = null!;
@@ -181,6 +183,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Output("externalDataFilteringAllowLists")]
         public Output<ImmutableArray<string>> ExternalDataFilteringAllowLists { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        /// </summary>
+        [Output("readOnlyAdmins")]
+        public Output<ImmutableArray<string>> ReadOnlyAdmins { get; private set; } = null!;
 
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
@@ -257,6 +265,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         public InputList<string> AuthorizedSessionTagValueLists
         {
@@ -306,6 +316,18 @@ namespace Pulumi.Aws.LakeFormation
             set => _externalDataFilteringAllowLists = value;
         }
 
+        [Input("readOnlyAdmins")]
+        private InputList<string>? _readOnlyAdmins;
+
+        /// <summary>
+        /// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        /// </summary>
+        public InputList<string> ReadOnlyAdmins
+        {
+            get => _readOnlyAdmins ?? (_readOnlyAdmins = new InputList<string>());
+            set => _readOnlyAdmins = value;
+        }
+
         [Input("trustedResourceOwners")]
         private InputList<string>? _trustedResourceOwners;
 
@@ -349,6 +371,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         public InputList<string> AuthorizedSessionTagValueLists
         {
@@ -396,6 +420,18 @@ namespace Pulumi.Aws.LakeFormation
         {
             get => _externalDataFilteringAllowLists ?? (_externalDataFilteringAllowLists = new InputList<string>());
             set => _externalDataFilteringAllowLists = value;
+        }
+
+        [Input("readOnlyAdmins")]
+        private InputList<string>? _readOnlyAdmins;
+
+        /// <summary>
+        /// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        /// </summary>
+        public InputList<string> ReadOnlyAdmins
+        {
+            get => _readOnlyAdmins ?? (_readOnlyAdmins = new InputList<string>());
+            set => _readOnlyAdmins = value;
         }
 
         [Input("trustedResourceOwners")]

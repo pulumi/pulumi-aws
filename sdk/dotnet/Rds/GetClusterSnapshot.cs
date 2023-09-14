@@ -156,7 +156,8 @@ namespace Pulumi.Aws.Rds
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags for the resource.
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired DB cluster snapshot.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -217,7 +218,8 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags for the resource.
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired DB cluster snapshot.
         /// </summary>
         public InputMap<string> Tags
         {

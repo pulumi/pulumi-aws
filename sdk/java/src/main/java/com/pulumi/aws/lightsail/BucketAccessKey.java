@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_bucket_access_key` can be imported by using the `id` attribute, e.g.,
+ * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIA47VOQ2KPR7LLRZ6D

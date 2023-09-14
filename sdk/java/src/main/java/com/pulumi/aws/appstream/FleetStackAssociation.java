@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleFleet = new Fleet(&#34;exampleFleet&#34;, FleetArgs.builder()        
- *             .imageName(&#34;Amazon-AppStream2-Sample-Image-02-04-2019&#34;)
+ *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.small&#34;)
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+ * Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName

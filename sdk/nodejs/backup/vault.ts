@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Backup vault can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Backup vault using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:backup/vault:Vault test-vault TestVault

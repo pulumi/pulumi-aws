@@ -147,7 +147,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             tags=self.tags)
 
 
-def get_service(service_identifier: Optional[str] = None,
+def get_service(name: Optional[str] = None,
+                service_identifier: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
@@ -160,34 +161,37 @@ def get_service(service_identifier: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_service()
+    example = aws.vpclattice.get_service(name="example")
     ```
 
 
-    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network
+    :param str name: Service name.
+    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network.
     :param Mapping[str, str] tags: List of tags associated with the service.
     """
     __args__ = dict()
+    __args__['name'] = name
     __args__['serviceIdentifier'] = service_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:vpclattice/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        arn=__ret__.arn,
-        auth_type=__ret__.auth_type,
-        certificate_arn=__ret__.certificate_arn,
-        custom_domain_name=__ret__.custom_domain_name,
-        dns_entries=__ret__.dns_entries,
-        id=__ret__.id,
-        name=__ret__.name,
-        service_identifier=__ret__.service_identifier,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        custom_domain_name=pulumi.get(__ret__, 'custom_domain_name'),
+        dns_entries=pulumi.get(__ret__, 'dns_entries'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        service_identifier=pulumi.get(__ret__, 'service_identifier'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service)
-def get_service_output(service_identifier: Optional[pulumi.Input[str]] = None,
+def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                       service_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
@@ -200,11 +204,12 @@ def get_service_output(service_identifier: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_service()
+    example = aws.vpclattice.get_service(name="example")
     ```
 
 
-    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network
+    :param str name: Service name.
+    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network.
     :param Mapping[str, str] tags: List of tags associated with the service.
     """
     ...

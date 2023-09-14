@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2023, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,11 +15,18 @@
 package main
 
 import (
-	aws "github.com/pulumi/pulumi-aws/provider/v5"
-	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	aws "github.com/pulumi/pulumi-aws/provider/v6"
+	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 )
 
 func main() {
-	tfgen.Main("aws", version.Version, aws.Provider())
+	info := aws.Provider()
+
+	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
+		replaceWafV2TypesWithRecursive(spec)
+		removeUnusedQuicksightTypes(spec)
+	}
+
+	pftfgen.MainWithMuxer("aws", *info)
 }

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupVirtualRouter(ctx *pulumi.Context, args *LookupVirtualRouterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualRouterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualRouterResult
 	err := ctx.Invoke("aws:appmesh/getVirtualRouter:getVirtualRouter", args, &rv, opts...)
 	if err != nil {
@@ -120,6 +123,12 @@ func (o LookupVirtualRouterResultOutput) ToLookupVirtualRouterResultOutput() Loo
 
 func (o LookupVirtualRouterResultOutput) ToLookupVirtualRouterResultOutputWithContext(ctx context.Context) LookupVirtualRouterResultOutput {
 	return o
+}
+
+func (o LookupVirtualRouterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualRouterResult] {
+	return pulumix.Output[LookupVirtualRouterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the virtual router.

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Codecommit repository can be imported using repository name, e.g.,
+ * Using `pulumi import`, import Codecommit repository using repository name. For example:
  *
  * ```sh
  *  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo

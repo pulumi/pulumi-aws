@@ -467,7 +467,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Chime SDK Media Pipelines Media Insights Pipeline Configuration can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
 
         ```sh
          $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
@@ -728,7 +728,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Chime SDK Media Pipelines Media Insights Pipeline Configuration can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
 
         ```sh
          $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456

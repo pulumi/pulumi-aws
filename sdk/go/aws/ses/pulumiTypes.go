@@ -7,282 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-type ConfgurationSetDeliveryOptions struct {
-	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
-	TlsPolicy *string `pulumi:"tlsPolicy"`
-}
-
-// ConfgurationSetDeliveryOptionsInput is an input type that accepts ConfgurationSetDeliveryOptionsArgs and ConfgurationSetDeliveryOptionsOutput values.
-// You can construct a concrete instance of `ConfgurationSetDeliveryOptionsInput` via:
-//
-//	ConfgurationSetDeliveryOptionsArgs{...}
-type ConfgurationSetDeliveryOptionsInput interface {
-	pulumi.Input
-
-	ToConfgurationSetDeliveryOptionsOutput() ConfgurationSetDeliveryOptionsOutput
-	ToConfgurationSetDeliveryOptionsOutputWithContext(context.Context) ConfgurationSetDeliveryOptionsOutput
-}
-
-type ConfgurationSetDeliveryOptionsArgs struct {
-	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
-	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
-}
-
-func (ConfgurationSetDeliveryOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfgurationSetDeliveryOptions)(nil)).Elem()
-}
-
-func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsOutput() ConfgurationSetDeliveryOptionsOutput {
-	return i.ToConfgurationSetDeliveryOptionsOutputWithContext(context.Background())
-}
-
-func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetDeliveryOptionsOutput)
-}
-
-func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
-	return i.ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i ConfgurationSetDeliveryOptionsArgs) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetDeliveryOptionsOutput).ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx)
-}
-
-// ConfgurationSetDeliveryOptionsPtrInput is an input type that accepts ConfgurationSetDeliveryOptionsArgs, ConfgurationSetDeliveryOptionsPtr and ConfgurationSetDeliveryOptionsPtrOutput values.
-// You can construct a concrete instance of `ConfgurationSetDeliveryOptionsPtrInput` via:
-//
-//	        ConfgurationSetDeliveryOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConfgurationSetDeliveryOptionsPtrInput interface {
-	pulumi.Input
-
-	ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput
-	ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Context) ConfgurationSetDeliveryOptionsPtrOutput
-}
-
-type confgurationSetDeliveryOptionsPtrType ConfgurationSetDeliveryOptionsArgs
-
-func ConfgurationSetDeliveryOptionsPtr(v *ConfgurationSetDeliveryOptionsArgs) ConfgurationSetDeliveryOptionsPtrInput {
-	return (*confgurationSetDeliveryOptionsPtrType)(v)
-}
-
-func (*confgurationSetDeliveryOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfgurationSetDeliveryOptions)(nil)).Elem()
-}
-
-func (i *confgurationSetDeliveryOptionsPtrType) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
-	return i.ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *confgurationSetDeliveryOptionsPtrType) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetDeliveryOptionsPtrOutput)
-}
-
-type ConfgurationSetDeliveryOptionsOutput struct{ *pulumi.OutputState }
-
-func (ConfgurationSetDeliveryOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfgurationSetDeliveryOptions)(nil)).Elem()
-}
-
-func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsOutput() ConfgurationSetDeliveryOptionsOutput {
-	return o
-}
-
-func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsOutput {
-	return o
-}
-
-func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
-	return o.ToConfgurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfgurationSetDeliveryOptions) *ConfgurationSetDeliveryOptions {
-		return &v
-	}).(ConfgurationSetDeliveryOptionsPtrOutput)
-}
-
-// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
-func (o ConfgurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfgurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
-}
-
-type ConfgurationSetDeliveryOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfgurationSetDeliveryOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfgurationSetDeliveryOptions)(nil)).Elem()
-}
-
-func (o ConfgurationSetDeliveryOptionsPtrOutput) ToConfgurationSetDeliveryOptionsPtrOutput() ConfgurationSetDeliveryOptionsPtrOutput {
-	return o
-}
-
-func (o ConfgurationSetDeliveryOptionsPtrOutput) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
-	return o
-}
-
-func (o ConfgurationSetDeliveryOptionsPtrOutput) Elem() ConfgurationSetDeliveryOptionsOutput {
-	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) ConfgurationSetDeliveryOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ConfgurationSetDeliveryOptions
-		return ret
-	}).(ConfgurationSetDeliveryOptionsOutput)
-}
-
-// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
-func (o ConfgurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TlsPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConfgurationSetTrackingOptions struct {
-	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
-}
-
-// ConfgurationSetTrackingOptionsInput is an input type that accepts ConfgurationSetTrackingOptionsArgs and ConfgurationSetTrackingOptionsOutput values.
-// You can construct a concrete instance of `ConfgurationSetTrackingOptionsInput` via:
-//
-//	ConfgurationSetTrackingOptionsArgs{...}
-type ConfgurationSetTrackingOptionsInput interface {
-	pulumi.Input
-
-	ToConfgurationSetTrackingOptionsOutput() ConfgurationSetTrackingOptionsOutput
-	ToConfgurationSetTrackingOptionsOutputWithContext(context.Context) ConfgurationSetTrackingOptionsOutput
-}
-
-type ConfgurationSetTrackingOptionsArgs struct {
-	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
-}
-
-func (ConfgurationSetTrackingOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfgurationSetTrackingOptions)(nil)).Elem()
-}
-
-func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsOutput() ConfgurationSetTrackingOptionsOutput {
-	return i.ToConfgurationSetTrackingOptionsOutputWithContext(context.Background())
-}
-
-func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetTrackingOptionsOutput)
-}
-
-func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
-	return i.ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i ConfgurationSetTrackingOptionsArgs) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetTrackingOptionsOutput).ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx)
-}
-
-// ConfgurationSetTrackingOptionsPtrInput is an input type that accepts ConfgurationSetTrackingOptionsArgs, ConfgurationSetTrackingOptionsPtr and ConfgurationSetTrackingOptionsPtrOutput values.
-// You can construct a concrete instance of `ConfgurationSetTrackingOptionsPtrInput` via:
-//
-//	        ConfgurationSetTrackingOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConfgurationSetTrackingOptionsPtrInput interface {
-	pulumi.Input
-
-	ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput
-	ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Context) ConfgurationSetTrackingOptionsPtrOutput
-}
-
-type confgurationSetTrackingOptionsPtrType ConfgurationSetTrackingOptionsArgs
-
-func ConfgurationSetTrackingOptionsPtr(v *ConfgurationSetTrackingOptionsArgs) ConfgurationSetTrackingOptionsPtrInput {
-	return (*confgurationSetTrackingOptionsPtrType)(v)
-}
-
-func (*confgurationSetTrackingOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfgurationSetTrackingOptions)(nil)).Elem()
-}
-
-func (i *confgurationSetTrackingOptionsPtrType) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
-	return i.ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *confgurationSetTrackingOptionsPtrType) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetTrackingOptionsPtrOutput)
-}
-
-type ConfgurationSetTrackingOptionsOutput struct{ *pulumi.OutputState }
-
-func (ConfgurationSetTrackingOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfgurationSetTrackingOptions)(nil)).Elem()
-}
-
-func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsOutput() ConfgurationSetTrackingOptionsOutput {
-	return o
-}
-
-func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsOutput {
-	return o
-}
-
-func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
-	return o.ToConfgurationSetTrackingOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfgurationSetTrackingOptions) *ConfgurationSetTrackingOptions {
-		return &v
-	}).(ConfgurationSetTrackingOptionsPtrOutput)
-}
-
-// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-func (o ConfgurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfgurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
-}
-
-type ConfgurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfgurationSetTrackingOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfgurationSetTrackingOptions)(nil)).Elem()
-}
-
-func (o ConfgurationSetTrackingOptionsPtrOutput) ToConfgurationSetTrackingOptionsPtrOutput() ConfgurationSetTrackingOptionsPtrOutput {
-	return o
-}
-
-func (o ConfgurationSetTrackingOptionsPtrOutput) ToConfgurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetTrackingOptionsPtrOutput {
-	return o
-}
-
-func (o ConfgurationSetTrackingOptionsPtrOutput) Elem() ConfgurationSetTrackingOptionsOutput {
-	return o.ApplyT(func(v *ConfgurationSetTrackingOptions) ConfgurationSetTrackingOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ConfgurationSetTrackingOptions
-		return ret
-	}).(ConfgurationSetTrackingOptionsOutput)
-}
-
-// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-func (o ConfgurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfgurationSetTrackingOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomRedirectDomain
-	}).(pulumi.StringPtrOutput)
-}
+var _ = internal.GetEnvOrDefault
 
 type ConfigurationSetDeliveryOptions struct {
 	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
@@ -315,6 +45,12 @@ func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOu
 
 func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsOutput)
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetDeliveryOptions] {
+	return pulumix.Output[ConfigurationSetDeliveryOptions]{
+		OutputState: i.ToConfigurationSetDeliveryOptionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
@@ -358,6 +94,12 @@ func (i *configurationSetDeliveryOptionsPtrType) ToConfigurationSetDeliveryOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+func (i *configurationSetDeliveryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetDeliveryOptions] {
+	return pulumix.Output[*ConfigurationSetDeliveryOptions]{
+		OutputState: i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationSetDeliveryOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetDeliveryOptionsOutput) ElementType() reflect.Type {
@@ -382,6 +124,12 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+func (o ConfigurationSetDeliveryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetDeliveryOptions] {
+	return pulumix.Output[ConfigurationSetDeliveryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfigurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
@@ -399,6 +147,12 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOpti
 
 func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
 	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetDeliveryOptions] {
+	return pulumix.Output[*ConfigurationSetDeliveryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliveryOptionsOutput {
@@ -454,6 +208,12 @@ func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsOutput)
 }
 
+func (i ConfigurationSetTrackingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTrackingOptions] {
+	return pulumix.Output[ConfigurationSetTrackingOptions]{
+		OutputState: i.ToConfigurationSetTrackingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
 	return i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
 }
@@ -495,6 +255,12 @@ func (i *configurationSetTrackingOptionsPtrType) ToConfigurationSetTrackingOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
+func (i *configurationSetTrackingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetTrackingOptions] {
+	return pulumix.Output[*ConfigurationSetTrackingOptions]{
+		OutputState: i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationSetTrackingOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetTrackingOptionsOutput) ElementType() reflect.Type {
@@ -519,6 +285,12 @@ func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptions
 	}).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
+func (o ConfigurationSetTrackingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTrackingOptions] {
+	return pulumix.Output[ConfigurationSetTrackingOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
@@ -536,6 +308,12 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOpti
 
 func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
 	return o
+}
+
+func (o ConfigurationSetTrackingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetTrackingOptions] {
+	return pulumix.Output[*ConfigurationSetTrackingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationSetTrackingOptionsPtrOutput) Elem() ConfigurationSetTrackingOptionsOutput {
@@ -599,6 +377,12 @@ func (i EventDestinationCloudwatchDestinationArgs) ToEventDestinationCloudwatchD
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationCloudwatchDestinationOutput)
 }
 
+func (i EventDestinationCloudwatchDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[EventDestinationCloudwatchDestination] {
+	return pulumix.Output[EventDestinationCloudwatchDestination]{
+		OutputState: i.ToEventDestinationCloudwatchDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventDestinationCloudwatchDestinationArrayInput is an input type that accepts EventDestinationCloudwatchDestinationArray and EventDestinationCloudwatchDestinationArrayOutput values.
 // You can construct a concrete instance of `EventDestinationCloudwatchDestinationArrayInput` via:
 //
@@ -624,6 +408,12 @@ func (i EventDestinationCloudwatchDestinationArray) ToEventDestinationCloudwatch
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationCloudwatchDestinationArrayOutput)
 }
 
+func (i EventDestinationCloudwatchDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]EventDestinationCloudwatchDestination] {
+	return pulumix.Output[[]EventDestinationCloudwatchDestination]{
+		OutputState: i.ToEventDestinationCloudwatchDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventDestinationCloudwatchDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationCloudwatchDestinationOutput) ElementType() reflect.Type {
@@ -636,6 +426,12 @@ func (o EventDestinationCloudwatchDestinationOutput) ToEventDestinationCloudwatc
 
 func (o EventDestinationCloudwatchDestinationOutput) ToEventDestinationCloudwatchDestinationOutputWithContext(ctx context.Context) EventDestinationCloudwatchDestinationOutput {
 	return o
+}
+
+func (o EventDestinationCloudwatchDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[EventDestinationCloudwatchDestination] {
+	return pulumix.Output[EventDestinationCloudwatchDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for the event
@@ -665,6 +461,12 @@ func (o EventDestinationCloudwatchDestinationArrayOutput) ToEventDestinationClou
 
 func (o EventDestinationCloudwatchDestinationArrayOutput) ToEventDestinationCloudwatchDestinationArrayOutputWithContext(ctx context.Context) EventDestinationCloudwatchDestinationArrayOutput {
 	return o
+}
+
+func (o EventDestinationCloudwatchDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventDestinationCloudwatchDestination] {
+	return pulumix.Output[[]EventDestinationCloudwatchDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventDestinationCloudwatchDestinationArrayOutput) Index(i pulumi.IntInput) EventDestinationCloudwatchDestinationOutput {
@@ -710,6 +512,12 @@ func (i EventDestinationKinesisDestinationArgs) ToEventDestinationKinesisDestina
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationKinesisDestinationOutput)
 }
 
+func (i EventDestinationKinesisDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[EventDestinationKinesisDestination] {
+	return pulumix.Output[EventDestinationKinesisDestination]{
+		OutputState: i.ToEventDestinationKinesisDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventDestinationKinesisDestinationArgs) ToEventDestinationKinesisDestinationPtrOutput() EventDestinationKinesisDestinationPtrOutput {
 	return i.ToEventDestinationKinesisDestinationPtrOutputWithContext(context.Background())
 }
@@ -751,6 +559,12 @@ func (i *eventDestinationKinesisDestinationPtrType) ToEventDestinationKinesisDes
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationKinesisDestinationPtrOutput)
 }
 
+func (i *eventDestinationKinesisDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventDestinationKinesisDestination] {
+	return pulumix.Output[*EventDestinationKinesisDestination]{
+		OutputState: i.ToEventDestinationKinesisDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventDestinationKinesisDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationKinesisDestinationOutput) ElementType() reflect.Type {
@@ -775,6 +589,12 @@ func (o EventDestinationKinesisDestinationOutput) ToEventDestinationKinesisDesti
 	}).(EventDestinationKinesisDestinationPtrOutput)
 }
 
+func (o EventDestinationKinesisDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[EventDestinationKinesisDestination] {
+	return pulumix.Output[EventDestinationKinesisDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the role that has permissions to access the Kinesis Stream
 func (o EventDestinationKinesisDestinationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationKinesisDestination) string { return v.RoleArn }).(pulumi.StringOutput)
@@ -797,6 +617,12 @@ func (o EventDestinationKinesisDestinationPtrOutput) ToEventDestinationKinesisDe
 
 func (o EventDestinationKinesisDestinationPtrOutput) ToEventDestinationKinesisDestinationPtrOutputWithContext(ctx context.Context) EventDestinationKinesisDestinationPtrOutput {
 	return o
+}
+
+func (o EventDestinationKinesisDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventDestinationKinesisDestination] {
+	return pulumix.Output[*EventDestinationKinesisDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventDestinationKinesisDestinationPtrOutput) Elem() EventDestinationKinesisDestinationOutput {
@@ -862,6 +688,12 @@ func (i EventDestinationSnsDestinationArgs) ToEventDestinationSnsDestinationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationSnsDestinationOutput)
 }
 
+func (i EventDestinationSnsDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[EventDestinationSnsDestination] {
+	return pulumix.Output[EventDestinationSnsDestination]{
+		OutputState: i.ToEventDestinationSnsDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventDestinationSnsDestinationArgs) ToEventDestinationSnsDestinationPtrOutput() EventDestinationSnsDestinationPtrOutput {
 	return i.ToEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
 }
@@ -903,6 +735,12 @@ func (i *eventDestinationSnsDestinationPtrType) ToEventDestinationSnsDestination
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationSnsDestinationPtrOutput)
 }
 
+func (i *eventDestinationSnsDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventDestinationSnsDestination] {
+	return pulumix.Output[*EventDestinationSnsDestination]{
+		OutputState: i.ToEventDestinationSnsDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventDestinationSnsDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationSnsDestinationOutput) ElementType() reflect.Type {
@@ -927,6 +765,12 @@ func (o EventDestinationSnsDestinationOutput) ToEventDestinationSnsDestinationPt
 	}).(EventDestinationSnsDestinationPtrOutput)
 }
 
+func (o EventDestinationSnsDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[EventDestinationSnsDestination] {
+	return pulumix.Output[EventDestinationSnsDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the SNS topic
 func (o EventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
@@ -944,6 +788,12 @@ func (o EventDestinationSnsDestinationPtrOutput) ToEventDestinationSnsDestinatio
 
 func (o EventDestinationSnsDestinationPtrOutput) ToEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) EventDestinationSnsDestinationPtrOutput {
 	return o
+}
+
+func (o EventDestinationSnsDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventDestinationSnsDestination] {
+	return pulumix.Output[*EventDestinationSnsDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventDestinationSnsDestinationPtrOutput) Elem() EventDestinationSnsDestinationOutput {
@@ -1007,6 +857,12 @@ func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionOutput)
 }
 
+func (i ReceiptRuleAddHeaderActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleAddHeaderAction] {
+	return pulumix.Output[ReceiptRuleAddHeaderAction]{
+		OutputState: i.ToReceiptRuleAddHeaderActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleAddHeaderActionArrayInput is an input type that accepts ReceiptRuleAddHeaderActionArray and ReceiptRuleAddHeaderActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleAddHeaderActionArrayInput` via:
 //
@@ -1032,6 +888,12 @@ func (i ReceiptRuleAddHeaderActionArray) ToReceiptRuleAddHeaderActionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionArrayOutput)
 }
 
+func (i ReceiptRuleAddHeaderActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleAddHeaderAction] {
+	return pulumix.Output[[]ReceiptRuleAddHeaderAction]{
+		OutputState: i.ToReceiptRuleAddHeaderActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleAddHeaderActionOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleAddHeaderActionOutput) ElementType() reflect.Type {
@@ -1044,6 +906,12 @@ func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionOutput() R
 
 func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionOutput {
 	return o
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleAddHeaderAction] {
+	return pulumix.Output[ReceiptRuleAddHeaderAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the header to add
@@ -1073,6 +941,12 @@ func (o ReceiptRuleAddHeaderActionArrayOutput) ToReceiptRuleAddHeaderActionArray
 
 func (o ReceiptRuleAddHeaderActionArrayOutput) ToReceiptRuleAddHeaderActionArrayOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionArrayOutput {
 	return o
+}
+
+func (o ReceiptRuleAddHeaderActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleAddHeaderAction] {
+	return pulumix.Output[[]ReceiptRuleAddHeaderAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleAddHeaderActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleAddHeaderActionOutput {
@@ -1134,6 +1008,12 @@ func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionOutput)
 }
 
+func (i ReceiptRuleBounceActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleBounceAction] {
+	return pulumix.Output[ReceiptRuleBounceAction]{
+		OutputState: i.ToReceiptRuleBounceActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleBounceActionArrayInput is an input type that accepts ReceiptRuleBounceActionArray and ReceiptRuleBounceActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleBounceActionArrayInput` via:
 //
@@ -1159,6 +1039,12 @@ func (i ReceiptRuleBounceActionArray) ToReceiptRuleBounceActionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionArrayOutput)
 }
 
+func (i ReceiptRuleBounceActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleBounceAction] {
+	return pulumix.Output[[]ReceiptRuleBounceAction]{
+		OutputState: i.ToReceiptRuleBounceActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleBounceActionOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleBounceActionOutput) ElementType() reflect.Type {
@@ -1171,6 +1057,12 @@ func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionOutput() Receipt
 
 func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionOutputWithContext(ctx context.Context) ReceiptRuleBounceActionOutput {
 	return o
+}
+
+func (o ReceiptRuleBounceActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleBounceAction] {
+	return pulumix.Output[ReceiptRuleBounceAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The message to send
@@ -1215,6 +1107,12 @@ func (o ReceiptRuleBounceActionArrayOutput) ToReceiptRuleBounceActionArrayOutput
 
 func (o ReceiptRuleBounceActionArrayOutput) ToReceiptRuleBounceActionArrayOutputWithContext(ctx context.Context) ReceiptRuleBounceActionArrayOutput {
 	return o
+}
+
+func (o ReceiptRuleBounceActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleBounceAction] {
+	return pulumix.Output[[]ReceiptRuleBounceAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleBounceActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleBounceActionOutput {
@@ -1268,6 +1166,12 @@ func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionOutput)
 }
 
+func (i ReceiptRuleLambdaActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleLambdaAction] {
+	return pulumix.Output[ReceiptRuleLambdaAction]{
+		OutputState: i.ToReceiptRuleLambdaActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleLambdaActionArrayInput is an input type that accepts ReceiptRuleLambdaActionArray and ReceiptRuleLambdaActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleLambdaActionArrayInput` via:
 //
@@ -1293,6 +1197,12 @@ func (i ReceiptRuleLambdaActionArray) ToReceiptRuleLambdaActionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionArrayOutput)
 }
 
+func (i ReceiptRuleLambdaActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleLambdaAction] {
+	return pulumix.Output[[]ReceiptRuleLambdaAction]{
+		OutputState: i.ToReceiptRuleLambdaActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleLambdaActionOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleLambdaActionOutput) ElementType() reflect.Type {
@@ -1305,6 +1215,12 @@ func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionOutput() Receipt
 
 func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionOutput {
 	return o
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleLambdaAction] {
+	return pulumix.Output[ReceiptRuleLambdaAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Lambda function to invoke
@@ -1339,6 +1255,12 @@ func (o ReceiptRuleLambdaActionArrayOutput) ToReceiptRuleLambdaActionArrayOutput
 
 func (o ReceiptRuleLambdaActionArrayOutput) ToReceiptRuleLambdaActionArrayOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionArrayOutput {
 	return o
+}
+
+func (o ReceiptRuleLambdaActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleLambdaAction] {
+	return pulumix.Output[[]ReceiptRuleLambdaAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleLambdaActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleLambdaActionOutput {
@@ -1396,6 +1318,12 @@ func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionOutput)
 }
 
+func (i ReceiptRuleS3ActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleS3Action] {
+	return pulumix.Output[ReceiptRuleS3Action]{
+		OutputState: i.ToReceiptRuleS3ActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleS3ActionArrayInput is an input type that accepts ReceiptRuleS3ActionArray and ReceiptRuleS3ActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleS3ActionArrayInput` via:
 //
@@ -1421,6 +1349,12 @@ func (i ReceiptRuleS3ActionArray) ToReceiptRuleS3ActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionArrayOutput)
 }
 
+func (i ReceiptRuleS3ActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleS3Action] {
+	return pulumix.Output[[]ReceiptRuleS3Action]{
+		OutputState: i.ToReceiptRuleS3ActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleS3ActionOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleS3ActionOutput) ElementType() reflect.Type {
@@ -1433,6 +1367,12 @@ func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutput() ReceiptRuleS3Ac
 
 func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutputWithContext(ctx context.Context) ReceiptRuleS3ActionOutput {
 	return o
+}
+
+func (o ReceiptRuleS3ActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleS3Action] {
+	return pulumix.Output[ReceiptRuleS3Action]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the S3 bucket
@@ -1472,6 +1412,12 @@ func (o ReceiptRuleS3ActionArrayOutput) ToReceiptRuleS3ActionArrayOutput() Recei
 
 func (o ReceiptRuleS3ActionArrayOutput) ToReceiptRuleS3ActionArrayOutputWithContext(ctx context.Context) ReceiptRuleS3ActionArrayOutput {
 	return o
+}
+
+func (o ReceiptRuleS3ActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleS3Action] {
+	return pulumix.Output[[]ReceiptRuleS3Action]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleS3ActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleS3ActionOutput {
@@ -1521,6 +1467,12 @@ func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionOutput)
 }
 
+func (i ReceiptRuleSnsActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleSnsAction] {
+	return pulumix.Output[ReceiptRuleSnsAction]{
+		OutputState: i.ToReceiptRuleSnsActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleSnsActionArrayInput is an input type that accepts ReceiptRuleSnsActionArray and ReceiptRuleSnsActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleSnsActionArrayInput` via:
 //
@@ -1546,6 +1498,12 @@ func (i ReceiptRuleSnsActionArray) ToReceiptRuleSnsActionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionArrayOutput)
 }
 
+func (i ReceiptRuleSnsActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleSnsAction] {
+	return pulumix.Output[[]ReceiptRuleSnsAction]{
+		OutputState: i.ToReceiptRuleSnsActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleSnsActionOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleSnsActionOutput) ElementType() reflect.Type {
@@ -1558,6 +1516,12 @@ func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutput() ReceiptRuleSn
 
 func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutputWithContext(ctx context.Context) ReceiptRuleSnsActionOutput {
 	return o
+}
+
+func (o ReceiptRuleSnsActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleSnsAction] {
+	return pulumix.Output[ReceiptRuleSnsAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
@@ -1587,6 +1551,12 @@ func (o ReceiptRuleSnsActionArrayOutput) ToReceiptRuleSnsActionArrayOutput() Rec
 
 func (o ReceiptRuleSnsActionArrayOutput) ToReceiptRuleSnsActionArrayOutputWithContext(ctx context.Context) ReceiptRuleSnsActionArrayOutput {
 	return o
+}
+
+func (o ReceiptRuleSnsActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleSnsAction] {
+	return pulumix.Output[[]ReceiptRuleSnsAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleSnsActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSnsActionOutput {
@@ -1636,6 +1606,12 @@ func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionOutput)
 }
 
+func (i ReceiptRuleStopActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleStopAction] {
+	return pulumix.Output[ReceiptRuleStopAction]{
+		OutputState: i.ToReceiptRuleStopActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleStopActionArrayInput is an input type that accepts ReceiptRuleStopActionArray and ReceiptRuleStopActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleStopActionArrayInput` via:
 //
@@ -1661,6 +1637,12 @@ func (i ReceiptRuleStopActionArray) ToReceiptRuleStopActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionArrayOutput)
 }
 
+func (i ReceiptRuleStopActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleStopAction] {
+	return pulumix.Output[[]ReceiptRuleStopAction]{
+		OutputState: i.ToReceiptRuleStopActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleStopActionOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleStopActionOutput) ElementType() reflect.Type {
@@ -1673,6 +1655,12 @@ func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionOutput() ReceiptRule
 
 func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionOutputWithContext(ctx context.Context) ReceiptRuleStopActionOutput {
 	return o
+}
+
+func (o ReceiptRuleStopActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleStopAction] {
+	return pulumix.Output[ReceiptRuleStopAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The position of the action in the receipt rule
@@ -1702,6 +1690,12 @@ func (o ReceiptRuleStopActionArrayOutput) ToReceiptRuleStopActionArrayOutput() R
 
 func (o ReceiptRuleStopActionArrayOutput) ToReceiptRuleStopActionArrayOutputWithContext(ctx context.Context) ReceiptRuleStopActionArrayOutput {
 	return o
+}
+
+func (o ReceiptRuleStopActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleStopAction] {
+	return pulumix.Output[[]ReceiptRuleStopAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleStopActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleStopActionOutput {
@@ -1751,6 +1745,12 @@ func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionOutput)
 }
 
+func (i ReceiptRuleWorkmailActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleWorkmailAction] {
+	return pulumix.Output[ReceiptRuleWorkmailAction]{
+		OutputState: i.ToReceiptRuleWorkmailActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleWorkmailActionArrayInput is an input type that accepts ReceiptRuleWorkmailActionArray and ReceiptRuleWorkmailActionArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleWorkmailActionArrayInput` via:
 //
@@ -1776,6 +1776,12 @@ func (i ReceiptRuleWorkmailActionArray) ToReceiptRuleWorkmailActionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionArrayOutput)
 }
 
+func (i ReceiptRuleWorkmailActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleWorkmailAction] {
+	return pulumix.Output[[]ReceiptRuleWorkmailAction]{
+		OutputState: i.ToReceiptRuleWorkmailActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleWorkmailActionOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleWorkmailActionOutput) ElementType() reflect.Type {
@@ -1788,6 +1794,12 @@ func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionOutput() Rec
 
 func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionOutput {
 	return o
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReceiptRuleWorkmailAction] {
+	return pulumix.Output[ReceiptRuleWorkmailAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the WorkMail organization
@@ -1819,6 +1831,12 @@ func (o ReceiptRuleWorkmailActionArrayOutput) ToReceiptRuleWorkmailActionArrayOu
 	return o
 }
 
+func (o ReceiptRuleWorkmailActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReceiptRuleWorkmailAction] {
+	return pulumix.Output[[]ReceiptRuleWorkmailAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReceiptRuleWorkmailActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleWorkmailActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReceiptRuleWorkmailAction {
 		return vs[0].([]ReceiptRuleWorkmailAction)[vs[1].(int)]
@@ -1826,10 +1844,6 @@ func (o ReceiptRuleWorkmailActionArrayOutput) Index(i pulumi.IntInput) ReceiptRu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetDeliveryOptionsInput)(nil)).Elem(), ConfgurationSetDeliveryOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfgurationSetDeliveryOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetTrackingOptionsInput)(nil)).Elem(), ConfgurationSetTrackingOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfgurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfgurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
@@ -1854,10 +1868,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleStopActionArrayInput)(nil)).Elem(), ReceiptRuleStopActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionInput)(nil)).Elem(), ReceiptRuleWorkmailActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionArrayInput)(nil)).Elem(), ReceiptRuleWorkmailActionArray{})
-	pulumi.RegisterOutputType(ConfgurationSetDeliveryOptionsOutput{})
-	pulumi.RegisterOutputType(ConfgurationSetDeliveryOptionsPtrOutput{})
-	pulumi.RegisterOutputType(ConfgurationSetTrackingOptionsOutput{})
-	pulumi.RegisterOutputType(ConfgurationSetTrackingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})

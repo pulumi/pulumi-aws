@@ -29,6 +29,8 @@ namespace Pulumi.Aws.Outposts
     {
         /// <summary>
         /// Outpost ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -61,6 +63,8 @@ namespace Pulumi.Aws.Outposts
     {
         /// <summary>
         /// Outpost ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

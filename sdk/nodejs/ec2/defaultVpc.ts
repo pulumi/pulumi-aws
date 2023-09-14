@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Default VPCs can be imported using the `vpc id`, e.g.,
+ * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
@@ -76,14 +76,6 @@ export class DefaultVpc extends pulumi.CustomResource {
     public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
     public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string>;
     public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
-    /**
-     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly enableClassiclink!: pulumi.Output<boolean>;
-    /**
-     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
     public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
     public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean>;
@@ -126,8 +118,6 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
             resourceInputs["defaultSecurityGroupId"] = state ? state.defaultSecurityGroupId : undefined;
             resourceInputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
-            resourceInputs["enableClassiclink"] = state ? state.enableClassiclink : undefined;
-            resourceInputs["enableClassiclinkDnsSupport"] = state ? state.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
             resourceInputs["enableNetworkAddressUsageMetrics"] = state ? state.enableNetworkAddressUsageMetrics : undefined;
@@ -146,8 +136,6 @@ export class DefaultVpc extends pulumi.CustomResource {
         } else {
             const args = argsOrState as DefaultVpcArgs | undefined;
             resourceInputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
-            resourceInputs["enableClassiclink"] = args ? args.enableClassiclink : undefined;
-            resourceInputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
             resourceInputs["enableNetworkAddressUsageMetrics"] = args ? args.enableNetworkAddressUsageMetrics : undefined;
@@ -189,14 +177,6 @@ export interface DefaultVpcState {
     defaultRouteTableId?: pulumi.Input<string>;
     defaultSecurityGroupId?: pulumi.Input<string>;
     dhcpOptionsId?: pulumi.Input<string>;
-    /**
-     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     */
-    enableClassiclink?: pulumi.Input<boolean>;
-    /**
-     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     */
-    enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     enableDnsHostnames?: pulumi.Input<boolean>;
     enableDnsSupport?: pulumi.Input<boolean>;
     enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
@@ -225,14 +205,6 @@ export interface DefaultVpcState {
  */
 export interface DefaultVpcArgs {
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
-    /**
-     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     */
-    enableClassiclink?: pulumi.Input<boolean>;
-    /**
-     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     */
-    enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     enableDnsHostnames?: pulumi.Input<boolean>;
     enableDnsSupport?: pulumi.Input<boolean>;
     enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;

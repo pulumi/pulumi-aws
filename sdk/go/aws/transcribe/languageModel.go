@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Transcribe LanguageModel.
@@ -26,9 +28,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -126,7 +128,7 @@ import (
 //
 // ## Import
 //
-// Transcribe LanguageModel can be imported using the `model_name`, e.g.,
+// Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
 //
 // ```sh
 //
@@ -170,6 +172,7 @@ func NewLanguageModel(ctx *pulumi.Context,
 	if args.ModelName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LanguageModel
 	err := ctx.RegisterResource("aws:transcribe/languageModel:LanguageModel", name, args, &resource, opts...)
 	if err != nil {
@@ -277,6 +280,12 @@ func (i *LanguageModel) ToLanguageModelOutputWithContext(ctx context.Context) La
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageModelOutput)
 }
 
+func (i *LanguageModel) ToOutput(ctx context.Context) pulumix.Output[*LanguageModel] {
+	return pulumix.Output[*LanguageModel]{
+		OutputState: i.ToLanguageModelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LanguageModelArrayInput is an input type that accepts LanguageModelArray and LanguageModelArrayOutput values.
 // You can construct a concrete instance of `LanguageModelArrayInput` via:
 //
@@ -300,6 +309,12 @@ func (i LanguageModelArray) ToLanguageModelArrayOutput() LanguageModelArrayOutpu
 
 func (i LanguageModelArray) ToLanguageModelArrayOutputWithContext(ctx context.Context) LanguageModelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageModelArrayOutput)
+}
+
+func (i LanguageModelArray) ToOutput(ctx context.Context) pulumix.Output[[]*LanguageModel] {
+	return pulumix.Output[[]*LanguageModel]{
+		OutputState: i.ToLanguageModelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LanguageModelMapInput is an input type that accepts LanguageModelMap and LanguageModelMapOutput values.
@@ -327,6 +342,12 @@ func (i LanguageModelMap) ToLanguageModelMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageModelMapOutput)
 }
 
+func (i LanguageModelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LanguageModel] {
+	return pulumix.Output[map[string]*LanguageModel]{
+		OutputState: i.ToLanguageModelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LanguageModelOutput struct{ *pulumi.OutputState }
 
 func (LanguageModelOutput) ElementType() reflect.Type {
@@ -339,6 +360,12 @@ func (o LanguageModelOutput) ToLanguageModelOutput() LanguageModelOutput {
 
 func (o LanguageModelOutput) ToLanguageModelOutputWithContext(ctx context.Context) LanguageModelOutput {
 	return o
+}
+
+func (o LanguageModelOutput) ToOutput(ctx context.Context) pulumix.Output[*LanguageModel] {
+	return pulumix.Output[*LanguageModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the LanguageModel.
@@ -389,6 +416,12 @@ func (o LanguageModelArrayOutput) ToLanguageModelArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o LanguageModelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LanguageModel] {
+	return pulumix.Output[[]*LanguageModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LanguageModelArrayOutput) Index(i pulumi.IntInput) LanguageModelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LanguageModel {
 		return vs[0].([]*LanguageModel)[vs[1].(int)]
@@ -407,6 +440,12 @@ func (o LanguageModelMapOutput) ToLanguageModelMapOutput() LanguageModelMapOutpu
 
 func (o LanguageModelMapOutput) ToLanguageModelMapOutputWithContext(ctx context.Context) LanguageModelMapOutput {
 	return o
+}
+
+func (o LanguageModelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LanguageModel] {
+	return pulumix.Output[map[string]*LanguageModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LanguageModelMapOutput) MapIndex(k pulumi.StringInput) LanguageModelOutput {

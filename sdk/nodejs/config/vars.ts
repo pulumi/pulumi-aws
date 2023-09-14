@@ -178,14 +178,26 @@ Object.defineProperty(exports, "region", {
 });
 
 /**
- * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
- * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
- * Specific to the Amazon S3 service.
+ * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+ * `AWS_RETRY_MODE` environment variable.
  */
-export declare const s3ForcePathStyle: boolean | undefined;
-Object.defineProperty(exports, "s3ForcePathStyle", {
+export declare const retryMode: string | undefined;
+Object.defineProperty(exports, "retryMode", {
     get() {
-        return __config.getObject<boolean>("s3ForcePathStyle");
+        return __config.get("retryMode");
+    },
+    enumerable: true,
+});
+
+/**
+ * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+ * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+ * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+ */
+export declare const s3UsEast1RegionalEndpoint: string | undefined;
+Object.defineProperty(exports, "s3UsEast1RegionalEndpoint", {
+    get() {
+        return __config.get("s3UsEast1RegionalEndpoint");
     },
     enumerable: true,
 });
@@ -226,17 +238,6 @@ Object.defineProperty(exports, "sharedConfigFiles", {
 });
 
 /**
- * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
- */
-export declare const sharedCredentialsFile: string | undefined;
-Object.defineProperty(exports, "sharedCredentialsFile", {
-    get() {
-        return __config.get("sharedCredentialsFile");
-    },
-    enumerable: true,
-});
-
-/**
  * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
  */
 export declare const sharedCredentialsFiles: string[] | undefined;
@@ -255,17 +256,6 @@ export declare const skipCredentialsValidation: boolean;
 Object.defineProperty(exports, "skipCredentialsValidation", {
     get() {
         return __config.getObject<boolean>("skipCredentialsValidation") ?? false;
-    },
-    enumerable: true,
-});
-
-/**
- * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
- */
-export declare const skipGetEc2Platforms: boolean | undefined;
-Object.defineProperty(exports, "skipGetEc2Platforms", {
-    get() {
-        return __config.getObject<boolean>("skipGetEc2Platforms");
     },
     enumerable: true,
 });

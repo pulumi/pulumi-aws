@@ -98,12 +98,16 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+     * 
      */
     @Import(name="capacityReservationSpecification")
     private @Nullable Output<SpotInstanceRequestCapacityReservationSpecificationArgs> capacityReservationSpecification;
 
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
     public Optional<Output<SpotInstanceRequestCapacityReservationSpecificationArgs>> capacityReservationSpecification() {
@@ -367,14 +371,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      * 
      */
     @Import(name="instanceInterruptionBehavior")
     private @Nullable Output<String> instanceInterruptionBehavior;
 
     /**
-     * @return Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     * @return The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      * 
      */
     public Optional<Output<String>> instanceInterruptionBehavior() {
@@ -626,12 +630,16 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     /**
      * List of security group names to associate with.
      * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
      * @return List of security group names to associate with.
+     * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -791,14 +799,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      * 
      */
     @Import(name="validUntil")
     private @Nullable Output<String> validUntil;
 
     /**
-     * @return The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+     * @return The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      * 
      */
     public Optional<Output<String>> validUntil() {
@@ -808,12 +816,16 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+     * 
      */
     @Import(name="volumeTags")
     private @Nullable Output<Map<String,String>> volumeTags;
 
     /**
      * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
     public Optional<Output<Map<String,String>>> volumeTags() {
@@ -1021,6 +1033,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
          * 
+         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+         * 
          * @return builder
          * 
          */
@@ -1031,6 +1045,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
 
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+         * 
+         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
          * 
          * @return builder
          * 
@@ -1412,7 +1428,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceInterruptionBehavior Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+         * @param instanceInterruptionBehavior The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
          * 
          * @return builder
          * 
@@ -1423,7 +1439,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceInterruptionBehavior Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+         * @param instanceInterruptionBehavior The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
          * 
          * @return builder
          * 
@@ -1803,6 +1819,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         /**
          * @param securityGroups List of security group names to associate with.
          * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+         * 
          * @return builder
          * 
          */
@@ -1814,6 +1832,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         /**
          * @param securityGroups List of security group names to associate with.
          * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+         * 
          * @return builder
          * 
          */
@@ -1823,6 +1843,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
 
         /**
          * @param securityGroups List of security group names to associate with.
+         * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
          * 
          * @return builder
          * 
@@ -2044,7 +2066,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param validUntil The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+         * @param validUntil The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
          * 
          * @return builder
          * 
@@ -2055,7 +2077,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param validUntil The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+         * @param validUntil The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
          * 
          * @return builder
          * 
@@ -2067,6 +2089,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         /**
          * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
          * 
+         * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+         * 
          * @return builder
          * 
          */
@@ -2077,6 +2101,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
 
         /**
          * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
+         * 
+         * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
          * 
          * @return builder
          * 

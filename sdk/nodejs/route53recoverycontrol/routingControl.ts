@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
  *
  * ```sh
  *  $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
@@ -76,6 +76,8 @@ export class RoutingControl extends pulumi.CustomResource {
     public readonly controlPanelArn!: pulumi.Output<string>;
     /**
      * The name describing the routing control.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -135,6 +137,8 @@ export interface RoutingControlState {
     controlPanelArn?: pulumi.Input<string>;
     /**
      * The name describing the routing control.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -157,6 +161,8 @@ export interface RoutingControlArgs {
     controlPanelArn?: pulumi.Input<string>;
     /**
      * The name describing the routing control.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
 }

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Import
     /// 
-    /// `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+    /// Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
@@ -83,6 +83,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
+        /// 
+        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.ThesaurusSourceS3Path> SourceS3Path { get; private set; } = null!;
@@ -180,6 +182,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
+        /// 
+        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.ThesaurusSourceS3PathArgs> SourceS3Path { get; set; } = null!;
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
+        /// 
+        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.ThesaurusSourceS3PathGetArgs>? SourceS3Path { get; set; }

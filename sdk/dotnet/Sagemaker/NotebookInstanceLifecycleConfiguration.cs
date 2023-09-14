@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Models can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import models using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo

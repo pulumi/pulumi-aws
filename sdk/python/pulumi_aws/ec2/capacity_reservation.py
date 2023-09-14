@@ -525,7 +525,7 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Import
 
-        Capacity Reservations can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Capacity Reservations using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
@@ -571,7 +571,7 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Import
 
-        Capacity Reservations can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Capacity Reservations using the `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0

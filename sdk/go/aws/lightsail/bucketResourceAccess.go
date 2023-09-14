@@ -8,14 +8,16 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a lightsail resource access to a bucket.
 //
 // ## Import
 //
-// `aws_lightsail_bucket_resource_access` can be imported by using the `id` attribute, e.g.,
+// Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
 //
 // ```sh
 //
@@ -44,6 +46,7 @@ func NewBucketResourceAccess(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketResourceAccess
 	err := ctx.RegisterResource("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, args, &resource, opts...)
 	if err != nil {
@@ -121,6 +124,12 @@ func (i *BucketResourceAccess) ToBucketResourceAccessOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BucketResourceAccessOutput)
 }
 
+func (i *BucketResourceAccess) ToOutput(ctx context.Context) pulumix.Output[*BucketResourceAccess] {
+	return pulumix.Output[*BucketResourceAccess]{
+		OutputState: i.ToBucketResourceAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketResourceAccessArrayInput is an input type that accepts BucketResourceAccessArray and BucketResourceAccessArrayOutput values.
 // You can construct a concrete instance of `BucketResourceAccessArrayInput` via:
 //
@@ -144,6 +153,12 @@ func (i BucketResourceAccessArray) ToBucketResourceAccessArrayOutput() BucketRes
 
 func (i BucketResourceAccessArray) ToBucketResourceAccessArrayOutputWithContext(ctx context.Context) BucketResourceAccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketResourceAccessArrayOutput)
+}
+
+func (i BucketResourceAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketResourceAccess] {
+	return pulumix.Output[[]*BucketResourceAccess]{
+		OutputState: i.ToBucketResourceAccessArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketResourceAccessMapInput is an input type that accepts BucketResourceAccessMap and BucketResourceAccessMapOutput values.
@@ -171,6 +186,12 @@ func (i BucketResourceAccessMap) ToBucketResourceAccessMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketResourceAccessMapOutput)
 }
 
+func (i BucketResourceAccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketResourceAccess] {
+	return pulumix.Output[map[string]*BucketResourceAccess]{
+		OutputState: i.ToBucketResourceAccessMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketResourceAccessOutput struct{ *pulumi.OutputState }
 
 func (BucketResourceAccessOutput) ElementType() reflect.Type {
@@ -183,6 +204,12 @@ func (o BucketResourceAccessOutput) ToBucketResourceAccessOutput() BucketResourc
 
 func (o BucketResourceAccessOutput) ToBucketResourceAccessOutputWithContext(ctx context.Context) BucketResourceAccessOutput {
 	return o
+}
+
+func (o BucketResourceAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketResourceAccess] {
+	return pulumix.Output[*BucketResourceAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the bucket to grant access to.
@@ -209,6 +236,12 @@ func (o BucketResourceAccessArrayOutput) ToBucketResourceAccessArrayOutputWithCo
 	return o
 }
 
+func (o BucketResourceAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketResourceAccess] {
+	return pulumix.Output[[]*BucketResourceAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketResourceAccessArrayOutput) Index(i pulumi.IntInput) BucketResourceAccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketResourceAccess {
 		return vs[0].([]*BucketResourceAccess)[vs[1].(int)]
@@ -227,6 +260,12 @@ func (o BucketResourceAccessMapOutput) ToBucketResourceAccessMapOutput() BucketR
 
 func (o BucketResourceAccessMapOutput) ToBucketResourceAccessMapOutputWithContext(ctx context.Context) BucketResourceAccessMapOutput {
 	return o
+}
+
+func (o BucketResourceAccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketResourceAccess] {
+	return pulumix.Output[map[string]*BucketResourceAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketResourceAccessMapOutput) MapIndex(k pulumi.StringInput) BucketResourceAccessOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,8 +48,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,7 +81,7 @@ import (
 //
 // ## Import
 //
-// Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+// Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
 //
 // ```sh
 //
@@ -90,6 +92,8 @@ type Analyzer struct {
 	pulumi.CustomResourceState
 
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
 	// ARN of the Analyzer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -111,6 +115,7 @@ func NewAnalyzer(ctx *pulumi.Context,
 	if args.AnalyzerName == nil {
 		return nil, errors.New("invalid value for required argument 'AnalyzerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analyzer
 	err := ctx.RegisterResource("aws:accessanalyzer/analyzer:Analyzer", name, args, &resource, opts...)
 	if err != nil {
@@ -134,6 +139,8 @@ func GetAnalyzer(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Analyzer resources.
 type analyzerState struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName *string `pulumi:"analyzerName"`
 	// ARN of the Analyzer.
 	Arn *string `pulumi:"arn"`
@@ -147,6 +154,8 @@ type analyzerState struct {
 
 type AnalyzerState struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName pulumi.StringPtrInput
 	// ARN of the Analyzer.
 	Arn pulumi.StringPtrInput
@@ -164,6 +173,8 @@ func (AnalyzerState) ElementType() reflect.Type {
 
 type analyzerArgs struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName string `pulumi:"analyzerName"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -174,6 +185,8 @@ type analyzerArgs struct {
 // The set of arguments for constructing a Analyzer resource.
 type AnalyzerArgs struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -204,6 +217,12 @@ func (i *Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerOutput)
 }
 
+func (i *Analyzer) ToOutput(ctx context.Context) pulumix.Output[*Analyzer] {
+	return pulumix.Output[*Analyzer]{
+		OutputState: i.ToAnalyzerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalyzerArrayInput is an input type that accepts AnalyzerArray and AnalyzerArrayOutput values.
 // You can construct a concrete instance of `AnalyzerArrayInput` via:
 //
@@ -227,6 +246,12 @@ func (i AnalyzerArray) ToAnalyzerArrayOutput() AnalyzerArrayOutput {
 
 func (i AnalyzerArray) ToAnalyzerArrayOutputWithContext(ctx context.Context) AnalyzerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerArrayOutput)
+}
+
+func (i AnalyzerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Analyzer] {
+	return pulumix.Output[[]*Analyzer]{
+		OutputState: i.ToAnalyzerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnalyzerMapInput is an input type that accepts AnalyzerMap and AnalyzerMapOutput values.
@@ -254,6 +279,12 @@ func (i AnalyzerMap) ToAnalyzerMapOutputWithContext(ctx context.Context) Analyze
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerMapOutput)
 }
 
+func (i AnalyzerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Analyzer] {
+	return pulumix.Output[map[string]*Analyzer]{
+		OutputState: i.ToAnalyzerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyzerOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerOutput) ElementType() reflect.Type {
@@ -268,7 +299,15 @@ func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) Analyze
 	return o
 }
 
+func (o AnalyzerOutput) ToOutput(ctx context.Context) pulumix.Output[*Analyzer] {
+	return pulumix.Output[*Analyzer]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the Analyzer.
+//
+// The following arguments are optional:
 func (o AnalyzerOutput) AnalyzerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.AnalyzerName }).(pulumi.StringOutput)
 }
@@ -307,6 +346,12 @@ func (o AnalyzerArrayOutput) ToAnalyzerArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o AnalyzerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Analyzer] {
+	return pulumix.Output[[]*Analyzer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnalyzerArrayOutput) Index(i pulumi.IntInput) AnalyzerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Analyzer {
 		return vs[0].([]*Analyzer)[vs[1].(int)]
@@ -325,6 +370,12 @@ func (o AnalyzerMapOutput) ToAnalyzerMapOutput() AnalyzerMapOutput {
 
 func (o AnalyzerMapOutput) ToAnalyzerMapOutputWithContext(ctx context.Context) AnalyzerMapOutput {
 	return o
+}
+
+func (o AnalyzerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Analyzer] {
+	return pulumix.Output[map[string]*Analyzer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyzerMapOutput) MapIndex(k pulumi.StringInput) AnalyzerOutput {

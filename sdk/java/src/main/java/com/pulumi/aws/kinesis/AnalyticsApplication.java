@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Kinesis Analytics Application can be imported by using ARN, e.g.,
+ * Using `pulumi import`, import Kinesis Analytics Application using ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example

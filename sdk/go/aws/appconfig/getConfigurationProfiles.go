@@ -7,14 +7,43 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
 // Profile IDs to another resource.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConfigurationProfiles, err := appconfig.GetConfigurationProfiles(ctx, &appconfig.GetConfigurationProfilesArgs{
+//				ApplicationId: "a1d3rpe",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := "TODO: For expression"
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfilesArgs, opts ...pulumi.InvokeOption) (*GetConfigurationProfilesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConfigurationProfilesResult
 	err := ctx.Invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, &rv, opts...)
 	if err != nil {
@@ -74,6 +103,12 @@ func (o GetConfigurationProfilesResultOutput) ToGetConfigurationProfilesResultOu
 
 func (o GetConfigurationProfilesResultOutput) ToGetConfigurationProfilesResultOutputWithContext(ctx context.Context) GetConfigurationProfilesResultOutput {
 	return o
+}
+
+func (o GetConfigurationProfilesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationProfilesResult] {
+	return pulumix.Output[GetConfigurationProfilesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetConfigurationProfilesResultOutput) ApplicationId() pulumi.StringOutput {

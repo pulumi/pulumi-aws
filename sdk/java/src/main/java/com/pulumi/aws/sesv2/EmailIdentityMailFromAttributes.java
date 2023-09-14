@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SESv2 (Simple Email V2) Email Identity Mail From Attributes can be imported using the `email_identity`, e.g.,
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com

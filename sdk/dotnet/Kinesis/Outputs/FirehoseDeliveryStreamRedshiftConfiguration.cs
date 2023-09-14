@@ -58,6 +58,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration S3Configuration;
+        /// <summary>
         /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
         /// </summary>
         public readonly string Username;
@@ -86,6 +90,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? s3BackupMode,
 
+            Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration,
+
             string username)
         {
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
@@ -99,6 +105,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             RoleArn = roleArn;
             S3BackupConfiguration = s3BackupConfiguration;
             S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
             Username = username;
         }
     }

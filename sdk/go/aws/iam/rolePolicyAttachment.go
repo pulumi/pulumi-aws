@@ -8,14 +8,16 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a Managed IAM Policy to an IAM role
 //
 // > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
 //
-// > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
+// > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and TODO will show a permanent difference.
 //
 // ## Example Usage
 //
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,13 +98,11 @@ import (
 //
 // ## Import
 //
-// IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+// In TODO v1.5.0 and later, use an `import` block to import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_iam_role_policy_attachment.test-attach
 //
-//	$ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
-// ```
+//	id = "test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `TODO import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleconsole % TODO import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 type RolePolicyAttachment struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +125,7 @@ func NewRolePolicyAttachment(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RolePolicyAttachment
 	err := ctx.RegisterResource("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -202,6 +203,12 @@ func (i *RolePolicyAttachment) ToRolePolicyAttachmentOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyAttachmentOutput)
 }
 
+func (i *RolePolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*RolePolicyAttachment] {
+	return pulumix.Output[*RolePolicyAttachment]{
+		OutputState: i.ToRolePolicyAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RolePolicyAttachmentArrayInput is an input type that accepts RolePolicyAttachmentArray and RolePolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `RolePolicyAttachmentArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i RolePolicyAttachmentArray) ToRolePolicyAttachmentArrayOutput() RolePolic
 
 func (i RolePolicyAttachmentArray) ToRolePolicyAttachmentArrayOutputWithContext(ctx context.Context) RolePolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyAttachmentArrayOutput)
+}
+
+func (i RolePolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*RolePolicyAttachment] {
+	return pulumix.Output[[]*RolePolicyAttachment]{
+		OutputState: i.ToRolePolicyAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RolePolicyAttachmentMapInput is an input type that accepts RolePolicyAttachmentMap and RolePolicyAttachmentMapOutput values.
@@ -252,6 +265,12 @@ func (i RolePolicyAttachmentMap) ToRolePolicyAttachmentMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyAttachmentMapOutput)
 }
 
+func (i RolePolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RolePolicyAttachment] {
+	return pulumix.Output[map[string]*RolePolicyAttachment]{
+		OutputState: i.ToRolePolicyAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RolePolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyAttachmentOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o RolePolicyAttachmentOutput) ToRolePolicyAttachmentOutput() RolePolicyAtt
 
 func (o RolePolicyAttachmentOutput) ToRolePolicyAttachmentOutputWithContext(ctx context.Context) RolePolicyAttachmentOutput {
 	return o
+}
+
+func (o RolePolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*RolePolicyAttachment] {
+	return pulumix.Output[*RolePolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the policy you want to apply
@@ -290,6 +315,12 @@ func (o RolePolicyAttachmentArrayOutput) ToRolePolicyAttachmentArrayOutputWithCo
 	return o
 }
 
+func (o RolePolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RolePolicyAttachment] {
+	return pulumix.Output[[]*RolePolicyAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RolePolicyAttachmentArrayOutput) Index(i pulumi.IntInput) RolePolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RolePolicyAttachment {
 		return vs[0].([]*RolePolicyAttachment)[vs[1].(int)]
@@ -308,6 +339,12 @@ func (o RolePolicyAttachmentMapOutput) ToRolePolicyAttachmentMapOutput() RolePol
 
 func (o RolePolicyAttachmentMapOutput) ToRolePolicyAttachmentMapOutputWithContext(ctx context.Context) RolePolicyAttachmentMapOutput {
 	return o
+}
+
+func (o RolePolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RolePolicyAttachment] {
+	return pulumix.Output[map[string]*RolePolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RolePolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) RolePolicyAttachmentOutput {

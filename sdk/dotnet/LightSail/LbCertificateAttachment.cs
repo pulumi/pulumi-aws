@@ -49,7 +49,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// `aws_lightsail_lb_certificate_attachment` can be imported by using the name attribute, e.g.,
+    /// Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate

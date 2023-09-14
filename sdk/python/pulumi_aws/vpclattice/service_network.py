@@ -21,6 +21,8 @@ class ServiceNetworkArgs:
         The set of arguments for constructing a ServiceNetwork resource.
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] name: Name of the service network
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if auth_type is not None:
@@ -47,6 +49,8 @@ class ServiceNetworkArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the service network
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -80,6 +84,8 @@ class _ServiceNetworkState:
         :param pulumi.Input[str] arn: ARN of the Service Network.
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] name: Name of the service network
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -123,6 +129,8 @@ class _ServiceNetworkState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the service network
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -179,7 +187,7 @@ class ServiceNetwork(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Service Network can be imported using the `id`, e.g.,
+        Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
@@ -189,6 +197,8 @@ class ServiceNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] name: Name of the service network
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -212,7 +222,7 @@ class ServiceNetwork(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Service Network can be imported using the `id`, e.g.,
+        Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
@@ -275,6 +285,8 @@ class ServiceNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Service Network.
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] name: Name of the service network
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -310,6 +322,8 @@ class ServiceNetwork(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the service network
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

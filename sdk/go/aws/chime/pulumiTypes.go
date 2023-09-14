@@ -7,11 +7,478 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
+
+type SdkvoiceGlobalSettingsVoiceConnector struct {
+	// The S3 bucket that stores the Voice Connector's call detail records.
+	CdrBucket *string `pulumi:"cdrBucket"`
+}
+
+// SdkvoiceGlobalSettingsVoiceConnectorInput is an input type that accepts SdkvoiceGlobalSettingsVoiceConnectorArgs and SdkvoiceGlobalSettingsVoiceConnectorOutput values.
+// You can construct a concrete instance of `SdkvoiceGlobalSettingsVoiceConnectorInput` via:
+//
+//	SdkvoiceGlobalSettingsVoiceConnectorArgs{...}
+type SdkvoiceGlobalSettingsVoiceConnectorInput interface {
+	pulumi.Input
+
+	ToSdkvoiceGlobalSettingsVoiceConnectorOutput() SdkvoiceGlobalSettingsVoiceConnectorOutput
+	ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(context.Context) SdkvoiceGlobalSettingsVoiceConnectorOutput
+}
+
+type SdkvoiceGlobalSettingsVoiceConnectorArgs struct {
+	// The S3 bucket that stores the Voice Connector's call detail records.
+	CdrBucket pulumi.StringPtrInput `pulumi:"cdrBucket"`
+}
+
+func (SdkvoiceGlobalSettingsVoiceConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorOutput() SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return i.ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsVoiceConnectorOutput)
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceGlobalSettingsVoiceConnector] {
+	return pulumix.Output[SdkvoiceGlobalSettingsVoiceConnector]{
+		OutputState: i.ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return i.ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsVoiceConnectorOutput).ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx)
+}
+
+// SdkvoiceGlobalSettingsVoiceConnectorPtrInput is an input type that accepts SdkvoiceGlobalSettingsVoiceConnectorArgs, SdkvoiceGlobalSettingsVoiceConnectorPtr and SdkvoiceGlobalSettingsVoiceConnectorPtrOutput values.
+// You can construct a concrete instance of `SdkvoiceGlobalSettingsVoiceConnectorPtrInput` via:
+//
+//	        SdkvoiceGlobalSettingsVoiceConnectorArgs{...}
+//
+//	or:
+//
+//	        nil
+type SdkvoiceGlobalSettingsVoiceConnectorPtrInput interface {
+	pulumi.Input
+
+	ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput
+	ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput
+}
+
+type sdkvoiceGlobalSettingsVoiceConnectorPtrType SdkvoiceGlobalSettingsVoiceConnectorArgs
+
+func SdkvoiceGlobalSettingsVoiceConnectorPtr(v *SdkvoiceGlobalSettingsVoiceConnectorArgs) SdkvoiceGlobalSettingsVoiceConnectorPtrInput {
+	return (*sdkvoiceGlobalSettingsVoiceConnectorPtrType)(v)
+}
+
+func (*sdkvoiceGlobalSettingsVoiceConnectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (i *sdkvoiceGlobalSettingsVoiceConnectorPtrType) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return i.ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Background())
+}
+
+func (i *sdkvoiceGlobalSettingsVoiceConnectorPtrType) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsVoiceConnectorPtrOutput)
+}
+
+func (i *sdkvoiceGlobalSettingsVoiceConnectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceGlobalSettingsVoiceConnector] {
+	return pulumix.Output[*SdkvoiceGlobalSettingsVoiceConnector]{
+		OutputState: i.ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SdkvoiceGlobalSettingsVoiceConnectorOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceGlobalSettingsVoiceConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorOutput() SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o.ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Background())
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SdkvoiceGlobalSettingsVoiceConnector) *SdkvoiceGlobalSettingsVoiceConnector {
+		return &v
+	}).(SdkvoiceGlobalSettingsVoiceConnectorPtrOutput)
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceGlobalSettingsVoiceConnector] {
+	return pulumix.Output[SdkvoiceGlobalSettingsVoiceConnector]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The S3 bucket that stores the Voice Connector's call detail records.
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) CdrBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SdkvoiceGlobalSettingsVoiceConnector) *string { return v.CdrBucket }).(pulumi.StringPtrOutput)
+}
+
+type SdkvoiceGlobalSettingsVoiceConnectorPtrOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceGlobalSettingsVoiceConnector] {
+	return pulumix.Output[*SdkvoiceGlobalSettingsVoiceConnector]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) Elem() SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return o.ApplyT(func(v *SdkvoiceGlobalSettingsVoiceConnector) SdkvoiceGlobalSettingsVoiceConnector {
+		if v != nil {
+			return *v
+		}
+		var ret SdkvoiceGlobalSettingsVoiceConnector
+		return ret
+	}).(SdkvoiceGlobalSettingsVoiceConnectorOutput)
+}
+
+// The S3 bucket that stores the Voice Connector's call detail records.
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) CdrBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SdkvoiceGlobalSettingsVoiceConnector) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CdrBucket
+	}).(pulumi.StringPtrOutput)
+}
+
+type SdkvoiceSipMediaApplicationEndpoints struct {
+	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+	LambdaArn string `pulumi:"lambdaArn"`
+}
+
+// SdkvoiceSipMediaApplicationEndpointsInput is an input type that accepts SdkvoiceSipMediaApplicationEndpointsArgs and SdkvoiceSipMediaApplicationEndpointsOutput values.
+// You can construct a concrete instance of `SdkvoiceSipMediaApplicationEndpointsInput` via:
+//
+//	SdkvoiceSipMediaApplicationEndpointsArgs{...}
+type SdkvoiceSipMediaApplicationEndpointsInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipMediaApplicationEndpointsOutput() SdkvoiceSipMediaApplicationEndpointsOutput
+	ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(context.Context) SdkvoiceSipMediaApplicationEndpointsOutput
+}
+
+type SdkvoiceSipMediaApplicationEndpointsArgs struct {
+	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+}
+
+func (SdkvoiceSipMediaApplicationEndpointsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsOutput() SdkvoiceSipMediaApplicationEndpointsOutput {
+	return i.ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationEndpointsOutput)
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceSipMediaApplicationEndpoints] {
+	return pulumix.Output[SdkvoiceSipMediaApplicationEndpoints]{
+		OutputState: i.ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return i.ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationEndpointsOutput).ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx)
+}
+
+// SdkvoiceSipMediaApplicationEndpointsPtrInput is an input type that accepts SdkvoiceSipMediaApplicationEndpointsArgs, SdkvoiceSipMediaApplicationEndpointsPtr and SdkvoiceSipMediaApplicationEndpointsPtrOutput values.
+// You can construct a concrete instance of `SdkvoiceSipMediaApplicationEndpointsPtrInput` via:
+//
+//	        SdkvoiceSipMediaApplicationEndpointsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SdkvoiceSipMediaApplicationEndpointsPtrInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput
+	ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput
+}
+
+type sdkvoiceSipMediaApplicationEndpointsPtrType SdkvoiceSipMediaApplicationEndpointsArgs
+
+func SdkvoiceSipMediaApplicationEndpointsPtr(v *SdkvoiceSipMediaApplicationEndpointsArgs) SdkvoiceSipMediaApplicationEndpointsPtrInput {
+	return (*sdkvoiceSipMediaApplicationEndpointsPtrType)(v)
+}
+
+func (*sdkvoiceSipMediaApplicationEndpointsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (i *sdkvoiceSipMediaApplicationEndpointsPtrType) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return i.ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (i *sdkvoiceSipMediaApplicationEndpointsPtrType) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationEndpointsPtrOutput)
+}
+
+func (i *sdkvoiceSipMediaApplicationEndpointsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceSipMediaApplicationEndpoints] {
+	return pulumix.Output[*SdkvoiceSipMediaApplicationEndpoints]{
+		OutputState: i.ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SdkvoiceSipMediaApplicationEndpointsOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipMediaApplicationEndpointsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsOutput() SdkvoiceSipMediaApplicationEndpointsOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o.ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SdkvoiceSipMediaApplicationEndpoints) *SdkvoiceSipMediaApplicationEndpoints {
+		return &v
+	}).(SdkvoiceSipMediaApplicationEndpointsPtrOutput)
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceSipMediaApplicationEndpoints] {
+	return pulumix.Output[SdkvoiceSipMediaApplicationEndpoints]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SdkvoiceSipMediaApplicationEndpoints) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+type SdkvoiceSipMediaApplicationEndpointsPtrOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipMediaApplicationEndpointsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceSipMediaApplicationEndpoints] {
+	return pulumix.Output[*SdkvoiceSipMediaApplicationEndpoints]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) Elem() SdkvoiceSipMediaApplicationEndpointsOutput {
+	return o.ApplyT(func(v *SdkvoiceSipMediaApplicationEndpoints) SdkvoiceSipMediaApplicationEndpoints {
+		if v != nil {
+			return *v
+		}
+		var ret SdkvoiceSipMediaApplicationEndpoints
+		return ret
+	}).(SdkvoiceSipMediaApplicationEndpointsOutput)
+}
+
+// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SdkvoiceSipMediaApplicationEndpoints) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type SdkvoiceSipRuleTargetApplication struct {
+	// The AWS Region of the target application.
+	AwsRegion string `pulumi:"awsRegion"`
+	// Priority of the SIP media application in the target list.
+	Priority int `pulumi:"priority"`
+	// The SIP media application ID.
+	SipMediaApplicationId string `pulumi:"sipMediaApplicationId"`
+}
+
+// SdkvoiceSipRuleTargetApplicationInput is an input type that accepts SdkvoiceSipRuleTargetApplicationArgs and SdkvoiceSipRuleTargetApplicationOutput values.
+// You can construct a concrete instance of `SdkvoiceSipRuleTargetApplicationInput` via:
+//
+//	SdkvoiceSipRuleTargetApplicationArgs{...}
+type SdkvoiceSipRuleTargetApplicationInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipRuleTargetApplicationOutput() SdkvoiceSipRuleTargetApplicationOutput
+	ToSdkvoiceSipRuleTargetApplicationOutputWithContext(context.Context) SdkvoiceSipRuleTargetApplicationOutput
+}
+
+type SdkvoiceSipRuleTargetApplicationArgs struct {
+	// The AWS Region of the target application.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// Priority of the SIP media application in the target list.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The SIP media application ID.
+	SipMediaApplicationId pulumi.StringInput `pulumi:"sipMediaApplicationId"`
+}
+
+func (SdkvoiceSipRuleTargetApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArgs) ToSdkvoiceSipRuleTargetApplicationOutput() SdkvoiceSipRuleTargetApplicationOutput {
+	return i.ToSdkvoiceSipRuleTargetApplicationOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArgs) ToSdkvoiceSipRuleTargetApplicationOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipRuleTargetApplicationOutput)
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArgs) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceSipRuleTargetApplication] {
+	return pulumix.Output[SdkvoiceSipRuleTargetApplication]{
+		OutputState: i.ToSdkvoiceSipRuleTargetApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// SdkvoiceSipRuleTargetApplicationArrayInput is an input type that accepts SdkvoiceSipRuleTargetApplicationArray and SdkvoiceSipRuleTargetApplicationArrayOutput values.
+// You can construct a concrete instance of `SdkvoiceSipRuleTargetApplicationArrayInput` via:
+//
+//	SdkvoiceSipRuleTargetApplicationArray{ SdkvoiceSipRuleTargetApplicationArgs{...} }
+type SdkvoiceSipRuleTargetApplicationArrayInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipRuleTargetApplicationArrayOutput() SdkvoiceSipRuleTargetApplicationArrayOutput
+	ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(context.Context) SdkvoiceSipRuleTargetApplicationArrayOutput
+}
+
+type SdkvoiceSipRuleTargetApplicationArray []SdkvoiceSipRuleTargetApplicationInput
+
+func (SdkvoiceSipRuleTargetApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArray) ToSdkvoiceSipRuleTargetApplicationArrayOutput() SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return i.ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArray) ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipRuleTargetApplicationArrayOutput)
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]SdkvoiceSipRuleTargetApplication] {
+	return pulumix.Output[[]SdkvoiceSipRuleTargetApplication]{
+		OutputState: i.ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SdkvoiceSipRuleTargetApplicationOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipRuleTargetApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (o SdkvoiceSipRuleTargetApplicationOutput) ToSdkvoiceSipRuleTargetApplicationOutput() SdkvoiceSipRuleTargetApplicationOutput {
+	return o
+}
+
+func (o SdkvoiceSipRuleTargetApplicationOutput) ToSdkvoiceSipRuleTargetApplicationOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationOutput {
+	return o
+}
+
+func (o SdkvoiceSipRuleTargetApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceSipRuleTargetApplication] {
+	return pulumix.Output[SdkvoiceSipRuleTargetApplication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The AWS Region of the target application.
+func (o SdkvoiceSipRuleTargetApplicationOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// Priority of the SIP media application in the target list.
+func (o SdkvoiceSipRuleTargetApplicationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The SIP media application ID.
+func (o SdkvoiceSipRuleTargetApplicationOutput) SipMediaApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) string { return v.SipMediaApplicationId }).(pulumi.StringOutput)
+}
+
+type SdkvoiceSipRuleTargetApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipRuleTargetApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (o SdkvoiceSipRuleTargetApplicationArrayOutput) ToSdkvoiceSipRuleTargetApplicationArrayOutput() SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return o
+}
+
+func (o SdkvoiceSipRuleTargetApplicationArrayOutput) ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return o
+}
+
+func (o SdkvoiceSipRuleTargetApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SdkvoiceSipRuleTargetApplication] {
+	return pulumix.Output[[]SdkvoiceSipRuleTargetApplication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SdkvoiceSipRuleTargetApplicationArrayOutput) Index(i pulumi.IntInput) SdkvoiceSipRuleTargetApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SdkvoiceSipRuleTargetApplication {
+		return vs[0].([]SdkvoiceSipRuleTargetApplication)[vs[1].(int)]
+	}).(SdkvoiceSipRuleTargetApplicationOutput)
+}
 
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration struct {
 	// ARN for KMS Key.
+	//
+	// The following arguments are optional:
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
@@ -28,6 +495,8 @@ type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput interface 
 
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs struct {
 	// ARN for KMS Key.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
@@ -41,6 +510,12 @@ func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToSdkvo
 
 func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput)
+}
+
+func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration] {
+	return pulumix.Output[SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration]{
+		OutputState: i.ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
@@ -84,6 +559,12 @@ func (i *sdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrType) ToS
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (i *sdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration] {
+	return pulumix.Output[*SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration]{
+		OutputState: i.ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -108,7 +589,15 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToSdk
 	}).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration] {
+	return pulumix.Output[SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN for KMS Key.
+//
+// The following arguments are optional:
 func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -127,6 +616,12 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) To
 	return o
 }
 
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration] {
+	return pulumix.Output[*SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) Elem() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration {
 		if v != nil {
@@ -138,6 +633,8 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) El
 }
 
 // ARN for KMS Key.
+//
+// The following arguments are optional:
 func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) *string {
 		if v == nil {
@@ -184,6 +681,12 @@ func (i VoiceConnectorGroupConnectorArgs) ToVoiceConnectorGroupConnectorOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupConnectorOutput)
 }
 
+func (i VoiceConnectorGroupConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorGroupConnector] {
+	return pulumix.Output[VoiceConnectorGroupConnector]{
+		OutputState: i.ToVoiceConnectorGroupConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VoiceConnectorGroupConnectorArrayInput is an input type that accepts VoiceConnectorGroupConnectorArray and VoiceConnectorGroupConnectorArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorGroupConnectorArrayInput` via:
 //
@@ -209,6 +712,12 @@ func (i VoiceConnectorGroupConnectorArray) ToVoiceConnectorGroupConnectorArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupConnectorArrayOutput)
 }
 
+func (i VoiceConnectorGroupConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]VoiceConnectorGroupConnector] {
+	return pulumix.Output[[]VoiceConnectorGroupConnector]{
+		OutputState: i.ToVoiceConnectorGroupConnectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VoiceConnectorGroupConnectorOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorGroupConnectorOutput) ElementType() reflect.Type {
@@ -221,6 +730,12 @@ func (o VoiceConnectorGroupConnectorOutput) ToVoiceConnectorGroupConnectorOutput
 
 func (o VoiceConnectorGroupConnectorOutput) ToVoiceConnectorGroupConnectorOutputWithContext(ctx context.Context) VoiceConnectorGroupConnectorOutput {
 	return o
+}
+
+func (o VoiceConnectorGroupConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorGroupConnector] {
+	return pulumix.Output[VoiceConnectorGroupConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
@@ -245,6 +760,12 @@ func (o VoiceConnectorGroupConnectorArrayOutput) ToVoiceConnectorGroupConnectorA
 
 func (o VoiceConnectorGroupConnectorArrayOutput) ToVoiceConnectorGroupConnectorArrayOutputWithContext(ctx context.Context) VoiceConnectorGroupConnectorArrayOutput {
 	return o
+}
+
+func (o VoiceConnectorGroupConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VoiceConnectorGroupConnector] {
+	return pulumix.Output[[]VoiceConnectorGroupConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VoiceConnectorGroupConnectorArrayOutput) Index(i pulumi.IntInput) VoiceConnectorGroupConnectorOutput {
@@ -302,6 +823,12 @@ func (i VoiceConnectorOrganizationRouteArgs) ToVoiceConnectorOrganizationRouteOu
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOrganizationRouteOutput)
 }
 
+func (i VoiceConnectorOrganizationRouteArgs) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorOrganizationRoute] {
+	return pulumix.Output[VoiceConnectorOrganizationRoute]{
+		OutputState: i.ToVoiceConnectorOrganizationRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VoiceConnectorOrganizationRouteArrayInput is an input type that accepts VoiceConnectorOrganizationRouteArray and VoiceConnectorOrganizationRouteArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorOrganizationRouteArrayInput` via:
 //
@@ -327,6 +854,12 @@ func (i VoiceConnectorOrganizationRouteArray) ToVoiceConnectorOrganizationRouteA
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOrganizationRouteArrayOutput)
 }
 
+func (i VoiceConnectorOrganizationRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]VoiceConnectorOrganizationRoute] {
+	return pulumix.Output[[]VoiceConnectorOrganizationRoute]{
+		OutputState: i.ToVoiceConnectorOrganizationRouteArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VoiceConnectorOrganizationRouteOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorOrganizationRouteOutput) ElementType() reflect.Type {
@@ -339,6 +872,12 @@ func (o VoiceConnectorOrganizationRouteOutput) ToVoiceConnectorOrganizationRoute
 
 func (o VoiceConnectorOrganizationRouteOutput) ToVoiceConnectorOrganizationRouteOutputWithContext(ctx context.Context) VoiceConnectorOrganizationRouteOutput {
 	return o
+}
+
+func (o VoiceConnectorOrganizationRouteOutput) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorOrganizationRoute] {
+	return pulumix.Output[VoiceConnectorOrganizationRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The FQDN or IP address to contact for origination traffic.
@@ -378,6 +917,12 @@ func (o VoiceConnectorOrganizationRouteArrayOutput) ToVoiceConnectorOrganization
 
 func (o VoiceConnectorOrganizationRouteArrayOutput) ToVoiceConnectorOrganizationRouteArrayOutputWithContext(ctx context.Context) VoiceConnectorOrganizationRouteArrayOutput {
 	return o
+}
+
+func (o VoiceConnectorOrganizationRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VoiceConnectorOrganizationRoute] {
+	return pulumix.Output[[]VoiceConnectorOrganizationRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VoiceConnectorOrganizationRouteArrayOutput) Index(i pulumi.IntInput) VoiceConnectorOrganizationRouteOutput {
@@ -423,6 +968,12 @@ func (i VoiceConnectorStreamingMediaInsightsConfigurationArgs) ToVoiceConnectorS
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingMediaInsightsConfigurationOutput)
 }
 
+func (i VoiceConnectorStreamingMediaInsightsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorStreamingMediaInsightsConfiguration] {
+	return pulumix.Output[VoiceConnectorStreamingMediaInsightsConfiguration]{
+		OutputState: i.ToVoiceConnectorStreamingMediaInsightsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VoiceConnectorStreamingMediaInsightsConfigurationArgs) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutput() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
 	return i.ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -464,6 +1015,12 @@ func (i *voiceConnectorStreamingMediaInsightsConfigurationPtrType) ToVoiceConnec
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
 }
 
+func (i *voiceConnectorStreamingMediaInsightsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorStreamingMediaInsightsConfiguration] {
+	return pulumix.Output[*VoiceConnectorStreamingMediaInsightsConfiguration]{
+		OutputState: i.ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VoiceConnectorStreamingMediaInsightsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorStreamingMediaInsightsConfigurationOutput) ElementType() reflect.Type {
@@ -488,6 +1045,12 @@ func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ToVoiceConnecto
 	}).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
 }
 
+func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorStreamingMediaInsightsConfiguration] {
+	return pulumix.Output[VoiceConnectorStreamingMediaInsightsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The media insights configuration that will be invoked by the Voice Connector.
 func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VoiceConnectorStreamingMediaInsightsConfiguration) *string { return v.ConfigurationArn }).(pulumi.StringPtrOutput)
@@ -510,6 +1073,12 @@ func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ToVoiceConne
 
 func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
 	return o
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorStreamingMediaInsightsConfiguration] {
+	return pulumix.Output[*VoiceConnectorStreamingMediaInsightsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) Elem() VoiceConnectorStreamingMediaInsightsConfigurationOutput {
@@ -579,6 +1148,12 @@ func (i VoiceConnectorTerminationCredentialsCredentialArgs) ToVoiceConnectorTerm
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsCredentialOutput)
 }
 
+func (i VoiceConnectorTerminationCredentialsCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorTerminationCredentialsCredential] {
+	return pulumix.Output[VoiceConnectorTerminationCredentialsCredential]{
+		OutputState: i.ToVoiceConnectorTerminationCredentialsCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VoiceConnectorTerminationCredentialsCredentialArrayInput is an input type that accepts VoiceConnectorTerminationCredentialsCredentialArray and VoiceConnectorTerminationCredentialsCredentialArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationCredentialsCredentialArrayInput` via:
 //
@@ -604,6 +1179,12 @@ func (i VoiceConnectorTerminationCredentialsCredentialArray) ToVoiceConnectorTer
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsCredentialArrayOutput)
 }
 
+func (i VoiceConnectorTerminationCredentialsCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]VoiceConnectorTerminationCredentialsCredential] {
+	return pulumix.Output[[]VoiceConnectorTerminationCredentialsCredential]{
+		OutputState: i.ToVoiceConnectorTerminationCredentialsCredentialArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VoiceConnectorTerminationCredentialsCredentialOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationCredentialsCredentialOutput) ElementType() reflect.Type {
@@ -616,6 +1197,12 @@ func (o VoiceConnectorTerminationCredentialsCredentialOutput) ToVoiceConnectorTe
 
 func (o VoiceConnectorTerminationCredentialsCredentialOutput) ToVoiceConnectorTerminationCredentialsCredentialOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsCredentialOutput {
 	return o
+}
+
+func (o VoiceConnectorTerminationCredentialsCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[VoiceConnectorTerminationCredentialsCredential] {
+	return pulumix.Output[VoiceConnectorTerminationCredentialsCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 // RFC2617 compliant password associated with the SIP credentials.
@@ -642,6 +1229,12 @@ func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) ToVoiceConnec
 	return o
 }
 
+func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VoiceConnectorTerminationCredentialsCredential] {
+	return pulumix.Output[[]VoiceConnectorTerminationCredentialsCredential]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) Index(i pulumi.IntInput) VoiceConnectorTerminationCredentialsCredentialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorTerminationCredentialsCredential {
 		return vs[0].([]VoiceConnectorTerminationCredentialsCredential)[vs[1].(int)]
@@ -649,6 +1242,12 @@ func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) Index(i pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnectorInput)(nil)).Elem(), SdkvoiceGlobalSettingsVoiceConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnectorPtrInput)(nil)).Elem(), SdkvoiceGlobalSettingsVoiceConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpointsInput)(nil)).Elem(), SdkvoiceSipMediaApplicationEndpointsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpointsPtrInput)(nil)).Elem(), SdkvoiceSipMediaApplicationEndpointsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipRuleTargetApplicationInput)(nil)).Elem(), SdkvoiceSipRuleTargetApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipRuleTargetApplicationArrayInput)(nil)).Elem(), SdkvoiceSipRuleTargetApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput)(nil)).Elem(), SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorInput)(nil)).Elem(), VoiceConnectorGroupConnectorArgs{})
@@ -659,6 +1258,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfigurationPtrInput)(nil)).Elem(), VoiceConnectorStreamingMediaInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialArrayInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArray{})
+	pulumi.RegisterOutputType(SdkvoiceGlobalSettingsVoiceConnectorOutput{})
+	pulumi.RegisterOutputType(SdkvoiceGlobalSettingsVoiceConnectorPtrOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipMediaApplicationEndpointsOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipMediaApplicationEndpointsPtrOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipRuleTargetApplicationOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipRuleTargetApplicationArrayOutput{})
 	pulumi.RegisterOutputType(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorOutput{})

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
@@ -25,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +58,7 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			}, pulumi.Provider("aws.main"))
+//			}, pulumi.Provider(aws.Main))
 //			if err != nil {
 //				return err
 //			}
@@ -66,7 +68,7 @@ import (
 //					"Name": pulumi.String("IZPAWS"),
 //					"Pozo": pulumi.String("Amargo"),
 //				},
-//			}, pulumi.Provider("aws.alt"))
+//			}, pulumi.Provider(aws.Alt))
 //			if err != nil {
 //				return err
 //			}
@@ -78,7 +80,11 @@ import (
 //
 // ## Import
 //
-// DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
+// ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
+//
+// Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For example:
+//
+// ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
 //
 // ```sh
 //
@@ -91,6 +97,8 @@ type TableReplica struct {
 	// ARN of the table replica.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the _main_ or global table which this resource will replicate.
+	//
+	// Optional arguments:
 	GlobalTableArn pulumi.StringOutput `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
@@ -114,6 +122,7 @@ func NewTableReplica(ctx *pulumi.Context,
 	if args.GlobalTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalTableArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TableReplica
 	err := ctx.RegisterResource("aws:dynamodb/tableReplica:TableReplica", name, args, &resource, opts...)
 	if err != nil {
@@ -139,6 +148,8 @@ type tableReplicaState struct {
 	// ARN of the table replica.
 	Arn *string `pulumi:"arn"`
 	// ARN of the _main_ or global table which this resource will replicate.
+	//
+	// Optional arguments:
 	GlobalTableArn *string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -156,6 +167,8 @@ type TableReplicaState struct {
 	// ARN of the table replica.
 	Arn pulumi.StringPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
+	//
+	// Optional arguments:
 	GlobalTableArn pulumi.StringPtrInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
@@ -175,6 +188,8 @@ func (TableReplicaState) ElementType() reflect.Type {
 
 type tableReplicaArgs struct {
 	// ARN of the _main_ or global table which this resource will replicate.
+	//
+	// Optional arguments:
 	GlobalTableArn string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -189,6 +204,8 @@ type tableReplicaArgs struct {
 // The set of arguments for constructing a TableReplica resource.
 type TableReplicaArgs struct {
 	// ARN of the _main_ or global table which this resource will replicate.
+	//
+	// Optional arguments:
 	GlobalTableArn pulumi.StringInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
@@ -223,6 +240,12 @@ func (i *TableReplica) ToTableReplicaOutputWithContext(ctx context.Context) Tabl
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaOutput)
 }
 
+func (i *TableReplica) ToOutput(ctx context.Context) pulumix.Output[*TableReplica] {
+	return pulumix.Output[*TableReplica]{
+		OutputState: i.ToTableReplicaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableReplicaArrayInput is an input type that accepts TableReplicaArray and TableReplicaArrayOutput values.
 // You can construct a concrete instance of `TableReplicaArrayInput` via:
 //
@@ -246,6 +269,12 @@ func (i TableReplicaArray) ToTableReplicaArrayOutput() TableReplicaArrayOutput {
 
 func (i TableReplicaArray) ToTableReplicaArrayOutputWithContext(ctx context.Context) TableReplicaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaArrayOutput)
+}
+
+func (i TableReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]*TableReplica] {
+	return pulumix.Output[[]*TableReplica]{
+		OutputState: i.ToTableReplicaArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TableReplicaMapInput is an input type that accepts TableReplicaMap and TableReplicaMapOutput values.
@@ -273,6 +302,12 @@ func (i TableReplicaMap) ToTableReplicaMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaMapOutput)
 }
 
+func (i TableReplicaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableReplica] {
+	return pulumix.Output[map[string]*TableReplica]{
+		OutputState: i.ToTableReplicaMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableReplicaOutput struct{ *pulumi.OutputState }
 
 func (TableReplicaOutput) ElementType() reflect.Type {
@@ -287,12 +322,20 @@ func (o TableReplicaOutput) ToTableReplicaOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o TableReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[*TableReplica] {
+	return pulumix.Output[*TableReplica]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the table replica.
 func (o TableReplicaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // ARN of the _main_ or global table which this resource will replicate.
+//
+// Optional arguments:
 func (o TableReplicaOutput) GlobalTableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.GlobalTableArn }).(pulumi.StringOutput)
 }
@@ -336,6 +379,12 @@ func (o TableReplicaArrayOutput) ToTableReplicaArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o TableReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TableReplica] {
+	return pulumix.Output[[]*TableReplica]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableReplicaArrayOutput) Index(i pulumi.IntInput) TableReplicaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableReplica {
 		return vs[0].([]*TableReplica)[vs[1].(int)]
@@ -354,6 +403,12 @@ func (o TableReplicaMapOutput) ToTableReplicaMapOutput() TableReplicaMapOutput {
 
 func (o TableReplicaMapOutput) ToTableReplicaMapOutputWithContext(ctx context.Context) TableReplicaMapOutput {
 	return o
+}
+
+func (o TableReplicaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableReplica] {
+	return pulumix.Output[map[string]*TableReplica]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableReplicaMapOutput) MapIndex(k pulumi.StringInput) TableReplicaOutput {

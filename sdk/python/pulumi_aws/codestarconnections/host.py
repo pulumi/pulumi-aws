@@ -215,11 +215,11 @@ class Host(pulumi.CustomResource):
 
         ## Import
 
-        CodeStar Host can be imported using the ARN, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import CodeStar Host using the ARN. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
-        ```
+         to = aws_codestarconnections_host.example-host
+
+         id = "arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `TODO import`, import CodeStar Host using the ARN. For exampleconsole % TODO import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,11 +252,11 @@ class Host(pulumi.CustomResource):
 
         ## Import
 
-        CodeStar Host can be imported using the ARN, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import CodeStar Host using the ARN. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
-        ```
+         to = aws_codestarconnections_host.example-host
+
+         id = "arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `TODO import`, import CodeStar Host using the ARN. For exampleconsole % TODO import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
 
         :param str resource_name: The name of the resource.
         :param HostArgs args: The arguments to use to populate this resource's properties.

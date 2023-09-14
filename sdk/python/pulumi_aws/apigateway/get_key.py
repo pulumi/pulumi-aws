@@ -21,10 +21,13 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, created_date=None, description=None, enabled=None, id=None, last_updated_date=None, name=None, tags=None, value=None):
+    def __init__(__self__, created_date=None, customer_id=None, description=None, enabled=None, id=None, last_updated_date=None, name=None, tags=None, value=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
+        if customer_id and not isinstance(customer_id, str):
+            raise TypeError("Expected argument 'customer_id' to be a str")
+        pulumi.set(__self__, "customer_id", customer_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -54,6 +57,14 @@ class GetKeyResult:
         Date and time when the API Key was created.
         """
         return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> str:
+        """
+        Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        """
+        return pulumi.get(self, "customer_id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             yield self
         return GetKeyResult(
             created_date=self.created_date,
+            customer_id=self.customer_id,
             description=self.description,
             enabled=self.enabled,
             id=self.id,
@@ -155,14 +167,15 @@ def get_key(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        value=__ret__.value)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        customer_id=pulumi.get(__ret__, 'customer_id'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_key)

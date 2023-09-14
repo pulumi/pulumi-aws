@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * RDS DB Instance Reservations can be imported using the `instance_id`, e.g.,
+ * Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
@@ -104,6 +104,8 @@ export class ReservedInstance extends pulumi.CustomResource {
     public /*out*/ readonly multiAz!: pulumi.Output<boolean>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
+     *
+     * The following arguments are optional:
      */
     public readonly offeringId!: pulumi.Output<string>;
     /**
@@ -241,6 +243,8 @@ export interface ReservedInstanceState {
     multiAz?: pulumi.Input<boolean>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
+     *
+     * The following arguments are optional:
      */
     offeringId?: pulumi.Input<string>;
     /**
@@ -291,6 +295,8 @@ export interface ReservedInstanceArgs {
     instanceCount?: pulumi.Input<number>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
+     *
+     * The following arguments are optional:
      */
     offeringId: pulumi.Input<string>;
     /**

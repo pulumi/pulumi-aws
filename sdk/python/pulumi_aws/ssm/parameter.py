@@ -30,6 +30,8 @@ class ParameterArgs:
         """
         The set of arguments for constructing a Parameter resource.
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] allowed_pattern: Regular expression used to validate the parameter value.
         :param pulumi.Input[str] arn: ARN of the parameter.
         :param pulumi.Input[str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
@@ -37,10 +39,12 @@ class ParameterArgs:
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         pulumi.set(__self__, "type", type)
         if allowed_pattern is not None:
@@ -58,6 +62,9 @@ class ParameterArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if overwrite is not None:
+            warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+            pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+        if overwrite is not None:
             pulumi.set(__self__, "overwrite", overwrite)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -71,6 +78,8 @@ class ParameterArgs:
     def type(self) -> pulumi.Input[Union[str, 'ParameterType']]:
         """
         Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -166,8 +175,11 @@ class ParameterArgs:
     @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
-        Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -203,6 +215,8 @@ class ParameterArgs:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         return pulumi.get(self, "value")
 
@@ -237,12 +251,16 @@ class _ParameterState:
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[int] version: Version of the parameter.
         """
         if allowed_pattern is not None:
@@ -259,6 +277,9 @@ class _ParameterState:
             pulumi.set(__self__, "key_id", key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if overwrite is not None:
+            warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+            pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
         if overwrite is not None:
             pulumi.set(__self__, "overwrite", overwrite)
         if tags is not None:
@@ -362,8 +383,11 @@ class _ParameterState:
     @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
-        Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -411,6 +435,8 @@ class _ParameterState:
     def type(self) -> Optional[pulumi.Input[Union[str, 'ParameterType']]]:
         """
         Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -423,6 +449,8 @@ class _ParameterState:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         return pulumi.get(self, "value")
 
@@ -464,7 +492,7 @@ class Parameter(pulumi.CustomResource):
         """
         Provides an SSM Parameter resource.
 
-        > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before.
+        > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
 
         ## Example Usage
         ### Basic example
@@ -489,7 +517,7 @@ class Parameter(pulumi.CustomResource):
             engine="mysql",
             engine_version="5.7.16",
             instance_class="db.t2.micro",
-            name="mydb",
+            db_name="mydb",
             username="foo",
             password=var["database_master_password"],
             db_subnet_group_name="my_database_subnet_group",
@@ -505,7 +533,7 @@ class Parameter(pulumi.CustomResource):
 
         ## Import
 
-        SSM Parameters can be imported using the `parameter store name`, e.g.,
+        Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
         ```sh
          $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
@@ -520,11 +548,15 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         ...
     @overload
@@ -535,7 +567,7 @@ class Parameter(pulumi.CustomResource):
         """
         Provides an SSM Parameter resource.
 
-        > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before.
+        > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
 
         ## Example Usage
         ### Basic example
@@ -560,7 +592,7 @@ class Parameter(pulumi.CustomResource):
             engine="mysql",
             engine_version="5.7.16",
             instance_class="db.t2.micro",
-            name="mydb",
+            db_name="mydb",
             username="foo",
             password=var["database_master_password"],
             db_subnet_group_name="my_database_subnet_group",
@@ -576,7 +608,7 @@ class Parameter(pulumi.CustomResource):
 
         ## Import
 
-        SSM Parameters can be imported using the `parameter store name`, e.g.,
+        Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
         ```sh
          $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
@@ -625,6 +657,9 @@ class Parameter(pulumi.CustomResource):
             __props__.__dict__["insecure_value"] = insecure_value
             __props__.__dict__["key_id"] = key_id
             __props__.__dict__["name"] = name
+            if overwrite is not None and not opts.urn:
+                warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+                pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
             __props__.__dict__["overwrite"] = overwrite
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
@@ -674,12 +709,16 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[int] version: Version of the parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -762,8 +801,11 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter
     def overwrite(self) -> pulumi.Output[Optional[bool]]:
         """
-        Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "overwrite")
 
     @property
@@ -795,6 +837,8 @@ class Parameter(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -803,6 +847,8 @@ class Parameter(pulumi.CustomResource):
     def value(self) -> pulumi.Output[str]:
         """
         Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         return pulumi.get(self, "value")
 

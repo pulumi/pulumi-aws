@@ -128,7 +128,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Cloudfront Origin Access Identities can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE

@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.imagebuilder.ImagePipelineArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineState;
+import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineSchedule;
 import com.pulumi.core.Output;
@@ -58,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  *  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -208,6 +209,20 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageRecipeArn);
     }
     /**
+     * Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    @Export(name="imageScanningConfiguration", refs={ImagePipelineImageScanningConfiguration.class}, tree="[0]")
+    private Output<ImagePipelineImageScanningConfiguration> imageScanningConfiguration;
+
+    /**
+     * @return Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    public Output<ImagePipelineImageScanningConfiguration> imageScanningConfiguration() {
+        return this.imageScanningConfiguration;
+    }
+    /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
@@ -238,12 +253,16 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
     /**
      * Name of the image pipeline.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the image pipeline.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

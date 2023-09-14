@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a VPC Internet Gateway.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Internet Gateways can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Internet Gateways using the `id`. For example:
 //
 // ```sh
 //
@@ -58,6 +60,35 @@ type InternetGateway struct {
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// 			gw,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -72,6 +103,7 @@ func NewInternetGateway(ctx *pulumi.Context,
 		args = &InternetGatewayArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InternetGateway
 	err := ctx.RegisterResource("aws:ec2/internetGateway:InternetGateway", name, args, &resource, opts...)
 	if err != nil {
@@ -99,6 +131,35 @@ type internetGatewayState struct {
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// 			gw,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -112,6 +173,35 @@ type InternetGatewayState struct {
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// 			gw,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -125,6 +215,35 @@ func (InternetGatewayState) ElementType() reflect.Type {
 
 type internetGatewayArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// 			gw,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -133,6 +252,35 @@ type internetGatewayArgs struct {
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// 			gw,
+	// 		}))
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Tags pulumi.StringMapInput
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId pulumi.StringPtrInput
@@ -161,6 +309,12 @@ func (i *InternetGateway) ToInternetGatewayOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayOutput)
 }
 
+func (i *InternetGateway) ToOutput(ctx context.Context) pulumix.Output[*InternetGateway] {
+	return pulumix.Output[*InternetGateway]{
+		OutputState: i.ToInternetGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InternetGatewayArrayInput is an input type that accepts InternetGatewayArray and InternetGatewayArrayOutput values.
 // You can construct a concrete instance of `InternetGatewayArrayInput` via:
 //
@@ -184,6 +338,12 @@ func (i InternetGatewayArray) ToInternetGatewayArrayOutput() InternetGatewayArra
 
 func (i InternetGatewayArray) ToInternetGatewayArrayOutputWithContext(ctx context.Context) InternetGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayArrayOutput)
+}
+
+func (i InternetGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*InternetGateway] {
+	return pulumix.Output[[]*InternetGateway]{
+		OutputState: i.ToInternetGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InternetGatewayMapInput is an input type that accepts InternetGatewayMap and InternetGatewayMapOutput values.
@@ -211,6 +371,12 @@ func (i InternetGatewayMap) ToInternetGatewayMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayMapOutput)
 }
 
+func (i InternetGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetGateway] {
+	return pulumix.Output[map[string]*InternetGateway]{
+		OutputState: i.ToInternetGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InternetGatewayOutput struct{ *pulumi.OutputState }
 
 func (InternetGatewayOutput) ElementType() reflect.Type {
@@ -225,6 +391,12 @@ func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o InternetGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*InternetGateway] {
+	return pulumix.Output[*InternetGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Internet Gateway.
 func (o InternetGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -236,6 +408,38 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+//				VpcId: pulumi.Any(aws_vpc.Main.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+//				gw,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o InternetGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -264,6 +468,12 @@ func (o InternetGatewayArrayOutput) ToInternetGatewayArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o InternetGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InternetGateway] {
+	return pulumix.Output[[]*InternetGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InternetGatewayArrayOutput) Index(i pulumi.IntInput) InternetGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InternetGateway {
 		return vs[0].([]*InternetGateway)[vs[1].(int)]
@@ -282,6 +492,12 @@ func (o InternetGatewayMapOutput) ToInternetGatewayMapOutput() InternetGatewayMa
 
 func (o InternetGatewayMapOutput) ToInternetGatewayMapOutputWithContext(ctx context.Context) InternetGatewayMapOutput {
 	return o
+}
+
+func (o InternetGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetGateway] {
+	return pulumix.Output[map[string]*InternetGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InternetGatewayMapOutput) MapIndex(k pulumi.StringInput) InternetGatewayOutput {

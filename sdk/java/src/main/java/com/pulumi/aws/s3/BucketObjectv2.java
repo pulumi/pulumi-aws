@@ -224,34 +224,39 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+ * Import using the `id`, which is the bucket name and the key together:
+ * 
+ * Import using S3 URL syntax:
+ * 
+ * __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
+ * 
+ * Import using the `id`, which is the bucket name and the key together:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
+ *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
  * ```
- * 
- *  Additionally, s3 url syntax can be used, e.g.,
+ *  Import using S3 URL syntax:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
+ *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
  * ```
  * 
  */
 @ResourceType(type="aws:s3/bucketObjectv2:BucketObjectv2")
 public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
-     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      * 
      */
     @Export(name="acl", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> acl;
+    private Output<String> acl;
 
     /**
-     * @return [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+     * @return [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      * 
      */
-    public Output<Optional<String>> acl() {
-        return Codegen.optional(this.acl);
+    public Output<String> acl() {
+        return this.acl;
     }
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
@@ -410,12 +415,16 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
      * Name of the object once it is in the bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
      * @return Name of the object once it is in the bucket.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> key() {
@@ -592,12 +601,20 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
+     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
+     * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
+     * 
      */
     @Export(name="websiteRedirect", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> websiteRedirect;
 
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * 
+     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
+     * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      * 
      */
     public Output<Optional<String>> websiteRedirect() {

@@ -428,7 +428,7 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.,
+        Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 
         ```sh
          $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
@@ -567,7 +567,7 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.,
+        Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 
         ```sh
          $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route

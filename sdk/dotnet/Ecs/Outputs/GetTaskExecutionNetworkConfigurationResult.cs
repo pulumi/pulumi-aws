@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     {
         /// <summary>
         /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+        /// 
+        /// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
         /// </summary>
         public readonly bool? AssignPublicIp;
         /// <summary>

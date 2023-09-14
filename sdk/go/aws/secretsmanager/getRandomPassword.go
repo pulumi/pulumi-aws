@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Generate a random password.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetRandomPassword(ctx *pulumi.Context, args *GetRandomPasswordArgs, opts ...pulumi.InvokeOption) (*GetRandomPasswordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRandomPasswordResult
 	err := ctx.Invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", args, &rv, opts...)
 	if err != nil {
@@ -137,6 +140,12 @@ func (o GetRandomPasswordResultOutput) ToGetRandomPasswordResultOutput() GetRand
 
 func (o GetRandomPasswordResultOutput) ToGetRandomPasswordResultOutputWithContext(ctx context.Context) GetRandomPasswordResultOutput {
 	return o
+}
+
+func (o GetRandomPasswordResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRandomPasswordResult] {
+	return pulumix.Output[GetRandomPasswordResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRandomPasswordResultOutput) ExcludeCharacters() pulumi.StringPtrOutput {

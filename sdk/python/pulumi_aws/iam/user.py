@@ -283,7 +283,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        IAM Users can be imported using the `name`, e.g.,
+        Using `pulumi import`, import IAM Users using the `name`. For example:
 
         ```sh
          $ pulumi import aws:iam/user:User lb loadbalancer
@@ -334,7 +334,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        IAM Users can be imported using the `name`, e.g.,
+        Using `pulumi import`, import IAM Users using the `name`. For example:
 
         ```sh
          $ pulumi import aws:iam/user:User lb loadbalancer

@@ -14,6 +14,9 @@ __all__ = [
     'ExperimentTemplateAction',
     'ExperimentTemplateActionParameter',
     'ExperimentTemplateActionTarget',
+    'ExperimentTemplateLogConfiguration',
+    'ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration',
+    'ExperimentTemplateLogConfigurationS3Configuration',
     'ExperimentTemplateStopCondition',
     'ExperimentTemplateTarget',
     'ExperimentTemplateTargetFilter',
@@ -124,6 +127,8 @@ class ExperimentTemplateActionParameter(dict):
         """
         :param str key: Parameter name.
         :param str value: Parameter value.
+               
+               For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -141,6 +146,8 @@ class ExperimentTemplateActionParameter(dict):
     def value(self) -> str:
         """
         Parameter value.
+
+        For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         """
         return pulumi.get(self, "value")
 
@@ -151,7 +158,7 @@ class ExperimentTemplateActionTarget(dict):
                  key: str,
                  value: str):
         """
-        :param str key: Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+        :param str key: Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
         :param str value: Target name, referencing a corresponding target.
         """
         pulumi.set(__self__, "key", key)
@@ -161,7 +168,7 @@ class ExperimentTemplateActionTarget(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+        Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
         """
         return pulumi.get(self, "key")
 
@@ -172,6 +179,151 @@ class ExperimentTemplateActionTarget(dict):
         Target name, referencing a corresponding target.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExperimentTemplateLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logSchemaVersion":
+            suggest = "log_schema_version"
+        elif key == "cloudwatchLogsConfiguration":
+            suggest = "cloudwatch_logs_configuration"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_schema_version: int,
+                 cloudwatch_logs_configuration: Optional['outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration'] = None,
+                 s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3Configuration'] = None):
+        """
+        :param int log_schema_version: The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+        :param 'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs' cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+        :param 'ExperimentTemplateLogConfigurationS3ConfigurationArgs' s3_configuration: The configuration for experiment logging to Amazon S3. See below.
+        """
+        pulumi.set(__self__, "log_schema_version", log_schema_version)
+        if cloudwatch_logs_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_logs_configuration", cloudwatch_logs_configuration)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter(name="logSchemaVersion")
+    def log_schema_version(self) -> int:
+        """
+        The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+        """
+        return pulumi.get(self, "log_schema_version")
+
+    @property
+    @pulumi.getter(name="cloudwatchLogsConfiguration")
+    def cloudwatch_logs_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration']:
+        """
+        The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+        """
+        return pulumi.get(self, "cloudwatch_logs_configuration")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfigurationS3Configuration']:
+        """
+        The configuration for experiment logging to Amazon S3. See below.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_arn: str):
+        """
+        :param str log_group_arn: The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+        """
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
+class ExperimentTemplateLogConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateLogConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateLogConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateLogConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket_name: The name of the destination bucket.
+        :param str prefix: The bucket prefix.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        The name of the destination bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The bucket prefix.
+        """
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type
@@ -234,6 +386,7 @@ class ExperimentTemplateTarget(dict):
                  resource_type: str,
                  selection_mode: str,
                  filters: Optional[Sequence['outputs.ExperimentTemplateTargetFilter']] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
                  resource_arns: Optional[Sequence[str]] = None,
                  resource_tags: Optional[Sequence['outputs.ExperimentTemplateTargetResourceTag']] = None):
         """
@@ -241,6 +394,9 @@ class ExperimentTemplateTarget(dict):
         :param str resource_type: AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
         :param str selection_mode: Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
         :param Sequence['ExperimentTemplateTargetFilterArgs'] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
+        :param Mapping[str, str] parameters: The resource type parameters.
+               
+               > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         :param Sequence[str] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
         :param Sequence['ExperimentTemplateTargetResourceTagArgs'] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
         """
@@ -249,6 +405,8 @@ class ExperimentTemplateTarget(dict):
         pulumi.set(__self__, "selection_mode", selection_mode)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if resource_arns is not None:
             pulumi.set(__self__, "resource_arns", resource_arns)
         if resource_tags is not None:
@@ -287,6 +445,16 @@ class ExperimentTemplateTarget(dict):
         return pulumi.get(self, "filters")
 
     @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The resource type parameters.
+
+        > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Optional[Sequence[str]]:
         """
@@ -311,6 +479,8 @@ class ExperimentTemplateTargetFilter(dict):
         """
         :param str path: Attribute path for the filter.
         :param Sequence[str] values: Set of attribute values for the filter.
+               
+               > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "values", values)
@@ -328,6 +498,8 @@ class ExperimentTemplateTargetFilter(dict):
     def values(self) -> Sequence[str]:
         """
         Set of attribute values for the filter.
+
+        > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
         """
         return pulumi.get(self, "values")
 

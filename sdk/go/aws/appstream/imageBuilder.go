@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppStream image builder.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +55,7 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+// Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 //
 // ```sh
 //
@@ -88,6 +90,8 @@ type ImageBuilder struct {
 	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State pulumi.StringOutput `pulumi:"state"`
@@ -109,6 +113,7 @@ func NewImageBuilder(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageBuilder
 	err := ctx.RegisterResource("aws:appstream/imageBuilder:ImageBuilder", name, args, &resource, opts...)
 	if err != nil {
@@ -156,6 +161,8 @@ type imageBuilderState struct {
 	// Instance type to use when launching the image builder.
 	InstanceType *string `pulumi:"instanceType"`
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State *string `pulumi:"state"`
@@ -193,6 +200,8 @@ type ImageBuilderState struct {
 	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringPtrInput
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State pulumi.StringPtrInput
@@ -230,6 +239,8 @@ type imageBuilderArgs struct {
 	// Instance type to use when launching the image builder.
 	InstanceType string `pulumi:"instanceType"`
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -260,6 +271,8 @@ type ImageBuilderArgs struct {
 	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringInput
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -290,6 +303,12 @@ func (i *ImageBuilder) ToImageBuilderOutputWithContext(ctx context.Context) Imag
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderOutput)
 }
 
+func (i *ImageBuilder) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilder] {
+	return pulumix.Output[*ImageBuilder]{
+		OutputState: i.ToImageBuilderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageBuilderArrayInput is an input type that accepts ImageBuilderArray and ImageBuilderArrayOutput values.
 // You can construct a concrete instance of `ImageBuilderArrayInput` via:
 //
@@ -313,6 +332,12 @@ func (i ImageBuilderArray) ToImageBuilderArrayOutput() ImageBuilderArrayOutput {
 
 func (i ImageBuilderArray) ToImageBuilderArrayOutputWithContext(ctx context.Context) ImageBuilderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderArrayOutput)
+}
+
+func (i ImageBuilderArray) ToOutput(ctx context.Context) pulumix.Output[[]*ImageBuilder] {
+	return pulumix.Output[[]*ImageBuilder]{
+		OutputState: i.ToImageBuilderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ImageBuilderMapInput is an input type that accepts ImageBuilderMap and ImageBuilderMapOutput values.
@@ -340,6 +365,12 @@ func (i ImageBuilderMap) ToImageBuilderMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderMapOutput)
 }
 
+func (i ImageBuilderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageBuilder] {
+	return pulumix.Output[map[string]*ImageBuilder]{
+		OutputState: i.ToImageBuilderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageBuilderOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderOutput) ElementType() reflect.Type {
@@ -352,6 +383,12 @@ func (o ImageBuilderOutput) ToImageBuilderOutput() ImageBuilderOutput {
 
 func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context) ImageBuilderOutput {
 	return o
+}
+
+func (o ImageBuilderOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilder] {
+	return pulumix.Output[*ImageBuilder]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
@@ -415,6 +452,8 @@ func (o ImageBuilderOutput) InstanceType() pulumi.StringOutput {
 }
 
 // Unique name for the image builder.
+//
+// The following arguments are optional:
 func (o ImageBuilderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -453,6 +492,12 @@ func (o ImageBuilderArrayOutput) ToImageBuilderArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ImageBuilderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ImageBuilder] {
+	return pulumix.Output[[]*ImageBuilder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImageBuilderArrayOutput) Index(i pulumi.IntInput) ImageBuilderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageBuilder {
 		return vs[0].([]*ImageBuilder)[vs[1].(int)]
@@ -471,6 +516,12 @@ func (o ImageBuilderMapOutput) ToImageBuilderMapOutput() ImageBuilderMapOutput {
 
 func (o ImageBuilderMapOutput) ToImageBuilderMapOutputWithContext(ctx context.Context) ImageBuilderMapOutput {
 	return o
+}
+
+func (o ImageBuilderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageBuilder] {
+	return pulumix.Output[map[string]*ImageBuilder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageBuilderMapOutput) MapIndex(k pulumi.StringInput) ImageBuilderOutput {

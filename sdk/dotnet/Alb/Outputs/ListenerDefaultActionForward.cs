@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Alb.Outputs
         public readonly Outputs.ListenerDefaultActionForwardStickiness? Stickiness;
         /// <summary>
         /// Set of 1-5 target group blocks. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerDefaultActionForwardTargetGroup> TargetGroups;
 

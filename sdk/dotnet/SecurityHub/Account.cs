@@ -31,11 +31,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/account:Account example 123456789012
-    /// ```
+    ///  to = aws_securityhub_account.example
+    /// 
+    ///  id = "123456789012" } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_account.example 123456789012
     /// </summary>
     [AwsResourceType("aws:securityhub/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         /// </summary>
         [Output("controlFindingGenerator")]
-        public Output<string?> ControlFindingGenerator { get; private set; } = null!;
+        public Output<string> ControlFindingGenerator { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.

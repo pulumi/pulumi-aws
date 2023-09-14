@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Sns
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
-    ///     var sns = config.GetObject&lt;dynamic&gt;("sns") ?? 
+    ///     var sns = config.GetObject&lt;Sns&gt;("sns") ?? 
     ///     {
     ///         { "account-id", "111111111111" },
     ///         { "role-name", "service/service" },
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Sns
     ///         { "display_name", "example" },
     ///         { "region", "us-west-1" },
     ///     };
-    ///     var sqs = config.GetObject&lt;dynamic&gt;("sqs") ?? 
+    ///     var sqs = config.GetObject&lt;Sqs&gt;("sqs") ?? 
     ///     {
     ///         { "account-id", "222222222222" },
     ///         { "role-name", "service/service" },
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Sns
     ///         Policy = sns_topic_policy.Apply(sns_topic_policy =&gt; sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.sns",
+    ///         Provider = aws.Sns,
     ///     });
     /// 
     ///     var sqs_queue = new Aws.Sqs.Queue("sqs-queue", new()
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Sns
     ///         Policy = sqs_queue_policy.Apply(sqs_queue_policy =&gt; sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.sqs",
+    ///         Provider = aws.Sqs,
     ///     });
     /// 
     ///     var sns_topicTopicSubscription = new Aws.Sns.TopicSubscription("sns-topicTopicSubscription", new()
@@ -283,15 +283,32 @@ namespace Pulumi.Aws.Sns
     ///         Endpoint = sqs_queue.Arn,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.sns2sqs",
+    ///         Provider = aws.Sns2sqs,
     ///     });
     /// 
     /// });
+    /// 
+    /// public class Sns
+    /// {
+    ///     public string account-id { get; set; }
+    ///     public string display_name { get; set; }
+    ///     public string name { get; set; }
+    ///     public string region { get; set; }
+    ///     public string role-name { get; set; }
+    /// }
+    /// 
+    /// public class Sqs
+    /// {
+    ///     public string account-id { get; set; }
+    ///     public string name { get; set; }
+    ///     public string region { get; set; }
+    ///     public string role-name { get; set; }
+    /// }
     /// ```
     /// 
     /// ## Import
     /// 
-    /// SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+    /// Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
@@ -386,6 +403,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("topic")]
         public Output<string> Topic { get; private set; } = null!;
@@ -498,6 +517,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
@@ -596,6 +617,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("topic")]
         public Input<string>? Topic { get; set; }

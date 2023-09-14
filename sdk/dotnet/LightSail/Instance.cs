@@ -147,7 +147,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Lightsail Instances can be imported using their name, e.g.,
+    /// Using `pulumi import`, import Lightsail Instances using their name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
@@ -204,12 +204,6 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
-
-        /// <summary>
-        /// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-        /// </summary>
-        [Output("ipv6Address")]
-        public Output<string> Ipv6Address { get; private set; } = null!;
 
         /// <summary>
         /// List of IPv6 addresses for the Lightsail instance.
@@ -442,12 +436,6 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
-
-        /// <summary>
-        /// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-        /// </summary>
-        [Input("ipv6Address")]
-        public Input<string>? Ipv6Address { get; set; }
 
         [Input("ipv6Addresses")]
         private InputList<string>? _ipv6Addresses;

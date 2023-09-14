@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * });
  * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
  *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.2.0.0/16",
+ *     cidr: "172.20.0.0/16",
  * });
  * const exampleVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", {
  *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.2.0.0/24",
+ *     cidr: "172.20.0.0/24",
  * }, {
  *     dependsOn: [exampleVpcIpamPoolCidr],
  * });
@@ -53,12 +53,12 @@ import * as utilities from "../utilities";
  * });
  * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
  *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.2.0.0/16",
+ *     cidr: "172.20.0.0/16",
  * });
  * const exampleVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     netmaskLength: 28,
- *     disallowedCidrs: ["172.2.0.0/28"],
+ *     disallowedCidrs: ["172.20.0.0/28"],
  * }, {
  *     dependsOn: [exampleVpcIpamPoolCidr],
  * });
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IPAM allocations can be imported using the `allocation id` and `pool id`, separated by `_`, e.g.
+ * Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe

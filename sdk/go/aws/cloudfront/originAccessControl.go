@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS CloudFront Origin Access Control, which is used by CloudFront Distributions with an Amazon S3 bucket as the origin.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // ## Import
 //
-// CloudFront Origin Access Control can be imported using the `id`. For example
+// Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
 //
 // ```sh
 //
@@ -87,6 +89,7 @@ func NewOriginAccessControl(ctx *pulumi.Context,
 	if args.SigningProtocol == nil {
 		return nil, errors.New("invalid value for required argument 'SigningProtocol'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginAccessControl
 	err := ctx.RegisterResource("aws:cloudfront/originAccessControl:OriginAccessControl", name, args, &resource, opts...)
 	if err != nil {
@@ -192,6 +195,12 @@ func (i *OriginAccessControl) ToOriginAccessControlOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessControlOutput)
 }
 
+func (i *OriginAccessControl) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessControl] {
+	return pulumix.Output[*OriginAccessControl]{
+		OutputState: i.ToOriginAccessControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginAccessControlArrayInput is an input type that accepts OriginAccessControlArray and OriginAccessControlArrayOutput values.
 // You can construct a concrete instance of `OriginAccessControlArrayInput` via:
 //
@@ -215,6 +224,12 @@ func (i OriginAccessControlArray) ToOriginAccessControlArrayOutput() OriginAcces
 
 func (i OriginAccessControlArray) ToOriginAccessControlArrayOutputWithContext(ctx context.Context) OriginAccessControlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessControlArrayOutput)
+}
+
+func (i OriginAccessControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*OriginAccessControl] {
+	return pulumix.Output[[]*OriginAccessControl]{
+		OutputState: i.ToOriginAccessControlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OriginAccessControlMapInput is an input type that accepts OriginAccessControlMap and OriginAccessControlMapOutput values.
@@ -242,6 +257,12 @@ func (i OriginAccessControlMap) ToOriginAccessControlMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessControlMapOutput)
 }
 
+func (i OriginAccessControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginAccessControl] {
+	return pulumix.Output[map[string]*OriginAccessControl]{
+		OutputState: i.ToOriginAccessControlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginAccessControlOutput struct{ *pulumi.OutputState }
 
 func (OriginAccessControlOutput) ElementType() reflect.Type {
@@ -254,6 +275,12 @@ func (o OriginAccessControlOutput) ToOriginAccessControlOutput() OriginAccessCon
 
 func (o OriginAccessControlOutput) ToOriginAccessControlOutputWithContext(ctx context.Context) OriginAccessControlOutput {
 	return o
+}
+
+func (o OriginAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessControl] {
+	return pulumix.Output[*OriginAccessControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
@@ -300,6 +327,12 @@ func (o OriginAccessControlArrayOutput) ToOriginAccessControlArrayOutputWithCont
 	return o
 }
 
+func (o OriginAccessControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OriginAccessControl] {
+	return pulumix.Output[[]*OriginAccessControl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginAccessControlArrayOutput) Index(i pulumi.IntInput) OriginAccessControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OriginAccessControl {
 		return vs[0].([]*OriginAccessControl)[vs[1].(int)]
@@ -318,6 +351,12 @@ func (o OriginAccessControlMapOutput) ToOriginAccessControlMapOutput() OriginAcc
 
 func (o OriginAccessControlMapOutput) ToOriginAccessControlMapOutputWithContext(ctx context.Context) OriginAccessControlMapOutput {
 	return o
+}
+
+func (o OriginAccessControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginAccessControl] {
+	return pulumix.Output[map[string]*OriginAccessControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginAccessControlMapOutput) MapIndex(k pulumi.StringInput) OriginAccessControlOutput {

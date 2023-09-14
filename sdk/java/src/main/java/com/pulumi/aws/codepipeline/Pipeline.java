@@ -188,11 +188,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodePipelines can be imported using the name, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
- * ```
+ *  to = aws_codepipeline.foo
+ * 
+ *  id = &#34;example&#34; } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
  * 
  */
 @ResourceType(type="aws:codepipeline/pipeline:Pipeline")
@@ -268,14 +268,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.stages;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

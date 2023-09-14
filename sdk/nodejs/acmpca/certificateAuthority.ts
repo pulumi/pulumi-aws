@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
  * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
@@ -90,6 +90,7 @@ import * as utilities from "../utilities";
  *             enabled: true,
  *             expirationInDays: 7,
  *             s3BucketName: exampleBucketV2.id,
+ *             s3ObjectAcl: "BUCKET_OWNER_FULL_CONTROL",
  *         },
  *     },
  * }, {
@@ -99,7 +100,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
+ * Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
@@ -182,12 +183,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly serial!: pulumi.Output<string>;
     /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     *
-     * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -229,7 +224,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
             resourceInputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
             resourceInputs["serial"] = state ? state.serial : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -254,7 +248,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["notAfter"] = undefined /*out*/;
             resourceInputs["notBefore"] = undefined /*out*/;
             resourceInputs["serial"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -314,12 +307,6 @@ export interface CertificateAuthorityState {
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
     serial?: pulumi.Input<string>;
-    /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     *
-     * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-     */
-    status?: pulumi.Input<string>;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

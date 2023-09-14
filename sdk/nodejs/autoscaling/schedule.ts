@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.,
+ * Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
@@ -99,6 +99,8 @@ export class Schedule extends pulumi.CustomResource {
     public readonly recurrence!: pulumi.Output<string>;
     /**
      * The name of this scaling action.
+     *
+     * The following arguments are optional:
      */
     public readonly scheduledActionName!: pulumi.Output<string>;
     /**
@@ -107,6 +109,8 @@ export class Schedule extends pulumi.CustomResource {
     public readonly startTime!: pulumi.Output<string>;
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+     *
+     * > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      */
     public readonly timeZone!: pulumi.Output<string>;
 
@@ -191,6 +195,8 @@ export interface ScheduleState {
     recurrence?: pulumi.Input<string>;
     /**
      * The name of this scaling action.
+     *
+     * The following arguments are optional:
      */
     scheduledActionName?: pulumi.Input<string>;
     /**
@@ -199,6 +205,8 @@ export interface ScheduleState {
     startTime?: pulumi.Input<string>;
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+     *
+     * > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      */
     timeZone?: pulumi.Input<string>;
 }
@@ -233,6 +241,8 @@ export interface ScheduleArgs {
     recurrence?: pulumi.Input<string>;
     /**
      * The name of this scaling action.
+     *
+     * The following arguments are optional:
      */
     scheduledActionName: pulumi.Input<string>;
     /**
@@ -241,6 +251,8 @@ export interface ScheduleArgs {
     startTime?: pulumi.Input<string>;
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+     *
+     * > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      */
     timeZone?: pulumi.Input<string>;
 }

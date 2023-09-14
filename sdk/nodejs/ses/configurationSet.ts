@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES Configuration Sets can be imported using their `name`, e.g.,
+ * Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
@@ -79,6 +79,8 @@ export class ConfigurationSet extends pulumi.CustomResource {
     public /*out*/ readonly lastFreshStart!: pulumi.Output<string>;
     /**
      * Name of the configuration set.
+     *
+     * The following argument is optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -149,6 +151,8 @@ export interface ConfigurationSetState {
     lastFreshStart?: pulumi.Input<string>;
     /**
      * Name of the configuration set.
+     *
+     * The following argument is optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -175,6 +179,8 @@ export interface ConfigurationSetArgs {
     deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions>;
     /**
      * Name of the configuration set.
+     *
+     * The following argument is optional:
      */
     name?: pulumi.Input<string>;
     /**

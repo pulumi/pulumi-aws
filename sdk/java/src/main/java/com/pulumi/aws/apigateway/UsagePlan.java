@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;

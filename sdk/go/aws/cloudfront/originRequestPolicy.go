@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +67,7 @@ import (
 //
 // ## Import
 //
-// Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+// Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
 //
 // ```sh
 //
@@ -105,6 +107,7 @@ func NewOriginRequestPolicy(ctx *pulumi.Context,
 	if args.QueryStringsConfig == nil {
 		return nil, errors.New("invalid value for required argument 'QueryStringsConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginRequestPolicy
 	err := ctx.RegisterResource("aws:cloudfront/originRequestPolicy:OriginRequestPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -210,6 +213,12 @@ func (i *OriginRequestPolicy) ToOriginRequestPolicyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOutput)
 }
 
+func (i *OriginRequestPolicy) ToOutput(ctx context.Context) pulumix.Output[*OriginRequestPolicy] {
+	return pulumix.Output[*OriginRequestPolicy]{
+		OutputState: i.ToOriginRequestPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginRequestPolicyArrayInput is an input type that accepts OriginRequestPolicyArray and OriginRequestPolicyArrayOutput values.
 // You can construct a concrete instance of `OriginRequestPolicyArrayInput` via:
 //
@@ -233,6 +242,12 @@ func (i OriginRequestPolicyArray) ToOriginRequestPolicyArrayOutput() OriginReque
 
 func (i OriginRequestPolicyArray) ToOriginRequestPolicyArrayOutputWithContext(ctx context.Context) OriginRequestPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyArrayOutput)
+}
+
+func (i OriginRequestPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*OriginRequestPolicy] {
+	return pulumix.Output[[]*OriginRequestPolicy]{
+		OutputState: i.ToOriginRequestPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OriginRequestPolicyMapInput is an input type that accepts OriginRequestPolicyMap and OriginRequestPolicyMapOutput values.
@@ -260,6 +275,12 @@ func (i OriginRequestPolicyMap) ToOriginRequestPolicyMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyMapOutput)
 }
 
+func (i OriginRequestPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginRequestPolicy] {
+	return pulumix.Output[map[string]*OriginRequestPolicy]{
+		OutputState: i.ToOriginRequestPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginRequestPolicyOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyOutput) ElementType() reflect.Type {
@@ -272,6 +293,12 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutput() OriginRequestPo
 
 func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx context.Context) OriginRequestPolicyOutput {
 	return o
+}
+
+func (o OriginRequestPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginRequestPolicy] {
+	return pulumix.Output[*OriginRequestPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Comment to describe the origin request policy.
@@ -318,6 +345,12 @@ func (o OriginRequestPolicyArrayOutput) ToOriginRequestPolicyArrayOutputWithCont
 	return o
 }
 
+func (o OriginRequestPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OriginRequestPolicy] {
+	return pulumix.Output[[]*OriginRequestPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginRequestPolicyArrayOutput) Index(i pulumi.IntInput) OriginRequestPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OriginRequestPolicy {
 		return vs[0].([]*OriginRequestPolicy)[vs[1].(int)]
@@ -336,6 +369,12 @@ func (o OriginRequestPolicyMapOutput) ToOriginRequestPolicyMapOutput() OriginReq
 
 func (o OriginRequestPolicyMapOutput) ToOriginRequestPolicyMapOutputWithContext(ctx context.Context) OriginRequestPolicyMapOutput {
 	return o
+}
+
+func (o OriginRequestPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginRequestPolicy] {
+	return pulumix.Output[map[string]*OriginRequestPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginRequestPolicyMapOutput) MapIndex(k pulumi.StringInput) OriginRequestPolicyOutput {

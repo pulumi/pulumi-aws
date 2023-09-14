@@ -34,6 +34,8 @@ class DomainArgs:
         :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See Default Space Settings below.
@@ -112,6 +114,8 @@ class DomainArgs:
     def vpc_id(self) -> pulumi.Input[str]:
         """
         The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 
@@ -244,6 +248,8 @@ class _DomainState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+               
+               The following arguments are optional:
         """
         if app_network_access_type is not None:
             pulumi.set(__self__, "app_network_access_type", app_network_access_type)
@@ -488,6 +494,8 @@ class _DomainState:
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 
@@ -580,7 +588,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Domains can be imported using the `id`, e.g.,
+        Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -599,6 +607,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -672,7 +682,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Domains can be imported using the `id`, e.g.,
+        Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -794,6 +804,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -957,6 +969,8 @@ class Domain(pulumi.CustomResource):
     def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 

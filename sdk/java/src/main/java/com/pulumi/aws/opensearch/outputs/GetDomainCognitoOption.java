@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainCognitoOption {
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     private Boolean enabled;
@@ -33,7 +33,7 @@ public final class GetDomainCognitoOption {
 
     private GetDomainCognitoOption() {}
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     public Boolean enabled() {

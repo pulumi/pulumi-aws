@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `cloudwatch.LogDataProtectionPolicy` resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,6 +85,7 @@ import (
 //
 // ```
 func GetLogDataProtectionPolicyDocument(ctx *pulumi.Context, args *GetLogDataProtectionPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetLogDataProtectionPolicyDocumentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogDataProtectionPolicyDocumentResult
 	err := ctx.Invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, &rv, opts...)
 	if err != nil {
@@ -97,6 +100,10 @@ type GetLogDataProtectionPolicyDocumentArgs struct {
 	// The name of the data protection policy document.
 	Name string `pulumi:"name"`
 	// Configures the data protection policy.
+	//
+	// > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+	//
+	// The following arguments are optional:
 	Statements []GetLogDataProtectionPolicyDocumentStatement `pulumi:"statements"`
 	Version    *string                                       `pulumi:"version"`
 }
@@ -132,6 +139,10 @@ type GetLogDataProtectionPolicyDocumentOutputArgs struct {
 	// The name of the data protection policy document.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configures the data protection policy.
+	//
+	// > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+	//
+	// The following arguments are optional:
 	Statements GetLogDataProtectionPolicyDocumentStatementArrayInput `pulumi:"statements"`
 	Version    pulumi.StringPtrInput                                 `pulumi:"version"`
 }
@@ -153,6 +164,12 @@ func (o GetLogDataProtectionPolicyDocumentResultOutput) ToGetLogDataProtectionPo
 
 func (o GetLogDataProtectionPolicyDocumentResultOutput) ToGetLogDataProtectionPolicyDocumentResultOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentResultOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentResult] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentResultOutput) Description() pulumi.StringPtrOutput {

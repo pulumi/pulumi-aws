@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
@@ -115,6 +115,8 @@ export class SafetyRule extends pulumi.CustomResource {
     public readonly targetControls!: pulumi.Output<string[] | undefined>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     *
+     * The following arguments are optional:
      */
     public readonly waitPeriodMs!: pulumi.Output<number>;
 
@@ -204,6 +206,8 @@ export interface SafetyRuleState {
     targetControls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     *
+     * The following arguments are optional:
      */
     waitPeriodMs?: pulumi.Input<number>;
 }
@@ -238,6 +242,8 @@ export interface SafetyRuleArgs {
     targetControls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     *
+     * The following arguments are optional:
      */
     waitPeriodMs: pulumi.Input<number>;
 }

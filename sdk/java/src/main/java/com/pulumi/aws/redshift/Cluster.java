@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
+ * Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
@@ -101,14 +101,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.applyImmediately);
     }
     /**
-     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+     * No longer supported by the AWS API.
+     * Always returns `auto`.
+     * 
+     * @deprecated
+     * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
+    @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
     @Export(name="aquaConfigurationStatus", refs={String.class}, tree="[0]")
     private Output<String> aquaConfigurationStatus;
 
     /**
-     * @return The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     * @return The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+     * No longer supported by the AWS API.
+     * Always returns `auto`.
      * 
      */
     public Output<String> aquaConfigurationStatus() {
@@ -185,6 +193,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    @Export(name="clusterNamespaceArn", refs={String.class}, tree="[0]")
+    private Output<String> clusterNamespaceArn;
+
+    /**
+     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    public Output<String> clusterNamespaceArn() {
+        return this.clusterNamespaceArn;
+    }
+    /**
      * The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
@@ -239,24 +261,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> clusterRevisionNumber() {
         return this.clusterRevisionNumber;
-    }
-    /**
-     * A list of security groups to be associated with this cluster.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    @Export(name="clusterSecurityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> clusterSecurityGroups;
-
-    /**
-     * @return A list of security groups to be associated with this cluster.
-     * 
-     */
-    public Output<List<String>> clusterSecurityGroups() {
-        return this.clusterSecurityGroups;
     }
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).

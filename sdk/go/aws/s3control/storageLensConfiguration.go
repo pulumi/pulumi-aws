@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Storage Lens configuration.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +86,7 @@ import (
 //
 // ## Import
 //
-// S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+// Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -121,6 +123,7 @@ func NewStorageLensConfiguration(ctx *pulumi.Context,
 	if args.StorageLensConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLensConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageLensConfiguration
 	err := ctx.RegisterResource("aws:s3control/storageLensConfiguration:StorageLensConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -222,6 +225,12 @@ func (i *StorageLensConfiguration) ToStorageLensConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationOutput)
 }
 
+func (i *StorageLensConfiguration) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfiguration] {
+	return pulumix.Output[*StorageLensConfiguration]{
+		OutputState: i.ToStorageLensConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StorageLensConfigurationArrayInput is an input type that accepts StorageLensConfigurationArray and StorageLensConfigurationArrayOutput values.
 // You can construct a concrete instance of `StorageLensConfigurationArrayInput` via:
 //
@@ -245,6 +254,12 @@ func (i StorageLensConfigurationArray) ToStorageLensConfigurationArrayOutput() S
 
 func (i StorageLensConfigurationArray) ToStorageLensConfigurationArrayOutputWithContext(ctx context.Context) StorageLensConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationArrayOutput)
+}
+
+func (i StorageLensConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*StorageLensConfiguration] {
+	return pulumix.Output[[]*StorageLensConfiguration]{
+		OutputState: i.ToStorageLensConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StorageLensConfigurationMapInput is an input type that accepts StorageLensConfigurationMap and StorageLensConfigurationMapOutput values.
@@ -272,6 +287,12 @@ func (i StorageLensConfigurationMap) ToStorageLensConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationMapOutput)
 }
 
+func (i StorageLensConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageLensConfiguration] {
+	return pulumix.Output[map[string]*StorageLensConfiguration]{
+		OutputState: i.ToStorageLensConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StorageLensConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationOutput) ElementType() reflect.Type {
@@ -284,6 +305,12 @@ func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutput() Stora
 
 func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensConfigurationOutput {
 	return o
+}
+
+func (o StorageLensConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfiguration] {
+	return pulumix.Output[*StorageLensConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
@@ -332,6 +359,12 @@ func (o StorageLensConfigurationArrayOutput) ToStorageLensConfigurationArrayOutp
 	return o
 }
 
+func (o StorageLensConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StorageLensConfiguration] {
+	return pulumix.Output[[]*StorageLensConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StorageLensConfigurationArrayOutput) Index(i pulumi.IntInput) StorageLensConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StorageLensConfiguration {
 		return vs[0].([]*StorageLensConfiguration)[vs[1].(int)]
@@ -350,6 +383,12 @@ func (o StorageLensConfigurationMapOutput) ToStorageLensConfigurationMapOutput()
 
 func (o StorageLensConfigurationMapOutput) ToStorageLensConfigurationMapOutputWithContext(ctx context.Context) StorageLensConfigurationMapOutput {
 	return o
+}
+
+func (o StorageLensConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageLensConfiguration] {
+	return pulumix.Output[map[string]*StorageLensConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageLensConfigurationMapOutput) MapIndex(k pulumi.StringInput) StorageLensConfigurationOutput {

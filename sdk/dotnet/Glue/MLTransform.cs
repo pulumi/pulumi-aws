@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue ML Transforms can be imported using `id`, e.g.,
+    /// Using `pulumi import`, import Glue ML Transforms using `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5

@@ -66,9 +66,6 @@ class GetIpRangesResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -120,7 +117,8 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             url=self.url)
 
 
-def get_ip_ranges(regions: Optional[Sequence[str]] = None,
+def get_ip_ranges(id: Optional[str] = None,
+                  regions: Optional[Sequence[str]] = None,
                   services: Optional[Sequence[str]] = None,
                   url: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
@@ -161,9 +159,13 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
            [`service` attribute][2] documentation for other possible values.
+           
+           > **NOTE:** If the specified combination of regions and services does not yield any
+           CIDR blocks, this call will fail.
     :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['regions'] = regions
     __args__['services'] = services
     __args__['url'] = url
@@ -171,18 +173,19 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult).value
 
     return AwaitableGetIpRangesResult(
-        cidr_blocks=__ret__.cidr_blocks,
-        create_date=__ret__.create_date,
-        id=__ret__.id,
-        ipv6_cidr_blocks=__ret__.ipv6_cidr_blocks,
-        regions=__ret__.regions,
-        services=__ret__.services,
-        sync_token=__ret__.sync_token,
-        url=__ret__.url)
+        cidr_blocks=pulumi.get(__ret__, 'cidr_blocks'),
+        create_date=pulumi.get(__ret__, 'create_date'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
+        regions=pulumi.get(__ret__, 'regions'),
+        services=pulumi.get(__ret__, 'services'),
+        sync_token=pulumi.get(__ret__, 'sync_token'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_ip_ranges)
-def get_ip_ranges_output(regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                         regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          services: Optional[pulumi.Input[Sequence[str]]] = None,
                          url: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
@@ -223,6 +226,9 @@ def get_ip_ranges_output(regions: Optional[pulumi.Input[Optional[Sequence[str]]]
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
            [`service` attribute][2] documentation for other possible values.
+           
+           > **NOTE:** If the specified combination of regions and services does not yield any
+           CIDR blocks, this call will fail.
     :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
     ...

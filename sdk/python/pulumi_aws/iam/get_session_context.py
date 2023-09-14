@@ -117,7 +117,7 @@ def get_session_context(arn: Optional[str] = None,
 
     example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
     ```
-    ### Find the Provider's Source Role
+    ### Find the TODO Runner's Source Role
 
     Combined with `get_caller_identity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
 
@@ -131,6 +131,8 @@ def get_session_context(arn: Optional[str] = None,
 
 
     :param str arn: ARN for an assumed role.
+           
+           > If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -138,12 +140,12 @@ def get_session_context(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getSessionContext:getSessionContext', __args__, opts=opts, typ=GetSessionContextResult).value
 
     return AwaitableGetSessionContextResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        issuer_arn=__ret__.issuer_arn,
-        issuer_id=__ret__.issuer_id,
-        issuer_name=__ret__.issuer_name,
-        session_name=__ret__.session_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        issuer_arn=pulumi.get(__ret__, 'issuer_arn'),
+        issuer_id=pulumi.get(__ret__, 'issuer_id'),
+        issuer_name=pulumi.get(__ret__, 'issuer_name'),
+        session_name=pulumi.get(__ret__, 'session_name'))
 
 
 @_utilities.lift_output_func(get_session_context)
@@ -163,7 +165,7 @@ def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
 
     example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
     ```
-    ### Find the Provider's Source Role
+    ### Find the TODO Runner's Source Role
 
     Combined with `get_caller_identity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
 
@@ -177,5 +179,7 @@ def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
 
 
     :param str arn: ARN for an assumed role.
+           
+           > If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
     """
     ...

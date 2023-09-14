@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Chime.Outputs
     {
         /// <summary>
         /// ARN for KMS Key.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string KmsKeyArn;
 

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Import
     /// 
-    /// SNS platform applications can be imported using the ARN, e.g.,
+    /// Using `pulumi import`, import SNS platform applications using the ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
@@ -163,6 +163,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
+        /// 
+        /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
         [Output("successFeedbackSampleRate")]
         public Output<string?> SuccessFeedbackSampleRate { get; private set; } = null!;
@@ -312,6 +314,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
+        /// 
+        /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }
@@ -424,6 +428,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
+        /// 
+        /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }

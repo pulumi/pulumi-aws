@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the name and value of a pre-existing API Key, for
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) (*GetKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKeyResult
 	err := ctx.Invoke("aws:apigateway/getKey:getKey", args, &rv, opts...)
 	if err != nil {
@@ -59,6 +62,8 @@ type GetKeyArgs struct {
 type GetKeyResult struct {
 	// Date and time when the API Key was created.
 	CreatedDate string `pulumi:"createdDate"`
+	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId string `pulumi:"customerId"`
 	// Description of the API Key.
 	Description string `pulumi:"description"`
 	// Whether the API Key is enabled.
@@ -115,9 +120,20 @@ func (o GetKeyResultOutput) ToGetKeyResultOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GetKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyResult] {
+	return pulumix.Output[GetKeyResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Date and time when the API Key was created.
 func (o GetKeyResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+func (o GetKeyResultOutput) CustomerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyResult) string { return v.CustomerId }).(pulumi.StringOutput)
 }
 
 // Description of the API Key.

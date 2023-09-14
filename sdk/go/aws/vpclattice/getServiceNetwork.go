@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS VPC Lattice Service Network.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupServiceNetwork(ctx *pulumi.Context, args *LookupServiceNetworkArgs, opts ...pulumi.InvokeOption) (*LookupServiceNetworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceNetworkResult
 	err := ctx.Invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", args, &rv, opts...)
 	if err != nil {
@@ -62,7 +65,7 @@ type LookupServiceNetworkResult struct {
 	AuthType string `pulumi:"authType"`
 	// Date and time the service network was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// ID of the service network.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Date and time the service network was last updated.
 	LastUpdatedAt string `pulumi:"lastUpdatedAt"`
@@ -115,6 +118,12 @@ func (o LookupServiceNetworkResultOutput) ToLookupServiceNetworkResultOutputWith
 	return o
 }
 
+func (o LookupServiceNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceNetworkResult] {
+	return pulumix.Output[LookupServiceNetworkResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Service Network.
 func (o LookupServiceNetworkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Arn }).(pulumi.StringOutput)
@@ -130,7 +139,7 @@ func (o LookupServiceNetworkResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// ID of the service network.
+// The provider-assigned unique ID for this managed resource.
 func (o LookupServiceNetworkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Id }).(pulumi.StringOutput)
 }

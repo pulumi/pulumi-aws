@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// SES Configuration Sets can be imported using their `name`, e.g.,
+    /// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
@@ -78,6 +78,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Name of the configuration set.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -158,6 +160,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Name of the configuration set.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -208,6 +212,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Name of the configuration set.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

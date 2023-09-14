@@ -160,7 +160,7 @@ import {PolicyDocument} from "./index";
  *
  * ## Import
  *
- * IAM Roles can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import IAM Roles using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:iam/role:Role developer developer_name
@@ -200,6 +200,10 @@ export class Role extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Policy that grants an entity permission to assume the role.
+     *
+     * > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     *
+     * The following arguments are optional:
      */
     public readonly assumeRolePolicy!: pulumi.Output<string>;
     /**
@@ -240,10 +244,6 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
-     * Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-     */
-    public /*out*/ readonly roleLastUseds!: pulumi.Output<outputs.iam.RoleRoleLastUsed[]>;
-    /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -281,7 +281,6 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
-            resourceInputs["roleLastUseds"] = state ? state.roleLastUseds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
@@ -303,7 +302,6 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createDate"] = undefined /*out*/;
-            resourceInputs["roleLastUseds"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
@@ -322,6 +320,10 @@ export interface RoleState {
     arn?: pulumi.Input<string>;
     /**
      * Policy that grants an entity permission to assume the role.
+     *
+     * > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     *
+     * The following arguments are optional:
      */
     assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
     /**
@@ -362,10 +364,6 @@ export interface RoleState {
      */
     permissionsBoundary?: pulumi.Input<string>;
     /**
-     * Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-     */
-    roleLastUseds?: pulumi.Input<pulumi.Input<inputs.iam.RoleRoleLastUsed>[]>;
-    /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -385,6 +383,10 @@ export interface RoleState {
 export interface RoleArgs {
     /**
      * Policy that grants an entity permission to assume the role.
+     *
+     * > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     *
+     * The following arguments are optional:
      */
     assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
     /**

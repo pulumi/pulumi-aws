@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// `aws_servicecatalog_product` can be imported using the product ID, e.g.,
+    /// Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
@@ -147,6 +147,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -265,6 +267,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -381,6 +385,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

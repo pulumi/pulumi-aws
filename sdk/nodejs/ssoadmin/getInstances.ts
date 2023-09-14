@@ -31,3 +31,9 @@ export interface GetInstancesResult {
      */
     readonly identityStoreIds: string[];
 }
+/**
+ * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+ */
+export function getInstancesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
+    return pulumi.output(getInstances(opts))
+}

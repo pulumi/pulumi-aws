@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RecordType string
@@ -87,6 +88,12 @@ func (o RecordTypeOutput) ToRecordTypePtrOutputWithContext(ctx context.Context) 
 	}).(RecordTypePtrOutput)
 }
 
+func (o RecordTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RecordType] {
+	return pulumix.Output[RecordType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecordTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,6 +127,12 @@ func (o RecordTypePtrOutput) ToRecordTypePtrOutput() RecordTypePtrOutput {
 
 func (o RecordTypePtrOutput) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
 	return o
+}
+
+func (o RecordTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordType] {
+	return pulumix.Output[*RecordType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordTypePtrOutput) Elem() RecordTypeOutput {
@@ -182,6 +195,12 @@ func (in *recordTypePtr) ToRecordTypePtrOutput() RecordTypePtrOutput {
 
 func (in *recordTypePtr) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RecordTypePtrOutput)
+}
+
+func (in *recordTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RecordType] {
+	return pulumix.Output[*RecordType]{
+		OutputState: in.ToRecordTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

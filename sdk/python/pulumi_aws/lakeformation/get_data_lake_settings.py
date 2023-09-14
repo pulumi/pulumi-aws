@@ -22,7 +22,7 @@ class GetDataLakeSettingsResult:
     """
     A collection of values returned by getDataLakeSettings.
     """
-    def __init__(__self__, admins=None, allow_external_data_filtering=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, trusted_resource_owners=None):
+    def __init__(__self__, admins=None, allow_external_data_filtering=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, read_only_admins=None, trusted_resource_owners=None):
         if admins and not isinstance(admins, list):
             raise TypeError("Expected argument 'admins' to be a list")
         pulumi.set(__self__, "admins", admins)
@@ -47,6 +47,9 @@ class GetDataLakeSettingsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if read_only_admins and not isinstance(read_only_admins, list):
+            raise TypeError("Expected argument 'read_only_admins' to be a list")
+        pulumi.set(__self__, "read_only_admins", read_only_admins)
         if trusted_resource_owners and not isinstance(trusted_resource_owners, list):
             raise TypeError("Expected argument 'trusted_resource_owners' to be a list")
         pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
@@ -113,6 +116,14 @@ class GetDataLakeSettingsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="readOnlyAdmins")
+    def read_only_admins(self) -> Sequence[str]:
+        """
+        List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        """
+        return pulumi.get(self, "read_only_admins")
+
+    @property
     @pulumi.getter(name="trustedResourceOwners")
     def trusted_resource_owners(self) -> Sequence[str]:
         """
@@ -135,6 +146,7 @@ class AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
             create_table_default_permissions=self.create_table_default_permissions,
             external_data_filtering_allow_lists=self.external_data_filtering_allow_lists,
             id=self.id,
+            read_only_admins=self.read_only_admins,
             trusted_resource_owners=self.trusted_resource_owners)
 
 
@@ -161,15 +173,16 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lakeformation/getDataLakeSettings:getDataLakeSettings', __args__, opts=opts, typ=GetDataLakeSettingsResult).value
 
     return AwaitableGetDataLakeSettingsResult(
-        admins=__ret__.admins,
-        allow_external_data_filtering=__ret__.allow_external_data_filtering,
-        authorized_session_tag_value_lists=__ret__.authorized_session_tag_value_lists,
-        catalog_id=__ret__.catalog_id,
-        create_database_default_permissions=__ret__.create_database_default_permissions,
-        create_table_default_permissions=__ret__.create_table_default_permissions,
-        external_data_filtering_allow_lists=__ret__.external_data_filtering_allow_lists,
-        id=__ret__.id,
-        trusted_resource_owners=__ret__.trusted_resource_owners)
+        admins=pulumi.get(__ret__, 'admins'),
+        allow_external_data_filtering=pulumi.get(__ret__, 'allow_external_data_filtering'),
+        authorized_session_tag_value_lists=pulumi.get(__ret__, 'authorized_session_tag_value_lists'),
+        catalog_id=pulumi.get(__ret__, 'catalog_id'),
+        create_database_default_permissions=pulumi.get(__ret__, 'create_database_default_permissions'),
+        create_table_default_permissions=pulumi.get(__ret__, 'create_table_default_permissions'),
+        external_data_filtering_allow_lists=pulumi.get(__ret__, 'external_data_filtering_allow_lists'),
+        id=pulumi.get(__ret__, 'id'),
+        read_only_admins=pulumi.get(__ret__, 'read_only_admins'),
+        trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
 
 
 @_utilities.lift_output_func(get_data_lake_settings)

@@ -30,6 +30,8 @@ __all__ = [
     'ImageOutputResource',
     'ImageOutputResourceAmi',
     'ImageOutputResourceContainer',
+    'ImagePipelineImageScanningConfiguration',
+    'ImagePipelineImageScanningConfigurationEcrConfiguration',
     'ImagePipelineImageTestsConfiguration',
     'ImagePipelineSchedule',
     'ImageRecipeBlockDeviceMapping',
@@ -62,6 +64,8 @@ __all__ = [
     'GetImageOutputResourceResult',
     'GetImageOutputResourceAmiResult',
     'GetImageOutputResourceContainerResult',
+    'GetImagePipelineImageScanningConfigurationResult',
+    'GetImagePipelineImageScanningConfigurationEcrConfigurationResult',
     'GetImagePipelineImageTestsConfigurationResult',
     'GetImagePipelineScheduleResult',
     'GetImagePipelinesFilterResult',
@@ -486,6 +490,8 @@ class DistributionConfigurationDistribution(dict):
                  license_configuration_arns: Optional[Sequence[str]] = None):
         """
         :param str region: AWS Region for the distribution.
+               
+               The following arguments are optional:
         :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
         :param Sequence['DistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
@@ -509,6 +515,8 @@ class DistributionConfigurationDistribution(dict):
     def region(self) -> str:
         """
         AWS Region for the distribution.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "region")
 
@@ -1303,6 +1311,102 @@ class ImageOutputResourceContainer(dict):
 
 
 @pulumi.output_type
+class ImagePipelineImageScanningConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ecrConfiguration":
+            suggest = "ecr_configuration"
+        elif key == "imageScanningEnabled":
+            suggest = "image_scanning_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineImageScanningConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineImageScanningConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineImageScanningConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ecr_configuration: Optional['outputs.ImagePipelineImageScanningConfigurationEcrConfiguration'] = None,
+                 image_scanning_enabled: Optional[bool] = None):
+        """
+        :param 'ImagePipelineImageScanningConfigurationEcrConfigurationArgs' ecr_configuration: Configuration block with ECR configuration for image scanning. Detailed below.
+        :param bool image_scanning_enabled: Whether image scans are enabled. Defaults to `false`.
+        """
+        if ecr_configuration is not None:
+            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+        if image_scanning_enabled is not None:
+            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfiguration")
+    def ecr_configuration(self) -> Optional['outputs.ImagePipelineImageScanningConfigurationEcrConfiguration']:
+        """
+        Configuration block with ECR configuration for image scanning. Detailed below.
+        """
+        return pulumi.get(self, "ecr_configuration")
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> Optional[bool]:
+        """
+        Whether image scans are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+
+@pulumi.output_type
+class ImagePipelineImageScanningConfigurationEcrConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerTags":
+            suggest = "container_tags"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineImageScanningConfigurationEcrConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineImageScanningConfigurationEcrConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineImageScanningConfigurationEcrConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_tags: Optional[Sequence[str]] = None,
+                 repository_name: Optional[str] = None):
+        """
+        :param str repository_name: The name of the repository to scan
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "container_tags")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[str]:
+        """
+        The name of the repository to scan
+        """
+        return pulumi.get(self, "repository_name")
+
+
+@pulumi.output_type
 class ImagePipelineImageTestsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1379,6 +1483,8 @@ class ImagePipelineSchedule(dict):
                  timezone: Optional[str] = None):
         """
         :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+               
+               The following arguments are optional:
         :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
         :param str timezone: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
         """
@@ -1393,6 +1499,8 @@ class ImagePipelineSchedule(dict):
     def schedule_expression(self) -> str:
         """
         Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -1839,6 +1947,8 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
                  s3_key_prefix: Optional[str] = None):
         """
         :param str s3_bucket_name: Name of the S3 Bucket.
+               
+               The following arguments are optional:
         :param str s3_key_prefix: Prefix to use for S3 logs. Defaults to `/`.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -1850,6 +1960,8 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
     def s3_bucket_name(self) -> str:
         """
         Name of the S3 Bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -2784,6 +2896,64 @@ class GetImageOutputResourceContainerResult(dict):
         Region of the container image.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetImagePipelineImageScanningConfigurationResult(dict):
+    def __init__(__self__, *,
+                 ecr_configurations: Sequence['outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult'],
+                 image_scanning_enabled: bool):
+        """
+        :param Sequence['GetImagePipelineImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: List if an object with ecr configuration for image scanning
+        :param bool image_scanning_enabled: Whether image scanning is enabled.
+        """
+        pulumi.set(__self__, "ecr_configurations", ecr_configurations)
+        pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfigurations")
+    def ecr_configurations(self) -> Sequence['outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult']:
+        """
+        List if an object with ecr configuration for image scanning
+        """
+        return pulumi.get(self, "ecr_configurations")
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> bool:
+        """
+        Whether image scanning is enabled.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+
+@pulumi.output_type
+class GetImagePipelineImageScanningConfigurationEcrConfigurationResult(dict):
+    def __init__(__self__, *,
+                 container_tags: Sequence[str],
+                 repository_name: str):
+        """
+        :param Sequence[str] container_tags: Tags that are added to the output containers that are scanned
+        :param str repository_name: The name of the container repository that Amazon Inspector scans
+        """
+        pulumi.set(__self__, "container_tags", container_tags)
+        pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Sequence[str]:
+        """
+        Tags that are added to the output containers that are scanned
+        """
+        return pulumi.get(self, "container_tags")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        The name of the container repository that Amazon Inspector scans
+        """
+        return pulumi.get(self, "repository_name")
 
 
 @pulumi.output_type

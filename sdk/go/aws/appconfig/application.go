@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppConfig Application resource.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// AppConfig Applications can be imported using their application ID, e.g.,
+// Using `pulumi import`, import AppConfig Applications using their application ID. For example:
 //
 // ```sh
 //
@@ -72,6 +74,7 @@ func NewApplication(ctx *pulumi.Context,
 		args = &ApplicationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:appconfig/application:Application", name, args, &resource, opts...)
 	if err != nil {
@@ -165,6 +168,12 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
+func (i *Application) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: i.ToApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
@@ -188,6 +197,12 @@ func (i ApplicationArray) ToApplicationArrayOutput() ApplicationArrayOutput {
 
 func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Context) ApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArrayOutput)
+}
+
+func (i ApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Application] {
+	return pulumix.Output[[]*Application]{
+		OutputState: i.ToApplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
@@ -215,6 +230,12 @@ func (i ApplicationMap) ToApplicationMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMapOutput)
 }
 
+func (i ApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Application] {
+	return pulumix.Output[map[string]*Application]{
+		OutputState: i.ToApplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
@@ -227,6 +248,12 @@ func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
 
 func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
 	return o
+}
+
+func (o ApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the AppConfig Application.
@@ -268,6 +295,12 @@ func (o ApplicationArrayOutput) ToApplicationArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Application] {
+	return pulumix.Output[[]*Application]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationArrayOutput) Index(i pulumi.IntInput) ApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Application {
 		return vs[0].([]*Application)[vs[1].(int)]
@@ -286,6 +319,12 @@ func (o ApplicationMapOutput) ToApplicationMapOutput() ApplicationMapOutput {
 
 func (o ApplicationMapOutput) ToApplicationMapOutputWithContext(ctx context.Context) ApplicationMapOutput {
 	return o
+}
+
+func (o ApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Application] {
+	return pulumix.Output[map[string]*Application]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMapOutput) MapIndex(k pulumi.StringInput) ApplicationOutput {

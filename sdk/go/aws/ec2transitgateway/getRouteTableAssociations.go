@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetRouteTableAssociations(ctx *pulumi.Context, args *GetRouteTableAssociationsArgs, opts ...pulumi.InvokeOption) (*GetRouteTableAssociationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTableAssociationsResult
 	err := ctx.Invoke("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", args, &rv, opts...)
 	if err != nil {
@@ -50,8 +53,13 @@ func GetRouteTableAssociations(ctx *pulumi.Context, args *GetRouteTableAssociati
 // A collection of arguments for invoking getRouteTableAssociations.
 type GetRouteTableAssociationsArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetRouteTableAssociationsFilter `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -81,8 +89,13 @@ func GetRouteTableAssociationsOutput(ctx *pulumi.Context, args GetRouteTableAsso
 // A collection of arguments for invoking getRouteTableAssociations.
 type GetRouteTableAssociationsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetRouteTableAssociationsFilterArrayInput `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -103,6 +116,12 @@ func (o GetRouteTableAssociationsResultOutput) ToGetRouteTableAssociationsResult
 
 func (o GetRouteTableAssociationsResultOutput) ToGetRouteTableAssociationsResultOutputWithContext(ctx context.Context) GetRouteTableAssociationsResultOutput {
 	return o
+}
+
+func (o GetRouteTableAssociationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableAssociationsResult] {
+	return pulumix.Output[GetRouteTableAssociationsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRouteTableAssociationsResultOutput) Filters() GetRouteTableAssociationsFilterArrayOutput {

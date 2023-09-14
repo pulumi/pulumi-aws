@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The S3 object data source allows access to the metadata and
@@ -25,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,9 +67,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,6 +99,7 @@ import (
 //
 // ```
 func GetObject(ctx *pulumi.Context, args *GetObjectArgs, opts ...pulumi.InvokeOption) (*GetObjectResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetObjectResult
 	err := ctx.Invoke("aws:s3/getObject:getObject", args, &rv, opts...)
 	if err != nil {
@@ -214,6 +217,12 @@ func (o GetObjectResultOutput) ToGetObjectResultOutput() GetObjectResultOutput {
 
 func (o GetObjectResultOutput) ToGetObjectResultOutputWithContext(ctx context.Context) GetObjectResultOutput {
 	return o
+}
+
+func (o GetObjectResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetObjectResult] {
+	return pulumix.Output[GetObjectResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Object data (see **limitations above** to understand cases in which this field is actually available)

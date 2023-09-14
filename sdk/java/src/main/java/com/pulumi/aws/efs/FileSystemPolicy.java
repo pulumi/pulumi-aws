@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The EFS file system policies can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import the EFS file system policies using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
@@ -116,12 +116,16 @@ public class FileSystemPolicy extends com.pulumi.resources.CustomResource {
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
      * @return The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> policy() {

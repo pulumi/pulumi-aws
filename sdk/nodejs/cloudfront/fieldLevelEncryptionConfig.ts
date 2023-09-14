@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cloudfront Field Level Encryption Config can be imported using the `id`, e.g.
+ * Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE

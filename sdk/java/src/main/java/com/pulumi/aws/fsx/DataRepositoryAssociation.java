@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * FSx Data Repository Associations can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10

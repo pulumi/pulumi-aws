@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// FSx ONTAP volume can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Fsx
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         /// </summary>
         [Output("junctionPath")]
-        public Output<string> JunctionPath { get; private set; } = null!;
+        public Output<string?> JunctionPath { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -104,16 +104,16 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         /// </summary>
         [Output("ontapVolumeType")]
         public Output<string> OntapVolumeType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
         [Output("securityStyle")]
-        public Output<string?> SecurityStyle { get; private set; } = null!;
+        public Output<string> SecurityStyle { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating.
@@ -122,10 +122,16 @@ namespace Pulumi.Aws.Fsx
         public Output<int> SizeInMegabytes { get; private set; } = null!;
 
         /// <summary>
+        /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Output("skipFinalBackup")]
+        public Output<bool?> SkipFinalBackup { get; private set; } = null!;
+
+        /// <summary>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         /// </summary>
         [Output("storageEfficiencyEnabled")]
-        public Output<bool> StorageEfficiencyEnabled { get; private set; } = null!;
+        public Output<bool?> StorageEfficiencyEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
@@ -209,8 +215,8 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         /// </summary>
-        [Input("junctionPath", required: true)]
-        public Input<string> JunctionPath { get; set; } = null!;
+        [Input("junctionPath")]
+        public Input<string>? JunctionPath { get; set; }
 
         /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -219,7 +225,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        /// </summary>
+        [Input("ontapVolumeType")]
+        public Input<string>? OntapVolumeType { get; set; }
+
+        /// <summary>
+        /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
@@ -231,10 +243,16 @@ namespace Pulumi.Aws.Fsx
         public Input<int> SizeInMegabytes { get; set; } = null!;
 
         /// <summary>
+        /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Input("skipFinalBackup")]
+        public Input<bool>? SkipFinalBackup { get; set; }
+
+        /// <summary>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         /// </summary>
-        [Input("storageEfficiencyEnabled", required: true)]
-        public Input<bool> StorageEfficiencyEnabled { get; set; } = null!;
+        [Input("storageEfficiencyEnabled")]
+        public Input<bool>? StorageEfficiencyEnabled { get; set; }
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
@@ -302,13 +320,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         /// </summary>
         [Input("ontapVolumeType")]
         public Input<string>? OntapVolumeType { get; set; }
 
         /// <summary>
-        /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
@@ -318,6 +336,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("sizeInMegabytes")]
         public Input<int>? SizeInMegabytes { get; set; }
+
+        /// <summary>
+        /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Input("skipFinalBackup")]
+        public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.

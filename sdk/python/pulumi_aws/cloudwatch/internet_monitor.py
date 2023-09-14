@@ -17,6 +17,7 @@ __all__ = ['InternetMonitorArgs', 'InternetMonitor']
 class InternetMonitorArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[str],
+                 health_events_config: Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs']] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -26,6 +27,9 @@ class InternetMonitorArgs:
         """
         The set of arguments for constructing a InternetMonitor resource.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
+        :param pulumi.Input['InternetMonitorHealthEventsConfigArgs'] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         :param pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs'] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
@@ -34,6 +38,8 @@ class InternetMonitorArgs:
         :param pulumi.Input[int] traffic_percentage_to_monitor: The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
         """
         pulumi.set(__self__, "monitor_name", monitor_name)
+        if health_events_config is not None:
+            pulumi.set(__self__, "health_events_config", health_events_config)
         if internet_measurements_log_delivery is not None:
             pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor is not None:
@@ -52,12 +58,26 @@ class InternetMonitorArgs:
     def monitor_name(self) -> pulumi.Input[str]:
         """
         The name of the monitor.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
     def monitor_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "monitor_name", value)
+
+    @property
+    @pulumi.getter(name="healthEventsConfig")
+    def health_events_config(self) -> Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']]:
+        """
+        Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        """
+        return pulumi.get(self, "health_events_config")
+
+    @health_events_config.setter
+    def health_events_config(self, value: Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']]):
+        pulumi.set(self, "health_events_config", value)
 
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
@@ -136,6 +156,7 @@ class InternetMonitorArgs:
 class _InternetMonitorState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 health_events_config: Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs']] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
@@ -147,9 +168,12 @@ class _InternetMonitorState:
         """
         Input properties used for looking up and filtering InternetMonitor resources.
         :param pulumi.Input[str] arn: ARN of the Monitor.
+        :param pulumi.Input['InternetMonitorHealthEventsConfigArgs'] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         :param pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs'] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -158,6 +182,8 @@ class _InternetMonitorState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if health_events_config is not None:
+            pulumi.set(__self__, "health_events_config", health_events_config)
         if internet_measurements_log_delivery is not None:
             pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor is not None:
@@ -188,6 +214,18 @@ class _InternetMonitorState:
         pulumi.set(self, "arn", value)
 
     @property
+    @pulumi.getter(name="healthEventsConfig")
+    def health_events_config(self) -> Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']]:
+        """
+        Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        """
+        return pulumi.get(self, "health_events_config")
+
+    @health_events_config.setter
+    def health_events_config(self, value: Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']]):
+        pulumi.set(self, "health_events_config", value)
+
+    @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
     def internet_measurements_log_delivery(self) -> Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs']]:
         """
@@ -216,6 +254,8 @@ class _InternetMonitorState:
     def monitor_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the monitor.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "monitor_name")
 
@@ -289,6 +329,7 @@ class InternetMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 health_events_config: Optional[pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']]] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
@@ -311,7 +352,7 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Import
 
-        Internet Monitor Monitors can be imported using the `monitor_name`, e.g.,
+        Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
@@ -319,9 +360,12 @@ class InternetMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         :param pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -347,7 +391,7 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Import
 
-        Internet Monitor Monitors can be imported using the `monitor_name`, e.g.,
+        Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
@@ -368,6 +412,7 @@ class InternetMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 health_events_config: Optional[pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']]] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
@@ -384,6 +429,7 @@ class InternetMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InternetMonitorArgs.__new__(InternetMonitorArgs)
 
+            __props__.__dict__["health_events_config"] = health_events_config
             __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
             __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
             if monitor_name is None and not opts.urn:
@@ -406,6 +452,7 @@ class InternetMonitor(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            health_events_config: Optional[pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']]] = None,
             internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']]] = None,
             max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
             monitor_name: Optional[pulumi.Input[str]] = None,
@@ -422,9 +469,12 @@ class InternetMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Monitor.
+        :param pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         :param pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -436,6 +486,7 @@ class InternetMonitor(pulumi.CustomResource):
         __props__ = _InternetMonitorState.__new__(_InternetMonitorState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["health_events_config"] = health_events_config
         __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
         __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
         __props__.__dict__["monitor_name"] = monitor_name
@@ -453,6 +504,14 @@ class InternetMonitor(pulumi.CustomResource):
         ARN of the Monitor.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="healthEventsConfig")
+    def health_events_config(self) -> pulumi.Output[Optional['outputs.InternetMonitorHealthEventsConfig']]:
+        """
+        Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        """
+        return pulumi.get(self, "health_events_config")
 
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
@@ -475,6 +534,8 @@ class InternetMonitor(pulumi.CustomResource):
     def monitor_name(self) -> pulumi.Output[str]:
         """
         The name of the monitor.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "monitor_name")
 

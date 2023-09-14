@@ -24,6 +24,8 @@ class FunctionEventInvokeConfigArgs:
         """
         The set of arguments for constructing a FunctionEventInvokeConfig resource.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
@@ -44,6 +46,8 @@ class FunctionEventInvokeConfigArgs:
     def function_name(self) -> pulumi.Input[str]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 
@@ -112,6 +116,8 @@ class _FunctionEventInvokeConfigState:
         Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
         :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
@@ -144,6 +150,8 @@ class _FunctionEventInvokeConfigState:
     def function_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 
@@ -269,25 +277,32 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+        ARN without qualifier (all versions and aliases):
+
+        ARN with qualifier:
+
+        Name without qualifier (all versions and aliases):
+
+        Name with qualifier:
+
+        __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+
+        ARN without qualifier (all versions and aliases):
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
         ```
-
-         ARN with qualifier
+         ARN with qualifier:
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
         ```
-
-         Name without qualifier (all versions and aliases)
+         Name without qualifier (all versions and aliases):
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
         ```
-
-         Name with qualifier
+         Name with qualifier:
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
@@ -297,6 +312,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
@@ -377,25 +394,32 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+        ARN without qualifier (all versions and aliases):
+
+        ARN with qualifier:
+
+        Name without qualifier (all versions and aliases):
+
+        Name with qualifier:
+
+        __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+
+        ARN without qualifier (all versions and aliases):
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
         ```
-
-         ARN with qualifier
+         ARN with qualifier:
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
         ```
-
-         Name without qualifier (all versions and aliases)
+         Name without qualifier (all versions and aliases):
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
         ```
-
-         Name with qualifier
+         Name with qualifier:
 
         ```sh
          $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
@@ -461,6 +485,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
@@ -489,6 +515,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     def function_name(self) -> pulumi.Output[str]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 

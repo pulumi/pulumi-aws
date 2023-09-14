@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ECS Service data source allows access to details of a specific
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult
 	err := ctx.Invoke("aws:ecs/getService:getService", args, &rv, opts...)
 	if err != nil {
@@ -118,6 +121,12 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceRe
 
 func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
 	return o
+}
+
+func (o LookupServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceResult] {
+	return pulumix.Output[LookupServiceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the ECS Service

@@ -7,13 +7,48 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
 //
 // This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+//
+// ## Example Usage
+//
+// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEbsVolumes, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+//				Tags: map[string]interface{}{
+//					"VolumeSet": "TestVolumeSet",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVolume := "TODO: For expression"
+//			ctx.Export("availabilityZoneToVolumeId", "TODO: For expression")
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.InvokeOption) (*GetEbsVolumesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEbsVolumesResult
 	err := ctx.Invoke("aws:ebs/getEbsVolumes:getEbsVolumes", args, &rv, opts...)
 	if err != nil {
@@ -28,6 +63,9 @@ type GetEbsVolumesArgs struct {
 	Filters []GetEbsVolumesFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired volumes.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -61,6 +99,9 @@ type GetEbsVolumesOutputArgs struct {
 	Filters GetEbsVolumesFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired volumes.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -81,6 +122,12 @@ func (o GetEbsVolumesResultOutput) ToGetEbsVolumesResultOutput() GetEbsVolumesRe
 
 func (o GetEbsVolumesResultOutput) ToGetEbsVolumesResultOutputWithContext(ctx context.Context) GetEbsVolumesResultOutput {
 	return o
+}
+
+func (o GetEbsVolumesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEbsVolumesResult] {
+	return pulumix.Output[GetEbsVolumesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEbsVolumesResultOutput) Filters() GetEbsVolumesFilterArrayOutput {

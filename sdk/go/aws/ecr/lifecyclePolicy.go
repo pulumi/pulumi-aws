@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an ECR repository lifecycle policy.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +40,26 @@ import (
 //			}
 //			_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
 //				Repository: foo.Name,
-//				Policy:     pulumi.Any("{\n    \"rules\": [\n        {\n            \"rulePriority\": 1,\n            \"description\": \"Expire images older than 14 days\",\n            \"selection\": {\n                \"tagStatus\": \"untagged\",\n                \"countType\": \"sinceImagePushed\",\n                \"countUnit\": \"days\",\n                \"countNumber\": 14\n            },\n            \"action\": {\n                \"type\": \"expire\"\n            }\n        }\n    ]\n}\n"),
+//				Policy: pulumi.Any(`{
+//	    "rules": [
+//	        {
+//	            "rulePriority": 1,
+//	            "description": "Expire images older than 14 days",
+//	            "selection": {
+//	                "tagStatus": "untagged",
+//	                "countType": "sinceImagePushed",
+//	                "countUnit": "days",
+//	                "countNumber": 14
+//	            },
+//	            "action": {
+//	                "type": "expire"
+//	            }
+//	        }
+//	    ]
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -55,7 +76,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +89,26 @@ import (
 //			}
 //			_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
 //				Repository: foo.Name,
-//				Policy:     pulumi.Any("{\n    \"rules\": [\n        {\n            \"rulePriority\": 1,\n            \"description\": \"Keep last 30 images\",\n            \"selection\": {\n                \"tagStatus\": \"tagged\",\n                \"tagPrefixList\": [\"v\"],\n                \"countType\": \"imageCountMoreThan\",\n                \"countNumber\": 30\n            },\n            \"action\": {\n                \"type\": \"expire\"\n            }\n        }\n    ]\n}\n"),
+//				Policy: pulumi.Any(`{
+//	    "rules": [
+//	        {
+//	            "rulePriority": 1,
+//	            "description": "Keep last 30 images",
+//	            "selection": {
+//	                "tagStatus": "tagged",
+//	                "tagPrefixList": ["v"],
+//	                "countType": "imageCountMoreThan",
+//	                "countNumber": 30
+//	            },
+//	            "action": {
+//	                "type": "expire"
+//	            }
+//	        }
+//	    ]
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -81,7 +121,7 @@ import (
 //
 // ## Import
 //
-// ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
+// Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 //
 // ```sh
 //
@@ -112,6 +152,7 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -193,6 +234,12 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyOutput)
 }
 
+func (i *LifecyclePolicy) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyArrayInput is an input type that accepts LifecyclePolicyArray and LifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyArrayInput` via:
 //
@@ -216,6 +263,12 @@ func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutput() LifecyclePolicyArra
 
 func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutputWithContext(ctx context.Context) LifecyclePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArrayOutput)
+}
+
+func (i LifecyclePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LifecyclePolicy] {
+	return pulumix.Output[[]*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LifecyclePolicyMapInput is an input type that accepts LifecyclePolicyMap and LifecyclePolicyMapOutput values.
@@ -243,6 +296,12 @@ func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyMapOutput)
 }
 
+func (i LifecyclePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecyclePolicy] {
+	return pulumix.Output[map[string]*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
@@ -255,6 +314,12 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
 	return o
+}
+
+func (o LifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
@@ -286,6 +351,12 @@ func (o LifecyclePolicyArrayOutput) ToLifecyclePolicyArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o LifecyclePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LifecyclePolicy] {
+	return pulumix.Output[[]*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LifecyclePolicy {
 		return vs[0].([]*LifecyclePolicy)[vs[1].(int)]
@@ -304,6 +375,12 @@ func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutput() LifecyclePolicyMa
 
 func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutputWithContext(ctx context.Context) LifecyclePolicyMapOutput {
 	return o
+}
+
+func (o LifecyclePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecyclePolicy] {
+	return pulumix.Output[map[string]*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyMapOutput) MapIndex(k pulumi.StringInput) LifecyclePolicyOutput {

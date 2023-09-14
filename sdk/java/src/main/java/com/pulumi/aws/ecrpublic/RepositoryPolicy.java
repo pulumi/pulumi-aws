@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECR Public Repository Policy can be imported using the repository name, e.g.
+ * Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example

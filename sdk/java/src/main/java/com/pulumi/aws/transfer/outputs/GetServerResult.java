@@ -67,6 +67,11 @@ public final class GetServerResult {
     private String securityPolicyName;
     private String serverId;
     /**
+     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     * 
+     */
+    private List<String> structuredLogDestinations;
+    /**
      * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
@@ -154,6 +159,13 @@ public final class GetServerResult {
         return this.serverId;
     }
     /**
+     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     * 
+     */
+    public List<String> structuredLogDestinations() {
+        return this.structuredLogDestinations;
+    }
+    /**
      * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
@@ -182,6 +194,7 @@ public final class GetServerResult {
         private List<String> protocols;
         private String securityPolicyName;
         private String serverId;
+        private List<String> structuredLogDestinations;
         private String url;
         public Builder() {}
         public Builder(GetServerResult defaults) {
@@ -198,6 +211,7 @@ public final class GetServerResult {
     	      this.protocols = defaults.protocols;
     	      this.securityPolicyName = defaults.securityPolicyName;
     	      this.serverId = defaults.serverId;
+    	      this.structuredLogDestinations = defaults.structuredLogDestinations;
     	      this.url = defaults.url;
         }
 
@@ -265,6 +279,14 @@ public final class GetServerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder structuredLogDestinations(List<String> structuredLogDestinations) {
+            this.structuredLogDestinations = Objects.requireNonNull(structuredLogDestinations);
+            return this;
+        }
+        public Builder structuredLogDestinations(String... structuredLogDestinations) {
+            return structuredLogDestinations(List.of(structuredLogDestinations));
+        }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
@@ -283,6 +305,7 @@ public final class GetServerResult {
             o.protocols = protocols;
             o.securityPolicyName = securityPolicyName;
             o.serverId = serverId;
+            o.structuredLogDestinations = structuredLogDestinations;
             o.url = url;
             return o;
         }

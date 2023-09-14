@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Feature Groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Feature Groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo

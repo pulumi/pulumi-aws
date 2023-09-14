@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to get the default tags configured on the provider.
  *
- * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+ * With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -24,7 +24,7 @@ export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOp
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getDefaultTags:getDefaultTags", {
-        "tags": args.tags,
+        "id": args.id,
     }, opts);
 }
 
@@ -32,19 +32,13 @@ export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getDefaultTags.
  */
 export interface GetDefaultTagsArgs {
-    /**
-     * Blocks of default tags set on the provider. See details below.
-     */
-    tags?: {[key: string]: string};
+    id?: string;
 }
 
 /**
  * A collection of values returned by getDefaultTags.
  */
 export interface GetDefaultTagsResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     /**
      * Blocks of default tags set on the provider. See details below.
@@ -54,7 +48,7 @@ export interface GetDefaultTagsResult {
 /**
  * Use this data source to get the default tags configured on the provider.
  *
- * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+ * With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -74,8 +68,5 @@ export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pul
  * A collection of arguments for invoking getDefaultTags.
  */
 export interface GetDefaultTagsOutputArgs {
-    /**
-     * Blocks of default tags set on the provider. See details below.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    id?: pulumi.Input<string>;
 }

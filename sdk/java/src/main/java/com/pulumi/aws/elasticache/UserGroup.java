@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache user groups can be imported using the `user_group_id`, e.g.,
+ * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
@@ -131,12 +131,16 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the user group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output<String> userGroupId;
 
     /**
      * @return The ID of the user group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userGroupId() {

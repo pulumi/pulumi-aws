@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/serverlessrepository"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/serverlessrepository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,6 +48,7 @@ import (
 //
 // ```
 func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationResult
 	err := ctx.Invoke("aws:serverlessrepository/getApplication:getApplication", args, &rv, opts...)
 	if err != nil {
@@ -117,6 +120,12 @@ func (o GetApplicationResultOutput) ToGetApplicationResultOutput() GetApplicatio
 
 func (o GetApplicationResultOutput) ToGetApplicationResultOutputWithContext(ctx context.Context) GetApplicationResultOutput {
 	return o
+}
+
+func (o GetApplicationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationResult] {
+	return pulumix.Output[GetApplicationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the application.

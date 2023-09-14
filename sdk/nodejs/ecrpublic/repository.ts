@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECR Public Repositories can be imported using the `repository_name`, e.g.,
+ * Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ecrpublic/repository:Repository example example

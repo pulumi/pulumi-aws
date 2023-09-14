@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES domain identity resource
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,8 +48,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +82,7 @@ import (
 //
 // ## Import
 //
-// SES domain identities can be imported using the domain name.
+// Using `pulumi import`, import SES domain identities using the domain name. For example:
 //
 // ```sh
 //
@@ -115,6 +117,7 @@ func NewDomainIdentity(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainIdentity
 	err := ctx.RegisterResource("aws:ses/domainIdentity:DomainIdentity", name, args, &resource, opts...)
 	if err != nil {
@@ -206,6 +209,12 @@ func (i *DomainIdentity) ToDomainIdentityOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityOutput)
 }
 
+func (i *DomainIdentity) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentity] {
+	return pulumix.Output[*DomainIdentity]{
+		OutputState: i.ToDomainIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainIdentityArrayInput is an input type that accepts DomainIdentityArray and DomainIdentityArrayOutput values.
 // You can construct a concrete instance of `DomainIdentityArrayInput` via:
 //
@@ -229,6 +238,12 @@ func (i DomainIdentityArray) ToDomainIdentityArrayOutput() DomainIdentityArrayOu
 
 func (i DomainIdentityArray) ToDomainIdentityArrayOutputWithContext(ctx context.Context) DomainIdentityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityArrayOutput)
+}
+
+func (i DomainIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainIdentity] {
+	return pulumix.Output[[]*DomainIdentity]{
+		OutputState: i.ToDomainIdentityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainIdentityMapInput is an input type that accepts DomainIdentityMap and DomainIdentityMapOutput values.
@@ -256,6 +271,12 @@ func (i DomainIdentityMap) ToDomainIdentityMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityMapOutput)
 }
 
+func (i DomainIdentityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainIdentity] {
+	return pulumix.Output[map[string]*DomainIdentity]{
+		OutputState: i.ToDomainIdentityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainIdentityOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityOutput) ElementType() reflect.Type {
@@ -268,6 +289,12 @@ func (o DomainIdentityOutput) ToDomainIdentityOutput() DomainIdentityOutput {
 
 func (o DomainIdentityOutput) ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput {
 	return o
+}
+
+func (o DomainIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentity] {
+	return pulumix.Output[*DomainIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the domain identity.
@@ -306,6 +333,12 @@ func (o DomainIdentityArrayOutput) ToDomainIdentityArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o DomainIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainIdentity] {
+	return pulumix.Output[[]*DomainIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainIdentityArrayOutput) Index(i pulumi.IntInput) DomainIdentityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainIdentity {
 		return vs[0].([]*DomainIdentity)[vs[1].(int)]
@@ -324,6 +357,12 @@ func (o DomainIdentityMapOutput) ToDomainIdentityMapOutput() DomainIdentityMapOu
 
 func (o DomainIdentityMapOutput) ToDomainIdentityMapOutputWithContext(ctx context.Context) DomainIdentityMapOutput {
 	return o
+}
+
+func (o DomainIdentityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainIdentity] {
+	return pulumix.Output[map[string]*DomainIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainIdentityMapOutput) MapIndex(k pulumi.StringInput) DomainIdentityOutput {

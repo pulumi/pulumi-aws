@@ -279,24 +279,24 @@ def get_catalog_table(catalog_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:glue/getCatalogTable:getCatalogTable', __args__, opts=opts, typ=GetCatalogTableResult).value
 
     return AwaitableGetCatalogTableResult(
-        arn=__ret__.arn,
-        catalog_id=__ret__.catalog_id,
-        database_name=__ret__.database_name,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        parameters=__ret__.parameters,
-        partition_indices=__ret__.partition_indices,
-        partition_keys=__ret__.partition_keys,
-        query_as_of_time=__ret__.query_as_of_time,
-        retention=__ret__.retention,
-        storage_descriptors=__ret__.storage_descriptors,
-        table_type=__ret__.table_type,
-        target_tables=__ret__.target_tables,
-        transaction_id=__ret__.transaction_id,
-        view_expanded_text=__ret__.view_expanded_text,
-        view_original_text=__ret__.view_original_text)
+        arn=pulumi.get(__ret__, 'arn'),
+        catalog_id=pulumi.get(__ret__, 'catalog_id'),
+        database_name=pulumi.get(__ret__, 'database_name'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        partition_indices=pulumi.get(__ret__, 'partition_indices'),
+        partition_keys=pulumi.get(__ret__, 'partition_keys'),
+        query_as_of_time=pulumi.get(__ret__, 'query_as_of_time'),
+        retention=pulumi.get(__ret__, 'retention'),
+        storage_descriptors=pulumi.get(__ret__, 'storage_descriptors'),
+        table_type=pulumi.get(__ret__, 'table_type'),
+        target_tables=pulumi.get(__ret__, 'target_tables'),
+        transaction_id=pulumi.get(__ret__, 'transaction_id'),
+        view_expanded_text=pulumi.get(__ret__, 'view_expanded_text'),
+        view_original_text=pulumi.get(__ret__, 'view_original_text'))
 
 
 @_utilities.lift_output_func(get_catalog_table)

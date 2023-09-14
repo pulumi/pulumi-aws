@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
+ * Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
@@ -113,6 +113,50 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.InstanceGroup;
+     * import com.pulumi.aws.emr.InstanceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
+     *             .configurationsJson(&#34;&#34;&#34;
+     * [
+     * {
+     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     * &#34;Configurations&#34;: [
+     * {
+     * &#34;Classification&#34;: &#34;export&#34;,
+     * &#34;Properties&#34;: {
+     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * }
+     * }
+     * ],
+     * &#34;Properties&#34;: {}
+     * }
+     * ]
+     * 
+     *             &#34;&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     @Export(name="configurationsJson", refs={String.class}, tree="[0]")
@@ -120,6 +164,50 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.InstanceGroup;
+     * import com.pulumi.aws.emr.InstanceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
+     *             .configurationsJson(&#34;&#34;&#34;
+     * [
+     * {
+     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     * &#34;Configurations&#34;: [
+     * {
+     * &#34;Classification&#34;: &#34;export&#34;,
+     * &#34;Properties&#34;: {
+     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * }
+     * }
+     * ],
+     * &#34;Properties&#34;: {}
+     * }
+     * ]
+     * 
+     *             &#34;&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public Output<Optional<String>> configurationsJson() {

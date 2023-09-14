@@ -257,13 +257,11 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Import
     /// 
-    /// CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
+    /// Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
     /// ```
-    /// 
-    ///  [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
     /// </summary>
     [AwsResourceType("aws:codedeploy/deploymentGroup:DeploymentGroup")]
     public partial class DeploymentGroup : global::Pulumi.CustomResource

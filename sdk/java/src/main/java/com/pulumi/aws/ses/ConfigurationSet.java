@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SES Configuration Sets can be imported using their `name`, e.g.,
+ * Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
@@ -137,12 +137,16 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
     /**
      * Name of the configuration set.
      * 
+     * The following argument is optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the configuration set.
+     * 
+     * The following argument is optional:
      * 
      */
     public Output<String> name() {

@@ -248,7 +248,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        Transfer Workflows can be imported using the `worflow_id`.
+        Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
 
         ```sh
          $ pulumi import aws:transfer/workflow:Workflow example example
@@ -317,7 +317,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        Transfer Workflows can be imported using the `worflow_id`.
+        Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
 
         ```sh
          $ pulumi import aws:transfer/workflow:Workflow example example

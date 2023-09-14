@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import SSM Contact Channel using the `ARN`, e.g.,
+ * Using `pulumi import`, import SSM Contact Channel using the `ARN`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
@@ -162,14 +162,14 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
         return this.deliveryAddress;
     }
     /**
-     * Name of the contact channel.
+     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the contact channel.
+     * @return Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     public Output<String> name() {

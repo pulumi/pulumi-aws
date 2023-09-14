@@ -21,7 +21,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, allocated_storage=None, availability_zone=None, db_instance_identifier=None, db_snapshot_arn=None, db_snapshot_identifier=None, encrypted=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, iops=None, kms_key_id=None, license_model=None, most_recent=None, option_group_name=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, vpc_id=None):
+    def __init__(__self__, allocated_storage=None, availability_zone=None, db_instance_identifier=None, db_snapshot_arn=None, db_snapshot_identifier=None, encrypted=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, iops=None, kms_key_id=None, license_model=None, most_recent=None, option_group_name=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, tags=None, vpc_id=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -91,6 +91,9 @@ class GetSnapshotResult:
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -259,6 +262,11 @@ class GetSnapshotResult:
         return pulumi.get(self, "storage_type")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
@@ -296,6 +304,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             source_region=self.source_region,
             status=self.status,
             storage_type=self.storage_type,
+            tags=self.tags,
             vpc_id=self.vpc_id)
 
 
@@ -305,6 +314,7 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
                  include_shared: Optional[bool] = None,
                  most_recent: Optional[bool] = None,
                  snapshot_type: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Use this data source to get information about a DB Snapshot for use when provisioning DB instances
@@ -323,17 +333,17 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
         engine="mysql",
         engine_version="5.6.17",
         instance_class="db.t2.micro",
-        name="mydb",
+        db_name="mydb",
         username="foo",
         password="bar",
         db_subnet_group_name="my_database_subnet_group",
         parameter_group_name="default.mysql5.6")
-    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.id,
+    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.identifier,
         most_recent=True)
     # Use the latest production snapshot to create a dev instance.
     dev = aws.rds.Instance("dev",
         instance_class="db.t2.micro",
-        name="mydbdev",
+        db_name="mydbdev",
         snapshot_identifier=latest_prod_snapshot.id)
     ```
 
@@ -342,6 +352,8 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
     :param str db_snapshot_identifier: Returns information on a specific snapshot_id.
     :param bool include_public: Set this value to true to include manual DB snapshots that are public and can be
            copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+           `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB snapshot.
     :param bool include_shared: Set this value to true to include shared manual DB snapshots from other
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.
@@ -358,34 +370,36 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
     __args__['includeShared'] = include_shared
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        allocated_storage=__ret__.allocated_storage,
-        availability_zone=__ret__.availability_zone,
-        db_instance_identifier=__ret__.db_instance_identifier,
-        db_snapshot_arn=__ret__.db_snapshot_arn,
-        db_snapshot_identifier=__ret__.db_snapshot_identifier,
-        encrypted=__ret__.encrypted,
-        engine=__ret__.engine,
-        engine_version=__ret__.engine_version,
-        id=__ret__.id,
-        include_public=__ret__.include_public,
-        include_shared=__ret__.include_shared,
-        iops=__ret__.iops,
-        kms_key_id=__ret__.kms_key_id,
-        license_model=__ret__.license_model,
-        most_recent=__ret__.most_recent,
-        option_group_name=__ret__.option_group_name,
-        port=__ret__.port,
-        snapshot_create_time=__ret__.snapshot_create_time,
-        snapshot_type=__ret__.snapshot_type,
-        source_db_snapshot_identifier=__ret__.source_db_snapshot_identifier,
-        source_region=__ret__.source_region,
-        status=__ret__.status,
-        storage_type=__ret__.storage_type,
-        vpc_id=__ret__.vpc_id)
+        allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        db_instance_identifier=pulumi.get(__ret__, 'db_instance_identifier'),
+        db_snapshot_arn=pulumi.get(__ret__, 'db_snapshot_arn'),
+        db_snapshot_identifier=pulumi.get(__ret__, 'db_snapshot_identifier'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        engine=pulumi.get(__ret__, 'engine'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        id=pulumi.get(__ret__, 'id'),
+        include_public=pulumi.get(__ret__, 'include_public'),
+        include_shared=pulumi.get(__ret__, 'include_shared'),
+        iops=pulumi.get(__ret__, 'iops'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        license_model=pulumi.get(__ret__, 'license_model'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        option_group_name=pulumi.get(__ret__, 'option_group_name'),
+        port=pulumi.get(__ret__, 'port'),
+        snapshot_create_time=pulumi.get(__ret__, 'snapshot_create_time'),
+        snapshot_type=pulumi.get(__ret__, 'snapshot_type'),
+        source_db_snapshot_identifier=pulumi.get(__ret__, 'source_db_snapshot_identifier'),
+        source_region=pulumi.get(__ret__, 'source_region'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_snapshot)
@@ -395,6 +409,7 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
                         include_shared: Optional[pulumi.Input[Optional[bool]]] = None,
                         most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                         snapshot_type: Optional[pulumi.Input[Optional[str]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Use this data source to get information about a DB Snapshot for use when provisioning DB instances
@@ -413,17 +428,17 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
         engine="mysql",
         engine_version="5.6.17",
         instance_class="db.t2.micro",
-        name="mydb",
+        db_name="mydb",
         username="foo",
         password="bar",
         db_subnet_group_name="my_database_subnet_group",
         parameter_group_name="default.mysql5.6")
-    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.id,
+    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.identifier,
         most_recent=True)
     # Use the latest production snapshot to create a dev instance.
     dev = aws.rds.Instance("dev",
         instance_class="db.t2.micro",
-        name="mydbdev",
+        db_name="mydbdev",
         snapshot_identifier=latest_prod_snapshot.id)
     ```
 
@@ -432,6 +447,8 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
     :param str db_snapshot_identifier: Returns information on a specific snapshot_id.
     :param bool include_public: Set this value to true to include manual DB snapshots that are public and can be
            copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+           `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB snapshot.
     :param bool include_shared: Set this value to true to include shared manual DB snapshots from other
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.

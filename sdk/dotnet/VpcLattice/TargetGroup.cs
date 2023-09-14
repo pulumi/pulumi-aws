@@ -98,7 +98,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// VPC Lattice Target Group can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
@@ -145,6 +145,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -221,6 +223,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -283,6 +287,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

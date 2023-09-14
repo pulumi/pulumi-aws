@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Development Endpoint resource.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,18 +79,16 @@ import (
 //
 // ## Import
 //
-// A Glue Development Endpoint can be imported using the `name`, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_glue_dev_endpoint.example
 //
-//	$ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-//
-// ```
+//	id = "foo" } Using `TODO import`, import a Glue Development Endpoint using the `name`. For exampleconsole % TODO import aws_glue_dev_endpoint.example foo
 type DevEndpoint struct {
 	pulumi.CustomResourceState
 
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapOutput `pulumi:"arguments"`
+	Arguments pulumi.StringMapOutput `pulumi:"arguments"`
 	// The ARN of the endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS availability zone where this endpoint is located.
@@ -125,7 +125,7 @@ type DevEndpoint struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -149,6 +149,7 @@ func NewDevEndpoint(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DevEndpoint
 	err := ctx.RegisterResource("aws:glue/devEndpoint:DevEndpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -172,7 +173,7 @@ func GetDevEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DevEndpoint resources.
 type devEndpointState struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments map[string]interface{} `pulumi:"arguments"`
+	Arguments map[string]string `pulumi:"arguments"`
 	// The ARN of the endpoint.
 	Arn *string `pulumi:"arn"`
 	// The AWS availability zone where this endpoint is located.
@@ -209,7 +210,7 @@ type devEndpointState struct {
 	Status *string `pulumi:"status"`
 	// The subnet ID for the new endpoint to use.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -225,7 +226,7 @@ type devEndpointState struct {
 
 type DevEndpointState struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapInput
+	Arguments pulumi.StringMapInput
 	// The ARN of the endpoint.
 	Arn pulumi.StringPtrInput
 	// The AWS availability zone where this endpoint is located.
@@ -262,7 +263,7 @@ type DevEndpointState struct {
 	Status pulumi.StringPtrInput
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -282,7 +283,7 @@ func (DevEndpointState) ElementType() reflect.Type {
 
 type devEndpointArgs struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments map[string]interface{} `pulumi:"arguments"`
+	Arguments map[string]string `pulumi:"arguments"`
 	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 	ExtraJarsS3Path *string `pulumi:"extraJarsS3Path"`
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
@@ -307,7 +308,7 @@ type devEndpointArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The subnet ID for the new endpoint to use.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType *string `pulumi:"workerType"`
@@ -316,7 +317,7 @@ type devEndpointArgs struct {
 // The set of arguments for constructing a DevEndpoint resource.
 type DevEndpointArgs struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapInput
+	Arguments pulumi.StringMapInput
 	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 	ExtraJarsS3Path pulumi.StringPtrInput
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
@@ -341,7 +342,7 @@ type DevEndpointArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrInput
@@ -370,6 +371,12 @@ func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEnd
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointOutput)
 }
 
+func (i *DevEndpoint) ToOutput(ctx context.Context) pulumix.Output[*DevEndpoint] {
+	return pulumix.Output[*DevEndpoint]{
+		OutputState: i.ToDevEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DevEndpointArrayInput is an input type that accepts DevEndpointArray and DevEndpointArrayOutput values.
 // You can construct a concrete instance of `DevEndpointArrayInput` via:
 //
@@ -393,6 +400,12 @@ func (i DevEndpointArray) ToDevEndpointArrayOutput() DevEndpointArrayOutput {
 
 func (i DevEndpointArray) ToDevEndpointArrayOutputWithContext(ctx context.Context) DevEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointArrayOutput)
+}
+
+func (i DevEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*DevEndpoint] {
+	return pulumix.Output[[]*DevEndpoint]{
+		OutputState: i.ToDevEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DevEndpointMapInput is an input type that accepts DevEndpointMap and DevEndpointMapOutput values.
@@ -420,6 +433,12 @@ func (i DevEndpointMap) ToDevEndpointMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointMapOutput)
 }
 
+func (i DevEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevEndpoint] {
+	return pulumix.Output[map[string]*DevEndpoint]{
+		OutputState: i.ToDevEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DevEndpointOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointOutput) ElementType() reflect.Type {
@@ -434,9 +453,15 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DevEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*DevEndpoint] {
+	return pulumix.Output[*DevEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A map of arguments used to configure the endpoint.
-func (o DevEndpointOutput) Arguments() pulumi.MapOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.MapOutput { return v.Arguments }).(pulumi.MapOutput)
+func (o DevEndpointOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
 // The ARN of the endpoint.
@@ -529,7 +554,7 @@ func (o DevEndpointOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DevEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -573,6 +598,12 @@ func (o DevEndpointArrayOutput) ToDevEndpointArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o DevEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DevEndpoint] {
+	return pulumix.Output[[]*DevEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DevEndpointArrayOutput) Index(i pulumi.IntInput) DevEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DevEndpoint {
 		return vs[0].([]*DevEndpoint)[vs[1].(int)]
@@ -591,6 +622,12 @@ func (o DevEndpointMapOutput) ToDevEndpointMapOutput() DevEndpointMapOutput {
 
 func (o DevEndpointMapOutput) ToDevEndpointMapOutputWithContext(ctx context.Context) DevEndpointMapOutput {
 	return o
+}
+
+func (o DevEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevEndpoint] {
+	return pulumix.Output[map[string]*DevEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DevEndpointMapOutput) MapIndex(k pulumi.StringInput) DevEndpointOutput {

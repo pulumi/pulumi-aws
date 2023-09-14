@@ -32,9 +32,6 @@ class GetDefaultTagsResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -56,12 +53,12 @@ class AwaitableGetDefaultTagsResult(GetDefaultTagsResult):
             tags=self.tags)
 
 
-def get_default_tags(tags: Optional[Mapping[str, str]] = None,
+def get_default_tags(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultTagsResult:
     """
     Use this data source to get the default tags configured on the provider.
 
-    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+    With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
 
     ## Example Usage
     ### Basic Usage
@@ -72,27 +69,24 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
 
     example = aws.get_default_tags()
     ```
-
-
-    :param Mapping[str, str] tags: Blocks of default tags set on the provider. See details below.
     """
     __args__ = dict()
-    __args__['tags'] = tags
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getDefaultTags:getDefaultTags', __args__, opts=opts, typ=GetDefaultTagsResult).value
 
     return AwaitableGetDefaultTagsResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_default_tags)
-def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultTagsResult]:
     """
     Use this data source to get the default tags configured on the provider.
 
-    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+    With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
 
     ## Example Usage
     ### Basic Usage
@@ -103,8 +97,5 @@ def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, st
 
     example = aws.get_default_tags()
     ```
-
-
-    :param Mapping[str, str] tags: Blocks of default tags set on the provider. See details below.
     """
     ...

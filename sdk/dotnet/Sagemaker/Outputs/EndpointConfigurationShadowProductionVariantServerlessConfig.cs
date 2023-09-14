@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         /// </summary>
         public readonly int MemorySizeInMb;
+        /// <summary>
+        /// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        /// </summary>
+        public readonly int? ProvisionedConcurrency;
 
         [OutputConstructor]
         private EndpointConfigurationShadowProductionVariantServerlessConfig(
             int maxConcurrency,
 
-            int memorySizeInMb)
+            int memorySizeInMb,
+
+            int? provisionedConcurrency)
         {
             MaxConcurrency = maxConcurrency;
             MemorySizeInMb = memorySizeInMb;
+            ProvisionedConcurrency = provisionedConcurrency;
         }
     }
 }

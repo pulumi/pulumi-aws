@@ -65,7 +65,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Event Archive can be imported using their name, for example console
+    /// Using `pulumi import`, import an EventBridge archive using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive

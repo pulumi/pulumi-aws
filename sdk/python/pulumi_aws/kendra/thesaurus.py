@@ -27,6 +27,8 @@ class ThesaurusArgs:
         :param pulumi.Input[str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] description: The description for a thesaurus.
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -70,6 +72,8 @@ class ThesaurusArgs:
     def source_s3_path(self) -> pulumi.Input['ThesaurusSourceS3PathArgs']:
         """
         The S3 path where your thesaurus file sits in S3. Detailed below.
+
+        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -135,6 +139,8 @@ class _ThesaurusState:
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The current status of the thesaurus.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -225,6 +231,8 @@ class _ThesaurusState:
     def source_s3_path(self) -> Optional[pulumi.Input['ThesaurusSourceS3PathArgs']]:
         """
         The S3 path where your thesaurus file sits in S3. Detailed below.
+
+        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -313,7 +321,7 @@ class Thesaurus(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
@@ -326,6 +334,8 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -357,7 +367,7 @@ class Thesaurus(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
@@ -442,6 +452,8 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The current status of the thesaurus.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -507,6 +519,8 @@ class Thesaurus(pulumi.CustomResource):
     def source_s3_path(self) -> pulumi.Output['outputs.ThesaurusSourceS3Path']:
         """
         The S3 path where your thesaurus file sits in S3. Detailed below.
+
+        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 

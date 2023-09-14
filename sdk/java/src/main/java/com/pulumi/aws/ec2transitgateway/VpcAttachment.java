@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_transit_gateway_vpc_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
@@ -152,28 +152,28 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="transitGatewayDefaultRouteTableAssociation", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTableAssociation;
+    private Output<Boolean> transitGatewayDefaultRouteTableAssociation;
 
     /**
      * @return Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    public Output<Optional<Boolean>> transitGatewayDefaultRouteTableAssociation() {
-        return Codegen.optional(this.transitGatewayDefaultRouteTableAssociation);
+    public Output<Boolean> transitGatewayDefaultRouteTableAssociation() {
+        return this.transitGatewayDefaultRouteTableAssociation;
     }
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
     @Export(name="transitGatewayDefaultRouteTablePropagation", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTablePropagation;
+    private Output<Boolean> transitGatewayDefaultRouteTablePropagation;
 
     /**
      * @return Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    public Output<Optional<Boolean>> transitGatewayDefaultRouteTablePropagation() {
-        return Codegen.optional(this.transitGatewayDefaultRouteTablePropagation);
+    public Output<Boolean> transitGatewayDefaultRouteTablePropagation() {
+        return this.transitGatewayDefaultRouteTablePropagation;
     }
     /**
      * Identifier of EC2 Transit Gateway.

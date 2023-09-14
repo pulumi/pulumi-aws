@@ -76,6 +76,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.elasticsearch.Domain;
  * import com.pulumi.aws.elasticsearch.DomainArgs;
  * import java.util.List;
@@ -188,9 +189,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
  * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
- * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+ * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
@@ -221,8 +223,11 @@ import javax.annotation.Nullable;
  *             .tags(Map.of(&#34;Name&#34;, vpc))
  *             .build());
  * 
- *         final var selectedSubnetIds = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
- *             .vpcId(selectedVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *         final var selectedSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+ *             .filters(GetSubnetsFilterArgs.builder()
+ *                 .name(&#34;vpc-id&#34;)
+ *                 .values(selectedVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *                 .build())
  *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
  *             .build());
  * 
@@ -253,8 +258,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcOptions(DomainVpcOptionsArgs.builder()
  *                 .subnetIds(                
- *                     selectedSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[0]),
- *                     selectedSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[1]))
+ *                     selectedSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
+ *                     selectedSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
  *                 .securityGroupIds(esSecurityGroup.id())
  *                 .build())
  *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
@@ -282,7 +287,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Elasticsearch domains can be imported using the `domain_name`, e.g.,
+ * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
@@ -420,12 +425,16 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * Name of the domain.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
      * @return Name of the domain.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> domainName() {

@@ -14,6 +14,8 @@ public final class ListenerDefaultActionFixedResponse {
     /**
      * @return Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String contentType;
     /**
@@ -30,6 +32,8 @@ public final class ListenerDefaultActionFixedResponse {
     private ListenerDefaultActionFixedResponse() {}
     /**
      * @return Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String contentType() {

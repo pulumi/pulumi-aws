@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
  *  $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
@@ -89,6 +89,8 @@ export class Image extends pulumi.CustomResource {
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
     /**
@@ -208,6 +210,8 @@ export interface ImageState {
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     *
+     * The following arguments are optional:
      */
     infrastructureConfigurationArn?: pulumi.Input<string>;
     /**
@@ -266,6 +270,8 @@ export interface ImageArgs {
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     *
+     * The following arguments are optional:
      */
     infrastructureConfigurationArn: pulumi.Input<string>;
     /**

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS VPC Lattice Auth Policy.
@@ -23,7 +25,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +74,7 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Auth Policy can be imported using the `example_id_arg`, e.g.,
+// Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
 //
 // ```sh
 //
@@ -103,6 +105,7 @@ func NewAuthPolicy(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthPolicy
 	err := ctx.RegisterResource("aws:vpclattice/authPolicy:AuthPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -188,6 +191,12 @@ func (i *AuthPolicy) ToAuthPolicyOutputWithContext(ctx context.Context) AuthPoli
 	return pulumi.ToOutputWithContext(ctx, i).(AuthPolicyOutput)
 }
 
+func (i *AuthPolicy) ToOutput(ctx context.Context) pulumix.Output[*AuthPolicy] {
+	return pulumix.Output[*AuthPolicy]{
+		OutputState: i.ToAuthPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthPolicyArrayInput is an input type that accepts AuthPolicyArray and AuthPolicyArrayOutput values.
 // You can construct a concrete instance of `AuthPolicyArrayInput` via:
 //
@@ -211,6 +220,12 @@ func (i AuthPolicyArray) ToAuthPolicyArrayOutput() AuthPolicyArrayOutput {
 
 func (i AuthPolicyArray) ToAuthPolicyArrayOutputWithContext(ctx context.Context) AuthPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthPolicyArrayOutput)
+}
+
+func (i AuthPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthPolicy] {
+	return pulumix.Output[[]*AuthPolicy]{
+		OutputState: i.ToAuthPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AuthPolicyMapInput is an input type that accepts AuthPolicyMap and AuthPolicyMapOutput values.
@@ -238,6 +253,12 @@ func (i AuthPolicyMap) ToAuthPolicyMapOutputWithContext(ctx context.Context) Aut
 	return pulumi.ToOutputWithContext(ctx, i).(AuthPolicyMapOutput)
 }
 
+func (i AuthPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthPolicy] {
+	return pulumix.Output[map[string]*AuthPolicy]{
+		OutputState: i.ToAuthPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthPolicyOutput struct{ *pulumi.OutputState }
 
 func (AuthPolicyOutput) ElementType() reflect.Type {
@@ -250,6 +271,12 @@ func (o AuthPolicyOutput) ToAuthPolicyOutput() AuthPolicyOutput {
 
 func (o AuthPolicyOutput) ToAuthPolicyOutputWithContext(ctx context.Context) AuthPolicyOutput {
 	return o
+}
+
+func (o AuthPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthPolicy] {
+	return pulumix.Output[*AuthPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The auth policy. The policy string in JSON must not contain newlines or blank lines.
@@ -281,6 +308,12 @@ func (o AuthPolicyArrayOutput) ToAuthPolicyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AuthPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthPolicy] {
+	return pulumix.Output[[]*AuthPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthPolicyArrayOutput) Index(i pulumi.IntInput) AuthPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthPolicy {
 		return vs[0].([]*AuthPolicy)[vs[1].(int)]
@@ -299,6 +332,12 @@ func (o AuthPolicyMapOutput) ToAuthPolicyMapOutput() AuthPolicyMapOutput {
 
 func (o AuthPolicyMapOutput) ToAuthPolicyMapOutputWithContext(ctx context.Context) AuthPolicyMapOutput {
 	return o
+}
+
+func (o AuthPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthPolicy] {
+	return pulumix.Output[map[string]*AuthPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthPolicyMapOutput) MapIndex(k pulumi.StringInput) AuthPolicyOutput {

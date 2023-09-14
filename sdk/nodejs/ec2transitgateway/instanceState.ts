@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+ * Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
@@ -88,6 +88,8 @@ export class InstanceState extends pulumi.CustomResource {
     public readonly instanceId!: pulumi.Output<string>;
     /**
      * State of the instance. Valid values are `stopped`, `running`.
+     *
+     * The following arguments are optional:
      */
     public readonly state!: pulumi.Output<string>;
 
@@ -138,6 +140,8 @@ export interface InstanceStateState {
     instanceId?: pulumi.Input<string>;
     /**
      * State of the instance. Valid values are `stopped`, `running`.
+     *
+     * The following arguments are optional:
      */
     state?: pulumi.Input<string>;
 }
@@ -156,6 +160,8 @@ export interface InstanceStateArgs {
     instanceId: pulumi.Input<string>;
     /**
      * State of the instance. Valid values are `stopped`, `running`.
+     *
+     * The following arguments are optional:
      */
     state: pulumi.Input<string>;
 }

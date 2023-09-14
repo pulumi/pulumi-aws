@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.,
+ * Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket

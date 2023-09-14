@@ -431,6 +431,8 @@ class BrokerUser(dict):
         suggest = None
         if key == "consoleAccess":
             suggest = "console_access"
+        elif key == "replicationUser":
+            suggest = "replication_user"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BrokerUser. Access the value via the '{suggest}' property getter instead.")
@@ -447,12 +449,16 @@ class BrokerUser(dict):
                  password: str,
                  username: str,
                  console_access: Optional[bool] = None,
-                 groups: Optional[Sequence[str]] = None):
+                 groups: Optional[Sequence[str]] = None,
+                 replication_user: Optional[bool] = None):
         """
         :param str password: Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
         :param str username: Username of the user.
+               
+               > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         :param bool console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
         :param Sequence[str] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+        :param bool replication_user: Whether to set set replication user. Defaults to `false`.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -460,6 +466,8 @@ class BrokerUser(dict):
             pulumi.set(__self__, "console_access", console_access)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if replication_user is not None:
+            pulumi.set(__self__, "replication_user", replication_user)
 
     @property
     @pulumi.getter
@@ -474,6 +482,8 @@ class BrokerUser(dict):
     def username(self) -> str:
         """
         Username of the user.
+
+        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         """
         return pulumi.get(self, "username")
 
@@ -492,6 +502,14 @@ class BrokerUser(dict):
         List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
         """
         return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="replicationUser")
+    def replication_user(self) -> Optional[bool]:
+        """
+        Whether to set set replication user. Defaults to `false`.
+        """
+        return pulumi.get(self, "replication_user")
 
 
 @pulumi.output_type
@@ -690,9 +708,11 @@ class GetBrokerUserResult(dict):
     def __init__(__self__, *,
                  console_access: bool,
                  groups: Sequence[str],
+                 replication_user: bool,
                  username: str):
         pulumi.set(__self__, "console_access", console_access)
         pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "replication_user", replication_user)
         pulumi.set(__self__, "username", username)
 
     @property
@@ -704,6 +724,11 @@ class GetBrokerUserResult(dict):
     @pulumi.getter
     def groups(self) -> Sequence[str]:
         return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="replicationUser")
+    def replication_user(self) -> bool:
+        return pulumi.get(self, "replication_user")
 
     @property
     @pulumi.getter

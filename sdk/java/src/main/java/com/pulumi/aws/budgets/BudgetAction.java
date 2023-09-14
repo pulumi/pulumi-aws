@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.budgets.Budget;
@@ -121,10 +122,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
+ * Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
+ *  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
  * ```
  * 
  */

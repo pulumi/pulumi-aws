@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+ * Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device

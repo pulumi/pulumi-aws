@@ -14,6 +14,7 @@ from .cluster_parameter_group import *
 from .cluster_role_association import *
 from .cluster_snapshot import *
 from .event_subscription import *
+from .export_task import *
 from .get_certificate import *
 from .get_cluster import *
 from .get_cluster_snapshot import *
@@ -38,7 +39,6 @@ from .proxy_endpoint import *
 from .proxy_target import *
 from .reserved_instance import *
 from .role_association import *
-from .security_group import *
 from .snapshot import *
 from .snapshot_copy import *
 from .subnet_group import *

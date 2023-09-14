@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a CloudFormation StackSet. StackSets allow CloudFormation templates to be easily deployed across multiple accounts and regions via StackSet Instances (`cloudformation.StackSetInstance` resource). Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -26,8 +28,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,11 +134,21 @@ import (
 //
 // ## Import
 //
-// CloudFormation StackSets can be imported using the `name`, e.g.,
+// Import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+//
+// Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:cloudformation/stackSet:StackSet example example
+//
+// ```
+//
+//	Using `TODO import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
 //
 // ```
 type StackSet struct {
@@ -156,6 +168,8 @@ type StackSet struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName pulumi.StringOutput `pulumi:"executionRoleName"`
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution StackSetManagedExecutionPtrOutput `pulumi:"managedExecution"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -183,6 +197,7 @@ func NewStackSet(ctx *pulumi.Context,
 		args = &StackSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StackSet
 	err := ctx.RegisterResource("aws:cloudformation/stackSet:StackSet", name, args, &resource, opts...)
 	if err != nil {
@@ -219,6 +234,8 @@ type stackSetState struct {
 	Description *string `pulumi:"description"`
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName *string `pulumi:"executionRoleName"`
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution *StackSetManagedExecution `pulumi:"managedExecution"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name *string `pulumi:"name"`
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -254,6 +271,8 @@ type StackSetState struct {
 	Description pulumi.StringPtrInput
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName pulumi.StringPtrInput
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution StackSetManagedExecutionPtrInput
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringPtrInput
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -291,6 +310,8 @@ type stackSetArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName *string `pulumi:"executionRoleName"`
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution *StackSetManagedExecution `pulumi:"managedExecution"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name *string `pulumi:"name"`
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -321,6 +342,8 @@ type StackSetArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName pulumi.StringPtrInput
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution StackSetManagedExecutionPtrInput
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringPtrInput
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -360,6 +383,12 @@ func (i *StackSet) ToStackSetOutputWithContext(ctx context.Context) StackSetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOutput)
 }
 
+func (i *StackSet) ToOutput(ctx context.Context) pulumix.Output[*StackSet] {
+	return pulumix.Output[*StackSet]{
+		OutputState: i.ToStackSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackSetArrayInput is an input type that accepts StackSetArray and StackSetArrayOutput values.
 // You can construct a concrete instance of `StackSetArrayInput` via:
 //
@@ -383,6 +412,12 @@ func (i StackSetArray) ToStackSetArrayOutput() StackSetArrayOutput {
 
 func (i StackSetArray) ToStackSetArrayOutputWithContext(ctx context.Context) StackSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetArrayOutput)
+}
+
+func (i StackSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*StackSet] {
+	return pulumix.Output[[]*StackSet]{
+		OutputState: i.ToStackSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StackSetMapInput is an input type that accepts StackSetMap and StackSetMapOutput values.
@@ -410,6 +445,12 @@ func (i StackSetMap) ToStackSetMapOutputWithContext(ctx context.Context) StackSe
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetMapOutput)
 }
 
+func (i StackSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSet] {
+	return pulumix.Output[map[string]*StackSet]{
+		OutputState: i.ToStackSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetOutput struct{ *pulumi.OutputState }
 
 func (StackSetOutput) ElementType() reflect.Type {
@@ -422,6 +463,12 @@ func (o StackSetOutput) ToStackSetOutput() StackSetOutput {
 
 func (o StackSetOutput) ToStackSetOutputWithContext(ctx context.Context) StackSetOutput {
 	return o
+}
+
+func (o StackSetOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSet] {
+	return pulumix.Output[*StackSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
@@ -457,6 +504,11 @@ func (o StackSetOutput) Description() pulumi.StringPtrOutput {
 // Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 func (o StackSetOutput) ExecutionRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.ExecutionRoleName }).(pulumi.StringOutput)
+}
+
+// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+func (o StackSetOutput) ManagedExecution() StackSetManagedExecutionPtrOutput {
+	return o.ApplyT(func(v *StackSet) StackSetManagedExecutionPtrOutput { return v.ManagedExecution }).(StackSetManagedExecutionPtrOutput)
 }
 
 // Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
@@ -518,6 +570,12 @@ func (o StackSetArrayOutput) ToStackSetArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o StackSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StackSet] {
+	return pulumix.Output[[]*StackSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StackSetArrayOutput) Index(i pulumi.IntInput) StackSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StackSet {
 		return vs[0].([]*StackSet)[vs[1].(int)]
@@ -536,6 +594,12 @@ func (o StackSetMapOutput) ToStackSetMapOutput() StackSetMapOutput {
 
 func (o StackSetMapOutput) ToStackSetMapOutputWithContext(ctx context.Context) StackSetMapOutput {
 	return o
+}
+
+func (o StackSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSet] {
+	return pulumix.Output[map[string]*StackSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetMapOutput) MapIndex(k pulumi.StringInput) StackSetOutput {

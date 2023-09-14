@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Import
     /// 
-    /// Synthetics Canaries can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:synthetics/canary:Canary some some-canary
@@ -137,6 +137,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.CanarySchedule> Schedule { get; private set; } = null!;
@@ -315,6 +317,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.CanaryScheduleArgs> Schedule { get; set; } = null!;
@@ -449,6 +453,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.CanaryScheduleGetArgs>? Schedule { get; set; }

@@ -149,6 +149,10 @@ namespace Pulumi.Aws.Transfer
         public readonly string SecurityPolicyName;
         public readonly string ServerId;
         /// <summary>
+        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+        /// </summary>
+        public readonly ImmutableArray<string> StructuredLogDestinations;
+        /// <summary>
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
         public readonly string Url;
@@ -179,6 +183,8 @@ namespace Pulumi.Aws.Transfer
 
             string serverId,
 
+            ImmutableArray<string> structuredLogDestinations,
+
             string url)
         {
             Arn = arn;
@@ -193,6 +199,7 @@ namespace Pulumi.Aws.Transfer
             Protocols = protocols;
             SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
+            StructuredLogDestinations = structuredLogDestinations;
             Url = url;
         }
     }

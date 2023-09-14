@@ -60,7 +60,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Import
     /// 
-    /// Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+    /// Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
@@ -74,6 +74,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Alias for the S3 Object Lambda Access Point.
+        /// </summary>
+        [Output("alias")]
+        public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
@@ -170,6 +176,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// Alias for the S3 Object Lambda Access Point.
+        /// </summary>
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.

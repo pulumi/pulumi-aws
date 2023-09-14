@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
+    /// Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
@@ -489,7 +489,7 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
@@ -743,7 +743,7 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }

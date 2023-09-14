@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ParameterGroup{}
 	case "aws:elasticache/replicationGroup:ReplicationGroup":
 		r = &ReplicationGroup{}
-	case "aws:elasticache/securityGroup:SecurityGroup":
-		r = &SecurityGroup{}
 	case "aws:elasticache/subnetGroup:SubnetGroup":
 		r = &SubnetGroup{}
 	case "aws:elasticache/user:User":
@@ -48,7 +46,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -70,11 +68,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"elasticache/replicationGroup",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"elasticache/securityGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

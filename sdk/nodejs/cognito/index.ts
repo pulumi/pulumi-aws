@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetIdentityPoolArgs, GetIdentityPoolResult, GetIdentityPoolOutputArgs } from "./getIdentityPool";
+export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool = null as any;
+export const getIdentityPoolOutput: typeof import("./getIdentityPool").getIdentityPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityPool","getIdentityPoolOutput"], () => require("./getIdentityPool"));
+
 export { GetUserPoolClientArgs, GetUserPoolClientResult, GetUserPoolClientOutputArgs } from "./getUserPoolClient";
 export const getUserPoolClient: typeof import("./getUserPoolClient").getUserPoolClient = null as any;
 export const getUserPoolClientOutput: typeof import("./getUserPoolClient").getUserPoolClientOutput = null as any;
@@ -44,6 +49,11 @@ export { IdentityProviderArgs, IdentityProviderState } from "./identityProvider"
 export type IdentityProvider = import("./identityProvider").IdentityProvider;
 export const IdentityProvider: typeof import("./identityProvider").IdentityProvider = null as any;
 utilities.lazyLoad(exports, ["IdentityProvider"], () => require("./identityProvider"));
+
+export { ManagedUserPoolClientArgs, ManagedUserPoolClientState } from "./managedUserPoolClient";
+export type ManagedUserPoolClient = import("./managedUserPoolClient").ManagedUserPoolClient;
+export const ManagedUserPoolClient: typeof import("./managedUserPoolClient").ManagedUserPoolClient = null as any;
+utilities.lazyLoad(exports, ["ManagedUserPoolClient"], () => require("./managedUserPoolClient"));
 
 export { ResourceServerArgs, ResourceServerState } from "./resourceServer";
 export type ResourceServer = import("./resourceServer").ResourceServer;
@@ -103,6 +113,8 @@ const _module = {
                 return new IdentityPoolRoleAttachment(name, <any>undefined, { urn })
             case "aws:cognito/identityProvider:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
+            case "aws:cognito/managedUserPoolClient:ManagedUserPoolClient":
+                return new ManagedUserPoolClient(name, <any>undefined, { urn })
             case "aws:cognito/resourceServer:ResourceServer":
                 return new ResourceServer(name, <any>undefined, { urn })
             case "aws:cognito/riskConfiguration:RiskConfiguration":
@@ -130,6 +142,7 @@ pulumi.runtime.registerResourceModule("aws", "cognito/identityPool", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/identityPoolProviderPrincipalTag", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/identityPoolRoleAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/identityProvider", _module)
+pulumi.runtime.registerResourceModule("aws", "cognito/managedUserPoolClient", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/resourceServer", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/riskConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/user", _module)

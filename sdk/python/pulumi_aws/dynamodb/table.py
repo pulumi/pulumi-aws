@@ -46,6 +46,8 @@ class TableArgs:
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
+               
+               Optional arguments:
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -183,6 +185,8 @@ class TableArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique within a region name of the table.
+
+        Optional arguments:
         """
         return pulumi.get(self, "name")
 
@@ -399,6 +403,8 @@ class _TableState:
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
+               
+               Optional arguments:
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -559,6 +565,8 @@ class _TableState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique within a region name of the table.
+
+        Optional arguments:
         """
         return pulumi.get(self, "name")
 
@@ -894,7 +902,7 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB tables can be imported using the `name`, e.g.,
+        Using `pulumi import`, import DynamoDB tables using the `name`. For example:
 
         ```sh
          $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
@@ -909,6 +917,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
+               
+               Optional arguments:
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -1026,7 +1036,7 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB tables can be imported using the `name`, e.g.,
+        Using `pulumi import`, import DynamoDB tables using the `name`. For example:
 
         ```sh
          $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
@@ -1152,6 +1162,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
+               
+               Optional arguments:
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -1264,6 +1276,8 @@ class Table(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Unique within a region name of the table.
+
+        Optional arguments:
         """
         return pulumi.get(self, "name")
 

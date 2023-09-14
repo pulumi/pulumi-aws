@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+ * Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
@@ -92,6 +92,8 @@ export class MedicalVocabulary extends pulumi.CustomResource {
     public readonly vocabularyFileUri!: pulumi.Output<string>;
     /**
      * The name of the Medical Vocabulary.
+     *
+     * The following arguments are optional:
      */
     public readonly vocabularyName!: pulumi.Output<string>;
 
@@ -166,6 +168,8 @@ export interface MedicalVocabularyState {
     vocabularyFileUri?: pulumi.Input<string>;
     /**
      * The name of the Medical Vocabulary.
+     *
+     * The following arguments are optional:
      */
     vocabularyName?: pulumi.Input<string>;
 }
@@ -188,6 +192,8 @@ export interface MedicalVocabularyArgs {
     vocabularyFileUri: pulumi.Input<string>;
     /**
      * The name of the Medical Vocabulary.
+     *
+     * The following arguments are optional:
      */
     vocabularyName: pulumi.Input<string>;
 }

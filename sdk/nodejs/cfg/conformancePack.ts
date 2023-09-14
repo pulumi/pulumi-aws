@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Config Conformance Packs can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:cfg/conformancePack:ConformancePack example example

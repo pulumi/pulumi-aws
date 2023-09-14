@@ -35,17 +35,17 @@ import * as utilities from "../utilities";
  *
  * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
  *     vpcId: aws_vpc.main.id,
- *     cidrBlock: "172.2.0.0/16",
+ *     cidrBlock: "172.20.0.0/16",
  * });
  * const inSecondaryCidr = new aws.ec2.Subnet("inSecondaryCidr", {
  *     vpcId: secondaryCidr.vpcId,
- *     cidrBlock: "172.2.0.0/24",
+ *     cidrBlock: "172.20.0.0/24",
  * });
  * ```
  *
  * ## Import
  *
- * Subnets can be imported using the `subnet id`, e.g.,
+ * Using `pulumi import`, import subnets using the subnet `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c

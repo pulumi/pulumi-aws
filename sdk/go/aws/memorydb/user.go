@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a MemoryDB User.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -58,7 +60,7 @@ import (
 //
 // ## Import
 //
-// Use the `user_name` to import a user. For example
+// Using `pulumi import`, import a user using the `user_name`. For example:
 //
 // ```sh
 //
@@ -83,6 +85,8 @@ type User struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -102,6 +106,7 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws:memorydb/user:User", name, args, &resource, opts...)
 	if err != nil {
@@ -137,6 +142,8 @@ type userState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 }
 
@@ -154,6 +161,8 @@ type UserState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 }
 
@@ -169,6 +178,8 @@ type userArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -181,6 +192,8 @@ type UserArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 }
 
@@ -205,6 +218,12 @@ func (i *User) ToUserOutput() UserOutput {
 
 func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
+}
+
+func (i *User) ToOutput(ctx context.Context) pulumix.Output[*User] {
+	return pulumix.Output[*User]{
+		OutputState: i.ToUserOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
@@ -232,6 +251,12 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(UserArrayOutput)
 }
 
+func (i UserArray) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
+	return pulumix.Output[[]*User]{
+		OutputState: i.ToUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
@@ -257,6 +282,12 @@ func (i UserMap) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserMapOutput)
 }
 
+func (i UserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
+	return pulumix.Output[map[string]*User]{
+		OutputState: i.ToUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
@@ -269,6 +300,12 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+func (o UserOutput) ToOutput(ctx context.Context) pulumix.Output[*User] {
+	return pulumix.Output[*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access permissions string used for this user.
@@ -302,6 +339,8 @@ func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Name of the MemoryDB user. Up to 40 characters.
+//
+// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
@@ -318,6 +357,12 @@ func (o UserArrayOutput) ToUserArrayOutput() UserArrayOutput {
 
 func (o UserArrayOutput) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOutput {
 	return o
+}
+
+func (o UserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
+	return pulumix.Output[[]*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserArrayOutput) Index(i pulumi.IntInput) UserOutput {
@@ -338,6 +383,12 @@ func (o UserMapOutput) ToUserMapOutput() UserMapOutput {
 
 func (o UserMapOutput) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return o
+}
+
+func (o UserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
+	return pulumix.Output[map[string]*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserMapOutput) MapIndex(k pulumi.StringInput) UserOutput {

@@ -12,12 +12,16 @@ public final class RecordingConfigurationDestinationConfigurationS3 {
     /**
      * @return S3 bucket name where recorded videos will be stored.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String bucketName;
 
     private RecordingConfigurationDestinationConfigurationS3() {}
     /**
      * @return S3 bucket name where recorded videos will be stored.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String bucketName() {

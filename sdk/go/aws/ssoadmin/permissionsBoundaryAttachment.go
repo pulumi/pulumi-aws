@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // ## Import
 //
-// SSO Admin Permissions Boundary Attachments can be imported using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`) e.g.,
+// Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
 //
 // ```sh
 //
@@ -82,6 +84,7 @@ func NewPermissionsBoundaryAttachment(ctx *pulumi.Context,
 	if args.PermissionsBoundary == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionsBoundary'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PermissionsBoundaryAttachment
 	err := ctx.RegisterResource("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -167,6 +170,12 @@ func (i *PermissionsBoundaryAttachment) ToPermissionsBoundaryAttachmentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentOutput)
 }
 
+func (i *PermissionsBoundaryAttachment) ToOutput(ctx context.Context) pulumix.Output[*PermissionsBoundaryAttachment] {
+	return pulumix.Output[*PermissionsBoundaryAttachment]{
+		OutputState: i.ToPermissionsBoundaryAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PermissionsBoundaryAttachmentArrayInput is an input type that accepts PermissionsBoundaryAttachmentArray and PermissionsBoundaryAttachmentArrayOutput values.
 // You can construct a concrete instance of `PermissionsBoundaryAttachmentArrayInput` via:
 //
@@ -190,6 +199,12 @@ func (i PermissionsBoundaryAttachmentArray) ToPermissionsBoundaryAttachmentArray
 
 func (i PermissionsBoundaryAttachmentArray) ToPermissionsBoundaryAttachmentArrayOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentArrayOutput)
+}
+
+func (i PermissionsBoundaryAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionsBoundaryAttachment] {
+	return pulumix.Output[[]*PermissionsBoundaryAttachment]{
+		OutputState: i.ToPermissionsBoundaryAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PermissionsBoundaryAttachmentMapInput is an input type that accepts PermissionsBoundaryAttachmentMap and PermissionsBoundaryAttachmentMapOutput values.
@@ -217,6 +232,12 @@ func (i PermissionsBoundaryAttachmentMap) ToPermissionsBoundaryAttachmentMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentMapOutput)
 }
 
+func (i PermissionsBoundaryAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionsBoundaryAttachment] {
+	return pulumix.Output[map[string]*PermissionsBoundaryAttachment]{
+		OutputState: i.ToPermissionsBoundaryAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsBoundaryAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PermissionsBoundaryAttachmentOutput) ElementType() reflect.Type {
@@ -229,6 +250,12 @@ func (o PermissionsBoundaryAttachmentOutput) ToPermissionsBoundaryAttachmentOutp
 
 func (o PermissionsBoundaryAttachmentOutput) ToPermissionsBoundaryAttachmentOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentOutput {
 	return o
+}
+
+func (o PermissionsBoundaryAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsBoundaryAttachment] {
+	return pulumix.Output[*PermissionsBoundaryAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
@@ -262,6 +289,12 @@ func (o PermissionsBoundaryAttachmentArrayOutput) ToPermissionsBoundaryAttachmen
 	return o
 }
 
+func (o PermissionsBoundaryAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionsBoundaryAttachment] {
+	return pulumix.Output[[]*PermissionsBoundaryAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionsBoundaryAttachmentArrayOutput) Index(i pulumi.IntInput) PermissionsBoundaryAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PermissionsBoundaryAttachment {
 		return vs[0].([]*PermissionsBoundaryAttachment)[vs[1].(int)]
@@ -280,6 +313,12 @@ func (o PermissionsBoundaryAttachmentMapOutput) ToPermissionsBoundaryAttachmentM
 
 func (o PermissionsBoundaryAttachmentMapOutput) ToPermissionsBoundaryAttachmentMapOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentMapOutput {
 	return o
+}
+
+func (o PermissionsBoundaryAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionsBoundaryAttachment] {
+	return pulumix.Output[map[string]*PermissionsBoundaryAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsBoundaryAttachmentMapOutput) MapIndex(k pulumi.StringInput) PermissionsBoundaryAttachmentOutput {

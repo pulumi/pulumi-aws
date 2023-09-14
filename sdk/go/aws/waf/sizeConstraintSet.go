@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Size Constraint Set Resource
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// AWS WAF Size Constraint Set can be imported using their ID, e.g.,
+// Using `pulumi import`, import AWS WAF Size Constraint Set using their ID. For example:
 //
 // ```sh
 //
@@ -74,6 +76,7 @@ func NewSizeConstraintSet(ctx *pulumi.Context,
 		args = &SizeConstraintSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SizeConstraintSet
 	err := ctx.RegisterResource("aws:waf/sizeConstraintSet:SizeConstraintSet", name, args, &resource, opts...)
 	if err != nil {
@@ -155,6 +158,12 @@ func (i *SizeConstraintSet) ToSizeConstraintSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetOutput)
 }
 
+func (i *SizeConstraintSet) ToOutput(ctx context.Context) pulumix.Output[*SizeConstraintSet] {
+	return pulumix.Output[*SizeConstraintSet]{
+		OutputState: i.ToSizeConstraintSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SizeConstraintSetArrayInput is an input type that accepts SizeConstraintSetArray and SizeConstraintSetArrayOutput values.
 // You can construct a concrete instance of `SizeConstraintSetArrayInput` via:
 //
@@ -178,6 +187,12 @@ func (i SizeConstraintSetArray) ToSizeConstraintSetArrayOutput() SizeConstraintS
 
 func (i SizeConstraintSetArray) ToSizeConstraintSetArrayOutputWithContext(ctx context.Context) SizeConstraintSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetArrayOutput)
+}
+
+func (i SizeConstraintSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*SizeConstraintSet] {
+	return pulumix.Output[[]*SizeConstraintSet]{
+		OutputState: i.ToSizeConstraintSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SizeConstraintSetMapInput is an input type that accepts SizeConstraintSetMap and SizeConstraintSetMapOutput values.
@@ -205,6 +220,12 @@ func (i SizeConstraintSetMap) ToSizeConstraintSetMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetMapOutput)
 }
 
+func (i SizeConstraintSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SizeConstraintSet] {
+	return pulumix.Output[map[string]*SizeConstraintSet]{
+		OutputState: i.ToSizeConstraintSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SizeConstraintSetOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetOutput) ElementType() reflect.Type {
@@ -217,6 +238,12 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutput() SizeConstraintSetOu
 
 func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx context.Context) SizeConstraintSetOutput {
 	return o
+}
+
+func (o SizeConstraintSetOutput) ToOutput(ctx context.Context) pulumix.Output[*SizeConstraintSet] {
+	return pulumix.Output[*SizeConstraintSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN)
@@ -248,6 +275,12 @@ func (o SizeConstraintSetArrayOutput) ToSizeConstraintSetArrayOutputWithContext(
 	return o
 }
 
+func (o SizeConstraintSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SizeConstraintSet] {
+	return pulumix.Output[[]*SizeConstraintSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SizeConstraintSetArrayOutput) Index(i pulumi.IntInput) SizeConstraintSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SizeConstraintSet {
 		return vs[0].([]*SizeConstraintSet)[vs[1].(int)]
@@ -266,6 +299,12 @@ func (o SizeConstraintSetMapOutput) ToSizeConstraintSetMapOutput() SizeConstrain
 
 func (o SizeConstraintSetMapOutput) ToSizeConstraintSetMapOutputWithContext(ctx context.Context) SizeConstraintSetMapOutput {
 	return o
+}
+
+func (o SizeConstraintSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SizeConstraintSet] {
+	return pulumix.Output[map[string]*SizeConstraintSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SizeConstraintSetMapOutput) MapIndex(k pulumi.StringInput) SizeConstraintSetOutput {

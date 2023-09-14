@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Rbin.Outputs
     {
         /// <summary>
         /// The tag key.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         public readonly string ResourceTagKey;
         /// <summary>

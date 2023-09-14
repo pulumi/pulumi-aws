@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Subnets can be imported using the `subnet id`, e.g.,
+ * Using `pulumi import`, import subnets using the subnet `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
@@ -86,6 +86,8 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
      * 
+     * This resource supports the following additional arguments:
+     * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
@@ -94,6 +96,8 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * @return is required
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
+     * 
+     * This resource supports the following additional arguments:
      * 
      */
     public Output<String> availabilityZone() {

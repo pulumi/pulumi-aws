@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_location_tracker` resources can be imported using the tracker name, e.g.
+ * Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:location/tracker:Tracker example example
@@ -160,12 +160,16 @@ public class Tracker extends com.pulumi.resources.CustomResource {
     /**
      * The name of the tracker resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="trackerName", refs={String.class}, tree="[0]")
     private Output<String> trackerName;
 
     /**
      * @return The name of the tracker resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> trackerName() {

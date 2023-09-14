@@ -15,6 +15,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     {
         /// <summary>
         /// ARN that uniquely identifies the data location resource.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         public readonly string Arn;
         /// <summary>

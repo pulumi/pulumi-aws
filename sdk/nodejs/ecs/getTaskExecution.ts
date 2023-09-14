@@ -108,6 +108,8 @@ export interface GetTaskExecutionArgs {
     tags?: {[key: string]: string};
     /**
      * The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+     *
+     * The following arguments are optional:
      */
     taskDefinition: string;
 }
@@ -223,6 +225,8 @@ export interface GetTaskExecutionOutputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+     *
+     * The following arguments are optional:
      */
     taskDefinition: pulumi.Input<string>;
 }

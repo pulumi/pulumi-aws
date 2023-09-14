@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Athena Workgroup.
@@ -21,7 +23,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // ## Import
 //
-// Athena Workgroups can be imported using their name, e.g.,
+// Using `pulumi import`, import Athena Workgroups using their name. For example:
 //
 // ```sh
 //
@@ -87,6 +89,7 @@ func NewWorkgroup(ctx *pulumi.Context,
 		args = &WorkgroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:athena/workgroup:Workgroup", name, args, &resource, opts...)
 	if err != nil {
@@ -204,6 +207,12 @@ func (i *Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupOutput)
 }
 
+func (i *Workgroup) ToOutput(ctx context.Context) pulumix.Output[*Workgroup] {
+	return pulumix.Output[*Workgroup]{
+		OutputState: i.ToWorkgroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkgroupArrayInput is an input type that accepts WorkgroupArray and WorkgroupArrayOutput values.
 // You can construct a concrete instance of `WorkgroupArrayInput` via:
 //
@@ -227,6 +236,12 @@ func (i WorkgroupArray) ToWorkgroupArrayOutput() WorkgroupArrayOutput {
 
 func (i WorkgroupArray) ToWorkgroupArrayOutputWithContext(ctx context.Context) WorkgroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupArrayOutput)
+}
+
+func (i WorkgroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workgroup] {
+	return pulumix.Output[[]*Workgroup]{
+		OutputState: i.ToWorkgroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkgroupMapInput is an input type that accepts WorkgroupMap and WorkgroupMapOutput values.
@@ -254,6 +269,12 @@ func (i WorkgroupMap) ToWorkgroupMapOutputWithContext(ctx context.Context) Workg
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupMapOutput)
 }
 
+func (i WorkgroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workgroup] {
+	return pulumix.Output[map[string]*Workgroup]{
+		OutputState: i.ToWorkgroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkgroupOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupOutput) ElementType() reflect.Type {
@@ -266,6 +287,12 @@ func (o WorkgroupOutput) ToWorkgroupOutput() WorkgroupOutput {
 
 func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
 	return o
+}
+
+func (o WorkgroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Workgroup] {
+	return pulumix.Output[*Workgroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the workgroup
@@ -322,6 +349,12 @@ func (o WorkgroupArrayOutput) ToWorkgroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o WorkgroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workgroup] {
+	return pulumix.Output[[]*Workgroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkgroupArrayOutput) Index(i pulumi.IntInput) WorkgroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workgroup {
 		return vs[0].([]*Workgroup)[vs[1].(int)]
@@ -340,6 +373,12 @@ func (o WorkgroupMapOutput) ToWorkgroupMapOutput() WorkgroupMapOutput {
 
 func (o WorkgroupMapOutput) ToWorkgroupMapOutputWithContext(ctx context.Context) WorkgroupMapOutput {
 	return o
+}
+
+func (o WorkgroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workgroup] {
+	return pulumix.Output[map[string]*Workgroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupMapOutput) MapIndex(k pulumi.StringInput) WorkgroupOutput {

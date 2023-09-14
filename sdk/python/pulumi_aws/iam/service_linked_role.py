@@ -274,7 +274,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
         ## Import
 
-        IAM service-linked roles can be imported using role ARN, e.g.,
+        Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
 
         ```sh
          $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
@@ -307,7 +307,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
         ## Import
 
-        IAM service-linked roles can be imported using role ARN, e.g.,
+        Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
 
         ```sh
          $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk

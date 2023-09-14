@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Remediation Configurations can be imported using the name config_rule_name, e.g.,
+ * Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
@@ -235,12 +235,16 @@ public class RemediationConfiguration extends com.pulumi.resources.CustomResourc
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output<String> targetType;
 
     /**
      * @return Type of the target. Target executes remediation. For example, SSM document.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> targetType() {

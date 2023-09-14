@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .enableDefaultInternetAccess(false)
  *             .fleetType(&#34;ON_DEMAND&#34;)
  *             .idleDisconnectTimeoutInSeconds(60)
- *             .imageName(&#34;Amazon-AppStream2-Sample-Image-02-04-2019&#34;)
+ *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
  *             .maxUserDurationInSeconds(600)
  *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appstream_fleet` can be imported using the id, e.g.,
+ * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  * 
  * ```sh
  *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -293,12 +293,16 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     /**
      * Unique name for the fleet.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique name for the fleet.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

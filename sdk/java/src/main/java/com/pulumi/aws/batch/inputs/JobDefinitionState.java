@@ -193,12 +193,16 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     /**
      * The type of job definition. Must be `container`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return The type of job definition. Must be `container`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -488,6 +492,8 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param type The type of job definition. Must be `container`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -498,6 +504,8 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param type The type of job definition. Must be `container`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

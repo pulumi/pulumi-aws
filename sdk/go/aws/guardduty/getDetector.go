@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a GuardDuty detector.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,6 +38,7 @@ import (
 //
 // ```
 func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulumi.InvokeOption) (*LookupDetectorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDetectorResult
 	err := ctx.Invoke("aws:guardduty/getDetector:getDetector", args, &rv, opts...)
 	if err != nil {
@@ -97,6 +100,12 @@ func (o LookupDetectorResultOutput) ToLookupDetectorResultOutput() LookupDetecto
 
 func (o LookupDetectorResultOutput) ToLookupDetectorResultOutputWithContext(ctx context.Context) LookupDetectorResultOutput {
 	return o
+}
+
+func (o LookupDetectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDetectorResult] {
+	return pulumix.Output[LookupDetectorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The frequency of notifications sent about subsequent finding occurrences.

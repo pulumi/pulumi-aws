@@ -21,7 +21,7 @@ class GetObjectsResult:
     """
     A collection of values returned by getObjects.
     """
-    def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, id=None, keys=None, max_keys=None, owners=None, prefix=None, start_after=None):
+    def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, id=None, keys=None, max_keys=None, owners=None, prefix=None, request_charged=None, request_payer=None, start_after=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
@@ -52,6 +52,12 @@ class GetObjectsResult:
         if prefix and not isinstance(prefix, str):
             raise TypeError("Expected argument 'prefix' to be a str")
         pulumi.set(__self__, "prefix", prefix)
+        if request_charged and not isinstance(request_charged, str):
+            raise TypeError("Expected argument 'request_charged' to be a str")
+        pulumi.set(__self__, "request_charged", request_charged)
+        if request_payer and not isinstance(request_payer, str):
+            raise TypeError("Expected argument 'request_payer' to be a str")
+        pulumi.set(__self__, "request_payer", request_payer)
         if start_after and not isinstance(start_after, str):
             raise TypeError("Expected argument 'start_after' to be a str")
         pulumi.set(__self__, "start_after", start_after)
@@ -119,6 +125,19 @@ class GetObjectsResult:
         return pulumi.get(self, "prefix")
 
     @property
+    @pulumi.getter(name="requestCharged")
+    def request_charged(self) -> str:
+        """
+        If present, indicates that the requester was successfully charged for the request.
+        """
+        return pulumi.get(self, "request_charged")
+
+    @property
+    @pulumi.getter(name="requestPayer")
+    def request_payer(self) -> Optional[str]:
+        return pulumi.get(self, "request_payer")
+
+    @property
     @pulumi.getter(name="startAfter")
     def start_after(self) -> Optional[str]:
         return pulumi.get(self, "start_after")
@@ -140,6 +159,8 @@ class AwaitableGetObjectsResult(GetObjectsResult):
             max_keys=self.max_keys,
             owners=self.owners,
             prefix=self.prefix,
+            request_charged=self.request_charged,
+            request_payer=self.request_payer,
             start_after=self.start_after)
 
 
@@ -149,6 +170,7 @@ def get_objects(bucket: Optional[str] = None,
                 fetch_owner: Optional[bool] = None,
                 max_keys: Optional[int] = None,
                 prefix: Optional[str] = None,
+                request_payer: Optional[str] = None,
                 start_after: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectsResult:
     """
@@ -163,6 +185,7 @@ def get_objects(bucket: Optional[str] = None,
     :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param int max_keys: Maximum object keys to return (Default: 1000)
     :param str prefix: Limits results to object keys with this prefix (Default: none)
+    :param str request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
     :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
     __args__ = dict()
@@ -172,22 +195,25 @@ def get_objects(bucket: Optional[str] = None,
     __args__['fetchOwner'] = fetch_owner
     __args__['maxKeys'] = max_keys
     __args__['prefix'] = prefix
+    __args__['requestPayer'] = request_payer
     __args__['startAfter'] = start_after
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:s3/getObjects:getObjects', __args__, opts=opts, typ=GetObjectsResult).value
 
     return AwaitableGetObjectsResult(
-        bucket=__ret__.bucket,
-        common_prefixes=__ret__.common_prefixes,
-        delimiter=__ret__.delimiter,
-        encoding_type=__ret__.encoding_type,
-        fetch_owner=__ret__.fetch_owner,
-        id=__ret__.id,
-        keys=__ret__.keys,
-        max_keys=__ret__.max_keys,
-        owners=__ret__.owners,
-        prefix=__ret__.prefix,
-        start_after=__ret__.start_after)
+        bucket=pulumi.get(__ret__, 'bucket'),
+        common_prefixes=pulumi.get(__ret__, 'common_prefixes'),
+        delimiter=pulumi.get(__ret__, 'delimiter'),
+        encoding_type=pulumi.get(__ret__, 'encoding_type'),
+        fetch_owner=pulumi.get(__ret__, 'fetch_owner'),
+        id=pulumi.get(__ret__, 'id'),
+        keys=pulumi.get(__ret__, 'keys'),
+        max_keys=pulumi.get(__ret__, 'max_keys'),
+        owners=pulumi.get(__ret__, 'owners'),
+        prefix=pulumi.get(__ret__, 'prefix'),
+        request_charged=pulumi.get(__ret__, 'request_charged'),
+        request_payer=pulumi.get(__ret__, 'request_payer'),
+        start_after=pulumi.get(__ret__, 'start_after'))
 
 
 @_utilities.lift_output_func(get_objects)
@@ -197,6 +223,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                        fetch_owner: Optional[pulumi.Input[Optional[bool]]] = None,
                        max_keys: Optional[pulumi.Input[Optional[int]]] = None,
                        prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                       request_payer: Optional[pulumi.Input[Optional[str]]] = None,
                        start_after: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectsResult]:
     """
@@ -211,6 +238,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
     :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param int max_keys: Maximum object keys to return (Default: 1000)
     :param str prefix: Limits results to object keys with this prefix (Default: none)
+    :param str request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
     :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
     ...

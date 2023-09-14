@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Image.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -68,6 +70,8 @@ type Image struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
 	// Name of the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -95,6 +99,7 @@ func NewImage(ctx *pulumi.Context,
 	if args.InfrastructureConfigurationArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Image
 	err := ctx.RegisterResource("aws:imagebuilder/image:Image", name, args, &resource, opts...)
 	if err != nil {
@@ -132,6 +137,8 @@ type imageState struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the AMI.
 	Name *string `pulumi:"name"`
@@ -165,6 +172,8 @@ type ImageState struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringPtrInput
 	// Name of the AMI.
 	Name pulumi.StringPtrInput
@@ -198,6 +207,8 @@ type imageArgs struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -216,6 +227,8 @@ type ImageArgs struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringInput
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -244,6 +257,12 @@ func (i *Image) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
 }
 
+func (i *Image) ToOutput(ctx context.Context) pulumix.Output[*Image] {
+	return pulumix.Output[*Image]{
+		OutputState: i.ToImageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageArrayInput is an input type that accepts ImageArray and ImageArrayOutput values.
 // You can construct a concrete instance of `ImageArrayInput` via:
 //
@@ -267,6 +286,12 @@ func (i ImageArray) ToImageArrayOutput() ImageArrayOutput {
 
 func (i ImageArray) ToImageArrayOutputWithContext(ctx context.Context) ImageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageArrayOutput)
+}
+
+func (i ImageArray) ToOutput(ctx context.Context) pulumix.Output[[]*Image] {
+	return pulumix.Output[[]*Image]{
+		OutputState: i.ToImageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ImageMapInput is an input type that accepts ImageMap and ImageMapOutput values.
@@ -294,6 +319,12 @@ func (i ImageMap) ToImageMapOutputWithContext(ctx context.Context) ImageMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageMapOutput)
 }
 
+func (i ImageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Image] {
+	return pulumix.Output[map[string]*Image]{
+		OutputState: i.ToImageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageOutput struct{ *pulumi.OutputState }
 
 func (ImageOutput) ElementType() reflect.Type {
@@ -306,6 +337,12 @@ func (o ImageOutput) ToImageOutput() ImageOutput {
 
 func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
+}
+
+func (o ImageOutput) ToOutput(ctx context.Context) pulumix.Output[*Image] {
+	return pulumix.Output[*Image]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the image.
@@ -344,6 +381,8 @@ func (o ImageOutput) ImageTestsConfiguration() ImageImageTestsConfigurationOutpu
 }
 
 // Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+//
+// The following arguments are optional:
 func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }
@@ -397,6 +436,12 @@ func (o ImageArrayOutput) ToImageArrayOutputWithContext(ctx context.Context) Ima
 	return o
 }
 
+func (o ImageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Image] {
+	return pulumix.Output[[]*Image]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImageArrayOutput) Index(i pulumi.IntInput) ImageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Image {
 		return vs[0].([]*Image)[vs[1].(int)]
@@ -415,6 +460,12 @@ func (o ImageMapOutput) ToImageMapOutput() ImageMapOutput {
 
 func (o ImageMapOutput) ToImageMapOutputWithContext(ctx context.Context) ImageMapOutput {
 	return o
+}
+
+func (o ImageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Image] {
+	return pulumix.Output[map[string]*Image]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageMapOutput) MapIndex(k pulumi.StringInput) ImageOutput {

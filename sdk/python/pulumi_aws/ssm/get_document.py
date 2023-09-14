@@ -150,13 +150,13 @@ def get_document(document_format: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts, typ=GetDocumentResult).value
 
     return AwaitableGetDocumentResult(
-        arn=__ret__.arn,
-        content=__ret__.content,
-        document_format=__ret__.document_format,
-        document_type=__ret__.document_type,
-        document_version=__ret__.document_version,
-        id=__ret__.id,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        content=pulumi.get(__ret__, 'content'),
+        document_format=pulumi.get(__ret__, 'document_format'),
+        document_type=pulumi.get(__ret__, 'document_type'),
+        document_version=pulumi.get(__ret__, 'document_version'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_document)

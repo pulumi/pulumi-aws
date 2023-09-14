@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +49,7 @@ import (
 //
 // ```
 func LookupOpenZfsSnapshot(ctx *pulumi.Context, args *LookupOpenZfsSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupOpenZfsSnapshotResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOpenZfsSnapshotResult
 	err := ctx.Invoke("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, &rv, opts...)
 	if err != nil {
@@ -136,6 +139,12 @@ func (o LookupOpenZfsSnapshotResultOutput) ToLookupOpenZfsSnapshotResultOutput()
 
 func (o LookupOpenZfsSnapshotResultOutput) ToLookupOpenZfsSnapshotResultOutputWithContext(ctx context.Context) LookupOpenZfsSnapshotResultOutput {
 	return o
+}
+
+func (o LookupOpenZfsSnapshotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOpenZfsSnapshotResult] {
+	return pulumix.Output[LookupOpenZfsSnapshotResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the snapshot.

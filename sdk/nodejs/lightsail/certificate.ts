@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_lightsail_certificate` can be imported using the certificate name, e.g.
+ * Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
  *
  * ```sh
  *  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName

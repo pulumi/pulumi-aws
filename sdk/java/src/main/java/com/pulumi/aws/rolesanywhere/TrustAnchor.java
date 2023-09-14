@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.acmpca.Certificate;
  * import com.pulumi.aws.acmpca.CertificateArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;
@@ -103,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_rolesanywhere_trust_anchor` can be imported using its `id`, e.g.
+ * Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1

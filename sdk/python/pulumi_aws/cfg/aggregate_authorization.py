@@ -21,7 +21,7 @@ class AggregateAuthorizationArgs:
         The set of arguments for constructing a AggregateAuthorization resource.
         :param pulumi.Input[str] account_id: Account ID
         :param pulumi.Input[str] region: Region
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "region", region)
@@ -56,7 +56,7 @@ class AggregateAuthorizationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -78,7 +78,7 @@ class _AggregateAuthorizationState:
         :param pulumi.Input[str] account_id: Account ID
         :param pulumi.Input[str] arn: The ARN of the authorization
         :param pulumi.Input[str] region: Region
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if account_id is not None:
@@ -132,7 +132,7 @@ class _AggregateAuthorizationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -178,17 +178,17 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         ## Import
 
-        Config aggregate authorizations can be imported using `account_id:region`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-        ```
+         to = aws_config_aggregate_authorization.example
+
+         id = "123456789012:us-east-1" } Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Account ID
         :param pulumi.Input[str] region: Region
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -212,11 +212,11 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         ## Import
 
-        Config aggregate authorizations can be imported using `account_id:region`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-        ```
+         to = aws_config_aggregate_authorization.example
+
+         id = "123456789012:us-east-1" } Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1
 
         :param str resource_name: The name of the resource.
         :param AggregateAuthorizationArgs args: The arguments to use to populate this resource's properties.
@@ -279,7 +279,7 @@ class AggregateAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: Account ID
         :param pulumi.Input[str] arn: The ARN of the authorization
         :param pulumi.Input[str] region: Region
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -321,7 +321,7 @@ class AggregateAuthorization(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a routing table entry (a route) in a VPC routing table.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,7 +91,15 @@ import (
 //
 // ## Import
 //
-// Individual routes can be imported using `ROUTETABLEID_DESTINATION`. [Local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) can be imported using the VPC's IPv4 or IPv6 CIDR blocks. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
+// Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
+//
+// Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
+//
+// Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
+//
+// __Using `pulumi import` to import__ individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
+//
+// Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
 //
 // ```sh
 //
@@ -97,7 +107,7 @@ import (
 //
 // ```
 //
-//	Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125` similarlyconsole
+//	Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 //
 // ```sh
 //
@@ -105,7 +115,7 @@ import (
 //
 // ```
 //
-//	Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
+//	Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
 //
 // ```sh
 //
@@ -124,14 +134,14 @@ type Route struct {
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock pulumi.StringPtrOutput `pulumi:"destinationIpv6CidrBlock"`
 	// The ID of a managed prefix list destination.
+	//
+	// One of the following target arguments must be supplied:
 	DestinationPrefixListId pulumi.StringPtrOutput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrOutput `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
@@ -144,6 +154,8 @@ type Route struct {
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// The ID of the routing table.
+	//
+	// One of the following destination arguments must be supplied:
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// The state of the route - `active` or `blackhole`.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -152,6 +164,8 @@ type Route struct {
 	// Identifier of a VPC Endpoint.
 	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
+	//
+	// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
 	VpcPeeringConnectionId pulumi.StringPtrOutput `pulumi:"vpcPeeringConnectionId"`
 }
 
@@ -165,6 +179,7 @@ func NewRoute(ctx *pulumi.Context,
 	if args.RouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:ec2/route:Route", name, args, &resource, opts...)
 	if err != nil {
@@ -196,14 +211,14 @@ type routeState struct {
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock *string `pulumi:"destinationIpv6CidrBlock"`
 	// The ID of a managed prefix list destination.
+	//
+	// One of the following target arguments must be supplied:
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId *string `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId *string `pulumi:"instanceOwnerId"`
@@ -216,6 +231,8 @@ type routeState struct {
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin *string `pulumi:"origin"`
 	// The ID of the routing table.
+	//
+	// One of the following destination arguments must be supplied:
 	RouteTableId *string `pulumi:"routeTableId"`
 	// The state of the route - `active` or `blackhole`.
 	State *string `pulumi:"state"`
@@ -224,6 +241,8 @@ type routeState struct {
 	// Identifier of a VPC Endpoint.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
+	//
+	// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
@@ -237,14 +256,14 @@ type RouteState struct {
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock pulumi.StringPtrInput
 	// The ID of a managed prefix list destination.
+	//
+	// One of the following target arguments must be supplied:
 	DestinationPrefixListId pulumi.StringPtrInput
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringPtrInput
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringPtrInput
@@ -257,6 +276,8 @@ type RouteState struct {
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin pulumi.StringPtrInput
 	// The ID of the routing table.
+	//
+	// One of the following destination arguments must be supplied:
 	RouteTableId pulumi.StringPtrInput
 	// The state of the route - `active` or `blackhole`.
 	State pulumi.StringPtrInput
@@ -265,6 +286,8 @@ type RouteState struct {
 	// Identifier of a VPC Endpoint.
 	VpcEndpointId pulumi.StringPtrInput
 	// Identifier of a VPC peering connection.
+	//
+	// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
 	VpcPeeringConnectionId pulumi.StringPtrInput
 }
 
@@ -282,15 +305,13 @@ type routeArgs struct {
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock *string `pulumi:"destinationIpv6CidrBlock"`
 	// The ID of a managed prefix list destination.
+	//
+	// One of the following target arguments must be supplied:
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId *string `pulumi:"instanceId"`
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
@@ -298,12 +319,16 @@ type routeArgs struct {
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The ID of the routing table.
+	//
+	// One of the following destination arguments must be supplied:
 	RouteTableId string `pulumi:"routeTableId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// Identifier of a VPC Endpoint.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
+	//
+	// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
@@ -318,15 +343,13 @@ type RouteArgs struct {
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock pulumi.StringPtrInput
 	// The ID of a managed prefix list destination.
+	//
+	// One of the following target arguments must be supplied:
 	DestinationPrefixListId pulumi.StringPtrInput
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId pulumi.StringPtrInput
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC NAT gateway.
@@ -334,12 +357,16 @@ type RouteArgs struct {
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The ID of the routing table.
+	//
+	// One of the following destination arguments must be supplied:
 	RouteTableId pulumi.StringInput
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC Endpoint.
 	VpcEndpointId pulumi.StringPtrInput
 	// Identifier of a VPC peering connection.
+	//
+	// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
 	VpcPeeringConnectionId pulumi.StringPtrInput
 }
 
@@ -364,6 +391,12 @@ func (i *Route) ToRouteOutput() RouteOutput {
 
 func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteOutput)
+}
+
+func (i *Route) ToOutput(ctx context.Context) pulumix.Output[*Route] {
+	return pulumix.Output[*Route]{
+		OutputState: i.ToRouteOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteArrayInput is an input type that accepts RouteArray and RouteArrayOutput values.
@@ -391,6 +424,12 @@ func (i RouteArray) ToRouteArrayOutputWithContext(ctx context.Context) RouteArra
 	return pulumi.ToOutputWithContext(ctx, i).(RouteArrayOutput)
 }
 
+func (i RouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*Route] {
+	return pulumix.Output[[]*Route]{
+		OutputState: i.ToRouteArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteMapInput is an input type that accepts RouteMap and RouteMapOutput values.
 // You can construct a concrete instance of `RouteMapInput` via:
 //
@@ -416,6 +455,12 @@ func (i RouteMap) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapOutput)
 }
 
+func (i RouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Route] {
+	return pulumix.Output[map[string]*Route]{
+		OutputState: i.ToRouteMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
@@ -428,6 +473,12 @@ func (o RouteOutput) ToRouteOutput() RouteOutput {
 
 func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
+}
+
+func (o RouteOutput) ToOutput(ctx context.Context) pulumix.Output[*Route] {
+	return pulumix.Output[*Route]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -451,6 +502,8 @@ func (o RouteOutput) DestinationIpv6CidrBlock() pulumi.StringPtrOutput {
 }
 
 // The ID of a managed prefix list destination.
+//
+// One of the following target arguments must be supplied:
 func (o RouteOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
@@ -466,8 +519,6 @@ func (o RouteOutput) GatewayId() pulumi.StringPtrOutput {
 }
 
 // Identifier of an EC2 instance.
-//
-// Deprecated: Use network_interface_id instead
 func (o RouteOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
@@ -498,6 +549,8 @@ func (o RouteOutput) Origin() pulumi.StringOutput {
 }
 
 // The ID of the routing table.
+//
+// One of the following destination arguments must be supplied:
 func (o RouteOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
@@ -518,6 +571,8 @@ func (o RouteOutput) VpcEndpointId() pulumi.StringPtrOutput {
 }
 
 // Identifier of a VPC peering connection.
+//
+// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
 func (o RouteOutput) VpcPeeringConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.VpcPeeringConnectionId }).(pulumi.StringPtrOutput)
 }
@@ -534,6 +589,12 @@ func (o RouteArrayOutput) ToRouteArrayOutput() RouteArrayOutput {
 
 func (o RouteArrayOutput) ToRouteArrayOutputWithContext(ctx context.Context) RouteArrayOutput {
 	return o
+}
+
+func (o RouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Route] {
+	return pulumix.Output[[]*Route]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteArrayOutput) Index(i pulumi.IntInput) RouteOutput {
@@ -554,6 +615,12 @@ func (o RouteMapOutput) ToRouteMapOutput() RouteMapOutput {
 
 func (o RouteMapOutput) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutput {
 	return o
+}
+
+func (o RouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Route] {
+	return pulumix.Output[map[string]*Route]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteMapOutput) MapIndex(k pulumi.StringInput) RouteOutput {

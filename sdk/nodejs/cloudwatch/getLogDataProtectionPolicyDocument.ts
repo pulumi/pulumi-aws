@@ -85,6 +85,10 @@ export interface GetLogDataProtectionPolicyDocumentArgs {
     name: string;
     /**
      * Configures the data protection policy.
+     *
+     * > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+     *
+     * The following arguments are optional:
      */
     statements: inputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatement[];
     version?: string;
@@ -178,6 +182,10 @@ export interface GetLogDataProtectionPolicyDocumentOutputArgs {
     name: pulumi.Input<string>;
     /**
      * Configures the data protection policy.
+     *
+     * > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+     *
+     * The following arguments are optional:
      */
     statements: pulumi.Input<pulumi.Input<inputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs>[]>;
     version?: pulumi.Input<string>;

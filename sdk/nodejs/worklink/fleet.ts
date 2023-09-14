@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WorkLink can be imported using the ARN, e.g.,
+ * Using `pulumi import`, import WorkLink using the ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
@@ -123,6 +123,10 @@ export class Fleet extends pulumi.CustomResource {
     public readonly network!: pulumi.Output<outputs.worklink.FleetNetwork | undefined>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+     *
+     * **network** requires the following:
+     *
+     * > **NOTE:** `network` is cannot removed without force recreating.
      */
     public readonly optimizeForEndUserLocation!: pulumi.Output<boolean | undefined>;
 
@@ -215,6 +219,10 @@ export interface FleetState {
     network?: pulumi.Input<inputs.worklink.FleetNetwork>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+     *
+     * **network** requires the following:
+     *
+     * > **NOTE:** `network` is cannot removed without force recreating.
      */
     optimizeForEndUserLocation?: pulumi.Input<boolean>;
 }
@@ -249,6 +257,10 @@ export interface FleetArgs {
     network?: pulumi.Input<inputs.worklink.FleetNetwork>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+     *
+     * **network** requires the following:
+     *
+     * > **NOTE:** `network` is cannot removed without force recreating.
      */
     optimizeForEndUserLocation?: pulumi.Input<boolean>;
 }

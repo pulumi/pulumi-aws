@@ -7,10 +7,15 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+var _ = internal.GetEnvOrDefault
+
 type DataSourceDynamodbConfig struct {
+	// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 	DeltaSyncConfig *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region *string `pulumi:"region"`
@@ -18,7 +23,8 @@ type DataSourceDynamodbConfig struct {
 	TableName string `pulumi:"tableName"`
 	// Set to `true` to use Amazon Cognito credentials with this data source.
 	UseCallerCredentials *bool `pulumi:"useCallerCredentials"`
-	Versioned            *bool `pulumi:"versioned"`
+	// Detects Conflict Detection and Resolution with this data source.
+	Versioned *bool `pulumi:"versioned"`
 }
 
 // DataSourceDynamodbConfigInput is an input type that accepts DataSourceDynamodbConfigArgs and DataSourceDynamodbConfigOutput values.
@@ -33,6 +39,7 @@ type DataSourceDynamodbConfigInput interface {
 }
 
 type DataSourceDynamodbConfigArgs struct {
+	// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 	DeltaSyncConfig DataSourceDynamodbConfigDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -40,7 +47,8 @@ type DataSourceDynamodbConfigArgs struct {
 	TableName pulumi.StringInput `pulumi:"tableName"`
 	// Set to `true` to use Amazon Cognito credentials with this data source.
 	UseCallerCredentials pulumi.BoolPtrInput `pulumi:"useCallerCredentials"`
-	Versioned            pulumi.BoolPtrInput `pulumi:"versioned"`
+	// Detects Conflict Detection and Resolution with this data source.
+	Versioned pulumi.BoolPtrInput `pulumi:"versioned"`
 }
 
 func (DataSourceDynamodbConfigArgs) ElementType() reflect.Type {
@@ -53,6 +61,12 @@ func (i DataSourceDynamodbConfigArgs) ToDataSourceDynamodbConfigOutput() DataSou
 
 func (i DataSourceDynamodbConfigArgs) ToDataSourceDynamodbConfigOutputWithContext(ctx context.Context) DataSourceDynamodbConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDynamodbConfigOutput)
+}
+
+func (i DataSourceDynamodbConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceDynamodbConfig] {
+	return pulumix.Output[DataSourceDynamodbConfig]{
+		OutputState: i.ToDataSourceDynamodbConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceDynamodbConfigArgs) ToDataSourceDynamodbConfigPtrOutput() DataSourceDynamodbConfigPtrOutput {
@@ -96,6 +110,12 @@ func (i *dataSourceDynamodbConfigPtrType) ToDataSourceDynamodbConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDynamodbConfigPtrOutput)
 }
 
+func (i *dataSourceDynamodbConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceDynamodbConfig] {
+	return pulumix.Output[*DataSourceDynamodbConfig]{
+		OutputState: i.ToDataSourceDynamodbConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceDynamodbConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceDynamodbConfigOutput) ElementType() reflect.Type {
@@ -120,6 +140,13 @@ func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigPtrOutputWithC
 	}).(DataSourceDynamodbConfigPtrOutput)
 }
 
+func (o DataSourceDynamodbConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceDynamodbConfig] {
+	return pulumix.Output[DataSourceDynamodbConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 func (o DataSourceDynamodbConfigOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig { return v.DeltaSyncConfig }).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
@@ -139,6 +166,7 @@ func (o DataSourceDynamodbConfigOutput) UseCallerCredentials() pulumi.BoolPtrOut
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *bool { return v.UseCallerCredentials }).(pulumi.BoolPtrOutput)
 }
 
+// Detects Conflict Detection and Resolution with this data source.
 func (o DataSourceDynamodbConfigOutput) Versioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *bool { return v.Versioned }).(pulumi.BoolPtrOutput)
 }
@@ -157,6 +185,12 @@ func (o DataSourceDynamodbConfigPtrOutput) ToDataSourceDynamodbConfigPtrOutputWi
 	return o
 }
 
+func (o DataSourceDynamodbConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceDynamodbConfig] {
+	return pulumix.Output[*DataSourceDynamodbConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceDynamodbConfigPtrOutput) Elem() DataSourceDynamodbConfigOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) DataSourceDynamodbConfig {
 		if v != nil {
@@ -167,6 +201,7 @@ func (o DataSourceDynamodbConfigPtrOutput) Elem() DataSourceDynamodbConfigOutput
 	}).(DataSourceDynamodbConfigOutput)
 }
 
+// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 func (o DataSourceDynamodbConfigPtrOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig {
 		if v == nil {
@@ -206,6 +241,7 @@ func (o DataSourceDynamodbConfigPtrOutput) UseCallerCredentials() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Detects Conflict Detection and Resolution with this data source.
 func (o DataSourceDynamodbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *bool {
 		if v == nil {
@@ -216,9 +252,12 @@ func (o DataSourceDynamodbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfig struct {
-	BaseTableTtl       *int   `pulumi:"baseTableTtl"`
+	// The number of minutes that an Item is stored in the data source.
+	BaseTableTtl *int `pulumi:"baseTableTtl"`
+	// The table name.
 	DeltaSyncTableName string `pulumi:"deltaSyncTableName"`
-	DeltaSyncTableTtl  *int   `pulumi:"deltaSyncTableTtl"`
+	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	DeltaSyncTableTtl *int `pulumi:"deltaSyncTableTtl"`
 }
 
 // DataSourceDynamodbConfigDeltaSyncConfigInput is an input type that accepts DataSourceDynamodbConfigDeltaSyncConfigArgs and DataSourceDynamodbConfigDeltaSyncConfigOutput values.
@@ -233,9 +272,12 @@ type DataSourceDynamodbConfigDeltaSyncConfigInput interface {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfigArgs struct {
-	BaseTableTtl       pulumi.IntPtrInput `pulumi:"baseTableTtl"`
+	// The number of minutes that an Item is stored in the data source.
+	BaseTableTtl pulumi.IntPtrInput `pulumi:"baseTableTtl"`
+	// The table name.
 	DeltaSyncTableName pulumi.StringInput `pulumi:"deltaSyncTableName"`
-	DeltaSyncTableTtl  pulumi.IntPtrInput `pulumi:"deltaSyncTableTtl"`
+	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	DeltaSyncTableTtl pulumi.IntPtrInput `pulumi:"deltaSyncTableTtl"`
 }
 
 func (DataSourceDynamodbConfigDeltaSyncConfigArgs) ElementType() reflect.Type {
@@ -248,6 +290,12 @@ func (i DataSourceDynamodbConfigDeltaSyncConfigArgs) ToDataSourceDynamodbConfigD
 
 func (i DataSourceDynamodbConfigDeltaSyncConfigArgs) ToDataSourceDynamodbConfigDeltaSyncConfigOutputWithContext(ctx context.Context) DataSourceDynamodbConfigDeltaSyncConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDynamodbConfigDeltaSyncConfigOutput)
+}
+
+func (i DataSourceDynamodbConfigDeltaSyncConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceDynamodbConfigDeltaSyncConfig] {
+	return pulumix.Output[DataSourceDynamodbConfigDeltaSyncConfig]{
+		OutputState: i.ToDataSourceDynamodbConfigDeltaSyncConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceDynamodbConfigDeltaSyncConfigArgs) ToDataSourceDynamodbConfigDeltaSyncConfigPtrOutput() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
@@ -291,6 +339,12 @@ func (i *dataSourceDynamodbConfigDeltaSyncConfigPtrType) ToDataSourceDynamodbCon
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
+func (i *dataSourceDynamodbConfigDeltaSyncConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceDynamodbConfigDeltaSyncConfig] {
+	return pulumix.Output[*DataSourceDynamodbConfigDeltaSyncConfig]{
+		OutputState: i.ToDataSourceDynamodbConfigDeltaSyncConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceDynamodbConfigDeltaSyncConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceDynamodbConfigDeltaSyncConfigOutput) ElementType() reflect.Type {
@@ -315,14 +369,23 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) ToDataSourceDynamodbConfi
 	}).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
+func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceDynamodbConfigDeltaSyncConfig] {
+	return pulumix.Output[DataSourceDynamodbConfigDeltaSyncConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.BaseTableTtl }).(pulumi.IntPtrOutput)
 }
 
+// The table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) string { return v.DeltaSyncTableName }).(pulumi.StringOutput)
 }
 
+// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.DeltaSyncTableTtl }).(pulumi.IntPtrOutput)
 }
@@ -341,6 +404,12 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) ToDataSourceDynamodbCo
 	return o
 }
 
+func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceDynamodbConfigDeltaSyncConfig] {
+	return pulumix.Output[*DataSourceDynamodbConfigDeltaSyncConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) Elem() DataSourceDynamodbConfigDeltaSyncConfigOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) DataSourceDynamodbConfigDeltaSyncConfig {
 		if v != nil {
@@ -351,6 +420,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) Elem() DataSourceDynam
 	}).(DataSourceDynamodbConfigDeltaSyncConfigOutput)
 }
 
+// The number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -360,6 +430,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *string {
 		if v == nil {
@@ -369,6 +440,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -415,6 +487,12 @@ func (i DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceElasticsearchConfigOutput)
 }
 
+func (i DataSourceElasticsearchConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceElasticsearchConfig] {
+	return pulumix.Output[DataSourceElasticsearchConfig]{
+		OutputState: i.ToDataSourceElasticsearchConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigPtrOutput() DataSourceElasticsearchConfigPtrOutput {
 	return i.ToDataSourceElasticsearchConfigPtrOutputWithContext(context.Background())
 }
@@ -456,6 +534,12 @@ func (i *dataSourceElasticsearchConfigPtrType) ToDataSourceElasticsearchConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceElasticsearchConfigPtrOutput)
 }
 
+func (i *dataSourceElasticsearchConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceElasticsearchConfig] {
+	return pulumix.Output[*DataSourceElasticsearchConfig]{
+		OutputState: i.ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceElasticsearchConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceElasticsearchConfigOutput) ElementType() reflect.Type {
@@ -480,6 +564,12 @@ func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigPtrO
 	}).(DataSourceElasticsearchConfigPtrOutput)
 }
 
+func (o DataSourceElasticsearchConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceElasticsearchConfig] {
+	return pulumix.Output[DataSourceElasticsearchConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceElasticsearchConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceElasticsearchConfig) string { return v.Endpoint }).(pulumi.StringOutput)
@@ -502,6 +592,12 @@ func (o DataSourceElasticsearchConfigPtrOutput) ToDataSourceElasticsearchConfigP
 
 func (o DataSourceElasticsearchConfigPtrOutput) ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceElasticsearchConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceElasticsearchConfig] {
+	return pulumix.Output[*DataSourceElasticsearchConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceElasticsearchConfigPtrOutput) Elem() DataSourceElasticsearchConfigOutput {
@@ -567,6 +663,12 @@ func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigOutput)
 }
 
+func (i DataSourceEventBridgeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceEventBridgeConfig] {
+	return pulumix.Output[DataSourceEventBridgeConfig]{
+		OutputState: i.ToDataSourceEventBridgeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
 	return i.ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Background())
 }
@@ -608,6 +710,12 @@ func (i *dataSourceEventBridgeConfigPtrType) ToDataSourceEventBridgeConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigPtrOutput)
 }
 
+func (i *dataSourceEventBridgeConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceEventBridgeConfig] {
+	return pulumix.Output[*DataSourceEventBridgeConfig]{
+		OutputState: i.ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceEventBridgeConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceEventBridgeConfigOutput) ElementType() reflect.Type {
@@ -632,6 +740,12 @@ func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigPtrOutpu
 	}).(DataSourceEventBridgeConfigPtrOutput)
 }
 
+func (o DataSourceEventBridgeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceEventBridgeConfig] {
+	return pulumix.Output[DataSourceEventBridgeConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN for the EventBridge bus.
 func (o DataSourceEventBridgeConfigOutput) EventBusArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceEventBridgeConfig) string { return v.EventBusArn }).(pulumi.StringOutput)
@@ -649,6 +763,12 @@ func (o DataSourceEventBridgeConfigPtrOutput) ToDataSourceEventBridgeConfigPtrOu
 
 func (o DataSourceEventBridgeConfigPtrOutput) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceEventBridgeConfig] {
+	return pulumix.Output[*DataSourceEventBridgeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceEventBridgeConfigPtrOutput) Elem() DataSourceEventBridgeConfigOutput {
@@ -708,6 +828,12 @@ func (i DataSourceHttpConfigArgs) ToDataSourceHttpConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigOutput)
 }
 
+func (i DataSourceHttpConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceHttpConfig] {
+	return pulumix.Output[DataSourceHttpConfig]{
+		OutputState: i.ToDataSourceHttpConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceHttpConfigArgs) ToDataSourceHttpConfigPtrOutput() DataSourceHttpConfigPtrOutput {
 	return i.ToDataSourceHttpConfigPtrOutputWithContext(context.Background())
 }
@@ -749,6 +875,12 @@ func (i *dataSourceHttpConfigPtrType) ToDataSourceHttpConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigPtrOutput)
 }
 
+func (i *dataSourceHttpConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceHttpConfig] {
+	return pulumix.Output[*DataSourceHttpConfig]{
+		OutputState: i.ToDataSourceHttpConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceHttpConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceHttpConfigOutput) ElementType() reflect.Type {
@@ -773,6 +905,12 @@ func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutputWithContext(c
 	}).(DataSourceHttpConfigPtrOutput)
 }
 
+func (o DataSourceHttpConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceHttpConfig] {
+	return pulumix.Output[DataSourceHttpConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
 func (o DataSourceHttpConfigOutput) AuthorizationConfig() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfig) *DataSourceHttpConfigAuthorizationConfig { return v.AuthorizationConfig }).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
@@ -795,6 +933,12 @@ func (o DataSourceHttpConfigPtrOutput) ToDataSourceHttpConfigPtrOutput() DataSou
 
 func (o DataSourceHttpConfigPtrOutput) ToDataSourceHttpConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceHttpConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceHttpConfig] {
+	return pulumix.Output[*DataSourceHttpConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceHttpConfigPtrOutput) Elem() DataSourceHttpConfigOutput {
@@ -864,6 +1008,12 @@ func (i DataSourceHttpConfigAuthorizationConfigArgs) ToDataSourceHttpConfigAutho
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigAuthorizationConfigOutput)
 }
 
+func (i DataSourceHttpConfigAuthorizationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceHttpConfigAuthorizationConfig] {
+	return pulumix.Output[DataSourceHttpConfigAuthorizationConfig]{
+		OutputState: i.ToDataSourceHttpConfigAuthorizationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceHttpConfigAuthorizationConfigArgs) ToDataSourceHttpConfigAuthorizationConfigPtrOutput() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return i.ToDataSourceHttpConfigAuthorizationConfigPtrOutputWithContext(context.Background())
 }
@@ -905,6 +1055,12 @@ func (i *dataSourceHttpConfigAuthorizationConfigPtrType) ToDataSourceHttpConfigA
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
 }
 
+func (i *dataSourceHttpConfigAuthorizationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceHttpConfigAuthorizationConfig] {
+	return pulumix.Output[*DataSourceHttpConfigAuthorizationConfig]{
+		OutputState: i.ToDataSourceHttpConfigAuthorizationConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceHttpConfigAuthorizationConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceHttpConfigAuthorizationConfigOutput) ElementType() reflect.Type {
@@ -927,6 +1083,12 @@ func (o DataSourceHttpConfigAuthorizationConfigOutput) ToDataSourceHttpConfigAut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceHttpConfigAuthorizationConfig) *DataSourceHttpConfigAuthorizationConfig {
 		return &v
 	}).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
+}
+
+func (o DataSourceHttpConfigAuthorizationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceHttpConfigAuthorizationConfig] {
+	return pulumix.Output[DataSourceHttpConfigAuthorizationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
@@ -953,6 +1115,12 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) ToDataSourceHttpConfig
 
 func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) ToDataSourceHttpConfigAuthorizationConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceHttpConfigAuthorizationConfig] {
+	return pulumix.Output[*DataSourceHttpConfigAuthorizationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) Elem() DataSourceHttpConfigAuthorizationConfigOutput {
@@ -1022,6 +1190,12 @@ func (i DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs) ToDataSourceHtt
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput)
 }
 
+func (i DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceHttpConfigAuthorizationConfigAwsIamConfig] {
+	return pulumix.Output[DataSourceHttpConfigAuthorizationConfigAwsIamConfig]{
+		OutputState: i.ToDataSourceHttpConfigAuthorizationConfigAwsIamConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs) ToDataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput() DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return i.ToDataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutputWithContext(context.Background())
 }
@@ -1063,6 +1237,12 @@ func (i *dataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrType) ToDataSourc
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput)
 }
 
+func (i *dataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceHttpConfigAuthorizationConfigAwsIamConfig] {
+	return pulumix.Output[*DataSourceHttpConfigAuthorizationConfigAwsIamConfig]{
+		OutputState: i.ToDataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) ElementType() reflect.Type {
@@ -1087,6 +1267,12 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) ToDataSourceH
 	}).(DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput)
 }
 
+func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceHttpConfigAuthorizationConfigAwsIamConfig] {
+	return pulumix.Output[DataSourceHttpConfigAuthorizationConfigAwsIamConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Signing Amazon Web Services Region for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) SigningRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
@@ -1109,6 +1295,12 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) ToDataSour
 
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) ToDataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceHttpConfigAuthorizationConfigAwsIamConfig] {
+	return pulumix.Output[*DataSourceHttpConfigAuthorizationConfigAwsIamConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) Elem() DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput {
@@ -1174,6 +1366,12 @@ func (i DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceLambdaConfigOutput)
 }
 
+func (i DataSourceLambdaConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceLambdaConfig] {
+	return pulumix.Output[DataSourceLambdaConfig]{
+		OutputState: i.ToDataSourceLambdaConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigPtrOutput() DataSourceLambdaConfigPtrOutput {
 	return i.ToDataSourceLambdaConfigPtrOutputWithContext(context.Background())
 }
@@ -1215,6 +1413,12 @@ func (i *dataSourceLambdaConfigPtrType) ToDataSourceLambdaConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceLambdaConfigPtrOutput)
 }
 
+func (i *dataSourceLambdaConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceLambdaConfig] {
+	return pulumix.Output[*DataSourceLambdaConfig]{
+		OutputState: i.ToDataSourceLambdaConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceLambdaConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceLambdaConfigOutput) ElementType() reflect.Type {
@@ -1239,6 +1443,12 @@ func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigPtrOutputWithConte
 	}).(DataSourceLambdaConfigPtrOutput)
 }
 
+func (o DataSourceLambdaConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceLambdaConfig] {
+	return pulumix.Output[DataSourceLambdaConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN for the Lambda function.
 func (o DataSourceLambdaConfigOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceLambdaConfig) string { return v.FunctionArn }).(pulumi.StringOutput)
@@ -1256,6 +1466,12 @@ func (o DataSourceLambdaConfigPtrOutput) ToDataSourceLambdaConfigPtrOutput() Dat
 
 func (o DataSourceLambdaConfigPtrOutput) ToDataSourceLambdaConfigPtrOutputWithContext(ctx context.Context) DataSourceLambdaConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceLambdaConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceLambdaConfig] {
+	return pulumix.Output[*DataSourceLambdaConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceLambdaConfigPtrOutput) Elem() DataSourceLambdaConfigOutput {
@@ -1279,9 +1495,9 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type DataSourceOpensearchserviceConfig struct {
-	// HTTP endpoint of the OpenSearch domain.
+	// HTTP endpoint of the Elasticsearch domain.
 	Endpoint string `pulumi:"endpoint"`
-	// AWS region of the OpenSearch domain. Defaults to current region.
+	// AWS region of the DynamoDB table. Defaults to current region.
 	Region *string `pulumi:"region"`
 }
 
@@ -1297,9 +1513,9 @@ type DataSourceOpensearchserviceConfigInput interface {
 }
 
 type DataSourceOpensearchserviceConfigArgs struct {
-	// HTTP endpoint of the OpenSearch domain.
+	// HTTP endpoint of the Elasticsearch domain.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// AWS region of the OpenSearch domain. Defaults to current region.
+	// AWS region of the DynamoDB table. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -1313,6 +1529,12 @@ func (i DataSourceOpensearchserviceConfigArgs) ToDataSourceOpensearchserviceConf
 
 func (i DataSourceOpensearchserviceConfigArgs) ToDataSourceOpensearchserviceConfigOutputWithContext(ctx context.Context) DataSourceOpensearchserviceConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpensearchserviceConfigOutput)
+}
+
+func (i DataSourceOpensearchserviceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceOpensearchserviceConfig] {
+	return pulumix.Output[DataSourceOpensearchserviceConfig]{
+		OutputState: i.ToDataSourceOpensearchserviceConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceOpensearchserviceConfigArgs) ToDataSourceOpensearchserviceConfigPtrOutput() DataSourceOpensearchserviceConfigPtrOutput {
@@ -1356,6 +1578,12 @@ func (i *dataSourceOpensearchserviceConfigPtrType) ToDataSourceOpensearchservice
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
+func (i *dataSourceOpensearchserviceConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceOpensearchserviceConfig] {
+	return pulumix.Output[*DataSourceOpensearchserviceConfig]{
+		OutputState: i.ToDataSourceOpensearchserviceConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceOpensearchserviceConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOpensearchserviceConfigOutput) ElementType() reflect.Type {
@@ -1380,12 +1608,18 @@ func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceCo
 	}).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
-// HTTP endpoint of the OpenSearch domain.
+func (o DataSourceOpensearchserviceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceOpensearchserviceConfig] {
+	return pulumix.Output[DataSourceOpensearchserviceConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceOpensearchserviceConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// AWS region of the OpenSearch domain. Defaults to current region.
+// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -1404,6 +1638,12 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) ToDataSourceOpensearchservic
 	return o
 }
 
+func (o DataSourceOpensearchserviceConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceOpensearchserviceConfig] {
+	return pulumix.Output[*DataSourceOpensearchserviceConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceOpensearchserviceConfigPtrOutput) Elem() DataSourceOpensearchserviceConfigOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) DataSourceOpensearchserviceConfig {
 		if v != nil {
@@ -1414,7 +1654,7 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Elem() DataSourceOpensearchs
 	}).(DataSourceOpensearchserviceConfigOutput)
 }
 
-// HTTP endpoint of the OpenSearch domain.
+// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -1424,7 +1664,7 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region of the OpenSearch domain. Defaults to current region.
+// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -1471,6 +1711,12 @@ func (i DataSourceRelationalDatabaseConfigArgs) ToDataSourceRelationalDatabaseCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalDatabaseConfigOutput)
 }
 
+func (i DataSourceRelationalDatabaseConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceRelationalDatabaseConfig] {
+	return pulumix.Output[DataSourceRelationalDatabaseConfig]{
+		OutputState: i.ToDataSourceRelationalDatabaseConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceRelationalDatabaseConfigArgs) ToDataSourceRelationalDatabaseConfigPtrOutput() DataSourceRelationalDatabaseConfigPtrOutput {
 	return i.ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(context.Background())
 }
@@ -1512,6 +1758,12 @@ func (i *dataSourceRelationalDatabaseConfigPtrType) ToDataSourceRelationalDataba
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalDatabaseConfigPtrOutput)
 }
 
+func (i *dataSourceRelationalDatabaseConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceRelationalDatabaseConfig] {
+	return pulumix.Output[*DataSourceRelationalDatabaseConfig]{
+		OutputState: i.ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceRelationalDatabaseConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceRelationalDatabaseConfigOutput) ElementType() reflect.Type {
@@ -1534,6 +1786,12 @@ func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabase
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfig {
 		return &v
 	}).(DataSourceRelationalDatabaseConfigPtrOutput)
+}
+
+func (o DataSourceRelationalDatabaseConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceRelationalDatabaseConfig] {
+	return pulumix.Output[DataSourceRelationalDatabaseConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
@@ -1560,6 +1818,12 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) ToDataSourceRelationalDatab
 
 func (o DataSourceRelationalDatabaseConfigPtrOutput) ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceRelationalDatabaseConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceRelationalDatabaseConfig] {
+	return pulumix.Output[*DataSourceRelationalDatabaseConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceRelationalDatabaseConfigPtrOutput) Elem() DataSourceRelationalDatabaseConfigOutput {
@@ -1641,6 +1905,12 @@ func (i DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs) ToDataSourceRe
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput)
 }
 
+func (i DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceRelationalDatabaseConfigHttpEndpointConfig] {
+	return pulumix.Output[DataSourceRelationalDatabaseConfigHttpEndpointConfig]{
+		OutputState: i.ToDataSourceRelationalDatabaseConfigHttpEndpointConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs) ToDataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput() DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return i.ToDataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutputWithContext(context.Background())
 }
@@ -1682,6 +1952,12 @@ func (i *dataSourceRelationalDatabaseConfigHttpEndpointConfigPtrType) ToDataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput)
 }
 
+func (i *dataSourceRelationalDatabaseConfigHttpEndpointConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceRelationalDatabaseConfigHttpEndpointConfig] {
+	return pulumix.Output[*DataSourceRelationalDatabaseConfigHttpEndpointConfig]{
+		OutputState: i.ToDataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput struct{ *pulumi.OutputState }
 
 func (DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) ElementType() reflect.Type {
@@ -1704,6 +1980,12 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) ToDataSource
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRelationalDatabaseConfigHttpEndpointConfig) *DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 		return &v
 	}).(DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput)
+}
+
+func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceRelationalDatabaseConfigHttpEndpointConfig] {
+	return pulumix.Output[DataSourceRelationalDatabaseConfigHttpEndpointConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS secret store ARN for database credentials.
@@ -1743,6 +2025,12 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) ToDataSou
 
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) ToDataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return o
+}
+
+func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceRelationalDatabaseConfigHttpEndpointConfig] {
+	return pulumix.Output[*DataSourceRelationalDatabaseConfigHttpEndpointConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Elem() DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput {
@@ -1842,6 +2130,12 @@ func (i FunctionRuntimeArgs) ToFunctionRuntimeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeOutput)
 }
 
+func (i FunctionRuntimeArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionRuntime] {
+	return pulumix.Output[FunctionRuntime]{
+		OutputState: i.ToFunctionRuntimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FunctionRuntimeArgs) ToFunctionRuntimePtrOutput() FunctionRuntimePtrOutput {
 	return i.ToFunctionRuntimePtrOutputWithContext(context.Background())
 }
@@ -1883,6 +2177,12 @@ func (i *functionRuntimePtrType) ToFunctionRuntimePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimePtrOutput)
 }
 
+func (i *functionRuntimePtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionRuntime] {
+	return pulumix.Output[*FunctionRuntime]{
+		OutputState: i.ToFunctionRuntimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionRuntimeOutput struct{ *pulumi.OutputState }
 
 func (FunctionRuntimeOutput) ElementType() reflect.Type {
@@ -1907,6 +2207,12 @@ func (o FunctionRuntimeOutput) ToFunctionRuntimePtrOutputWithContext(ctx context
 	}).(FunctionRuntimePtrOutput)
 }
 
+func (o FunctionRuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionRuntime] {
+	return pulumix.Output[FunctionRuntime]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o FunctionRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionRuntime) string { return v.Name }).(pulumi.StringOutput)
@@ -1929,6 +2235,12 @@ func (o FunctionRuntimePtrOutput) ToFunctionRuntimePtrOutput() FunctionRuntimePt
 
 func (o FunctionRuntimePtrOutput) ToFunctionRuntimePtrOutputWithContext(ctx context.Context) FunctionRuntimePtrOutput {
 	return o
+}
+
+func (o FunctionRuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionRuntime] {
+	return pulumix.Output[*FunctionRuntime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionRuntimePtrOutput) Elem() FunctionRuntimeOutput {
@@ -2002,6 +2314,12 @@ func (i FunctionSyncConfigArgs) ToFunctionSyncConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSyncConfigOutput)
 }
 
+func (i FunctionSyncConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionSyncConfig] {
+	return pulumix.Output[FunctionSyncConfig]{
+		OutputState: i.ToFunctionSyncConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FunctionSyncConfigArgs) ToFunctionSyncConfigPtrOutput() FunctionSyncConfigPtrOutput {
 	return i.ToFunctionSyncConfigPtrOutputWithContext(context.Background())
 }
@@ -2043,6 +2361,12 @@ func (i *functionSyncConfigPtrType) ToFunctionSyncConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSyncConfigPtrOutput)
 }
 
+func (i *functionSyncConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionSyncConfig] {
+	return pulumix.Output[*FunctionSyncConfig]{
+		OutputState: i.ToFunctionSyncConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionSyncConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionSyncConfigOutput) ElementType() reflect.Type {
@@ -2065,6 +2389,12 @@ func (o FunctionSyncConfigOutput) ToFunctionSyncConfigPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionSyncConfig) *FunctionSyncConfig {
 		return &v
 	}).(FunctionSyncConfigPtrOutput)
+}
+
+func (o FunctionSyncConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionSyncConfig] {
+	return pulumix.Output[FunctionSyncConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
@@ -2096,6 +2426,12 @@ func (o FunctionSyncConfigPtrOutput) ToFunctionSyncConfigPtrOutput() FunctionSyn
 
 func (o FunctionSyncConfigPtrOutput) ToFunctionSyncConfigPtrOutputWithContext(ctx context.Context) FunctionSyncConfigPtrOutput {
 	return o
+}
+
+func (o FunctionSyncConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionSyncConfig] {
+	return pulumix.Output[*FunctionSyncConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionSyncConfigPtrOutput) Elem() FunctionSyncConfigOutput {
@@ -2171,6 +2507,12 @@ func (i FunctionSyncConfigLambdaConflictHandlerConfigArgs) ToFunctionSyncConfigL
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSyncConfigLambdaConflictHandlerConfigOutput)
 }
 
+func (i FunctionSyncConfigLambdaConflictHandlerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[FunctionSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: i.ToFunctionSyncConfigLambdaConflictHandlerConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FunctionSyncConfigLambdaConflictHandlerConfigArgs) ToFunctionSyncConfigLambdaConflictHandlerConfigPtrOutput() FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return i.ToFunctionSyncConfigLambdaConflictHandlerConfigPtrOutputWithContext(context.Background())
 }
@@ -2212,6 +2554,12 @@ func (i *functionSyncConfigLambdaConflictHandlerConfigPtrType) ToFunctionSyncCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
+func (i *functionSyncConfigLambdaConflictHandlerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[*FunctionSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: i.ToFunctionSyncConfigLambdaConflictHandlerConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionSyncConfigLambdaConflictHandlerConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionSyncConfigLambdaConflictHandlerConfigOutput) ElementType() reflect.Type {
@@ -2236,6 +2584,12 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigOutput) ToFunctionSyncConfi
 	}).(FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
+func (o FunctionSyncConfigLambdaConflictHandlerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[FunctionSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN for the Lambda function to use as the Conflict Handler.
 func (o FunctionSyncConfigLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfigLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
@@ -2253,6 +2607,12 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) ToFunctionSyncCo
 
 func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) ToFunctionSyncConfigLambdaConflictHandlerConfigPtrOutputWithContext(ctx context.Context) FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o
+}
+
+func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[*FunctionSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) Elem() FunctionSyncConfigLambdaConflictHandlerConfigOutput {
@@ -2320,6 +2680,12 @@ func (i GraphQLApiAdditionalAuthenticationProviderArgs) ToGraphQLApiAdditionalAu
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderOutput)
 }
 
+func (i GraphQLApiAdditionalAuthenticationProviderArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProvider] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProvider]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GraphQLApiAdditionalAuthenticationProviderArrayInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderArray and GraphQLApiAdditionalAuthenticationProviderArrayOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderArrayInput` via:
 //
@@ -2345,6 +2711,12 @@ func (i GraphQLApiAdditionalAuthenticationProviderArray) ToGraphQLApiAdditionalA
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderArrayOutput)
 }
 
+func (i GraphQLApiAdditionalAuthenticationProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]GraphQLApiAdditionalAuthenticationProvider] {
+	return pulumix.Output[[]GraphQLApiAdditionalAuthenticationProvider]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiAdditionalAuthenticationProviderOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiAdditionalAuthenticationProviderOutput) ElementType() reflect.Type {
@@ -2357,6 +2729,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToGraphQLApiAdditional
 
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToGraphQLApiAdditionalAuthenticationProviderOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderOutput {
 	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProvider] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -2397,6 +2775,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) ToGraphQLApiAddit
 
 func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) ToGraphQLApiAdditionalAuthenticationProviderArrayOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GraphQLApiAdditionalAuthenticationProvider] {
+	return pulumix.Output[[]GraphQLApiAdditionalAuthenticationProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) Index(i pulumi.IntInput) GraphQLApiAdditionalAuthenticationProviderOutput {
@@ -2446,6 +2830,12 @@ func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput)
 }
 
+func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
 	return i.ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
 }
@@ -2487,6 +2877,12 @@ func (i *graphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
 }
 
+func (i *graphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig] {
+	return pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) ElementType() reflect.Type {
@@ -2509,6 +2905,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
 		return &v
 	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
@@ -2544,6 +2946,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
 	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig] {
+	return pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) Elem() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput {
@@ -2631,6 +3039,12 @@ func (i GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs) ToGra
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput)
 }
 
+func (i GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs) ToGraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput {
 	return i.ToGraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutputWithContext(context.Background())
 }
@@ -2672,6 +3086,12 @@ func (i *graphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
 }
 
+func (i *graphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig] {
+	return pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) ElementType() reflect.Type {
@@ -2694,6 +3114,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) ToG
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
 		return &v
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of milliseconds a token is valid after being authenticated.
@@ -2728,6 +3154,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) ToGraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput {
 	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig] {
+	return pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) Elem() GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput {
@@ -2821,6 +3253,12 @@ func (i GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs) ToGraphQLA
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput)
 }
 
+func (i GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProviderUserPoolConfig] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProviderUserPoolConfig]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs) ToGraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput {
 	return i.ToGraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutputWithContext(context.Background())
 }
@@ -2862,6 +3300,12 @@ func (i *graphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrType) ToGrap
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput)
 }
 
+func (i *graphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderUserPoolConfig] {
+	return pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderUserPoolConfig]{
+		OutputState: i.ToGraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) ElementType() reflect.Type {
@@ -2884,6 +3328,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) ToGraphQ
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
 		return &v
 	}).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput)
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiAdditionalAuthenticationProviderUserPoolConfig] {
+	return pulumix.Output[GraphQLApiAdditionalAuthenticationProviderUserPoolConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
@@ -2913,6 +3363,12 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) ToGra
 
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) ToGraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput {
 	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderUserPoolConfig] {
+	return pulumix.Output[*GraphQLApiAdditionalAuthenticationProviderUserPoolConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) Elem() GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput {
@@ -2996,6 +3452,12 @@ func (i GraphQLApiLambdaAuthorizerConfigArgs) ToGraphQLApiLambdaAuthorizerConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiLambdaAuthorizerConfigOutput)
 }
 
+func (i GraphQLApiLambdaAuthorizerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiLambdaAuthorizerConfig] {
+	return pulumix.Output[GraphQLApiLambdaAuthorizerConfig]{
+		OutputState: i.ToGraphQLApiLambdaAuthorizerConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphQLApiLambdaAuthorizerConfigArgs) ToGraphQLApiLambdaAuthorizerConfigPtrOutput() GraphQLApiLambdaAuthorizerConfigPtrOutput {
 	return i.ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
 }
@@ -3037,6 +3499,12 @@ func (i *graphQLApiLambdaAuthorizerConfigPtrType) ToGraphQLApiLambdaAuthorizerCo
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
 }
 
+func (i *graphQLApiLambdaAuthorizerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiLambdaAuthorizerConfig] {
+	return pulumix.Output[*GraphQLApiLambdaAuthorizerConfig]{
+		OutputState: i.ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiLambdaAuthorizerConfigOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiLambdaAuthorizerConfigOutput) ElementType() reflect.Type {
@@ -3059,6 +3527,12 @@ func (o GraphQLApiLambdaAuthorizerConfigOutput) ToGraphQLApiLambdaAuthorizerConf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiLambdaAuthorizerConfig) *GraphQLApiLambdaAuthorizerConfig {
 		return &v
 	}).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiLambdaAuthorizerConfig] {
+	return pulumix.Output[GraphQLApiLambdaAuthorizerConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
@@ -3088,6 +3562,12 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) ToGraphQLApiLambdaAuthorizerC
 
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiLambdaAuthorizerConfigPtrOutput {
 	return o
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiLambdaAuthorizerConfig] {
+	return pulumix.Output[*GraphQLApiLambdaAuthorizerConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) Elem() GraphQLApiLambdaAuthorizerConfigOutput {
@@ -3171,6 +3651,12 @@ func (i GraphQLApiLogConfigArgs) ToGraphQLApiLogConfigOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiLogConfigOutput)
 }
 
+func (i GraphQLApiLogConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiLogConfig] {
+	return pulumix.Output[GraphQLApiLogConfig]{
+		OutputState: i.ToGraphQLApiLogConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphQLApiLogConfigArgs) ToGraphQLApiLogConfigPtrOutput() GraphQLApiLogConfigPtrOutput {
 	return i.ToGraphQLApiLogConfigPtrOutputWithContext(context.Background())
 }
@@ -3212,6 +3698,12 @@ func (i *graphQLApiLogConfigPtrType) ToGraphQLApiLogConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiLogConfigPtrOutput)
 }
 
+func (i *graphQLApiLogConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiLogConfig] {
+	return pulumix.Output[*GraphQLApiLogConfig]{
+		OutputState: i.ToGraphQLApiLogConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiLogConfigOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiLogConfigOutput) ElementType() reflect.Type {
@@ -3234,6 +3726,12 @@ func (o GraphQLApiLogConfigOutput) ToGraphQLApiLogConfigPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiLogConfig) *GraphQLApiLogConfig {
 		return &v
 	}).(GraphQLApiLogConfigPtrOutput)
+}
+
+func (o GraphQLApiLogConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiLogConfig] {
+	return pulumix.Output[GraphQLApiLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
@@ -3263,6 +3761,12 @@ func (o GraphQLApiLogConfigPtrOutput) ToGraphQLApiLogConfigPtrOutput() GraphQLAp
 
 func (o GraphQLApiLogConfigPtrOutput) ToGraphQLApiLogConfigPtrOutputWithContext(ctx context.Context) GraphQLApiLogConfigPtrOutput {
 	return o
+}
+
+func (o GraphQLApiLogConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiLogConfig] {
+	return pulumix.Output[*GraphQLApiLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiLogConfigPtrOutput) Elem() GraphQLApiLogConfigOutput {
@@ -3350,6 +3854,12 @@ func (i GraphQLApiOpenidConnectConfigArgs) ToGraphQLApiOpenidConnectConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiOpenidConnectConfigOutput)
 }
 
+func (i GraphQLApiOpenidConnectConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiOpenidConnectConfig] {
+	return pulumix.Output[GraphQLApiOpenidConnectConfig]{
+		OutputState: i.ToGraphQLApiOpenidConnectConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphQLApiOpenidConnectConfigArgs) ToGraphQLApiOpenidConnectConfigPtrOutput() GraphQLApiOpenidConnectConfigPtrOutput {
 	return i.ToGraphQLApiOpenidConnectConfigPtrOutputWithContext(context.Background())
 }
@@ -3391,6 +3901,12 @@ func (i *graphQLApiOpenidConnectConfigPtrType) ToGraphQLApiOpenidConnectConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiOpenidConnectConfigPtrOutput)
 }
 
+func (i *graphQLApiOpenidConnectConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiOpenidConnectConfig] {
+	return pulumix.Output[*GraphQLApiOpenidConnectConfig]{
+		OutputState: i.ToGraphQLApiOpenidConnectConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiOpenidConnectConfigOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiOpenidConnectConfigOutput) ElementType() reflect.Type {
@@ -3413,6 +3929,12 @@ func (o GraphQLApiOpenidConnectConfigOutput) ToGraphQLApiOpenidConnectConfigPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiOpenidConnectConfig) *GraphQLApiOpenidConnectConfig {
 		return &v
 	}).(GraphQLApiOpenidConnectConfigPtrOutput)
+}
+
+func (o GraphQLApiOpenidConnectConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiOpenidConnectConfig] {
+	return pulumix.Output[GraphQLApiOpenidConnectConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of milliseconds a token is valid after being authenticated.
@@ -3447,6 +3969,12 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) ToGraphQLApiOpenidConnectConfigP
 
 func (o GraphQLApiOpenidConnectConfigPtrOutput) ToGraphQLApiOpenidConnectConfigPtrOutputWithContext(ctx context.Context) GraphQLApiOpenidConnectConfigPtrOutput {
 	return o
+}
+
+func (o GraphQLApiOpenidConnectConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiOpenidConnectConfig] {
+	return pulumix.Output[*GraphQLApiOpenidConnectConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiOpenidConnectConfigPtrOutput) Elem() GraphQLApiOpenidConnectConfigOutput {
@@ -3544,6 +4072,12 @@ func (i GraphQLApiUserPoolConfigArgs) ToGraphQLApiUserPoolConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiUserPoolConfigOutput)
 }
 
+func (i GraphQLApiUserPoolConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiUserPoolConfig] {
+	return pulumix.Output[GraphQLApiUserPoolConfig]{
+		OutputState: i.ToGraphQLApiUserPoolConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphQLApiUserPoolConfigArgs) ToGraphQLApiUserPoolConfigPtrOutput() GraphQLApiUserPoolConfigPtrOutput {
 	return i.ToGraphQLApiUserPoolConfigPtrOutputWithContext(context.Background())
 }
@@ -3585,6 +4119,12 @@ func (i *graphQLApiUserPoolConfigPtrType) ToGraphQLApiUserPoolConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiUserPoolConfigPtrOutput)
 }
 
+func (i *graphQLApiUserPoolConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiUserPoolConfig] {
+	return pulumix.Output[*GraphQLApiUserPoolConfig]{
+		OutputState: i.ToGraphQLApiUserPoolConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLApiUserPoolConfigOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiUserPoolConfigOutput) ElementType() reflect.Type {
@@ -3607,6 +4147,12 @@ func (o GraphQLApiUserPoolConfigOutput) ToGraphQLApiUserPoolConfigPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiUserPoolConfig) *GraphQLApiUserPoolConfig {
 		return &v
 	}).(GraphQLApiUserPoolConfigPtrOutput)
+}
+
+func (o GraphQLApiUserPoolConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GraphQLApiUserPoolConfig] {
+	return pulumix.Output[GraphQLApiUserPoolConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
@@ -3641,6 +4187,12 @@ func (o GraphQLApiUserPoolConfigPtrOutput) ToGraphQLApiUserPoolConfigPtrOutput()
 
 func (o GraphQLApiUserPoolConfigPtrOutput) ToGraphQLApiUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiUserPoolConfigPtrOutput {
 	return o
+}
+
+func (o GraphQLApiUserPoolConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApiUserPoolConfig] {
+	return pulumix.Output[*GraphQLApiUserPoolConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLApiUserPoolConfigPtrOutput) Elem() GraphQLApiUserPoolConfigOutput {
@@ -3730,6 +4282,12 @@ func (i ResolverCachingConfigArgs) ToResolverCachingConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverCachingConfigOutput)
 }
 
+func (i ResolverCachingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverCachingConfig] {
+	return pulumix.Output[ResolverCachingConfig]{
+		OutputState: i.ToResolverCachingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResolverCachingConfigArgs) ToResolverCachingConfigPtrOutput() ResolverCachingConfigPtrOutput {
 	return i.ToResolverCachingConfigPtrOutputWithContext(context.Background())
 }
@@ -3771,6 +4329,12 @@ func (i *resolverCachingConfigPtrType) ToResolverCachingConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverCachingConfigPtrOutput)
 }
 
+func (i *resolverCachingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResolverCachingConfig] {
+	return pulumix.Output[*ResolverCachingConfig]{
+		OutputState: i.ToResolverCachingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverCachingConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverCachingConfigOutput) ElementType() reflect.Type {
@@ -3795,6 +4359,12 @@ func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext
 	}).(ResolverCachingConfigPtrOutput)
 }
 
+func (o ResolverCachingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverCachingConfig] {
+	return pulumix.Output[ResolverCachingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
@@ -3817,6 +4387,12 @@ func (o ResolverCachingConfigPtrOutput) ToResolverCachingConfigPtrOutput() Resol
 
 func (o ResolverCachingConfigPtrOutput) ToResolverCachingConfigPtrOutputWithContext(ctx context.Context) ResolverCachingConfigPtrOutput {
 	return o
+}
+
+func (o ResolverCachingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverCachingConfig] {
+	return pulumix.Output[*ResolverCachingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
@@ -3882,6 +4458,12 @@ func (i ResolverPipelineConfigArgs) ToResolverPipelineConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverPipelineConfigOutput)
 }
 
+func (i ResolverPipelineConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverPipelineConfig] {
+	return pulumix.Output[ResolverPipelineConfig]{
+		OutputState: i.ToResolverPipelineConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResolverPipelineConfigArgs) ToResolverPipelineConfigPtrOutput() ResolverPipelineConfigPtrOutput {
 	return i.ToResolverPipelineConfigPtrOutputWithContext(context.Background())
 }
@@ -3923,6 +4505,12 @@ func (i *resolverPipelineConfigPtrType) ToResolverPipelineConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverPipelineConfigPtrOutput)
 }
 
+func (i *resolverPipelineConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResolverPipelineConfig] {
+	return pulumix.Output[*ResolverPipelineConfig]{
+		OutputState: i.ToResolverPipelineConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverPipelineConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverPipelineConfigOutput) ElementType() reflect.Type {
@@ -3947,6 +4535,12 @@ func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutputWithConte
 	}).(ResolverPipelineConfigPtrOutput)
 }
 
+func (o ResolverPipelineConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverPipelineConfig] {
+	return pulumix.Output[ResolverPipelineConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of Function objects.
 func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverPipelineConfig) []string { return v.Functions }).(pulumi.StringArrayOutput)
@@ -3964,6 +4558,12 @@ func (o ResolverPipelineConfigPtrOutput) ToResolverPipelineConfigPtrOutput() Res
 
 func (o ResolverPipelineConfigPtrOutput) ToResolverPipelineConfigPtrOutputWithContext(ctx context.Context) ResolverPipelineConfigPtrOutput {
 	return o
+}
+
+func (o ResolverPipelineConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverPipelineConfig] {
+	return pulumix.Output[*ResolverPipelineConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
@@ -4023,6 +4623,12 @@ func (i ResolverRuntimeArgs) ToResolverRuntimeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuntimeOutput)
 }
 
+func (i ResolverRuntimeArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverRuntime] {
+	return pulumix.Output[ResolverRuntime]{
+		OutputState: i.ToResolverRuntimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResolverRuntimeArgs) ToResolverRuntimePtrOutput() ResolverRuntimePtrOutput {
 	return i.ToResolverRuntimePtrOutputWithContext(context.Background())
 }
@@ -4064,6 +4670,12 @@ func (i *resolverRuntimePtrType) ToResolverRuntimePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuntimePtrOutput)
 }
 
+func (i *resolverRuntimePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuntime] {
+	return pulumix.Output[*ResolverRuntime]{
+		OutputState: i.ToResolverRuntimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverRuntimeOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuntimeOutput) ElementType() reflect.Type {
@@ -4088,6 +4700,12 @@ func (o ResolverRuntimeOutput) ToResolverRuntimePtrOutputWithContext(ctx context
 	}).(ResolverRuntimePtrOutput)
 }
 
+func (o ResolverRuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverRuntime] {
+	return pulumix.Output[ResolverRuntime]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o ResolverRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuntime) string { return v.Name }).(pulumi.StringOutput)
@@ -4110,6 +4728,12 @@ func (o ResolverRuntimePtrOutput) ToResolverRuntimePtrOutput() ResolverRuntimePt
 
 func (o ResolverRuntimePtrOutput) ToResolverRuntimePtrOutputWithContext(ctx context.Context) ResolverRuntimePtrOutput {
 	return o
+}
+
+func (o ResolverRuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuntime] {
+	return pulumix.Output[*ResolverRuntime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverRuntimePtrOutput) Elem() ResolverRuntimeOutput {
@@ -4183,6 +4807,12 @@ func (i ResolverSyncConfigArgs) ToResolverSyncConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverSyncConfigOutput)
 }
 
+func (i ResolverSyncConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverSyncConfig] {
+	return pulumix.Output[ResolverSyncConfig]{
+		OutputState: i.ToResolverSyncConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResolverSyncConfigArgs) ToResolverSyncConfigPtrOutput() ResolverSyncConfigPtrOutput {
 	return i.ToResolverSyncConfigPtrOutputWithContext(context.Background())
 }
@@ -4224,6 +4854,12 @@ func (i *resolverSyncConfigPtrType) ToResolverSyncConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverSyncConfigPtrOutput)
 }
 
+func (i *resolverSyncConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResolverSyncConfig] {
+	return pulumix.Output[*ResolverSyncConfig]{
+		OutputState: i.ToResolverSyncConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverSyncConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverSyncConfigOutput) ElementType() reflect.Type {
@@ -4246,6 +4882,12 @@ func (o ResolverSyncConfigOutput) ToResolverSyncConfigPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverSyncConfig) *ResolverSyncConfig {
 		return &v
 	}).(ResolverSyncConfigPtrOutput)
+}
+
+func (o ResolverSyncConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverSyncConfig] {
+	return pulumix.Output[ResolverSyncConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
@@ -4277,6 +4919,12 @@ func (o ResolverSyncConfigPtrOutput) ToResolverSyncConfigPtrOutput() ResolverSyn
 
 func (o ResolverSyncConfigPtrOutput) ToResolverSyncConfigPtrOutputWithContext(ctx context.Context) ResolverSyncConfigPtrOutput {
 	return o
+}
+
+func (o ResolverSyncConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverSyncConfig] {
+	return pulumix.Output[*ResolverSyncConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverSyncConfigPtrOutput) Elem() ResolverSyncConfigOutput {
@@ -4352,6 +5000,12 @@ func (i ResolverSyncConfigLambdaConflictHandlerConfigArgs) ToResolverSyncConfigL
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverSyncConfigLambdaConflictHandlerConfigOutput)
 }
 
+func (i ResolverSyncConfigLambdaConflictHandlerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[ResolverSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: i.ToResolverSyncConfigLambdaConflictHandlerConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResolverSyncConfigLambdaConflictHandlerConfigArgs) ToResolverSyncConfigLambdaConflictHandlerConfigPtrOutput() ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return i.ToResolverSyncConfigLambdaConflictHandlerConfigPtrOutputWithContext(context.Background())
 }
@@ -4393,6 +5047,12 @@ func (i *resolverSyncConfigLambdaConflictHandlerConfigPtrType) ToResolverSyncCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
+func (i *resolverSyncConfigLambdaConflictHandlerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResolverSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[*ResolverSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: i.ToResolverSyncConfigLambdaConflictHandlerConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverSyncConfigLambdaConflictHandlerConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverSyncConfigLambdaConflictHandlerConfigOutput) ElementType() reflect.Type {
@@ -4417,6 +5077,12 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigOutput) ToResolverSyncConfi
 	}).(ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
+func (o ResolverSyncConfigLambdaConflictHandlerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[ResolverSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN for the Lambda function to use as the Conflict Handler.
 func (o ResolverSyncConfigLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfigLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
@@ -4434,6 +5100,12 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) ToResolverSyncCo
 
 func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) ToResolverSyncConfigLambdaConflictHandlerConfigPtrOutputWithContext(ctx context.Context) ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o
+}
+
+func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverSyncConfigLambdaConflictHandlerConfig] {
+	return pulumix.Output[*ResolverSyncConfigLambdaConflictHandlerConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) Elem() ResolverSyncConfigLambdaConflictHandlerConfigOutput {

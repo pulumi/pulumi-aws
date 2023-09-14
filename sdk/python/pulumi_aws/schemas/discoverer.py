@@ -182,7 +182,7 @@ class Discoverer(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge discoverers can be imported using the `id`, e.g., console
+        Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 
         ```sh
          $ pulumi import aws:schemas/discoverer:Discoverer test 123
@@ -219,7 +219,7 @@ class Discoverer(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge discoverers can be imported using the `id`, e.g., console
+        Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 
         ```sh
          $ pulumi import aws:schemas/discoverer:Discoverer test 123

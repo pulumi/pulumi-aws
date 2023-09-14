@@ -7,13 +7,16 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a list of VPC Ids for a region.
 //
 // The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcsResult
 	err := ctx.Invoke("aws:ec2/getVpcs:getVpcs", args, &rv, opts...)
 	if err != nil {
@@ -25,6 +28,9 @@ func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption
 // A collection of arguments for invoking getVpcs.
 type GetVpcsArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
@@ -57,6 +63,9 @@ func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.I
 // A collection of arguments for invoking getVpcs.
 type GetVpcsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetVpcsFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
@@ -80,6 +89,12 @@ func (o GetVpcsResultOutput) ToGetVpcsResultOutput() GetVpcsResultOutput {
 
 func (o GetVpcsResultOutput) ToGetVpcsResultOutputWithContext(ctx context.Context) GetVpcsResultOutput {
 	return o
+}
+
+func (o GetVpcsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcsResult] {
+	return pulumix.Output[GetVpcsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcsResultOutput) Filters() GetVpcsFilterArrayOutput {

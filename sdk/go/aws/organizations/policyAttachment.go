@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +75,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,7 +97,11 @@ import (
 //
 // ## Import
 //
-// `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
+// With an account target:
+//
+// Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
+//
+// With an account target:
 //
 // ```sh
 //
@@ -126,6 +132,7 @@ func NewPolicyAttachment(ctx *pulumi.Context,
 	if args.TargetId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyAttachment
 	err := ctx.RegisterResource("aws:organizations/policyAttachment:PolicyAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -211,6 +218,12 @@ func (i *PolicyAttachment) ToPolicyAttachmentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentOutput)
 }
 
+func (i *PolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*PolicyAttachment] {
+	return pulumix.Output[*PolicyAttachment]{
+		OutputState: i.ToPolicyAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyAttachmentArrayInput is an input type that accepts PolicyAttachmentArray and PolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `PolicyAttachmentArrayInput` via:
 //
@@ -234,6 +247,12 @@ func (i PolicyAttachmentArray) ToPolicyAttachmentArrayOutput() PolicyAttachmentA
 
 func (i PolicyAttachmentArray) ToPolicyAttachmentArrayOutputWithContext(ctx context.Context) PolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentArrayOutput)
+}
+
+func (i PolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyAttachment] {
+	return pulumix.Output[[]*PolicyAttachment]{
+		OutputState: i.ToPolicyAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyAttachmentMapInput is an input type that accepts PolicyAttachmentMap and PolicyAttachmentMapOutput values.
@@ -261,6 +280,12 @@ func (i PolicyAttachmentMap) ToPolicyAttachmentMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentMapOutput)
 }
 
+func (i PolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyAttachment] {
+	return pulumix.Output[map[string]*PolicyAttachment]{
+		OutputState: i.ToPolicyAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAttachmentOutput) ElementType() reflect.Type {
@@ -273,6 +298,12 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentOutput() PolicyAttachmentOutpu
 
 func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput {
 	return o
+}
+
+func (o PolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyAttachment] {
+	return pulumix.Output[*PolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique identifier (ID) of the policy that you want to attach to the target.
@@ -304,6 +335,12 @@ func (o PolicyAttachmentArrayOutput) ToPolicyAttachmentArrayOutputWithContext(ct
 	return o
 }
 
+func (o PolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyAttachment] {
+	return pulumix.Output[[]*PolicyAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyAttachmentArrayOutput) Index(i pulumi.IntInput) PolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyAttachment {
 		return vs[0].([]*PolicyAttachment)[vs[1].(int)]
@@ -322,6 +359,12 @@ func (o PolicyAttachmentMapOutput) ToPolicyAttachmentMapOutput() PolicyAttachmen
 
 func (o PolicyAttachmentMapOutput) ToPolicyAttachmentMapOutputWithContext(ctx context.Context) PolicyAttachmentMapOutput {
 	return o
+}
+
+func (o PolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyAttachment] {
+	return pulumix.Output[map[string]*PolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) PolicyAttachmentOutput {

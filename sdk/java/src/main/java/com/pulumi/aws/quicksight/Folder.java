@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A QuickSight folder can be imported using the AWS account ID and folder ID name separated by a comma (`,`) e.g.,
+ * Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
@@ -239,12 +239,16 @@ public class Folder extends com.pulumi.resources.CustomResource {
     /**
      * Display name for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Display name for the folder.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

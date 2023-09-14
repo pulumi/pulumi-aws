@@ -233,7 +233,7 @@ class Rule(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Rule can be imported using the id, e.g.,
+        Using `pulumi import`, import WAF Regional Rule using the id. For example:
 
         ```sh
          $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -287,7 +287,7 @@ class Rule(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Rule can be imported using the id, e.g.,
+        Using `pulumi import`, import WAF Regional Rule using the id. For example:
 
         ```sh
          $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

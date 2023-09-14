@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// A Config Organization Custom Policy Rule can be imported using the `name` argument, e.g.,
+    /// Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
@@ -143,6 +143,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("triggerTypes")]
         public Output<ImmutableArray<string>> TriggerTypes { get; private set; } = null!;
@@ -288,6 +290,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> TriggerTypes
         {
@@ -404,6 +408,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> TriggerTypes
         {

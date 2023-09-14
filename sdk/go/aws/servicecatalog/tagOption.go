@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Tag Option.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 //
 // ```sh
 //
@@ -59,6 +61,8 @@ type TagOption struct {
 	Key   pulumi.StringOutput `pulumi:"key"`
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -75,6 +79,7 @@ func NewTagOption(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagOption
 	err := ctx.RegisterResource("aws:servicecatalog/tagOption:TagOption", name, args, &resource, opts...)
 	if err != nil {
@@ -103,6 +108,8 @@ type tagOptionState struct {
 	Key   *string `pulumi:"key"`
 	Owner *string `pulumi:"owner"`
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value *string `pulumi:"value"`
 }
 
@@ -113,6 +120,8 @@ type TagOptionState struct {
 	Key   pulumi.StringPtrInput
 	Owner pulumi.StringPtrInput
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value pulumi.StringPtrInput
 }
 
@@ -126,6 +135,8 @@ type tagOptionArgs struct {
 	// Tag option key.
 	Key string `pulumi:"key"`
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value string `pulumi:"value"`
 }
 
@@ -136,6 +147,8 @@ type TagOptionArgs struct {
 	// Tag option key.
 	Key pulumi.StringInput
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value pulumi.StringInput
 }
 
@@ -160,6 +173,12 @@ func (i *TagOption) ToTagOptionOutput() TagOptionOutput {
 
 func (i *TagOption) ToTagOptionOutputWithContext(ctx context.Context) TagOptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionOutput)
+}
+
+func (i *TagOption) ToOutput(ctx context.Context) pulumix.Output[*TagOption] {
+	return pulumix.Output[*TagOption]{
+		OutputState: i.ToTagOptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TagOptionArrayInput is an input type that accepts TagOptionArray and TagOptionArrayOutput values.
@@ -187,6 +206,12 @@ func (i TagOptionArray) ToTagOptionArrayOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionArrayOutput)
 }
 
+func (i TagOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*TagOption] {
+	return pulumix.Output[[]*TagOption]{
+		OutputState: i.ToTagOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TagOptionMapInput is an input type that accepts TagOptionMap and TagOptionMapOutput values.
 // You can construct a concrete instance of `TagOptionMapInput` via:
 //
@@ -212,6 +237,12 @@ func (i TagOptionMap) ToTagOptionMapOutputWithContext(ctx context.Context) TagOp
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionMapOutput)
 }
 
+func (i TagOptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagOption] {
+	return pulumix.Output[map[string]*TagOption]{
+		OutputState: i.ToTagOptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagOptionOutput struct{ *pulumi.OutputState }
 
 func (TagOptionOutput) ElementType() reflect.Type {
@@ -224,6 +255,12 @@ func (o TagOptionOutput) ToTagOptionOutput() TagOptionOutput {
 
 func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOptionOutput {
 	return o
+}
+
+func (o TagOptionOutput) ToOutput(ctx context.Context) pulumix.Output[*TagOption] {
+	return pulumix.Output[*TagOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether tag option is active. Default is `true`.
@@ -241,6 +278,8 @@ func (o TagOptionOutput) Owner() pulumi.StringOutput {
 }
 
 // Tag option value.
+//
+// The following arguments are optional:
 func (o TagOptionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }
@@ -257,6 +296,12 @@ func (o TagOptionArrayOutput) ToTagOptionArrayOutput() TagOptionArrayOutput {
 
 func (o TagOptionArrayOutput) ToTagOptionArrayOutputWithContext(ctx context.Context) TagOptionArrayOutput {
 	return o
+}
+
+func (o TagOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TagOption] {
+	return pulumix.Output[[]*TagOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagOptionArrayOutput) Index(i pulumi.IntInput) TagOptionOutput {
@@ -277,6 +322,12 @@ func (o TagOptionMapOutput) ToTagOptionMapOutput() TagOptionMapOutput {
 
 func (o TagOptionMapOutput) ToTagOptionMapOutputWithContext(ctx context.Context) TagOptionMapOutput {
 	return o
+}
+
+func (o TagOptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagOption] {
+	return pulumix.Output[map[string]*TagOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagOptionMapOutput) MapIndex(k pulumi.StringInput) TagOptionOutput {

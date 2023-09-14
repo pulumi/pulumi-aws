@@ -214,13 +214,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
+ * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
+ * 
+ * If the record also contains a set identifier, append it:
+ * 
+ * __Using `pulumi import` to import__ Route53 Records using the ID of the record, record name, record type, and set identifier. For example:
+ * 
+ * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
  * 
  * ```sh
  *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
  * ```
- * 
- *  If the record also contains a set identifier, it should be appended
+ *  If the record also contains a set identifier, append it:
  * 
  * ```sh
  *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
@@ -248,12 +253,16 @@ public class Record extends com.pulumi.resources.CustomResource {
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      * 
+     * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
+     * 
      */
     @Export(name="allowOverwrite", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowOverwrite;
 
     /**
      * @return Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     * 
+     * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
      * 
      */
     public Output<Boolean> allowOverwrite() {

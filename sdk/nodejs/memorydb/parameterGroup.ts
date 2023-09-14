@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `name` to import a parameter group. For example
+ * Using `pulumi import`, import a parameter group using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
@@ -73,6 +73,8 @@ export class ParameterGroup extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The engine version that the parameter group can be used with.
+     *
+     * The following arguments are optional:
      */
     public readonly family!: pulumi.Output<string>;
     /**
@@ -150,6 +152,8 @@ export interface ParameterGroupState {
     description?: pulumi.Input<string>;
     /**
      * The engine version that the parameter group can be used with.
+     *
+     * The following arguments are optional:
      */
     family?: pulumi.Input<string>;
     /**
@@ -184,6 +188,8 @@ export interface ParameterGroupArgs {
     description?: pulumi.Input<string>;
     /**
      * The engine version that the parameter group can be used with.
+     *
+     * The following arguments are optional:
      */
     family: pulumi.Input<string>;
     /**

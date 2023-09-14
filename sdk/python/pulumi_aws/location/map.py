@@ -24,6 +24,8 @@ class MapArgs:
         The set of arguments for constructing a Map resource.
         :param pulumi.Input['MapConfigurationArgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] map_name: The name for the map resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -51,6 +53,8 @@ class MapArgs:
     def map_name(self) -> pulumi.Input[str]:
         """
         The name for the map resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "map_name")
 
@@ -101,6 +105,8 @@ class _MapState:
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
         :param pulumi.Input[str] map_name: The name for the map resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the map resource was last updated in ISO 8601 format.
@@ -175,6 +181,8 @@ class _MapState:
     def map_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name for the map resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "map_name")
 
@@ -247,7 +255,7 @@ class Map(pulumi.CustomResource):
 
         ## Import
 
-        `aws_location_map` resources can be imported using the map name, e.g.
+        Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
 
         ```sh
          $ pulumi import aws:location/map:Map example example
@@ -258,6 +266,8 @@ class Map(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_name: The name for the map resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -284,7 +294,7 @@ class Map(pulumi.CustomResource):
 
         ## Import
 
-        `aws_location_map` resources can be imported using the map name, e.g.
+        Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
 
         ```sh
          $ pulumi import aws:location/map:Map example example
@@ -360,6 +370,8 @@ class Map(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
         :param pulumi.Input[str] map_name: The name for the map resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the map resource was last updated in ISO 8601 format.
@@ -415,6 +427,8 @@ class Map(pulumi.CustomResource):
     def map_name(self) -> pulumi.Output[str]:
         """
         The name for the map resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "map_name")
 

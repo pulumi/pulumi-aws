@@ -66,12 +66,16 @@ public final class NetworkAclEgressArgs extends com.pulumi.resources.ResourceArg
     /**
      * The ICMP type code to be used. Default 0.
      * 
+     * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+     * 
      */
     @Import(name="icmpCode")
     private @Nullable Output<Integer> icmpCode;
 
     /**
      * @return The ICMP type code to be used. Default 0.
+     * 
+     * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      * 
      */
     public Optional<Output<Integer>> icmpCode() {
@@ -255,6 +259,8 @@ public final class NetworkAclEgressArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param icmpCode The ICMP type code to be used. Default 0.
          * 
+         * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+         * 
          * @return builder
          * 
          */
@@ -265,6 +271,8 @@ public final class NetworkAclEgressArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param icmpCode The ICMP type code to be used. Default 0.
+         * 
+         * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
          * 
          * @return builder
          * 

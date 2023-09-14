@@ -57,10 +57,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
+ *  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
  * ```
  * 
  */
@@ -111,12 +111,16 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
     /**
      * List of resources to add to this resource set. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="resources", refs={List.class,ResourceSetResource.class}, tree="[0,1]")
     private Output<List<ResourceSetResource>> resources;
 
     /**
      * @return List of resources to add to this resource set. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<ResourceSetResource>> resources() {

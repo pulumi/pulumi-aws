@@ -149,7 +149,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Import
 
-        Chime Voice Connector Logging can be imported using the `voice_connector_id`, e.g.,
+        Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
 
         ```sh
          $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
@@ -185,7 +185,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Import
 
-        Chime Voice Connector Logging can be imported using the `voice_connector_id`, e.g.,
+        Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
 
         ```sh
          $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4

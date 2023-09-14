@@ -27,7 +27,6 @@ class ClusterArgs:
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
                  cluster_revision_number: Optional[pulumi.Input[str]] = None,
-                 cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
@@ -62,14 +61,15 @@ class ClusterArgs:
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+               No longer supported by the AWS API.
+               Always returns `auto`.
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: A list of security groups to be associated with this cluster.
         :param pulumi.Input[str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         :param pulumi.Input[str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -114,6 +114,9 @@ class ClusterArgs:
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
         if aqua_configuration_status is not None:
+            warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+        if aqua_configuration_status is not None:
             pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
         if automated_snapshot_retention_period is not None:
             pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
@@ -127,11 +130,6 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_public_key", cluster_public_key)
         if cluster_revision_number is not None:
             pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
-        if cluster_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
-        if cluster_security_groups is not None:
-            pulumi.set(__self__, "cluster_security_groups", cluster_security_groups)
         if cluster_subnet_group_name is not None:
             pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
         if cluster_type is not None:
@@ -241,8 +239,13 @@ class ClusterArgs:
     @pulumi.getter(name="aquaConfigurationStatus")
     def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
         """
-        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+        No longer supported by the AWS API.
+        Always returns `auto`.
         """
+        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -320,18 +323,6 @@ class ClusterArgs:
     @cluster_revision_number.setter
     def cluster_revision_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_revision_number", value)
-
-    @property
-    @pulumi.getter(name="clusterSecurityGroups")
-    def cluster_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of security groups to be associated with this cluster.
-        """
-        return pulumi.get(self, "cluster_security_groups")
-
-    @cluster_security_groups.setter
-    def cluster_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "cluster_security_groups", value)
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")
@@ -689,11 +680,11 @@ class _ClusterState:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 cluster_namespace_arn: Optional[pulumi.Input[str]] = None,
                  cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
                  cluster_revision_number: Optional[pulumi.Input[str]] = None,
-                 cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
@@ -729,17 +720,19 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+               No longer supported by the AWS API.
+               Always returns `auto`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
+        :param pulumi.Input[str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: A list of security groups to be associated with this cluster.
         :param pulumi.Input[str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         :param pulumi.Input[str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -785,6 +778,9 @@ class _ClusterState:
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
         if aqua_configuration_status is not None:
+            warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+        if aqua_configuration_status is not None:
             pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -796,6 +792,8 @@ class _ClusterState:
             pulumi.set(__self__, "availability_zone_relocation_enabled", availability_zone_relocation_enabled)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if cluster_namespace_arn is not None:
+            pulumi.set(__self__, "cluster_namespace_arn", cluster_namespace_arn)
         if cluster_nodes is not None:
             pulumi.set(__self__, "cluster_nodes", cluster_nodes)
         if cluster_parameter_group_name is not None:
@@ -804,11 +802,6 @@ class _ClusterState:
             pulumi.set(__self__, "cluster_public_key", cluster_public_key)
         if cluster_revision_number is not None:
             pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
-        if cluster_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
-        if cluster_security_groups is not None:
-            pulumi.set(__self__, "cluster_security_groups", cluster_security_groups)
         if cluster_subnet_group_name is not None:
             pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
         if cluster_type is not None:
@@ -900,8 +893,13 @@ class _ClusterState:
     @pulumi.getter(name="aquaConfigurationStatus")
     def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
         """
-        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+        No longer supported by the AWS API.
+        Always returns `auto`.
         """
+        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -969,6 +967,18 @@ class _ClusterState:
         pulumi.set(self, "cluster_identifier", value)
 
     @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace Amazon Resource Name (ARN) of the cluster
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
+
+    @cluster_namespace_arn.setter
+    def cluster_namespace_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_namespace_arn", value)
+
+    @property
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]]:
         """
@@ -1015,18 +1025,6 @@ class _ClusterState:
     @cluster_revision_number.setter
     def cluster_revision_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_revision_number", value)
-
-    @property
-    @pulumi.getter(name="clusterSecurityGroups")
-    def cluster_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of security groups to be associated with this cluster.
-        """
-        return pulumi.get(self, "cluster_security_groups")
-
-    @cluster_security_groups.setter
-    def cluster_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "cluster_security_groups", value)
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")
@@ -1424,7 +1422,6 @@ class Cluster(pulumi.CustomResource):
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
                  cluster_revision_number: Optional[pulumi.Input[str]] = None,
-                 cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
@@ -1477,7 +1474,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
+        Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
 
         ```sh
          $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
@@ -1487,7 +1484,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+               No longer supported by the AWS API.
+               Always returns `auto`.
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
@@ -1495,7 +1494,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: A list of security groups to be associated with this cluster.
         :param pulumi.Input[str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         :param pulumi.Input[str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -1562,7 +1560,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
+        Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
 
         ```sh
          $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
@@ -1593,7 +1591,6 @@ class Cluster(pulumi.CustomResource):
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
                  cluster_revision_number: Optional[pulumi.Input[str]] = None,
-                 cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
@@ -1634,6 +1631,9 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["allow_version_upgrade"] = allow_version_upgrade
             __props__.__dict__["apply_immediately"] = apply_immediately
+            if aqua_configuration_status is not None and not opts.urn:
+                warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
             __props__.__dict__["aqua_configuration_status"] = aqua_configuration_status
             __props__.__dict__["automated_snapshot_retention_period"] = automated_snapshot_retention_period
             __props__.__dict__["availability_zone"] = availability_zone
@@ -1644,10 +1644,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
             __props__.__dict__["cluster_public_key"] = cluster_public_key
             __props__.__dict__["cluster_revision_number"] = cluster_revision_number
-            if cluster_security_groups is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["cluster_security_groups"] = cluster_security_groups
             __props__.__dict__["cluster_subnet_group_name"] = cluster_subnet_group_name
             __props__.__dict__["cluster_type"] = cluster_type
             __props__.__dict__["cluster_version"] = cluster_version
@@ -1680,6 +1676,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
+            __props__.__dict__["cluster_namespace_arn"] = None
             __props__.__dict__["cluster_nodes"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["tags_all"] = None
@@ -1703,11 +1700,11 @@ class Cluster(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
+            cluster_namespace_arn: Optional[pulumi.Input[str]] = None,
             cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]]] = None,
             cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
             cluster_public_key: Optional[pulumi.Input[str]] = None,
             cluster_revision_number: Optional[pulumi.Input[str]] = None,
-            cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
             cluster_type: Optional[pulumi.Input[str]] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
@@ -1748,17 +1745,19 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+               No longer supported by the AWS API.
+               Always returns `auto`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
+        :param pulumi.Input[str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: A list of security groups to be associated with this cluster.
         :param pulumi.Input[str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         :param pulumi.Input[str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -1811,11 +1810,11 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["availability_zone_relocation_enabled"] = availability_zone_relocation_enabled
         __props__.__dict__["cluster_identifier"] = cluster_identifier
+        __props__.__dict__["cluster_namespace_arn"] = cluster_namespace_arn
         __props__.__dict__["cluster_nodes"] = cluster_nodes
         __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
         __props__.__dict__["cluster_public_key"] = cluster_public_key
         __props__.__dict__["cluster_revision_number"] = cluster_revision_number
-        __props__.__dict__["cluster_security_groups"] = cluster_security_groups
         __props__.__dict__["cluster_subnet_group_name"] = cluster_subnet_group_name
         __props__.__dict__["cluster_type"] = cluster_type
         __props__.__dict__["cluster_version"] = cluster_version
@@ -1869,8 +1868,13 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="aquaConfigurationStatus")
     def aqua_configuration_status(self) -> pulumi.Output[str]:
         """
-        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+        No longer supported by the AWS API.
+        Always returns `auto`.
         """
+        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "aqua_configuration_status")
 
     @property
@@ -1914,6 +1918,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "cluster_identifier")
 
     @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> pulumi.Output[str]:
+        """
+        The namespace Amazon Resource Name (ARN) of the cluster
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
+
+    @property
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> pulumi.Output[Sequence['outputs.ClusterClusterNode']]:
         """
@@ -1944,14 +1956,6 @@ class Cluster(pulumi.CustomResource):
         The specific revision number of the database in the cluster
         """
         return pulumi.get(self, "cluster_revision_number")
-
-    @property
-    @pulumi.getter(name="clusterSecurityGroups")
-    def cluster_security_groups(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of security groups to be associated with this cluster.
-        """
-        return pulumi.get(self, "cluster_security_groups")
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")

@@ -19,10 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an ElastiCache Subnet Group resource.
  * 
- * &gt; **NOTE:** ElastiCache Subnet Groups are only for use when working with an
- * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
- * ElastiCache Security Group resource.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -71,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Subnet Groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet

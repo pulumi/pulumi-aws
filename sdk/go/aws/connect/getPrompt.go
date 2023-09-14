@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Prompt.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetPrompt(ctx *pulumi.Context, args *GetPromptArgs, opts ...pulumi.InvokeOption) (*GetPromptResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPromptResult
 	err := ctx.Invoke("aws:connect/getPrompt:getPrompt", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o GetPromptResultOutput) ToGetPromptResultOutput() GetPromptResultOutput {
 
 func (o GetPromptResultOutput) ToGetPromptResultOutputWithContext(ctx context.Context) GetPromptResultOutput {
 	return o
+}
+
+func (o GetPromptResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPromptResult] {
+	return pulumix.Output[GetPromptResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Prompt.

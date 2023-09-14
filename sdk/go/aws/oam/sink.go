@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CloudWatch Observability Access Manager Sink.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch Observability Access Manager Sink can be imported using the `arn`, e.g.,
+// Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
 //
 // ```sh
 //
@@ -56,6 +58,8 @@ type Sink struct {
 	// ARN of the Sink.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringOutput `pulumi:"sinkId"`
@@ -71,6 +75,7 @@ func NewSink(ctx *pulumi.Context,
 		args = &SinkArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Sink
 	err := ctx.RegisterResource("aws:oam/sink:Sink", name, args, &resource, opts...)
 	if err != nil {
@@ -96,6 +101,8 @@ type sinkState struct {
 	// ARN of the Sink.
 	Arn *string `pulumi:"arn"`
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId *string `pulumi:"sinkId"`
@@ -108,6 +115,8 @@ type SinkState struct {
 	// ARN of the Sink.
 	Arn pulumi.StringPtrInput
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringPtrInput
@@ -122,6 +131,8 @@ func (SinkState) ElementType() reflect.Type {
 
 type sinkArgs struct {
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -130,6 +141,8 @@ type sinkArgs struct {
 // The set of arguments for constructing a Sink resource.
 type SinkArgs struct {
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -158,6 +171,12 @@ func (i *Sink) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkOutput)
 }
 
+func (i *Sink) ToOutput(ctx context.Context) pulumix.Output[*Sink] {
+	return pulumix.Output[*Sink]{
+		OutputState: i.ToSinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SinkArrayInput is an input type that accepts SinkArray and SinkArrayOutput values.
 // You can construct a concrete instance of `SinkArrayInput` via:
 //
@@ -181,6 +200,12 @@ func (i SinkArray) ToSinkArrayOutput() SinkArrayOutput {
 
 func (i SinkArray) ToSinkArrayOutputWithContext(ctx context.Context) SinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkArrayOutput)
+}
+
+func (i SinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*Sink] {
+	return pulumix.Output[[]*Sink]{
+		OutputState: i.ToSinkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SinkMapInput is an input type that accepts SinkMap and SinkMapOutput values.
@@ -208,6 +233,12 @@ func (i SinkMap) ToSinkMapOutputWithContext(ctx context.Context) SinkMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkMapOutput)
 }
 
+func (i SinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sink] {
+	return pulumix.Output[map[string]*Sink]{
+		OutputState: i.ToSinkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SinkOutput struct{ *pulumi.OutputState }
 
 func (SinkOutput) ElementType() reflect.Type {
@@ -222,12 +253,20 @@ func (o SinkOutput) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 	return o
 }
 
+func (o SinkOutput) ToOutput(ctx context.Context) pulumix.Output[*Sink] {
+	return pulumix.Output[*Sink]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Sink.
 func (o SinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Name for the sink.
+//
+// The following arguments are optional:
 func (o SinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -260,6 +299,12 @@ func (o SinkArrayOutput) ToSinkArrayOutputWithContext(ctx context.Context) SinkA
 	return o
 }
 
+func (o SinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Sink] {
+	return pulumix.Output[[]*Sink]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SinkArrayOutput) Index(i pulumi.IntInput) SinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Sink {
 		return vs[0].([]*Sink)[vs[1].(int)]
@@ -278,6 +323,12 @@ func (o SinkMapOutput) ToSinkMapOutput() SinkMapOutput {
 
 func (o SinkMapOutput) ToSinkMapOutputWithContext(ctx context.Context) SinkMapOutput {
 	return o
+}
+
+func (o SinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sink] {
+	return pulumix.Output[map[string]*Sink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SinkMapOutput) MapIndex(k pulumi.StringInput) SinkOutput {

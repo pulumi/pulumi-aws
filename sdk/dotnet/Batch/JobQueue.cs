@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Import
     /// 
-    /// Batch Job Queue can be imported using the `arn`, e.g.,
+    /// Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
@@ -139,6 +139,9 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        [Output("timeouts")]
+        public Output<Outputs.JobQueueTimeouts?> Timeouts { get; private set; } = null!;
 
 
         /// <summary>
@@ -237,6 +240,9 @@ namespace Pulumi.Aws.Batch
             set => _tags = value;
         }
 
+        [Input("timeouts")]
+        public Input<Inputs.JobQueueTimeoutsArgs>? Timeouts { get; set; }
+
         public JobQueueArgs()
         {
         }
@@ -313,6 +319,9 @@ namespace Pulumi.Aws.Batch
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        [Input("timeouts")]
+        public Input<Inputs.JobQueueTimeoutsGetArgs>? Timeouts { get; set; }
 
         public JobQueueState()
         {

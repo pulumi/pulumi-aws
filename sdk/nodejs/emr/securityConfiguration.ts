@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EMR Security Configurations can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name

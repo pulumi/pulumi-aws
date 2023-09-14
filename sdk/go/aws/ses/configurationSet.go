@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES configuration set resource.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +67,7 @@ import (
 //
 // ## Import
 //
-// SES Configuration Sets can be imported using their `name`, e.g.,
+// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 //
 // ```sh
 //
@@ -82,6 +84,8 @@ type ConfigurationSet struct {
 	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 	LastFreshStart pulumi.StringOutput `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
+	//
+	// The following argument is optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled pulumi.BoolPtrOutput `pulumi:"reputationMetricsEnabled"`
@@ -104,6 +108,7 @@ func NewConfigurationSet(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("aws:ses/configurationSet:ConfigurationSet", name, args, &resource, opts...)
 	if err != nil {
@@ -133,6 +138,8 @@ type configurationSetState struct {
 	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 	LastFreshStart *string `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
+	//
+	// The following argument is optional:
 	Name *string `pulumi:"name"`
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
@@ -150,6 +157,8 @@ type ConfigurationSetState struct {
 	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 	LastFreshStart pulumi.StringPtrInput
 	// Name of the configuration set.
+	//
+	// The following argument is optional:
 	Name pulumi.StringPtrInput
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled pulumi.BoolPtrInput
@@ -167,6 +176,8 @@ type configurationSetArgs struct {
 	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// Name of the configuration set.
+	//
+	// The following argument is optional:
 	Name *string `pulumi:"name"`
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
@@ -181,6 +192,8 @@ type ConfigurationSetArgs struct {
 	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
 	// Name of the configuration set.
+	//
+	// The following argument is optional:
 	Name pulumi.StringPtrInput
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled pulumi.BoolPtrInput
@@ -213,6 +226,12 @@ func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetOutput)
 }
 
+func (i *ConfigurationSet) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSet] {
+	return pulumix.Output[*ConfigurationSet]{
+		OutputState: i.ToConfigurationSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationSetArrayInput is an input type that accepts ConfigurationSetArray and ConfigurationSetArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetArrayInput` via:
 //
@@ -236,6 +255,12 @@ func (i ConfigurationSetArray) ToConfigurationSetArrayOutput() ConfigurationSetA
 
 func (i ConfigurationSetArray) ToConfigurationSetArrayOutputWithContext(ctx context.Context) ConfigurationSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArrayOutput)
+}
+
+func (i ConfigurationSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationSet] {
+	return pulumix.Output[[]*ConfigurationSet]{
+		OutputState: i.ToConfigurationSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConfigurationSetMapInput is an input type that accepts ConfigurationSetMap and ConfigurationSetMapOutput values.
@@ -263,6 +288,12 @@ func (i ConfigurationSetMap) ToConfigurationSetMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetMapOutput)
 }
 
+func (i ConfigurationSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationSet] {
+	return pulumix.Output[map[string]*ConfigurationSet]{
+		OutputState: i.ToConfigurationSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationSetOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetOutput) ElementType() reflect.Type {
@@ -275,6 +306,12 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutpu
 
 func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
 	return o
+}
+
+func (o ConfigurationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSet] {
+	return pulumix.Output[*ConfigurationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // SES configuration set ARN.
@@ -293,6 +330,8 @@ func (o ConfigurationSetOutput) LastFreshStart() pulumi.StringOutput {
 }
 
 // Name of the configuration set.
+//
+// The following argument is optional:
 func (o ConfigurationSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -326,6 +365,12 @@ func (o ConfigurationSetArrayOutput) ToConfigurationSetArrayOutputWithContext(ct
 	return o
 }
 
+func (o ConfigurationSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationSet] {
+	return pulumix.Output[[]*ConfigurationSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationSetArrayOutput) Index(i pulumi.IntInput) ConfigurationSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationSet {
 		return vs[0].([]*ConfigurationSet)[vs[1].(int)]
@@ -344,6 +389,12 @@ func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutput() ConfigurationSe
 
 func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutputWithContext(ctx context.Context) ConfigurationSetMapOutput {
 	return o
+}
+
+func (o ConfigurationSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationSet] {
+	return pulumix.Output[map[string]*ConfigurationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationSetMapOutput) MapIndex(k pulumi.StringInput) ConfigurationSetOutput {

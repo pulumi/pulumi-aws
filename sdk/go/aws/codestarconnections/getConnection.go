@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about CodeStar Connection.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +66,7 @@ import (
 //
 // ```
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectionResult
 	err := ctx.Invoke("aws:codestarconnections/getConnection:getConnection", args, &rv, opts...)
 	if err != nil {
@@ -77,6 +80,8 @@ type LookupConnectionArgs struct {
 	// CodeStar Connection ARN.
 	Arn *string `pulumi:"arn"`
 	// CodeStar Connection name.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name *string `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -117,6 +122,8 @@ type LookupConnectionOutputArgs struct {
 	// CodeStar Connection ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// CodeStar Connection name.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -139,6 +146,12 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutput() LookupCon
 
 func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(ctx context.Context) LookupConnectionResultOutput {
 	return o
+}
+
+func (o LookupConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectionResult] {
+	return pulumix.Output[LookupConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {

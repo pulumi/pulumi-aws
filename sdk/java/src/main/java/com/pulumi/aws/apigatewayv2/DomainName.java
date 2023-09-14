@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
+ * Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com

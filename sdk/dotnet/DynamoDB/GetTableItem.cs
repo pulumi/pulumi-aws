@@ -102,6 +102,8 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
         /// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
@@ -138,6 +140,8 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
         /// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

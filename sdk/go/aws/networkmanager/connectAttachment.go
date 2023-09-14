@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS NetworkManager ConnectAttachment.
@@ -17,7 +19,7 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_connect_attachment` can be imported using the attachment ID, e.g.
+// Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
 //
 // ```sh
 //
@@ -41,6 +43,8 @@ type ConnectAttachment struct {
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptionsOutput `pulumi:"options"`
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
@@ -77,6 +81,7 @@ func NewConnectAttachment(ctx *pulumi.Context,
 	if args.TransportAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectAttachment
 	err := ctx.RegisterResource("aws:networkmanager/connectAttachment:ConnectAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -113,6 +118,8 @@ type connectAttachmentState struct {
 	// The Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options *ConnectAttachmentOptions `pulumi:"options"`
 	// The ID of the attachment account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
@@ -145,6 +152,8 @@ type ConnectAttachmentState struct {
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringPtrInput
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptionsPtrInput
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringPtrInput
@@ -172,6 +181,8 @@ type connectAttachmentArgs struct {
 	// The Region where the edge is located.
 	EdgeLocation string `pulumi:"edgeLocation"`
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptions `pulumi:"options"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -186,6 +197,8 @@ type ConnectAttachmentArgs struct {
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringInput
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptionsInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -216,6 +229,12 @@ func (i *ConnectAttachment) ToConnectAttachmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOutput)
 }
 
+func (i *ConnectAttachment) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachment] {
+	return pulumix.Output[*ConnectAttachment]{
+		OutputState: i.ToConnectAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectAttachmentArrayInput is an input type that accepts ConnectAttachmentArray and ConnectAttachmentArrayOutput values.
 // You can construct a concrete instance of `ConnectAttachmentArrayInput` via:
 //
@@ -239,6 +258,12 @@ func (i ConnectAttachmentArray) ToConnectAttachmentArrayOutput() ConnectAttachme
 
 func (i ConnectAttachmentArray) ToConnectAttachmentArrayOutputWithContext(ctx context.Context) ConnectAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentArrayOutput)
+}
+
+func (i ConnectAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectAttachment] {
+	return pulumix.Output[[]*ConnectAttachment]{
+		OutputState: i.ToConnectAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectAttachmentMapInput is an input type that accepts ConnectAttachmentMap and ConnectAttachmentMapOutput values.
@@ -266,6 +291,12 @@ func (i ConnectAttachmentMap) ToConnectAttachmentMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentMapOutput)
 }
 
+func (i ConnectAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectAttachment] {
+	return pulumix.Output[map[string]*ConnectAttachment]{
+		OutputState: i.ToConnectAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ConnectAttachmentOutput) ElementType() reflect.Type {
@@ -278,6 +309,12 @@ func (o ConnectAttachmentOutput) ToConnectAttachmentOutput() ConnectAttachmentOu
 
 func (o ConnectAttachmentOutput) ToConnectAttachmentOutputWithContext(ctx context.Context) ConnectAttachmentOutput {
 	return o
+}
+
+func (o ConnectAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachment] {
+	return pulumix.Output[*ConnectAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the attachment.
@@ -315,6 +352,8 @@ func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 }
 
 // Options for creating an attachment.
+//
+// The following arguments are optional:
 func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {
 	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentOptionsOutput { return v.Options }).(ConnectAttachmentOptionsOutput)
 }
@@ -368,6 +407,12 @@ func (o ConnectAttachmentArrayOutput) ToConnectAttachmentArrayOutputWithContext(
 	return o
 }
 
+func (o ConnectAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectAttachment] {
+	return pulumix.Output[[]*ConnectAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectAttachmentArrayOutput) Index(i pulumi.IntInput) ConnectAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectAttachment {
 		return vs[0].([]*ConnectAttachment)[vs[1].(int)]
@@ -386,6 +431,12 @@ func (o ConnectAttachmentMapOutput) ToConnectAttachmentMapOutput() ConnectAttach
 
 func (o ConnectAttachmentMapOutput) ToConnectAttachmentMapOutputWithContext(ctx context.Context) ConnectAttachmentMapOutput {
 	return o
+}
+
+func (o ConnectAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectAttachment] {
+	return pulumix.Output[map[string]*ConnectAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectAttachmentMapOutput) MapIndex(k pulumi.StringInput) ConnectAttachmentOutput {

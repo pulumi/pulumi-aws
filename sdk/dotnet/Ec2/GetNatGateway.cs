@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     public static class GetNatGateway
     {
         /// <summary>
-        /// Provides details about a specific Nat Gateway.
+        /// Provides details about a specific VPC NAT Gateway.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -33,8 +33,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// 
-        /// Usage with tags:
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### With tags
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +63,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides details about a specific Nat Gateway.
+        /// Provides details about a specific VPC NAT Gateway.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -83,8 +84,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// 
-        /// Usage with tags:
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### With tags
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -120,6 +122,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public List<Inputs.GetNatGatewayFilterArgs> Filters
         {
@@ -128,19 +133,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// ID of the specific Nat Gateway to retrieve.
+        /// ID of the specific NAT Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// State of the NAT gateway (pending | failed | available | deleting | deleted ).
+        /// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
 
         /// <summary>
-        /// ID of subnet that the Nat Gateway resides in.
+        /// ID of subnet that the NAT Gateway resides in.
         /// </summary>
         [Input("subnetId")]
         public string? SubnetId { get; set; }
@@ -150,7 +155,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired Nat Gateway.
+        /// a pair on the desired NAT Gateway.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -159,7 +164,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// ID of the VPC that the Nat Gateway resides in.
+        /// ID of the VPC that the NAT Gateway resides in.
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -177,6 +182,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public InputList<Inputs.GetNatGatewayFilterInputArgs> Filters
         {
@@ -185,19 +193,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// ID of the specific Nat Gateway to retrieve.
+        /// ID of the specific NAT Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// State of the NAT gateway (pending | failed | available | deleting | deleted ).
+        /// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// ID of subnet that the Nat Gateway resides in.
+        /// ID of subnet that the NAT Gateway resides in.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -207,7 +215,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired Nat Gateway.
+        /// a pair on the desired NAT Gateway.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -216,7 +224,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// ID of the VPC that the Nat Gateway resides in.
+        /// ID of the VPC that the NAT Gateway resides in.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -232,11 +240,11 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetNatGatewayResult
     {
         /// <summary>
-        /// ID of the EIP allocated to the selected Nat Gateway.
+        /// ID of the EIP allocated to the selected NAT Gateway.
         /// </summary>
         public readonly string AllocationId;
         /// <summary>
-        /// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         /// </summary>
         public readonly string AssociationId;
         /// <summary>
@@ -246,17 +254,29 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetNatGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// The ID of the ENI allocated to the selected Nat Gateway.
+        /// The ID of the ENI allocated to the selected NAT Gateway.
         /// </summary>
         public readonly string NetworkInterfaceId;
         /// <summary>
-        /// Private Ip address of the selected Nat Gateway.
+        /// Private IP address of the selected NAT Gateway.
         /// </summary>
         public readonly string PrivateIp;
         /// <summary>
-        /// Public Ip (EIP) address of the selected Nat Gateway.
+        /// Public IP (EIP) address of the selected NAT Gateway.
         /// </summary>
         public readonly string PublicIp;
+        /// <summary>
+        /// Secondary allocation EIP IDs for the selected NAT Gateway.
+        /// </summary>
+        public readonly ImmutableArray<string> SecondaryAllocationIds;
+        /// <summary>
+        /// The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        /// </summary>
+        public readonly int SecondaryPrivateIpAddressCount;
+        /// <summary>
+        /// Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        /// </summary>
+        public readonly ImmutableArray<string> SecondaryPrivateIpAddresses;
         public readonly string State;
         public readonly string SubnetId;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -280,6 +300,12 @@ namespace Pulumi.Aws.Ec2
 
             string publicIp,
 
+            ImmutableArray<string> secondaryAllocationIds,
+
+            int secondaryPrivateIpAddressCount,
+
+            ImmutableArray<string> secondaryPrivateIpAddresses,
+
             string state,
 
             string subnetId,
@@ -296,6 +322,9 @@ namespace Pulumi.Aws.Ec2
             NetworkInterfaceId = networkInterfaceId;
             PrivateIp = privateIp;
             PublicIp = publicIp;
+            SecondaryAllocationIds = secondaryAllocationIds;
+            SecondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+            SecondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
             State = state;
             SubnetId = subnetId;
             Tags = tags;

@@ -352,9 +352,54 @@ class Authorizer(pulumi.CustomResource):
         """
         Provides an API Gateway Authorizer.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        demo_rest_api = aws.apigateway.RestApi("demoRestApi")
+        invocation_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["apigateway.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        invocation_role = aws.iam.Role("invocationRole",
+            path="/",
+            assume_role_policy=invocation_assume_role.json)
+        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+        )])
+        lambda_ = aws.iam.Role("lambda", assume_role_policy=lambda_assume_role.json)
+        authorizer = aws.lambda_.Function("authorizer",
+            code=pulumi.FileArchive("lambda-function.zip"),
+            role=lambda_.arn,
+            handler="exports.example")
+        demo_authorizer = aws.apigateway.Authorizer("demoAuthorizer",
+            rest_api=demo_rest_api.id,
+            authorizer_uri=authorizer.invoke_arn,
+            authorizer_credentials=invocation_role.arn)
+        invocation_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["lambda:InvokeFunction"],
+            resources=[authorizer.arn],
+        )])
+        invocation_policy_role_policy = aws.iam.RolePolicy("invocationPolicyRolePolicy",
+            role=invocation_role.id,
+            policy=invocation_policy_policy_document.json)
+        ```
+
         ## Import
 
-        AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.,
+        Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
 
         ```sh
          $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
@@ -382,9 +427,54 @@ class Authorizer(pulumi.CustomResource):
         """
         Provides an API Gateway Authorizer.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        demo_rest_api = aws.apigateway.RestApi("demoRestApi")
+        invocation_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["apigateway.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        invocation_role = aws.iam.Role("invocationRole",
+            path="/",
+            assume_role_policy=invocation_assume_role.json)
+        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+        )])
+        lambda_ = aws.iam.Role("lambda", assume_role_policy=lambda_assume_role.json)
+        authorizer = aws.lambda_.Function("authorizer",
+            code=pulumi.FileArchive("lambda-function.zip"),
+            role=lambda_.arn,
+            handler="exports.example")
+        demo_authorizer = aws.apigateway.Authorizer("demoAuthorizer",
+            rest_api=demo_rest_api.id,
+            authorizer_uri=authorizer.invoke_arn,
+            authorizer_credentials=invocation_role.arn)
+        invocation_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["lambda:InvokeFunction"],
+            resources=[authorizer.arn],
+        )])
+        invocation_policy_role_policy = aws.iam.RolePolicy("invocationPolicyRolePolicy",
+            role=invocation_role.id,
+            policy=invocation_policy_policy_document.json)
+        ```
+
         ## Import
 
-        AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.,
+        Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
 
         ```sh
          $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example

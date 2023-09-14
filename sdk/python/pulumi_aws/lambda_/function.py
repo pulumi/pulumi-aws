@@ -52,6 +52,8 @@ class FunctionArgs:
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -69,7 +71,7 @@ class FunctionArgs:
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
@@ -120,7 +122,13 @@ class FunctionArgs:
         if publish is not None:
             pulumi.set(__self__, "publish", publish)
         if replace_security_groups_on_destroy is not None:
+            warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+        if replace_security_groups_on_destroy is not None:
             pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
+        if replacement_security_group_ids is not None:
+            warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
         if replacement_security_group_ids is not None:
             pulumi.set(__self__, "replacement_security_group_ids", replacement_security_group_ids)
         if reserved_concurrent_executions is not None:
@@ -153,6 +161,8 @@ class FunctionArgs:
     def role(self) -> pulumi.Input[str]:
         """
         Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role")
 
@@ -368,8 +378,11 @@ class FunctionArgs:
     @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
     def replace_security_groups_on_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         """
+        warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+
         return pulumi.get(self, "replace_security_groups_on_destroy")
 
     @replace_security_groups_on_destroy.setter
@@ -382,6 +395,9 @@ class FunctionArgs:
         """
         List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         """
+        warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+
         return pulumi.get(self, "replacement_security_group_ids")
 
     @replacement_security_group_ids.setter
@@ -602,10 +618,12 @@ class _FunctionState:
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         :param pulumi.Input[str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
@@ -670,7 +688,13 @@ class _FunctionState:
         if qualified_invoke_arn is not None:
             pulumi.set(__self__, "qualified_invoke_arn", qualified_invoke_arn)
         if replace_security_groups_on_destroy is not None:
+            warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+        if replace_security_groups_on_destroy is not None:
             pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
+        if replacement_security_group_ids is not None:
+            warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
         if replacement_security_group_ids is not None:
             pulumi.set(__self__, "replacement_security_group_ids", replacement_security_group_ids)
         if reserved_concurrent_executions is not None:
@@ -978,8 +1002,11 @@ class _FunctionState:
     @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
     def replace_security_groups_on_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         """
+        warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+
         return pulumi.get(self, "replace_security_groups_on_destroy")
 
     @replace_security_groups_on_destroy.setter
@@ -992,6 +1019,9 @@ class _FunctionState:
         """
         List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         """
+        warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+
         return pulumi.get(self, "replacement_security_group_ids")
 
     @replacement_security_group_ids.setter
@@ -1015,6 +1045,8 @@ class _FunctionState:
     def role(self) -> Optional[pulumi.Input[str]]:
         """
         Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role")
 
@@ -1267,6 +1299,36 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_archive as archive
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        lambda_ = archive.get_file(type="zip",
+            source_file="lambda.js",
+            output_path="lambda_function_payload.zip")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs18.x",
+            environment=aws.lambda_.FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
         ### Lambda Layers
 
         ```python
@@ -1298,7 +1360,7 @@ class Function(pulumi.CustomResource):
             code=pulumi.FileArchive("lambda_function_payload.zip"),
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs14.x",
+            runtime="nodejs18.x",
             ephemeral_storage=aws.lambda_.FunctionEphemeralStorageArgs(
                 size=10240,
             ))
@@ -1398,7 +1460,7 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Functions can be imported using the `function_name`, e.g.,
+        Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
         ```sh
          $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
@@ -1423,10 +1485,12 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
@@ -1457,6 +1521,36 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_archive as archive
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        lambda_ = archive.get_file(type="zip",
+            source_file="lambda.js",
+            output_path="lambda_function_payload.zip")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs18.x",
+            environment=aws.lambda_.FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
         ### Lambda Layers
 
         ```python
@@ -1488,7 +1582,7 @@ class Function(pulumi.CustomResource):
             code=pulumi.FileArchive("lambda_function_payload.zip"),
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs14.x",
+            runtime="nodejs18.x",
             ephemeral_storage=aws.lambda_.FunctionEphemeralStorageArgs(
                 size=10240,
             ))
@@ -1588,7 +1682,7 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Functions can be imported using the `function_name`, e.g.,
+        Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
         ```sh
          $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
@@ -1667,7 +1761,13 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["package_type"] = package_type
             __props__.__dict__["publish"] = publish
+            if replace_security_groups_on_destroy is not None and not opts.urn:
+                warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+                pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
             __props__.__dict__["replace_security_groups_on_destroy"] = replace_security_groups_on_destroy
+            if replacement_security_group_ids is not None and not opts.urn:
+                warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+                pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
             __props__.__dict__["replacement_security_group_ids"] = replacement_security_group_ids
             __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
             if role is None and not opts.urn:
@@ -1775,10 +1875,12 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         :param pulumi.Input[str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
@@ -2026,8 +2128,11 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
     def replace_security_groups_on_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         """
+        warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+
         return pulumi.get(self, "replace_security_groups_on_destroy")
 
     @property
@@ -2036,6 +2141,9 @@ class Function(pulumi.CustomResource):
         """
         List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         """
+        warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
+
         return pulumi.get(self, "replacement_security_group_ids")
 
     @property
@@ -2051,6 +2159,8 @@ class Function(pulumi.CustomResource):
     def role(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role")
 

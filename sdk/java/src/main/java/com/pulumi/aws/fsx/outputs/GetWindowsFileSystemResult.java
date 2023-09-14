@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.GetWindowsFileSystemAuditLogConfiguration;
+import com.pulumi.aws.fsx.outputs.GetWindowsFileSystemDiskIopsConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -55,6 +56,11 @@ public final class GetWindowsFileSystemResult {
      * 
      */
     private String deploymentType;
+    /**
+     * @return The SSD IOPS configuration for the file system.
+     * 
+     */
+    private List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations;
     /**
      * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      * 
@@ -185,6 +191,13 @@ public final class GetWindowsFileSystemResult {
         return this.deploymentType;
     }
     /**
+     * @return The SSD IOPS configuration for the file system.
+     * 
+     */
+    public List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations() {
+        return this.diskIopsConfigurations;
+    }
+    /**
      * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      * 
      */
@@ -303,6 +316,7 @@ public final class GetWindowsFileSystemResult {
         private Boolean copyTagsToBackups;
         private String dailyAutomaticBackupStartTime;
         private String deploymentType;
+        private List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations;
         private String dnsName;
         private String id;
         private String kmsKeyId;
@@ -331,6 +345,7 @@ public final class GetWindowsFileSystemResult {
     	      this.copyTagsToBackups = defaults.copyTagsToBackups;
     	      this.dailyAutomaticBackupStartTime = defaults.dailyAutomaticBackupStartTime;
     	      this.deploymentType = defaults.deploymentType;
+    	      this.diskIopsConfigurations = defaults.diskIopsConfigurations;
     	      this.dnsName = defaults.dnsName;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
@@ -399,6 +414,14 @@ public final class GetWindowsFileSystemResult {
         public Builder deploymentType(String deploymentType) {
             this.deploymentType = Objects.requireNonNull(deploymentType);
             return this;
+        }
+        @CustomType.Setter
+        public Builder diskIopsConfigurations(List<GetWindowsFileSystemDiskIopsConfiguration> diskIopsConfigurations) {
+            this.diskIopsConfigurations = Objects.requireNonNull(diskIopsConfigurations);
+            return this;
+        }
+        public Builder diskIopsConfigurations(GetWindowsFileSystemDiskIopsConfiguration... diskIopsConfigurations) {
+            return diskIopsConfigurations(List.of(diskIopsConfigurations));
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
@@ -500,6 +523,7 @@ public final class GetWindowsFileSystemResult {
             o.copyTagsToBackups = copyTagsToBackups;
             o.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             o.deploymentType = deploymentType;
+            o.diskIopsConfigurations = diskIopsConfigurations;
             o.dnsName = dnsName;
             o.id = id;
             o.kmsKeyId = kmsKeyId;

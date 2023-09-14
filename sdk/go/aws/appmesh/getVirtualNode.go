@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS App Mesh Virtual Node.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupVirtualNode(ctx *pulumi.Context, args *LookupVirtualNodeArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNodeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualNodeResult
 	err := ctx.Invoke("aws:appmesh/getVirtualNode:getVirtualNode", args, &rv, opts...)
 	if err != nil {
@@ -122,6 +125,12 @@ func (o LookupVirtualNodeResultOutput) ToLookupVirtualNodeResultOutput() LookupV
 
 func (o LookupVirtualNodeResultOutput) ToLookupVirtualNodeResultOutputWithContext(ctx context.Context) LookupVirtualNodeResultOutput {
 	return o
+}
+
+func (o LookupVirtualNodeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualNodeResult] {
+	return pulumix.Output[LookupVirtualNodeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the virtual node.

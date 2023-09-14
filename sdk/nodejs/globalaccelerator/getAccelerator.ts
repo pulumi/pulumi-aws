@@ -31,8 +31,8 @@ export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:globalaccelerator/getAccelerator:getAccelerator", {
         "arn": args.arn,
+        "id": args.id,
         "name": args.name,
-        "tags": args.tags,
     }, opts);
 }
 
@@ -44,11 +44,13 @@ export interface GetAcceleratorArgs {
      * Full ARN of the Global Accelerator.
      */
     arn?: string;
+    id?: string;
     /**
      * Unique name of the Global Accelerator.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: string;
-    tags?: {[key: string]: string};
 }
 
 /**
@@ -58,11 +60,9 @@ export interface GetAcceleratorResult {
     readonly arn: string;
     readonly attributes: outputs.globalaccelerator.GetAcceleratorAttribute[];
     readonly dnsName: string;
+    readonly dualStackDnsName: string;
     readonly enabled: boolean;
     readonly hostedZoneId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     readonly ipAddressType: string;
     readonly ipSets: outputs.globalaccelerator.GetAcceleratorIpSet[];
@@ -99,9 +99,11 @@ export interface GetAcceleratorOutputArgs {
      * Full ARN of the Global Accelerator.
      */
     arn?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Unique name of the Global Accelerator.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

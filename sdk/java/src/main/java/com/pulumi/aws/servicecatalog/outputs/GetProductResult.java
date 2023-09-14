@@ -30,7 +30,7 @@ public final class GetProductResult {
      */
     private String description;
     /**
-     * @return Distributor (i.e., vendor) of the product.
+     * @return Vendor of the product.
      * 
      */
     private String distributor;
@@ -56,7 +56,7 @@ public final class GetProductResult {
      */
     private String status;
     /**
-     * @return Support information about the product.
+     * @return Field that provides support information about the product.
      * 
      */
     private String supportDescription;
@@ -71,7 +71,7 @@ public final class GetProductResult {
      */
     private String supportUrl;
     /**
-     * @return Tags to apply to the product.
+     * @return Tags applied to the product.
      * 
      */
     private Map<String,String> tags;
@@ -107,7 +107,7 @@ public final class GetProductResult {
         return this.description;
     }
     /**
-     * @return Distributor (i.e., vendor) of the product.
+     * @return Vendor of the product.
      * 
      */
     public String distributor() {
@@ -145,7 +145,7 @@ public final class GetProductResult {
         return this.status;
     }
     /**
-     * @return Support information about the product.
+     * @return Field that provides support information about the product.
      * 
      */
     public String supportDescription() {
@@ -166,7 +166,7 @@ public final class GetProductResult {
         return this.supportUrl;
     }
     /**
-     * @return Tags to apply to the product.
+     * @return Tags applied to the product.
      * 
      */
     public Map<String,String> tags() {

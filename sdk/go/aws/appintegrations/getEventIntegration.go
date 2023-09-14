@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information on an existing AppIntegrations Event Integration.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appintegrations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appintegrations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetEventIntegration(ctx *pulumi.Context, args *GetEventIntegrationArgs, opts ...pulumi.InvokeOption) (*GetEventIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventIntegrationResult
 	err := ctx.Invoke("aws:appintegrations/getEventIntegration:getEventIntegration", args, &rv, opts...)
 	if err != nil {
@@ -109,6 +112,12 @@ func (o GetEventIntegrationResultOutput) ToGetEventIntegrationResultOutput() Get
 
 func (o GetEventIntegrationResultOutput) ToGetEventIntegrationResultOutputWithContext(ctx context.Context) GetEventIntegrationResultOutput {
 	return o
+}
+
+func (o GetEventIntegrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventIntegrationResult] {
+	return pulumix.Output[GetEventIntegrationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the AppIntegrations Event Integration.

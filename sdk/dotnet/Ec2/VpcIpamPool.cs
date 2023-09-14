@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2
     ///     var parentTest = new Aws.Ec2.VpcIpamPoolCidr("parentTest", new()
     ///     {
     ///         IpamPoolId = parent.Id,
-    ///         Cidr = "172.2.0.0/16",
+    ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
     ///     var child = new Aws.Ec2.VpcIpamPool("child", new()
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ec2
     ///     var childTest = new Aws.Ec2.VpcIpamPoolCidr("childTest", new()
     ///     {
     ///         IpamPoolId = child.Id,
-    ///         Cidr = "172.2.0.0/24",
+    ///         Cidr = "172.20.0.0/24",
     ///     });
     /// 
     /// });
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// IPAMs can be imported using the `ipam pool id`, e.g.
+    /// Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a CloudFront distribution.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts ...pulumi.InvokeOption) (*LookupDistributionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionResult
 	err := ctx.Invoke("aws:cloudfront/getDistribution:getDistribution", args, &rv, opts...)
 	if err != nil {
@@ -82,6 +85,8 @@ type LookupDistributionResult struct {
 	// CloudFront system.
 	Status string            `pulumi:"status"`
 	Tags   map[string]string `pulumi:"tags"`
+	// AWS WAF web ACL associated with this distribution.
+	WebAclId string `pulumi:"webAclId"`
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
@@ -121,6 +126,12 @@ func (o LookupDistributionResultOutput) ToLookupDistributionResultOutput() Looku
 
 func (o LookupDistributionResultOutput) ToLookupDistributionResultOutputWithContext(ctx context.Context) LookupDistributionResultOutput {
 	return o
+}
+
+func (o LookupDistributionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDistributionResult] {
+	return pulumix.Output[LookupDistributionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
@@ -181,6 +192,11 @@ func (o LookupDistributionResultOutput) Status() pulumi.StringOutput {
 
 func (o LookupDistributionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDistributionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// AWS WAF web ACL associated with this distribution.
+func (o LookupDistributionResultOutput) WebAclId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionResult) string { return v.WebAclId }).(pulumi.StringOutput)
 }
 
 func init() {

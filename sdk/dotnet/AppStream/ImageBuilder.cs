@@ -47,7 +47,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
@@ -130,6 +130,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the image builder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -272,6 +274,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the image builder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -382,6 +386,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the image builder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

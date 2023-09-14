@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `secretsmanager.SecretRotation` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,44 +38,10 @@ import (
 //	}
 //
 // ```
-// ### Rotation Configuration
-//
-// To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
-//
-// > **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
-//
-// > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.NewSecret(ctx, "rotation-example", &secretsmanager.SecretArgs{
-//				RotationLambdaArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//				RotationRules: &secretsmanager.SecretRotationRulesArgs{
-//					AutomaticallyAfterDays: pulumi.Int(7),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
-// `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_secretsmanager_secret` using the secret Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -101,18 +69,6 @@ type Secret struct {
 	RecoveryWindowInDays pulumi.IntPtrOutput `pulumi:"recoveryWindowInDays"`
 	// Configuration block to support secret replication. See details below.
 	Replicas SecretReplicaArrayOutput `pulumi:"replicas"`
-	// Whether automatic rotation is enabled for this secret.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationEnabled pulumi.BoolOutput `pulumi:"rotationEnabled"`
-	// ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationLambdaArn pulumi.StringOutput `pulumi:"rotationLambdaArn"`
-	// Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationRules SecretRotationRulesOutput `pulumi:"rotationRules"`
 	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -126,6 +82,7 @@ func NewSecret(ctx *pulumi.Context,
 		args = &SecretArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Secret
 	err := ctx.RegisterResource("aws:secretsmanager/secret:Secret", name, args, &resource, opts...)
 	if err != nil {
@@ -166,18 +123,6 @@ type secretState struct {
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
 	// Configuration block to support secret replication. See details below.
 	Replicas []SecretReplica `pulumi:"replicas"`
-	// Whether automatic rotation is enabled for this secret.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationEnabled *bool `pulumi:"rotationEnabled"`
-	// ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
-	// Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationRules *SecretRotationRules `pulumi:"rotationRules"`
 	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -203,18 +148,6 @@ type SecretState struct {
 	RecoveryWindowInDays pulumi.IntPtrInput
 	// Configuration block to support secret replication. See details below.
 	Replicas SecretReplicaArrayInput
-	// Whether automatic rotation is enabled for this secret.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationEnabled pulumi.BoolPtrInput
-	// ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationLambdaArn pulumi.StringPtrInput
-	// Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationRules SecretRotationRulesPtrInput
 	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -242,14 +175,6 @@ type secretArgs struct {
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
 	// Configuration block to support secret replication. See details below.
 	Replicas []SecretReplica `pulumi:"replicas"`
-	// ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
-	// Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationRules *SecretRotationRules `pulumi:"rotationRules"`
 	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -272,14 +197,6 @@ type SecretArgs struct {
 	RecoveryWindowInDays pulumi.IntPtrInput
 	// Configuration block to support secret replication. See details below.
 	Replicas SecretReplicaArrayInput
-	// ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationLambdaArn pulumi.StringPtrInput
-	// Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-	RotationRules SecretRotationRulesPtrInput
 	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -307,6 +224,12 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretOutput)
 }
 
+func (i *Secret) ToOutput(ctx context.Context) pulumix.Output[*Secret] {
+	return pulumix.Output[*Secret]{
+		OutputState: i.ToSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecretArrayInput is an input type that accepts SecretArray and SecretArrayOutput values.
 // You can construct a concrete instance of `SecretArrayInput` via:
 //
@@ -330,6 +253,12 @@ func (i SecretArray) ToSecretArrayOutput() SecretArrayOutput {
 
 func (i SecretArray) ToSecretArrayOutputWithContext(ctx context.Context) SecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretArrayOutput)
+}
+
+func (i SecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*Secret] {
+	return pulumix.Output[[]*Secret]{
+		OutputState: i.ToSecretArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecretMapInput is an input type that accepts SecretMap and SecretMapOutput values.
@@ -357,6 +286,12 @@ func (i SecretMap) ToSecretMapOutputWithContext(ctx context.Context) SecretMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SecretMapOutput)
 }
 
+func (i SecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Secret] {
+	return pulumix.Output[map[string]*Secret]{
+		OutputState: i.ToSecretMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecretOutput struct{ *pulumi.OutputState }
 
 func (SecretOutput) ElementType() reflect.Type {
@@ -369,6 +304,12 @@ func (o SecretOutput) ToSecretOutput() SecretOutput {
 
 func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return o
+}
+
+func (o SecretOutput) ToOutput(ctx context.Context) pulumix.Output[*Secret] {
+	return pulumix.Output[*Secret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the secret.
@@ -416,27 +357,6 @@ func (o SecretOutput) Replicas() SecretReplicaArrayOutput {
 	return o.ApplyT(func(v *Secret) SecretReplicaArrayOutput { return v.Replicas }).(SecretReplicaArrayOutput)
 }
 
-// Whether automatic rotation is enabled for this secret.
-//
-// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-func (o SecretOutput) RotationEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Secret) pulumi.BoolOutput { return v.RotationEnabled }).(pulumi.BoolOutput)
-}
-
-// ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-//
-// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-func (o SecretOutput) RotationLambdaArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.RotationLambdaArn }).(pulumi.StringOutput)
-}
-
-// Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-//
-// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
-func (o SecretOutput) RotationRules() SecretRotationRulesOutput {
-	return o.ApplyT(func(v *Secret) SecretRotationRulesOutput { return v.RotationRules }).(SecretRotationRulesOutput)
-}
-
 // Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SecretOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -461,6 +381,12 @@ func (o SecretArrayOutput) ToSecretArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o SecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Secret] {
+	return pulumix.Output[[]*Secret]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecretArrayOutput) Index(i pulumi.IntInput) SecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Secret {
 		return vs[0].([]*Secret)[vs[1].(int)]
@@ -479,6 +405,12 @@ func (o SecretMapOutput) ToSecretMapOutput() SecretMapOutput {
 
 func (o SecretMapOutput) ToSecretMapOutputWithContext(ctx context.Context) SecretMapOutput {
 	return o
+}
+
+func (o SecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Secret] {
+	return pulumix.Output[map[string]*Secret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecretMapOutput) MapIndex(k pulumi.StringInput) SecretOutput {

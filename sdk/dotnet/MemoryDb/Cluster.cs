@@ -42,7 +42,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Use the `name` to import a cluster. For example
+    /// Using `pulumi import`, import a cluster using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
@@ -128,6 +128,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
@@ -330,6 +332,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("nodeType", required: true)]
         public Input<string> NodeType { get; set; } = null!;
@@ -520,6 +524,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }

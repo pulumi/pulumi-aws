@@ -316,7 +316,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_vpc_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
@@ -359,7 +359,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_vpc_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678

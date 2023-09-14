@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Bots can be imported using their name.
+ * Using `pulumi import`, import bots using their name. For example:
  *
  * ```sh
  *  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers

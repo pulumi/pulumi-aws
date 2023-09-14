@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +85,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,7 +111,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,7 +137,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -157,7 +159,17 @@ import (
 //
 // ## Import
 //
-// Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+// ARN without qualifier (all versions and aliases):
+//
+// ARN with qualifier:
+//
+// Name without qualifier (all versions and aliases):
+//
+// Name with qualifier:
+//
+// __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+//
+// ARN without qualifier (all versions and aliases):
 //
 // ```sh
 //
@@ -165,7 +177,7 @@ import (
 //
 // ```
 //
-//	ARN with qualifier
+//	ARN with qualifier:
 //
 // ```sh
 //
@@ -173,7 +185,7 @@ import (
 //
 // ```
 //
-//	Name without qualifier (all versions and aliases)
+//	Name without qualifier (all versions and aliases):
 //
 // ```sh
 //
@@ -181,7 +193,7 @@ import (
 //
 // ```
 //
-//	Name with qualifier
+//	Name with qualifier:
 //
 // ```sh
 //
@@ -194,6 +206,8 @@ type FunctionEventInvokeConfig struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrOutput `pulumi:"maximumEventAgeInSeconds"`
@@ -213,6 +227,7 @@ func NewFunctionEventInvokeConfig(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionEventInvokeConfig
 	err := ctx.RegisterResource("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -238,6 +253,8 @@ type functionEventInvokeConfigState struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName *string `pulumi:"functionName"`
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
@@ -251,6 +268,8 @@ type FunctionEventInvokeConfigState struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName pulumi.StringPtrInput
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput
@@ -268,6 +287,8 @@ type functionEventInvokeConfigArgs struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName string `pulumi:"functionName"`
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
@@ -282,6 +303,8 @@ type FunctionEventInvokeConfigArgs struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName pulumi.StringInput
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput
@@ -314,6 +337,12 @@ func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigOutput)
 }
 
+func (i *FunctionEventInvokeConfig) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfig] {
+	return pulumix.Output[*FunctionEventInvokeConfig]{
+		OutputState: i.ToFunctionEventInvokeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionEventInvokeConfigArrayInput is an input type that accepts FunctionEventInvokeConfigArray and FunctionEventInvokeConfigArrayOutput values.
 // You can construct a concrete instance of `FunctionEventInvokeConfigArrayInput` via:
 //
@@ -337,6 +366,12 @@ func (i FunctionEventInvokeConfigArray) ToFunctionEventInvokeConfigArrayOutput()
 
 func (i FunctionEventInvokeConfigArray) ToFunctionEventInvokeConfigArrayOutputWithContext(ctx context.Context) FunctionEventInvokeConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigArrayOutput)
+}
+
+func (i FunctionEventInvokeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionEventInvokeConfig] {
+	return pulumix.Output[[]*FunctionEventInvokeConfig]{
+		OutputState: i.ToFunctionEventInvokeConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionEventInvokeConfigMapInput is an input type that accepts FunctionEventInvokeConfigMap and FunctionEventInvokeConfigMapOutput values.
@@ -364,6 +399,12 @@ func (i FunctionEventInvokeConfigMap) ToFunctionEventInvokeConfigMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigMapOutput)
 }
 
+func (i FunctionEventInvokeConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionEventInvokeConfig] {
+	return pulumix.Output[map[string]*FunctionEventInvokeConfig]{
+		OutputState: i.ToFunctionEventInvokeConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionEventInvokeConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigOutput) ElementType() reflect.Type {
@@ -378,6 +419,12 @@ func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutputWithCo
 	return o
 }
 
+func (o FunctionEventInvokeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfig] {
+	return pulumix.Output[*FunctionEventInvokeConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configuration block with destination configuration. See below for details.
 func (o FunctionEventInvokeConfigOutput) DestinationConfig() FunctionEventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) FunctionEventInvokeConfigDestinationConfigPtrOutput {
@@ -386,6 +433,8 @@ func (o FunctionEventInvokeConfigOutput) DestinationConfig() FunctionEventInvoke
 }
 
 // Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+//
+// The following arguments are optional:
 func (o FunctionEventInvokeConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
@@ -419,6 +468,12 @@ func (o FunctionEventInvokeConfigArrayOutput) ToFunctionEventInvokeConfigArrayOu
 	return o
 }
 
+func (o FunctionEventInvokeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionEventInvokeConfig] {
+	return pulumix.Output[[]*FunctionEventInvokeConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionEventInvokeConfigArrayOutput) Index(i pulumi.IntInput) FunctionEventInvokeConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionEventInvokeConfig {
 		return vs[0].([]*FunctionEventInvokeConfig)[vs[1].(int)]
@@ -437,6 +492,12 @@ func (o FunctionEventInvokeConfigMapOutput) ToFunctionEventInvokeConfigMapOutput
 
 func (o FunctionEventInvokeConfigMapOutput) ToFunctionEventInvokeConfigMapOutputWithContext(ctx context.Context) FunctionEventInvokeConfigMapOutput {
 	return o
+}
+
+func (o FunctionEventInvokeConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionEventInvokeConfig] {
+	return pulumix.Output[map[string]*FunctionEventInvokeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionEventInvokeConfigMapOutput) MapIndex(k pulumi.StringInput) FunctionEventInvokeConfigOutput {

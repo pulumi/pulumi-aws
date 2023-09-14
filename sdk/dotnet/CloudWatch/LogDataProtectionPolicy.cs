@@ -85,7 +85,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// This resource can be imported using the `log_group_name`. For example
+    /// Using `pulumi import`, import this resource using the `log_group_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group

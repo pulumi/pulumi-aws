@@ -23,6 +23,8 @@ class DefaultRouteTableArgs:
         """
         The set of arguments for constructing a DefaultRouteTable resource.
         :param pulumi.Input[str] default_route_table_id: ID of the default route table.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,6 +42,8 @@ class DefaultRouteTableArgs:
     def default_route_table_id(self) -> pulumi.Input[str]:
         """
         ID of the default route table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "default_route_table_id")
 
@@ -99,6 +103,8 @@ class _DefaultRouteTableState:
         Input properties used for looking up and filtering DefaultRouteTable resources.
         :param pulumi.Input[str] arn: The ARN of the route table.
         :param pulumi.Input[str] default_route_table_id: ID of the default route table.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]] routes: Set of objects. Detailed below
@@ -140,6 +146,8 @@ class _DefaultRouteTableState:
     def default_route_table_id(self) -> Optional[pulumi.Input[str]]:
         """
         ID of the default route table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "default_route_table_id")
 
@@ -278,7 +286,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Import
 
-        Default VPC route tables can be imported using the `vpc_id`, e.g.,
+        Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
@@ -287,6 +295,8 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_route_table_id: ID of the default route table.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -345,7 +355,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Import
 
-        Default VPC route tables can be imported using the `vpc_id`, e.g.,
+        Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
@@ -416,6 +426,8 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the route table.
         :param pulumi.Input[str] default_route_table_id: ID of the default route table.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: Set of objects. Detailed below
@@ -450,6 +462,8 @@ class DefaultRouteTable(pulumi.CustomResource):
     def default_route_table_id(self) -> pulumi.Output[str]:
         """
         ID of the default route table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "default_route_table_id")
 

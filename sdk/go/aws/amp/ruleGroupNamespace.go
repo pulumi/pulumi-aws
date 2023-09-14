@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,7 +35,14 @@ import (
 //			}
 //			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
 //				WorkspaceId: demoWorkspace.ID(),
-//				Data:        pulumi.String("groups:\n  - name: test\n    rules:\n    - record: metric:recording_rule\n      expr: avg(rate(container_cpu_usage_seconds_total[5m]))\n"),
+//				Data: pulumi.String(`groups:
+//	  - name: test
+//	    rules:
+//	    - record: metric:recording_rule
+//	      expr: avg(rate(container_cpu_usage_seconds_total[5m]))
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -46,7 +55,7 @@ import (
 //
 // ## Import
 //
-// The prometheus rule group namespace can be imported using the arn, e.g.,
+// Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
 //
 // ```sh
 //
@@ -77,6 +86,7 @@ func NewRuleGroupNamespace(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RuleGroupNamespace
 	err := ctx.RegisterResource("aws:amp/ruleGroupNamespace:RuleGroupNamespace", name, args, &resource, opts...)
 	if err != nil {
@@ -162,6 +172,12 @@ func (i *RuleGroupNamespace) ToRuleGroupNamespaceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNamespaceOutput)
 }
 
+func (i *RuleGroupNamespace) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupNamespace] {
+	return pulumix.Output[*RuleGroupNamespace]{
+		OutputState: i.ToRuleGroupNamespaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupNamespaceArrayInput is an input type that accepts RuleGroupNamespaceArray and RuleGroupNamespaceArrayOutput values.
 // You can construct a concrete instance of `RuleGroupNamespaceArrayInput` via:
 //
@@ -185,6 +201,12 @@ func (i RuleGroupNamespaceArray) ToRuleGroupNamespaceArrayOutput() RuleGroupName
 
 func (i RuleGroupNamespaceArray) ToRuleGroupNamespaceArrayOutputWithContext(ctx context.Context) RuleGroupNamespaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNamespaceArrayOutput)
+}
+
+func (i RuleGroupNamespaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*RuleGroupNamespace] {
+	return pulumix.Output[[]*RuleGroupNamespace]{
+		OutputState: i.ToRuleGroupNamespaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RuleGroupNamespaceMapInput is an input type that accepts RuleGroupNamespaceMap and RuleGroupNamespaceMapOutput values.
@@ -212,6 +234,12 @@ func (i RuleGroupNamespaceMap) ToRuleGroupNamespaceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNamespaceMapOutput)
 }
 
+func (i RuleGroupNamespaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleGroupNamespace] {
+	return pulumix.Output[map[string]*RuleGroupNamespace]{
+		OutputState: i.ToRuleGroupNamespaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupNamespaceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupNamespaceOutput) ElementType() reflect.Type {
@@ -224,6 +252,12 @@ func (o RuleGroupNamespaceOutput) ToRuleGroupNamespaceOutput() RuleGroupNamespac
 
 func (o RuleGroupNamespaceOutput) ToRuleGroupNamespaceOutputWithContext(ctx context.Context) RuleGroupNamespaceOutput {
 	return o
+}
+
+func (o RuleGroupNamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupNamespace] {
+	return pulumix.Output[*RuleGroupNamespace]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
@@ -255,6 +289,12 @@ func (o RuleGroupNamespaceArrayOutput) ToRuleGroupNamespaceArrayOutputWithContex
 	return o
 }
 
+func (o RuleGroupNamespaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RuleGroupNamespace] {
+	return pulumix.Output[[]*RuleGroupNamespace]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupNamespaceArrayOutput) Index(i pulumi.IntInput) RuleGroupNamespaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleGroupNamespace {
 		return vs[0].([]*RuleGroupNamespace)[vs[1].(int)]
@@ -273,6 +313,12 @@ func (o RuleGroupNamespaceMapOutput) ToRuleGroupNamespaceMapOutput() RuleGroupNa
 
 func (o RuleGroupNamespaceMapOutput) ToRuleGroupNamespaceMapOutputWithContext(ctx context.Context) RuleGroupNamespaceMapOutput {
 	return o
+}
+
+func (o RuleGroupNamespaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleGroupNamespace] {
+	return pulumix.Output[map[string]*RuleGroupNamespace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupNamespaceMapOutput) MapIndex(k pulumi.StringInput) RuleGroupNamespaceOutput {

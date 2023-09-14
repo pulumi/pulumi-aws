@@ -53,7 +53,7 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// ## Import
     /// 
-    /// CodeCommit approval rule templates can be imported using the `name`, e.g.
+    /// Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName

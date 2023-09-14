@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +80,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,7 +110,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,7 +158,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -184,7 +186,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -231,88 +233,10 @@ import (
 //	}
 //
 // ```
-// ### Amazon MQ (ActiveMQ)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				BatchSize:      pulumi.Int(10),
-//				EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
-//				Enabled:        pulumi.Bool(true),
-//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-//				Queues: pulumi.StringArray{
-//					pulumi.String("example"),
-//				},
-//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("BASIC_AUTH"),
-//						Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Amazon MQ (RabbitMQ)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				BatchSize:      pulumi.Int(1),
-//				EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
-//				Enabled:        pulumi.Bool(true),
-//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-//				Queues: pulumi.StringArray{
-//					pulumi.String("example"),
-//				},
-//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VIRTUAL_HOST"),
-//						Uri:  pulumi.String("/example"),
-//					},
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("BASIC_AUTH"),
-//						Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
-// Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
+// Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 //
 // ```sh
 //
@@ -356,8 +280,8 @@ type EventSourceMapping struct {
 	MaximumRetryAttempts pulumi.IntOutput `pulumi:"maximumRetryAttempts"`
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor pulumi.IntOutput `pulumi:"parallelizationFactor"`
-	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-	Queues pulumi.StringArrayOutput `pulumi:"queues"`
+	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+	Queues pulumi.StringPtrOutput `pulumi:"queues"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrOutput `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -392,6 +316,7 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSourceMapping
 	err := ctx.RegisterResource("aws:lambda/eventSourceMapping:EventSourceMapping", name, args, &resource, opts...)
 	if err != nil {
@@ -448,8 +373,8 @@ type eventSourceMappingState struct {
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-	Queues []string `pulumi:"queues"`
+	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+	Queues *string `pulumi:"queues"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -509,8 +434,8 @@ type EventSourceMappingState struct {
 	MaximumRetryAttempts pulumi.IntPtrInput
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor pulumi.IntPtrInput
-	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-	Queues pulumi.StringArrayInput
+	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+	Queues pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrInput
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -568,8 +493,8 @@ type eventSourceMappingArgs struct {
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-	Queues []string `pulumi:"queues"`
+	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+	Queues *string `pulumi:"queues"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -618,8 +543,8 @@ type EventSourceMappingArgs struct {
 	MaximumRetryAttempts pulumi.IntPtrInput
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor pulumi.IntPtrInput
-	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-	Queues pulumi.StringArrayInput
+	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+	Queues pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrInput
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
@@ -661,6 +586,12 @@ func (i *EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOutput)
 }
 
+func (i *EventSourceMapping) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMapping] {
+	return pulumix.Output[*EventSourceMapping]{
+		OutputState: i.ToEventSourceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSourceMappingArrayInput is an input type that accepts EventSourceMappingArray and EventSourceMappingArrayOutput values.
 // You can construct a concrete instance of `EventSourceMappingArrayInput` via:
 //
@@ -684,6 +615,12 @@ func (i EventSourceMappingArray) ToEventSourceMappingArrayOutput() EventSourceMa
 
 func (i EventSourceMappingArray) ToEventSourceMappingArrayOutputWithContext(ctx context.Context) EventSourceMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingArrayOutput)
+}
+
+func (i EventSourceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventSourceMapping] {
+	return pulumix.Output[[]*EventSourceMapping]{
+		OutputState: i.ToEventSourceMappingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventSourceMappingMapInput is an input type that accepts EventSourceMappingMap and EventSourceMappingMapOutput values.
@@ -711,6 +648,12 @@ func (i EventSourceMappingMap) ToEventSourceMappingMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingMapOutput)
 }
 
+func (i EventSourceMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSourceMapping] {
+	return pulumix.Output[map[string]*EventSourceMapping]{
+		OutputState: i.ToEventSourceMappingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSourceMappingOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingOutput) ElementType() reflect.Type {
@@ -723,6 +666,12 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutput() EventSourceMappin
 
 func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
 	return o
+}
+
+func (o EventSourceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMapping] {
+	return pulumix.Output[*EventSourceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
@@ -814,9 +763,9 @@ func (o EventSourceMappingOutput) ParallelizationFactor() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntOutput { return v.ParallelizationFactor }).(pulumi.IntOutput)
 }
 
-// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-func (o EventSourceMappingOutput) Queues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
+// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+func (o EventSourceMappingOutput) Queues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.Queues }).(pulumi.StringPtrOutput)
 }
 
 // Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -894,6 +843,12 @@ func (o EventSourceMappingArrayOutput) ToEventSourceMappingArrayOutputWithContex
 	return o
 }
 
+func (o EventSourceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventSourceMapping] {
+	return pulumix.Output[[]*EventSourceMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSourceMappingArrayOutput) Index(i pulumi.IntInput) EventSourceMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventSourceMapping {
 		return vs[0].([]*EventSourceMapping)[vs[1].(int)]
@@ -912,6 +867,12 @@ func (o EventSourceMappingMapOutput) ToEventSourceMappingMapOutput() EventSource
 
 func (o EventSourceMappingMapOutput) ToEventSourceMappingMapOutputWithContext(ctx context.Context) EventSourceMappingMapOutput {
 	return o
+}
+
+func (o EventSourceMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSourceMapping] {
+	return pulumix.Output[map[string]*EventSourceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSourceMappingMapOutput) MapIndex(k pulumi.StringInput) EventSourceMappingOutput {

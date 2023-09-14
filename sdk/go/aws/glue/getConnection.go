@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific Glue Connection.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectionResult
 	err := ctx.Invoke("aws:glue/getConnection:getConnection", args, &rv, opts...)
 	if err != nil {
@@ -116,6 +119,12 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutput() LookupCon
 
 func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(ctx context.Context) LookupConnectionResultOutput {
 	return o
+}
+
+func (o LookupConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectionResult] {
+	return pulumix.Output[LookupConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Glue Connection.

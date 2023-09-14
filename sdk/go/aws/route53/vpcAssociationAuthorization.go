@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
@@ -20,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +57,7 @@ import (
 //				CidrBlock:          pulumi.String("10.7.0.0/16"),
 //				EnableDnsHostnames: pulumi.Bool(true),
 //				EnableDnsSupport:   pulumi.Bool(true),
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}
@@ -69,7 +71,7 @@ import (
 //			_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
 //				VpcId:  exampleVpcAssociationAuthorization.VpcId,
 //				ZoneId: exampleVpcAssociationAuthorization.ZoneId,
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}
@@ -81,7 +83,7 @@ import (
 //
 // ## Import
 //
-// Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -112,6 +114,7 @@ func NewVpcAssociationAuthorization(ctx *pulumi.Context,
 	if args.ZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAssociationAuthorization
 	err := ctx.RegisterResource("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization", name, args, &resource, opts...)
 	if err != nil {
@@ -197,6 +200,12 @@ func (i *VpcAssociationAuthorization) ToVpcAssociationAuthorizationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAssociationAuthorizationOutput)
 }
 
+func (i *VpcAssociationAuthorization) ToOutput(ctx context.Context) pulumix.Output[*VpcAssociationAuthorization] {
+	return pulumix.Output[*VpcAssociationAuthorization]{
+		OutputState: i.ToVpcAssociationAuthorizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcAssociationAuthorizationArrayInput is an input type that accepts VpcAssociationAuthorizationArray and VpcAssociationAuthorizationArrayOutput values.
 // You can construct a concrete instance of `VpcAssociationAuthorizationArrayInput` via:
 //
@@ -220,6 +229,12 @@ func (i VpcAssociationAuthorizationArray) ToVpcAssociationAuthorizationArrayOutp
 
 func (i VpcAssociationAuthorizationArray) ToVpcAssociationAuthorizationArrayOutputWithContext(ctx context.Context) VpcAssociationAuthorizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAssociationAuthorizationArrayOutput)
+}
+
+func (i VpcAssociationAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAssociationAuthorization] {
+	return pulumix.Output[[]*VpcAssociationAuthorization]{
+		OutputState: i.ToVpcAssociationAuthorizationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcAssociationAuthorizationMapInput is an input type that accepts VpcAssociationAuthorizationMap and VpcAssociationAuthorizationMapOutput values.
@@ -247,6 +262,12 @@ func (i VpcAssociationAuthorizationMap) ToVpcAssociationAuthorizationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAssociationAuthorizationMapOutput)
 }
 
+func (i VpcAssociationAuthorizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAssociationAuthorization] {
+	return pulumix.Output[map[string]*VpcAssociationAuthorization]{
+		OutputState: i.ToVpcAssociationAuthorizationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcAssociationAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (VpcAssociationAuthorizationOutput) ElementType() reflect.Type {
@@ -259,6 +280,12 @@ func (o VpcAssociationAuthorizationOutput) ToVpcAssociationAuthorizationOutput()
 
 func (o VpcAssociationAuthorizationOutput) ToVpcAssociationAuthorizationOutputWithContext(ctx context.Context) VpcAssociationAuthorizationOutput {
 	return o
+}
+
+func (o VpcAssociationAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAssociationAuthorization] {
+	return pulumix.Output[*VpcAssociationAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The VPC to authorize for association with the private hosted zone.
@@ -290,6 +317,12 @@ func (o VpcAssociationAuthorizationArrayOutput) ToVpcAssociationAuthorizationArr
 	return o
 }
 
+func (o VpcAssociationAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAssociationAuthorization] {
+	return pulumix.Output[[]*VpcAssociationAuthorization]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcAssociationAuthorizationArrayOutput) Index(i pulumi.IntInput) VpcAssociationAuthorizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcAssociationAuthorization {
 		return vs[0].([]*VpcAssociationAuthorization)[vs[1].(int)]
@@ -308,6 +341,12 @@ func (o VpcAssociationAuthorizationMapOutput) ToVpcAssociationAuthorizationMapOu
 
 func (o VpcAssociationAuthorizationMapOutput) ToVpcAssociationAuthorizationMapOutputWithContext(ctx context.Context) VpcAssociationAuthorizationMapOutput {
 	return o
+}
+
+func (o VpcAssociationAuthorizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAssociationAuthorization] {
+	return pulumix.Output[map[string]*VpcAssociationAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAssociationAuthorizationMapOutput) MapIndex(k pulumi.StringInput) VpcAssociationAuthorizationOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic File System (EFS) File System Policy resource.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +83,7 @@ import (
 //
 // ## Import
 //
-// The EFS file system policies can be imported using the `id`, e.g.,
+// Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 //
 // ```sh
 //
@@ -96,6 +98,8 @@ type FileSystemPolicy struct {
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -112,6 +116,7 @@ func NewFileSystemPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystemPolicy
 	err := ctx.RegisterResource("aws:efs/fileSystemPolicy:FileSystemPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -139,6 +144,8 @@ type fileSystemPolicyState struct {
 	// The ID of the EFS file system.
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy *string `pulumi:"policy"`
 }
 
@@ -148,6 +155,8 @@ type FileSystemPolicyState struct {
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringPtrInput
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy pulumi.StringPtrInput
 }
 
@@ -161,6 +170,8 @@ type fileSystemPolicyArgs struct {
 	// The ID of the EFS file system.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy string `pulumi:"policy"`
 }
 
@@ -171,6 +182,8 @@ type FileSystemPolicyArgs struct {
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringInput
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy pulumi.StringInput
 }
 
@@ -195,6 +208,12 @@ func (i *FileSystemPolicy) ToFileSystemPolicyOutput() FileSystemPolicyOutput {
 
 func (i *FileSystemPolicy) ToFileSystemPolicyOutputWithContext(ctx context.Context) FileSystemPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyOutput)
+}
+
+func (i *FileSystemPolicy) ToOutput(ctx context.Context) pulumix.Output[*FileSystemPolicy] {
+	return pulumix.Output[*FileSystemPolicy]{
+		OutputState: i.ToFileSystemPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FileSystemPolicyArrayInput is an input type that accepts FileSystemPolicyArray and FileSystemPolicyArrayOutput values.
@@ -222,6 +241,12 @@ func (i FileSystemPolicyArray) ToFileSystemPolicyArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyArrayOutput)
 }
 
+func (i FileSystemPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileSystemPolicy] {
+	return pulumix.Output[[]*FileSystemPolicy]{
+		OutputState: i.ToFileSystemPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileSystemPolicyMapInput is an input type that accepts FileSystemPolicyMap and FileSystemPolicyMapOutput values.
 // You can construct a concrete instance of `FileSystemPolicyMapInput` via:
 //
@@ -247,6 +272,12 @@ func (i FileSystemPolicyMap) ToFileSystemPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyMapOutput)
 }
 
+func (i FileSystemPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileSystemPolicy] {
+	return pulumix.Output[map[string]*FileSystemPolicy]{
+		OutputState: i.ToFileSystemPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileSystemPolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPolicyOutput) ElementType() reflect.Type {
@@ -261,6 +292,12 @@ func (o FileSystemPolicyOutput) ToFileSystemPolicyOutputWithContext(ctx context.
 	return o
 }
 
+func (o FileSystemPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemPolicy] {
+	return pulumix.Output[*FileSystemPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
 func (o FileSystemPolicyOutput) BypassPolicyLockoutSafetyCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.BoolPtrOutput { return v.BypassPolicyLockoutSafetyCheck }).(pulumi.BoolPtrOutput)
@@ -272,6 +309,8 @@ func (o FileSystemPolicyOutput) FileSystemId() pulumi.StringOutput {
 }
 
 // The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+//
+// The following arguments are optional:
 func (o FileSystemPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
@@ -288,6 +327,12 @@ func (o FileSystemPolicyArrayOutput) ToFileSystemPolicyArrayOutput() FileSystemP
 
 func (o FileSystemPolicyArrayOutput) ToFileSystemPolicyArrayOutputWithContext(ctx context.Context) FileSystemPolicyArrayOutput {
 	return o
+}
+
+func (o FileSystemPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileSystemPolicy] {
+	return pulumix.Output[[]*FileSystemPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileSystemPolicyArrayOutput) Index(i pulumi.IntInput) FileSystemPolicyOutput {
@@ -308,6 +353,12 @@ func (o FileSystemPolicyMapOutput) ToFileSystemPolicyMapOutput() FileSystemPolic
 
 func (o FileSystemPolicyMapOutput) ToFileSystemPolicyMapOutputWithContext(ctx context.Context) FileSystemPolicyMapOutput {
 	return o
+}
+
+func (o FileSystemPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileSystemPolicy] {
+	return pulumix.Output[map[string]*FileSystemPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileSystemPolicyMapOutput) MapIndex(k pulumi.StringInput) FileSystemPolicyOutput {

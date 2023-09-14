@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// FSx Volumes can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import FSx Volumes using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES receipt rule set resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +43,7 @@ import (
 //
 // ## Import
 //
-// SES receipt rule sets can be imported using the rule set name.
+// Using `pulumi import`, import SES receipt rule sets using the rule set name. For example:
 //
 // ```sh
 //
@@ -67,6 +69,7 @@ func NewReceiptRuleSet(ctx *pulumi.Context,
 	if args.RuleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReceiptRuleSet
 	err := ctx.RegisterResource("aws:ses/receiptRuleSet:ReceiptRuleSet", name, args, &resource, opts...)
 	if err != nil {
@@ -140,6 +143,12 @@ func (i *ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetOutput)
 }
 
+func (i *ReceiptRuleSet) ToOutput(ctx context.Context) pulumix.Output[*ReceiptRuleSet] {
+	return pulumix.Output[*ReceiptRuleSet]{
+		OutputState: i.ToReceiptRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReceiptRuleSetArrayInput is an input type that accepts ReceiptRuleSetArray and ReceiptRuleSetArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleSetArrayInput` via:
 //
@@ -163,6 +172,12 @@ func (i ReceiptRuleSetArray) ToReceiptRuleSetArrayOutput() ReceiptRuleSetArrayOu
 
 func (i ReceiptRuleSetArray) ToReceiptRuleSetArrayOutputWithContext(ctx context.Context) ReceiptRuleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetArrayOutput)
+}
+
+func (i ReceiptRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReceiptRuleSet] {
+	return pulumix.Output[[]*ReceiptRuleSet]{
+		OutputState: i.ToReceiptRuleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReceiptRuleSetMapInput is an input type that accepts ReceiptRuleSetMap and ReceiptRuleSetMapOutput values.
@@ -190,6 +205,12 @@ func (i ReceiptRuleSetMap) ToReceiptRuleSetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetMapOutput)
 }
 
+func (i ReceiptRuleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReceiptRuleSet] {
+	return pulumix.Output[map[string]*ReceiptRuleSet]{
+		OutputState: i.ToReceiptRuleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReceiptRuleSetOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleSetOutput) ElementType() reflect.Type {
@@ -202,6 +223,12 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
 
 func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
 	return o
+}
+
+func (o ReceiptRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ReceiptRuleSet] {
+	return pulumix.Output[*ReceiptRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // SES receipt rule set ARN.
@@ -228,6 +255,12 @@ func (o ReceiptRuleSetArrayOutput) ToReceiptRuleSetArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ReceiptRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReceiptRuleSet] {
+	return pulumix.Output[[]*ReceiptRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReceiptRuleSetArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReceiptRuleSet {
 		return vs[0].([]*ReceiptRuleSet)[vs[1].(int)]
@@ -246,6 +279,12 @@ func (o ReceiptRuleSetMapOutput) ToReceiptRuleSetMapOutput() ReceiptRuleSetMapOu
 
 func (o ReceiptRuleSetMapOutput) ToReceiptRuleSetMapOutputWithContext(ctx context.Context) ReceiptRuleSetMapOutput {
 	return o
+}
+
+func (o ReceiptRuleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReceiptRuleSet] {
+	return pulumix.Output[map[string]*ReceiptRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReceiptRuleSetMapOutput) MapIndex(k pulumi.StringInput) ReceiptRuleSetOutput {

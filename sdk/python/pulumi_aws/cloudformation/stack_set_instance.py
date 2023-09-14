@@ -160,6 +160,7 @@ class _StackSetInstanceState:
                  region: Optional[pulumi.Input[str]] = None,
                  retain_stack: Optional[pulumi.Input[bool]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
+                 stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StackSetInstance resources.
@@ -167,11 +168,12 @@ class _StackSetInstanceState:
         :param pulumi.Input[str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input['StackSetInstanceDeploymentTargetsArgs'] deployment_targets: The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         :param pulumi.Input['StackSetInstanceOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
-        :param pulumi.Input[str] organizational_unit_id: The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        :param pulumi.Input[str] organizational_unit_id: Organizational unit ID in which the stack is deployed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
         :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-        :param pulumi.Input[str] stack_id: Stack identifier
+        :param pulumi.Input[str] stack_id: Stack identifier.
+        :param pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
         :param pulumi.Input[str] stack_set_name: Name of the StackSet.
         """
         if account_id is not None:
@@ -192,6 +194,8 @@ class _StackSetInstanceState:
             pulumi.set(__self__, "retain_stack", retain_stack)
         if stack_id is not None:
             pulumi.set(__self__, "stack_id", stack_id)
+        if stack_instance_summaries is not None:
+            pulumi.set(__self__, "stack_instance_summaries", stack_instance_summaries)
         if stack_set_name is not None:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
 
@@ -247,7 +251,7 @@ class _StackSetInstanceState:
     @pulumi.getter(name="organizationalUnitId")
     def organizational_unit_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        Organizational unit ID in which the stack is deployed.
         """
         return pulumi.get(self, "organizational_unit_id")
 
@@ -295,13 +299,25 @@ class _StackSetInstanceState:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Stack identifier
+        Stack identifier.
         """
         return pulumi.get(self, "stack_id")
 
     @stack_id.setter
     def stack_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stack_id", value)
+
+    @property
+    @pulumi.getter(name="stackInstanceSummaries")
+    def stack_instance_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]]:
+        """
+        List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        """
+        return pulumi.get(self, "stack_instance_summaries")
+
+    @stack_instance_summaries.setter
+    def stack_instance_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]]):
+        pulumi.set(self, "stack_instance_summaries", value)
 
     @property
     @pulumi.getter(name="stackSetName")
@@ -338,6 +354,7 @@ class StackSetInstance(pulumi.CustomResource):
         > **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -392,16 +409,26 @@ class StackSetInstance(pulumi.CustomResource):
 
         ## Import
 
-        CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+        In TODO v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
+
+        Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
+
+        Import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+
+        Using `TODO import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
 
         ```sh
          $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
         ```
-
-         CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+         Using `TODO import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
 
         ```sh
          $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+        ```
+         Using `TODO import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+
+        ```sh
+         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
         ```
 
         :param str resource_name: The name of the resource.
@@ -429,6 +456,7 @@ class StackSetInstance(pulumi.CustomResource):
         > **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -483,16 +511,26 @@ class StackSetInstance(pulumi.CustomResource):
 
         ## Import
 
-        CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+        In TODO v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
+
+        Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
+
+        Import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+
+        Using `TODO import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
 
         ```sh
          $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
         ```
-
-         CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+         Using `TODO import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
 
         ```sh
          $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+        ```
+         Using `TODO import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+
+        ```sh
+         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
         ```
 
         :param str resource_name: The name of the resource.
@@ -539,6 +577,7 @@ class StackSetInstance(pulumi.CustomResource):
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["organizational_unit_id"] = None
             __props__.__dict__["stack_id"] = None
+            __props__.__dict__["stack_instance_summaries"] = None
         super(StackSetInstance, __self__).__init__(
             'aws:cloudformation/stackSetInstance:StackSetInstance',
             resource_name,
@@ -558,6 +597,7 @@ class StackSetInstance(pulumi.CustomResource):
             region: Optional[pulumi.Input[str]] = None,
             retain_stack: Optional[pulumi.Input[bool]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
+            stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetInstanceStackInstanceSummaryArgs']]]]] = None,
             stack_set_name: Optional[pulumi.Input[str]] = None) -> 'StackSetInstance':
         """
         Get an existing StackSetInstance resource's state with the given name, id, and optional extra
@@ -570,11 +610,12 @@ class StackSetInstance(pulumi.CustomResource):
         :param pulumi.Input[str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input[pulumi.InputType['StackSetInstanceDeploymentTargetsArgs']] deployment_targets: The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         :param pulumi.Input[pulumi.InputType['StackSetInstanceOperationPreferencesArgs']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
-        :param pulumi.Input[str] organizational_unit_id: The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        :param pulumi.Input[str] organizational_unit_id: Organizational unit ID in which the stack is deployed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
         :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-        :param pulumi.Input[str] stack_id: Stack identifier
+        :param pulumi.Input[str] stack_id: Stack identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetInstanceStackInstanceSummaryArgs']]]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
         :param pulumi.Input[str] stack_set_name: Name of the StackSet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -590,6 +631,7 @@ class StackSetInstance(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["retain_stack"] = retain_stack
         __props__.__dict__["stack_id"] = stack_id
+        __props__.__dict__["stack_instance_summaries"] = stack_instance_summaries
         __props__.__dict__["stack_set_name"] = stack_set_name
         return StackSetInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -629,7 +671,7 @@ class StackSetInstance(pulumi.CustomResource):
     @pulumi.getter(name="organizationalUnitId")
     def organizational_unit_id(self) -> pulumi.Output[str]:
         """
-        The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        Organizational unit ID in which the stack is deployed.
         """
         return pulumi.get(self, "organizational_unit_id")
 
@@ -661,9 +703,17 @@ class StackSetInstance(pulumi.CustomResource):
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[str]:
         """
-        Stack identifier
+        Stack identifier.
         """
         return pulumi.get(self, "stack_id")
+
+    @property
+    @pulumi.getter(name="stackInstanceSummaries")
+    def stack_instance_summaries(self) -> pulumi.Output[Sequence['outputs.StackSetInstanceStackInstanceSummary']]:
+        """
+        List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        """
+        return pulumi.get(self, "stack_instance_summaries")
 
     @property
     @pulumi.getter(name="stackSetName")

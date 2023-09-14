@@ -36,6 +36,8 @@ export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, o
 export interface GetResolverFirewallConfigArgs {
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
+     *
+     * The following attribute is additionally exported:
      */
     resourceId: string;
 }
@@ -80,6 +82,8 @@ export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigO
 export interface GetResolverFirewallConfigOutputArgs {
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
+     *
+     * The following attribute is additionally exported:
      */
     resourceId: pulumi.Input<string>;
 }

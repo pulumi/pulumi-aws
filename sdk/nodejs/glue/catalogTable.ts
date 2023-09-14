@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+ * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  *
  * ```sh
  *  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
@@ -122,6 +122,8 @@ export class CatalogTable extends pulumi.CustomResource {
     public readonly catalogId!: pulumi.Output<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     *
+     * The follow arguments are optional:
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -132,6 +134,10 @@ export class CatalogTable extends pulumi.CustomResource {
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Configuration block for open table formats. See `openTableFormatInput` below.
+     */
+    public readonly openTableFormatInput!: pulumi.Output<outputs.glue.CatalogTableOpenTableFormatInput | undefined>;
     /**
      * Owner of the table.
      */
@@ -191,6 +197,7 @@ export class CatalogTable extends pulumi.CustomResource {
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["openTableFormatInput"] = state ? state.openTableFormatInput : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["partitionIndices"] = state ? state.partitionIndices : undefined;
@@ -210,6 +217,7 @@ export class CatalogTable extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openTableFormatInput"] = args ? args.openTableFormatInput : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["partitionIndices"] = args ? args.partitionIndices : undefined;
@@ -241,6 +249,8 @@ export interface CatalogTableState {
     catalogId?: pulumi.Input<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     *
+     * The follow arguments are optional:
      */
     databaseName?: pulumi.Input<string>;
     /**
@@ -251,6 +261,10 @@ export interface CatalogTableState {
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration block for open table formats. See `openTableFormatInput` below.
+     */
+    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput>;
     /**
      * Owner of the table.
      */
@@ -303,6 +317,8 @@ export interface CatalogTableArgs {
     catalogId?: pulumi.Input<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     *
+     * The follow arguments are optional:
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -313,6 +329,10 @@ export interface CatalogTableArgs {
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration block for open table formats. See `openTableFormatInput` below.
+     */
+    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput>;
     /**
      * Owner of the table.
      */

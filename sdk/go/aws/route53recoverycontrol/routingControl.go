@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Control Config Routing Control.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +68,7 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+// Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
 //
 // ```sh
 //
@@ -83,6 +85,8 @@ type RoutingControl struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn pulumi.StringOutput `pulumi:"controlPanelArn"`
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -98,6 +102,7 @@ func NewRoutingControl(ctx *pulumi.Context,
 	if args.ClusterArn == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingControl
 	err := ctx.RegisterResource("aws:route53recoverycontrol/routingControl:RoutingControl", name, args, &resource, opts...)
 	if err != nil {
@@ -127,6 +132,8 @@ type routingControlState struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn *string `pulumi:"controlPanelArn"`
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status *string `pulumi:"status"`
@@ -140,6 +147,8 @@ type RoutingControlState struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn pulumi.StringPtrInput
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringPtrInput
@@ -155,6 +164,8 @@ type routingControlArgs struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn *string `pulumi:"controlPanelArn"`
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 }
 
@@ -165,6 +176,8 @@ type RoutingControlArgs struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn pulumi.StringPtrInput
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 }
 
@@ -189,6 +202,12 @@ func (i *RoutingControl) ToRoutingControlOutput() RoutingControlOutput {
 
 func (i *RoutingControl) ToRoutingControlOutputWithContext(ctx context.Context) RoutingControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingControlOutput)
+}
+
+func (i *RoutingControl) ToOutput(ctx context.Context) pulumix.Output[*RoutingControl] {
+	return pulumix.Output[*RoutingControl]{
+		OutputState: i.ToRoutingControlOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RoutingControlArrayInput is an input type that accepts RoutingControlArray and RoutingControlArrayOutput values.
@@ -216,6 +235,12 @@ func (i RoutingControlArray) ToRoutingControlArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingControlArrayOutput)
 }
 
+func (i RoutingControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingControl] {
+	return pulumix.Output[[]*RoutingControl]{
+		OutputState: i.ToRoutingControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RoutingControlMapInput is an input type that accepts RoutingControlMap and RoutingControlMapOutput values.
 // You can construct a concrete instance of `RoutingControlMapInput` via:
 //
@@ -241,6 +266,12 @@ func (i RoutingControlMap) ToRoutingControlMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingControlMapOutput)
 }
 
+func (i RoutingControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingControl] {
+	return pulumix.Output[map[string]*RoutingControl]{
+		OutputState: i.ToRoutingControlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RoutingControlOutput struct{ *pulumi.OutputState }
 
 func (RoutingControlOutput) ElementType() reflect.Type {
@@ -253,6 +284,12 @@ func (o RoutingControlOutput) ToRoutingControlOutput() RoutingControlOutput {
 
 func (o RoutingControlOutput) ToRoutingControlOutputWithContext(ctx context.Context) RoutingControlOutput {
 	return o
+}
+
+func (o RoutingControlOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingControl] {
+	return pulumix.Output[*RoutingControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the routing control.
@@ -271,6 +308,8 @@ func (o RoutingControlOutput) ControlPanelArn() pulumi.StringOutput {
 }
 
 // The name describing the routing control.
+//
+// The following arguments are optional:
 func (o RoutingControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -294,6 +333,12 @@ func (o RoutingControlArrayOutput) ToRoutingControlArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o RoutingControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingControl] {
+	return pulumix.Output[[]*RoutingControl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RoutingControlArrayOutput) Index(i pulumi.IntInput) RoutingControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoutingControl {
 		return vs[0].([]*RoutingControl)[vs[1].(int)]
@@ -312,6 +357,12 @@ func (o RoutingControlMapOutput) ToRoutingControlMapOutput() RoutingControlMapOu
 
 func (o RoutingControlMapOutput) ToRoutingControlMapOutputWithContext(ctx context.Context) RoutingControlMapOutput {
 	return o
+}
+
+func (o RoutingControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingControl] {
+	return pulumix.Output[map[string]*RoutingControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoutingControlMapOutput) MapIndex(k pulumi.StringInput) RoutingControlOutput {

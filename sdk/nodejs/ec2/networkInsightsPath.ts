@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Network Insights Paths can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Network Insights Paths using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
@@ -61,9 +61,13 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
     public readonly destination!: pulumi.Output<string>;
+    /**
+     * ARN of the destination.
+     */
+    public /*out*/ readonly destinationArn!: pulumi.Output<string>;
     /**
      * IP address of the destination resource.
      */
@@ -74,12 +78,18 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     public readonly destinationPort!: pulumi.Output<number | undefined>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     *
+     * The following arguments are optional:
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
     public readonly source!: pulumi.Output<string>;
+    /**
+     * ARN of the source.
+     */
+    public /*out*/ readonly sourceArn!: pulumi.Output<string>;
     /**
      * IP address of the source resource.
      */
@@ -108,10 +118,12 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             const state = argsOrState as NetworkInsightsPathState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
             resourceInputs["destinationIp"] = state ? state.destinationIp : undefined;
             resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
             resourceInputs["sourceIp"] = state ? state.sourceIp : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -134,6 +146,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["destinationArn"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,9 +164,13 @@ export interface NetworkInsightsPathState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
     destination?: pulumi.Input<string>;
+    /**
+     * ARN of the destination.
+     */
+    destinationArn?: pulumi.Input<string>;
     /**
      * IP address of the destination resource.
      */
@@ -163,12 +181,18 @@ export interface NetworkInsightsPathState {
     destinationPort?: pulumi.Input<number>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     *
+     * The following arguments are optional:
      */
     protocol?: pulumi.Input<string>;
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
     source?: pulumi.Input<string>;
+    /**
+     * ARN of the source.
+     */
+    sourceArn?: pulumi.Input<string>;
     /**
      * IP address of the source resource.
      */
@@ -188,7 +212,7 @@ export interface NetworkInsightsPathState {
  */
 export interface NetworkInsightsPathArgs {
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
     destination: pulumi.Input<string>;
     /**
@@ -201,10 +225,12 @@ export interface NetworkInsightsPathArgs {
     destinationPort?: pulumi.Input<number>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     *
+     * The following arguments are optional:
      */
     protocol: pulumi.Input<string>;
     /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
     source: pulumi.Input<string>;
     /**

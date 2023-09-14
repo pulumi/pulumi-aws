@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an EventBridge connection.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupEventConnection(ctx *pulumi.Context, args *LookupEventConnectionArgs, opts ...pulumi.InvokeOption) (*LookupEventConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventConnectionResult
 	err := ctx.Invoke("aws:cloudwatch/getEventConnection:getEventConnection", args, &rv, opts...)
 	if err != nil {
@@ -104,6 +107,12 @@ func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutput()
 
 func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutputWithContext(ctx context.Context) LookupEventConnectionResultOutput {
 	return o
+}
+
+func (o LookupEventConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventConnectionResult] {
+	return pulumix.Output[LookupEventConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN (Amazon Resource Name) for the connection.

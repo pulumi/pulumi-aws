@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_location_map` resources can be imported using the map name, e.g.
+ * Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
  *
  * ```sh
  *  $ pulumi import aws:location/map:Map example example
@@ -78,6 +78,8 @@ export class Map extends pulumi.CustomResource {
     public /*out*/ readonly mapArn!: pulumi.Output<string>;
     /**
      * The name for the map resource.
+     *
+     * The following arguments are optional:
      */
     public readonly mapName!: pulumi.Output<string>;
     /**
@@ -158,6 +160,8 @@ export interface MapState {
     mapArn?: pulumi.Input<string>;
     /**
      * The name for the map resource.
+     *
+     * The following arguments are optional:
      */
     mapName?: pulumi.Input<string>;
     /**
@@ -188,6 +192,8 @@ export interface MapArgs {
     description?: pulumi.Input<string>;
     /**
      * The name for the map resource.
+     *
+     * The following arguments are optional:
      */
     mapName: pulumi.Input<string>;
     /**

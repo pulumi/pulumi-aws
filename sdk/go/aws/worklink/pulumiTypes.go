@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type FleetIdentityProvider struct {
 	// The SAML metadata document provided by the customer’s identity provider.
@@ -45,6 +49,12 @@ func (i FleetIdentityProviderArgs) ToFleetIdentityProviderOutput() FleetIdentity
 
 func (i FleetIdentityProviderArgs) ToFleetIdentityProviderOutputWithContext(ctx context.Context) FleetIdentityProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetIdentityProviderOutput)
+}
+
+func (i FleetIdentityProviderArgs) ToOutput(ctx context.Context) pulumix.Output[FleetIdentityProvider] {
+	return pulumix.Output[FleetIdentityProvider]{
+		OutputState: i.ToFleetIdentityProviderOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FleetIdentityProviderArgs) ToFleetIdentityProviderPtrOutput() FleetIdentityProviderPtrOutput {
@@ -88,6 +98,12 @@ func (i *fleetIdentityProviderPtrType) ToFleetIdentityProviderPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FleetIdentityProviderPtrOutput)
 }
 
+func (i *fleetIdentityProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetIdentityProvider] {
+	return pulumix.Output[*FleetIdentityProvider]{
+		OutputState: i.ToFleetIdentityProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (FleetIdentityProviderOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o FleetIdentityProviderOutput) ToFleetIdentityProviderPtrOutputWithContext
 	}).(FleetIdentityProviderPtrOutput)
 }
 
+func (o FleetIdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[FleetIdentityProvider] {
+	return pulumix.Output[FleetIdentityProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The SAML metadata document provided by the customer’s identity provider.
 func (o FleetIdentityProviderOutput) SamlMetadata() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetIdentityProvider) string { return v.SamlMetadata }).(pulumi.StringOutput)
@@ -134,6 +156,12 @@ func (o FleetIdentityProviderPtrOutput) ToFleetIdentityProviderPtrOutput() Fleet
 
 func (o FleetIdentityProviderPtrOutput) ToFleetIdentityProviderPtrOutputWithContext(ctx context.Context) FleetIdentityProviderPtrOutput {
 	return o
+}
+
+func (o FleetIdentityProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetIdentityProvider] {
+	return pulumix.Output[*FleetIdentityProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetIdentityProviderPtrOutput) Elem() FleetIdentityProviderOutput {
@@ -168,6 +196,10 @@ func (o FleetIdentityProviderPtrOutput) Type() pulumi.StringPtrOutput {
 
 type FleetNetwork struct {
 	// A list of security group IDs associated with access to the provided subnets.
+	//
+	// **identity_provider** requires the following:
+	//
+	// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -188,6 +220,10 @@ type FleetNetworkInput interface {
 
 type FleetNetworkArgs struct {
 	// A list of security group IDs associated with access to the provided subnets.
+	//
+	// **identity_provider** requires the following:
+	//
+	// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
@@ -205,6 +241,12 @@ func (i FleetNetworkArgs) ToFleetNetworkOutput() FleetNetworkOutput {
 
 func (i FleetNetworkArgs) ToFleetNetworkOutputWithContext(ctx context.Context) FleetNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetNetworkOutput)
+}
+
+func (i FleetNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[FleetNetwork] {
+	return pulumix.Output[FleetNetwork]{
+		OutputState: i.ToFleetNetworkOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FleetNetworkArgs) ToFleetNetworkPtrOutput() FleetNetworkPtrOutput {
@@ -248,6 +290,12 @@ func (i *fleetNetworkPtrType) ToFleetNetworkPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(FleetNetworkPtrOutput)
 }
 
+func (i *fleetNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetNetwork] {
+	return pulumix.Output[*FleetNetwork]{
+		OutputState: i.ToFleetNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetNetworkOutput struct{ *pulumi.OutputState }
 
 func (FleetNetworkOutput) ElementType() reflect.Type {
@@ -272,7 +320,17 @@ func (o FleetNetworkOutput) ToFleetNetworkPtrOutputWithContext(ctx context.Conte
 	}).(FleetNetworkPtrOutput)
 }
 
+func (o FleetNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[FleetNetwork] {
+	return pulumix.Output[FleetNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of security group IDs associated with access to the provided subnets.
+//
+// **identity_provider** requires the following:
+//
+// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 func (o FleetNetworkOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetNetwork) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -301,6 +359,12 @@ func (o FleetNetworkPtrOutput) ToFleetNetworkPtrOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o FleetNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetNetwork] {
+	return pulumix.Output[*FleetNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetNetworkPtrOutput) Elem() FleetNetworkOutput {
 	return o.ApplyT(func(v *FleetNetwork) FleetNetwork {
 		if v != nil {
@@ -312,6 +376,10 @@ func (o FleetNetworkPtrOutput) Elem() FleetNetworkOutput {
 }
 
 // A list of security group IDs associated with access to the provided subnets.
+//
+// **identity_provider** requires the following:
+//
+// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 func (o FleetNetworkPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetNetwork) []string {
 		if v == nil {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Cognito Identity Pool.
@@ -22,8 +24,8 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,13 +84,11 @@ import (
 //
 // ## Import
 //
-// Cognito Identity Pool can be imported using its ID, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool using its ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_cognito_identity_pool.mypool
 //
-//	$ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
-//
-// ```
+//	id = "us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3" } Using `TODO import`, import Cognito Identity Pool using its ID. For exampleconsole % TODO import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
 type IdentityPool struct {
 	pulumi.CustomResourceState
 
@@ -127,6 +127,7 @@ func NewIdentityPool(ctx *pulumi.Context,
 	if args.IdentityPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityPoolName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPool
 	err := ctx.RegisterResource("aws:cognito/identityPool:IdentityPool", name, args, &resource, opts...)
 	if err != nil {
@@ -272,6 +273,12 @@ func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) Iden
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolOutput)
 }
 
+func (i *IdentityPool) ToOutput(ctx context.Context) pulumix.Output[*IdentityPool] {
+	return pulumix.Output[*IdentityPool]{
+		OutputState: i.ToIdentityPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IdentityPoolArrayInput is an input type that accepts IdentityPoolArray and IdentityPoolArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolArrayInput` via:
 //
@@ -295,6 +302,12 @@ func (i IdentityPoolArray) ToIdentityPoolArrayOutput() IdentityPoolArrayOutput {
 
 func (i IdentityPoolArray) ToIdentityPoolArrayOutputWithContext(ctx context.Context) IdentityPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolArrayOutput)
+}
+
+func (i IdentityPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPool] {
+	return pulumix.Output[[]*IdentityPool]{
+		OutputState: i.ToIdentityPoolArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IdentityPoolMapInput is an input type that accepts IdentityPoolMap and IdentityPoolMapOutput values.
@@ -322,6 +335,12 @@ func (i IdentityPoolMap) ToIdentityPoolMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolMapOutput)
 }
 
+func (i IdentityPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPool] {
+	return pulumix.Output[map[string]*IdentityPool]{
+		OutputState: i.ToIdentityPoolMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityPoolOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolOutput) ElementType() reflect.Type {
@@ -334,6 +353,12 @@ func (o IdentityPoolOutput) ToIdentityPoolOutput() IdentityPoolOutput {
 
 func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
 	return o
+}
+
+func (o IdentityPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPool] {
+	return pulumix.Output[*IdentityPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the classic / basic authentication flow. Default is `false`.
@@ -408,6 +433,12 @@ func (o IdentityPoolArrayOutput) ToIdentityPoolArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o IdentityPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPool] {
+	return pulumix.Output[[]*IdentityPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentityPoolArrayOutput) Index(i pulumi.IntInput) IdentityPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPool {
 		return vs[0].([]*IdentityPool)[vs[1].(int)]
@@ -426,6 +457,12 @@ func (o IdentityPoolMapOutput) ToIdentityPoolMapOutput() IdentityPoolMapOutput {
 
 func (o IdentityPoolMapOutput) ToIdentityPoolMapOutputWithContext(ctx context.Context) IdentityPoolMapOutput {
 	return o
+}
+
+func (o IdentityPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPool] {
+	return pulumix.Output[map[string]*IdentityPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityPoolMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolOutput {

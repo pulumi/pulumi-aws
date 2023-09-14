@@ -161,6 +161,9 @@ namespace Pulumi.Aws
         [Input("dnsName")]
         public string? DnsName { get; set; }
 
+        [Input("id")]
+        public string? Id { get; set; }
+
         /// <summary>
         /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
         /// </summary>
@@ -199,6 +202,9 @@ namespace Pulumi.Aws
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
         /// </summary>
@@ -234,9 +240,6 @@ namespace Pulumi.Aws
     public sealed class GetServiceResult
     {
         public readonly string DnsName;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         public readonly string Partition;
         public readonly string Region;

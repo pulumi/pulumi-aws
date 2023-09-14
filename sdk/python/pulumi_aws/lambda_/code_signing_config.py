@@ -207,7 +207,7 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         ## Import
 
-        Code Signing Configs can be imported using their ARN, e.g.,
+        Using `pulumi import`, import Code Signing Configs using their ARN. For example:
 
         ```sh
          $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
@@ -251,7 +251,7 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         ## Import
 
-        Code Signing Configs can be imported using their ARN, e.g.,
+        Using `pulumi import`, import Code Signing Configs using their ARN. For example:
 
         ```sh
          $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b

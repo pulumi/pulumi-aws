@@ -51,7 +51,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Import
     /// 
-    /// SESv2 (Simple Email V2) Dedicated IP Pool can be imported using the `pool_name`, e.g.,
+    /// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
@@ -68,6 +68,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// Name of the dedicated IP pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
@@ -135,6 +137,8 @@ namespace Pulumi.Aws.SesV2
     {
         /// <summary>
         /// Name of the dedicated IP pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
@@ -173,6 +177,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// Name of the dedicated IP pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }

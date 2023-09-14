@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPC Peering Connection data source provides details about
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +56,7 @@ import (
 //
 // ```
 func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcPeeringConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcPeeringConnectionResult
 	err := ctx.Invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, &rv, opts...)
 	if err != nil {
@@ -86,6 +89,9 @@ type LookupVpcPeeringConnectionArgs struct {
 	Status *string `pulumi:"status"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
 	VpcId *string `pulumi:"vpcId"`
@@ -155,6 +161,9 @@ type LookupVpcPeeringConnectionOutputArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
@@ -177,6 +186,12 @@ func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResu
 
 func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResultOutputWithContext(ctx context.Context) LookupVpcPeeringConnectionResultOutput {
 	return o
+}
+
+func (o LookupVpcPeeringConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcPeeringConnectionResult] {
+	return pulumix.Output[LookupVpcPeeringConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that describes [VPC Peering Connection]

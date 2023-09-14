@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.CompositeAlarmArgs;
 import com.pulumi.aws.cloudwatch.inputs.CompositeAlarmState;
+import com.pulumi.aws.cloudwatch.outputs.CompositeAlarmActionsSuppressor;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -31,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.CompositeAlarm;
  * import com.pulumi.aws.cloudwatch.CompositeAlarmArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.CompositeAlarmActionsSuppressorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,6 +55,11 @@ import javax.annotation.Nullable;
  * ALARM(%s) OR
  * ALARM(%s)
  * &#34;, aws_cloudwatch_metric_alarm.alpha().alarm_name(),aws_cloudwatch_metric_alarm.bravo().alarm_name()))
+ *             .actionsSuppressor(CompositeAlarmActionsSuppressorArgs.builder()
+ *                 .alarm(&#34;suppressor-alarm&#34;)
+ *                 .extensionPeriod(10)
+ *                 .waitPeriod(20)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -61,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Use the `alarm_name` to import a CloudWatch Composite Alarm. For example
+ * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
@@ -83,6 +90,20 @@ public class CompositeAlarm extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> actionsEnabled() {
         return Codegen.optional(this.actionsEnabled);
+    }
+    /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state.
+     * 
+     */
+    @Export(name="actionsSuppressor", refs={CompositeAlarmActionsSuppressor.class}, tree="[0]")
+    private Output</* @Nullable */ CompositeAlarmActionsSuppressor> actionsSuppressor;
+
+    /**
+     * @return Actions will be suppressed if the suppressor alarm is in the ALARM state.
+     * 
+     */
+    public Output<Optional<CompositeAlarmActionsSuppressor>> actionsSuppressor() {
+        return Codegen.optional(this.actionsSuppressor);
     }
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.

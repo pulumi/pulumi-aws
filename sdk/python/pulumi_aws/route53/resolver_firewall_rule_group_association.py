@@ -27,7 +27,7 @@ class ResolverFirewallRuleGroupAssociationArgs:
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         :param pulumi.Input[str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[str] name: A name that lets you identify the rule group association, to manage and use it.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
         pulumi.set(__self__, "priority", priority)
@@ -103,7 +103,7 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -130,7 +130,7 @@ class _ResolverFirewallRuleGroupAssociationState:
         :param pulumi.Input[str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[str] name: A name that lets you identify the rule group association, to manage and use it.
         :param pulumi.Input[int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
@@ -215,7 +215,7 @@ class _ResolverFirewallRuleGroupAssociationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -278,11 +278,11 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Route 53 Resolver DNS Firewall rule group associations can be imported using the Route 53 Resolver DNS Firewall rule group association ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-        ```
+         to = aws_route53_resolver_firewall_rule_group_association.example
+
+         id = "rslvr-frgassoc-0123456789abcdef" } Using `TODO import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +290,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[str] name: A name that lets you identify the rule group association, to manage and use it.
         :param pulumi.Input[int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
         ...
@@ -317,11 +317,11 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Route 53 Resolver DNS Firewall rule group associations can be imported using the Route 53 Resolver DNS Firewall rule group association ID, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-        ```
+         to = aws_route53_resolver_firewall_rule_group_association.example
+
+         id = "rslvr-frgassoc-0123456789abcdef" } Using `TODO import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param ResolverFirewallRuleGroupAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -397,7 +397,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[str] name: A name that lets you identify the rule group association, to manage and use it.
         :param pulumi.Input[int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
@@ -459,7 +459,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

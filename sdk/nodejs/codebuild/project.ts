@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  *     },
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
- *         image: "aws/codebuild/standard:1.0",
+ *         image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
  *         type: "LINUX_CONTAINER",
  *         imagePullCredentialsType: "CODEBUILD",
  *         environmentVariables: [
@@ -169,7 +169,7 @@ import * as utilities from "../utilities";
  *     },
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
- *         image: "aws/codebuild/standard:1.0",
+ *         image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
  *         type: "LINUX_CONTAINER",
  *         imagePullCredentialsType: "CODEBUILD",
  *         environmentVariables: [{
@@ -190,7 +190,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodeBuild Project can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:codebuild/project:Project name project-name
@@ -314,6 +314,8 @@ export class Project extends pulumi.CustomResource {
     public readonly serviceRole!: pulumi.Output<string>;
     /**
      * Configuration block. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     /**
@@ -514,6 +516,8 @@ export interface ProjectState {
     serviceRole?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
+     *
+     * The following arguments are optional:
      */
     source?: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
@@ -616,6 +620,8 @@ export interface ProjectArgs {
     serviceRole: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
+     *
+     * The following arguments are optional:
      */
     source: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**

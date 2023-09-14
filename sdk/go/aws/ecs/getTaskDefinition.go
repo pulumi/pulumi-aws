@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ECS task definition data source allows access to details of
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,8 +40,24 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("mongodb"),
-//				ContainerDefinitions: pulumi.String("[\n  {\n    \"cpu\": 128,\n    \"environment\": [{\n      \"name\": \"SECRET\",\n      \"value\": \"KEY\"\n    }],\n    \"essential\": true,\n    \"image\": \"mongo:latest\",\n    \"memory\": 128,\n    \"memoryReservation\": 64,\n    \"name\": \"mongodb\"\n  }\n]\n"),
+//				Family: pulumi.String("mongodb"),
+//				ContainerDefinitions: pulumi.String(`[
+//	  {
+//	    "cpu": 128,
+//	    "environment": [{
+//	      "name": "SECRET",
+//	      "value": "KEY"
+//	    }],
+//	    "essential": true,
+//	    "image": "mongo:latest",
+//	    "memory": 128,
+//	    "memoryReservation": 64,
+//	    "name": "mongodb"
+//	  }
+//
+// ]
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -58,6 +76,7 @@ import (
 //
 // ```
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTaskDefinitionResult
 	err := ctx.Invoke("aws:ecs/getTaskDefinition:getTaskDefinition", args, &rv, opts...)
 	if err != nil {
@@ -131,6 +150,12 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutput() L
 
 func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWithContext(ctx context.Context) LookupTaskDefinitionResultOutput {
 	return o
+}
+
+func (o LookupTaskDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTaskDefinitionResult] {
+	return pulumix.Output[LookupTaskDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the task definition.

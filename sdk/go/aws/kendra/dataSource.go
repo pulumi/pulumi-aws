@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Kendra Data Source.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,7 +90,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,10 +103,54 @@ import (
 //				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
+//						BucketName: pulumi.Any(aws_s3_bucket.Example.Id),
 //						AccessControlListConfiguration: &kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{
 //							KeyPath: pulumi.String(fmt.Sprintf("s3://%v/path-1", aws_s3_bucket.Example.Id)),
 //						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Documents Metadata Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
+//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
+//				Type:    pulumi.String("S3"),
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Configuration: &kendra.DataSourceConfigurationArgs{
+//					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
 //						BucketName: pulumi.Any(aws_s3_bucket.Example.Id),
+//						ExclusionPatterns: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//						InclusionPatterns: pulumi.StringArray{
+//							pulumi.String("hello"),
+//						},
+//						InclusionPrefixes: pulumi.StringArray{
+//							pulumi.String("world"),
+//						},
+//						DocumentsMetadataConfiguration: &kendra.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{
+//							S3Prefix: pulumi.String("example"),
+//						},
 //					},
 //				},
 //			})
@@ -124,7 +170,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -162,7 +208,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -200,7 +246,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -239,7 +285,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -288,7 +334,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -327,7 +373,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -366,7 +412,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -405,7 +451,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -450,7 +496,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -490,7 +536,7 @@ import (
 //
 // ## Import
 //
-// Kendra Data Source can be imported using the unique identifiers of the data_source and index separated by a slash (`/`) e.g.,
+// Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
 //
 // ```sh
 //
@@ -502,7 +548,7 @@ type DataSource struct {
 
 	// ARN of the Data Source.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration DataSourceConfigurationPtrOutput `pulumi:"configuration"`
 	// The Unix timestamp of when the Data Source was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -514,11 +560,11 @@ type DataSource struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// The identifier of the index for your Amazon Kendra data_source.
+	// The identifier of the index for your Amazon Kendra data source.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// A name for your Data Source connector.
+	// A name for your data source connector.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -531,6 +577,8 @@ type DataSource struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The Unix timestamp of when the Data Source was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -549,6 +597,7 @@ func NewDataSource(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSource
 	err := ctx.RegisterResource("aws:kendra/dataSource:DataSource", name, args, &resource, opts...)
 	if err != nil {
@@ -573,7 +622,7 @@ func GetDataSource(ctx *pulumi.Context,
 type dataSourceState struct {
 	// ARN of the Data Source.
 	Arn *string `pulumi:"arn"`
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration *DataSourceConfiguration `pulumi:"configuration"`
 	// The Unix timestamp of when the Data Source was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -585,11 +634,11 @@ type dataSourceState struct {
 	Description *string `pulumi:"description"`
 	// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
 	ErrorMessage *string `pulumi:"errorMessage"`
-	// The identifier of the index for your Amazon Kendra data_source.
+	// The identifier of the index for your Amazon Kendra data source.
 	IndexId *string `pulumi:"indexId"`
 	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode *string `pulumi:"languageCode"`
-	// A name for your Data Source connector.
+	// A name for your data source connector.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn *string `pulumi:"roleArn"`
@@ -602,6 +651,8 @@ type dataSourceState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 	// The Unix timestamp of when the Data Source was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -610,7 +661,7 @@ type dataSourceState struct {
 type DataSourceState struct {
 	// ARN of the Data Source.
 	Arn pulumi.StringPtrInput
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration DataSourceConfigurationPtrInput
 	// The Unix timestamp of when the Data Source was created.
 	CreatedAt pulumi.StringPtrInput
@@ -622,11 +673,11 @@ type DataSourceState struct {
 	Description pulumi.StringPtrInput
 	// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
 	ErrorMessage pulumi.StringPtrInput
-	// The identifier of the index for your Amazon Kendra data_source.
+	// The identifier of the index for your Amazon Kendra data source.
 	IndexId pulumi.StringPtrInput
 	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode pulumi.StringPtrInput
-	// A name for your Data Source connector.
+	// A name for your data source connector.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn pulumi.StringPtrInput
@@ -639,6 +690,8 @@ type DataSourceState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 	// The Unix timestamp of when the Data Source was last updated.
 	UpdatedAt pulumi.StringPtrInput
@@ -649,17 +702,17 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration *DataSourceConfiguration `pulumi:"configuration"`
 	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
 	// A description for the Data Source connector.
 	Description *string `pulumi:"description"`
-	// The identifier of the index for your Amazon Kendra data_source.
+	// The identifier of the index for your Amazon Kendra data source.
 	IndexId string `pulumi:"indexId"`
 	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode *string `pulumi:"languageCode"`
-	// A name for your Data Source connector.
+	// A name for your data source connector.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn *string `pulumi:"roleArn"`
@@ -668,22 +721,24 @@ type dataSourceArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration DataSourceConfigurationPtrInput
 	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrInput
 	// A description for the Data Source connector.
 	Description pulumi.StringPtrInput
-	// The identifier of the index for your Amazon Kendra data_source.
+	// The identifier of the index for your Amazon Kendra data source.
 	IndexId pulumi.StringInput
 	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode pulumi.StringPtrInput
-	// A name for your Data Source connector.
+	// A name for your data source connector.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn pulumi.StringPtrInput
@@ -692,6 +747,8 @@ type DataSourceArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -716,6 +773,12 @@ func (i *DataSource) ToDataSourceOutput() DataSourceOutput {
 
 func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
+}
+
+func (i *DataSource) ToOutput(ctx context.Context) pulumix.Output[*DataSource] {
+	return pulumix.Output[*DataSource]{
+		OutputState: i.ToDataSourceOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
@@ -743,6 +806,12 @@ func (i DataSourceArray) ToDataSourceArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceArrayOutput)
 }
 
+func (i DataSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataSource] {
+	return pulumix.Output[[]*DataSource]{
+		OutputState: i.ToDataSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataSourceMapInput is an input type that accepts DataSourceMap and DataSourceMapOutput values.
 // You can construct a concrete instance of `DataSourceMapInput` via:
 //
@@ -768,6 +837,12 @@ func (i DataSourceMap) ToDataSourceMapOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMapOutput)
 }
 
+func (i DataSourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSource] {
+	return pulumix.Output[map[string]*DataSource]{
+		OutputState: i.ToDataSourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
@@ -782,12 +857,18 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+func (o DataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSource] {
+	return pulumix.Output[*DataSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Data Source.
 func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 func (o DataSourceOutput) Configuration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationPtrOutput { return v.Configuration }).(DataSourceConfigurationPtrOutput)
 }
@@ -819,7 +900,7 @@ func (o DataSourceOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The identifier of the index for your Amazon Kendra data_source.
+// The identifier of the index for your Amazon Kendra data source.
 func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
@@ -829,7 +910,7 @@ func (o DataSourceOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// A name for your Data Source connector.
+// A name for your data source connector.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -860,6 +941,8 @@ func (o DataSourceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+//
+// The following arguments are optional:
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -883,6 +966,12 @@ func (o DataSourceArrayOutput) ToDataSourceArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DataSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataSource] {
+	return pulumix.Output[[]*DataSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceArrayOutput) Index(i pulumi.IntInput) DataSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSource {
 		return vs[0].([]*DataSource)[vs[1].(int)]
@@ -901,6 +990,12 @@ func (o DataSourceMapOutput) ToDataSourceMapOutput() DataSourceMapOutput {
 
 func (o DataSourceMapOutput) ToDataSourceMapOutputWithContext(ctx context.Context) DataSourceMapOutput {
 	return o
+}
+
+func (o DataSourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSource] {
+	return pulumix.Output[map[string]*DataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceMapOutput) MapIndex(k pulumi.StringInput) DataSourceOutput {

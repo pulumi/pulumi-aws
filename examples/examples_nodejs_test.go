@@ -5,14 +5,18 @@
 package examples
 
 import (
+	"bytes"
 	"encoding/json"
+	"io"
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
+	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -67,13 +71,40 @@ func TestAccExpress(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccBucketWithS3State(t *testing.T) {
-	t.Skip("STACK72: temporary skipping the test while we work out the reason why the times are crazy")
+func TestAccBucket(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "bucket"),
-			RunUpdateTest: true,
-			CloudURL:      "s3://ci-remote-state-bucket",
+			Dir: filepath.Join(getCwd(t), "bucket"),
+			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
+				bucketName, ok := info.Outputs["bucketName"].(string)
+				assert.True(t, ok)
+
+				sess := getAwsSession(t)
+				s3client := s3.New(sess)
+				_, err := s3client.PutObject(&s3.PutObjectInput{
+					Bucket: aws.String(bucketName),
+					Key:    aws.String("foo.txt"),
+					Body:   bytes.NewReader([]byte("Hello, world!")),
+				})
+				assert.NoError(t, err)
+
+				// Wait for the new object to be written
+				time.Sleep(5 * time.Second)
+
+				getOut, err := s3client.GetObject(&s3.GetObjectInput{
+					Bucket: aws.String(bucketName),
+					Key:    aws.String("lastPutFile.json"),
+				})
+				assert.NoError(t, err)
+				body, err := io.ReadAll(getOut.Body)
+				assert.NoError(t, err)
+
+				var data map[string]interface{}
+				err = json.Unmarshal(body, &data)
+				assert.NoError(t, err)
+
+				assert.Equal(t, "foo.txt", data["key"].(string))
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -240,7 +271,6 @@ func TestAccLambdaLayer(t *testing.T) {
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
-	t.Skip("Temporarily skipped due to issues with docker image builds")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			RunUpdateTest: false, // new feature!
@@ -265,33 +295,6 @@ func TestAccEcr(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "ecr"),
 			RunUpdateTest: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccAlbLegacy(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "alb-legacy"),
-			// RunUpdateTest: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccAlbNew(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "alb-new"),
-			// RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
-				{
-					Dir:             "step2",
-					Additive:        true,
-					ExpectNoChanges: true,
-				},
-			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -337,37 +340,26 @@ func TestAccIgnoreChanges(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccRenameSesConfiguration(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "rename-ses-configuration-set"),
-			RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
-				{
-					Dir:             "step2",
-					Additive:        true,
-					ExpectNoChanges: true,
-				},
-			}})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccWebserver(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "webserver"),
-			EditDirs: []integration.EditDir{
-				// First, look up the server just created using get.  No new resources.
-				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "get")),
-				// Next, patch the ingress rules by adding port 20: should be a quick update.
-				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh")),
-				// Now do the reverse; this basically ensures that an update that deletes a property works.
-				createEditDir(filepath.Join(getCwd(t), "webserver")),
-				// Next patch the security group description, necessitating a full replacement of resources.
-				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh_description")),
-			}})
+			//
+			// TODO[pulumi/pulumi#12859] temporarily disable EditDirs to workaround ProgramTest bug
+			//
+			// EditDirs: []integration.EditDir{
+			// 	// First, look up the server just created using get.  No new resources.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "get")),
+			// 	// Next, patch the ingress rules by adding port 20: should be a quick update.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh")),
+			// 	// Now do the reverse; this basically ensures that an update that deletes a property works.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver")),
+			// 	// Next patch the security group description, necessitating a full replacement of resources.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh_description")),
+			// },
+			RequireService: true,
+		})
 
 	integration.ProgramTest(t, &test)
 }
@@ -446,6 +438,26 @@ func TestAccKmsAliasTs(t *testing.T) {
 			},
 		})
 
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccWafV2(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "wafv2"),
+		})
+	integration.ProgramTest(t, &test)
+}
+
+func TestRegress1423Ts(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "regress-1423"),
+			RunUpdateTest: false,
+		})
+	test.ExpectRefreshChanges = false
+	test.Quick = false
+	test.SkipRefresh = false
 	integration.ProgramTest(t, &test)
 }
 

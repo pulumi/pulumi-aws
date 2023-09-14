@@ -136,7 +136,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// MediaLive Channel can be imported using the `channel_id`, e.g.,
+    /// Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:medialive/channel:Channel example 1234567
@@ -207,6 +207,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Name of the Channel.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -346,6 +348,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Name of the Channel.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -462,6 +466,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Name of the Channel.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Gateway Request Validator.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +45,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.,
+// Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
 //
 // ```sh
 //
@@ -73,6 +75,7 @@ func NewRequestValidator(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RequestValidator
 	err := ctx.RegisterResource("aws:apigateway/requestValidator:RequestValidator", name, args, &resource, opts...)
 	if err != nil {
@@ -166,6 +169,12 @@ func (i *RequestValidator) ToRequestValidatorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorOutput)
 }
 
+func (i *RequestValidator) ToOutput(ctx context.Context) pulumix.Output[*RequestValidator] {
+	return pulumix.Output[*RequestValidator]{
+		OutputState: i.ToRequestValidatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RequestValidatorArrayInput is an input type that accepts RequestValidatorArray and RequestValidatorArrayOutput values.
 // You can construct a concrete instance of `RequestValidatorArrayInput` via:
 //
@@ -189,6 +198,12 @@ func (i RequestValidatorArray) ToRequestValidatorArrayOutput() RequestValidatorA
 
 func (i RequestValidatorArray) ToRequestValidatorArrayOutputWithContext(ctx context.Context) RequestValidatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorArrayOutput)
+}
+
+func (i RequestValidatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*RequestValidator] {
+	return pulumix.Output[[]*RequestValidator]{
+		OutputState: i.ToRequestValidatorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RequestValidatorMapInput is an input type that accepts RequestValidatorMap and RequestValidatorMapOutput values.
@@ -216,6 +231,12 @@ func (i RequestValidatorMap) ToRequestValidatorMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorMapOutput)
 }
 
+func (i RequestValidatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RequestValidator] {
+	return pulumix.Output[map[string]*RequestValidator]{
+		OutputState: i.ToRequestValidatorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RequestValidatorOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorOutput) ElementType() reflect.Type {
@@ -228,6 +249,12 @@ func (o RequestValidatorOutput) ToRequestValidatorOutput() RequestValidatorOutpu
 
 func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.Context) RequestValidatorOutput {
 	return o
+}
+
+func (o RequestValidatorOutput) ToOutput(ctx context.Context) pulumix.Output[*RequestValidator] {
+	return pulumix.Output[*RequestValidator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the request validator
@@ -264,6 +291,12 @@ func (o RequestValidatorArrayOutput) ToRequestValidatorArrayOutputWithContext(ct
 	return o
 }
 
+func (o RequestValidatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RequestValidator] {
+	return pulumix.Output[[]*RequestValidator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RequestValidatorArrayOutput) Index(i pulumi.IntInput) RequestValidatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RequestValidator {
 		return vs[0].([]*RequestValidator)[vs[1].(int)]
@@ -282,6 +315,12 @@ func (o RequestValidatorMapOutput) ToRequestValidatorMapOutput() RequestValidato
 
 func (o RequestValidatorMapOutput) ToRequestValidatorMapOutputWithContext(ctx context.Context) RequestValidatorMapOutput {
 	return o
+}
+
+func (o RequestValidatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RequestValidator] {
+	return pulumix.Output[map[string]*RequestValidator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RequestValidatorMapOutput) MapIndex(k pulumi.StringInput) RequestValidatorOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Runner Service.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,7 +116,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -161,7 +163,7 @@ import (
 //
 // ## Import
 //
-// App Runner Services can be imported by using the `arn`, e.g.,
+// Using `pulumi import`, import App Runner Services using the `arn`. For example:
 //
 // ```sh
 //
@@ -192,6 +194,8 @@ type Service struct {
 	// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+	//
+	// The following arguments are optional:
 	SourceConfiguration ServiceSourceConfigurationOutput `pulumi:"sourceConfiguration"`
 	// Current state of the App Runner service.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -214,6 +218,7 @@ func NewService(ctx *pulumi.Context,
 	if args.SourceConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'SourceConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:apprunner/service:Service", name, args, &resource, opts...)
 	if err != nil {
@@ -257,6 +262,8 @@ type serviceState struct {
 	// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+	//
+	// The following arguments are optional:
 	SourceConfiguration *ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
 	// Current state of the App Runner service.
 	Status *string `pulumi:"status"`
@@ -288,6 +295,8 @@ type ServiceState struct {
 	// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
 	ServiceUrl pulumi.StringPtrInput
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+	//
+	// The following arguments are optional:
 	SourceConfiguration ServiceSourceConfigurationPtrInput
 	// Current state of the App Runner service.
 	Status pulumi.StringPtrInput
@@ -317,6 +326,8 @@ type serviceArgs struct {
 	// Name of the service.
 	ServiceName string `pulumi:"serviceName"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+	//
+	// The following arguments are optional:
 	SourceConfiguration ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -339,6 +350,8 @@ type ServiceArgs struct {
 	// Name of the service.
 	ServiceName pulumi.StringInput
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+	//
+	// The following arguments are optional:
 	SourceConfiguration ServiceSourceConfigurationInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -367,6 +380,12 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
+func (i *Service) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: i.ToServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
@@ -390,6 +409,12 @@ func (i ServiceArray) ToServiceArrayOutput() ServiceArrayOutput {
 
 func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) ServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceArrayOutput)
+}
+
+func (i ServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: i.ToServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
@@ -417,6 +442,12 @@ func (i ServiceMap) ToServiceMapOutputWithContext(ctx context.Context) ServiceMa
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMapOutput)
 }
 
+func (i ServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: i.ToServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
@@ -429,6 +460,12 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+func (o ServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the App Runner service.
@@ -482,6 +519,8 @@ func (o ServiceOutput) ServiceUrl() pulumi.StringOutput {
 }
 
 // The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+//
+// The following arguments are optional:
 func (o ServiceOutput) SourceConfiguration() ServiceSourceConfigurationOutput {
 	return o.ApplyT(func(v *Service) ServiceSourceConfigurationOutput { return v.SourceConfiguration }).(ServiceSourceConfigurationOutput)
 }
@@ -515,6 +554,12 @@ func (o ServiceArrayOutput) ToServiceArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceArrayOutput) Index(i pulumi.IntInput) ServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Service {
 		return vs[0].([]*Service)[vs[1].(int)]
@@ -533,6 +578,12 @@ func (o ServiceMapOutput) ToServiceMapOutput() ServiceMapOutput {
 
 func (o ServiceMapOutput) ToServiceMapOutputWithContext(ctx context.Context) ServiceMapOutput {
 	return o
+}
+
+func (o ServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceMapOutput) MapIndex(k pulumi.StringInput) ServiceOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
@@ -30,8 +32,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,6 +88,8 @@ type ApplicationVersion struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -109,6 +113,7 @@ func NewApplicationVersion(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationVersion
 	err := ctx.RegisterResource("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, args, &resource, opts...)
 	if err != nil {
@@ -144,6 +149,8 @@ type applicationVersionState struct {
 	// S3 object that is the Application Version source bundle.
 	Key *string `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,6 +172,8 @@ type ApplicationVersionState struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringPtrInput
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -188,6 +197,8 @@ type applicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key string `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -206,6 +217,8 @@ type ApplicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringInput
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -234,6 +247,12 @@ func (i *ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionOutput)
 }
 
+func (i *ApplicationVersion) ToOutput(ctx context.Context) pulumix.Output[*ApplicationVersion] {
+	return pulumix.Output[*ApplicationVersion]{
+		OutputState: i.ToApplicationVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationVersionArrayInput is an input type that accepts ApplicationVersionArray and ApplicationVersionArrayOutput values.
 // You can construct a concrete instance of `ApplicationVersionArrayInput` via:
 //
@@ -257,6 +276,12 @@ func (i ApplicationVersionArray) ToApplicationVersionArrayOutput() ApplicationVe
 
 func (i ApplicationVersionArray) ToApplicationVersionArrayOutputWithContext(ctx context.Context) ApplicationVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionArrayOutput)
+}
+
+func (i ApplicationVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationVersion] {
+	return pulumix.Output[[]*ApplicationVersion]{
+		OutputState: i.ToApplicationVersionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApplicationVersionMapInput is an input type that accepts ApplicationVersionMap and ApplicationVersionMapOutput values.
@@ -284,6 +309,12 @@ func (i ApplicationVersionMap) ToApplicationVersionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionMapOutput)
 }
 
+func (i ApplicationVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationVersion] {
+	return pulumix.Output[map[string]*ApplicationVersion]{
+		OutputState: i.ToApplicationVersionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionOutput) ElementType() reflect.Type {
@@ -296,6 +327,12 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutput() ApplicationVersio
 
 func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
 	return o
+}
+
+func (o ApplicationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationVersion] {
+	return pulumix.Output[*ApplicationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the Beanstalk Application the version is associated with.
@@ -329,6 +366,8 @@ func (o ApplicationVersionOutput) Key() pulumi.StringOutput {
 }
 
 // Unique name for the this Application Version.
+//
+// The following arguments are optional:
 func (o ApplicationVersionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -357,6 +396,12 @@ func (o ApplicationVersionArrayOutput) ToApplicationVersionArrayOutputWithContex
 	return o
 }
 
+func (o ApplicationVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationVersion] {
+	return pulumix.Output[[]*ApplicationVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationVersionArrayOutput) Index(i pulumi.IntInput) ApplicationVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationVersion {
 		return vs[0].([]*ApplicationVersion)[vs[1].(int)]
@@ -375,6 +420,12 @@ func (o ApplicationVersionMapOutput) ToApplicationVersionMapOutput() Application
 
 func (o ApplicationVersionMapOutput) ToApplicationVersionMapOutputWithContext(ctx context.Context) ApplicationVersionMapOutput {
 	return o
+}
+
+func (o ApplicationVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationVersion] {
+	return pulumix.Output[map[string]*ApplicationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationVersionMapOutput) MapIndex(k pulumi.StringInput) ApplicationVersionOutput {

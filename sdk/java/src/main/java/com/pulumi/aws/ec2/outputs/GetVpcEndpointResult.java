@@ -27,10 +27,14 @@ public final class GetVpcEndpointResult {
      */
     private List<String> cidrBlocks;
     /**
-     * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
      * 
      */
     private List<GetVpcEndpointDnsEntry> dnsEntries;
+    /**
+     * @return DNS options for the VPC Endpoint. DNS options blocks are documented below.
+     * 
+     */
     private List<GetVpcEndpointDnsOption> dnsOptions;
     private @Nullable List<GetVpcEndpointFilter> filters;
     private String id;
@@ -106,12 +110,16 @@ public final class GetVpcEndpointResult {
         return this.cidrBlocks;
     }
     /**
-     * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
      * 
      */
     public List<GetVpcEndpointDnsEntry> dnsEntries() {
         return this.dnsEntries;
     }
+    /**
+     * @return DNS options for the VPC Endpoint. DNS options blocks are documented below.
+     * 
+     */
     public List<GetVpcEndpointDnsOption> dnsOptions() {
         return this.dnsOptions;
     }

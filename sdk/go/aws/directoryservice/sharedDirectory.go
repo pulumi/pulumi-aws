@@ -8,14 +8,57 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a directory in your account (directory owner) shared with another account (directory consumer).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDirectory, err := directoryservice.NewDirectory(ctx, "exampleDirectory", &directoryservice.DirectoryArgs{
+// Name: pulumi.String("tf-example"),
+// Password: pulumi.String("SuperSecretPassw0rd"),
+// Type: pulumi.String("MicrosoftAD"),
+// Edition: pulumi.String("Standard"),
+// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// VpcId: pulumi.Any(aws_vpc.Example.Id),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:directoryservice-sharedDirectory:SharedDirectory.pp:7,17-41),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
+// DirectoryId: exampleDirectory.ID(),
+// Notes: pulumi.String("You wanna have a catch?"),
+// Target: &directoryservice.SharedDirectoryTargetArgs{
+// Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
+// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
 //
 // ```sh
 //
@@ -34,6 +77,8 @@ type SharedDirectory struct {
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTargetOutput `pulumi:"target"`
 }
 
@@ -57,6 +102,7 @@ func NewSharedDirectory(ctx *pulumi.Context,
 		"notes",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SharedDirectory
 	err := ctx.RegisterResource("aws:directoryservice/sharedDirectory:SharedDirectory", name, args, &resource, opts...)
 	if err != nil {
@@ -88,6 +134,8 @@ type sharedDirectoryState struct {
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId *string `pulumi:"sharedDirectoryId"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target *SharedDirectoryTarget `pulumi:"target"`
 }
 
@@ -101,6 +149,8 @@ type SharedDirectoryState struct {
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringPtrInput
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTargetPtrInput
 }
 
@@ -116,6 +166,8 @@ type sharedDirectoryArgs struct {
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes *string `pulumi:"notes"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTarget `pulumi:"target"`
 }
 
@@ -128,6 +180,8 @@ type SharedDirectoryArgs struct {
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes pulumi.StringPtrInput
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTargetInput
 }
 
@@ -152,6 +206,12 @@ func (i *SharedDirectory) ToSharedDirectoryOutput() SharedDirectoryOutput {
 
 func (i *SharedDirectory) ToSharedDirectoryOutputWithContext(ctx context.Context) SharedDirectoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryOutput)
+}
+
+func (i *SharedDirectory) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectory] {
+	return pulumix.Output[*SharedDirectory]{
+		OutputState: i.ToSharedDirectoryOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SharedDirectoryArrayInput is an input type that accepts SharedDirectoryArray and SharedDirectoryArrayOutput values.
@@ -179,6 +239,12 @@ func (i SharedDirectoryArray) ToSharedDirectoryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryArrayOutput)
 }
 
+func (i SharedDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedDirectory] {
+	return pulumix.Output[[]*SharedDirectory]{
+		OutputState: i.ToSharedDirectoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SharedDirectoryMapInput is an input type that accepts SharedDirectoryMap and SharedDirectoryMapOutput values.
 // You can construct a concrete instance of `SharedDirectoryMapInput` via:
 //
@@ -204,6 +270,12 @@ func (i SharedDirectoryMap) ToSharedDirectoryMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryMapOutput)
 }
 
+func (i SharedDirectoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedDirectory] {
+	return pulumix.Output[map[string]*SharedDirectory]{
+		OutputState: i.ToSharedDirectoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SharedDirectoryOutput struct{ *pulumi.OutputState }
 
 func (SharedDirectoryOutput) ElementType() reflect.Type {
@@ -216,6 +288,12 @@ func (o SharedDirectoryOutput) ToSharedDirectoryOutput() SharedDirectoryOutput {
 
 func (o SharedDirectoryOutput) ToSharedDirectoryOutputWithContext(ctx context.Context) SharedDirectoryOutput {
 	return o
+}
+
+func (o SharedDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectory] {
+	return pulumix.Output[*SharedDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
@@ -239,6 +317,8 @@ func (o SharedDirectoryOutput) SharedDirectoryId() pulumi.StringOutput {
 }
 
 // Identifier for the directory consumer account with whom the directory is to be shared. See below.
+//
+// The following arguments are optional:
 func (o SharedDirectoryOutput) Target() SharedDirectoryTargetOutput {
 	return o.ApplyT(func(v *SharedDirectory) SharedDirectoryTargetOutput { return v.Target }).(SharedDirectoryTargetOutput)
 }
@@ -255,6 +335,12 @@ func (o SharedDirectoryArrayOutput) ToSharedDirectoryArrayOutput() SharedDirecto
 
 func (o SharedDirectoryArrayOutput) ToSharedDirectoryArrayOutputWithContext(ctx context.Context) SharedDirectoryArrayOutput {
 	return o
+}
+
+func (o SharedDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedDirectory] {
+	return pulumix.Output[[]*SharedDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SharedDirectoryArrayOutput) Index(i pulumi.IntInput) SharedDirectoryOutput {
@@ -275,6 +361,12 @@ func (o SharedDirectoryMapOutput) ToSharedDirectoryMapOutput() SharedDirectoryMa
 
 func (o SharedDirectoryMapOutput) ToSharedDirectoryMapOutputWithContext(ctx context.Context) SharedDirectoryMapOutput {
 	return o
+}
+
+func (o SharedDirectoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedDirectory] {
+	return pulumix.Output[map[string]*SharedDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SharedDirectoryMapOutput) MapIndex(k pulumi.StringInput) SharedDirectoryOutput {

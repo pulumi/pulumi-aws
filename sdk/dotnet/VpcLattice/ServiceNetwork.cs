@@ -33,7 +33,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// VPC Lattice Service Network can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
@@ -56,6 +56,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// Name of the service network
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -126,6 +128,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// Name of the service network
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -164,6 +168,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// Name of the service network
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

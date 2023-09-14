@@ -83,6 +83,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
@@ -103,6 +105,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }
@@ -122,6 +126,7 @@ namespace Pulumi.Aws.Ssm
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string InsecureValue;
         public readonly string Name;
         public readonly string Type;
         public readonly string Value;
@@ -133,6 +138,8 @@ namespace Pulumi.Aws.Ssm
             string arn,
 
             string id,
+
+            string insecureValue,
 
             string name,
 
@@ -146,6 +153,7 @@ namespace Pulumi.Aws.Ssm
         {
             Arn = arn;
             Id = id;
+            InsecureValue = insecureValue;
             Name = name;
             Type = type;
             Value = value;

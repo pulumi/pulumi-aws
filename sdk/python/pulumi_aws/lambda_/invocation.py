@@ -16,19 +16,28 @@ class InvocationArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[str],
                  input: pulumi.Input[str],
+                 lifecycle_scope: Optional[pulumi.Input[str]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
+                 terraform_key: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Invocation resource.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "input", input)
+        if lifecycle_scope is not None:
+            pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if terraform_key is not None:
+            pulumi.set(__self__, "terraform_key", terraform_key)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -49,12 +58,26 @@ class InvocationArgs:
     def input(self) -> pulumi.Input[str]:
         """
         JSON payload to the lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "input")
 
     @input.setter
     def input(self, value: pulumi.Input[str]):
         pulumi.set(self, "input", value)
+
+    @property
+    @pulumi.getter(name="lifecycleScope")
+    def lifecycle_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+        """
+        return pulumi.get(self, "lifecycle_scope")
+
+    @lifecycle_scope.setter
+    def lifecycle_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_scope", value)
 
     @property
     @pulumi.getter
@@ -67,6 +90,15 @@ class InvocationArgs:
     @qualifier.setter
     def qualifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "qualifier", value)
+
+    @property
+    @pulumi.getter(name="terraformKey")
+    def terraform_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "terraform_key")
+
+    @terraform_key.setter
+    def terraform_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "terraform_key", value)
 
     @property
     @pulumi.getter
@@ -86,13 +118,18 @@ class _InvocationState:
     def __init__(__self__, *,
                  function_name: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[str]] = None,
+                 lifecycle_scope: Optional[pulumi.Input[str]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
                  result: Optional[pulumi.Input[str]] = None,
+                 terraform_key: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Invocation resources.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -101,10 +138,14 @@ class _InvocationState:
             pulumi.set(__self__, "function_name", function_name)
         if input is not None:
             pulumi.set(__self__, "input", input)
+        if lifecycle_scope is not None:
+            pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
         if result is not None:
             pulumi.set(__self__, "result", result)
+        if terraform_key is not None:
+            pulumi.set(__self__, "terraform_key", terraform_key)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -125,12 +166,26 @@ class _InvocationState:
     def input(self) -> Optional[pulumi.Input[str]]:
         """
         JSON payload to the lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "input")
 
     @input.setter
     def input(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "input", value)
+
+    @property
+    @pulumi.getter(name="lifecycleScope")
+    def lifecycle_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+        """
+        return pulumi.get(self, "lifecycle_scope")
+
+    @lifecycle_scope.setter
+    def lifecycle_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_scope", value)
 
     @property
     @pulumi.getter
@@ -157,6 +212,15 @@ class _InvocationState:
         pulumi.set(self, "result", value)
 
     @property
+    @pulumi.getter(name="terraformKey")
+    def terraform_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "terraform_key")
+
+    @terraform_key.setter
+    def terraform_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "terraform_key", value)
+
+    @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -176,13 +240,15 @@ class Invocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[str]] = None,
+                 lifecycle_scope: Optional[pulumi.Input[str]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
+                 terraform_key: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
 
-        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
+        > **NOTE:** By default this resource _only_ invokes the function when the arguments call for a create or replace. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source. To invoke the lambda function when the Pulumi resource is updated and deleted, see the CRUD Lifecycle Scope example below.
 
         > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
@@ -205,11 +271,54 @@ class Invocation(pulumi.CustomResource):
                 "key2": "value2",
             }))
         ```
+        ### CRUD Lifecycle Scope
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.lambda_.Invocation("example",
+            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+            input=json.dumps({
+                "key1": "value1",
+                "key2": "value2",
+            }),
+            lifecycle_scope="CRUD")
+        ```
+
+        > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
+
+        The key `tf` gets added with subkeys:
+
+        * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
+        * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
+
+        When the resource from the example above is created, the Lambda will get following JSON payload:
+
+        ```python
+        import pulumi
+        ```
+
+        If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
+
+        ```python
+        import pulumi
+        ```
+
+        When the invocation resource is removed, the final invocation will have the following JSON payload:
+
+        ```python
+        import pulumi
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
@@ -222,7 +331,7 @@ class Invocation(pulumi.CustomResource):
         """
         Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
 
-        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
+        > **NOTE:** By default this resource _only_ invokes the function when the arguments call for a create or replace. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source. To invoke the lambda function when the Pulumi resource is updated and deleted, see the CRUD Lifecycle Scope example below.
 
         > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
@@ -244,6 +353,46 @@ class Invocation(pulumi.CustomResource):
                 "key1": "value1",
                 "key2": "value2",
             }))
+        ```
+        ### CRUD Lifecycle Scope
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.lambda_.Invocation("example",
+            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+            input=json.dumps({
+                "key1": "value1",
+                "key2": "value2",
+            }),
+            lifecycle_scope="CRUD")
+        ```
+
+        > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
+
+        The key `tf` gets added with subkeys:
+
+        * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
+        * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
+
+        When the resource from the example above is created, the Lambda will get following JSON payload:
+
+        ```python
+        import pulumi
+        ```
+
+        If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
+
+        ```python
+        import pulumi
+        ```
+
+        When the invocation resource is removed, the final invocation will have the following JSON payload:
+
+        ```python
+        import pulumi
         ```
 
         :param str resource_name: The name of the resource.
@@ -263,7 +412,9 @@ class Invocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[str]] = None,
+                 lifecycle_scope: Optional[pulumi.Input[str]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
+                 terraform_key: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -280,7 +431,9 @@ class Invocation(pulumi.CustomResource):
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
+            __props__.__dict__["lifecycle_scope"] = lifecycle_scope
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["terraform_key"] = terraform_key
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["result"] = None
         super(Invocation, __self__).__init__(
@@ -295,8 +448,10 @@ class Invocation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             function_name: Optional[pulumi.Input[str]] = None,
             input: Optional[pulumi.Input[str]] = None,
+            lifecycle_scope: Optional[pulumi.Input[str]] = None,
             qualifier: Optional[pulumi.Input[str]] = None,
             result: Optional[pulumi.Input[str]] = None,
+            terraform_key: Optional[pulumi.Input[str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Invocation':
         """
         Get an existing Invocation resource's state with the given name, id, and optional extra
@@ -307,6 +462,9 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -317,8 +475,10 @@ class Invocation(pulumi.CustomResource):
 
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["input"] = input
+        __props__.__dict__["lifecycle_scope"] = lifecycle_scope
         __props__.__dict__["qualifier"] = qualifier
         __props__.__dict__["result"] = result
+        __props__.__dict__["terraform_key"] = terraform_key
         __props__.__dict__["triggers"] = triggers
         return Invocation(resource_name, opts=opts, __props__=__props__)
 
@@ -335,8 +495,18 @@ class Invocation(pulumi.CustomResource):
     def input(self) -> pulumi.Output[str]:
         """
         JSON payload to the lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="lifecycleScope")
+    def lifecycle_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+        """
+        return pulumi.get(self, "lifecycle_scope")
 
     @property
     @pulumi.getter
@@ -353,6 +523,11 @@ class Invocation(pulumi.CustomResource):
         String result of the lambda function invocation.
         """
         return pulumi.get(self, "result")
+
+    @property
+    @pulumi.getter(name="terraformKey")
+    def terraform_key(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "terraform_key")
 
     @property
     @pulumi.getter

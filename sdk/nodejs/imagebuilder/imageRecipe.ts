@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
  *  $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -133,6 +133,8 @@ export class ImageRecipe extends pulumi.CustomResource {
     public readonly userDataBase64!: pulumi.Output<string>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     *
+     * The following attributes are optional:
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -258,6 +260,8 @@ export interface ImageRecipeState {
     userDataBase64?: pulumi.Input<string>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     *
+     * The following attributes are optional:
      */
     version?: pulumi.Input<string>;
     /**
@@ -304,6 +308,8 @@ export interface ImageRecipeArgs {
     userDataBase64?: pulumi.Input<string>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     *
+     * The following attributes are optional:
      */
     version: pulumi.Input<string>;
     /**

@@ -38,6 +38,8 @@ namespace Pulumi.Aws.Rds.Inputs
 
         /// <summary>
         /// Version of the source engine used to make the backup
+        /// 
+        /// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
         /// </summary>
         [Input("sourceEngineVersion", required: true)]
         public Input<string> SourceEngineVersion { get; set; } = null!;

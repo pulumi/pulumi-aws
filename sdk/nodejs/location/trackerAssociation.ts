@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+ * Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"

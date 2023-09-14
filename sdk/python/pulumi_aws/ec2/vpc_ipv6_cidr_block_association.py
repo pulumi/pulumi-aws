@@ -182,7 +182,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_vpc_ipv6_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+        Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
@@ -220,7 +220,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_vpc_ipv6_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+        Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx

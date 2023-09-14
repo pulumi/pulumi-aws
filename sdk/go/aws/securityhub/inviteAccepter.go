@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +63,11 @@ import (
 //
 // ## Import
 //
-// Security Hub invite acceptance can be imported using the account ID, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import Security Hub invite acceptance using the account ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_securityhub_invite_accepter.example
 //
-//	$ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `TODO import`, import Security Hub invite acceptance using the account ID. For exampleconsole % TODO import aws_securityhub_invite_accepter.example 123456789012
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +87,7 @@ func NewInviteAccepter(ctx *pulumi.Context,
 	if args.MasterId == nil {
 		return nil, errors.New("invalid value for required argument 'MasterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InviteAccepter
 	err := ctx.RegisterResource("aws:securityhub/inviteAccepter:InviteAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -160,6 +161,12 @@ func (i *InviteAccepter) ToInviteAccepterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterOutput)
 }
 
+func (i *InviteAccepter) ToOutput(ctx context.Context) pulumix.Output[*InviteAccepter] {
+	return pulumix.Output[*InviteAccepter]{
+		OutputState: i.ToInviteAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InviteAccepterArrayInput is an input type that accepts InviteAccepterArray and InviteAccepterArrayOutput values.
 // You can construct a concrete instance of `InviteAccepterArrayInput` via:
 //
@@ -183,6 +190,12 @@ func (i InviteAccepterArray) ToInviteAccepterArrayOutput() InviteAccepterArrayOu
 
 func (i InviteAccepterArray) ToInviteAccepterArrayOutputWithContext(ctx context.Context) InviteAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterArrayOutput)
+}
+
+func (i InviteAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*InviteAccepter] {
+	return pulumix.Output[[]*InviteAccepter]{
+		OutputState: i.ToInviteAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InviteAccepterMapInput is an input type that accepts InviteAccepterMap and InviteAccepterMapOutput values.
@@ -210,6 +223,12 @@ func (i InviteAccepterMap) ToInviteAccepterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterMapOutput)
 }
 
+func (i InviteAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InviteAccepter] {
+	return pulumix.Output[map[string]*InviteAccepter]{
+		OutputState: i.ToInviteAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InviteAccepterOutput struct{ *pulumi.OutputState }
 
 func (InviteAccepterOutput) ElementType() reflect.Type {
@@ -222,6 +241,12 @@ func (o InviteAccepterOutput) ToInviteAccepterOutput() InviteAccepterOutput {
 
 func (o InviteAccepterOutput) ToInviteAccepterOutputWithContext(ctx context.Context) InviteAccepterOutput {
 	return o
+}
+
+func (o InviteAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*InviteAccepter] {
+	return pulumix.Output[*InviteAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the invitation.
@@ -248,6 +273,12 @@ func (o InviteAccepterArrayOutput) ToInviteAccepterArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o InviteAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InviteAccepter] {
+	return pulumix.Output[[]*InviteAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InviteAccepterArrayOutput) Index(i pulumi.IntInput) InviteAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InviteAccepter {
 		return vs[0].([]*InviteAccepter)[vs[1].(int)]
@@ -266,6 +297,12 @@ func (o InviteAccepterMapOutput) ToInviteAccepterMapOutput() InviteAccepterMapOu
 
 func (o InviteAccepterMapOutput) ToInviteAccepterMapOutputWithContext(ctx context.Context) InviteAccepterMapOutput {
 	return o
+}
+
+func (o InviteAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InviteAccepter] {
+	return pulumix.Output[map[string]*InviteAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InviteAccepterMapOutput) MapIndex(k pulumi.StringInput) InviteAccepterOutput {

@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * RBin Rule can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import RBin Rule using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:rbin/rule:Rule example examplerule
@@ -97,6 +97,8 @@ export class Rule extends pulumi.CustomResource {
     public readonly resourceType!: pulumi.Output<string>;
     /**
      * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+     *
+     * The following arguments are optional:
      */
     public readonly retentionPeriod!: pulumi.Output<outputs.rbin.RuleRetentionPeriod>;
     /**
@@ -186,6 +188,8 @@ export interface RuleState {
     resourceType?: pulumi.Input<string>;
     /**
      * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+     *
+     * The following arguments are optional:
      */
     retentionPeriod?: pulumi.Input<inputs.rbin.RuleRetentionPeriod>;
     /**
@@ -218,6 +222,8 @@ export interface RuleArgs {
     resourceType: pulumi.Input<string>;
     /**
      * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+     *
+     * The following arguments are optional:
      */
     retentionPeriod: pulumi.Input<inputs.rbin.RuleRetentionPeriod>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

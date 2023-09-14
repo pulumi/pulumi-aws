@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirewallConfigArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallConfigResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, &rv, opts...)
 	if err != nil {
@@ -53,6 +56,8 @@ func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirew
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigArgs struct {
 	// The ID of the VPC from Amazon VPC that the configuration is for.
+	//
+	// The following attribute is additionally exported:
 	ResourceId string `pulumi:"resourceId"`
 }
 
@@ -81,6 +86,8 @@ func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolver
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigOutputArgs struct {
 	// The ID of the VPC from Amazon VPC that the configuration is for.
+	//
+	// The following attribute is additionally exported:
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 
@@ -101,6 +108,12 @@ func (o LookupResolverFirewallConfigResultOutput) ToLookupResolverFirewallConfig
 
 func (o LookupResolverFirewallConfigResultOutput) ToLookupResolverFirewallConfigResultOutputWithContext(ctx context.Context) LookupResolverFirewallConfigResultOutput {
 	return o
+}
+
+func (o LookupResolverFirewallConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverFirewallConfigResult] {
+	return pulumix.Output[LookupResolverFirewallConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResolverFirewallConfigResultOutput) FirewallFailOpen() pulumi.StringOutput {

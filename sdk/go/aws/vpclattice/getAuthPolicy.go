@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS VPC Lattice Auth Policy.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAuthPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthPolicyResult
 	err := ctx.Invoke("aws:vpclattice/getAuthPolicy:getAuthPolicy", args, &rv, opts...)
 	if err != nil {
@@ -108,6 +111,12 @@ func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutput() LookupAut
 
 func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutputWithContext(ctx context.Context) LookupAuthPolicyResultOutput {
 	return o
+}
+
+func (o LookupAuthPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthPolicyResult] {
+	return pulumix.Output[LookupAuthPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

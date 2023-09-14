@@ -18,6 +18,11 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings',
+    'ContinuousDeploymentPolicyStagingDistributionDnsNames',
+    'ContinuousDeploymentPolicyTrafficConfig',
+    'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig',
+    'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig',
+    'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig',
     'DistributionCustomErrorResponse',
     'DistributionDefaultCacheBehavior',
     'DistributionDefaultCacheBehaviorForwardedValues',
@@ -149,11 +154,11 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
                  enable_accept_encoding_brotli: Optional[bool] = None,
                  enable_accept_encoding_gzip: Optional[bool] = None):
         """
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs' cookies_config: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs' headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs' query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-        :param bool enable_accept_encoding_brotli: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        :param bool enable_accept_encoding_gzip: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs' cookies_config: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs' headers_config: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs' query_strings_config: Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
+        :param bool enable_accept_encoding_brotli: Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
+        :param bool enable_accept_encoding_gzip: Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
         """
         pulumi.set(__self__, "cookies_config", cookies_config)
         pulumi.set(__self__, "headers_config", headers_config)
@@ -167,7 +172,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @pulumi.getter(name="cookiesConfig")
     def cookies_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig':
         """
-        Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         """
         return pulumi.get(self, "cookies_config")
 
@@ -175,7 +180,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @pulumi.getter(name="headersConfig")
     def headers_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig':
         """
-        Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         """
         return pulumi.get(self, "headers_config")
 
@@ -183,7 +188,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig':
         """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+        Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
 
@@ -191,7 +196,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @pulumi.getter(name="enableAcceptEncodingBrotli")
     def enable_accept_encoding_brotli(self) -> Optional[bool]:
         """
-        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "enable_accept_encoding_brotli")
 
@@ -199,7 +204,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @pulumi.getter(name="enableAcceptEncodingGzip")
     def enable_accept_encoding_gzip(self) -> Optional[bool]:
         """
-        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
         """
         return pulumi.get(self, "enable_accept_encoding_gzip")
 
@@ -227,7 +232,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
                  cookie_behavior: str,
                  cookies: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies'] = None):
         """
-        :param str cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        :param str cookie_behavior: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs' cookies: Object that contains a list of cookie names. See Items for more information.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
@@ -238,7 +243,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
     @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> str:
         """
-        Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         """
         return pulumi.get(self, "cookie_behavior")
 
@@ -287,8 +292,8 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
                  header_behavior: Optional[str] = None,
                  headers: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders'] = None):
         """
-        :param str header_behavior: Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs' headers: Object that contains a list of header names. See Items for more information.
+        :param str header_behavior: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs' headers: Object contains a list of header names. See Items for more information.
         """
         if header_behavior is not None:
             pulumi.set(__self__, "header_behavior", header_behavior)
@@ -299,7 +304,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
     @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> Optional[str]:
         """
-        Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
         """
         return pulumi.get(self, "header_behavior")
 
@@ -307,7 +312,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders']:
         """
-        Object that contains a list of header names. See Items for more information.
+        Object contains a list of header names. See Items for more information.
         """
         return pulumi.get(self, "headers")
 
@@ -350,8 +355,8 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
                  query_string_behavior: str,
                  query_strings: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings'] = None):
         """
-        :param str query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs' query_strings: Object that contains a list of query string names. See Items for more information.
+        :param str query_string_behavior: Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs' query_strings: Configuration parameter that contains a list of query string names. See Items for more information.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         if query_strings is not None:
@@ -361,7 +366,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
     @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> str:
         """
-        Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         """
         return pulumi.get(self, "query_string_behavior")
 
@@ -369,7 +374,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings']:
         """
-        Object that contains a list of query string names. See Items for more information.
+        Configuration parameter that contains a list of query string names. See Items for more information.
         """
         return pulumi.get(self, "query_strings")
 
@@ -385,6 +390,221 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQuery
     @pulumi.getter
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
+    def __init__(__self__, *,
+                 quantity: int,
+                 items: Optional[Sequence[str]] = None):
+        """
+        :param int quantity: Number of CloudFront domain names in the staging distribution.
+        :param Sequence[str] items: A list of CloudFront domain names for the staging distribution.
+        """
+        pulumi.set(__self__, "quantity", quantity)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> int:
+        """
+        Number of CloudFront domain names in the staging distribution.
+        """
+        return pulumi.get(self, "quantity")
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[str]]:
+        """
+        A list of CloudFront domain names for the staging distribution.
+        """
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "singleHeaderConfig":
+            suggest = "single_header_config"
+        elif key == "singleWeightConfig":
+            suggest = "single_weight_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuousDeploymentPolicyTrafficConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuousDeploymentPolicyTrafficConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuousDeploymentPolicyTrafficConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 single_header_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig'] = None,
+                 single_weight_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig'] = None):
+        """
+        :param str type: Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs' single_header_config: Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs' single_weight_config: Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
+        """
+        pulumi.set(__self__, "type", type)
+        if single_header_config is not None:
+            pulumi.set(__self__, "single_header_config", single_header_config)
+        if single_weight_config is not None:
+            pulumi.set(__self__, "single_weight_config", single_weight_config)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="singleHeaderConfig")
+    def single_header_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig']:
+        """
+        Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
+        """
+        return pulumi.get(self, "single_header_config")
+
+    @property
+    @pulumi.getter(name="singleWeightConfig")
+    def single_weight_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig']:
+        """
+        Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
+        """
+        return pulumi.get(self, "single_weight_config")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig(dict):
+    def __init__(__self__, *,
+                 header: str,
+                 value: str):
+        """
+        :param str header: Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+        :param str value: Request header value.
+        """
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> str:
+        """
+        Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+        """
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Request header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionStickinessConfig":
+            suggest = "session_stickiness_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 weight: float,
+                 session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig'] = None):
+        """
+        :param float weight: The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs' session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+        """
+        pulumi.set(__self__, "weight", weight)
+        if session_stickiness_config is not None:
+            pulumi.set(__self__, "session_stickiness_config", session_stickiness_config)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> float:
+        """
+        The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+        """
+        return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter(name="sessionStickinessConfig")
+    def session_stickiness_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig']:
+        """
+        Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+        """
+        return pulumi.get(self, "session_stickiness_config")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTtl":
+            suggest = "idle_ttl"
+        elif key == "maximumTtl":
+            suggest = "maximum_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_ttl: int,
+                 maximum_ttl: int):
+        """
+        :param int idle_ttl: The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+        :param int maximum_ttl: The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+        """
+        pulumi.set(__self__, "idle_ttl", idle_ttl)
+        pulumi.set(__self__, "maximum_ttl", maximum_ttl)
+
+    @property
+    @pulumi.getter(name="idleTtl")
+    def idle_ttl(self) -> int:
+        """
+        The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+        """
+        return pulumi.get(self, "idle_ttl")
+
+    @property
+    @pulumi.getter(name="maximumTtl")
+    def maximum_ttl(self) -> int:
+        """
+        The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+        """
+        return pulumi.get(self, "maximum_ttl")
 
 
 @pulumi.output_type
@@ -1778,8 +1998,8 @@ class DistributionOriginCustomOriginConfig(dict):
         :param int https_port: HTTPS port the custom origin listens on.
         :param str origin_protocol_policy: Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         :param Sequence[str] origin_ssl_protocols: SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
-        :param int origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
-        :param int origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        :param int origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
+        :param int origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
@@ -1826,7 +2046,7 @@ class DistributionOriginCustomOriginConfig(dict):
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> Optional[int]:
         """
-        The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
 
@@ -1834,7 +2054,7 @@ class DistributionOriginCustomOriginConfig(dict):
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[int]:
         """
-        The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
         return pulumi.get(self, "origin_read_timeout")
 

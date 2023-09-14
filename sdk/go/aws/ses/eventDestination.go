@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES event destination
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +60,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,7 +94,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -121,7 +123,7 @@ import (
 //
 // ## Import
 //
-// SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.,
+// Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
 //
 // ```sh
 //
@@ -146,6 +148,8 @@ type EventDestination struct {
 	// The name of the event destination
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination EventDestinationSnsDestinationPtrOutput `pulumi:"snsDestination"`
 }
 
@@ -162,6 +166,7 @@ func NewEventDestination(ctx *pulumi.Context,
 	if args.MatchingTypes == nil {
 		return nil, errors.New("invalid value for required argument 'MatchingTypes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventDestination
 	err := ctx.RegisterResource("aws:ses/eventDestination:EventDestination", name, args, &resource, opts...)
 	if err != nil {
@@ -199,6 +204,8 @@ type eventDestinationState struct {
 	// The name of the event destination
 	Name *string `pulumi:"name"`
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination *EventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
@@ -218,6 +225,8 @@ type EventDestinationState struct {
 	// The name of the event destination
 	Name pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination EventDestinationSnsDestinationPtrInput
 }
 
@@ -239,6 +248,8 @@ type eventDestinationArgs struct {
 	// The name of the event destination
 	Name *string `pulumi:"name"`
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination *EventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
@@ -257,6 +268,8 @@ type EventDestinationArgs struct {
 	// The name of the event destination
 	Name pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination EventDestinationSnsDestinationPtrInput
 }
 
@@ -281,6 +294,12 @@ func (i *EventDestination) ToEventDestinationOutput() EventDestinationOutput {
 
 func (i *EventDestination) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationOutput)
+}
+
+func (i *EventDestination) ToOutput(ctx context.Context) pulumix.Output[*EventDestination] {
+	return pulumix.Output[*EventDestination]{
+		OutputState: i.ToEventDestinationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventDestinationArrayInput is an input type that accepts EventDestinationArray and EventDestinationArrayOutput values.
@@ -308,6 +327,12 @@ func (i EventDestinationArray) ToEventDestinationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationArrayOutput)
 }
 
+func (i EventDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventDestination] {
+	return pulumix.Output[[]*EventDestination]{
+		OutputState: i.ToEventDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventDestinationMapInput is an input type that accepts EventDestinationMap and EventDestinationMapOutput values.
 // You can construct a concrete instance of `EventDestinationMapInput` via:
 //
@@ -333,6 +358,12 @@ func (i EventDestinationMap) ToEventDestinationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationMapOutput)
 }
 
+func (i EventDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventDestination] {
+	return pulumix.Output[map[string]*EventDestination]{
+		OutputState: i.ToEventDestinationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationOutput) ElementType() reflect.Type {
@@ -345,6 +376,12 @@ func (o EventDestinationOutput) ToEventDestinationOutput() EventDestinationOutpu
 
 func (o EventDestinationOutput) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
 	return o
+}
+
+func (o EventDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventDestination] {
+	return pulumix.Output[*EventDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The SES event destination ARN.
@@ -385,6 +422,8 @@ func (o EventDestinationOutput) Name() pulumi.StringOutput {
 }
 
 // Send the events to an SNS Topic destination
+//
+// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 func (o EventDestinationOutput) SnsDestination() EventDestinationSnsDestinationPtrOutput {
 	return o.ApplyT(func(v *EventDestination) EventDestinationSnsDestinationPtrOutput { return v.SnsDestination }).(EventDestinationSnsDestinationPtrOutput)
 }
@@ -401,6 +440,12 @@ func (o EventDestinationArrayOutput) ToEventDestinationArrayOutput() EventDestin
 
 func (o EventDestinationArrayOutput) ToEventDestinationArrayOutputWithContext(ctx context.Context) EventDestinationArrayOutput {
 	return o
+}
+
+func (o EventDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventDestination] {
+	return pulumix.Output[[]*EventDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventDestinationArrayOutput) Index(i pulumi.IntInput) EventDestinationOutput {
@@ -421,6 +466,12 @@ func (o EventDestinationMapOutput) ToEventDestinationMapOutput() EventDestinatio
 
 func (o EventDestinationMapOutput) ToEventDestinationMapOutputWithContext(ctx context.Context) EventDestinationMapOutput {
 	return o
+}
+
+func (o EventDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventDestination] {
+	return pulumix.Output[map[string]*EventDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventDestinationMapOutput) MapIndex(k pulumi.StringInput) EventDestinationOutput {

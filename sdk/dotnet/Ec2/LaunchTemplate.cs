@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Launch Templates can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import Launch Templates using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678

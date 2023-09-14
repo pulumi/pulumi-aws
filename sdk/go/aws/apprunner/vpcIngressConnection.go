@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Runner VPC Ingress Connection.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // ## Import
 //
-// App Runner VPC Ingress Connection can be imported by using the `arn`, e.g.,
+// Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
 //
 // ```sh
 //
@@ -89,6 +91,7 @@ func NewVpcIngressConnection(ctx *pulumi.Context,
 	if args.ServiceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIngressConnection
 	err := ctx.RegisterResource("aws:apprunner/vpcIngressConnection:VpcIngressConnection", name, args, &resource, opts...)
 	if err != nil {
@@ -198,6 +201,12 @@ func (i *VpcIngressConnection) ToVpcIngressConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIngressConnectionOutput)
 }
 
+func (i *VpcIngressConnection) ToOutput(ctx context.Context) pulumix.Output[*VpcIngressConnection] {
+	return pulumix.Output[*VpcIngressConnection]{
+		OutputState: i.ToVpcIngressConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcIngressConnectionArrayInput is an input type that accepts VpcIngressConnectionArray and VpcIngressConnectionArrayOutput values.
 // You can construct a concrete instance of `VpcIngressConnectionArrayInput` via:
 //
@@ -221,6 +230,12 @@ func (i VpcIngressConnectionArray) ToVpcIngressConnectionArrayOutput() VpcIngres
 
 func (i VpcIngressConnectionArray) ToVpcIngressConnectionArrayOutputWithContext(ctx context.Context) VpcIngressConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIngressConnectionArrayOutput)
+}
+
+func (i VpcIngressConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIngressConnection] {
+	return pulumix.Output[[]*VpcIngressConnection]{
+		OutputState: i.ToVpcIngressConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcIngressConnectionMapInput is an input type that accepts VpcIngressConnectionMap and VpcIngressConnectionMapOutput values.
@@ -248,6 +263,12 @@ func (i VpcIngressConnectionMap) ToVpcIngressConnectionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIngressConnectionMapOutput)
 }
 
+func (i VpcIngressConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIngressConnection] {
+	return pulumix.Output[map[string]*VpcIngressConnection]{
+		OutputState: i.ToVpcIngressConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcIngressConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpcIngressConnectionOutput) ElementType() reflect.Type {
@@ -260,6 +281,12 @@ func (o VpcIngressConnectionOutput) ToVpcIngressConnectionOutput() VpcIngressCon
 
 func (o VpcIngressConnectionOutput) ToVpcIngressConnectionOutputWithContext(ctx context.Context) VpcIngressConnectionOutput {
 	return o
+}
+
+func (o VpcIngressConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIngressConnection] {
+	return pulumix.Output[*VpcIngressConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the VPC Ingress Connection.
@@ -318,6 +345,12 @@ func (o VpcIngressConnectionArrayOutput) ToVpcIngressConnectionArrayOutputWithCo
 	return o
 }
 
+func (o VpcIngressConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIngressConnection] {
+	return pulumix.Output[[]*VpcIngressConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIngressConnectionArrayOutput) Index(i pulumi.IntInput) VpcIngressConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIngressConnection {
 		return vs[0].([]*VpcIngressConnection)[vs[1].(int)]
@@ -336,6 +369,12 @@ func (o VpcIngressConnectionMapOutput) ToVpcIngressConnectionMapOutput() VpcIngr
 
 func (o VpcIngressConnectionMapOutput) ToVpcIngressConnectionMapOutputWithContext(ctx context.Context) VpcIngressConnectionMapOutput {
 	return o
+}
+
+func (o VpcIngressConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIngressConnection] {
+	return pulumix.Output[map[string]*VpcIngressConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIngressConnectionMapOutput) MapIndex(k pulumi.StringInput) VpcIngressConnectionOutput {

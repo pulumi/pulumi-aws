@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
@@ -90,6 +90,8 @@ export class Constraint extends pulumi.CustomResource {
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -173,6 +175,8 @@ export interface ConstraintState {
     status?: pulumi.Input<string>;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -203,6 +207,8 @@ export interface ConstraintArgs {
     productId: pulumi.Input<string>;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

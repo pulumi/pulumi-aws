@@ -3,13 +3,9 @@
 
 package com.pulumi.aws.dms.inputs;
 
-import com.pulumi.aws.dms.inputs.GetEndpointElasticsearchSettingArgs;
-import com.pulumi.aws.dms.inputs.GetEndpointKafkaSettingArgs;
-import com.pulumi.aws.dms.inputs.GetEndpointMongodbSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,13 +15,6 @@ import javax.annotation.Nullable;
 public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEndpointArgs Empty = new GetEndpointArgs();
-
-    @Import(name="elasticsearchSettings")
-    private @Nullable Output<List<GetEndpointElasticsearchSettingArgs>> elasticsearchSettings;
-
-    public Optional<Output<List<GetEndpointElasticsearchSettingArgs>>> elasticsearchSettings() {
-        return Optional.ofNullable(this.elasticsearchSettings);
-    }
 
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -42,27 +31,6 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
         return this.endpointId;
     }
 
-    @Import(name="extraConnectionAttributes")
-    private @Nullable Output<String> extraConnectionAttributes;
-
-    public Optional<Output<String>> extraConnectionAttributes() {
-        return Optional.ofNullable(this.extraConnectionAttributes);
-    }
-
-    @Import(name="kafkaSettings")
-    private @Nullable Output<List<GetEndpointKafkaSettingArgs>> kafkaSettings;
-
-    public Optional<Output<List<GetEndpointKafkaSettingArgs>>> kafkaSettings() {
-        return Optional.ofNullable(this.kafkaSettings);
-    }
-
-    @Import(name="mongodbSettings")
-    private @Nullable Output<List<GetEndpointMongodbSettingArgs>> mongodbSettings;
-
-    public Optional<Output<List<GetEndpointMongodbSettingArgs>>> mongodbSettings() {
-        return Optional.ofNullable(this.mongodbSettings);
-    }
-
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -73,11 +41,7 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
     private GetEndpointArgs() {}
 
     private GetEndpointArgs(GetEndpointArgs $) {
-        this.elasticsearchSettings = $.elasticsearchSettings;
         this.endpointId = $.endpointId;
-        this.extraConnectionAttributes = $.extraConnectionAttributes;
-        this.kafkaSettings = $.kafkaSettings;
-        this.mongodbSettings = $.mongodbSettings;
         this.tags = $.tags;
     }
 
@@ -99,19 +63,6 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder elasticsearchSettings(@Nullable Output<List<GetEndpointElasticsearchSettingArgs>> elasticsearchSettings) {
-            $.elasticsearchSettings = elasticsearchSettings;
-            return this;
-        }
-
-        public Builder elasticsearchSettings(List<GetEndpointElasticsearchSettingArgs> elasticsearchSettings) {
-            return elasticsearchSettings(Output.of(elasticsearchSettings));
-        }
-
-        public Builder elasticsearchSettings(GetEndpointElasticsearchSettingArgs... elasticsearchSettings) {
-            return elasticsearchSettings(List.of(elasticsearchSettings));
-        }
-
         /**
          * @param endpointId Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
          * 
@@ -131,41 +82,6 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
-        }
-
-        public Builder extraConnectionAttributes(@Nullable Output<String> extraConnectionAttributes) {
-            $.extraConnectionAttributes = extraConnectionAttributes;
-            return this;
-        }
-
-        public Builder extraConnectionAttributes(String extraConnectionAttributes) {
-            return extraConnectionAttributes(Output.of(extraConnectionAttributes));
-        }
-
-        public Builder kafkaSettings(@Nullable Output<List<GetEndpointKafkaSettingArgs>> kafkaSettings) {
-            $.kafkaSettings = kafkaSettings;
-            return this;
-        }
-
-        public Builder kafkaSettings(List<GetEndpointKafkaSettingArgs> kafkaSettings) {
-            return kafkaSettings(Output.of(kafkaSettings));
-        }
-
-        public Builder kafkaSettings(GetEndpointKafkaSettingArgs... kafkaSettings) {
-            return kafkaSettings(List.of(kafkaSettings));
-        }
-
-        public Builder mongodbSettings(@Nullable Output<List<GetEndpointMongodbSettingArgs>> mongodbSettings) {
-            $.mongodbSettings = mongodbSettings;
-            return this;
-        }
-
-        public Builder mongodbSettings(List<GetEndpointMongodbSettingArgs> mongodbSettings) {
-            return mongodbSettings(Output.of(mongodbSettings));
-        }
-
-        public Builder mongodbSettings(GetEndpointMongodbSettingArgs... mongodbSettings) {
-            return mongodbSettings(List.of(mongodbSettings));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

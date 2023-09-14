@@ -254,6 +254,8 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
     :param str started_by: An optional tag specified when a task is started.
     :param Mapping[str, str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['capacityProviderStrategies'] = capacity_provider_strategies
@@ -277,25 +279,25 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
     __ret__ = pulumi.runtime.invoke('aws:ecs/getTaskExecution:getTaskExecution', __args__, opts=opts, typ=GetTaskExecutionResult).value
 
     return AwaitableGetTaskExecutionResult(
-        capacity_provider_strategies=__ret__.capacity_provider_strategies,
-        cluster=__ret__.cluster,
-        desired_count=__ret__.desired_count,
-        enable_ecs_managed_tags=__ret__.enable_ecs_managed_tags,
-        enable_execute_command=__ret__.enable_execute_command,
-        group=__ret__.group,
-        id=__ret__.id,
-        launch_type=__ret__.launch_type,
-        network_configuration=__ret__.network_configuration,
-        overrides=__ret__.overrides,
-        placement_constraints=__ret__.placement_constraints,
-        placement_strategies=__ret__.placement_strategies,
-        platform_version=__ret__.platform_version,
-        propagate_tags=__ret__.propagate_tags,
-        reference_id=__ret__.reference_id,
-        started_by=__ret__.started_by,
-        tags=__ret__.tags,
-        task_arns=__ret__.task_arns,
-        task_definition=__ret__.task_definition)
+        capacity_provider_strategies=pulumi.get(__ret__, 'capacity_provider_strategies'),
+        cluster=pulumi.get(__ret__, 'cluster'),
+        desired_count=pulumi.get(__ret__, 'desired_count'),
+        enable_ecs_managed_tags=pulumi.get(__ret__, 'enable_ecs_managed_tags'),
+        enable_execute_command=pulumi.get(__ret__, 'enable_execute_command'),
+        group=pulumi.get(__ret__, 'group'),
+        id=pulumi.get(__ret__, 'id'),
+        launch_type=pulumi.get(__ret__, 'launch_type'),
+        network_configuration=pulumi.get(__ret__, 'network_configuration'),
+        overrides=pulumi.get(__ret__, 'overrides'),
+        placement_constraints=pulumi.get(__ret__, 'placement_constraints'),
+        placement_strategies=pulumi.get(__ret__, 'placement_strategies'),
+        platform_version=pulumi.get(__ret__, 'platform_version'),
+        propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
+        reference_id=pulumi.get(__ret__, 'reference_id'),
+        started_by=pulumi.get(__ret__, 'started_by'),
+        tags=pulumi.get(__ret__, 'tags'),
+        task_arns=pulumi.get(__ret__, 'task_arns'),
+        task_definition=pulumi.get(__ret__, 'task_definition'))
 
 
 @_utilities.lift_output_func(get_task_execution)
@@ -342,5 +344,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     :param str started_by: An optional tag specified when a task is started.
     :param Mapping[str, str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+           
+           The following arguments are optional:
     """
     ...

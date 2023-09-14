@@ -285,12 +285,16 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
     /**
      * Subnet ID to create the ENI in.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
      * @return Subnet ID to create the ENI in.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> subnetId() {
@@ -804,6 +808,8 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param subnetId Subnet ID to create the ENI in.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -814,6 +820,8 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param subnetId Subnet ID to create the ENI in.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

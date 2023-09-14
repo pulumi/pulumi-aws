@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve the SES domain identity
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, opts ...pulumi.InvokeOption) (*LookupDomainIdentityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainIdentityResult
 	err := ctx.Invoke("aws:ses/getDomainIdentity:getDomainIdentity", args, &rv, opts...)
 	if err != nil {
@@ -100,6 +103,12 @@ func (o LookupDomainIdentityResultOutput) ToLookupDomainIdentityResultOutput() L
 
 func (o LookupDomainIdentityResultOutput) ToLookupDomainIdentityResultOutputWithContext(ctx context.Context) LookupDomainIdentityResultOutput {
 	return o
+}
+
+func (o LookupDomainIdentityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainIdentityResult] {
+	return pulumix.Output[LookupDomainIdentityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the domain identity.

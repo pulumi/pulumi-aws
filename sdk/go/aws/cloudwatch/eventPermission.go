@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +80,7 @@ import (
 //
 // ## Import
 //
-// EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+// Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
 // ```sh
 //
@@ -114,6 +116,7 @@ func NewEventPermission(ctx *pulumi.Context,
 	if args.StatementId == nil {
 		return nil, errors.New("invalid value for required argument 'StatementId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventPermission
 	err := ctx.RegisterResource("aws:cloudwatch/eventPermission:EventPermission", name, args, &resource, opts...)
 	if err != nil {
@@ -219,6 +222,12 @@ func (i *EventPermission) ToEventPermissionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionOutput)
 }
 
+func (i *EventPermission) ToOutput(ctx context.Context) pulumix.Output[*EventPermission] {
+	return pulumix.Output[*EventPermission]{
+		OutputState: i.ToEventPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventPermissionArrayInput is an input type that accepts EventPermissionArray and EventPermissionArrayOutput values.
 // You can construct a concrete instance of `EventPermissionArrayInput` via:
 //
@@ -242,6 +251,12 @@ func (i EventPermissionArray) ToEventPermissionArrayOutput() EventPermissionArra
 
 func (i EventPermissionArray) ToEventPermissionArrayOutputWithContext(ctx context.Context) EventPermissionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionArrayOutput)
+}
+
+func (i EventPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventPermission] {
+	return pulumix.Output[[]*EventPermission]{
+		OutputState: i.ToEventPermissionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventPermissionMapInput is an input type that accepts EventPermissionMap and EventPermissionMapOutput values.
@@ -269,6 +284,12 @@ func (i EventPermissionMap) ToEventPermissionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionMapOutput)
 }
 
+func (i EventPermissionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventPermission] {
+	return pulumix.Output[map[string]*EventPermission]{
+		OutputState: i.ToEventPermissionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventPermissionOutput struct{ *pulumi.OutputState }
 
 func (EventPermissionOutput) ElementType() reflect.Type {
@@ -281,6 +302,12 @@ func (o EventPermissionOutput) ToEventPermissionOutput() EventPermissionOutput {
 
 func (o EventPermissionOutput) ToEventPermissionOutputWithContext(ctx context.Context) EventPermissionOutput {
 	return o
+}
+
+func (o EventPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventPermission] {
+	return pulumix.Output[*EventPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
@@ -323,6 +350,12 @@ func (o EventPermissionArrayOutput) ToEventPermissionArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o EventPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventPermission] {
+	return pulumix.Output[[]*EventPermission]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventPermissionArrayOutput) Index(i pulumi.IntInput) EventPermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventPermission {
 		return vs[0].([]*EventPermission)[vs[1].(int)]
@@ -341,6 +374,12 @@ func (o EventPermissionMapOutput) ToEventPermissionMapOutput() EventPermissionMa
 
 func (o EventPermissionMapOutput) ToEventPermissionMapOutputWithContext(ctx context.Context) EventPermissionMapOutput {
 	return o
+}
+
+func (o EventPermissionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventPermission] {
+	return pulumix.Output[map[string]*EventPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventPermissionMapOutput) MapIndex(k pulumi.StringInput) EventPermissionOutput {

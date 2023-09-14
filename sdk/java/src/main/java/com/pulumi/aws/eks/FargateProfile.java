@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
@@ -201,12 +201,16 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
     /**
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
      * @return Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Optional<List<String>>> subnetIds() {

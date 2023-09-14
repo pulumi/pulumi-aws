@@ -57,6 +57,21 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+     * 
+     */
+    @Import(name="continuousDeploymentPolicyId")
+    private @Nullable Output<String> continuousDeploymentPolicyId;
+
+    /**
+     * @return Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+     * 
+     */
+    public Optional<Output<String>> continuousDeploymentPolicyId() {
+        return Optional.ofNullable(this.continuousDeploymentPolicyId);
+    }
+
+    /**
      * One or more custom error response elements (multiples allowed).
      * 
      */
@@ -252,6 +267,21 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+     * 
+     */
+    @Import(name="staging")
+    private @Nullable Output<Boolean> staging;
+
+    /**
+     * @return A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> staging() {
+        return Optional.ofNullable(this.staging);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -316,6 +346,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     private DistributionArgs(DistributionArgs $) {
         this.aliases = $.aliases;
         this.comment = $.comment;
+        this.continuousDeploymentPolicyId = $.continuousDeploymentPolicyId;
         this.customErrorResponses = $.customErrorResponses;
         this.defaultCacheBehavior = $.defaultCacheBehavior;
         this.defaultRootObject = $.defaultRootObject;
@@ -329,6 +360,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         this.priceClass = $.priceClass;
         this.restrictions = $.restrictions;
         this.retainOnDelete = $.retainOnDelete;
+        this.staging = $.staging;
         this.tags = $.tags;
         this.viewerCertificate = $.viewerCertificate;
         this.waitForDeployment = $.waitForDeployment;
@@ -403,6 +435,27 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        /**
+         * @param continuousDeploymentPolicyId Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder continuousDeploymentPolicyId(@Nullable Output<String> continuousDeploymentPolicyId) {
+            $.continuousDeploymentPolicyId = continuousDeploymentPolicyId;
+            return this;
+        }
+
+        /**
+         * @param continuousDeploymentPolicyId Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder continuousDeploymentPolicyId(String continuousDeploymentPolicyId) {
+            return continuousDeploymentPolicyId(Output.of(continuousDeploymentPolicyId));
         }
 
         /**
@@ -716,6 +769,27 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder retainOnDelete(Boolean retainOnDelete) {
             return retainOnDelete(Output.of(retainOnDelete));
+        }
+
+        /**
+         * @param staging A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staging(@Nullable Output<Boolean> staging) {
+            $.staging = staging;
+            return this;
+        }
+
+        /**
+         * @param staging A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staging(Boolean staging) {
+            return staging(Output.of(staging));
         }
 
         /**

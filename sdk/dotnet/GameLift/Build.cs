@@ -38,7 +38,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// GameLift Builds can be imported using the ID, e.g.,
+    /// Using `pulumi import`, import GameLift Builds using the ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;

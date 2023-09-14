@@ -16,7 +16,6 @@ __all__ = [
     'ClusterConfigurationArgs',
     'ClusterConfigurationExecuteCommandConfigurationArgs',
     'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs',
-    'ClusterDefaultCapacityProviderStrategyArgs',
     'ClusterServiceConnectDefaultsArgs',
     'ClusterSettingArgs',
     'ServiceAlarmsArgs',
@@ -421,60 +420,6 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs:
 
 
 @pulumi.input_type
-class ClusterDefaultCapacityProviderStrategyArgs:
-    def __init__(__self__, *,
-                 capacity_provider: pulumi.Input[str],
-                 base: Optional[pulumi.Input[int]] = None,
-                 weight: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] capacity_provider: The short name of the capacity provider.
-        :param pulumi.Input[int] base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-        :param pulumi.Input[int] weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-        """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
-        if base is not None:
-            pulumi.set(__self__, "base", base)
-        if weight is not None:
-            pulumi.set(__self__, "weight", weight)
-
-    @property
-    @pulumi.getter(name="capacityProvider")
-    def capacity_provider(self) -> pulumi.Input[str]:
-        """
-        The short name of the capacity provider.
-        """
-        return pulumi.get(self, "capacity_provider")
-
-    @capacity_provider.setter
-    def capacity_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "capacity_provider", value)
-
-    @property
-    @pulumi.getter
-    def base(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-        """
-        return pulumi.get(self, "base")
-
-    @base.setter
-    def base(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "base", value)
-
-    @property
-    @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[int]]:
-        """
-        The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-        """
-        return pulumi.get(self, "weight")
-
-    @weight.setter
-    def weight(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "weight", value)
-
-
-@pulumi.input_type
 class ClusterServiceConnectDefaultsArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
@@ -709,6 +654,8 @@ class ServiceLoadBalancerArgs:
         """
         :param pulumi.Input[str] container_name: Name of the container to associate with the load balancer (as it appears in a container definition).
         :param pulumi.Input[int] container_port: Port on the container to associate with the load balancer.
+               
+               > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         :param pulumi.Input[str] elb_name: Name of the ELB (Classic) to associate with the service.
         :param pulumi.Input[str] target_group_arn: ARN of the Load Balancer target group to associate with the service.
         """
@@ -736,6 +683,8 @@ class ServiceLoadBalancerArgs:
     def container_port(self) -> pulumi.Input[int]:
         """
         Port on the container to associate with the load balancer.
+
+        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         return pulumi.get(self, "container_port")
 
@@ -777,6 +726,8 @@ class ServiceNetworkConfigurationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: Subnets associated with the task or service.
         :param pulumi.Input[bool] assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+               
+               For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -802,6 +753,8 @@ class ServiceNetworkConfigurationArgs:
     def assign_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -833,6 +786,8 @@ class ServiceOrderedPlacementStrategyArgs:
                which has the same effect), or any platform or custom attribute that is applied to a container instance.
                For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
                needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+               
+               > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
         pulumi.set(__self__, "type", type)
         if field is not None:
@@ -858,6 +813,8 @@ class ServiceOrderedPlacementStrategyArgs:
         which has the same effect), or any platform or custom attribute that is applied to a container instance.
         For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
         needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+
+        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
         return pulumi.get(self, "field")
 
@@ -1885,6 +1842,8 @@ class TaskSetLoadBalancerArgs:
         """
         :param pulumi.Input[str] container_name: The name of the container to associate with the load balancer (as it appears in a container definition).
         :param pulumi.Input[int] container_port: The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+               
+               > **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
         :param pulumi.Input[str] load_balancer_name: The name of the ELB (Classic) to associate with the service.
         :param pulumi.Input[str] target_group_arn: The ARN of the Load Balancer target group to associate with the service.
         """
@@ -1913,6 +1872,8 @@ class TaskSetLoadBalancerArgs:
     def container_port(self) -> Optional[pulumi.Input[int]]:
         """
         The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+
+        > **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
         """
         return pulumi.get(self, "container_port")
 
@@ -1954,6 +1915,8 @@ class TaskSetNetworkConfigurationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets associated with the task or service. Maximum of 16.
         :param pulumi.Input[bool] assign_public_ip: Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+               
+               For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -1979,6 +1942,8 @@ class TaskSetNetworkConfigurationArgs:
     def assign_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -2171,6 +2136,8 @@ class GetTaskExecutionNetworkConfigurationArgs:
         """
         :param Sequence[str] subnets: Subnets associated with the task or service.
         :param bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+               
+               For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
         :param Sequence[str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -2196,6 +2163,8 @@ class GetTaskExecutionNetworkConfigurationArgs:
     def assign_public_ip(self) -> Optional[bool]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+
+        For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -2595,6 +2564,8 @@ class GetTaskExecutionPlacementStrategyArgs:
                  field: Optional[str] = None):
         """
         :param str type: The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+               
+               For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
         :param str field: The field to apply the placement strategy against.
         """
         pulumi.set(__self__, "type", type)
@@ -2606,6 +2577,8 @@ class GetTaskExecutionPlacementStrategyArgs:
     def type(self) -> str:
         """
         The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+
+        For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
         """
         return pulumi.get(self, "type")
 

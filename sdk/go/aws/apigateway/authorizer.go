@@ -8,14 +8,135 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway Authorizer.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			demoRestApi, err := apigateway.NewRestApi(ctx, "demoRestApi", nil)
+//			if err != nil {
+//				return err
+//			}
+//			invocationAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"apigateway.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invocationRole, err := iam.NewRole(ctx, "invocationRole", &iam.RoleArgs{
+//				Path:             pulumi.String("/"),
+//				AssumeRolePolicy: *pulumi.String(invocationAssumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			lambdaAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("lambda-function.zip"),
+//				Role:    lambda.Arn,
+//				Handler: pulumi.String("exports.example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewAuthorizer(ctx, "demoAuthorizer", &apigateway.AuthorizerArgs{
+//				RestApi:               demoRestApi.ID(),
+//				AuthorizerUri:         authorizer.InvokeArn,
+//				AuthorizerCredentials: invocationRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invocationPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("lambda:InvokeFunction"),
+//						},
+//						Resources: pulumi.StringArray{
+//							authorizer.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "invocationPolicyRolePolicy", &iam.RolePolicyArgs{
+//				Role: invocationRole.ID(),
+//				Policy: invocationPolicyPolicyDocument.ApplyT(func(invocationPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &invocationPolicyPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.,
+// Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
 //
 // ```sh
 //
@@ -58,6 +179,7 @@ func NewAuthorizer(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Authorizer
 	err := ctx.RegisterResource("aws:apigateway/authorizer:Authorizer", name, args, &resource, opts...)
 	if err != nil {
@@ -199,6 +321,12 @@ func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) Authoriz
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerOutput)
 }
 
+func (i *Authorizer) ToOutput(ctx context.Context) pulumix.Output[*Authorizer] {
+	return pulumix.Output[*Authorizer]{
+		OutputState: i.ToAuthorizerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthorizerArrayInput is an input type that accepts AuthorizerArray and AuthorizerArrayOutput values.
 // You can construct a concrete instance of `AuthorizerArrayInput` via:
 //
@@ -222,6 +350,12 @@ func (i AuthorizerArray) ToAuthorizerArrayOutput() AuthorizerArrayOutput {
 
 func (i AuthorizerArray) ToAuthorizerArrayOutputWithContext(ctx context.Context) AuthorizerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerArrayOutput)
+}
+
+func (i AuthorizerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Authorizer] {
+	return pulumix.Output[[]*Authorizer]{
+		OutputState: i.ToAuthorizerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AuthorizerMapInput is an input type that accepts AuthorizerMap and AuthorizerMapOutput values.
@@ -249,6 +383,12 @@ func (i AuthorizerMap) ToAuthorizerMapOutputWithContext(ctx context.Context) Aut
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerMapOutput)
 }
 
+func (i AuthorizerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Authorizer] {
+	return pulumix.Output[map[string]*Authorizer]{
+		OutputState: i.ToAuthorizerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthorizerOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerOutput) ElementType() reflect.Type {
@@ -261,6 +401,12 @@ func (o AuthorizerOutput) ToAuthorizerOutput() AuthorizerOutput {
 
 func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput {
 	return o
+}
+
+func (o AuthorizerOutput) ToOutput(ctx context.Context) pulumix.Output[*Authorizer] {
+	return pulumix.Output[*Authorizer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the API Gateway Authorizer
@@ -328,6 +474,12 @@ func (o AuthorizerArrayOutput) ToAuthorizerArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AuthorizerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Authorizer] {
+	return pulumix.Output[[]*Authorizer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthorizerArrayOutput) Index(i pulumi.IntInput) AuthorizerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Authorizer {
 		return vs[0].([]*Authorizer)[vs[1].(int)]
@@ -346,6 +498,12 @@ func (o AuthorizerMapOutput) ToAuthorizerMapOutput() AuthorizerMapOutput {
 
 func (o AuthorizerMapOutput) ToAuthorizerMapOutputWithContext(ctx context.Context) AuthorizerMapOutput {
 	return o
+}
+
+func (o AuthorizerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Authorizer] {
+	return pulumix.Output[map[string]*Authorizer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthorizerMapOutput) MapIndex(k pulumi.StringInput) AuthorizerOutput {

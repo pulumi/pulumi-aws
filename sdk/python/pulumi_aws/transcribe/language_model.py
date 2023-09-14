@@ -278,7 +278,7 @@ class LanguageModel(pulumi.CustomResource):
 
         ## Import
 
-        Transcribe LanguageModel can be imported using the `model_name`, e.g.,
+        Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
 
         ```sh
          $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
@@ -352,7 +352,7 @@ class LanguageModel(pulumi.CustomResource):
 
         ## Import
 
-        Transcribe LanguageModel can be imported using the `model_name`, e.g.,
+        Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
 
         ```sh
          $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name

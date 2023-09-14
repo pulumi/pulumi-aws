@@ -58,10 +58,37 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// });
     /// ```
+    /// ### Customer-defined Partition Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.TimestreamWrite.Table("example", new()
+    ///     {
+    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         TableName = "example",
+    ///         Schema = new Aws.TimestreamWrite.Inputs.TableSchemaArgs
+    ///         {
+    ///             CompositePartitionKey = new Aws.TimestreamWrite.Inputs.TableSchemaCompositePartitionKeyArgs
+    ///             {
+    ///                 EnforcementInRecord = "REQUIRED",
+    ///                 Name = "attr1",
+    ///                 Type = "DIMENSION",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+    /// Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
@@ -93,6 +120,12 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         [Output("retentionProperties")]
         public Output<Outputs.TableRetentionProperties> RetentionProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The schema of the table. See Schema below for more details.
+        /// </summary>
+        [Output("schema")]
+        public Output<Outputs.TableSchema> Schema { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Timestream table.
@@ -177,6 +210,12 @@ namespace Pulumi.Aws.TimestreamWrite
         public Input<Inputs.TableRetentionPropertiesArgs>? RetentionProperties { get; set; }
 
         /// <summary>
+        /// The schema of the table. See Schema below for more details.
+        /// </summary>
+        [Input("schema")]
+        public Input<Inputs.TableSchemaArgs>? Schema { get; set; }
+
+        /// <summary>
         /// The name of the Timestream table.
         /// </summary>
         [Input("tableName", required: true)]
@@ -225,6 +264,12 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         [Input("retentionProperties")]
         public Input<Inputs.TableRetentionPropertiesGetArgs>? RetentionProperties { get; set; }
+
+        /// <summary>
+        /// The schema of the table. See Schema below for more details.
+        /// </summary>
+        [Input("schema")]
+        public Input<Inputs.TableSchemaGetArgs>? Schema { get; set; }
 
         /// <summary>
         /// The name of the Timestream table.

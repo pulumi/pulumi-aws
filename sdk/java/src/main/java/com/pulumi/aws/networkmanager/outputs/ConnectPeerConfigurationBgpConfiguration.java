@@ -21,6 +21,8 @@ public final class ConnectPeerConfigurationBgpConfiguration {
     /**
      * @return The Connect peer address.
      * 
+     * The following arguments are optional:
+     * 
      */
     private @Nullable String peerAddress;
     private @Nullable Integer peerAsn;
@@ -38,6 +40,8 @@ public final class ConnectPeerConfigurationBgpConfiguration {
     }
     /**
      * @return The Connect peer address.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<String> peerAddress() {

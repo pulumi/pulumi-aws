@@ -360,7 +360,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Configuration Set can be imported using the `configuration_set_name`, e.g.,
+        Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For example:
 
         ```sh
          $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
@@ -417,7 +417,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Configuration Set can be imported using the `configuration_set_name`, e.g.,
+        Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For example:
 
         ```sh
          $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example

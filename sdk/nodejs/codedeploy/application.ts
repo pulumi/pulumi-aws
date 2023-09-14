@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodeDeploy Applications can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:codedeploy/application:Application example my-application

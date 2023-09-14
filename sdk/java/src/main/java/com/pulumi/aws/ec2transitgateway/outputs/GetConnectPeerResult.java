@@ -23,6 +23,16 @@ public final class GetConnectPeerResult {
      * 
      */
     private String bgpAsn;
+    /**
+     * @return The IP address assigned to customer device, which is used as BGP IP address.
+     * 
+     */
+    private String bgpPeerAddress;
+    /**
+     * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     * 
+     */
+    private List<String> bgpTransitGatewayAddresses;
     private @Nullable List<GetConnectPeerFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -70,6 +80,20 @@ public final class GetConnectPeerResult {
      */
     public String bgpAsn() {
         return this.bgpAsn;
+    }
+    /**
+     * @return The IP address assigned to customer device, which is used as BGP IP address.
+     * 
+     */
+    public String bgpPeerAddress() {
+        return this.bgpPeerAddress;
+    }
+    /**
+     * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     * 
+     */
+    public List<String> bgpTransitGatewayAddresses() {
+        return this.bgpTransitGatewayAddresses;
     }
     public List<GetConnectPeerFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -131,6 +155,8 @@ public final class GetConnectPeerResult {
     public static final class Builder {
         private String arn;
         private String bgpAsn;
+        private String bgpPeerAddress;
+        private List<String> bgpTransitGatewayAddresses;
         private @Nullable List<GetConnectPeerFilter> filters;
         private String id;
         private List<String> insideCidrBlocks;
@@ -144,6 +170,8 @@ public final class GetConnectPeerResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.bgpAsn = defaults.bgpAsn;
+    	      this.bgpPeerAddress = defaults.bgpPeerAddress;
+    	      this.bgpTransitGatewayAddresses = defaults.bgpTransitGatewayAddresses;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.insideCidrBlocks = defaults.insideCidrBlocks;
@@ -163,6 +191,19 @@ public final class GetConnectPeerResult {
         public Builder bgpAsn(String bgpAsn) {
             this.bgpAsn = Objects.requireNonNull(bgpAsn);
             return this;
+        }
+        @CustomType.Setter
+        public Builder bgpPeerAddress(String bgpPeerAddress) {
+            this.bgpPeerAddress = Objects.requireNonNull(bgpPeerAddress);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bgpTransitGatewayAddresses(List<String> bgpTransitGatewayAddresses) {
+            this.bgpTransitGatewayAddresses = Objects.requireNonNull(bgpTransitGatewayAddresses);
+            return this;
+        }
+        public Builder bgpTransitGatewayAddresses(String... bgpTransitGatewayAddresses) {
+            return bgpTransitGatewayAddresses(List.of(bgpTransitGatewayAddresses));
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetConnectPeerFilter> filters) {
@@ -214,6 +255,8 @@ public final class GetConnectPeerResult {
             final var o = new GetConnectPeerResult();
             o.arn = arn;
             o.bgpAsn = bgpAsn;
+            o.bgpPeerAddress = bgpPeerAddress;
+            o.bgpTransitGatewayAddresses = bgpTransitGatewayAddresses;
             o.filters = filters;
             o.id = id;
             o.insideCidrBlocks = insideCidrBlocks;

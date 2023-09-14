@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Slot types can be imported using their name.
+ * Using `pulumi import`, import slot types using their name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Redshift Cluster parameter group resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,11 +57,11 @@ import (
 //
 // ## Import
 //
-// Redshift Parameter Groups can be imported using the `name`, e.g.,
+// Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
+//	$ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-TODO
 //
 // ```
 type ParameterGroup struct {
@@ -76,6 +78,8 @@ type ParameterGroup struct {
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -94,6 +98,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:redshift/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -127,6 +132,8 @@ type parameterGroupState struct {
 	// A list of Redshift parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -144,6 +151,8 @@ type ParameterGroupState struct {
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -163,6 +172,8 @@ type parameterGroupArgs struct {
 	// A list of Redshift parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -177,6 +188,8 @@ type ParameterGroupArgs struct {
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 	Tags pulumi.StringMapInput
 }
 
@@ -201,6 +214,12 @@ func (i *ParameterGroup) ToParameterGroupOutput() ParameterGroupOutput {
 
 func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupOutput)
+}
+
+func (i *ParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
+	return pulumix.Output[*ParameterGroup]{
+		OutputState: i.ToParameterGroupOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ParameterGroupArrayInput is an input type that accepts ParameterGroupArray and ParameterGroupArrayOutput values.
@@ -228,6 +247,12 @@ func (i ParameterGroupArray) ToParameterGroupArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupArrayOutput)
 }
 
+func (i ParameterGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ParameterGroup] {
+	return pulumix.Output[[]*ParameterGroup]{
+		OutputState: i.ToParameterGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ParameterGroupMapInput is an input type that accepts ParameterGroupMap and ParameterGroupMapOutput values.
 // You can construct a concrete instance of `ParameterGroupMapInput` via:
 //
@@ -253,6 +278,12 @@ func (i ParameterGroupMap) ToParameterGroupMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupMapOutput)
 }
 
+func (i ParameterGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ParameterGroup] {
+	return pulumix.Output[map[string]*ParameterGroup]{
+		OutputState: i.ToParameterGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
@@ -265,6 +296,12 @@ func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {
 
 func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return o
+}
+
+func (o ParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
+	return pulumix.Output[*ParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of parameter group
@@ -293,6 +330,8 @@ func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -316,6 +355,12 @@ func (o ParameterGroupArrayOutput) ToParameterGroupArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ParameterGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ParameterGroup] {
+	return pulumix.Output[[]*ParameterGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ParameterGroupArrayOutput) Index(i pulumi.IntInput) ParameterGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ParameterGroup {
 		return vs[0].([]*ParameterGroup)[vs[1].(int)]
@@ -334,6 +379,12 @@ func (o ParameterGroupMapOutput) ToParameterGroupMapOutput() ParameterGroupMapOu
 
 func (o ParameterGroupMapOutput) ToParameterGroupMapOutputWithContext(ctx context.Context) ParameterGroupMapOutput {
 	return o
+}
+
+func (o ParameterGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ParameterGroup] {
+	return pulumix.Output[map[string]*ParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ParameterGroupOutput {

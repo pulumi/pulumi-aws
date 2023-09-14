@@ -57,6 +57,9 @@ export interface GetLocalGatewayArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: {[key: string]: string};
 }
@@ -123,6 +126,9 @@ export interface GetLocalGatewayOutputArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

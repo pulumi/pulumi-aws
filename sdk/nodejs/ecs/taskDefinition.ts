@@ -230,7 +230,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
+ * Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
  *
  * ```sh
  *  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
@@ -290,6 +290,8 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     /**
      * A unique name for your task definition.
+     *
+     * The following arguments are optional:
      */
     public readonly family!: pulumi.Output<string>;
     /**
@@ -454,6 +456,8 @@ export interface TaskDefinitionState {
     executionRoleArn?: pulumi.Input<string>;
     /**
      * A unique name for your task definition.
+     *
+     * The following arguments are optional:
      */
     family?: pulumi.Input<string>;
     /**
@@ -540,6 +544,8 @@ export interface TaskDefinitionArgs {
     executionRoleArn?: pulumi.Input<string>;
     /**
      * A unique name for your task definition.
+     *
+     * The following arguments are optional:
      */
     family: pulumi.Input<string>;
     /**

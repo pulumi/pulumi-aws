@@ -88,11 +88,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodePipeline Webhooks can be imported by their ARN, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
- * ```
+ *  to = aws_codepipeline_webhook.example
+ *
+ *  id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -143,7 +143,7 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface WebhookState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -283,7 +283,7 @@ export interface WebhookArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

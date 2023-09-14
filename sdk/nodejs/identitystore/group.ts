@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+ * Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
@@ -66,6 +66,8 @@ export class Group extends pulumi.CustomResource {
     public /*out*/ readonly groupId!: pulumi.Output<string>;
     /**
      * The globally unique identifier for the identity store.
+     *
+     * The following arguments are optional:
      */
     public readonly identityStoreId!: pulumi.Output<string>;
 
@@ -128,6 +130,8 @@ export interface GroupState {
     groupId?: pulumi.Input<string>;
     /**
      * The globally unique identifier for the identity store.
+     *
+     * The following arguments are optional:
      */
     identityStoreId?: pulumi.Input<string>;
 }
@@ -146,6 +150,8 @@ export interface GroupArgs {
     displayName: pulumi.Input<string>;
     /**
      * The globally unique identifier for the identity store.
+     *
+     * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
 }

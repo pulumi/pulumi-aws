@@ -91,11 +91,11 @@ namespace Pulumi.Aws.EmrServerless
     /// 
     /// ## Import
     /// 
-    /// EMR Severless applications can be imported using the `id`, e.g.
+    /// In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:emrserverless/application:Application example id
-    /// ```
+    ///  to = aws_emrserverless_application.example
+    /// 
+    ///  id = "id" } Using `TODO import`, import EMR Severless applications using the `id`. For exampleconsole % TODO import aws_emrserverless_application.example id
     /// </summary>
     [AwsResourceType("aws:emrserverless/application:Application")]
     public partial class Application : global::Pulumi.CustomResource
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.EmrServerless
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.EmrServerless
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.EmrServerless
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -31,6 +31,8 @@ public final class NetworkAclEgress {
     /**
      * @return The ICMP type code to be used. Default 0.
      * 
+     * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+     * 
      */
     private @Nullable Integer icmpCode;
     /**
@@ -85,6 +87,8 @@ public final class NetworkAclEgress {
     }
     /**
      * @return The ICMP type code to be used. Default 0.
+     * 
+     * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      * 
      */
     public Optional<Integer> icmpCode() {

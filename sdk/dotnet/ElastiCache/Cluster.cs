@@ -134,7 +134,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+    /// Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
@@ -209,10 +209,11 @@ namespace Pulumi.Aws.ElastiCache
         /// Version number of the cache engine to be used.
         /// If not set, defaults to the latest version.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        /// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        /// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -281,6 +282,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
@@ -314,12 +317,6 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
-
-        /// <summary>
-        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        /// </summary>
-        [Output("securityGroupNames")]
-        public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
 
         /// <summary>
         /// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
@@ -362,6 +359,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// </summary>
+        [Output("transitEncryptionEnabled")]
+        public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -451,10 +454,11 @@ namespace Pulumi.Aws.ElastiCache
         /// Version number of the cache engine to be used.
         /// If not set, defaults to the latest version.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        /// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        /// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -523,6 +527,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -569,19 +575,6 @@ namespace Pulumi.Aws.ElastiCache
             set => _securityGroupIds = value;
         }
 
-        [Input("securityGroupNames")]
-        private InputList<string>? _securityGroupNames;
-
-        /// <summary>
-        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> SecurityGroupNames
-        {
-            get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
-            set => _securityGroupNames = value;
-        }
-
         /// <summary>
         /// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
@@ -623,6 +616,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// </summary>
+        [Input("transitEncryptionEnabled")]
+        public Input<bool>? TransitEncryptionEnabled { get; set; }
 
         public ClusterArgs()
         {
@@ -704,10 +703,11 @@ namespace Pulumi.Aws.ElastiCache
         /// Version number of the cache engine to be used.
         /// If not set, defaults to the latest version.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        /// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        /// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -782,6 +782,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -826,19 +828,6 @@ namespace Pulumi.Aws.ElastiCache
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
-        }
-
-        [Input("securityGroupNames")]
-        private InputList<string>? _securityGroupNames;
-
-        /// <summary>
-        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> SecurityGroupNames
-        {
-            get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
-            set => _securityGroupNames = value;
         }
 
         /// <summary>
@@ -894,6 +883,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// </summary>
+        [Input("transitEncryptionEnabled")]
+        public Input<bool>? TransitEncryptionEnabled { get; set; }
 
         public ClusterState()
         {

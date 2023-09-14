@@ -32,12 +32,16 @@ public final class ExperimentTemplateTargetFilterArgs extends com.pulumi.resourc
     /**
      * Set of attribute values for the filter.
      * 
+     * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
+     * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
      * @return Set of attribute values for the filter.
+     * 
+     * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
      * 
      */
     public Output<List<String>> values() {
@@ -93,6 +97,8 @@ public final class ExperimentTemplateTargetFilterArgs extends com.pulumi.resourc
         /**
          * @param values Set of attribute values for the filter.
          * 
+         * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class ExperimentTemplateTargetFilterArgs extends com.pulumi.resourc
         /**
          * @param values Set of attribute values for the filter.
          * 
+         * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
+         * 
          * @return builder
          * 
          */
@@ -113,6 +121,8 @@ public final class ExperimentTemplateTargetFilterArgs extends com.pulumi.resourc
 
         /**
          * @param values Set of attribute values for the filter.
+         * 
+         * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
          * 
          * @return builder
          * 

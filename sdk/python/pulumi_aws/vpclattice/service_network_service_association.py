@@ -249,7 +249,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Service Network Service Association can be imported using the `id`, e.g.,
+        Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
@@ -285,7 +285,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Service Network Service Association can be imported using the `id`, e.g.,
+        Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba

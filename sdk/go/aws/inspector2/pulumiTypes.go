@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type OrganizationConfigurationAutoEnable struct {
 	// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
@@ -49,6 +53,12 @@ func (i OrganizationConfigurationAutoEnableArgs) ToOrganizationConfigurationAuto
 
 func (i OrganizationConfigurationAutoEnableArgs) ToOrganizationConfigurationAutoEnableOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationAutoEnableOutput)
+}
+
+func (i OrganizationConfigurationAutoEnableArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationAutoEnable] {
+	return pulumix.Output[OrganizationConfigurationAutoEnable]{
+		OutputState: i.ToOrganizationConfigurationAutoEnableOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i OrganizationConfigurationAutoEnableArgs) ToOrganizationConfigurationAutoEnablePtrOutput() OrganizationConfigurationAutoEnablePtrOutput {
@@ -92,6 +102,12 @@ func (i *organizationConfigurationAutoEnablePtrType) ToOrganizationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationAutoEnablePtrOutput)
 }
 
+func (i *organizationConfigurationAutoEnablePtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationAutoEnable] {
+	return pulumix.Output[*OrganizationConfigurationAutoEnable]{
+		OutputState: i.ToOrganizationConfigurationAutoEnablePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationAutoEnableOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationAutoEnableOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o OrganizationConfigurationAutoEnableOutput) ToOrganizationConfigurationAu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationAutoEnable) *OrganizationConfigurationAutoEnable {
 		return &v
 	}).(OrganizationConfigurationAutoEnablePtrOutput)
+}
+
+func (o OrganizationConfigurationAutoEnableOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationAutoEnable] {
+	return pulumix.Output[OrganizationConfigurationAutoEnable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
@@ -143,6 +165,12 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) ToOrganizationConfiguratio
 
 func (o OrganizationConfigurationAutoEnablePtrOutput) ToOrganizationConfigurationAutoEnablePtrOutputWithContext(ctx context.Context) OrganizationConfigurationAutoEnablePtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationAutoEnablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationAutoEnable] {
+	return pulumix.Output[*OrganizationConfigurationAutoEnable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationAutoEnablePtrOutput) Elem() OrganizationConfigurationAutoEnableOutput {

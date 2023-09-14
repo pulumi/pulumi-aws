@@ -27,6 +27,8 @@ class ConnectPeerArgs:
         :param pulumi.Input[str] connect_attachment_id: The ID of the connection attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
         :param pulumi.Input[str] peer_address: The Connect peer address.
+               
+               The following arguments are optional:
         :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: The Connect peer BGP options.
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -70,6 +72,8 @@ class ConnectPeerArgs:
     def peer_address(self) -> pulumi.Input[str]:
         """
         The Connect peer address.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "peer_address")
 
@@ -142,6 +146,8 @@ class _ConnectPeerState:
         :param pulumi.Input[str] edge_location: The Region where the peer is located.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
         :param pulumi.Input[str] peer_address: The Connect peer address.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: The state of the Connect peer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -294,6 +300,8 @@ class _ConnectPeerState:
     def peer_address(self) -> Optional[pulumi.Input[str]]:
         """
         The Connect peer address.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "peer_address")
 
@@ -357,7 +365,7 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_connect_peer` can be imported using the connect peer ID, e.g.
+        Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
         ```sh
          $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
@@ -370,6 +378,8 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
         :param pulumi.Input[str] peer_address: The Connect peer address.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -385,7 +395,7 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_connect_peer` can be imported using the connect peer ID, e.g.
+        Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
         ```sh
          $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
@@ -481,6 +491,8 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.Input[str] edge_location: The Region where the peer is located.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
         :param pulumi.Input[str] peer_address: The Connect peer address.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: The state of the Connect peer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -584,6 +596,8 @@ class ConnectPeer(pulumi.CustomResource):
     def peer_address(self) -> pulumi.Output[str]:
         """
         The Connect peer address.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "peer_address")
 

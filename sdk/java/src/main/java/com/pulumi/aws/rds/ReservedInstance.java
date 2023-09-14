@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * RDS DB Instance Reservations can be imported using the `instance_id`, e.g.,
+ * Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
@@ -195,12 +195,16 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="offeringId", refs={String.class}, tree="[0]")
     private Output<String> offeringId;
 
     /**
      * @return ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> offeringId() {

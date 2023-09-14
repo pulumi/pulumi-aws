@@ -11,6 +11,11 @@
         "regExp": true,
         "old": "names.AttrTagsAll:(\\s+)tftags.TagsSchemaComputed\\(\\)",
         "new": "names.AttrTagsAll:$1tftags.TagsSchemaTrulyComputed()"
+      },
+      {
+        "regExp": true,
+        "old": "PrefixedUniqueId\\(\"tf",
+        "new": "PrefixedUniqueId(\"pu"
       }
     ]
   },

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EBS Volumes can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import EBS Volumes using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
@@ -236,12 +236,16 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * 
      */
     @Export(name="throughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughput;
 
     /**
      * @return The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
     public Output<Integer> throughput() {

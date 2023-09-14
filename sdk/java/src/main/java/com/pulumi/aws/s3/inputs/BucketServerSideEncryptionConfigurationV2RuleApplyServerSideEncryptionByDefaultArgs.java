@@ -31,14 +31,14 @@ public final class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideE
     }
 
     /**
-     * Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+     * Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
      * 
      */
     @Import(name="sseAlgorithm", required=true)
     private Output<String> sseAlgorithm;
 
     /**
-     * @return Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+     * @return Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
      * 
      */
     public Output<String> sseAlgorithm() {
@@ -92,7 +92,7 @@ public final class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideE
         }
 
         /**
-         * @param sseAlgorithm Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+         * @param sseAlgorithm Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideE
         }
 
         /**
-         * @param sseAlgorithm Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+         * @param sseAlgorithm Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
          * 
          * @return builder
          * 

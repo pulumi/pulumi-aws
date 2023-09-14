@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MediaLive Input can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import MediaLive Input using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:medialive/input:Input example 12345678
@@ -269,12 +269,16 @@ public class Input extends com.pulumi.resources.CustomResource {
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The different types of inputs that AWS Elemental MediaLive supports.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

@@ -40,6 +40,8 @@ public final class DefaultNetworkAclIngress {
     /**
      * @return The IPv6 CIDR block.
      * 
+     * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+     * 
      */
     private @Nullable String ipv6CidrBlock;
     /**
@@ -54,6 +56,8 @@ public final class DefaultNetworkAclIngress {
     private Integer ruleNo;
     /**
      * @return The to port to match.
+     * 
+     * The following arguments are optional:
      * 
      */
     private Integer toPort;
@@ -97,6 +101,8 @@ public final class DefaultNetworkAclIngress {
     /**
      * @return The IPv6 CIDR block.
      * 
+     * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+     * 
      */
     public Optional<String> ipv6CidrBlock() {
         return Optional.ofNullable(this.ipv6CidrBlock);
@@ -117,6 +123,8 @@ public final class DefaultNetworkAclIngress {
     }
     /**
      * @return The to port to match.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Integer toPort() {

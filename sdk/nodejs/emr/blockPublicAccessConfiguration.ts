@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The current EMR Block Public Access Configuration can be imported, e.g.,
+ * Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
  *
  * ```sh
  *  $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
@@ -108,6 +108,8 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
 
     /**
      * Enable or disable EMR Block Public Access.
+     *
+     * The following arguments are optional:
      */
     public readonly blockPublicSecurityGroupRules!: pulumi.Output<boolean>;
     /**
@@ -149,6 +151,8 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
 export interface BlockPublicAccessConfigurationState {
     /**
      * Enable or disable EMR Block Public Access.
+     *
+     * The following arguments are optional:
      */
     blockPublicSecurityGroupRules?: pulumi.Input<boolean>;
     /**
@@ -163,6 +167,8 @@ export interface BlockPublicAccessConfigurationState {
 export interface BlockPublicAccessConfigurationArgs {
     /**
      * Enable or disable EMR Block Public Access.
+     *
+     * The following arguments are optional:
      */
     blockPublicSecurityGroupRules: pulumi.Input<boolean>;
     /**

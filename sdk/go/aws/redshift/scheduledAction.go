@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -19,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,7 +111,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -139,7 +141,7 @@ import (
 //
 // ## Import
 //
-// Redshift Scheduled Action can be imported using the `name`, e.g.,
+// Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 //
 // ```sh
 //
@@ -183,6 +185,7 @@ func NewScheduledAction(ctx *pulumi.Context,
 	if args.TargetAction == nil {
 		return nil, errors.New("invalid value for required argument 'TargetAction'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws:redshift/scheduledAction:ScheduledAction", name, args, &resource, opts...)
 	if err != nil {
@@ -308,6 +311,12 @@ func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
 }
 
+func (i *ScheduledAction) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAction] {
+	return pulumix.Output[*ScheduledAction]{
+		OutputState: i.ToScheduledActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduledActionArrayInput is an input type that accepts ScheduledActionArray and ScheduledActionArrayOutput values.
 // You can construct a concrete instance of `ScheduledActionArrayInput` via:
 //
@@ -331,6 +340,12 @@ func (i ScheduledActionArray) ToScheduledActionArrayOutput() ScheduledActionArra
 
 func (i ScheduledActionArray) ToScheduledActionArrayOutputWithContext(ctx context.Context) ScheduledActionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionArrayOutput)
+}
+
+func (i ScheduledActionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledAction] {
+	return pulumix.Output[[]*ScheduledAction]{
+		OutputState: i.ToScheduledActionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScheduledActionMapInput is an input type that accepts ScheduledActionMap and ScheduledActionMapOutput values.
@@ -358,6 +373,12 @@ func (i ScheduledActionMap) ToScheduledActionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionMapOutput)
 }
 
+func (i ScheduledActionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledAction] {
+	return pulumix.Output[map[string]*ScheduledAction]{
+		OutputState: i.ToScheduledActionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionOutput) ElementType() reflect.Type {
@@ -370,6 +391,12 @@ func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {
 
 func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
 	return o
+}
+
+func (o ScheduledActionOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAction] {
+	return pulumix.Output[*ScheduledAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the scheduled action.
@@ -426,6 +453,12 @@ func (o ScheduledActionArrayOutput) ToScheduledActionArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ScheduledActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledAction] {
+	return pulumix.Output[[]*ScheduledAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduledActionArrayOutput) Index(i pulumi.IntInput) ScheduledActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduledAction {
 		return vs[0].([]*ScheduledAction)[vs[1].(int)]
@@ -444,6 +477,12 @@ func (o ScheduledActionMapOutput) ToScheduledActionMapOutput() ScheduledActionMa
 
 func (o ScheduledActionMapOutput) ToScheduledActionMapOutputWithContext(ctx context.Context) ScheduledActionMapOutput {
 	return o
+}
+
+func (o ScheduledActionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledAction] {
+	return pulumix.Output[map[string]*ScheduledAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduledActionMapOutput) MapIndex(k pulumi.StringInput) ScheduledActionOutput {

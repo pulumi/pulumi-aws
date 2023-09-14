@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// Configuration Recorder can be imported using the name, e.g.,
+    /// Using `pulumi import`, import Configuration Recorder using the name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example

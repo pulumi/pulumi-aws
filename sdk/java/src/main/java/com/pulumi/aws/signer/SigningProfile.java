@@ -8,6 +8,7 @@ import com.pulumi.aws.signer.SigningProfileArgs;
 import com.pulumi.aws.signer.inputs.SigningProfileState;
 import com.pulumi.aws.signer.outputs.SigningProfileRevocationRecord;
 import com.pulumi.aws.signer.outputs.SigningProfileSignatureValidityPeriod;
+import com.pulumi.aws.signer.outputs.SigningProfileSigningMaterial;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -67,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Signer signing profiles can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Signer signing profiles using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
@@ -173,6 +174,12 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
      */
     public Output<SigningProfileSignatureValidityPeriod> signatureValidityPeriod() {
         return this.signatureValidityPeriod;
+    }
+    @Export(name="signingMaterial", refs={SigningProfileSigningMaterial.class}, tree="[0]")
+    private Output<SigningProfileSigningMaterial> signingMaterial;
+
+    public Output<SigningProfileSigningMaterial> signingMaterial() {
+        return this.signingMaterial;
     }
     /**
      * The status of the target signing profile.

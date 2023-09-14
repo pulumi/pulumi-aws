@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DB Option groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import DB Option groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group

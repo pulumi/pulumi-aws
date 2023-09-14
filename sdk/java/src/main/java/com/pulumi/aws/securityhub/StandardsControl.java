@@ -18,8 +18,8 @@ import javax.annotation.Nullable;
  * Disable/enable Security Hub standards control in the current region.
  * 
  * The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
- * The provider does not _create_ this resource, but instead &#34;adopts&#34; it
- * into management. When you _delete_ this resource configuration, the provider &#34;abandons&#34; resource as is and just removes it from the state.
+ * TODO does not _create_ this resource, but instead &#34;adopts&#34; it
+ * into management. When you _delete_ this resource configuration, TODO &#34;abandons&#34; resource as is and just removes it from the state.
  * 
  * ## Example Usage
  * ```java
@@ -183,14 +183,14 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
         return this.severityRating;
     }
     /**
-     * The standards control ARN.
+     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
     @Export(name="standardsControlArn", refs={String.class}, tree="[0]")
     private Output<String> standardsControlArn;
 
     /**
-     * @return The standards control ARN.
+     * @return The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
     public Output<String> standardsControlArn() {

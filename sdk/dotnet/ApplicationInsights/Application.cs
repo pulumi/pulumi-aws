@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// ## Import
     /// 
-    /// ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+    /// Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:applicationinsights/application:Application some some-application
@@ -111,6 +111,8 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// Name of the resource group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -211,6 +213,8 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// Name of the resource group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -279,6 +283,8 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// Name of the resource group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

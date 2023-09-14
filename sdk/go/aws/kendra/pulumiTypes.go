@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DataSourceConfiguration struct {
 	// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
@@ -45,6 +49,12 @@ func (i DataSourceConfigurationArgs) ToDataSourceConfigurationOutput() DataSourc
 
 func (i DataSourceConfigurationArgs) ToDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationOutput)
+}
+
+func (i DataSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfiguration] {
+	return pulumix.Output[DataSourceConfiguration]{
+		OutputState: i.ToDataSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceConfigurationArgs) ToDataSourceConfigurationPtrOutput() DataSourceConfigurationPtrOutput {
@@ -88,6 +98,12 @@ func (i *dataSourceConfigurationPtrType) ToDataSourceConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfiguration] {
+	return pulumix.Output[*DataSourceConfiguration]{
+		OutputState: i.ToDataSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -110,6 +126,12 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfiguration) *DataSourceConfiguration {
 		return &v
 	}).(DataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfiguration] {
+	return pulumix.Output[DataSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
@@ -136,6 +158,12 @@ func (o DataSourceConfigurationPtrOutput) ToDataSourceConfigurationPtrOutput() D
 
 func (o DataSourceConfigurationPtrOutput) ToDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfiguration] {
+	return pulumix.Output[*DataSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
@@ -221,6 +249,12 @@ func (i DataSourceConfigurationS3ConfigurationArgs) ToDataSourceConfigurationS3C
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationOutput)
 }
 
+func (i DataSourceConfigurationS3ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationS3Configuration] {
+	return pulumix.Output[DataSourceConfigurationS3Configuration]{
+		OutputState: i.ToDataSourceConfigurationS3ConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationS3ConfigurationArgs) ToDataSourceConfigurationS3ConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
 }
@@ -262,6 +296,12 @@ func (i *dataSourceConfigurationS3ConfigurationPtrType) ToDataSourceConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationS3ConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationS3Configuration] {
+	return pulumix.Output[*DataSourceConfigurationS3Configuration]{
+		OutputState: i.ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
@@ -284,6 +324,12 @@ func (o DataSourceConfigurationS3ConfigurationOutput) ToDataSourceConfigurationS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3Configuration {
 		return &v
 	}).(DataSourceConfigurationS3ConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationS3ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationS3Configuration] {
+	return pulumix.Output[DataSourceConfigurationS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
@@ -332,6 +378,12 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) ToDataSourceConfigurati
 
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationS3Configuration] {
+	return pulumix.Output[*DataSourceConfigurationS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) Elem() DataSourceConfigurationS3ConfigurationOutput {
@@ -437,6 +489,12 @@ func (i DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput)
 }
 
+func (i DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationS3ConfigurationAccessControlListConfiguration] {
+	return pulumix.Output[DataSourceConfigurationS3ConfigurationAccessControlListConfiguration]{
+		OutputState: i.ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(context.Background())
 }
@@ -478,6 +536,12 @@ func (i *dataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtr
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationS3ConfigurationAccessControlListConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationS3ConfigurationAccessControlListConfiguration]{
+		OutputState: i.ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) ElementType() reflect.Type {
@@ -502,6 +566,12 @@ func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutp
 	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
 }
 
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationS3ConfigurationAccessControlListConfiguration] {
+	return pulumix.Output[DataSourceConfigurationS3ConfigurationAccessControlListConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Path to the AWS S3 bucket that contains the ACL files.
 func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) KeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3ConfigurationAccessControlListConfiguration) *string { return v.KeyPath }).(pulumi.StringPtrOutput)
@@ -519,6 +589,12 @@ func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrO
 
 func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationS3ConfigurationAccessControlListConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationS3ConfigurationAccessControlListConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) Elem() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput {
@@ -574,6 +650,12 @@ func (i DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput)
 }
 
+func (i DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration] {
+	return pulumix.Output[DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration]{
+		OutputState: i.ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(context.Background())
 }
@@ -615,6 +697,12 @@ func (i *dataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtr
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration]{
+		OutputState: i.ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) ElementType() reflect.Type {
@@ -639,6 +727,12 @@ func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutp
 	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
 }
 
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration] {
+	return pulumix.Output[DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
 func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) S3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration) *string {
@@ -658,6 +752,12 @@ func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrO
 
 func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) Elem() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput {
@@ -745,6 +845,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationArgs) ToDataSourceConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationWebCrawlerConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(context.Background())
 }
@@ -786,6 +892,12 @@ func (i *dataSourceConfigurationWebCrawlerConfigurationPtrType) ToDataSourceConf
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationWebCrawlerConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationWebCrawlerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationWebCrawlerConfigurationOutput) ElementType() reflect.Type {
@@ -808,6 +920,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ToDataSourceConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
 		return &v
 	}).(DataSourceConfigurationWebCrawlerConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
@@ -875,6 +993,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ToDataSourceCon
 
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationOutput {
@@ -1010,6 +1134,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1051,6 +1181,12 @@ func (i *dataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -1075,6 +1211,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
 }
 
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) BasicAuthentications() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration) []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication {
@@ -1094,6 +1236,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput {
@@ -1157,6 +1305,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray and DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput values.
 // You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput` via:
 //
@@ -1182,6 +1336,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication] {
+	return pulumix.Output[[]DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) ElementType() reflect.Type {
@@ -1194,6 +1354,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
@@ -1229,6 +1395,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication] {
+	return pulumix.Output[[]DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput) Index(i pulumi.IntInput) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput {
@@ -1278,6 +1450,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1319,6 +1497,12 @@ func (i *dataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) ElementType() reflect.Type {
@@ -1341,6 +1525,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration {
 		return &v
 	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
@@ -1370,6 +1560,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutpu
 
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput {
@@ -1449,6 +1645,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ToDataSourceConf
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrls] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrls]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
 	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(context.Background())
 }
@@ -1490,6 +1692,12 @@ func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsPtrType) ToDataSource
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput)
 }
 
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrls] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrls]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationWebCrawlerConfigurationUrlsOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ElementType() reflect.Type {
@@ -1512,6 +1720,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ToDataSourceCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrls {
 		return &v
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput)
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrls] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrls]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
@@ -1540,6 +1754,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) ToDataSourc
 
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrls] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
@@ -1609,6 +1829,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationAr
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1650,6 +1876,12 @@ func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) ElementType() reflect.Type {
@@ -1672,6 +1904,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
 		return &v
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
@@ -1700,6 +1938,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPt
 
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput {
@@ -1765,6 +2009,12 @@ func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput)
 }
 
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
 	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1806,6 +2056,12 @@ func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput)
 }
 
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration]{
+		OutputState: i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) ElementType() reflect.Type {
@@ -1830,6 +2086,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationO
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput)
 }
 
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration] {
+	return pulumix.Output[DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) SiteMaps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration) []string {
@@ -1849,6 +2111,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationP
 
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration] {
+	return pulumix.Output[*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput {
@@ -1916,6 +2184,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomD
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationOutput)
 }
 
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1957,6 +2231,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationPtrType) ToDataSourceCus
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfiguration] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationOutput) ElementType() reflect.Type {
@@ -1979,6 +2259,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCusto
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfiguration {
 		return &v
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
@@ -2019,6 +2305,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ToDataSourceCu
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfiguration] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationOutput {
@@ -2072,7 +2364,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration struct {
-	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
 	Condition *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition `pulumi:"condition"`
 	// `TRUE` to delete content if the condition used for the target attribute is met.
 	DocumentContentDeletion *bool `pulumi:"documentContentDeletion"`
@@ -2092,7 +2384,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput int
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs struct {
-	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
 	Condition DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput `pulumi:"condition"`
 	// `TRUE` to delete content if the condition used for the target attribute is met.
 	DocumentContentDeletion pulumi.BoolPtrInput `pulumi:"documentContentDeletion"`
@@ -2110,6 +2402,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs) 
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput values.
@@ -2137,6 +2435,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray)
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput)
 }
 
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration] {
+	return pulumix.Output[[]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) ElementType() reflect.Type {
@@ -2151,7 +2455,13 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput
 	return o
 }
 
-// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) Condition() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
 		return v.Condition
@@ -2186,6 +2496,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayO
 	return o
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration] {
+	return pulumix.Output[[]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput) Index(i pulumi.IntInput) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
 		return vs[0].([]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration)[vs[1].(int)]
@@ -2195,7 +2511,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayO
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator string `pulumi:"operator"`
@@ -2215,7 +2531,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -2231,6 +2547,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
@@ -2274,6 +2596,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondi
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ElementType() reflect.Type {
@@ -2298,6 +2626,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput)
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) string {
@@ -2305,7 +2639,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
 		return v.ConditionOnValue
@@ -2333,6 +2667,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	return o
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
 		if v != nil {
@@ -2353,7 +2693,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
 		if v == nil {
@@ -2416,6 +2756,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput)
 }
 
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(context.Background())
 }
@@ -2457,6 +2803,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondi
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) ElementType() reflect.Type {
@@ -2479,6 +2831,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
 		return &v
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
@@ -2520,6 +2878,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput {
@@ -2574,8 +2938,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget struct {
 	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 	TargetDocumentAttributeKey *string `pulumi:"targetDocumentAttributeKey"`
-	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-	// See Document Attribute Value.
+	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 	TargetDocumentAttributeValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue `pulumi:"targetDocumentAttributeValue"`
 	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
 	TargetDocumentAttributeValueDeletion *bool `pulumi:"targetDocumentAttributeValueDeletion"`
@@ -2595,8 +2958,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInp
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs struct {
 	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 	TargetDocumentAttributeKey pulumi.StringPtrInput `pulumi:"targetDocumentAttributeKey"`
-	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-	// See Document Attribute Value.
+	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 	TargetDocumentAttributeValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput `pulumi:"targetDocumentAttributeValue"`
 	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
 	TargetDocumentAttributeValueDeletion pulumi.BoolPtrInput `pulumi:"targetDocumentAttributeValueDeletion"`
@@ -2612,6 +2974,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
@@ -2655,6 +3023,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarge
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) ElementType() reflect.Type {
@@ -2679,6 +3053,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput)
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *string {
@@ -2686,8 +3066,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-// See Document Attribute Value.
+// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
 		return v.TargetDocumentAttributeValue
@@ -2715,6 +3094,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	return o
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
 		if v != nil {
@@ -2735,8 +3120,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-// See Document Attribute Value.
+// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
 		if v == nil {
@@ -2799,6 +3183,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput)
 }
 
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(context.Background())
 }
@@ -2840,6 +3230,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarge
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) ElementType() reflect.Type {
@@ -2862,6 +3258,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
 		return &v
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
@@ -2903,6 +3305,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput {
@@ -2955,7 +3363,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn string `pulumi:"lambdaArn"`
@@ -2975,7 +3383,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
@@ -2993,6 +3401,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
@@ -3036,6 +3450,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) ElementType() reflect.Type {
@@ -3060,7 +3480,13 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
 		return v.InvocationCondition
@@ -3095,6 +3521,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	return o
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
 		if v != nil {
@@ -3105,7 +3537,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
 		if v == nil {
@@ -3138,7 +3570,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator string `pulumi:"operator"`
@@ -3158,7 +3590,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -3174,6 +3606,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
@@ -3217,6 +3655,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ElementType() reflect.Type {
@@ -3241,6 +3685,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) string {
@@ -3248,7 +3698,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return v.ConditionOnValue
@@ -3276,6 +3726,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	return o
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
 		if v != nil {
@@ -3296,7 +3752,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
 		if v == nil {
@@ -3359,6 +3815,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
 }
 
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
 }
@@ -3400,6 +3862,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ElementType() reflect.Type {
@@ -3422,6 +3890,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return &v
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
@@ -3463,6 +3937,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
@@ -3515,7 +3995,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn string `pulumi:"lambdaArn"`
@@ -3535,7 +4015,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
@@ -3553,6 +4033,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
@@ -3596,6 +4082,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) ElementType() reflect.Type {
@@ -3620,7 +4112,13 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
 		return v.InvocationCondition
@@ -3655,6 +4153,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	return o
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
 		if v != nil {
@@ -3665,7 +4169,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
 		if v == nil {
@@ -3698,7 +4202,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator string `pulumi:"operator"`
@@ -3718,7 +4222,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -3734,6 +4238,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
@@ -3777,6 +4287,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ElementType() reflect.Type {
@@ -3801,6 +4317,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) string {
@@ -3808,7 +4330,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return v.ConditionOnValue
@@ -3836,6 +4358,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	return o
 }
 
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
 		if v != nil {
@@ -3856,7 +4384,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
 		if v == nil {
@@ -3919,6 +4447,12 @@ func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
 }
 
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
 }
@@ -3960,6 +4494,12 @@ func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ElementType() reflect.Type {
@@ -3982,6 +4522,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return &v
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
@@ -4023,6 +4569,12 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue] {
+	return pulumix.Output[*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
@@ -4111,6 +4663,12 @@ func (i ExperienceConfigurationArgs) ToExperienceConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationOutput)
 }
 
+func (i ExperienceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ExperienceConfiguration] {
+	return pulumix.Output[ExperienceConfiguration]{
+		OutputState: i.ToExperienceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ExperienceConfigurationArgs) ToExperienceConfigurationPtrOutput() ExperienceConfigurationPtrOutput {
 	return i.ToExperienceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4152,6 +4710,12 @@ func (i *experienceConfigurationPtrType) ToExperienceConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationPtrOutput)
 }
 
+func (i *experienceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperienceConfiguration] {
+	return pulumix.Output[*ExperienceConfiguration]{
+		OutputState: i.ToExperienceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperienceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExperienceConfigurationOutput) ElementType() reflect.Type {
@@ -4174,6 +4738,12 @@ func (o ExperienceConfigurationOutput) ToExperienceConfigurationPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperienceConfiguration) *ExperienceConfiguration {
 		return &v
 	}).(ExperienceConfigurationPtrOutput)
+}
+
+func (o ExperienceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ExperienceConfiguration] {
+	return pulumix.Output[ExperienceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
@@ -4202,6 +4772,12 @@ func (o ExperienceConfigurationPtrOutput) ToExperienceConfigurationPtrOutput() E
 
 func (o ExperienceConfigurationPtrOutput) ToExperienceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationPtrOutput {
 	return o
+}
+
+func (o ExperienceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperienceConfiguration] {
+	return pulumix.Output[*ExperienceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperienceConfigurationPtrOutput) Elem() ExperienceConfigurationOutput {
@@ -4275,6 +4851,12 @@ func (i ExperienceConfigurationContentSourceConfigurationArgs) ToExperienceConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationContentSourceConfigurationOutput)
 }
 
+func (i ExperienceConfigurationContentSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[ExperienceConfigurationContentSourceConfiguration]{
+		OutputState: i.ToExperienceConfigurationContentSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ExperienceConfigurationContentSourceConfigurationArgs) ToExperienceConfigurationContentSourceConfigurationPtrOutput() ExperienceConfigurationContentSourceConfigurationPtrOutput {
 	return i.ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4316,6 +4898,12 @@ func (i *experienceConfigurationContentSourceConfigurationPtrType) ToExperienceC
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
 }
 
+func (i *experienceConfigurationContentSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[*ExperienceConfigurationContentSourceConfiguration]{
+		OutputState: i.ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperienceConfigurationContentSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExperienceConfigurationContentSourceConfigurationOutput) ElementType() reflect.Type {
@@ -4338,6 +4926,12 @@ func (o ExperienceConfigurationContentSourceConfigurationOutput) ToExperienceCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperienceConfigurationContentSourceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
 		return &v
 	}).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[ExperienceConfigurationContentSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
@@ -4367,6 +4961,12 @@ func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) ToExperience
 
 func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationContentSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[*ExperienceConfigurationContentSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) Elem() ExperienceConfigurationContentSourceConfigurationOutput {
@@ -4442,6 +5042,12 @@ func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToExperienceConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationUserIdentityConfigurationOutput)
 }
 
+func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[ExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: i.ToExperienceConfigurationUserIdentityConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToExperienceConfigurationUserIdentityConfigurationPtrOutput() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
 	return i.ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4483,6 +5089,12 @@ func (i *experienceConfigurationUserIdentityConfigurationPtrType) ToExperienceCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationUserIdentityConfigurationPtrOutput)
 }
 
+func (i *experienceConfigurationUserIdentityConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[*ExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: i.ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperienceConfigurationUserIdentityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExperienceConfigurationUserIdentityConfigurationOutput) ElementType() reflect.Type {
@@ -4507,6 +5119,12 @@ func (o ExperienceConfigurationUserIdentityConfigurationOutput) ToExperienceConf
 	}).(ExperienceConfigurationUserIdentityConfigurationPtrOutput)
 }
 
+func (o ExperienceConfigurationUserIdentityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[ExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The AWS SSO field name that contains the identifiers of your users, such as their emails.
 func (o ExperienceConfigurationUserIdentityConfigurationOutput) IdentityAttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperienceConfigurationUserIdentityConfiguration) string { return v.IdentityAttributeName }).(pulumi.StringOutput)
@@ -4524,6 +5142,12 @@ func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) ToExperienceC
 
 func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationUserIdentityConfigurationPtrOutput {
 	return o
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[*ExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) Elem() ExperienceConfigurationUserIdentityConfigurationOutput {
@@ -4583,6 +5207,12 @@ func (i ExperienceEndpointArgs) ToExperienceEndpointOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceEndpointOutput)
 }
 
+func (i ExperienceEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ExperienceEndpoint] {
+	return pulumix.Output[ExperienceEndpoint]{
+		OutputState: i.ToExperienceEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperienceEndpointArrayInput is an input type that accepts ExperienceEndpointArray and ExperienceEndpointArrayOutput values.
 // You can construct a concrete instance of `ExperienceEndpointArrayInput` via:
 //
@@ -4608,6 +5238,12 @@ func (i ExperienceEndpointArray) ToExperienceEndpointArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceEndpointArrayOutput)
 }
 
+func (i ExperienceEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperienceEndpoint] {
+	return pulumix.Output[[]ExperienceEndpoint]{
+		OutputState: i.ToExperienceEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperienceEndpointOutput struct{ *pulumi.OutputState }
 
 func (ExperienceEndpointOutput) ElementType() reflect.Type {
@@ -4620,6 +5256,12 @@ func (o ExperienceEndpointOutput) ToExperienceEndpointOutput() ExperienceEndpoin
 
 func (o ExperienceEndpointOutput) ToExperienceEndpointOutputWithContext(ctx context.Context) ExperienceEndpointOutput {
 	return o
+}
+
+func (o ExperienceEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ExperienceEndpoint] {
+	return pulumix.Output[ExperienceEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The endpoint of your Amazon Kendra experience.
@@ -4646,6 +5288,12 @@ func (o ExperienceEndpointArrayOutput) ToExperienceEndpointArrayOutputWithContex
 	return o
 }
 
+func (o ExperienceEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperienceEndpoint] {
+	return pulumix.Output[[]ExperienceEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExperienceEndpointArrayOutput) Index(i pulumi.IntInput) ExperienceEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExperienceEndpoint {
 		return vs[0].([]ExperienceEndpoint)[vs[1].(int)]
@@ -4656,6 +5304,8 @@ type FaqS3Path struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key string `pulumi:"key"`
 }
 
@@ -4674,6 +5324,8 @@ type FaqS3PathArgs struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -4687,6 +5339,12 @@ func (i FaqS3PathArgs) ToFaqS3PathOutput() FaqS3PathOutput {
 
 func (i FaqS3PathArgs) ToFaqS3PathOutputWithContext(ctx context.Context) FaqS3PathOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathOutput)
+}
+
+func (i FaqS3PathArgs) ToOutput(ctx context.Context) pulumix.Output[FaqS3Path] {
+	return pulumix.Output[FaqS3Path]{
+		OutputState: i.ToFaqS3PathOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FaqS3PathArgs) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
@@ -4730,6 +5388,12 @@ func (i *faqS3PathPtrType) ToFaqS3PathPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathPtrOutput)
 }
 
+func (i *faqS3PathPtrType) ToOutput(ctx context.Context) pulumix.Output[*FaqS3Path] {
+	return pulumix.Output[*FaqS3Path]{
+		OutputState: i.ToFaqS3PathPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FaqS3PathOutput struct{ *pulumi.OutputState }
 
 func (FaqS3PathOutput) ElementType() reflect.Type {
@@ -4754,12 +5418,20 @@ func (o FaqS3PathOutput) ToFaqS3PathPtrOutputWithContext(ctx context.Context) Fa
 	}).(FaqS3PathPtrOutput)
 }
 
+func (o FaqS3PathOutput) ToOutput(ctx context.Context) pulumix.Output[FaqS3Path] {
+	return pulumix.Output[FaqS3Path]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the S3 bucket that contains the file.
 func (o FaqS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o FaqS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -4776,6 +5448,12 @@ func (o FaqS3PathPtrOutput) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
 
 func (o FaqS3PathPtrOutput) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
 	return o
+}
+
+func (o FaqS3PathPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FaqS3Path] {
+	return pulumix.Output[*FaqS3Path]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FaqS3PathPtrOutput) Elem() FaqS3PathOutput {
@@ -4799,6 +5477,8 @@ func (o FaqS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o FaqS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FaqS3Path) *string {
 		if v == nil {
@@ -4845,6 +5525,12 @@ func (i IndexCapacityUnitsArgs) ToIndexCapacityUnitsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(IndexCapacityUnitsOutput)
 }
 
+func (i IndexCapacityUnitsArgs) ToOutput(ctx context.Context) pulumix.Output[IndexCapacityUnits] {
+	return pulumix.Output[IndexCapacityUnits]{
+		OutputState: i.ToIndexCapacityUnitsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IndexCapacityUnitsArgs) ToIndexCapacityUnitsPtrOutput() IndexCapacityUnitsPtrOutput {
 	return i.ToIndexCapacityUnitsPtrOutputWithContext(context.Background())
 }
@@ -4886,6 +5572,12 @@ func (i *indexCapacityUnitsPtrType) ToIndexCapacityUnitsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IndexCapacityUnitsPtrOutput)
 }
 
+func (i *indexCapacityUnitsPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexCapacityUnits] {
+	return pulumix.Output[*IndexCapacityUnits]{
+		OutputState: i.ToIndexCapacityUnitsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexCapacityUnitsOutput struct{ *pulumi.OutputState }
 
 func (IndexCapacityUnitsOutput) ElementType() reflect.Type {
@@ -4910,6 +5602,12 @@ func (o IndexCapacityUnitsOutput) ToIndexCapacityUnitsPtrOutputWithContext(ctx c
 	}).(IndexCapacityUnitsPtrOutput)
 }
 
+func (o IndexCapacityUnitsOutput) ToOutput(ctx context.Context) pulumix.Output[IndexCapacityUnits] {
+	return pulumix.Output[IndexCapacityUnits]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 func (o IndexCapacityUnitsOutput) QueryCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexCapacityUnits) *int { return v.QueryCapacityUnits }).(pulumi.IntPtrOutput)
@@ -4932,6 +5630,12 @@ func (o IndexCapacityUnitsPtrOutput) ToIndexCapacityUnitsPtrOutput() IndexCapaci
 
 func (o IndexCapacityUnitsPtrOutput) ToIndexCapacityUnitsPtrOutputWithContext(ctx context.Context) IndexCapacityUnitsPtrOutput {
 	return o
+}
+
+func (o IndexCapacityUnitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexCapacityUnits] {
+	return pulumix.Output[*IndexCapacityUnits]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexCapacityUnitsPtrOutput) Elem() IndexCapacityUnitsOutput {
@@ -5009,6 +5713,12 @@ func (i IndexDocumentMetadataConfigurationUpdateArgs) ToIndexDocumentMetadataCon
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateOutput)
 }
 
+func (i IndexDocumentMetadataConfigurationUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[IndexDocumentMetadataConfigurationUpdate]{
+		OutputState: i.ToIndexDocumentMetadataConfigurationUpdateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IndexDocumentMetadataConfigurationUpdateArrayInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateArray and IndexDocumentMetadataConfigurationUpdateArrayOutput values.
 // You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateArrayInput` via:
 //
@@ -5034,6 +5744,12 @@ func (i IndexDocumentMetadataConfigurationUpdateArray) ToIndexDocumentMetadataCo
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateArrayOutput)
 }
 
+func (i IndexDocumentMetadataConfigurationUpdateArray) ToOutput(ctx context.Context) pulumix.Output[[]IndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[[]IndexDocumentMetadataConfigurationUpdate]{
+		OutputState: i.ToIndexDocumentMetadataConfigurationUpdateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexDocumentMetadataConfigurationUpdateOutput struct{ *pulumi.OutputState }
 
 func (IndexDocumentMetadataConfigurationUpdateOutput) ElementType() reflect.Type {
@@ -5046,6 +5762,12 @@ func (o IndexDocumentMetadataConfigurationUpdateOutput) ToIndexDocumentMetadataC
 
 func (o IndexDocumentMetadataConfigurationUpdateOutput) ToIndexDocumentMetadataConfigurationUpdateOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateOutput {
 	return o
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[IndexDocumentMetadataConfigurationUpdate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the index field. Minimum length of 1. Maximum length of 30.
@@ -5084,6 +5806,12 @@ func (o IndexDocumentMetadataConfigurationUpdateArrayOutput) ToIndexDocumentMeta
 
 func (o IndexDocumentMetadataConfigurationUpdateArrayOutput) ToIndexDocumentMetadataConfigurationUpdateArrayOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateArrayOutput {
 	return o
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[[]IndexDocumentMetadataConfigurationUpdate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.IntInput) IndexDocumentMetadataConfigurationUpdateOutput {
@@ -5141,6 +5869,12 @@ func (i IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToIndexDocumentMe
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateRelevanceOutput)
 }
 
+func (i IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[IndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: i.ToIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutput() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
 	return i.ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(context.Background())
 }
@@ -5182,6 +5916,12 @@ func (i *indexDocumentMetadataConfigurationUpdateRelevancePtrType) ToIndexDocume
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput)
 }
 
+func (i *indexDocumentMetadataConfigurationUpdateRelevancePtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[*IndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: i.ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexDocumentMetadataConfigurationUpdateRelevanceOutput struct{ *pulumi.OutputState }
 
 func (IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ElementType() reflect.Type {
@@ -5204,6 +5944,12 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToIndexDocument
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexDocumentMetadataConfigurationUpdateRelevance) *IndexDocumentMetadataConfigurationUpdateRelevance {
 		return &v
 	}).(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput)
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[IndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
@@ -5243,6 +5989,12 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ToIndexDocum
 
 func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ToIndexDocumentMetadataConfigurationUpdateRelevancePtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
 	return o
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[*IndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Elem() IndexDocumentMetadataConfigurationUpdateRelevanceOutput {
@@ -5350,6 +6102,12 @@ func (i IndexDocumentMetadataConfigurationUpdateSearchArgs) ToIndexDocumentMetad
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateSearchOutput)
 }
 
+func (i IndexDocumentMetadataConfigurationUpdateSearchArgs) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[IndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: i.ToIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IndexDocumentMetadataConfigurationUpdateSearchArgs) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutput() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
 	return i.ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(context.Background())
 }
@@ -5391,6 +6149,12 @@ func (i *indexDocumentMetadataConfigurationUpdateSearchPtrType) ToIndexDocumentM
 	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput)
 }
 
+func (i *indexDocumentMetadataConfigurationUpdateSearchPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[*IndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: i.ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexDocumentMetadataConfigurationUpdateSearchOutput struct{ *pulumi.OutputState }
 
 func (IndexDocumentMetadataConfigurationUpdateSearchOutput) ElementType() reflect.Type {
@@ -5413,6 +6177,12 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) ToIndexDocumentMet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexDocumentMetadataConfigurationUpdateSearch) *IndexDocumentMetadataConfigurationUpdateSearch {
 		return &v
 	}).(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput)
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[IndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether the field is returned in the query response. The default is `true`.
@@ -5447,6 +6217,12 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) ToIndexDocument
 
 func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) ToIndexDocumentMetadataConfigurationUpdateSearchPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
 	return o
+}
+
+func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[*IndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Elem() IndexDocumentMetadataConfigurationUpdateSearchOutput {
@@ -5536,6 +6312,12 @@ func (i IndexIndexStatisticArgs) ToIndexIndexStatisticOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IndexIndexStatisticOutput)
 }
 
+func (i IndexIndexStatisticArgs) ToOutput(ctx context.Context) pulumix.Output[IndexIndexStatistic] {
+	return pulumix.Output[IndexIndexStatistic]{
+		OutputState: i.ToIndexIndexStatisticOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IndexIndexStatisticArrayInput is an input type that accepts IndexIndexStatisticArray and IndexIndexStatisticArrayOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticArrayInput` via:
 //
@@ -5561,6 +6343,12 @@ func (i IndexIndexStatisticArray) ToIndexIndexStatisticArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(IndexIndexStatisticArrayOutput)
 }
 
+func (i IndexIndexStatisticArray) ToOutput(ctx context.Context) pulumix.Output[[]IndexIndexStatistic] {
+	return pulumix.Output[[]IndexIndexStatistic]{
+		OutputState: i.ToIndexIndexStatisticArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexIndexStatisticOutput struct{ *pulumi.OutputState }
 
 func (IndexIndexStatisticOutput) ElementType() reflect.Type {
@@ -5573,6 +6361,12 @@ func (o IndexIndexStatisticOutput) ToIndexIndexStatisticOutput() IndexIndexStati
 
 func (o IndexIndexStatisticOutput) ToIndexIndexStatisticOutputWithContext(ctx context.Context) IndexIndexStatisticOutput {
 	return o
+}
+
+func (o IndexIndexStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[IndexIndexStatistic] {
+	return pulumix.Output[IndexIndexStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that specifies the number of question and answer topics in the index. Detailed below.
@@ -5599,6 +6393,12 @@ func (o IndexIndexStatisticArrayOutput) ToIndexIndexStatisticArrayOutput() Index
 
 func (o IndexIndexStatisticArrayOutput) ToIndexIndexStatisticArrayOutputWithContext(ctx context.Context) IndexIndexStatisticArrayOutput {
 	return o
+}
+
+func (o IndexIndexStatisticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IndexIndexStatistic] {
+	return pulumix.Output[[]IndexIndexStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexIndexStatisticArrayOutput) Index(i pulumi.IntInput) IndexIndexStatisticOutput {
@@ -5640,6 +6440,12 @@ func (i IndexIndexStatisticFaqStatisticArgs) ToIndexIndexStatisticFaqStatisticOu
 	return pulumi.ToOutputWithContext(ctx, i).(IndexIndexStatisticFaqStatisticOutput)
 }
 
+func (i IndexIndexStatisticFaqStatisticArgs) ToOutput(ctx context.Context) pulumix.Output[IndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[IndexIndexStatisticFaqStatistic]{
+		OutputState: i.ToIndexIndexStatisticFaqStatisticOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IndexIndexStatisticFaqStatisticArrayInput is an input type that accepts IndexIndexStatisticFaqStatisticArray and IndexIndexStatisticFaqStatisticArrayOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticFaqStatisticArrayInput` via:
 //
@@ -5665,6 +6471,12 @@ func (i IndexIndexStatisticFaqStatisticArray) ToIndexIndexStatisticFaqStatisticA
 	return pulumi.ToOutputWithContext(ctx, i).(IndexIndexStatisticFaqStatisticArrayOutput)
 }
 
+func (i IndexIndexStatisticFaqStatisticArray) ToOutput(ctx context.Context) pulumix.Output[[]IndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[[]IndexIndexStatisticFaqStatistic]{
+		OutputState: i.ToIndexIndexStatisticFaqStatisticArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexIndexStatisticFaqStatisticOutput struct{ *pulumi.OutputState }
 
 func (IndexIndexStatisticFaqStatisticOutput) ElementType() reflect.Type {
@@ -5677,6 +6489,12 @@ func (o IndexIndexStatisticFaqStatisticOutput) ToIndexIndexStatisticFaqStatistic
 
 func (o IndexIndexStatisticFaqStatisticOutput) ToIndexIndexStatisticFaqStatisticOutputWithContext(ctx context.Context) IndexIndexStatisticFaqStatisticOutput {
 	return o
+}
+
+func (o IndexIndexStatisticFaqStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[IndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[IndexIndexStatisticFaqStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The total number of FAQ questions and answers contained in the index.
@@ -5696,6 +6514,12 @@ func (o IndexIndexStatisticFaqStatisticArrayOutput) ToIndexIndexStatisticFaqStat
 
 func (o IndexIndexStatisticFaqStatisticArrayOutput) ToIndexIndexStatisticFaqStatisticArrayOutputWithContext(ctx context.Context) IndexIndexStatisticFaqStatisticArrayOutput {
 	return o
+}
+
+func (o IndexIndexStatisticFaqStatisticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[[]IndexIndexStatisticFaqStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexIndexStatisticFaqStatisticArrayOutput) Index(i pulumi.IntInput) IndexIndexStatisticFaqStatisticOutput {
@@ -5741,6 +6565,12 @@ func (i IndexIndexStatisticTextDocumentStatisticArgs) ToIndexIndexStatisticTextD
 	return pulumi.ToOutputWithContext(ctx, i).(IndexIndexStatisticTextDocumentStatisticOutput)
 }
 
+func (i IndexIndexStatisticTextDocumentStatisticArgs) ToOutput(ctx context.Context) pulumix.Output[IndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[IndexIndexStatisticTextDocumentStatistic]{
+		OutputState: i.ToIndexIndexStatisticTextDocumentStatisticOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IndexIndexStatisticTextDocumentStatisticArrayInput is an input type that accepts IndexIndexStatisticTextDocumentStatisticArray and IndexIndexStatisticTextDocumentStatisticArrayOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticTextDocumentStatisticArrayInput` via:
 //
@@ -5766,6 +6596,12 @@ func (i IndexIndexStatisticTextDocumentStatisticArray) ToIndexIndexStatisticText
 	return pulumi.ToOutputWithContext(ctx, i).(IndexIndexStatisticTextDocumentStatisticArrayOutput)
 }
 
+func (i IndexIndexStatisticTextDocumentStatisticArray) ToOutput(ctx context.Context) pulumix.Output[[]IndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[[]IndexIndexStatisticTextDocumentStatistic]{
+		OutputState: i.ToIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexIndexStatisticTextDocumentStatisticOutput struct{ *pulumi.OutputState }
 
 func (IndexIndexStatisticTextDocumentStatisticOutput) ElementType() reflect.Type {
@@ -5778,6 +6614,12 @@ func (o IndexIndexStatisticTextDocumentStatisticOutput) ToIndexIndexStatisticTex
 
 func (o IndexIndexStatisticTextDocumentStatisticOutput) ToIndexIndexStatisticTextDocumentStatisticOutputWithContext(ctx context.Context) IndexIndexStatisticTextDocumentStatisticOutput {
 	return o
+}
+
+func (o IndexIndexStatisticTextDocumentStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[IndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[IndexIndexStatisticTextDocumentStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The total size, in bytes, of the indexed documents.
@@ -5802,6 +6644,12 @@ func (o IndexIndexStatisticTextDocumentStatisticArrayOutput) ToIndexIndexStatist
 
 func (o IndexIndexStatisticTextDocumentStatisticArrayOutput) ToIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(ctx context.Context) IndexIndexStatisticTextDocumentStatisticArrayOutput {
 	return o
+}
+
+func (o IndexIndexStatisticTextDocumentStatisticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[[]IndexIndexStatisticTextDocumentStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexIndexStatisticTextDocumentStatisticArrayOutput) Index(i pulumi.IntInput) IndexIndexStatisticTextDocumentStatisticOutput {
@@ -5841,6 +6689,12 @@ func (i IndexServerSideEncryptionConfigurationArgs) ToIndexServerSideEncryptionC
 
 func (i IndexServerSideEncryptionConfigurationArgs) ToIndexServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) IndexServerSideEncryptionConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IndexServerSideEncryptionConfigurationOutput)
+}
+
+func (i IndexServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[IndexServerSideEncryptionConfiguration]{
+		OutputState: i.ToIndexServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i IndexServerSideEncryptionConfigurationArgs) ToIndexServerSideEncryptionConfigurationPtrOutput() IndexServerSideEncryptionConfigurationPtrOutput {
@@ -5884,6 +6738,12 @@ func (i *indexServerSideEncryptionConfigurationPtrType) ToIndexServerSideEncrypt
 	return pulumi.ToOutputWithContext(ctx, i).(IndexServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (i *indexServerSideEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[*IndexServerSideEncryptionConfiguration]{
+		OutputState: i.ToIndexServerSideEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IndexServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -5908,6 +6768,12 @@ func (o IndexServerSideEncryptionConfigurationOutput) ToIndexServerSideEncryptio
 	}).(IndexServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (o IndexServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[IndexServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 func (o IndexServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexServerSideEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -5925,6 +6791,12 @@ func (o IndexServerSideEncryptionConfigurationPtrOutput) ToIndexServerSideEncryp
 
 func (o IndexServerSideEncryptionConfigurationPtrOutput) ToIndexServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IndexServerSideEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o IndexServerSideEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[*IndexServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexServerSideEncryptionConfigurationPtrOutput) Elem() IndexServerSideEncryptionConfigurationOutput {
@@ -5980,6 +6852,12 @@ func (i IndexUserGroupResolutionConfigurationArgs) ToIndexUserGroupResolutionCon
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserGroupResolutionConfigurationOutput)
 }
 
+func (i IndexUserGroupResolutionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[IndexUserGroupResolutionConfiguration]{
+		OutputState: i.ToIndexUserGroupResolutionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IndexUserGroupResolutionConfigurationArgs) ToIndexUserGroupResolutionConfigurationPtrOutput() IndexUserGroupResolutionConfigurationPtrOutput {
 	return i.ToIndexUserGroupResolutionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6021,6 +6899,12 @@ func (i *indexUserGroupResolutionConfigurationPtrType) ToIndexUserGroupResolutio
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserGroupResolutionConfigurationPtrOutput)
 }
 
+func (i *indexUserGroupResolutionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[*IndexUserGroupResolutionConfiguration]{
+		OutputState: i.ToIndexUserGroupResolutionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexUserGroupResolutionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IndexUserGroupResolutionConfigurationOutput) ElementType() reflect.Type {
@@ -6045,6 +6929,12 @@ func (o IndexUserGroupResolutionConfigurationOutput) ToIndexUserGroupResolutionC
 	}).(IndexUserGroupResolutionConfigurationPtrOutput)
 }
 
+func (o IndexUserGroupResolutionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[IndexUserGroupResolutionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 func (o IndexUserGroupResolutionConfigurationOutput) UserGroupResolutionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexUserGroupResolutionConfiguration) string { return v.UserGroupResolutionMode }).(pulumi.StringOutput)
@@ -6062,6 +6952,12 @@ func (o IndexUserGroupResolutionConfigurationPtrOutput) ToIndexUserGroupResoluti
 
 func (o IndexUserGroupResolutionConfigurationPtrOutput) ToIndexUserGroupResolutionConfigurationPtrOutputWithContext(ctx context.Context) IndexUserGroupResolutionConfigurationPtrOutput {
 	return o
+}
+
+func (o IndexUserGroupResolutionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[*IndexUserGroupResolutionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexUserGroupResolutionConfigurationPtrOutput) Elem() IndexUserGroupResolutionConfigurationOutput {
@@ -6121,6 +7017,12 @@ func (i IndexUserTokenConfigurationsArgs) ToIndexUserTokenConfigurationsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationsOutput)
 }
 
+func (i IndexUserTokenConfigurationsArgs) ToOutput(ctx context.Context) pulumix.Output[IndexUserTokenConfigurations] {
+	return pulumix.Output[IndexUserTokenConfigurations]{
+		OutputState: i.ToIndexUserTokenConfigurationsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IndexUserTokenConfigurationsArgs) ToIndexUserTokenConfigurationsPtrOutput() IndexUserTokenConfigurationsPtrOutput {
 	return i.ToIndexUserTokenConfigurationsPtrOutputWithContext(context.Background())
 }
@@ -6162,6 +7064,12 @@ func (i *indexUserTokenConfigurationsPtrType) ToIndexUserTokenConfigurationsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationsPtrOutput)
 }
 
+func (i *indexUserTokenConfigurationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexUserTokenConfigurations] {
+	return pulumix.Output[*IndexUserTokenConfigurations]{
+		OutputState: i.ToIndexUserTokenConfigurationsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexUserTokenConfigurationsOutput struct{ *pulumi.OutputState }
 
 func (IndexUserTokenConfigurationsOutput) ElementType() reflect.Type {
@@ -6184,6 +7092,12 @@ func (o IndexUserTokenConfigurationsOutput) ToIndexUserTokenConfigurationsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexUserTokenConfigurations) *IndexUserTokenConfigurations {
 		return &v
 	}).(IndexUserTokenConfigurationsPtrOutput)
+}
+
+func (o IndexUserTokenConfigurationsOutput) ToOutput(ctx context.Context) pulumix.Output[IndexUserTokenConfigurations] {
+	return pulumix.Output[IndexUserTokenConfigurations]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that specifies the information about the JSON token type configuration. Detailed below.
@@ -6212,6 +7126,12 @@ func (o IndexUserTokenConfigurationsPtrOutput) ToIndexUserTokenConfigurationsPtr
 
 func (o IndexUserTokenConfigurationsPtrOutput) ToIndexUserTokenConfigurationsPtrOutputWithContext(ctx context.Context) IndexUserTokenConfigurationsPtrOutput {
 	return o
+}
+
+func (o IndexUserTokenConfigurationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexUserTokenConfigurations] {
+	return pulumix.Output[*IndexUserTokenConfigurations]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexUserTokenConfigurationsPtrOutput) Elem() IndexUserTokenConfigurationsOutput {
@@ -6281,6 +7201,12 @@ func (i IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs) ToIndexUserT
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput)
 }
 
+func (i IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IndexUserTokenConfigurationsJsonTokenTypeConfiguration] {
+	return pulumix.Output[IndexUserTokenConfigurationsJsonTokenTypeConfiguration]{
+		OutputState: i.ToIndexUserTokenConfigurationsJsonTokenTypeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs) ToIndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput() IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput {
 	return i.ToIndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6322,6 +7248,12 @@ func (i *indexUserTokenConfigurationsJsonTokenTypeConfigurationPtrType) ToIndexU
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput)
 }
 
+func (i *indexUserTokenConfigurationsJsonTokenTypeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexUserTokenConfigurationsJsonTokenTypeConfiguration] {
+	return pulumix.Output[*IndexUserTokenConfigurationsJsonTokenTypeConfiguration]{
+		OutputState: i.ToIndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput) ElementType() reflect.Type {
@@ -6346,6 +7278,12 @@ func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput) ToIndexUse
 	}).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput)
 }
 
+func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IndexUserTokenConfigurationsJsonTokenTypeConfiguration] {
+	return pulumix.Output[IndexUserTokenConfigurationsJsonTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The group attribute field. Minimum length of 1. Maximum length of 2048.
 func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput) GroupAttributeField() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJsonTokenTypeConfiguration) string { return v.GroupAttributeField }).(pulumi.StringOutput)
@@ -6368,6 +7306,12 @@ func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) ToIndex
 
 func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) ToIndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutputWithContext(ctx context.Context) IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput {
 	return o
+}
+
+func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexUserTokenConfigurationsJsonTokenTypeConfiguration] {
+	return pulumix.Output[*IndexUserTokenConfigurationsJsonTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) Elem() IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput {
@@ -6457,6 +7401,12 @@ func (i IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs) ToIndexUserTo
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput)
 }
 
+func (i IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IndexUserTokenConfigurationsJwtTokenTypeConfiguration] {
+	return pulumix.Output[IndexUserTokenConfigurationsJwtTokenTypeConfiguration]{
+		OutputState: i.ToIndexUserTokenConfigurationsJwtTokenTypeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs) ToIndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput() IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput {
 	return i.ToIndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6498,6 +7448,12 @@ func (i *indexUserTokenConfigurationsJwtTokenTypeConfigurationPtrType) ToIndexUs
 	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput)
 }
 
+func (i *indexUserTokenConfigurationsJwtTokenTypeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexUserTokenConfigurationsJwtTokenTypeConfiguration] {
+	return pulumix.Output[*IndexUserTokenConfigurationsJwtTokenTypeConfiguration]{
+		OutputState: i.ToIndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) ElementType() reflect.Type {
@@ -6520,6 +7476,12 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) ToIndexUser
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
 		return &v
 	}).(IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput)
+}
+
+func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IndexUserTokenConfigurationsJwtTokenTypeConfiguration] {
+	return pulumix.Output[IndexUserTokenConfigurationsJwtTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
@@ -6569,6 +7531,12 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) ToIndexU
 
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) ToIndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutputWithContext(ctx context.Context) IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput {
 	return o
+}
+
+func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexUserTokenConfigurationsJwtTokenTypeConfiguration] {
+	return pulumix.Output[*IndexUserTokenConfigurationsJwtTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) Elem() IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput {
@@ -6652,9 +7620,11 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) UserName
 }
 
 type QuerySuggestionsBlockListSourceS3Path struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
+	//
+	// The following arguments are optional:
 	Key string `pulumi:"key"`
 }
 
@@ -6670,9 +7640,11 @@ type QuerySuggestionsBlockListSourceS3PathInput interface {
 }
 
 type QuerySuggestionsBlockListSourceS3PathArgs struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -6686,6 +7658,12 @@ func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSo
 
 func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx context.Context) QuerySuggestionsBlockListSourceS3PathOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListSourceS3PathOutput)
+}
+
+func (i QuerySuggestionsBlockListSourceS3PathArgs) ToOutput(ctx context.Context) pulumix.Output[QuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[QuerySuggestionsBlockListSourceS3Path]{
+		OutputState: i.ToQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSourceS3PathPtrOutput() QuerySuggestionsBlockListSourceS3PathPtrOutput {
@@ -6729,6 +7707,12 @@ func (i *querySuggestionsBlockListSourceS3PathPtrType) ToQuerySuggestionsBlockLi
 	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListSourceS3PathPtrOutput)
 }
 
+func (i *querySuggestionsBlockListSourceS3PathPtrType) ToOutput(ctx context.Context) pulumix.Output[*QuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[*QuerySuggestionsBlockListSourceS3Path]{
+		OutputState: i.ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QuerySuggestionsBlockListSourceS3PathOutput struct{ *pulumi.OutputState }
 
 func (QuerySuggestionsBlockListSourceS3PathOutput) ElementType() reflect.Type {
@@ -6753,12 +7737,20 @@ func (o QuerySuggestionsBlockListSourceS3PathOutput) ToQuerySuggestionsBlockList
 	}).(QuerySuggestionsBlockListSourceS3PathPtrOutput)
 }
 
-// The name of the S3 bucket that contains the file.
+func (o QuerySuggestionsBlockListSourceS3PathOutput) ToOutput(ctx context.Context) pulumix.Output[QuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[QuerySuggestionsBlockListSourceS3Path]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Name of the S3 bucket that contains the file.
 func (o QuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the file.
+// Name of the file.
+//
+// The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -6777,6 +7769,12 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) ToQuerySuggestionsBlockL
 	return o
 }
 
+func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[*QuerySuggestionsBlockListSourceS3Path]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Elem() QuerySuggestionsBlockListSourceS3PathOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) QuerySuggestionsBlockListSourceS3Path {
 		if v != nil {
@@ -6787,7 +7785,7 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Elem() QuerySuggestionsB
 	}).(QuerySuggestionsBlockListSourceS3PathOutput)
 }
 
-// The name of the S3 bucket that contains the file.
+// Name of the S3 bucket that contains the file.
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
 		if v == nil {
@@ -6797,7 +7795,9 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the file.
+// Name of the file.
+//
+// The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
 		if v == nil {
@@ -6811,6 +7811,8 @@ type ThesaurusSourceS3Path struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key string `pulumi:"key"`
 }
 
@@ -6829,6 +7831,8 @@ type ThesaurusSourceS3PathArgs struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -6842,6 +7846,12 @@ func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathOutput() ThesaurusSour
 
 func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathOutputWithContext(ctx context.Context) ThesaurusSourceS3PathOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusSourceS3PathOutput)
+}
+
+func (i ThesaurusSourceS3PathArgs) ToOutput(ctx context.Context) pulumix.Output[ThesaurusSourceS3Path] {
+	return pulumix.Output[ThesaurusSourceS3Path]{
+		OutputState: i.ToThesaurusSourceS3PathOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathPtrOutput() ThesaurusSourceS3PathPtrOutput {
@@ -6885,6 +7895,12 @@ func (i *thesaurusSourceS3PathPtrType) ToThesaurusSourceS3PathPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusSourceS3PathPtrOutput)
 }
 
+func (i *thesaurusSourceS3PathPtrType) ToOutput(ctx context.Context) pulumix.Output[*ThesaurusSourceS3Path] {
+	return pulumix.Output[*ThesaurusSourceS3Path]{
+		OutputState: i.ToThesaurusSourceS3PathPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThesaurusSourceS3PathOutput struct{ *pulumi.OutputState }
 
 func (ThesaurusSourceS3PathOutput) ElementType() reflect.Type {
@@ -6909,12 +7925,20 @@ func (o ThesaurusSourceS3PathOutput) ToThesaurusSourceS3PathPtrOutputWithContext
 	}).(ThesaurusSourceS3PathPtrOutput)
 }
 
+func (o ThesaurusSourceS3PathOutput) ToOutput(ctx context.Context) pulumix.Output[ThesaurusSourceS3Path] {
+	return pulumix.Output[ThesaurusSourceS3Path]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the S3 bucket that contains the file.
 func (o ThesaurusSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ThesaurusSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o ThesaurusSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ThesaurusSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -6931,6 +7955,12 @@ func (o ThesaurusSourceS3PathPtrOutput) ToThesaurusSourceS3PathPtrOutput() Thesa
 
 func (o ThesaurusSourceS3PathPtrOutput) ToThesaurusSourceS3PathPtrOutputWithContext(ctx context.Context) ThesaurusSourceS3PathPtrOutput {
 	return o
+}
+
+func (o ThesaurusSourceS3PathPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThesaurusSourceS3Path] {
+	return pulumix.Output[*ThesaurusSourceS3Path]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThesaurusSourceS3PathPtrOutput) Elem() ThesaurusSourceS3PathOutput {
@@ -6954,6 +7984,8 @@ func (o ThesaurusSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o ThesaurusSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThesaurusSourceS3Path) *string {
 		if v == nil {
@@ -7000,6 +8032,12 @@ func (i GetExperienceConfigurationArgs) ToGetExperienceConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationOutput)
 }
 
+func (i GetExperienceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetExperienceConfiguration] {
+	return pulumix.Output[GetExperienceConfiguration]{
+		OutputState: i.ToGetExperienceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetExperienceConfigurationArrayInput is an input type that accepts GetExperienceConfigurationArray and GetExperienceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationArrayInput` via:
 //
@@ -7025,6 +8063,12 @@ func (i GetExperienceConfigurationArray) ToGetExperienceConfigurationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationArrayOutput)
 }
 
+func (i GetExperienceConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceConfiguration] {
+	return pulumix.Output[[]GetExperienceConfiguration]{
+		OutputState: i.ToGetExperienceConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetExperienceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetExperienceConfigurationOutput) ElementType() reflect.Type {
@@ -7037,6 +8081,12 @@ func (o GetExperienceConfigurationOutput) ToGetExperienceConfigurationOutput() G
 
 func (o GetExperienceConfigurationOutput) ToGetExperienceConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationOutput {
 	return o
+}
+
+func (o GetExperienceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetExperienceConfiguration] {
+	return pulumix.Output[GetExperienceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
@@ -7065,6 +8115,12 @@ func (o GetExperienceConfigurationArrayOutput) ToGetExperienceConfigurationArray
 
 func (o GetExperienceConfigurationArrayOutput) ToGetExperienceConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationArrayOutput {
 	return o
+}
+
+func (o GetExperienceConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceConfiguration] {
+	return pulumix.Output[[]GetExperienceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetExperienceConfigurationArrayOutput) Index(i pulumi.IntInput) GetExperienceConfigurationOutput {
@@ -7114,6 +8170,12 @@ func (i GetExperienceConfigurationContentSourceConfigurationArgs) ToGetExperienc
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationContentSourceConfigurationOutput)
 }
 
+func (i GetExperienceConfigurationContentSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[GetExperienceConfigurationContentSourceConfiguration]{
+		OutputState: i.ToGetExperienceConfigurationContentSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetExperienceConfigurationContentSourceConfigurationArrayInput is an input type that accepts GetExperienceConfigurationContentSourceConfigurationArray and GetExperienceConfigurationContentSourceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationContentSourceConfigurationArrayInput` via:
 //
@@ -7139,6 +8201,12 @@ func (i GetExperienceConfigurationContentSourceConfigurationArray) ToGetExperien
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationContentSourceConfigurationArrayOutput)
 }
 
+func (i GetExperienceConfigurationContentSourceConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[[]GetExperienceConfigurationContentSourceConfiguration]{
+		OutputState: i.ToGetExperienceConfigurationContentSourceConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetExperienceConfigurationContentSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetExperienceConfigurationContentSourceConfigurationOutput) ElementType() reflect.Type {
@@ -7151,6 +8219,12 @@ func (o GetExperienceConfigurationContentSourceConfigurationOutput) ToGetExperie
 
 func (o GetExperienceConfigurationContentSourceConfigurationOutput) ToGetExperienceConfigurationContentSourceConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationContentSourceConfigurationOutput {
 	return o
+}
+
+func (o GetExperienceConfigurationContentSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[GetExperienceConfigurationContentSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifiers of the data sources you want to use for your Amazon Kendra Experience.
@@ -7180,6 +8254,12 @@ func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) ToGetEx
 
 func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) ToGetExperienceConfigurationContentSourceConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationContentSourceConfigurationArrayOutput {
 	return o
+}
+
+func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceConfigurationContentSourceConfiguration] {
+	return pulumix.Output[[]GetExperienceConfigurationContentSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) Index(i pulumi.IntInput) GetExperienceConfigurationContentSourceConfigurationOutput {
@@ -7221,6 +8301,12 @@ func (i GetExperienceConfigurationUserIdentityConfigurationArgs) ToGetExperience
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationUserIdentityConfigurationOutput)
 }
 
+func (i GetExperienceConfigurationUserIdentityConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[GetExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: i.ToGetExperienceConfigurationUserIdentityConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetExperienceConfigurationUserIdentityConfigurationArrayInput is an input type that accepts GetExperienceConfigurationUserIdentityConfigurationArray and GetExperienceConfigurationUserIdentityConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationUserIdentityConfigurationArrayInput` via:
 //
@@ -7246,6 +8332,12 @@ func (i GetExperienceConfigurationUserIdentityConfigurationArray) ToGetExperienc
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationUserIdentityConfigurationArrayOutput)
 }
 
+func (i GetExperienceConfigurationUserIdentityConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[[]GetExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: i.ToGetExperienceConfigurationUserIdentityConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetExperienceConfigurationUserIdentityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetExperienceConfigurationUserIdentityConfigurationOutput) ElementType() reflect.Type {
@@ -7258,6 +8350,12 @@ func (o GetExperienceConfigurationUserIdentityConfigurationOutput) ToGetExperien
 
 func (o GetExperienceConfigurationUserIdentityConfigurationOutput) ToGetExperienceConfigurationUserIdentityConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationUserIdentityConfigurationOutput {
 	return o
+}
+
+func (o GetExperienceConfigurationUserIdentityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[GetExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS SSO field name that contains the identifiers of your users, such as their emails.
@@ -7277,6 +8375,12 @@ func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) ToGetExp
 
 func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) ToGetExperienceConfigurationUserIdentityConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationUserIdentityConfigurationArrayOutput {
 	return o
+}
+
+func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceConfigurationUserIdentityConfiguration] {
+	return pulumix.Output[[]GetExperienceConfigurationUserIdentityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) Index(i pulumi.IntInput) GetExperienceConfigurationUserIdentityConfigurationOutput {
@@ -7322,6 +8426,12 @@ func (i GetExperienceEndpointArgs) ToGetExperienceEndpointOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceEndpointOutput)
 }
 
+func (i GetExperienceEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[GetExperienceEndpoint] {
+	return pulumix.Output[GetExperienceEndpoint]{
+		OutputState: i.ToGetExperienceEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetExperienceEndpointArrayInput is an input type that accepts GetExperienceEndpointArray and GetExperienceEndpointArrayOutput values.
 // You can construct a concrete instance of `GetExperienceEndpointArrayInput` via:
 //
@@ -7347,6 +8457,12 @@ func (i GetExperienceEndpointArray) ToGetExperienceEndpointArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceEndpointArrayOutput)
 }
 
+func (i GetExperienceEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceEndpoint] {
+	return pulumix.Output[[]GetExperienceEndpoint]{
+		OutputState: i.ToGetExperienceEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetExperienceEndpointOutput struct{ *pulumi.OutputState }
 
 func (GetExperienceEndpointOutput) ElementType() reflect.Type {
@@ -7359,6 +8475,12 @@ func (o GetExperienceEndpointOutput) ToGetExperienceEndpointOutput() GetExperien
 
 func (o GetExperienceEndpointOutput) ToGetExperienceEndpointOutputWithContext(ctx context.Context) GetExperienceEndpointOutput {
 	return o
+}
+
+func (o GetExperienceEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[GetExperienceEndpoint] {
+	return pulumix.Output[GetExperienceEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Endpoint of your Amazon Kendra Experience.
@@ -7383,6 +8505,12 @@ func (o GetExperienceEndpointArrayOutput) ToGetExperienceEndpointArrayOutput() G
 
 func (o GetExperienceEndpointArrayOutput) ToGetExperienceEndpointArrayOutputWithContext(ctx context.Context) GetExperienceEndpointArrayOutput {
 	return o
+}
+
+func (o GetExperienceEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetExperienceEndpoint] {
+	return pulumix.Output[[]GetExperienceEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetExperienceEndpointArrayOutput) Index(i pulumi.IntInput) GetExperienceEndpointOutput {
@@ -7428,6 +8556,12 @@ func (i GetFaqS3PathArgs) ToGetFaqS3PathOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetFaqS3PathOutput)
 }
 
+func (i GetFaqS3PathArgs) ToOutput(ctx context.Context) pulumix.Output[GetFaqS3Path] {
+	return pulumix.Output[GetFaqS3Path]{
+		OutputState: i.ToGetFaqS3PathOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFaqS3PathArrayInput is an input type that accepts GetFaqS3PathArray and GetFaqS3PathArrayOutput values.
 // You can construct a concrete instance of `GetFaqS3PathArrayInput` via:
 //
@@ -7453,6 +8587,12 @@ func (i GetFaqS3PathArray) ToGetFaqS3PathArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetFaqS3PathArrayOutput)
 }
 
+func (i GetFaqS3PathArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFaqS3Path] {
+	return pulumix.Output[[]GetFaqS3Path]{
+		OutputState: i.ToGetFaqS3PathArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFaqS3PathOutput struct{ *pulumi.OutputState }
 
 func (GetFaqS3PathOutput) ElementType() reflect.Type {
@@ -7465,6 +8605,12 @@ func (o GetFaqS3PathOutput) ToGetFaqS3PathOutput() GetFaqS3PathOutput {
 
 func (o GetFaqS3PathOutput) ToGetFaqS3PathOutputWithContext(ctx context.Context) GetFaqS3PathOutput {
 	return o
+}
+
+func (o GetFaqS3PathOutput) ToOutput(ctx context.Context) pulumix.Output[GetFaqS3Path] {
+	return pulumix.Output[GetFaqS3Path]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 bucket that contains the file.
@@ -7491,6 +8637,12 @@ func (o GetFaqS3PathArrayOutput) ToGetFaqS3PathArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o GetFaqS3PathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFaqS3Path] {
+	return pulumix.Output[[]GetFaqS3Path]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetFaqS3PathArrayOutput) Index(i pulumi.IntInput) GetFaqS3PathOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFaqS3Path {
 		return vs[0].([]GetFaqS3Path)[vs[1].(int)]
@@ -7498,7 +8650,7 @@ func (o GetFaqS3PathArrayOutput) Index(i pulumi.IntInput) GetFaqS3PathOutput {
 }
 
 type GetIndexCapacityUnit struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 	QueryCapacityUnits int `pulumi:"queryCapacityUnits"`
 	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
 	StorageCapacityUnits int `pulumi:"storageCapacityUnits"`
@@ -7516,7 +8668,7 @@ type GetIndexCapacityUnitInput interface {
 }
 
 type GetIndexCapacityUnitArgs struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 	QueryCapacityUnits pulumi.IntInput `pulumi:"queryCapacityUnits"`
 	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
 	StorageCapacityUnits pulumi.IntInput `pulumi:"storageCapacityUnits"`
@@ -7532,6 +8684,12 @@ func (i GetIndexCapacityUnitArgs) ToGetIndexCapacityUnitOutput() GetIndexCapacit
 
 func (i GetIndexCapacityUnitArgs) ToGetIndexCapacityUnitOutputWithContext(ctx context.Context) GetIndexCapacityUnitOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexCapacityUnitOutput)
+}
+
+func (i GetIndexCapacityUnitArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexCapacityUnit] {
+	return pulumix.Output[GetIndexCapacityUnit]{
+		OutputState: i.ToGetIndexCapacityUnitOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetIndexCapacityUnitArrayInput is an input type that accepts GetIndexCapacityUnitArray and GetIndexCapacityUnitArrayOutput values.
@@ -7559,6 +8717,12 @@ func (i GetIndexCapacityUnitArray) ToGetIndexCapacityUnitArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexCapacityUnitArrayOutput)
 }
 
+func (i GetIndexCapacityUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexCapacityUnit] {
+	return pulumix.Output[[]GetIndexCapacityUnit]{
+		OutputState: i.ToGetIndexCapacityUnitArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexCapacityUnitOutput struct{ *pulumi.OutputState }
 
 func (GetIndexCapacityUnitOutput) ElementType() reflect.Type {
@@ -7573,7 +8737,13 @@ func (o GetIndexCapacityUnitOutput) ToGetIndexCapacityUnitOutputWithContext(ctx 
 	return o
 }
 
-// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+func (o GetIndexCapacityUnitOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexCapacityUnit] {
+	return pulumix.Output[GetIndexCapacityUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 func (o GetIndexCapacityUnitOutput) QueryCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexCapacityUnit) int { return v.QueryCapacityUnits }).(pulumi.IntOutput)
 }
@@ -7595,6 +8765,12 @@ func (o GetIndexCapacityUnitArrayOutput) ToGetIndexCapacityUnitArrayOutput() Get
 
 func (o GetIndexCapacityUnitArrayOutput) ToGetIndexCapacityUnitArrayOutputWithContext(ctx context.Context) GetIndexCapacityUnitArrayOutput {
 	return o
+}
+
+func (o GetIndexCapacityUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexCapacityUnit] {
+	return pulumix.Output[[]GetIndexCapacityUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexCapacityUnitArrayOutput) Index(i pulumi.IntInput) GetIndexCapacityUnitOutput {
@@ -7648,6 +8824,12 @@ func (i GetIndexDocumentMetadataConfigurationUpdateArgs) ToGetIndexDocumentMetad
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateOutput)
 }
 
+func (i GetIndexDocumentMetadataConfigurationUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[GetIndexDocumentMetadataConfigurationUpdate]{
+		OutputState: i.ToGetIndexDocumentMetadataConfigurationUpdateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexDocumentMetadataConfigurationUpdateArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateArray and GetIndexDocumentMetadataConfigurationUpdateArrayOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateArrayInput` via:
 //
@@ -7673,6 +8855,12 @@ func (i GetIndexDocumentMetadataConfigurationUpdateArray) ToGetIndexDocumentMeta
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateArrayOutput)
 }
 
+func (i GetIndexDocumentMetadataConfigurationUpdateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdate]{
+		OutputState: i.ToGetIndexDocumentMetadataConfigurationUpdateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexDocumentMetadataConfigurationUpdateOutput struct{ *pulumi.OutputState }
 
 func (GetIndexDocumentMetadataConfigurationUpdateOutput) ElementType() reflect.Type {
@@ -7685,6 +8873,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateOutput) ToGetIndexDocumentMet
 
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) ToGetIndexDocumentMetadataConfigurationUpdateOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateOutput {
 	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[GetIndexDocumentMetadataConfigurationUpdate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the index field. Minimum length of 1. Maximum length of 30.
@@ -7725,6 +8919,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) ToGetIndexDocume
 	return o
 }
 
+func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdate] {
+	return pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.IntInput) GetIndexDocumentMetadataConfigurationUpdateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexDocumentMetadataConfigurationUpdate {
 		return vs[0].([]GetIndexDocumentMetadataConfigurationUpdate)[vs[1].(int)]
@@ -7732,15 +8932,15 @@ func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.I
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevance struct {
-	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
 	Duration string `pulumi:"duration"`
-	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 	Freshness bool `pulumi:"freshness"`
 	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 	Importance int `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 	RankOrder string `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 	ValuesImportanceMap map[string]int `pulumi:"valuesImportanceMap"`
 }
 
@@ -7756,15 +8956,15 @@ type GetIndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs struct {
-	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
 	Duration pulumi.StringInput `pulumi:"duration"`
-	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 	Freshness pulumi.BoolInput `pulumi:"freshness"`
 	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 	Importance pulumi.IntInput `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 	RankOrder pulumi.StringInput `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 	ValuesImportanceMap pulumi.IntMapInput `pulumi:"valuesImportanceMap"`
 }
 
@@ -7778,6 +8978,12 @@ func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToGetIndexDocu
 
 func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput)
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: i.ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateRelevanceArray and GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput values.
@@ -7805,6 +9011,12 @@ func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArray) ToGetIndexDoc
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput)
 }
 
+func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: i.ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput struct{ *pulumi.OutputState }
 
 func (GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ElementType() reflect.Type {
@@ -7819,12 +9031,18 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToGetIndexDo
 	return o
 }
 
-// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Freshness() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) bool { return v.Freshness }).(pulumi.BoolOutput)
 }
@@ -7834,12 +9052,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Importance()
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) int { return v.Importance }).(pulumi.IntOutput)
 }
 
-// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) RankOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.RankOrder }).(pulumi.StringOutput)
 }
 
-// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ValuesImportanceMap() pulumi.IntMapOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) map[string]int {
 		return v.ValuesImportanceMap
@@ -7858,6 +9076,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ToGetIn
 
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
 	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateRelevance] {
+	return pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateRelevance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) Index(i pulumi.IntInput) GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput {
@@ -7911,6 +9135,12 @@ func (i GetIndexDocumentMetadataConfigurationUpdateSearchArgs) ToGetIndexDocumen
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateSearchOutput)
 }
 
+func (i GetIndexDocumentMetadataConfigurationUpdateSearchArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: i.ToGetIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateSearchArray and GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput` via:
 //
@@ -7936,6 +9166,12 @@ func (i GetIndexDocumentMetadataConfigurationUpdateSearchArray) ToGetIndexDocume
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput)
 }
 
+func (i GetIndexDocumentMetadataConfigurationUpdateSearchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: i.ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexDocumentMetadataConfigurationUpdateSearchOutput struct{ *pulumi.OutputState }
 
 func (GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ElementType() reflect.Type {
@@ -7948,6 +9184,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ToGetIndexDocum
 
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ToGetIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchOutput {
 	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[GetIndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether the field is returned in the query response. The default is `true`.
@@ -7982,6 +9224,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ToGetIndex
 
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
 	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateSearch] {
+	return pulumix.Output[[]GetIndexDocumentMetadataConfigurationUpdateSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) Index(i pulumi.IntInput) GetIndexDocumentMetadataConfigurationUpdateSearchOutput {
@@ -8027,6 +9275,12 @@ func (i GetIndexIndexStatisticArgs) ToGetIndexIndexStatisticOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticOutput)
 }
 
+func (i GetIndexIndexStatisticArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexIndexStatistic] {
+	return pulumix.Output[GetIndexIndexStatistic]{
+		OutputState: i.ToGetIndexIndexStatisticOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexIndexStatisticArrayInput is an input type that accepts GetIndexIndexStatisticArray and GetIndexIndexStatisticArrayOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticArrayInput` via:
 //
@@ -8052,6 +9306,12 @@ func (i GetIndexIndexStatisticArray) ToGetIndexIndexStatisticArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticArrayOutput)
 }
 
+func (i GetIndexIndexStatisticArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexIndexStatistic] {
+	return pulumix.Output[[]GetIndexIndexStatistic]{
+		OutputState: i.ToGetIndexIndexStatisticArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexIndexStatisticOutput struct{ *pulumi.OutputState }
 
 func (GetIndexIndexStatisticOutput) ElementType() reflect.Type {
@@ -8064,6 +9324,12 @@ func (o GetIndexIndexStatisticOutput) ToGetIndexIndexStatisticOutput() GetIndexI
 
 func (o GetIndexIndexStatisticOutput) ToGetIndexIndexStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticOutput {
 	return o
+}
+
+func (o GetIndexIndexStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexIndexStatistic] {
+	return pulumix.Output[GetIndexIndexStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Block that specifies the number of question and answer topics in the index. Documented below.
@@ -8090,6 +9356,12 @@ func (o GetIndexIndexStatisticArrayOutput) ToGetIndexIndexStatisticArrayOutput()
 
 func (o GetIndexIndexStatisticArrayOutput) ToGetIndexIndexStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticArrayOutput {
 	return o
+}
+
+func (o GetIndexIndexStatisticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexIndexStatistic] {
+	return pulumix.Output[[]GetIndexIndexStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexIndexStatisticArrayOutput) Index(i pulumi.IntInput) GetIndexIndexStatisticOutput {
@@ -8131,6 +9403,12 @@ func (i GetIndexIndexStatisticFaqStatisticArgs) ToGetIndexIndexStatisticFaqStati
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticFaqStatisticOutput)
 }
 
+func (i GetIndexIndexStatisticFaqStatisticArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[GetIndexIndexStatisticFaqStatistic]{
+		OutputState: i.ToGetIndexIndexStatisticFaqStatisticOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexIndexStatisticFaqStatisticArrayInput is an input type that accepts GetIndexIndexStatisticFaqStatisticArray and GetIndexIndexStatisticFaqStatisticArrayOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticFaqStatisticArrayInput` via:
 //
@@ -8156,6 +9434,12 @@ func (i GetIndexIndexStatisticFaqStatisticArray) ToGetIndexIndexStatisticFaqStat
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticFaqStatisticArrayOutput)
 }
 
+func (i GetIndexIndexStatisticFaqStatisticArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[[]GetIndexIndexStatisticFaqStatistic]{
+		OutputState: i.ToGetIndexIndexStatisticFaqStatisticArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexIndexStatisticFaqStatisticOutput struct{ *pulumi.OutputState }
 
 func (GetIndexIndexStatisticFaqStatisticOutput) ElementType() reflect.Type {
@@ -8168,6 +9452,12 @@ func (o GetIndexIndexStatisticFaqStatisticOutput) ToGetIndexIndexStatisticFaqSta
 
 func (o GetIndexIndexStatisticFaqStatisticOutput) ToGetIndexIndexStatisticFaqStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticFaqStatisticOutput {
 	return o
+}
+
+func (o GetIndexIndexStatisticFaqStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[GetIndexIndexStatisticFaqStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The total number of FAQ questions and answers contained in the index.
@@ -8187,6 +9477,12 @@ func (o GetIndexIndexStatisticFaqStatisticArrayOutput) ToGetIndexIndexStatisticF
 
 func (o GetIndexIndexStatisticFaqStatisticArrayOutput) ToGetIndexIndexStatisticFaqStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticFaqStatisticArrayOutput {
 	return o
+}
+
+func (o GetIndexIndexStatisticFaqStatisticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexIndexStatisticFaqStatistic] {
+	return pulumix.Output[[]GetIndexIndexStatisticFaqStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexIndexStatisticFaqStatisticArrayOutput) Index(i pulumi.IntInput) GetIndexIndexStatisticFaqStatisticOutput {
@@ -8232,6 +9528,12 @@ func (i GetIndexIndexStatisticTextDocumentStatisticArgs) ToGetIndexIndexStatisti
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticTextDocumentStatisticOutput)
 }
 
+func (i GetIndexIndexStatisticTextDocumentStatisticArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[GetIndexIndexStatisticTextDocumentStatistic]{
+		OutputState: i.ToGetIndexIndexStatisticTextDocumentStatisticOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexIndexStatisticTextDocumentStatisticArrayInput is an input type that accepts GetIndexIndexStatisticTextDocumentStatisticArray and GetIndexIndexStatisticTextDocumentStatisticArrayOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticTextDocumentStatisticArrayInput` via:
 //
@@ -8257,6 +9559,12 @@ func (i GetIndexIndexStatisticTextDocumentStatisticArray) ToGetIndexIndexStatist
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticTextDocumentStatisticArrayOutput)
 }
 
+func (i GetIndexIndexStatisticTextDocumentStatisticArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[[]GetIndexIndexStatisticTextDocumentStatistic]{
+		OutputState: i.ToGetIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexIndexStatisticTextDocumentStatisticOutput struct{ *pulumi.OutputState }
 
 func (GetIndexIndexStatisticTextDocumentStatisticOutput) ElementType() reflect.Type {
@@ -8269,6 +9577,12 @@ func (o GetIndexIndexStatisticTextDocumentStatisticOutput) ToGetIndexIndexStatis
 
 func (o GetIndexIndexStatisticTextDocumentStatisticOutput) ToGetIndexIndexStatisticTextDocumentStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticTextDocumentStatisticOutput {
 	return o
+}
+
+func (o GetIndexIndexStatisticTextDocumentStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[GetIndexIndexStatisticTextDocumentStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Total size, in bytes, of the indexed documents.
@@ -8293,6 +9607,12 @@ func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) ToGetIndexIndexS
 
 func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) ToGetIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticTextDocumentStatisticArrayOutput {
 	return o
+}
+
+func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexIndexStatisticTextDocumentStatistic] {
+	return pulumix.Output[[]GetIndexIndexStatisticTextDocumentStatistic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) Index(i pulumi.IntInput) GetIndexIndexStatisticTextDocumentStatisticOutput {
@@ -8334,6 +9654,12 @@ func (i GetIndexServerSideEncryptionConfigurationArgs) ToGetIndexServerSideEncry
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexServerSideEncryptionConfigurationOutput)
 }
 
+func (i GetIndexServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[GetIndexServerSideEncryptionConfiguration]{
+		OutputState: i.ToGetIndexServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexServerSideEncryptionConfigurationArrayInput is an input type that accepts GetIndexServerSideEncryptionConfigurationArray and GetIndexServerSideEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexServerSideEncryptionConfigurationArrayInput` via:
 //
@@ -8359,6 +9685,12 @@ func (i GetIndexServerSideEncryptionConfigurationArray) ToGetIndexServerSideEncr
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexServerSideEncryptionConfigurationArrayOutput)
 }
 
+func (i GetIndexServerSideEncryptionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[[]GetIndexServerSideEncryptionConfiguration]{
+		OutputState: i.ToGetIndexServerSideEncryptionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetIndexServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -8371,6 +9703,12 @@ func (o GetIndexServerSideEncryptionConfigurationOutput) ToGetIndexServerSideEnc
 
 func (o GetIndexServerSideEncryptionConfigurationOutput) ToGetIndexServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) GetIndexServerSideEncryptionConfigurationOutput {
 	return o
+}
+
+func (o GetIndexServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[GetIndexServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
@@ -8390,6 +9728,12 @@ func (o GetIndexServerSideEncryptionConfigurationArrayOutput) ToGetIndexServerSi
 
 func (o GetIndexServerSideEncryptionConfigurationArrayOutput) ToGetIndexServerSideEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetIndexServerSideEncryptionConfigurationArrayOutput {
 	return o
+}
+
+func (o GetIndexServerSideEncryptionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexServerSideEncryptionConfiguration] {
+	return pulumix.Output[[]GetIndexServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexServerSideEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexServerSideEncryptionConfigurationOutput {
@@ -8431,6 +9775,12 @@ func (i GetIndexUserGroupResolutionConfigurationArgs) ToGetIndexUserGroupResolut
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserGroupResolutionConfigurationOutput)
 }
 
+func (i GetIndexUserGroupResolutionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[GetIndexUserGroupResolutionConfiguration]{
+		OutputState: i.ToGetIndexUserGroupResolutionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexUserGroupResolutionConfigurationArrayInput is an input type that accepts GetIndexUserGroupResolutionConfigurationArray and GetIndexUserGroupResolutionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserGroupResolutionConfigurationArrayInput` via:
 //
@@ -8456,6 +9806,12 @@ func (i GetIndexUserGroupResolutionConfigurationArray) ToGetIndexUserGroupResolu
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserGroupResolutionConfigurationArrayOutput)
 }
 
+func (i GetIndexUserGroupResolutionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[[]GetIndexUserGroupResolutionConfiguration]{
+		OutputState: i.ToGetIndexUserGroupResolutionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexUserGroupResolutionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetIndexUserGroupResolutionConfigurationOutput) ElementType() reflect.Type {
@@ -8468,6 +9824,12 @@ func (o GetIndexUserGroupResolutionConfigurationOutput) ToGetIndexUserGroupResol
 
 func (o GetIndexUserGroupResolutionConfigurationOutput) ToGetIndexUserGroupResolutionConfigurationOutputWithContext(ctx context.Context) GetIndexUserGroupResolutionConfigurationOutput {
 	return o
+}
+
+func (o GetIndexUserGroupResolutionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[GetIndexUserGroupResolutionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
@@ -8487,6 +9849,12 @@ func (o GetIndexUserGroupResolutionConfigurationArrayOutput) ToGetIndexUserGroup
 
 func (o GetIndexUserGroupResolutionConfigurationArrayOutput) ToGetIndexUserGroupResolutionConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserGroupResolutionConfigurationArrayOutput {
 	return o
+}
+
+func (o GetIndexUserGroupResolutionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserGroupResolutionConfiguration] {
+	return pulumix.Output[[]GetIndexUserGroupResolutionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexUserGroupResolutionConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserGroupResolutionConfigurationOutput {
@@ -8532,6 +9900,12 @@ func (i GetIndexUserTokenConfigurationArgs) ToGetIndexUserTokenConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationOutput)
 }
 
+func (i GetIndexUserTokenConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserTokenConfiguration] {
+	return pulumix.Output[GetIndexUserTokenConfiguration]{
+		OutputState: i.ToGetIndexUserTokenConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexUserTokenConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationArray and GetIndexUserTokenConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationArrayInput` via:
 //
@@ -8557,6 +9931,12 @@ func (i GetIndexUserTokenConfigurationArray) ToGetIndexUserTokenConfigurationArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationArrayOutput)
 }
 
+func (i GetIndexUserTokenConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserTokenConfiguration] {
+	return pulumix.Output[[]GetIndexUserTokenConfiguration]{
+		OutputState: i.ToGetIndexUserTokenConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexUserTokenConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetIndexUserTokenConfigurationOutput) ElementType() reflect.Type {
@@ -8569,6 +9949,12 @@ func (o GetIndexUserTokenConfigurationOutput) ToGetIndexUserTokenConfigurationOu
 
 func (o GetIndexUserTokenConfigurationOutput) ToGetIndexUserTokenConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationOutput {
 	return o
+}
+
+func (o GetIndexUserTokenConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserTokenConfiguration] {
+	return pulumix.Output[GetIndexUserTokenConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that specifies the information about the JSON token type configuration.
@@ -8597,6 +9983,12 @@ func (o GetIndexUserTokenConfigurationArrayOutput) ToGetIndexUserTokenConfigurat
 
 func (o GetIndexUserTokenConfigurationArrayOutput) ToGetIndexUserTokenConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationArrayOutput {
 	return o
+}
+
+func (o GetIndexUserTokenConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserTokenConfiguration] {
+	return pulumix.Output[[]GetIndexUserTokenConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexUserTokenConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserTokenConfigurationOutput {
@@ -8642,6 +10034,12 @@ func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs) ToGetIndex
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput)
 }
 
+func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserTokenConfigurationJsonTokenTypeConfiguration] {
+	return pulumix.Output[GetIndexUserTokenConfigurationJsonTokenTypeConfiguration]{
+		OutputState: i.ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray and GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput` via:
 //
@@ -8667,6 +10065,12 @@ func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray) ToGetInde
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput)
 }
 
+func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserTokenConfigurationJsonTokenTypeConfiguration] {
+	return pulumix.Output[[]GetIndexUserTokenConfigurationJsonTokenTypeConfiguration]{
+		OutputState: i.ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ElementType() reflect.Type {
@@ -8679,6 +10083,12 @@ func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ToGetInd
 
 func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput {
 	return o
+}
+
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserTokenConfigurationJsonTokenTypeConfiguration] {
+	return pulumix.Output[GetIndexUserTokenConfigurationJsonTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The group attribute field.
@@ -8705,6 +10115,12 @@ func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) ToG
 
 func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput {
 	return o
+}
+
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserTokenConfigurationJsonTokenTypeConfiguration] {
+	return pulumix.Output[[]GetIndexUserTokenConfigurationJsonTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput {
@@ -8770,6 +10186,12 @@ func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs) ToGetIndexU
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput)
 }
 
+func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserTokenConfigurationJwtTokenTypeConfiguration] {
+	return pulumix.Output[GetIndexUserTokenConfigurationJwtTokenTypeConfiguration]{
+		OutputState: i.ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray and GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput` via:
 //
@@ -8795,6 +10217,12 @@ func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray) ToGetIndex
 	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput)
 }
 
+func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration] {
+	return pulumix.Output[[]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration]{
+		OutputState: i.ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ElementType() reflect.Type {
@@ -8807,6 +10235,12 @@ func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ToGetInde
 
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput {
 	return o
+}
+
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetIndexUserTokenConfigurationJwtTokenTypeConfiguration] {
+	return pulumix.Output[GetIndexUserTokenConfigurationJwtTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Regular expression that identifies the claim.
@@ -8860,6 +10294,12 @@ func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) ToGe
 	return o
 }
 
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration] {
+	return pulumix.Output[[]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
 		return vs[0].([]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration)[vs[1].(int)]
@@ -8903,6 +10343,12 @@ func (i GetQuerySuggestionsBlockListSourceS3PathArgs) ToGetQuerySuggestionsBlock
 	return pulumi.ToOutputWithContext(ctx, i).(GetQuerySuggestionsBlockListSourceS3PathOutput)
 }
 
+func (i GetQuerySuggestionsBlockListSourceS3PathArgs) ToOutput(ctx context.Context) pulumix.Output[GetQuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[GetQuerySuggestionsBlockListSourceS3Path]{
+		OutputState: i.ToGetQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetQuerySuggestionsBlockListSourceS3PathArrayInput is an input type that accepts GetQuerySuggestionsBlockListSourceS3PathArray and GetQuerySuggestionsBlockListSourceS3PathArrayOutput values.
 // You can construct a concrete instance of `GetQuerySuggestionsBlockListSourceS3PathArrayInput` via:
 //
@@ -8928,6 +10374,12 @@ func (i GetQuerySuggestionsBlockListSourceS3PathArray) ToGetQuerySuggestionsBloc
 	return pulumi.ToOutputWithContext(ctx, i).(GetQuerySuggestionsBlockListSourceS3PathArrayOutput)
 }
 
+func (i GetQuerySuggestionsBlockListSourceS3PathArray) ToOutput(ctx context.Context) pulumix.Output[[]GetQuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[[]GetQuerySuggestionsBlockListSourceS3Path]{
+		OutputState: i.ToGetQuerySuggestionsBlockListSourceS3PathArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetQuerySuggestionsBlockListSourceS3PathOutput struct{ *pulumi.OutputState }
 
 func (GetQuerySuggestionsBlockListSourceS3PathOutput) ElementType() reflect.Type {
@@ -8940,6 +10392,12 @@ func (o GetQuerySuggestionsBlockListSourceS3PathOutput) ToGetQuerySuggestionsBlo
 
 func (o GetQuerySuggestionsBlockListSourceS3PathOutput) ToGetQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx context.Context) GetQuerySuggestionsBlockListSourceS3PathOutput {
 	return o
+}
+
+func (o GetQuerySuggestionsBlockListSourceS3PathOutput) ToOutput(ctx context.Context) pulumix.Output[GetQuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[GetQuerySuggestionsBlockListSourceS3Path]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 bucket that contains the file.
@@ -8964,6 +10422,12 @@ func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) ToGetQuerySuggestio
 
 func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) ToGetQuerySuggestionsBlockListSourceS3PathArrayOutputWithContext(ctx context.Context) GetQuerySuggestionsBlockListSourceS3PathArrayOutput {
 	return o
+}
+
+func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetQuerySuggestionsBlockListSourceS3Path] {
+	return pulumix.Output[[]GetQuerySuggestionsBlockListSourceS3Path]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) Index(i pulumi.IntInput) GetQuerySuggestionsBlockListSourceS3PathOutput {
@@ -9009,6 +10473,12 @@ func (i GetThesaurusSourceS3PathArgs) ToGetThesaurusSourceS3PathOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetThesaurusSourceS3PathOutput)
 }
 
+func (i GetThesaurusSourceS3PathArgs) ToOutput(ctx context.Context) pulumix.Output[GetThesaurusSourceS3Path] {
+	return pulumix.Output[GetThesaurusSourceS3Path]{
+		OutputState: i.ToGetThesaurusSourceS3PathOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetThesaurusSourceS3PathArrayInput is an input type that accepts GetThesaurusSourceS3PathArray and GetThesaurusSourceS3PathArrayOutput values.
 // You can construct a concrete instance of `GetThesaurusSourceS3PathArrayInput` via:
 //
@@ -9034,6 +10504,12 @@ func (i GetThesaurusSourceS3PathArray) ToGetThesaurusSourceS3PathArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetThesaurusSourceS3PathArrayOutput)
 }
 
+func (i GetThesaurusSourceS3PathArray) ToOutput(ctx context.Context) pulumix.Output[[]GetThesaurusSourceS3Path] {
+	return pulumix.Output[[]GetThesaurusSourceS3Path]{
+		OutputState: i.ToGetThesaurusSourceS3PathArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetThesaurusSourceS3PathOutput struct{ *pulumi.OutputState }
 
 func (GetThesaurusSourceS3PathOutput) ElementType() reflect.Type {
@@ -9046,6 +10522,12 @@ func (o GetThesaurusSourceS3PathOutput) ToGetThesaurusSourceS3PathOutput() GetTh
 
 func (o GetThesaurusSourceS3PathOutput) ToGetThesaurusSourceS3PathOutputWithContext(ctx context.Context) GetThesaurusSourceS3PathOutput {
 	return o
+}
+
+func (o GetThesaurusSourceS3PathOutput) ToOutput(ctx context.Context) pulumix.Output[GetThesaurusSourceS3Path] {
+	return pulumix.Output[GetThesaurusSourceS3Path]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 bucket that contains the file.
@@ -9070,6 +10552,12 @@ func (o GetThesaurusSourceS3PathArrayOutput) ToGetThesaurusSourceS3PathArrayOutp
 
 func (o GetThesaurusSourceS3PathArrayOutput) ToGetThesaurusSourceS3PathArrayOutputWithContext(ctx context.Context) GetThesaurusSourceS3PathArrayOutput {
 	return o
+}
+
+func (o GetThesaurusSourceS3PathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetThesaurusSourceS3Path] {
+	return pulumix.Output[[]GetThesaurusSourceS3Path]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetThesaurusSourceS3PathArrayOutput) Index(i pulumi.IntInput) GetThesaurusSourceS3PathOutput {

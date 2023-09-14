@@ -49,6 +49,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.PlacementGroup;
+ * import com.pulumi.aws.ec2.PlacementGroupArgs;
  * import com.pulumi.aws.batch.ComputeEnvironment;
  * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
  * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
@@ -128,6 +130,10 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.1.1.0/24&#34;)
  *             .build());
  * 
+ *         var samplePlacementGroup = new PlacementGroup(&#34;samplePlacementGroup&#34;, PlacementGroupArgs.builder()        
+ *             .strategy(&#34;cluster&#34;)
+ *             .build());
+ * 
  *         var sampleComputeEnvironment = new ComputeEnvironment(&#34;sampleComputeEnvironment&#34;, ComputeEnvironmentArgs.builder()        
  *             .computeEnvironmentName(&#34;sample&#34;)
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
@@ -135,6 +141,7 @@ import javax.annotation.Nullable;
  *                 .instanceTypes(&#34;c4.large&#34;)
  *                 .maxVcpus(16)
  *                 .minVcpus(0)
+ *                 .placementGroup(samplePlacementGroup.name())
  *                 .securityGroupIds(sampleSecurityGroup.id())
  *                 .subnets(sampleSubnet.id())
  *                 .type(&#34;EC2&#34;)
@@ -192,13 +199,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+ * Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
  * ```
- * 
- *  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
  * 
  */
 @ResourceType(type="aws:batch/computeEnvironment:ComputeEnvironment")

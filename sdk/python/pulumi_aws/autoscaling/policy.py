@@ -35,9 +35,13 @@ class PolicyArgs:
         :param pulumi.Input[str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
+               
+               The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         :param pulumi.Input[int] estimated_instance_warmup: Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+               
+               The following arguments are only available to "SimpleScaling" type policies:
         :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
@@ -46,7 +50,41 @@ class PolicyArgs:
                up. A negative value scales down.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", step_adjustments=[
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="1",
+                       metric_interval_upper_bound="2",
+                       scaling_adjustment=-1,
+                   ),
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="2",
+                       metric_interval_upper_bound="3",
+                       scaling_adjustment=1,
+                   ),
+               ])
+               ```
+               
+               The following fields are available in step adjustments:
         :param pulumi.Input['PolicyTargetTrackingConfigurationArgs'] target_tracking_configuration: Target tracking policy. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
+                       predefined_metric_type="ASGAverageCPUUtilization",
+                   ),
+                   target_value=40,
+               ))
+               ```
+               
+               The following fields are available in target tracking configuration:
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if adjustment_type is not None:
@@ -115,6 +153,8 @@ class PolicyArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the scaling policy is enabled or disabled. Default: `true`.
+
+        The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         """
         return pulumi.get(self, "enabled")
 
@@ -151,6 +191,8 @@ class PolicyArgs:
     def min_adjustment_magnitude(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+
+        The following arguments are only available to "SimpleScaling" type policies:
         """
         return pulumi.get(self, "min_adjustment_magnitude")
 
@@ -214,6 +256,26 @@ class PolicyArgs:
         """
         Set of adjustments that manage
         group scaling. These have the following structure:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example", step_adjustments=[
+            aws.autoscaling.PolicyStepAdjustmentArgs(
+                metric_interval_lower_bound="1",
+                metric_interval_upper_bound="2",
+                scaling_adjustment=-1,
+            ),
+            aws.autoscaling.PolicyStepAdjustmentArgs(
+                metric_interval_lower_bound="2",
+                metric_interval_upper_bound="3",
+                scaling_adjustment=1,
+            ),
+        ])
+        ```
+
+        The following fields are available in step adjustments:
         """
         return pulumi.get(self, "step_adjustments")
 
@@ -226,6 +288,20 @@ class PolicyArgs:
     def target_tracking_configuration(self) -> Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']]:
         """
         Target tracking policy. These have the following structure:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+            predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
+                predefined_metric_type="ASGAverageCPUUtilization",
+            ),
+            target_value=40,
+        ))
+        ```
+
+        The following fields are available in target tracking configuration:
         """
         return pulumi.get(self, "target_tracking_configuration")
 
@@ -258,9 +334,13 @@ class _PolicyState:
         :param pulumi.Input[str] autoscaling_group_name: Name of the autoscaling group.
         :param pulumi.Input[int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
+               
+               The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         :param pulumi.Input[int] estimated_instance_warmup: Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+               
+               The following arguments are only available to "SimpleScaling" type policies:
         :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
@@ -269,7 +349,41 @@ class _PolicyState:
                up. A negative value scales down.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", step_adjustments=[
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="1",
+                       metric_interval_upper_bound="2",
+                       scaling_adjustment=-1,
+                   ),
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="2",
+                       metric_interval_upper_bound="3",
+                       scaling_adjustment=1,
+                   ),
+               ])
+               ```
+               
+               The following fields are available in step adjustments:
         :param pulumi.Input['PolicyTargetTrackingConfigurationArgs'] target_tracking_configuration: Target tracking policy. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
+                       predefined_metric_type="ASGAverageCPUUtilization",
+                   ),
+                   target_value=40,
+               ))
+               ```
+               
+               The following fields are available in target tracking configuration:
         """
         if adjustment_type is not None:
             pulumi.set(__self__, "adjustment_type", adjustment_type)
@@ -353,6 +467,8 @@ class _PolicyState:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the scaling policy is enabled or disabled. Default: `true`.
+
+        The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         """
         return pulumi.get(self, "enabled")
 
@@ -389,6 +505,8 @@ class _PolicyState:
     def min_adjustment_magnitude(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+
+        The following arguments are only available to "SimpleScaling" type policies:
         """
         return pulumi.get(self, "min_adjustment_magnitude")
 
@@ -452,6 +570,26 @@ class _PolicyState:
         """
         Set of adjustments that manage
         group scaling. These have the following structure:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example", step_adjustments=[
+            aws.autoscaling.PolicyStepAdjustmentArgs(
+                metric_interval_lower_bound="1",
+                metric_interval_upper_bound="2",
+                scaling_adjustment=-1,
+            ),
+            aws.autoscaling.PolicyStepAdjustmentArgs(
+                metric_interval_lower_bound="2",
+                metric_interval_upper_bound="3",
+                scaling_adjustment=1,
+            ),
+        ])
+        ```
+
+        The following fields are available in step adjustments:
         """
         return pulumi.get(self, "step_adjustments")
 
@@ -464,6 +602,20 @@ class _PolicyState:
     def target_tracking_configuration(self) -> Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']]:
         """
         Target tracking policy. These have the following structure:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+            predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
+                predefined_metric_type="ASGAverageCPUUtilization",
+            ),
+            target_value=40,
+        ))
+        ```
+
+        The following fields are available in target tracking configuration:
         """
         return pulumi.get(self, "target_tracking_configuration")
 
@@ -520,7 +672,7 @@ class Policy(pulumi.CustomResource):
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
-        ### Create target tarcking scaling policy using metric math
+        ### Create target tracking scaling policy using metric math
 
         ```python
         import pulumi
@@ -658,7 +810,7 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+        Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 
         ```sh
          $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
@@ -670,9 +822,13 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] autoscaling_group_name: Name of the autoscaling group.
         :param pulumi.Input[int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
+               
+               The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         :param pulumi.Input[int] estimated_instance_warmup: Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+               
+               The following arguments are only available to "SimpleScaling" type policies:
         :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input[pulumi.InputType['PolicyPredictiveScalingConfigurationArgs']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
@@ -681,7 +837,41 @@ class Policy(pulumi.CustomResource):
                up. A negative value scales down.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", step_adjustments=[
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="1",
+                       metric_interval_upper_bound="2",
+                       scaling_adjustment=-1,
+                   ),
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="2",
+                       metric_interval_upper_bound="3",
+                       scaling_adjustment=1,
+                   ),
+               ])
+               ```
+               
+               The following fields are available in step adjustments:
         :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']] target_tracking_configuration: Target tracking policy. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
+                       predefined_metric_type="ASGAverageCPUUtilization",
+                   ),
+                   target_value=40,
+               ))
+               ```
+               
+               The following fields are available in target tracking configuration:
         """
         ...
     @overload
@@ -718,7 +908,7 @@ class Policy(pulumi.CustomResource):
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
-        ### Create target tarcking scaling policy using metric math
+        ### Create target tracking scaling policy using metric math
 
         ```python
         import pulumi
@@ -856,7 +1046,7 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+        Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 
         ```sh
          $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
@@ -951,9 +1141,13 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] autoscaling_group_name: Name of the autoscaling group.
         :param pulumi.Input[int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
+               
+               The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         :param pulumi.Input[int] estimated_instance_warmup: Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+               
+               The following arguments are only available to "SimpleScaling" type policies:
         :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input[pulumi.InputType['PolicyPredictiveScalingConfigurationArgs']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
@@ -962,7 +1156,41 @@ class Policy(pulumi.CustomResource):
                up. A negative value scales down.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", step_adjustments=[
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="1",
+                       metric_interval_upper_bound="2",
+                       scaling_adjustment=-1,
+                   ),
+                   aws.autoscaling.PolicyStepAdjustmentArgs(
+                       metric_interval_lower_bound="2",
+                       metric_interval_upper_bound="3",
+                       scaling_adjustment=1,
+                   ),
+               ])
+               ```
+               
+               The following fields are available in step adjustments:
         :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']] target_tracking_configuration: Target tracking policy. These have the following structure:
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
+                       predefined_metric_type="ASGAverageCPUUtilization",
+                   ),
+                   target_value=40,
+               ))
+               ```
+               
+               The following fields are available in target tracking configuration:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1021,6 +1249,8 @@ class Policy(pulumi.CustomResource):
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the scaling policy is enabled or disabled. Default: `true`.
+
+        The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         """
         return pulumi.get(self, "enabled")
 
@@ -1045,6 +1275,8 @@ class Policy(pulumi.CustomResource):
     def min_adjustment_magnitude(self) -> pulumi.Output[Optional[int]]:
         """
         Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+
+        The following arguments are only available to "SimpleScaling" type policies:
         """
         return pulumi.get(self, "min_adjustment_magnitude")
 
@@ -1088,6 +1320,26 @@ class Policy(pulumi.CustomResource):
         """
         Set of adjustments that manage
         group scaling. These have the following structure:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example", step_adjustments=[
+            aws.autoscaling.PolicyStepAdjustmentArgs(
+                metric_interval_lower_bound="1",
+                metric_interval_upper_bound="2",
+                scaling_adjustment=-1,
+            ),
+            aws.autoscaling.PolicyStepAdjustmentArgs(
+                metric_interval_lower_bound="2",
+                metric_interval_upper_bound="3",
+                scaling_adjustment=1,
+            ),
+        ])
+        ```
+
+        The following fields are available in step adjustments:
         """
         return pulumi.get(self, "step_adjustments")
 
@@ -1096,6 +1348,20 @@ class Policy(pulumi.CustomResource):
     def target_tracking_configuration(self) -> pulumi.Output[Optional['outputs.PolicyTargetTrackingConfiguration']]:
         """
         Target tracking policy. These have the following structure:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+            predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
+                predefined_metric_type="ASGAverageCPUUtilization",
+            ),
+            target_value=40,
+        ))
+        ```
+
+        The following fields are available in target tracking configuration:
         """
         return pulumi.get(self, "target_tracking_configuration")
 

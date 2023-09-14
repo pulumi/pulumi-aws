@@ -33,6 +33,8 @@ class ScheduleArgs:
         :param pulumi.Input['ScheduleFlexibleTimeWindowArgs'] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         :param pulumi.Input[str] schedule_expression: Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
         :param pulumi.Input['ScheduleTargetArgs'] target: Configures the target of the schedule. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: Brief description of the schedule.
         :param pulumi.Input[str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
@@ -94,6 +96,8 @@ class ScheduleArgs:
     def target(self) -> pulumi.Input['ScheduleTargetArgs']:
         """
         Configures the target of the schedule. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target")
 
@@ -241,6 +245,8 @@ class _ScheduleState:
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         :param pulumi.Input['ScheduleTargetArgs'] target: Configures the target of the schedule. Detailed below.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -418,6 +424,8 @@ class _ScheduleState:
     def target(self) -> Optional[pulumi.Input['ScheduleTargetArgs']]:
         """
         Configures the target of the schedule. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target")
 
@@ -463,7 +471,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn=aws_sqs_queue["example"]["arn"],
                 role_arn=aws_iam_role["example"]["arn"],
@@ -481,7 +489,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=aws_iam_role["example"]["arn"],
@@ -494,7 +502,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Schedules can be imported using the combination `group_name/name`. For example
+        Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
         ```sh
          $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
@@ -514,6 +522,8 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         :param pulumi.Input[pulumi.InputType['ScheduleTargetArgs']] target: Configures the target of the schedule. Detailed below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -540,7 +550,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn=aws_sqs_queue["example"]["arn"],
                 role_arn=aws_iam_role["example"]["arn"],
@@ -558,7 +568,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=aws_iam_role["example"]["arn"],
@@ -571,7 +581,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Schedules can be imported using the combination `group_name/name`. For example
+        Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
         ```sh
          $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
@@ -675,6 +685,8 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         :param pulumi.Input[pulumi.InputType['ScheduleTargetArgs']] target: Configures the target of the schedule. Detailed below.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -796,6 +808,8 @@ class Schedule(pulumi.CustomResource):
     def target(self) -> pulumi.Output['outputs.ScheduleTarget']:
         """
         Configures the target of the schedule. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target")
 

@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaults;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListener;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecLogging;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +23,7 @@ public final class VirtualGatewaySpec {
      * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
-    private VirtualGatewaySpecListener listener;
+    private List<VirtualGatewaySpecListener> listeners;
     /**
      * @return Inbound and outbound access logging information for the virtual gateway.
      * 
@@ -41,8 +42,8 @@ public final class VirtualGatewaySpec {
      * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
-    public VirtualGatewaySpecListener listener() {
-        return this.listener;
+    public List<VirtualGatewaySpecListener> listeners() {
+        return this.listeners;
     }
     /**
      * @return Inbound and outbound access logging information for the virtual gateway.
@@ -62,13 +63,13 @@ public final class VirtualGatewaySpec {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualGatewaySpecBackendDefaults backendDefaults;
-        private VirtualGatewaySpecListener listener;
+        private List<VirtualGatewaySpecListener> listeners;
         private @Nullable VirtualGatewaySpecLogging logging;
         public Builder() {}
         public Builder(VirtualGatewaySpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendDefaults = defaults.backendDefaults;
-    	      this.listener = defaults.listener;
+    	      this.listeners = defaults.listeners;
     	      this.logging = defaults.logging;
         }
 
@@ -78,9 +79,12 @@ public final class VirtualGatewaySpec {
             return this;
         }
         @CustomType.Setter
-        public Builder listener(VirtualGatewaySpecListener listener) {
-            this.listener = Objects.requireNonNull(listener);
+        public Builder listeners(List<VirtualGatewaySpecListener> listeners) {
+            this.listeners = Objects.requireNonNull(listeners);
             return this;
+        }
+        public Builder listeners(VirtualGatewaySpecListener... listeners) {
+            return listeners(List.of(listeners));
         }
         @CustomType.Setter
         public Builder logging(@Nullable VirtualGatewaySpecLogging logging) {
@@ -90,7 +94,7 @@ public final class VirtualGatewaySpec {
         public VirtualGatewaySpec build() {
             final var o = new VirtualGatewaySpec();
             o.backendDefaults = backendDefaults;
-            o.listener = listener;
+            o.listeners = listeners;
             o.logging = logging;
             return o;
         }

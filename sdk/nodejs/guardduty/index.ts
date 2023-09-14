@@ -20,6 +20,11 @@ export const getDetector: typeof import("./getDetector").getDetector = null as a
 export const getDetectorOutput: typeof import("./getDetector").getDetectorOutput = null as any;
 utilities.lazyLoad(exports, ["getDetector","getDetectorOutput"], () => require("./getDetector"));
 
+export { GetFindingIdsArgs, GetFindingIdsResult, GetFindingIdsOutputArgs } from "./getFindingIds";
+export const getFindingIds: typeof import("./getFindingIds").getFindingIds = null as any;
+export const getFindingIdsOutput: typeof import("./getFindingIds").getFindingIdsOutput = null as any;
+utilities.lazyLoad(exports, ["getFindingIds","getFindingIdsOutput"], () => require("./getFindingIds"));
+
 export { InviteAccepterArgs, InviteAccepterState } from "./inviteAccepter";
 export type InviteAccepter = import("./inviteAccepter").InviteAccepter;
 export const InviteAccepter: typeof import("./inviteAccepter").InviteAccepter = null as any;

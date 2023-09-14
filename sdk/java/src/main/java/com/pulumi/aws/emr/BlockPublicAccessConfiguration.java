@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The current EMR Block Public Access Configuration can be imported, e.g.,
+ * Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
  * 
  * ```sh
  *  $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
@@ -174,12 +174,16 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
     /**
      * Enable or disable EMR Block Public Access.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="blockPublicSecurityGroupRules", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> blockPublicSecurityGroupRules;
 
     /**
      * @return Enable or disable EMR Block Public Access.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Boolean> blockPublicSecurityGroupRules() {

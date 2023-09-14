@@ -140,7 +140,27 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     * 
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      * 
      */
     @Import(name="preferredMaintenanceWindow")
@@ -148,6 +168,11 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     * 
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -187,12 +212,22 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
+     * 
      */
     @Import(name="replicationInstanceId", required=true)
     private Output<String> replicationInstanceId;
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
+     * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Output<String> replicationInstanceId() {
@@ -255,6 +290,7 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         this.engineVersion = $.engineVersion;
         this.kmsKeyArn = $.kmsKeyArn;
         this.multiAz = $.multiAz;
+        this.networkType = $.networkType;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
         this.replicationInstanceClass = $.replicationInstanceClass;
@@ -451,7 +487,33 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param networkType The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
+        }
+
+        /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+         * 
+         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+         * - Constraints: Minimum 30-minute window.
          * 
          * @return builder
          * 
@@ -463,6 +525,11 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
 
         /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+         * 
+         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+         * - Constraints: Minimum 30-minute window.
          * 
          * @return builder
          * 
@@ -516,6 +583,11 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
          * 
+         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen
+         * - Cannot contain two consecutive hyphens.
+         * 
          * @return builder
          * 
          */
@@ -526,6 +598,11 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
 
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
+         * 
+         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen
+         * - Cannot contain two consecutive hyphens.
          * 
          * @return builder
          * 

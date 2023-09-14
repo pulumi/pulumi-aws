@@ -117,7 +117,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Import
 
-        DHCP associations can be imported by providing the VPC ID associated with the options
+        Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
@@ -154,7 +154,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Import
 
-        DHCP associations can be imported by providing the VPC ID associated with the options
+        Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1

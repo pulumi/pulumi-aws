@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** The `s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `s3.getObjects` instead, where new features and fixes will be added.
@@ -16,6 +18,7 @@ import (
 //
 // The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 func GetBucketObjects(ctx *pulumi.Context, args *GetBucketObjectsArgs, opts ...pulumi.InvokeOption) (*GetBucketObjectsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBucketObjectsResult
 	err := ctx.Invoke("aws:s3/getBucketObjects:getBucketObjects", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o GetBucketObjectsResultOutput) ToGetBucketObjectsResultOutput() GetBucket
 
 func (o GetBucketObjectsResultOutput) ToGetBucketObjectsResultOutputWithContext(ctx context.Context) GetBucketObjectsResultOutput {
 	return o
+}
+
+func (o GetBucketObjectsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBucketObjectsResult] {
+	return pulumix.Output[GetBucketObjectsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Deprecated: Use the aws_s3_objects data source instead

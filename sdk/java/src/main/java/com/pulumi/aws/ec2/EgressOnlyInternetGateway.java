@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Egress-only Internet gateways can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a

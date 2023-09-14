@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+ * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:applicationinsights/application:Application some some-application
@@ -178,12 +178,16 @@ public class Application extends com.pulumi.resources.CustomResource {
     /**
      * Name of the resource group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
      * @return Name of the resource group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> resourceGroupName() {

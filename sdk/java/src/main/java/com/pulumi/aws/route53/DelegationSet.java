@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
+ * Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE

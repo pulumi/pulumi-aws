@@ -14,13 +14,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
     /// 
-    /// &gt; **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-    /// both a standalone `aws.autoscaling.Attachment` resource
-    /// (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
-    /// with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
-    /// mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
-    /// `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
-    /// to ignore changes to the `load_balancers` and `target_group_arns` arguments.
+    /// &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
     /// 
     /// ## Example Usage
     /// ### With Latest Version Of Launch Template
@@ -452,7 +446,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// The `min_elb_capacity` parameter causes the provider to wait for at least the
     /// requested number of instances to show up `"InService"` in all attached ELBs
-    /// during ASG creation.  It has no effect on ASG updates.
+    /// during ASG creation. It has no effect on ASG updates.
     /// 
     /// If `wait_for_elb_capacity` is set, the provider will wait for exactly that number
     /// of Instances to be `"InService"` in all attached ELBs on both creation and
@@ -475,7 +469,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
-    /// Auto Scaling Groups can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:autoscaling/group:Group web web-asg
@@ -491,7 +485,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -542,9 +536,9 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
-        /// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+        /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
         /// even if it's in the process of scaling a resource. Normally, this provider
-        /// drains all the instances before deleting the group.  This bypasses that
+        /// drains all the instances before deleting the group. This bypasses that
         /// behavior and potentially leaves resources dangling.
         /// </summary>
         [Output("forceDelete")]
@@ -564,6 +558,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Output("healthCheckType")]
         public Output<string> HealthCheckType { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        /// </summary>
+        [Output("ignoreFailedScalingActivities")]
+        public Output<bool?> IgnoreFailedScalingActivities { get; private set; } = null!;
 
         /// <summary>
         /// One or more
@@ -599,7 +599,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// List of elastic load balancer names to add to the autoscaling
-        /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+        /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<string>> LoadBalancers { get; private set; } = null!;
@@ -623,7 +623,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> MetricsGranularity { get; private set; } = null!;
 
         /// <summary>
-        /// Setting this causes the provider to wait for
+        /// Setting this causes Pulumi to wait for
         /// this number of instances from this Auto Scaling Group to show up healthy in the
         /// ELB only on creation. Updates will not wait on ELB instance number changes.
         /// (See also Waiting for Capacity below.)
@@ -645,7 +645,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<Outputs.GroupMixedInstancesPolicy?> MixedInstancesPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
+        /// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -693,19 +693,13 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> SuspendedProcesses { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+        /// Configuration block(s) containing resource tags. See Tag below for more details.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GroupTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-        /// </summary>
-        [Output("tagsCollection")]
-        public Output<ImmutableArray<ImmutableDictionary<string, string>>> TagsCollection { get; private set; } = null!;
-
-        /// <summary>
-        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
         [Output("targetGroupArns")]
         public Output<ImmutableArray<string>> TargetGroupArns { get; private set; } = null!;
@@ -717,6 +711,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> TerminationPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// Attaches one or more traffic sources to the specified Auto Scaling group.
+        /// </summary>
+        [Output("trafficSources")]
+        public Output<ImmutableArray<Outputs.GroupTrafficSource>> TrafficSources { get; private set; } = null!;
+
+        /// <summary>
         /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         [Output("vpcZoneIdentifiers")]
@@ -725,7 +725,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
+        /// wait for ASG instances to be healthy before timing out. (See also Waiting
         /// for Capacity below.) Setting this to "0" causes
         /// the provider to skip all Capacity Waiting behavior.
         /// </summary>
@@ -733,7 +733,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> WaitForCapacityTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Setting this will cause the provider to wait
+        /// Setting this will cause Pulumi to wait
         /// for exactly this number of healthy instances from this Auto Scaling Group in
         /// all attached load balancers on both create and update operations. (Takes
         /// precedence over `min_elb_capacity` behavior.)
@@ -805,7 +805,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -865,9 +865,9 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
-        /// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+        /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
         /// even if it's in the process of scaling a resource. Normally, this provider
-        /// drains all the instances before deleting the group.  This bypasses that
+        /// drains all the instances before deleting the group. This bypasses that
         /// behavior and potentially leaves resources dangling.
         /// </summary>
         [Input("forceDelete")]
@@ -887,6 +887,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("healthCheckType")]
         public Input<string>? HealthCheckType { get; set; }
+
+        /// <summary>
+        /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        /// </summary>
+        [Input("ignoreFailedScalingActivities")]
+        public Input<bool>? IgnoreFailedScalingActivities { get; set; }
 
         [Input("initialLifecycleHooks")]
         private InputList<Inputs.GroupInitialLifecycleHookArgs>? _initialLifecycleHooks;
@@ -931,7 +937,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// List of elastic load balancer names to add to the autoscaling
-        /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+        /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         /// </summary>
         public InputList<string> LoadBalancers
         {
@@ -958,7 +964,7 @@ namespace Pulumi.Aws.AutoScaling
         public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
 
         /// <summary>
-        /// Setting this causes the provider to wait for
+        /// Setting this causes Pulumi to wait for
         /// this number of instances from this Auto Scaling Group to show up healthy in the
         /// ELB only on creation. Updates will not wait on ELB instance number changes.
         /// (See also Waiting for Capacity below.)
@@ -980,7 +986,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<Inputs.GroupMixedInstancesPolicyArgs>? MixedInstancesPolicy { get; set; }
 
         /// <summary>
-        /// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
+        /// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1031,7 +1037,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagArgs>? _tags;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+        /// Configuration block(s) containing resource tags. See Tag below for more details.
         /// </summary>
         public InputList<Inputs.GroupTagArgs> Tags
         {
@@ -1039,24 +1045,11 @@ namespace Pulumi.Aws.AutoScaling
             set => _tags = value;
         }
 
-        [Input("tagsCollection")]
-        private InputList<ImmutableDictionary<string, string>>? _tagsCollection;
-
-        /// <summary>
-        /// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-        /// </summary>
-        [Obsolete(@"Use tag instead")]
-        public InputList<ImmutableDictionary<string, string>> TagsCollection
-        {
-            get => _tagsCollection ?? (_tagsCollection = new InputList<ImmutableDictionary<string, string>>());
-            set => _tagsCollection = value;
-        }
-
         [Input("targetGroupArns")]
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
         public InputList<string> TargetGroupArns
         {
@@ -1076,6 +1069,18 @@ namespace Pulumi.Aws.AutoScaling
             set => _terminationPolicies = value;
         }
 
+        [Input("trafficSources")]
+        private InputList<Inputs.GroupTrafficSourceArgs>? _trafficSources;
+
+        /// <summary>
+        /// Attaches one or more traffic sources to the specified Auto Scaling group.
+        /// </summary>
+        public InputList<Inputs.GroupTrafficSourceArgs> TrafficSources
+        {
+            get => _trafficSources ?? (_trafficSources = new InputList<Inputs.GroupTrafficSourceArgs>());
+            set => _trafficSources = value;
+        }
+
         [Input("vpcZoneIdentifiers")]
         private InputList<string>? _vpcZoneIdentifiers;
 
@@ -1091,7 +1096,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
+        /// wait for ASG instances to be healthy before timing out. (See also Waiting
         /// for Capacity below.) Setting this to "0" causes
         /// the provider to skip all Capacity Waiting behavior.
         /// </summary>
@@ -1099,7 +1104,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? WaitForCapacityTimeout { get; set; }
 
         /// <summary>
-        /// Setting this will cause the provider to wait
+        /// Setting this will cause Pulumi to wait
         /// for exactly this number of healthy instances from this Auto Scaling Group in
         /// all attached load balancers on both create and update operations. (Takes
         /// precedence over `min_elb_capacity` behavior.)
@@ -1133,7 +1138,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -1193,9 +1198,9 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
-        /// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+        /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
         /// even if it's in the process of scaling a resource. Normally, this provider
-        /// drains all the instances before deleting the group.  This bypasses that
+        /// drains all the instances before deleting the group. This bypasses that
         /// behavior and potentially leaves resources dangling.
         /// </summary>
         [Input("forceDelete")]
@@ -1215,6 +1220,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("healthCheckType")]
         public Input<string>? HealthCheckType { get; set; }
+
+        /// <summary>
+        /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        /// </summary>
+        [Input("ignoreFailedScalingActivities")]
+        public Input<bool>? IgnoreFailedScalingActivities { get; set; }
 
         [Input("initialLifecycleHooks")]
         private InputList<Inputs.GroupInitialLifecycleHookGetArgs>? _initialLifecycleHooks;
@@ -1259,7 +1270,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// List of elastic load balancer names to add to the autoscaling
-        /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+        /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         /// </summary>
         public InputList<string> LoadBalancers
         {
@@ -1286,7 +1297,7 @@ namespace Pulumi.Aws.AutoScaling
         public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
 
         /// <summary>
-        /// Setting this causes the provider to wait for
+        /// Setting this causes Pulumi to wait for
         /// this number of instances from this Auto Scaling Group to show up healthy in the
         /// ELB only on creation. Updates will not wait on ELB instance number changes.
         /// (See also Waiting for Capacity below.)
@@ -1308,7 +1319,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<Inputs.GroupMixedInstancesPolicyGetArgs>? MixedInstancesPolicy { get; set; }
 
         /// <summary>
-        /// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
+        /// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1365,7 +1376,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagGetArgs>? _tags;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+        /// Configuration block(s) containing resource tags. See Tag below for more details.
         /// </summary>
         public InputList<Inputs.GroupTagGetArgs> Tags
         {
@@ -1373,24 +1384,11 @@ namespace Pulumi.Aws.AutoScaling
             set => _tags = value;
         }
 
-        [Input("tagsCollection")]
-        private InputList<ImmutableDictionary<string, string>>? _tagsCollection;
-
-        /// <summary>
-        /// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-        /// </summary>
-        [Obsolete(@"Use tag instead")]
-        public InputList<ImmutableDictionary<string, string>> TagsCollection
-        {
-            get => _tagsCollection ?? (_tagsCollection = new InputList<ImmutableDictionary<string, string>>());
-            set => _tagsCollection = value;
-        }
-
         [Input("targetGroupArns")]
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
         public InputList<string> TargetGroupArns
         {
@@ -1410,6 +1408,18 @@ namespace Pulumi.Aws.AutoScaling
             set => _terminationPolicies = value;
         }
 
+        [Input("trafficSources")]
+        private InputList<Inputs.GroupTrafficSourceGetArgs>? _trafficSources;
+
+        /// <summary>
+        /// Attaches one or more traffic sources to the specified Auto Scaling group.
+        /// </summary>
+        public InputList<Inputs.GroupTrafficSourceGetArgs> TrafficSources
+        {
+            get => _trafficSources ?? (_trafficSources = new InputList<Inputs.GroupTrafficSourceGetArgs>());
+            set => _trafficSources = value;
+        }
+
         [Input("vpcZoneIdentifiers")]
         private InputList<string>? _vpcZoneIdentifiers;
 
@@ -1425,7 +1435,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
+        /// wait for ASG instances to be healthy before timing out. (See also Waiting
         /// for Capacity below.) Setting this to "0" causes
         /// the provider to skip all Capacity Waiting behavior.
         /// </summary>
@@ -1433,7 +1443,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? WaitForCapacityTimeout { get; set; }
 
         /// <summary>
-        /// Setting this will cause the provider to wait
+        /// Setting this will cause Pulumi to wait
         /// for exactly this number of healthy instances from this Auto Scaling Group in
         /// all attached load balancers on both create and update operations. (Takes
         /// precedence over `min_elb_capacity` behavior.)

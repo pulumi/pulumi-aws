@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
+ * Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
  *
  * ```sh
  *  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket

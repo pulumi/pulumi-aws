@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterS3Import {
     /**
-     * @return The bucket name where your backup is stored
+     * @return Bucket name where your backup is stored
      * 
      */
     private String bucketName;
@@ -34,12 +34,14 @@ public final class ClusterS3Import {
     /**
      * @return Version of the source engine used to make the backup
      * 
+     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+     * 
      */
     private String sourceEngineVersion;
 
     private ClusterS3Import() {}
     /**
-     * @return The bucket name where your backup is stored
+     * @return Bucket name where your backup is stored
      * 
      */
     public String bucketName() {
@@ -68,6 +70,8 @@ public final class ClusterS3Import {
     }
     /**
      * @return Version of the source engine used to make the backup
+     * 
+     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
      * 
      */
     public String sourceEngineVersion() {

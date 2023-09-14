@@ -23,7 +23,7 @@ class GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
-    def __init__(__self__, filters=None, id=None, instance_arns=None, instance_identifiers=None):
+    def __init__(__self__, filters=None, id=None, instance_arns=None, instance_identifiers=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -36,6 +36,9 @@ class GetInstancesResult:
         if instance_identifiers and not isinstance(instance_identifiers, list):
             raise TypeError("Expected argument 'instance_identifiers' to be a list")
         pulumi.set(__self__, "instance_identifiers", instance_identifiers)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -66,6 +69,11 @@ class GetInstancesResult:
         """
         return pulumi.get(self, "instance_identifiers")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
@@ -76,10 +84,12 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             filters=self.filters,
             id=self.id,
             instance_arns=self.instance_arns,
-            instance_identifiers=self.instance_identifiers)
+            instance_identifiers=self.instance_identifiers,
+            tags=self.tags)
 
 
 def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]] = None,
+                  tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
     Data source for listing RDS Database Instances.
@@ -96,24 +106,38 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
         values=["my-database-id"],
     )])
     ```
+    ### Using tags
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.rds.get_instances(tags={
+        "Env": "test",
+    })
+    ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instances.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult).value
 
     return AwaitableGetInstancesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        instance_arns=__ret__.instance_arns,
-        instance_identifiers=__ret__.instance_identifiers)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_arns=pulumi.get(__ret__, 'instance_arns'),
+        instance_identifiers=pulumi.get(__ret__, 'instance_identifiers'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_instances)
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]]]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Data source for listing RDS Database Instances.
@@ -130,8 +154,19 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
         values=["my-database-id"],
     )])
     ```
+    ### Using tags
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.rds.get_instances(tags={
+        "Env": "test",
+    })
+    ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instances.
     """
     ...

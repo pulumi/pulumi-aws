@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Device Fleets can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet

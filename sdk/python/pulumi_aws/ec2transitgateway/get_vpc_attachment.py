@@ -192,16 +192,16 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts, typ=GetVpcAttachmentResult).value
 
     return AwaitableGetVpcAttachmentResult(
-        appliance_mode_support=__ret__.appliance_mode_support,
-        dns_support=__ret__.dns_support,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ipv6_support=__ret__.ipv6_support,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        vpc_id=__ret__.vpc_id,
-        vpc_owner_id=__ret__.vpc_owner_id)
+        appliance_mode_support=pulumi.get(__ret__, 'appliance_mode_support'),
+        dns_support=pulumi.get(__ret__, 'dns_support'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv6_support=pulumi.get(__ret__, 'ipv6_support'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        vpc_owner_id=pulumi.get(__ret__, 'vpc_owner_id'))
 
 
 @_utilities.lift_output_func(get_vpc_attachment)

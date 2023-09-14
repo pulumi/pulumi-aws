@@ -152,14 +152,14 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:amp/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        alias=__ret__.alias,
-        arn=__ret__.arn,
-        created_date=__ret__.created_date,
-        id=__ret__.id,
-        prometheus_endpoint=__ret__.prometheus_endpoint,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        workspace_id=__ret__.workspace_id)
+        alias=pulumi.get(__ret__, 'alias'),
+        arn=pulumi.get(__ret__, 'arn'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        id=pulumi.get(__ret__, 'id'),
+        prometheus_endpoint=pulumi.get(__ret__, 'prometheus_endpoint'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_workspace)

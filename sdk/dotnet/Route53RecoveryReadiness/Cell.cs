@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+    /// Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
@@ -49,6 +49,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// Unique name describing the cell.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("cellName")]
         public Output<string> CellName { get; private set; } = null!;
@@ -125,6 +127,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     {
         /// <summary>
         /// Unique name describing the cell.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("cellName", required: true)]
         public Input<string> CellName { get; set; } = null!;
@@ -169,6 +173,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// Unique name describing the cell.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("cellName")]
         public Input<string>? CellName { get; set; }

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Direct Connect hosted private virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Direct Connect hosted private virtual interfaces can be imported using the `vif id`, e.g.,
+// Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
 //
@@ -106,6 +108,7 @@ func NewHostedPrivateVirtualInterface(ctx *pulumi.Context,
 	if args.Vlan == nil {
 		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedPrivateVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, args, &resource, opts...)
 	if err != nil {
@@ -261,6 +264,12 @@ func (i *HostedPrivateVirtualInterface) ToHostedPrivateVirtualInterfaceOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceOutput)
 }
 
+func (i *HostedPrivateVirtualInterface) ToOutput(ctx context.Context) pulumix.Output[*HostedPrivateVirtualInterface] {
+	return pulumix.Output[*HostedPrivateVirtualInterface]{
+		OutputState: i.ToHostedPrivateVirtualInterfaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostedPrivateVirtualInterfaceArrayInput is an input type that accepts HostedPrivateVirtualInterfaceArray and HostedPrivateVirtualInterfaceArrayOutput values.
 // You can construct a concrete instance of `HostedPrivateVirtualInterfaceArrayInput` via:
 //
@@ -284,6 +293,12 @@ func (i HostedPrivateVirtualInterfaceArray) ToHostedPrivateVirtualInterfaceArray
 
 func (i HostedPrivateVirtualInterfaceArray) ToHostedPrivateVirtualInterfaceArrayOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceArrayOutput)
+}
+
+func (i HostedPrivateVirtualInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedPrivateVirtualInterface] {
+	return pulumix.Output[[]*HostedPrivateVirtualInterface]{
+		OutputState: i.ToHostedPrivateVirtualInterfaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostedPrivateVirtualInterfaceMapInput is an input type that accepts HostedPrivateVirtualInterfaceMap and HostedPrivateVirtualInterfaceMapOutput values.
@@ -311,6 +326,12 @@ func (i HostedPrivateVirtualInterfaceMap) ToHostedPrivateVirtualInterfaceMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceMapOutput)
 }
 
+func (i HostedPrivateVirtualInterfaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedPrivateVirtualInterface] {
+	return pulumix.Output[map[string]*HostedPrivateVirtualInterface]{
+		OutputState: i.ToHostedPrivateVirtualInterfaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostedPrivateVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (HostedPrivateVirtualInterfaceOutput) ElementType() reflect.Type {
@@ -323,6 +344,12 @@ func (o HostedPrivateVirtualInterfaceOutput) ToHostedPrivateVirtualInterfaceOutp
 
 func (o HostedPrivateVirtualInterfaceOutput) ToHostedPrivateVirtualInterfaceOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceOutput {
 	return o
+}
+
+func (o HostedPrivateVirtualInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedPrivateVirtualInterface] {
+	return pulumix.Output[*HostedPrivateVirtualInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The address family for the BGP peer. ` ipv4  ` or `ipv6`.
@@ -408,6 +435,12 @@ func (o HostedPrivateVirtualInterfaceArrayOutput) ToHostedPrivateVirtualInterfac
 	return o
 }
 
+func (o HostedPrivateVirtualInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedPrivateVirtualInterface] {
+	return pulumix.Output[[]*HostedPrivateVirtualInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostedPrivateVirtualInterfaceArrayOutput) Index(i pulumi.IntInput) HostedPrivateVirtualInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedPrivateVirtualInterface {
 		return vs[0].([]*HostedPrivateVirtualInterface)[vs[1].(int)]
@@ -426,6 +459,12 @@ func (o HostedPrivateVirtualInterfaceMapOutput) ToHostedPrivateVirtualInterfaceM
 
 func (o HostedPrivateVirtualInterfaceMapOutput) ToHostedPrivateVirtualInterfaceMapOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceMapOutput {
 	return o
+}
+
+func (o HostedPrivateVirtualInterfaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedPrivateVirtualInterface] {
+	return pulumix.Output[map[string]*HostedPrivateVirtualInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostedPrivateVirtualInterfaceMapOutput) MapIndex(k pulumi.StringInput) HostedPrivateVirtualInterfaceOutput {

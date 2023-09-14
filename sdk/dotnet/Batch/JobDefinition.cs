@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Import
     /// 
-    /// Batch Job Definition can be imported using the `arn`, e.g.,
+    /// Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
@@ -257,6 +257,8 @@ namespace Pulumi.Aws.Batch
 
         /// <summary>
         /// The type of job definition. Must be `container`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -377,6 +379,8 @@ namespace Pulumi.Aws.Batch
 
         /// <summary>
         /// The type of job definition. Must be `container`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -483,6 +487,8 @@ namespace Pulumi.Aws.Batch
 
         /// <summary>
         /// The type of job definition. Must be `container`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

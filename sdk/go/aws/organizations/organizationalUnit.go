@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create an organizational unit.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +43,7 @@ import (
 //
 // ## Import
 //
-// AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
+// Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
 //
 // ```sh
 //
@@ -75,6 +77,7 @@ func NewOrganizationalUnit(ctx *pulumi.Context,
 	if args.ParentId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationalUnit
 	err := ctx.RegisterResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, args, &resource, opts...)
 	if err != nil {
@@ -172,6 +175,12 @@ func (i *OrganizationalUnit) ToOrganizationalUnitOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitOutput)
 }
 
+func (i *OrganizationalUnit) ToOutput(ctx context.Context) pulumix.Output[*OrganizationalUnit] {
+	return pulumix.Output[*OrganizationalUnit]{
+		OutputState: i.ToOrganizationalUnitOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationalUnitArrayInput is an input type that accepts OrganizationalUnitArray and OrganizationalUnitArrayOutput values.
 // You can construct a concrete instance of `OrganizationalUnitArrayInput` via:
 //
@@ -195,6 +204,12 @@ func (i OrganizationalUnitArray) ToOrganizationalUnitArrayOutput() Organizationa
 
 func (i OrganizationalUnitArray) ToOrganizationalUnitArrayOutputWithContext(ctx context.Context) OrganizationalUnitArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitArrayOutput)
+}
+
+func (i OrganizationalUnitArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationalUnit] {
+	return pulumix.Output[[]*OrganizationalUnit]{
+		OutputState: i.ToOrganizationalUnitArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationalUnitMapInput is an input type that accepts OrganizationalUnitMap and OrganizationalUnitMapOutput values.
@@ -222,6 +237,12 @@ func (i OrganizationalUnitMap) ToOrganizationalUnitMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitMapOutput)
 }
 
+func (i OrganizationalUnitMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationalUnit] {
+	return pulumix.Output[map[string]*OrganizationalUnit]{
+		OutputState: i.ToOrganizationalUnitMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationalUnitOutput struct{ *pulumi.OutputState }
 
 func (OrganizationalUnitOutput) ElementType() reflect.Type {
@@ -234,6 +255,12 @@ func (o OrganizationalUnitOutput) ToOrganizationalUnitOutput() OrganizationalUni
 
 func (o OrganizationalUnitOutput) ToOrganizationalUnitOutputWithContext(ctx context.Context) OrganizationalUnitOutput {
 	return o
+}
+
+func (o OrganizationalUnitOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationalUnit] {
+	return pulumix.Output[*OrganizationalUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
@@ -280,6 +307,12 @@ func (o OrganizationalUnitArrayOutput) ToOrganizationalUnitArrayOutputWithContex
 	return o
 }
 
+func (o OrganizationalUnitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationalUnit] {
+	return pulumix.Output[[]*OrganizationalUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationalUnitArrayOutput) Index(i pulumi.IntInput) OrganizationalUnitOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationalUnit {
 		return vs[0].([]*OrganizationalUnit)[vs[1].(int)]
@@ -298,6 +331,12 @@ func (o OrganizationalUnitMapOutput) ToOrganizationalUnitMapOutput() Organizatio
 
 func (o OrganizationalUnitMapOutput) ToOrganizationalUnitMapOutputWithContext(ctx context.Context) OrganizationalUnitMapOutput {
 	return o
+}
+
+func (o OrganizationalUnitMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationalUnit] {
+	return pulumix.Output[map[string]*OrganizationalUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationalUnitMapOutput) MapIndex(k pulumi.StringInput) OrganizationalUnitOutput {

@@ -17,14 +17,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs();
 
     /**
-     * Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
      * 
      */
     @Import(name="cookieBehavior", required=true)
     private Output<String> cookieBehavior;
 
     /**
-     * @return Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * @return Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
      * 
      */
     public Output<String> cookieBehavior() {
@@ -72,7 +72,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
         }
 
         /**
-         * @param cookieBehavior Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * @param cookieBehavior Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
         }
 
         /**
-         * @param cookieBehavior Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * @param cookieBehavior Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
          * 
          * @return builder
          * 

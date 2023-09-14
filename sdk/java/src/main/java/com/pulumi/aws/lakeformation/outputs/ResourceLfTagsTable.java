@@ -30,6 +30,8 @@ public final class ResourceLfTagsTable {
     /**
      * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
      * 
+     * The following arguments are optional:
+     * 
      */
     private @Nullable Boolean wildcard;
 
@@ -57,6 +59,8 @@ public final class ResourceLfTagsTable {
     }
     /**
      * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Boolean> wildcard() {

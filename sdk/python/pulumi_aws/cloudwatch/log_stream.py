@@ -129,7 +129,7 @@ class LogStream(pulumi.CustomResource):
 
         ## Import
 
-        Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.,
+        Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
@@ -161,7 +161,7 @@ class LogStream(pulumi.CustomResource):
 
         ## Import
 
-        Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.,
+        Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234

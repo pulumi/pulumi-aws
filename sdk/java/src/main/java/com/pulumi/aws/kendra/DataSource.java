@@ -125,10 +125,10 @@ import javax.annotation.Nullable;
  *             .roleArn(aws_iam_role.example().arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
+ *                     .bucketName(aws_s3_bucket.example().id())
  *                     .accessControlListConfiguration(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.builder()
  *                         .keyPath(String.format(&#34;s3://%s/path-1&#34;, aws_s3_bucket.example().id()))
  *                         .build())
- *                     .bucketName(aws_s3_bucket.example().id())
  *                     .build())
  *                 .build())
  *             .build());
@@ -137,7 +137,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### With Documents Metadata Configuration
- * 
  * ```java
  * package generated_program;
  * 
@@ -148,6 +147,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kendra.DataSourceArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
+ * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -168,10 +168,12 @@ import javax.annotation.Nullable;
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
  *                     .bucketName(aws_s3_bucket.example().id())
- *                     .s3Prefix(&#34;example&#34;)
  *                     .exclusionPatterns(&#34;example&#34;)
  *                     .inclusionPatterns(&#34;hello&#34;)
  *                     .inclusionPrefixes(&#34;world&#34;)
+ *                     .documentsMetadataConfiguration(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs.builder()
+ *                         .s3Prefix(&#34;example&#34;)
+ *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
@@ -605,7 +607,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Kendra Data Source can be imported using the unique identifiers of the data_source and index separated by a slash (`/`) e.g.,
+ * Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
@@ -629,14 +631,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
     @Export(name="configuration", refs={DataSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceConfiguration> configuration;
 
     /**
-     * @return A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * @return A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
     public Output<Optional<DataSourceConfiguration>> configuration() {
@@ -713,14 +715,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.errorMessage;
     }
     /**
-     * The identifier of the index for your Amazon Kendra data_source.
+     * The identifier of the index for your Amazon Kendra data source.
      * 
      */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index for your Amazon Kendra data_source.
+     * @return The identifier of the index for your Amazon Kendra data source.
      * 
      */
     public Output<String> indexId() {
@@ -741,14 +743,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.languageCode;
     }
     /**
-     * A name for your Data Source connector.
+     * A name for your data source connector.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for your Data Source connector.
+     * @return A name for your data source connector.
      * 
      */
     public Output<String> name() {
@@ -827,12 +829,16 @@ public class DataSource extends com.pulumi.resources.CustomResource {
     /**
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

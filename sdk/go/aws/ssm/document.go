@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Document resource
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,7 +34,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
-//				Content:      pulumi.String("  {\n    \"schemaVersion\": \"1.2\",\n    \"description\": \"Check ip configuration of a Linux instance.\",\n    \"parameters\": {\n\n    },\n    \"runtimeConfig\": {\n      \"aws:runShellScript\": {\n        \"properties\": [\n          {\n            \"id\": \"0.aws:runShellScript\",\n            \"runCommand\": [\"ifconfig\"]\n          }\n        ]\n      }\n    }\n  }\n\n"),
+//				Content: pulumi.String(`  {
+//	    "schemaVersion": "1.2",
+//	    "description": "Check ip configuration of a Linux instance.",
+//	    "parameters": {
+//
+//	    },
+//	    "runtimeConfig": {
+//	      "aws:runShellScript": {
+//	        "properties": [
+//	          {
+//	            "id": "0.aws:runShellScript",
+//	            "runCommand": ["ifconfig"]
+//	          }
+//	        ]
+//	      }
+//	    }
+//	  }
+//
+// `),
+//
 //				DocumentType: pulumi.String("Command"),
 //			})
 //			if err != nil {
@@ -50,7 +71,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +79,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
-//				Content:        pulumi.String("schemaVersion: '1.2'\ndescription: Check ip configuration of a Linux instance.\nparameters: {}\nruntimeConfig:\n  'aws:runShellScript':\n    properties:\n      - id: '0.aws:runShellScript'\n        runCommand:\n          - ifconfig\n\n"),
+//				Content: pulumi.String(`schemaVersion: '1.2'
+//
+// description: Check ip configuration of a Linux instance.
+// parameters: {}
+// runtimeConfig:
+//
+//	'aws:runShellScript':
+//	  properties:
+//	    - id: '0.aws:runShellScript'
+//	      runCommand:
+//	        - ifconfig
+//
+// `),
+//
 //				DocumentFormat: pulumi.String("YAML"),
 //				DocumentType:   pulumi.String("Command"),
 //			})
@@ -83,7 +117,7 @@ import (
 //
 // ## Import
 //
-// SSM Documents can be imported using the name, e.g.,
+// Using `pulumi import`, import SSM Documents using the name. For example:
 //
 // ```sh
 //
@@ -91,31 +125,7 @@ import (
 //
 // ```
 //
-//	The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_ssm_document" "test" {
-//
-//	name
-//
-// = "test_document"
-//
-//	document_type = "Package"
-//
-//	attachments_source {
-//
-//	key
-//
-// = "SourceUrl"
-//
-//	values = ["s3://${aws_s3_bucket.object_bucket.bucket}/test.zip"]
-//
-//	}
-//
-// # There is no AWS SSM API for reading attachments_source info directly
-//
-//	lifecycle {
-//
-//	ignore_changes = [attachments_source]
-//
-//	} }
+//	The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 type Document struct {
 	pulumi.CustomResourceState
 
@@ -179,6 +189,7 @@ func NewDocument(ctx *pulumi.Context,
 	if args.DocumentType == nil {
 		return nil, errors.New("invalid value for required argument 'DocumentType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Document
 	err := ctx.RegisterResource("aws:ssm/document:Document", name, args, &resource, opts...)
 	if err != nil {
@@ -366,6 +377,12 @@ func (i *Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentOutput)
 }
 
+func (i *Document) ToOutput(ctx context.Context) pulumix.Output[*Document] {
+	return pulumix.Output[*Document]{
+		OutputState: i.ToDocumentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DocumentArrayInput is an input type that accepts DocumentArray and DocumentArrayOutput values.
 // You can construct a concrete instance of `DocumentArrayInput` via:
 //
@@ -389,6 +406,12 @@ func (i DocumentArray) ToDocumentArrayOutput() DocumentArrayOutput {
 
 func (i DocumentArray) ToDocumentArrayOutputWithContext(ctx context.Context) DocumentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentArrayOutput)
+}
+
+func (i DocumentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Document] {
+	return pulumix.Output[[]*Document]{
+		OutputState: i.ToDocumentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DocumentMapInput is an input type that accepts DocumentMap and DocumentMapOutput values.
@@ -416,6 +439,12 @@ func (i DocumentMap) ToDocumentMapOutputWithContext(ctx context.Context) Documen
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentMapOutput)
 }
 
+func (i DocumentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Document] {
+	return pulumix.Output[map[string]*Document]{
+		OutputState: i.ToDocumentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DocumentOutput struct{ *pulumi.OutputState }
 
 func (DocumentOutput) ElementType() reflect.Type {
@@ -428,6 +457,12 @@ func (o DocumentOutput) ToDocumentOutput() DocumentOutput {
 
 func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) DocumentOutput {
 	return o
+}
+
+func (o DocumentOutput) ToOutput(ctx context.Context) pulumix.Output[*Document] {
+	return pulumix.Output[*Document]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DocumentOutput) Arn() pulumi.StringOutput {
@@ -558,6 +593,12 @@ func (o DocumentArrayOutput) ToDocumentArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DocumentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Document] {
+	return pulumix.Output[[]*Document]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentArrayOutput) Index(i pulumi.IntInput) DocumentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Document {
 		return vs[0].([]*Document)[vs[1].(int)]
@@ -576,6 +617,12 @@ func (o DocumentMapOutput) ToDocumentMapOutput() DocumentMapOutput {
 
 func (o DocumentMapOutput) ToDocumentMapOutputWithContext(ctx context.Context) DocumentMapOutput {
 	return o
+}
+
+func (o DocumentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Document] {
+	return pulumix.Output[map[string]*Document]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DocumentMapOutput) MapIndex(k pulumi.StringInput) DocumentOutput {

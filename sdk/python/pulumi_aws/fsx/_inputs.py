@@ -42,6 +42,7 @@ __all__ = [
     'OpenZfsVolumeOriginSnapshotArgs',
     'OpenZfsVolumeUserAndGroupQuotaArgs',
     'WindowsFileSystemAuditLogConfigurationArgs',
+    'WindowsFileSystemDiskIopsConfigurationArgs',
     'WindowsFileSystemSelfManagedActiveDirectoryArgs',
     'GetOpenZfsSnapshotFilterArgs',
 ]
@@ -456,7 +457,7 @@ class FileCacheLustreConfigurationMetadataConfigurationArgs:
     def __init__(__self__, *,
                  storage_capacity: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         pulumi.set(__self__, "storage_capacity", storage_capacity)
 
@@ -464,7 +465,7 @@ class FileCacheLustreConfigurationMetadataConfigurationArgs:
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Input[int]:
         """
-        The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -1074,6 +1075,7 @@ class OntapVolumeTieringPolicyArgs:
                  cooling_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[int] cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
         :param pulumi.Input[str] name: Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         """
         if cooling_period is not None:
@@ -1084,6 +1086,9 @@ class OntapVolumeTieringPolicyArgs:
     @property
     @pulumi.getter(name="coolingPeriod")
     def cooling_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+        """
         return pulumi.get(self, "cooling_period")
 
     @cooling_period.setter
@@ -1543,6 +1548,45 @@ class WindowsFileSystemAuditLogConfigurationArgs:
     @file_share_access_audit_log_level.setter
     def file_share_access_audit_log_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_share_access_audit_log_level", value)
+
+
+@pulumi.input_type
+class WindowsFileSystemDiskIopsConfigurationArgs:
+    def __init__(__self__, *,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] iops: The total number of SSD IOPS provisioned for the file system.
+        :param pulumi.Input[str] mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type

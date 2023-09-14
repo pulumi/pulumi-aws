@@ -116,13 +116,21 @@ public final class Config {
         return Codegen.stringProp("region").config(config).env("AWS_REGION", "AWS_DEFAULT_REGION").get();
     }
 /**
- * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
- * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
- * Specific to the Amazon S3 service.
+ * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+ * `AWS_RETRY_MODE` environment variable.
  * 
  */
-    public Optional<Boolean> s3ForcePathStyle() {
-        return Codegen.booleanProp("s3ForcePathStyle").config(config).get();
+    public Optional<String> retryMode() {
+        return Codegen.stringProp("retryMode").config(config).get();
+    }
+/**
+ * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+ * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+ * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+ * 
+ */
+    public Optional<String> s3UsEast1RegionalEndpoint() {
+        return Codegen.stringProp("s3UsEast1RegionalEndpoint").config(config).get();
     }
 /**
  * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -148,13 +156,6 @@ public final class Config {
         return Codegen.objectProp("sharedConfigFiles", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
- * 
- */
-    public Optional<String> sharedCredentialsFile() {
-        return Codegen.stringProp("sharedCredentialsFile").config(config).get();
-    }
-/**
  * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
  * 
  */
@@ -168,13 +169,6 @@ public final class Config {
  */
     public Optional<Boolean> skipCredentialsValidation() {
         return Codegen.booleanProp("skipCredentialsValidation").config(config).def(false).get();
-    }
-/**
- * Skip getting the supported EC2 platforms. Used by users that don&#39;t have ec2:DescribeAccountAttributes permissions.
- * 
- */
-    public Optional<Boolean> skipGetEc2Platforms() {
-        return Codegen.booleanProp("skipGetEc2Platforms").config(config).get();
     }
 /**
  * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.

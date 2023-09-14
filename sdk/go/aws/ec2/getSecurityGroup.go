@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.SecurityGroup` provides details about a specific Security Group.
@@ -26,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -55,6 +57,7 @@ import (
 //
 // ```
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityGroupResult
 	err := ctx.Invoke("aws:ec2/getSecurityGroup:getSecurityGroup", args, &rv, opts...)
 	if err != nil {
@@ -76,6 +79,9 @@ type LookupSecurityGroupArgs struct {
 	// a pair on the desired security group.
 	Tags map[string]string `pulumi:"tags"`
 	// Id of the VPC that the desired security group belongs to.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -118,6 +124,9 @@ type LookupSecurityGroupOutputArgs struct {
 	// a pair on the desired security group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Id of the VPC that the desired security group belongs to.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -138,6 +147,12 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutput() Loo
 
 func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithContext(ctx context.Context) LookupSecurityGroupResultOutput {
 	return o
+}
+
+func (o LookupSecurityGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityGroupResult] {
+	return pulumix.Output[LookupSecurityGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Computed ARN of the security group.

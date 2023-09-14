@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudFront Functions can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:cloudfront/function:Function test my_test_function
@@ -93,6 +93,8 @@ export class Function extends pulumi.CustomResource {
     public readonly publish!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     *
+     * The following arguments are optional:
      */
     public readonly runtime!: pulumi.Output<string>;
     /**
@@ -179,6 +181,8 @@ export interface FunctionState {
     publish?: pulumi.Input<boolean>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     *
+     * The following arguments are optional:
      */
     runtime?: pulumi.Input<string>;
     /**
@@ -209,6 +213,8 @@ export interface FunctionArgs {
     publish?: pulumi.Input<boolean>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     *
+     * The following arguments are optional:
      */
     runtime: pulumi.Input<string>;
 }

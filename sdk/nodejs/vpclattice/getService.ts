@@ -17,13 +17,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.vpclattice.getService({});
+ * const example = aws.vpclattice.getService({
+ *     name: "example",
+ * });
  * ```
  */
-export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getService:getService", {
+        "name": args.name,
         "serviceIdentifier": args.serviceIdentifier,
         "tags": args.tags,
     }, opts);
@@ -34,9 +38,13 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetServiceArgs {
     /**
-     * ID or Amazon Resource Name (ARN) of the service network
+     * Service name.
      */
-    serviceIdentifier: string;
+    name?: string;
+    /**
+     * ID or Amazon Resource Name (ARN) of the service network.
+     */
+    serviceIdentifier?: string;
     /**
      * List of tags associated with the service.
      */
@@ -92,10 +100,12 @@ export interface GetServiceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.vpclattice.getService({});
+ * const example = aws.vpclattice.getService({
+ *     name: "example",
+ * });
  * ```
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
@@ -104,9 +114,13 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
  */
 export interface GetServiceOutputArgs {
     /**
-     * ID or Amazon Resource Name (ARN) of the service network
+     * Service name.
      */
-    serviceIdentifier: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    /**
+     * ID or Amazon Resource Name (ARN) of the service network.
+     */
+    serviceIdentifier?: pulumi.Input<string>;
     /**
      * List of tags associated with the service.
      */

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * OpsWorks PHP Application Layers can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
@@ -320,12 +320,20 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Import
     /// 
-    /// `aws_location_place_index` resources can be imported using the place index name, e.g.
+    /// Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:location/placeIndex:PlaceIndex example example
@@ -74,6 +74,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the place index resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("indexName")]
         public Output<string> IndexName { get; private set; } = null!;
@@ -162,6 +164,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the place index resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
@@ -218,6 +222,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the place index resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }

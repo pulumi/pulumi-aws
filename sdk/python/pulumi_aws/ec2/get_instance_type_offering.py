@@ -124,11 +124,11 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering', __args__, opts=opts, typ=GetInstanceTypeOfferingResult).value
 
     return AwaitableGetInstanceTypeOfferingResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        instance_type=__ret__.instance_type,
-        location_type=__ret__.location_type,
-        preferred_instance_types=__ret__.preferred_instance_types)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        location_type=pulumi.get(__ret__, 'location_type'),
+        preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'))
 
 
 @_utilities.lift_output_func(get_instance_type_offering)

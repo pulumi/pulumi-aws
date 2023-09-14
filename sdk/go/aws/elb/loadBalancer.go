@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Load Balancer resource, also known as a "Classic
@@ -29,7 +31,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +100,7 @@ import (
 //
 // ## Import
 //
-// ELBs can be imported using the `name`, e.g.,
+// Using `pulumi import`, import ELBs using the `name`. For example:
 //
 // ```sh
 //
@@ -150,9 +152,12 @@ type LoadBalancer struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Only available on ELBs launched in a VPC.
 	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -176,6 +181,7 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:elb/loadBalancer:LoadBalancer", name, args, &resource, opts...)
 	if err != nil {
@@ -240,9 +246,12 @@ type loadBalancerState struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Only available on ELBs launched in a VPC.
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -293,9 +302,12 @@ type LoadBalancerState struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Only available on ELBs launched in a VPC.
 	SourceSecurityGroupId pulumi.StringPtrInput
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -342,9 +354,12 @@ type loadBalancerArgs struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Use this for Classic or Default VPC only.
 	SourceSecurityGroup *string `pulumi:"sourceSecurityGroup"`
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -384,9 +399,12 @@ type LoadBalancerArgs struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Use this for Classic or Default VPC only.
 	SourceSecurityGroup pulumi.StringPtrInput
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapInput
 }
 
@@ -411,6 +429,12 @@ func (i *LoadBalancer) ToLoadBalancerOutput() LoadBalancerOutput {
 
 func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerOutput)
+}
+
+func (i *LoadBalancer) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancer] {
+	return pulumix.Output[*LoadBalancer]{
+		OutputState: i.ToLoadBalancerOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LoadBalancerArrayInput is an input type that accepts LoadBalancerArray and LoadBalancerArrayOutput values.
@@ -438,6 +462,12 @@ func (i LoadBalancerArray) ToLoadBalancerArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerArrayOutput)
 }
 
+func (i LoadBalancerArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancer] {
+	return pulumix.Output[[]*LoadBalancer]{
+		OutputState: i.ToLoadBalancerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoadBalancerMapInput is an input type that accepts LoadBalancerMap and LoadBalancerMapOutput values.
 // You can construct a concrete instance of `LoadBalancerMapInput` via:
 //
@@ -463,6 +493,12 @@ func (i LoadBalancerMap) ToLoadBalancerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMapOutput)
 }
 
+func (i LoadBalancerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancer] {
+	return pulumix.Output[map[string]*LoadBalancer]{
+		OutputState: i.ToLoadBalancerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerOutput) ElementType() reflect.Type {
@@ -475,6 +511,12 @@ func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {
 
 func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
 	return o
+}
+
+func (o LoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancer] {
+	return pulumix.Output[*LoadBalancer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An Access Logs block. Access Logs documented below.
@@ -573,12 +615,15 @@ func (o LoadBalancerOutput) SourceSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.SourceSecurityGroupId }).(pulumi.StringOutput)
 }
 
-// A list of subnet IDs to attach to the ELB.
+// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// Exactly one of `availabilityZones` or `subnets` must be specified: this
+// determines if the ELB exists in a VPC or in EC2-classic.
 func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -607,6 +652,12 @@ func (o LoadBalancerArrayOutput) ToLoadBalancerArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o LoadBalancerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancer] {
+	return pulumix.Output[[]*LoadBalancer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoadBalancerArrayOutput) Index(i pulumi.IntInput) LoadBalancerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancer {
 		return vs[0].([]*LoadBalancer)[vs[1].(int)]
@@ -625,6 +676,12 @@ func (o LoadBalancerMapOutput) ToLoadBalancerMapOutput() LoadBalancerMapOutput {
 
 func (o LoadBalancerMapOutput) ToLoadBalancerMapOutputWithContext(ctx context.Context) LoadBalancerMapOutput {
 	return o
+}
+
+func (o LoadBalancerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancer] {
+	return pulumix.Output[map[string]*LoadBalancer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerOutput {

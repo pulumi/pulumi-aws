@@ -8,16 +8,100 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Multi-Region Access Point access control policy.
 //
 // ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooBucket, err := s3.NewBucketV2(ctx, "fooBucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleMultiRegionAccessPoint, err := s3control.NewMultiRegionAccessPoint(ctx, "exampleMultiRegionAccessPoint", &s3control.MultiRegionAccessPointArgs{
+//				Details: &s3control.MultiRegionAccessPointDetailsArgs{
+//					Name: pulumi.String("example"),
+//					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
+//						&s3control.MultiRegionAccessPointDetailsRegionArgs{
+//							Bucket: fooBucket.ID(),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3control.NewMultiRegionAccessPointPolicy(ctx, "exampleMultiRegionAccessPointPolicy", &s3control.MultiRegionAccessPointPolicyArgs{
+//				Details: &s3control.MultiRegionAccessPointPolicyDetailsArgs{
+//					Name: "TODO: element",
+//					Policy: exampleMultiRegionAccessPoint.Alias.ApplyT(func(alias string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON0, err := json.Marshal(map[string]interface{}{
+//							"Version": "2012-10-17",
+//							"Statement": []map[string]interface{}{
+//								map[string]interface{}{
+//									"Sid":    "Example",
+//									"Effect": "Allow",
+//									"Principal": map[string]interface{}{
+//										"AWS": currentCallerIdentity.AccountId,
+//									},
+//									"Action": []string{
+//										"s3:GetObject",
+//										"s3:PutObject",
+//									},
+//									"Resource": fmt.Sprintf("arn:%v:s3::%v:accesspoint/%v/object/*", currentPartition.Partition, currentCallerIdentity.AccountId, alias),
+//								},
+//							},
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json0 := string(tmpJSON0)
+//						return pulumi.String(json0), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Multi-Region Access Point Policies can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+// Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -47,6 +131,7 @@ func NewMultiRegionAccessPointPolicy(ctx *pulumi.Context,
 	if args.Details == nil {
 		return nil, errors.New("invalid value for required argument 'Details'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MultiRegionAccessPointPolicy
 	err := ctx.RegisterResource("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -132,6 +217,12 @@ func (i *MultiRegionAccessPointPolicy) ToMultiRegionAccessPointPolicyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyOutput)
 }
 
+func (i *MultiRegionAccessPointPolicy) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointPolicy] {
+	return pulumix.Output[*MultiRegionAccessPointPolicy]{
+		OutputState: i.ToMultiRegionAccessPointPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MultiRegionAccessPointPolicyArrayInput is an input type that accepts MultiRegionAccessPointPolicyArray and MultiRegionAccessPointPolicyArrayOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointPolicyArrayInput` via:
 //
@@ -155,6 +246,12 @@ func (i MultiRegionAccessPointPolicyArray) ToMultiRegionAccessPointPolicyArrayOu
 
 func (i MultiRegionAccessPointPolicyArray) ToMultiRegionAccessPointPolicyArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyArrayOutput)
+}
+
+func (i MultiRegionAccessPointPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*MultiRegionAccessPointPolicy] {
+	return pulumix.Output[[]*MultiRegionAccessPointPolicy]{
+		OutputState: i.ToMultiRegionAccessPointPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MultiRegionAccessPointPolicyMapInput is an input type that accepts MultiRegionAccessPointPolicyMap and MultiRegionAccessPointPolicyMapOutput values.
@@ -182,6 +279,12 @@ func (i MultiRegionAccessPointPolicyMap) ToMultiRegionAccessPointPolicyMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyMapOutput)
 }
 
+func (i MultiRegionAccessPointPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiRegionAccessPointPolicy] {
+	return pulumix.Output[map[string]*MultiRegionAccessPointPolicy]{
+		OutputState: i.ToMultiRegionAccessPointPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MultiRegionAccessPointPolicyOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointPolicyOutput) ElementType() reflect.Type {
@@ -194,6 +297,12 @@ func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput
 
 func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyOutput {
 	return o
+}
+
+func (o MultiRegionAccessPointPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointPolicy] {
+	return pulumix.Output[*MultiRegionAccessPointPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -230,6 +339,12 @@ func (o MultiRegionAccessPointPolicyArrayOutput) ToMultiRegionAccessPointPolicyA
 	return o
 }
 
+func (o MultiRegionAccessPointPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MultiRegionAccessPointPolicy] {
+	return pulumix.Output[[]*MultiRegionAccessPointPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MultiRegionAccessPointPolicyArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MultiRegionAccessPointPolicy {
 		return vs[0].([]*MultiRegionAccessPointPolicy)[vs[1].(int)]
@@ -248,6 +363,12 @@ func (o MultiRegionAccessPointPolicyMapOutput) ToMultiRegionAccessPointPolicyMap
 
 func (o MultiRegionAccessPointPolicyMapOutput) ToMultiRegionAccessPointPolicyMapOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyMapOutput {
 	return o
+}
+
+func (o MultiRegionAccessPointPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiRegionAccessPointPolicy] {
+	return pulumix.Output[map[string]*MultiRegionAccessPointPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MultiRegionAccessPointPolicyMapOutput) MapIndex(k pulumi.StringInput) MultiRegionAccessPointPolicyOutput {

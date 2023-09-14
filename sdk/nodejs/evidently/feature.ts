@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudWatch Evidently Feature can be imported using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`, e.g.,
+ * Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
  *
  * ```sh
  *  $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example

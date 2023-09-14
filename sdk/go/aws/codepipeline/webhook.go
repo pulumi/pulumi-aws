@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodePipeline Webhook.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,13 +127,11 @@ import (
 //
 // ## Import
 //
-// CodePipeline Webhooks can be imported by their ARN, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
 //
-// ```sh
+//	to = aws_codepipeline_webhook.example
 //
-//	$ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
-//
-// ```
+//	id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -145,7 +145,7 @@ type Webhook struct {
 	Filters WebhookFilterArrayOutput `pulumi:"filters"`
 	// The name of the webhook.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -176,6 +176,7 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.TargetPipeline == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPipeline'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Webhook
 	err := ctx.RegisterResource("aws:codepipeline/webhook:Webhook", name, args, &resource, opts...)
 	if err != nil {
@@ -208,7 +209,7 @@ type webhookState struct {
 	Filters []WebhookFilter `pulumi:"filters"`
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -231,7 +232,7 @@ type WebhookState struct {
 	Filters WebhookFilterArrayInput
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -256,7 +257,7 @@ type webhookArgs struct {
 	Filters []WebhookFilter `pulumi:"filters"`
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction string `pulumi:"targetAction"`
@@ -274,7 +275,7 @@ type WebhookArgs struct {
 	Filters WebhookFilterArrayInput
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringInput
@@ -305,6 +306,12 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
 }
 
+func (i *Webhook) ToOutput(ctx context.Context) pulumix.Output[*Webhook] {
+	return pulumix.Output[*Webhook]{
+		OutputState: i.ToWebhookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebhookArrayInput is an input type that accepts WebhookArray and WebhookArrayOutput values.
 // You can construct a concrete instance of `WebhookArrayInput` via:
 //
@@ -328,6 +335,12 @@ func (i WebhookArray) ToWebhookArrayOutput() WebhookArrayOutput {
 
 func (i WebhookArray) ToWebhookArrayOutputWithContext(ctx context.Context) WebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookArrayOutput)
+}
+
+func (i WebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*Webhook] {
+	return pulumix.Output[[]*Webhook]{
+		OutputState: i.ToWebhookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WebhookMapInput is an input type that accepts WebhookMap and WebhookMapOutput values.
@@ -355,6 +368,12 @@ func (i WebhookMap) ToWebhookMapOutputWithContext(ctx context.Context) WebhookMa
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookMapOutput)
 }
 
+func (i WebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Webhook] {
+	return pulumix.Output[map[string]*Webhook]{
+		OutputState: i.ToWebhookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebhookOutput struct{ *pulumi.OutputState }
 
 func (WebhookOutput) ElementType() reflect.Type {
@@ -367,6 +386,12 @@ func (o WebhookOutput) ToWebhookOutput() WebhookOutput {
 
 func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
 	return o
+}
+
+func (o WebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*Webhook] {
+	return pulumix.Output[*Webhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CodePipeline webhook's ARN.
@@ -394,7 +419,7 @@ func (o WebhookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WebhookOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -433,6 +458,12 @@ func (o WebhookArrayOutput) ToWebhookArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o WebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Webhook] {
+	return pulumix.Output[[]*Webhook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebhookArrayOutput) Index(i pulumi.IntInput) WebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Webhook {
 		return vs[0].([]*Webhook)[vs[1].(int)]
@@ -451,6 +482,12 @@ func (o WebhookMapOutput) ToWebhookMapOutput() WebhookMapOutput {
 
 func (o WebhookMapOutput) ToWebhookMapOutputWithContext(ctx context.Context) WebhookMapOutput {
 	return o
+}
+
+func (o WebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Webhook] {
+	return pulumix.Output[map[string]*Webhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebhookMapOutput) MapIndex(k pulumi.StringInput) WebhookOutput {

@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Import SSM Contact using the `ARN`. For example
+ * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
@@ -76,7 +76,7 @@ export class Contact extends pulumi.CustomResource {
     }
 
     /**
-     * A unique and identifiable alias for the contact or escalation plan.
+     * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      */
     public readonly alias!: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class Contact extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Full friendly name of the contact or escalation plan.
+     * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
@@ -98,6 +98,8 @@ export class Contact extends pulumi.CustomResource {
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -145,7 +147,7 @@ export class Contact extends pulumi.CustomResource {
  */
 export interface ContactState {
     /**
-     * A unique and identifiable alias for the contact or escalation plan.
+     * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      */
     alias?: pulumi.Input<string>;
     /**
@@ -153,7 +155,7 @@ export interface ContactState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Full friendly name of the contact or escalation plan.
+     * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -167,6 +169,8 @@ export interface ContactState {
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -176,11 +180,11 @@ export interface ContactState {
  */
 export interface ContactArgs {
     /**
-     * A unique and identifiable alias for the contact or escalation plan.
+     * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      */
     alias: pulumi.Input<string>;
     /**
-     * Full friendly name of the contact or escalation plan.
+     * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -190,6 +194,8 @@ export interface ContactArgs {
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

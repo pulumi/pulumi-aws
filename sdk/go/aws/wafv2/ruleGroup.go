@@ -8,75 +8,11 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Creates a WAFv2 Rule Group resource.
-//
-// ## Example Usage
-// ### Simple
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Capacity: pulumi.Int(2),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Allow: nil,
-//						},
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("US"),
-//									pulumi.String("NL"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				Scope: pulumi.String("REGIONAL"),
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-//
-// ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
@@ -90,7 +26,8 @@ type RuleGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
 	// A friendly name of the rule group.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -119,6 +56,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 	if args.VisibilityConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RuleGroup
 	err := ctx.RegisterResource("aws:wafv2/ruleGroup:RuleGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -151,7 +89,8 @@ type ruleGroupState struct {
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
 	// A friendly name of the rule group.
-	Name *string `pulumi:"name"`
+	Name       *string `pulumi:"name"`
+	NamePrefix *string `pulumi:"namePrefix"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -175,7 +114,8 @@ type RuleGroupState struct {
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
 	// A friendly name of the rule group.
-	Name pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	NamePrefix pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -200,7 +140,8 @@ type ruleGroupArgs struct {
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
 	// A friendly name of the rule group.
-	Name *string `pulumi:"name"`
+	Name       *string `pulumi:"name"`
+	NamePrefix *string `pulumi:"namePrefix"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -220,7 +161,8 @@ type RuleGroupArgs struct {
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
 	// A friendly name of the rule group.
-	Name pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	NamePrefix pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -254,6 +196,12 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOutput)
 }
 
+func (i *RuleGroup) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
+	return pulumix.Output[*RuleGroup]{
+		OutputState: i.ToRuleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupArrayInput is an input type that accepts RuleGroupArray and RuleGroupArrayOutput values.
 // You can construct a concrete instance of `RuleGroupArrayInput` via:
 //
@@ -277,6 +225,12 @@ func (i RuleGroupArray) ToRuleGroupArrayOutput() RuleGroupArrayOutput {
 
 func (i RuleGroupArray) ToRuleGroupArrayOutputWithContext(ctx context.Context) RuleGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupArrayOutput)
+}
+
+func (i RuleGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*RuleGroup] {
+	return pulumix.Output[[]*RuleGroup]{
+		OutputState: i.ToRuleGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RuleGroupMapInput is an input type that accepts RuleGroupMap and RuleGroupMapOutput values.
@@ -304,6 +258,12 @@ func (i RuleGroupMap) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleG
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMapOutput)
 }
 
+func (i RuleGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleGroup] {
+	return pulumix.Output[map[string]*RuleGroup]{
+		OutputState: i.ToRuleGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOutput) ElementType() reflect.Type {
@@ -316,6 +276,12 @@ func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {
 
 func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
 	return o
+}
+
+func (o RuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
+	return pulumix.Output[*RuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the IP Set that this statement references.
@@ -345,6 +311,10 @@ func (o RuleGroupOutput) LockToken() pulumi.StringOutput {
 // A friendly name of the rule group.
 func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
@@ -386,6 +356,12 @@ func (o RuleGroupArrayOutput) ToRuleGroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RuleGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RuleGroup] {
+	return pulumix.Output[[]*RuleGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupArrayOutput) Index(i pulumi.IntInput) RuleGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleGroup {
 		return vs[0].([]*RuleGroup)[vs[1].(int)]
@@ -404,6 +380,12 @@ func (o RuleGroupMapOutput) ToRuleGroupMapOutput() RuleGroupMapOutput {
 
 func (o RuleGroupMapOutput) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleGroupMapOutput {
 	return o
+}
+
+func (o RuleGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleGroup] {
+	return pulumix.Output[map[string]*RuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupMapOutput) MapIndex(k pulumi.StringInput) RuleGroupOutput {

@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// SSM Patch Baselines can be imported by their baseline ID, e.g.,
+    /// Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
@@ -337,9 +337,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The operating system the patch baseline applies to.
         /// Valid values are
+        /// `ALMA_LINUX`,
         /// `AMAZON_LINUX`,
         /// `AMAZON_LINUX_2`,
         /// `AMAZON_LINUX_2022`,
+        /// `AMAZON_LINUX_2023`,
         /// `CENTOS`,
         /// `DEBIAN`,
         /// `MACOS`,
@@ -506,9 +508,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The operating system the patch baseline applies to.
         /// Valid values are
+        /// `ALMA_LINUX`,
         /// `AMAZON_LINUX`,
         /// `AMAZON_LINUX_2`,
         /// `AMAZON_LINUX_2022`,
+        /// `AMAZON_LINUX_2023`,
         /// `CENTOS`,
         /// `DEBIAN`,
         /// `MACOS`,
@@ -655,9 +659,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The operating system the patch baseline applies to.
         /// Valid values are
+        /// `ALMA_LINUX`,
         /// `AMAZON_LINUX`,
         /// `AMAZON_LINUX_2`,
         /// `AMAZON_LINUX_2022`,
+        /// `AMAZON_LINUX_2023`,
         /// `CENTOS`,
         /// `DEBIAN`,
         /// `MACOS`,

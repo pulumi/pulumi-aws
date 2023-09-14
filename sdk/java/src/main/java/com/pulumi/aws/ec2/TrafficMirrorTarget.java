@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Traffic mirror targets can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import traffic mirror targets using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
@@ -160,12 +160,16 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

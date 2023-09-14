@@ -141,6 +141,8 @@ def get_connection(arn: Optional[str] = None,
 
     :param str arn: CodeStar Connection ARN.
     :param str name: CodeStar Connection name.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     __args__ = dict()
@@ -151,13 +153,13 @@ def get_connection(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:codestarconnections/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        arn=__ret__.arn,
-        connection_status=__ret__.connection_status,
-        host_arn=__ret__.host_arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        provider_type=__ret__.provider_type,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        connection_status=pulumi.get(__ret__, 'connection_status'),
+        host_arn=pulumi.get(__ret__, 'host_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_type=pulumi.get(__ret__, 'provider_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_connection)
@@ -189,6 +191,8 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str arn: CodeStar Connection ARN.
     :param str name: CodeStar Connection name.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     ...

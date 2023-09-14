@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Lattice Service can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
@@ -81,6 +81,8 @@ export class Service extends pulumi.CustomResource {
     public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -161,6 +163,8 @@ export interface ServiceState {
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceDnsEntry>[]>;
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -195,6 +199,8 @@ export interface ServiceArgs {
     customDomainName?: pulumi.Input<string>;
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

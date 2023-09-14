@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type SnapshotImportClientData struct {
 	// A user-defined comment about the disk upload.
@@ -55,6 +59,12 @@ func (i SnapshotImportClientDataArgs) ToSnapshotImportClientDataOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportClientDataOutput)
 }
 
+func (i SnapshotImportClientDataArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotImportClientData] {
+	return pulumix.Output[SnapshotImportClientData]{
+		OutputState: i.ToSnapshotImportClientDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SnapshotImportClientDataArgs) ToSnapshotImportClientDataPtrOutput() SnapshotImportClientDataPtrOutput {
 	return i.ToSnapshotImportClientDataPtrOutputWithContext(context.Background())
 }
@@ -96,6 +106,12 @@ func (i *snapshotImportClientDataPtrType) ToSnapshotImportClientDataPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportClientDataPtrOutput)
 }
 
+func (i *snapshotImportClientDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImportClientData] {
+	return pulumix.Output[*SnapshotImportClientData]{
+		OutputState: i.ToSnapshotImportClientDataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnapshotImportClientDataOutput struct{ *pulumi.OutputState }
 
 func (SnapshotImportClientDataOutput) ElementType() reflect.Type {
@@ -118,6 +134,12 @@ func (o SnapshotImportClientDataOutput) ToSnapshotImportClientDataPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotImportClientData) *SnapshotImportClientData {
 		return &v
 	}).(SnapshotImportClientDataPtrOutput)
+}
+
+func (o SnapshotImportClientDataOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotImportClientData] {
+	return pulumix.Output[SnapshotImportClientData]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A user-defined comment about the disk upload.
@@ -152,6 +174,12 @@ func (o SnapshotImportClientDataPtrOutput) ToSnapshotImportClientDataPtrOutput()
 
 func (o SnapshotImportClientDataPtrOutput) ToSnapshotImportClientDataPtrOutputWithContext(ctx context.Context) SnapshotImportClientDataPtrOutput {
 	return o
+}
+
+func (o SnapshotImportClientDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImportClientData] {
+	return pulumix.Output[*SnapshotImportClientData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnapshotImportClientDataPtrOutput) Elem() SnapshotImportClientDataOutput {
@@ -249,6 +277,12 @@ func (i SnapshotImportDiskContainerArgs) ToSnapshotImportDiskContainerOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportDiskContainerOutput)
 }
 
+func (i SnapshotImportDiskContainerArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotImportDiskContainer] {
+	return pulumix.Output[SnapshotImportDiskContainer]{
+		OutputState: i.ToSnapshotImportDiskContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SnapshotImportDiskContainerArgs) ToSnapshotImportDiskContainerPtrOutput() SnapshotImportDiskContainerPtrOutput {
 	return i.ToSnapshotImportDiskContainerPtrOutputWithContext(context.Background())
 }
@@ -290,6 +324,12 @@ func (i *snapshotImportDiskContainerPtrType) ToSnapshotImportDiskContainerPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportDiskContainerPtrOutput)
 }
 
+func (i *snapshotImportDiskContainerPtrType) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImportDiskContainer] {
+	return pulumix.Output[*SnapshotImportDiskContainer]{
+		OutputState: i.ToSnapshotImportDiskContainerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnapshotImportDiskContainerOutput struct{ *pulumi.OutputState }
 
 func (SnapshotImportDiskContainerOutput) ElementType() reflect.Type {
@@ -312,6 +352,12 @@ func (o SnapshotImportDiskContainerOutput) ToSnapshotImportDiskContainerPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotImportDiskContainer) *SnapshotImportDiskContainer {
 		return &v
 	}).(SnapshotImportDiskContainerPtrOutput)
+}
+
+func (o SnapshotImportDiskContainerOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotImportDiskContainer] {
+	return pulumix.Output[SnapshotImportDiskContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the disk image being imported.
@@ -346,6 +392,12 @@ func (o SnapshotImportDiskContainerPtrOutput) ToSnapshotImportDiskContainerPtrOu
 
 func (o SnapshotImportDiskContainerPtrOutput) ToSnapshotImportDiskContainerPtrOutputWithContext(ctx context.Context) SnapshotImportDiskContainerPtrOutput {
 	return o
+}
+
+func (o SnapshotImportDiskContainerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImportDiskContainer] {
+	return pulumix.Output[*SnapshotImportDiskContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnapshotImportDiskContainerPtrOutput) Elem() SnapshotImportDiskContainerOutput {
@@ -435,6 +487,12 @@ func (i SnapshotImportDiskContainerUserBucketArgs) ToSnapshotImportDiskContainer
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportDiskContainerUserBucketOutput)
 }
 
+func (i SnapshotImportDiskContainerUserBucketArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotImportDiskContainerUserBucket] {
+	return pulumix.Output[SnapshotImportDiskContainerUserBucket]{
+		OutputState: i.ToSnapshotImportDiskContainerUserBucketOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SnapshotImportDiskContainerUserBucketArgs) ToSnapshotImportDiskContainerUserBucketPtrOutput() SnapshotImportDiskContainerUserBucketPtrOutput {
 	return i.ToSnapshotImportDiskContainerUserBucketPtrOutputWithContext(context.Background())
 }
@@ -476,6 +534,12 @@ func (i *snapshotImportDiskContainerUserBucketPtrType) ToSnapshotImportDiskConta
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportDiskContainerUserBucketPtrOutput)
 }
 
+func (i *snapshotImportDiskContainerUserBucketPtrType) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImportDiskContainerUserBucket] {
+	return pulumix.Output[*SnapshotImportDiskContainerUserBucket]{
+		OutputState: i.ToSnapshotImportDiskContainerUserBucketPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnapshotImportDiskContainerUserBucketOutput struct{ *pulumi.OutputState }
 
 func (SnapshotImportDiskContainerUserBucketOutput) ElementType() reflect.Type {
@@ -500,6 +564,12 @@ func (o SnapshotImportDiskContainerUserBucketOutput) ToSnapshotImportDiskContain
 	}).(SnapshotImportDiskContainerUserBucketPtrOutput)
 }
 
+func (o SnapshotImportDiskContainerUserBucketOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotImportDiskContainerUserBucket] {
+	return pulumix.Output[SnapshotImportDiskContainerUserBucket]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the Amazon S3 bucket where the disk image is located.
 func (o SnapshotImportDiskContainerUserBucketOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainerUserBucket) string { return v.S3Bucket }).(pulumi.StringOutput)
@@ -522,6 +592,12 @@ func (o SnapshotImportDiskContainerUserBucketPtrOutput) ToSnapshotImportDiskCont
 
 func (o SnapshotImportDiskContainerUserBucketPtrOutput) ToSnapshotImportDiskContainerUserBucketPtrOutputWithContext(ctx context.Context) SnapshotImportDiskContainerUserBucketPtrOutput {
 	return o
+}
+
+func (o SnapshotImportDiskContainerUserBucketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImportDiskContainerUserBucket] {
+	return pulumix.Output[*SnapshotImportDiskContainerUserBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnapshotImportDiskContainerUserBucketPtrOutput) Elem() SnapshotImportDiskContainerUserBucketOutput {
@@ -558,6 +634,35 @@ type GetEbsVolumesFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+	// 			Filters: []ebs.GetEbsVolumesFilter{
+	// 				{
+	// 					Name: "size",
+	// 					Values: []string{
+	// 						"10",
+	// 						"20",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -579,6 +684,35 @@ type GetEbsVolumesFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+	// 			Filters: []ebs.GetEbsVolumesFilter{
+	// 				{
+	// 					Name: "size",
+	// 					Values: []string{
+	// 						"10",
+	// 						"20",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -595,6 +729,12 @@ func (i GetEbsVolumesFilterArgs) ToGetEbsVolumesFilterOutput() GetEbsVolumesFilt
 
 func (i GetEbsVolumesFilterArgs) ToGetEbsVolumesFilterOutputWithContext(ctx context.Context) GetEbsVolumesFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetEbsVolumesFilterOutput)
+}
+
+func (i GetEbsVolumesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetEbsVolumesFilter] {
+	return pulumix.Output[GetEbsVolumesFilter]{
+		OutputState: i.ToGetEbsVolumesFilterOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetEbsVolumesFilterArrayInput is an input type that accepts GetEbsVolumesFilterArray and GetEbsVolumesFilterArrayOutput values.
@@ -622,6 +762,12 @@ func (i GetEbsVolumesFilterArray) ToGetEbsVolumesFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetEbsVolumesFilterArrayOutput)
 }
 
+func (i GetEbsVolumesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEbsVolumesFilter] {
+	return pulumix.Output[[]GetEbsVolumesFilter]{
+		OutputState: i.ToGetEbsVolumesFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEbsVolumesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetEbsVolumesFilterOutput) ElementType() reflect.Type {
@@ -636,9 +782,47 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 	return o
 }
 
+func (o GetEbsVolumesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetEbsVolumesFilter] {
+	return pulumix.Output[GetEbsVolumesFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 // For example, if matching against the `size` filter, use:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+//				Filters: []ebs.GetEbsVolumesFilter{
+//					{
+//						Name: "size",
+//						Values: []string{
+//							"10",
+//							"20",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetEbsVolumesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEbsVolumesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -661,6 +845,12 @@ func (o GetEbsVolumesFilterArrayOutput) ToGetEbsVolumesFilterArrayOutput() GetEb
 
 func (o GetEbsVolumesFilterArrayOutput) ToGetEbsVolumesFilterArrayOutputWithContext(ctx context.Context) GetEbsVolumesFilterArrayOutput {
 	return o
+}
+
+func (o GetEbsVolumesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEbsVolumesFilter] {
+	return pulumix.Output[[]GetEbsVolumesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEbsVolumesFilterArrayOutput) Index(i pulumi.IntInput) GetEbsVolumesFilterOutput {
@@ -702,6 +892,12 @@ func (i GetSnapshotFilterArgs) ToGetSnapshotFilterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotFilterOutput)
 }
 
+func (i GetSnapshotFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotFilter] {
+	return pulumix.Output[GetSnapshotFilter]{
+		OutputState: i.ToGetSnapshotFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSnapshotFilterArrayInput is an input type that accepts GetSnapshotFilterArray and GetSnapshotFilterArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotFilterArrayInput` via:
 //
@@ -727,6 +923,12 @@ func (i GetSnapshotFilterArray) ToGetSnapshotFilterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotFilterArrayOutput)
 }
 
+func (i GetSnapshotFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotFilter] {
+	return pulumix.Output[[]GetSnapshotFilter]{
+		OutputState: i.ToGetSnapshotFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSnapshotFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotFilterOutput) ElementType() reflect.Type {
@@ -739,6 +941,12 @@ func (o GetSnapshotFilterOutput) ToGetSnapshotFilterOutput() GetSnapshotFilterOu
 
 func (o GetSnapshotFilterOutput) ToGetSnapshotFilterOutputWithContext(ctx context.Context) GetSnapshotFilterOutput {
 	return o
+}
+
+func (o GetSnapshotFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotFilter] {
+	return pulumix.Output[GetSnapshotFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSnapshotFilterOutput) Name() pulumi.StringOutput {
@@ -761,6 +969,12 @@ func (o GetSnapshotFilterArrayOutput) ToGetSnapshotFilterArrayOutput() GetSnapsh
 
 func (o GetSnapshotFilterArrayOutput) ToGetSnapshotFilterArrayOutputWithContext(ctx context.Context) GetSnapshotFilterArrayOutput {
 	return o
+}
+
+func (o GetSnapshotFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotFilter] {
+	return pulumix.Output[[]GetSnapshotFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSnapshotFilterArrayOutput) Index(i pulumi.IntInput) GetSnapshotFilterOutput {
@@ -802,6 +1016,12 @@ func (i GetSnapshotIdsFilterArgs) ToGetSnapshotIdsFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotIdsFilterOutput)
 }
 
+func (i GetSnapshotIdsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotIdsFilter] {
+	return pulumix.Output[GetSnapshotIdsFilter]{
+		OutputState: i.ToGetSnapshotIdsFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSnapshotIdsFilterArrayInput is an input type that accepts GetSnapshotIdsFilterArray and GetSnapshotIdsFilterArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotIdsFilterArrayInput` via:
 //
@@ -827,6 +1047,12 @@ func (i GetSnapshotIdsFilterArray) ToGetSnapshotIdsFilterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotIdsFilterArrayOutput)
 }
 
+func (i GetSnapshotIdsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotIdsFilter] {
+	return pulumix.Output[[]GetSnapshotIdsFilter]{
+		OutputState: i.ToGetSnapshotIdsFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSnapshotIdsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotIdsFilterOutput) ElementType() reflect.Type {
@@ -839,6 +1065,12 @@ func (o GetSnapshotIdsFilterOutput) ToGetSnapshotIdsFilterOutput() GetSnapshotId
 
 func (o GetSnapshotIdsFilterOutput) ToGetSnapshotIdsFilterOutputWithContext(ctx context.Context) GetSnapshotIdsFilterOutput {
 	return o
+}
+
+func (o GetSnapshotIdsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotIdsFilter] {
+	return pulumix.Output[GetSnapshotIdsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSnapshotIdsFilterOutput) Name() pulumi.StringOutput {
@@ -861,6 +1093,12 @@ func (o GetSnapshotIdsFilterArrayOutput) ToGetSnapshotIdsFilterArrayOutput() Get
 
 func (o GetSnapshotIdsFilterArrayOutput) ToGetSnapshotIdsFilterArrayOutputWithContext(ctx context.Context) GetSnapshotIdsFilterArrayOutput {
 	return o
+}
+
+func (o GetSnapshotIdsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotIdsFilter] {
+	return pulumix.Output[[]GetSnapshotIdsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSnapshotIdsFilterArrayOutput) Index(i pulumi.IntInput) GetSnapshotIdsFilterOutput {
@@ -902,6 +1140,12 @@ func (i GetVolumeFilterArgs) ToGetVolumeFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeFilterOutput)
 }
 
+func (i GetVolumeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetVolumeFilter] {
+	return pulumix.Output[GetVolumeFilter]{
+		OutputState: i.ToGetVolumeFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetVolumeFilterArrayInput is an input type that accepts GetVolumeFilterArray and GetVolumeFilterArrayOutput values.
 // You can construct a concrete instance of `GetVolumeFilterArrayInput` via:
 //
@@ -927,6 +1171,12 @@ func (i GetVolumeFilterArray) ToGetVolumeFilterArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeFilterArrayOutput)
 }
 
+func (i GetVolumeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeFilter] {
+	return pulumix.Output[[]GetVolumeFilter]{
+		OutputState: i.ToGetVolumeFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetVolumeFilterOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeFilterOutput) ElementType() reflect.Type {
@@ -939,6 +1189,12 @@ func (o GetVolumeFilterOutput) ToGetVolumeFilterOutput() GetVolumeFilterOutput {
 
 func (o GetVolumeFilterOutput) ToGetVolumeFilterOutputWithContext(ctx context.Context) GetVolumeFilterOutput {
 	return o
+}
+
+func (o GetVolumeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetVolumeFilter] {
+	return pulumix.Output[GetVolumeFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVolumeFilterOutput) Name() pulumi.StringOutput {
@@ -961,6 +1217,12 @@ func (o GetVolumeFilterArrayOutput) ToGetVolumeFilterArrayOutput() GetVolumeFilt
 
 func (o GetVolumeFilterArrayOutput) ToGetVolumeFilterArrayOutputWithContext(ctx context.Context) GetVolumeFilterArrayOutput {
 	return o
+}
+
+func (o GetVolumeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeFilter] {
+	return pulumix.Output[[]GetVolumeFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVolumeFilterArrayOutput) Index(i pulumi.IntInput) GetVolumeFilterOutput {

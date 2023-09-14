@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a FSx ONTAP Volume.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +82,7 @@ import (
 //
 // ## Import
 //
-// FSx ONTAP volume can be imported using the `id`, e.g.,
+// Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
 //
 // ```sh
 //
@@ -97,17 +99,19 @@ type OntapVolume struct {
 	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
 	FlexcacheEndpointType pulumi.StringOutput `pulumi:"flexcacheEndpointType"`
 	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath pulumi.StringOutput `pulumi:"junctionPath"`
+	JunctionPath pulumi.StringPtrOutput `pulumi:"junctionPath"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringOutput `pulumi:"ontapVolumeType"`
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
-	SecurityStyle pulumi.StringPtrOutput `pulumi:"securityStyle"`
+	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	SizeInMegabytes pulumi.IntOutput `pulumi:"sizeInMegabytes"`
+	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-	StorageEfficiencyEnabled pulumi.BoolOutput `pulumi:"storageEfficiencyEnabled"`
+	StorageEfficiencyEnabled pulumi.BoolPtrOutput `pulumi:"storageEfficiencyEnabled"`
 	// Specifies the storage virtual machine in which to create the volume.
 	StorageVirtualMachineId pulumi.StringOutput `pulumi:"storageVirtualMachineId"`
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -128,18 +132,13 @@ func NewOntapVolume(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.JunctionPath == nil {
-		return nil, errors.New("invalid value for required argument 'JunctionPath'")
-	}
 	if args.SizeInMegabytes == nil {
 		return nil, errors.New("invalid value for required argument 'SizeInMegabytes'")
-	}
-	if args.StorageEfficiencyEnabled == nil {
-		return nil, errors.New("invalid value for required argument 'StorageEfficiencyEnabled'")
 	}
 	if args.StorageVirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageVirtualMachineId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OntapVolume
 	err := ctx.RegisterResource("aws:fsx/ontapVolume:OntapVolume", name, args, &resource, opts...)
 	if err != nil {
@@ -172,12 +171,14 @@ type ontapVolumeState struct {
 	JunctionPath *string `pulumi:"junctionPath"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
-	// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType *string `pulumi:"ontapVolumeType"`
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	SizeInMegabytes *int `pulumi:"sizeInMegabytes"`
+	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled *bool `pulumi:"storageEfficiencyEnabled"`
 	// Specifies the storage virtual machine in which to create the volume.
@@ -204,12 +205,14 @@ type OntapVolumeState struct {
 	JunctionPath pulumi.StringPtrInput
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
-	// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringPtrInput
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	SizeInMegabytes pulumi.IntPtrInput
+	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrInput
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled pulumi.BoolPtrInput
 	// Specifies the storage virtual machine in which to create the volume.
@@ -231,15 +234,19 @@ func (OntapVolumeState) ElementType() reflect.Type {
 
 type ontapVolumeArgs struct {
 	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath string `pulumi:"junctionPath"`
+	JunctionPath *string `pulumi:"junctionPath"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+	OntapVolumeType *string `pulumi:"ontapVolumeType"`
+	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	SizeInMegabytes int `pulumi:"sizeInMegabytes"`
+	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-	StorageEfficiencyEnabled bool `pulumi:"storageEfficiencyEnabled"`
+	StorageEfficiencyEnabled *bool `pulumi:"storageEfficiencyEnabled"`
 	// Specifies the storage virtual machine in which to create the volume.
 	StorageVirtualMachineId string `pulumi:"storageVirtualMachineId"`
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -252,15 +259,19 @@ type ontapVolumeArgs struct {
 // The set of arguments for constructing a OntapVolume resource.
 type OntapVolumeArgs struct {
 	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath pulumi.StringInput
+	JunctionPath pulumi.StringPtrInput
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+	OntapVolumeType pulumi.StringPtrInput
+	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
 	// Specifies the size of the volume, in megabytes (MB), that you are creating.
 	SizeInMegabytes pulumi.IntInput
+	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrInput
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-	StorageEfficiencyEnabled pulumi.BoolInput
+	StorageEfficiencyEnabled pulumi.BoolPtrInput
 	// Specifies the storage virtual machine in which to create the volume.
 	StorageVirtualMachineId pulumi.StringInput
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -293,6 +304,12 @@ func (i *OntapVolume) ToOntapVolumeOutputWithContext(ctx context.Context) OntapV
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeOutput)
 }
 
+func (i *OntapVolume) ToOutput(ctx context.Context) pulumix.Output[*OntapVolume] {
+	return pulumix.Output[*OntapVolume]{
+		OutputState: i.ToOntapVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OntapVolumeArrayInput is an input type that accepts OntapVolumeArray and OntapVolumeArrayOutput values.
 // You can construct a concrete instance of `OntapVolumeArrayInput` via:
 //
@@ -316,6 +333,12 @@ func (i OntapVolumeArray) ToOntapVolumeArrayOutput() OntapVolumeArrayOutput {
 
 func (i OntapVolumeArray) ToOntapVolumeArrayOutputWithContext(ctx context.Context) OntapVolumeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeArrayOutput)
+}
+
+func (i OntapVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]*OntapVolume] {
+	return pulumix.Output[[]*OntapVolume]{
+		OutputState: i.ToOntapVolumeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OntapVolumeMapInput is an input type that accepts OntapVolumeMap and OntapVolumeMapOutput values.
@@ -343,6 +366,12 @@ func (i OntapVolumeMap) ToOntapVolumeMapOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeMapOutput)
 }
 
+func (i OntapVolumeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapVolume] {
+	return pulumix.Output[map[string]*OntapVolume]{
+		OutputState: i.ToOntapVolumeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OntapVolumeOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeOutput) ElementType() reflect.Type {
@@ -355,6 +384,12 @@ func (o OntapVolumeOutput) ToOntapVolumeOutput() OntapVolumeOutput {
 
 func (o OntapVolumeOutput) ToOntapVolumeOutputWithContext(ctx context.Context) OntapVolumeOutput {
 	return o
+}
+
+func (o OntapVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolume] {
+	return pulumix.Output[*OntapVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the volune.
@@ -373,8 +408,8 @@ func (o OntapVolumeOutput) FlexcacheEndpointType() pulumi.StringOutput {
 }
 
 // Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-func (o OntapVolumeOutput) JunctionPath() pulumi.StringOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.JunctionPath }).(pulumi.StringOutput)
+func (o OntapVolumeOutput) JunctionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.JunctionPath }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -382,14 +417,14 @@ func (o OntapVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 func (o OntapVolumeOutput) OntapVolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.OntapVolumeType }).(pulumi.StringOutput)
 }
 
-// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
-func (o OntapVolumeOutput) SecurityStyle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.SecurityStyle }).(pulumi.StringPtrOutput)
+// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+func (o OntapVolumeOutput) SecurityStyle() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.SecurityStyle }).(pulumi.StringOutput)
 }
 
 // Specifies the size of the volume, in megabytes (MB), that you are creating.
@@ -397,9 +432,14 @@ func (o OntapVolumeOutput) SizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.IntOutput { return v.SizeInMegabytes }).(pulumi.IntOutput)
 }
 
+// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+func (o OntapVolumeOutput) SkipFinalBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.BoolPtrOutput { return v.SkipFinalBackup }).(pulumi.BoolPtrOutput)
+}
+
 // Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-func (o OntapVolumeOutput) StorageEfficiencyEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *OntapVolume) pulumi.BoolOutput { return v.StorageEfficiencyEnabled }).(pulumi.BoolOutput)
+func (o OntapVolumeOutput) StorageEfficiencyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.BoolPtrOutput { return v.StorageEfficiencyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the storage virtual machine in which to create the volume.
@@ -445,6 +485,12 @@ func (o OntapVolumeArrayOutput) ToOntapVolumeArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o OntapVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OntapVolume] {
+	return pulumix.Output[[]*OntapVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OntapVolumeArrayOutput) Index(i pulumi.IntInput) OntapVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OntapVolume {
 		return vs[0].([]*OntapVolume)[vs[1].(int)]
@@ -463,6 +509,12 @@ func (o OntapVolumeMapOutput) ToOntapVolumeMapOutput() OntapVolumeMapOutput {
 
 func (o OntapVolumeMapOutput) ToOntapVolumeMapOutputWithContext(ctx context.Context) OntapVolumeMapOutput {
 	return o
+}
+
+func (o OntapVolumeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapVolume] {
+	return pulumix.Output[map[string]*OntapVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OntapVolumeMapOutput) MapIndex(k pulumi.StringInput) OntapVolumeOutput {

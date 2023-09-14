@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Direct Connect LAGs can be imported using the `lag id`, e.g.,
+// Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 //
 // ```sh
 //
@@ -94,6 +96,7 @@ func NewLinkAggregationGroup(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkAggregationGroup
 	err := ctx.RegisterResource("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -231,6 +234,12 @@ func (i *LinkAggregationGroup) ToLinkAggregationGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupOutput)
 }
 
+func (i *LinkAggregationGroup) ToOutput(ctx context.Context) pulumix.Output[*LinkAggregationGroup] {
+	return pulumix.Output[*LinkAggregationGroup]{
+		OutputState: i.ToLinkAggregationGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkAggregationGroupArrayInput is an input type that accepts LinkAggregationGroupArray and LinkAggregationGroupArrayOutput values.
 // You can construct a concrete instance of `LinkAggregationGroupArrayInput` via:
 //
@@ -254,6 +263,12 @@ func (i LinkAggregationGroupArray) ToLinkAggregationGroupArrayOutput() LinkAggre
 
 func (i LinkAggregationGroupArray) ToLinkAggregationGroupArrayOutputWithContext(ctx context.Context) LinkAggregationGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupArrayOutput)
+}
+
+func (i LinkAggregationGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkAggregationGroup] {
+	return pulumix.Output[[]*LinkAggregationGroup]{
+		OutputState: i.ToLinkAggregationGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkAggregationGroupMapInput is an input type that accepts LinkAggregationGroupMap and LinkAggregationGroupMapOutput values.
@@ -281,6 +296,12 @@ func (i LinkAggregationGroupMap) ToLinkAggregationGroupMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupMapOutput)
 }
 
+func (i LinkAggregationGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkAggregationGroup] {
+	return pulumix.Output[map[string]*LinkAggregationGroup]{
+		OutputState: i.ToLinkAggregationGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkAggregationGroupOutput struct{ *pulumi.OutputState }
 
 func (LinkAggregationGroupOutput) ElementType() reflect.Type {
@@ -293,6 +314,12 @@ func (o LinkAggregationGroupOutput) ToLinkAggregationGroupOutput() LinkAggregati
 
 func (o LinkAggregationGroupOutput) ToLinkAggregationGroupOutputWithContext(ctx context.Context) LinkAggregationGroupOutput {
 	return o
+}
+
+func (o LinkAggregationGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkAggregationGroup] {
+	return pulumix.Output[*LinkAggregationGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the LAG.
@@ -369,6 +396,12 @@ func (o LinkAggregationGroupArrayOutput) ToLinkAggregationGroupArrayOutputWithCo
 	return o
 }
 
+func (o LinkAggregationGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkAggregationGroup] {
+	return pulumix.Output[[]*LinkAggregationGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkAggregationGroupArrayOutput) Index(i pulumi.IntInput) LinkAggregationGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkAggregationGroup {
 		return vs[0].([]*LinkAggregationGroup)[vs[1].(int)]
@@ -387,6 +420,12 @@ func (o LinkAggregationGroupMapOutput) ToLinkAggregationGroupMapOutput() LinkAgg
 
 func (o LinkAggregationGroupMapOutput) ToLinkAggregationGroupMapOutputWithContext(ctx context.Context) LinkAggregationGroupMapOutput {
 	return o
+}
+
+func (o LinkAggregationGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkAggregationGroup] {
+	return pulumix.Output[map[string]*LinkAggregationGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkAggregationGroupMapOutput) MapIndex(k pulumi.StringInput) LinkAggregationGroupOutput {

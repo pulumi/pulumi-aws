@@ -52,7 +52,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// ### Create target tarcking scaling policy using metric math
+    /// ### Create target tracking scaling policy using metric math
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
-    /// AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+    /// Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
@@ -298,6 +298,8 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
+        /// 
+        /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -316,6 +318,8 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// 
+        /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
         [Output("minAdjustmentMagnitude")]
         public Output<int?> MinAdjustmentMagnitude { get; private set; } = null!;
@@ -349,12 +353,69 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         StepAdjustments = new[]
+        ///         {
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 MetricIntervalLowerBound = "1",
+        ///                 MetricIntervalUpperBound = "2",
+        ///                 ScalingAdjustment = -1,
+        ///             },
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 MetricIntervalLowerBound = "2",
+        ///                 MetricIntervalUpperBound = "3",
+        ///                 ScalingAdjustment = 1,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in step adjustments:
         /// </summary>
         [Output("stepAdjustments")]
         public Output<ImmutableArray<Outputs.PolicyStepAdjustment>> StepAdjustments { get; private set; } = null!;
 
         /// <summary>
         /// Target tracking policy. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         TargetTrackingConfiguration = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationArgs
+        ///         {
+        ///             PredefinedMetricSpecification = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs
+        ///             {
+        ///                 PredefinedMetricType = "ASGAverageCPUUtilization",
+        ///             },
+        ///             TargetValue = 40,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in target tracking configuration:
         /// </summary>
         [Output("targetTrackingConfiguration")]
         public Output<Outputs.PolicyTargetTrackingConfiguration?> TargetTrackingConfiguration { get; private set; } = null!;
@@ -425,6 +486,8 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
+        /// 
+        /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -443,6 +506,8 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// 
+        /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
         [Input("minAdjustmentMagnitude")]
         public Input<int>? MinAdjustmentMagnitude { get; set; }
@@ -479,6 +544,38 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         StepAdjustments = new[]
+        ///         {
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 MetricIntervalLowerBound = "1",
+        ///                 MetricIntervalUpperBound = "2",
+        ///                 ScalingAdjustment = -1,
+        ///             },
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 MetricIntervalLowerBound = "2",
+        ///                 MetricIntervalUpperBound = "3",
+        ///                 ScalingAdjustment = 1,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in step adjustments:
         /// </summary>
         public InputList<Inputs.PolicyStepAdjustmentArgs> StepAdjustments
         {
@@ -488,6 +585,31 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Target tracking policy. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         TargetTrackingConfiguration = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationArgs
+        ///         {
+        ///             PredefinedMetricSpecification = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs
+        ///             {
+        ///                 PredefinedMetricType = "ASGAverageCPUUtilization",
+        ///             },
+        ///             TargetValue = 40,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in target tracking configuration:
         /// </summary>
         [Input("targetTrackingConfiguration")]
         public Input<Inputs.PolicyTargetTrackingConfigurationArgs>? TargetTrackingConfiguration { get; set; }
@@ -526,6 +648,8 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
+        /// 
+        /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -544,6 +668,8 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// 
+        /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
         [Input("minAdjustmentMagnitude")]
         public Input<int>? MinAdjustmentMagnitude { get; set; }
@@ -580,6 +706,38 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Set of adjustments that manage
         /// group scaling. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         StepAdjustments = new[]
+        ///         {
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 MetricIntervalLowerBound = "1",
+        ///                 MetricIntervalUpperBound = "2",
+        ///                 ScalingAdjustment = -1,
+        ///             },
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 MetricIntervalLowerBound = "2",
+        ///                 MetricIntervalUpperBound = "3",
+        ///                 ScalingAdjustment = 1,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in step adjustments:
         /// </summary>
         public InputList<Inputs.PolicyStepAdjustmentGetArgs> StepAdjustments
         {
@@ -589,6 +747,31 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Target tracking policy. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         TargetTrackingConfiguration = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationArgs
+        ///         {
+        ///             PredefinedMetricSpecification = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs
+        ///             {
+        ///                 PredefinedMetricType = "ASGAverageCPUUtilization",
+        ///             },
+        ///             TargetValue = 40,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in target tracking configuration:
         /// </summary>
         [Input("targetTrackingConfiguration")]
         public Input<Inputs.PolicyTargetTrackingConfigurationGetArgs>? TargetTrackingConfiguration { get; set; }

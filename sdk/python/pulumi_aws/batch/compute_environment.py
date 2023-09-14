@@ -429,6 +429,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         sample_subnet = aws.ec2.Subnet("sampleSubnet",
             vpc_id=sample_vpc.id,
             cidr_block="10.1.1.0/24")
+        sample_placement_group = aws.ec2.PlacementGroup("samplePlacementGroup", strategy="cluster")
         sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
@@ -436,6 +437,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 instance_types=["c4.large"],
                 max_vcpus=16,
                 min_vcpus=0,
+                placement_group=sample_placement_group.name,
                 security_group_ids=[sample_security_group.id],
                 subnets=[sample_subnet.id],
                 type="EC2",
@@ -465,13 +467,11 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+        Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
 
         ```sh
          $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
         ```
-
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -541,6 +541,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         sample_subnet = aws.ec2.Subnet("sampleSubnet",
             vpc_id=sample_vpc.id,
             cidr_block="10.1.1.0/24")
+        sample_placement_group = aws.ec2.PlacementGroup("samplePlacementGroup", strategy="cluster")
         sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
@@ -548,6 +549,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 instance_types=["c4.large"],
                 max_vcpus=16,
                 min_vcpus=0,
+                placement_group=sample_placement_group.name,
                 security_group_ids=[sample_security_group.id],
                 subnets=[sample_subnet.id],
                 type="EC2",
@@ -577,13 +579,11 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+        Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
 
         ```sh
          $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
         ```
-
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.
         :param ComputeEnvironmentArgs args: The arguments to use to populate this resource's properties.

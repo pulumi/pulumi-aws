@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Component.
@@ -23,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //
 // ## Import
 //
-// `aws_imagebuilder_components` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -89,8 +91,12 @@ type Component struct {
 	// Type of the component.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -107,6 +113,7 @@ func NewComponent(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Component
 	err := ctx.RegisterResource("aws:imagebuilder/component:Component", name, args, &resource, opts...)
 	if err != nil {
@@ -160,8 +167,12 @@ type componentState struct {
 	// Type of the component.
 	Type *string `pulumi:"type"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version *string `pulumi:"version"`
 }
 
@@ -197,8 +208,12 @@ type ComponentState struct {
 	// Type of the component.
 	Type pulumi.StringPtrInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri pulumi.StringPtrInput
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringPtrInput
 }
 
@@ -226,8 +241,12 @@ type componentArgs struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version string `pulumi:"version"`
 }
 
@@ -252,8 +271,12 @@ type ComponentArgs struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri pulumi.StringPtrInput
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringInput
 }
 
@@ -278,6 +301,12 @@ func (i *Component) ToComponentOutput() ComponentOutput {
 
 func (i *Component) ToComponentOutputWithContext(ctx context.Context) ComponentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentOutput)
+}
+
+func (i *Component) ToOutput(ctx context.Context) pulumix.Output[*Component] {
+	return pulumix.Output[*Component]{
+		OutputState: i.ToComponentOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ComponentArrayInput is an input type that accepts ComponentArray and ComponentArrayOutput values.
@@ -305,6 +334,12 @@ func (i ComponentArray) ToComponentArrayOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentArrayOutput)
 }
 
+func (i ComponentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Component] {
+	return pulumix.Output[[]*Component]{
+		OutputState: i.ToComponentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ComponentMapInput is an input type that accepts ComponentMap and ComponentMapOutput values.
 // You can construct a concrete instance of `ComponentMapInput` via:
 //
@@ -330,6 +365,12 @@ func (i ComponentMap) ToComponentMapOutputWithContext(ctx context.Context) Compo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentMapOutput)
 }
 
+func (i ComponentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Component] {
+	return pulumix.Output[map[string]*Component]{
+		OutputState: i.ToComponentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComponentOutput struct{ *pulumi.OutputState }
 
 func (ComponentOutput) ElementType() reflect.Type {
@@ -342,6 +383,12 @@ func (o ComponentOutput) ToComponentOutput() ComponentOutput {
 
 func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) ComponentOutput {
 	return o
+}
+
+func (o ComponentOutput) ToOutput(ctx context.Context) pulumix.Output[*Component] {
+	return pulumix.Output[*Component]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required) Amazon Resource Name (ARN) of the component.
@@ -420,11 +467,15 @@ func (o ComponentOutput) Type() pulumi.StringOutput {
 }
 
 // S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+//
+// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 func (o ComponentOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 // Version of the component.
+//
+// The following attributes are optional:
 func (o ComponentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
@@ -441,6 +492,12 @@ func (o ComponentArrayOutput) ToComponentArrayOutput() ComponentArrayOutput {
 
 func (o ComponentArrayOutput) ToComponentArrayOutputWithContext(ctx context.Context) ComponentArrayOutput {
 	return o
+}
+
+func (o ComponentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Component] {
+	return pulumix.Output[[]*Component]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComponentArrayOutput) Index(i pulumi.IntInput) ComponentOutput {
@@ -461,6 +518,12 @@ func (o ComponentMapOutput) ToComponentMapOutput() ComponentMapOutput {
 
 func (o ComponentMapOutput) ToComponentMapOutputWithContext(ctx context.Context) ComponentMapOutput {
 	return o
+}
+
+func (o ComponentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Component] {
+	return pulumix.Output[map[string]*Component]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComponentMapOutput) MapIndex(k pulumi.StringInput) ComponentOutput {

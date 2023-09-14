@@ -17,9 +17,6 @@ __all__ = [
     'EndpointRedisSettingsArgs',
     'EndpointRedshiftSettingsArgs',
     'EndpointS3SettingsArgs',
-    'GetEndpointElasticsearchSettingArgs',
-    'GetEndpointKafkaSettingArgs',
-    'GetEndpointMongodbSettingArgs',
 ]
 
 @pulumi.input_type
@@ -870,7 +867,6 @@ class EndpointS3SettingsArgs:
                  encryption_mode: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
                  ignore_header_rows: Optional[pulumi.Input[int]] = None,
-                 ignore_headers_row: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  max_file_size: Optional[pulumi.Input[int]] = None,
                  parquet_timestamp_in_millisecond: Optional[pulumi.Input[bool]] = None,
@@ -909,7 +905,6 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[str] encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
-        :param pulumi.Input[int] ignore_headers_row: Deprecated. This setting has no effect. Will be removed in a future version.
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
         :param pulumi.Input[bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
@@ -973,8 +968,6 @@ class EndpointS3SettingsArgs:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
         if ignore_header_rows is not None:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
-        if ignore_headers_row is not None:
-            pulumi.set(__self__, "ignore_headers_row", ignore_headers_row)
         if include_op_for_full_load is not None:
             pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
         if max_file_size is not None:
@@ -1301,18 +1294,6 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "ignore_header_rows", value)
 
     @property
-    @pulumi.getter(name="ignoreHeadersRow")
-    def ignore_headers_row(self) -> Optional[pulumi.Input[int]]:
-        """
-        Deprecated. This setting has no effect. Will be removed in a future version.
-        """
-        return pulumi.get(self, "ignore_headers_row")
-
-    @ignore_headers_row.setter
-    def ignore_headers_row(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "ignore_headers_row", value)
-
-    @property
     @pulumi.getter(name="includeOpForFullLoad")
     def include_op_for_full_load(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1455,328 +1436,5 @@ class EndpointS3SettingsArgs:
     @use_task_start_time_for_full_load_timestamp.setter
     def use_task_start_time_for_full_load_timestamp(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_task_start_time_for_full_load_timestamp", value)
-
-
-@pulumi.input_type
-class GetEndpointElasticsearchSettingArgs:
-    def __init__(__self__, *,
-                 endpoint_uri: str,
-                 error_retry_duration: int,
-                 full_load_error_percentage: int,
-                 service_access_role_arn: str):
-        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
-        pulumi.set(__self__, "error_retry_duration", error_retry_duration)
-        pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
-        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
-
-    @property
-    @pulumi.getter(name="endpointUri")
-    def endpoint_uri(self) -> str:
-        return pulumi.get(self, "endpoint_uri")
-
-    @endpoint_uri.setter
-    def endpoint_uri(self, value: str):
-        pulumi.set(self, "endpoint_uri", value)
-
-    @property
-    @pulumi.getter(name="errorRetryDuration")
-    def error_retry_duration(self) -> int:
-        return pulumi.get(self, "error_retry_duration")
-
-    @error_retry_duration.setter
-    def error_retry_duration(self, value: int):
-        pulumi.set(self, "error_retry_duration", value)
-
-    @property
-    @pulumi.getter(name="fullLoadErrorPercentage")
-    def full_load_error_percentage(self) -> int:
-        return pulumi.get(self, "full_load_error_percentage")
-
-    @full_load_error_percentage.setter
-    def full_load_error_percentage(self, value: int):
-        pulumi.set(self, "full_load_error_percentage", value)
-
-    @property
-    @pulumi.getter(name="serviceAccessRoleArn")
-    def service_access_role_arn(self) -> str:
-        return pulumi.get(self, "service_access_role_arn")
-
-    @service_access_role_arn.setter
-    def service_access_role_arn(self, value: str):
-        pulumi.set(self, "service_access_role_arn", value)
-
-
-@pulumi.input_type
-class GetEndpointKafkaSettingArgs:
-    def __init__(__self__, *,
-                 broker: str,
-                 include_control_details: bool,
-                 include_null_and_empty: bool,
-                 include_partition_value: bool,
-                 include_table_alter_operations: bool,
-                 include_transaction_details: bool,
-                 message_format: str,
-                 message_max_bytes: int,
-                 no_hex_prefix: bool,
-                 partition_include_schema_table: bool,
-                 sasl_password: str,
-                 sasl_username: str,
-                 security_protocol: str,
-                 ssl_ca_certificate_arn: str,
-                 ssl_client_certificate_arn: str,
-                 ssl_client_key_arn: str,
-                 ssl_client_key_password: str,
-                 topic: str):
-        pulumi.set(__self__, "broker", broker)
-        pulumi.set(__self__, "include_control_details", include_control_details)
-        pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
-        pulumi.set(__self__, "include_partition_value", include_partition_value)
-        pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
-        pulumi.set(__self__, "include_transaction_details", include_transaction_details)
-        pulumi.set(__self__, "message_format", message_format)
-        pulumi.set(__self__, "message_max_bytes", message_max_bytes)
-        pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
-        pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
-        pulumi.set(__self__, "sasl_password", sasl_password)
-        pulumi.set(__self__, "sasl_username", sasl_username)
-        pulumi.set(__self__, "security_protocol", security_protocol)
-        pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
-        pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
-        pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
-        pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
-        pulumi.set(__self__, "topic", topic)
-
-    @property
-    @pulumi.getter
-    def broker(self) -> str:
-        return pulumi.get(self, "broker")
-
-    @broker.setter
-    def broker(self, value: str):
-        pulumi.set(self, "broker", value)
-
-    @property
-    @pulumi.getter(name="includeControlDetails")
-    def include_control_details(self) -> bool:
-        return pulumi.get(self, "include_control_details")
-
-    @include_control_details.setter
-    def include_control_details(self, value: bool):
-        pulumi.set(self, "include_control_details", value)
-
-    @property
-    @pulumi.getter(name="includeNullAndEmpty")
-    def include_null_and_empty(self) -> bool:
-        return pulumi.get(self, "include_null_and_empty")
-
-    @include_null_and_empty.setter
-    def include_null_and_empty(self, value: bool):
-        pulumi.set(self, "include_null_and_empty", value)
-
-    @property
-    @pulumi.getter(name="includePartitionValue")
-    def include_partition_value(self) -> bool:
-        return pulumi.get(self, "include_partition_value")
-
-    @include_partition_value.setter
-    def include_partition_value(self, value: bool):
-        pulumi.set(self, "include_partition_value", value)
-
-    @property
-    @pulumi.getter(name="includeTableAlterOperations")
-    def include_table_alter_operations(self) -> bool:
-        return pulumi.get(self, "include_table_alter_operations")
-
-    @include_table_alter_operations.setter
-    def include_table_alter_operations(self, value: bool):
-        pulumi.set(self, "include_table_alter_operations", value)
-
-    @property
-    @pulumi.getter(name="includeTransactionDetails")
-    def include_transaction_details(self) -> bool:
-        return pulumi.get(self, "include_transaction_details")
-
-    @include_transaction_details.setter
-    def include_transaction_details(self, value: bool):
-        pulumi.set(self, "include_transaction_details", value)
-
-    @property
-    @pulumi.getter(name="messageFormat")
-    def message_format(self) -> str:
-        return pulumi.get(self, "message_format")
-
-    @message_format.setter
-    def message_format(self, value: str):
-        pulumi.set(self, "message_format", value)
-
-    @property
-    @pulumi.getter(name="messageMaxBytes")
-    def message_max_bytes(self) -> int:
-        return pulumi.get(self, "message_max_bytes")
-
-    @message_max_bytes.setter
-    def message_max_bytes(self, value: int):
-        pulumi.set(self, "message_max_bytes", value)
-
-    @property
-    @pulumi.getter(name="noHexPrefix")
-    def no_hex_prefix(self) -> bool:
-        return pulumi.get(self, "no_hex_prefix")
-
-    @no_hex_prefix.setter
-    def no_hex_prefix(self, value: bool):
-        pulumi.set(self, "no_hex_prefix", value)
-
-    @property
-    @pulumi.getter(name="partitionIncludeSchemaTable")
-    def partition_include_schema_table(self) -> bool:
-        return pulumi.get(self, "partition_include_schema_table")
-
-    @partition_include_schema_table.setter
-    def partition_include_schema_table(self, value: bool):
-        pulumi.set(self, "partition_include_schema_table", value)
-
-    @property
-    @pulumi.getter(name="saslPassword")
-    def sasl_password(self) -> str:
-        return pulumi.get(self, "sasl_password")
-
-    @sasl_password.setter
-    def sasl_password(self, value: str):
-        pulumi.set(self, "sasl_password", value)
-
-    @property
-    @pulumi.getter(name="saslUsername")
-    def sasl_username(self) -> str:
-        return pulumi.get(self, "sasl_username")
-
-    @sasl_username.setter
-    def sasl_username(self, value: str):
-        pulumi.set(self, "sasl_username", value)
-
-    @property
-    @pulumi.getter(name="securityProtocol")
-    def security_protocol(self) -> str:
-        return pulumi.get(self, "security_protocol")
-
-    @security_protocol.setter
-    def security_protocol(self, value: str):
-        pulumi.set(self, "security_protocol", value)
-
-    @property
-    @pulumi.getter(name="sslCaCertificateArn")
-    def ssl_ca_certificate_arn(self) -> str:
-        return pulumi.get(self, "ssl_ca_certificate_arn")
-
-    @ssl_ca_certificate_arn.setter
-    def ssl_ca_certificate_arn(self, value: str):
-        pulumi.set(self, "ssl_ca_certificate_arn", value)
-
-    @property
-    @pulumi.getter(name="sslClientCertificateArn")
-    def ssl_client_certificate_arn(self) -> str:
-        return pulumi.get(self, "ssl_client_certificate_arn")
-
-    @ssl_client_certificate_arn.setter
-    def ssl_client_certificate_arn(self, value: str):
-        pulumi.set(self, "ssl_client_certificate_arn", value)
-
-    @property
-    @pulumi.getter(name="sslClientKeyArn")
-    def ssl_client_key_arn(self) -> str:
-        return pulumi.get(self, "ssl_client_key_arn")
-
-    @ssl_client_key_arn.setter
-    def ssl_client_key_arn(self, value: str):
-        pulumi.set(self, "ssl_client_key_arn", value)
-
-    @property
-    @pulumi.getter(name="sslClientKeyPassword")
-    def ssl_client_key_password(self) -> str:
-        return pulumi.get(self, "ssl_client_key_password")
-
-    @ssl_client_key_password.setter
-    def ssl_client_key_password(self, value: str):
-        pulumi.set(self, "ssl_client_key_password", value)
-
-    @property
-    @pulumi.getter
-    def topic(self) -> str:
-        return pulumi.get(self, "topic")
-
-    @topic.setter
-    def topic(self, value: str):
-        pulumi.set(self, "topic", value)
-
-
-@pulumi.input_type
-class GetEndpointMongodbSettingArgs:
-    def __init__(__self__, *,
-                 auth_mechanism: str,
-                 auth_source: str,
-                 auth_type: str,
-                 docs_to_investigate: str,
-                 extract_doc_id: str,
-                 nesting_level: str):
-        pulumi.set(__self__, "auth_mechanism", auth_mechanism)
-        pulumi.set(__self__, "auth_source", auth_source)
-        pulumi.set(__self__, "auth_type", auth_type)
-        pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
-        pulumi.set(__self__, "extract_doc_id", extract_doc_id)
-        pulumi.set(__self__, "nesting_level", nesting_level)
-
-    @property
-    @pulumi.getter(name="authMechanism")
-    def auth_mechanism(self) -> str:
-        return pulumi.get(self, "auth_mechanism")
-
-    @auth_mechanism.setter
-    def auth_mechanism(self, value: str):
-        pulumi.set(self, "auth_mechanism", value)
-
-    @property
-    @pulumi.getter(name="authSource")
-    def auth_source(self) -> str:
-        return pulumi.get(self, "auth_source")
-
-    @auth_source.setter
-    def auth_source(self, value: str):
-        pulumi.set(self, "auth_source", value)
-
-    @property
-    @pulumi.getter(name="authType")
-    def auth_type(self) -> str:
-        return pulumi.get(self, "auth_type")
-
-    @auth_type.setter
-    def auth_type(self, value: str):
-        pulumi.set(self, "auth_type", value)
-
-    @property
-    @pulumi.getter(name="docsToInvestigate")
-    def docs_to_investigate(self) -> str:
-        return pulumi.get(self, "docs_to_investigate")
-
-    @docs_to_investigate.setter
-    def docs_to_investigate(self, value: str):
-        pulumi.set(self, "docs_to_investigate", value)
-
-    @property
-    @pulumi.getter(name="extractDocId")
-    def extract_doc_id(self) -> str:
-        return pulumi.get(self, "extract_doc_id")
-
-    @extract_doc_id.setter
-    def extract_doc_id(self, value: str):
-        pulumi.set(self, "extract_doc_id", value)
-
-    @property
-    @pulumi.getter(name="nestingLevel")
-    def nesting_level(self) -> str:
-        return pulumi.get(self, "nesting_level")
-
-    @nesting_level.setter
-    def nesting_level(self, value: str):
-        pulumi.set(self, "nesting_level", value)
 
 

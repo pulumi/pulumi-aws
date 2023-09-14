@@ -24,6 +24,7 @@ class ReplicationInstanceArgs:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,11 @@ class ReplicationInstanceArgs:
         The set of arguments for constructing a ReplicationInstance resource.
         :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
+               
+               - Must contain from 1 to 63 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed.
         :param pulumi.Input[bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
@@ -41,7 +47,13 @@ class ReplicationInstanceArgs:
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+               
+               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+               - Format: `ddd:hh24:mi-ddd:hh24:mi`
+               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -65,6 +77,8 @@ class ReplicationInstanceArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
@@ -93,6 +107,11 @@ class ReplicationInstanceArgs:
     def replication_instance_id(self) -> pulumi.Input[str]:
         """
         The replication instance identifier. This parameter is stored as a lowercase string.
+
+        - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        - First character must be a letter.
+        - Cannot end with a hyphen
+        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_instance_id")
 
@@ -197,10 +216,27 @@ class ReplicationInstanceArgs:
         pulumi.set(self, "multi_az", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+
+        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        - Constraints: Minimum 30-minute window.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -268,6 +304,7 @@ class _ReplicationInstanceState:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -289,11 +326,22 @@ class _ReplicationInstanceState:
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+               
+               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+               - Format: `ddd:hh24:mi-ddd:hh24:mi`
+               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
+               
+               - Must contain from 1 to 63 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
@@ -317,6 +365,8 @@ class _ReplicationInstanceState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
@@ -437,10 +487,27 @@ class _ReplicationInstanceState:
         pulumi.set(self, "multi_az", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+
+        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        - Constraints: Minimum 30-minute window.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -489,6 +556,11 @@ class _ReplicationInstanceState:
     def replication_instance_id(self) -> Optional[pulumi.Input[str]]:
         """
         The replication instance identifier. This parameter is stored as a lowercase string.
+
+        - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        - First character must be a letter.
+        - Cannot end with a hyphen
+        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_instance_id")
 
@@ -582,6 +654,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_instance_class: Optional[pulumi.Input[str]] = None,
@@ -647,7 +720,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
         ## Import
 
-        Replication instances can be imported using the `replication_instance_id`, e.g.,
+        Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
 
         ```sh
          $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
@@ -663,10 +736,21 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+               
+               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+               - Format: `ddd:hh24:mi-ddd:hh24:mi`
+               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
+               
+               - Must contain from 1 to 63 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
@@ -734,7 +818,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
         ## Import
 
-        Replication instances can be imported using the `replication_instance_id`, e.g.,
+        Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
 
         ```sh
          $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
@@ -763,6 +847,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_instance_class: Optional[pulumi.Input[str]] = None,
@@ -787,6 +872,7 @@ class ReplicationInstance(pulumi.CustomResource):
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["multi_az"] = multi_az
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             if replication_instance_class is None and not opts.urn:
@@ -820,6 +906,7 @@ class ReplicationInstance(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             multi_az: Optional[pulumi.Input[bool]] = None,
+            network_type: Optional[pulumi.Input[str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -846,11 +933,22 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+               
+               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+               - Format: `ddd:hh24:mi-ddd:hh24:mi`
+               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
+               
+               - Must contain from 1 to 63 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
@@ -870,6 +968,7 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["multi_az"] = multi_az
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["replication_instance_arn"] = replication_instance_arn
@@ -948,10 +1047,23 @@ class ReplicationInstance(pulumi.CustomResource):
         return pulumi.get(self, "multi_az")
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[str]:
+        """
+        The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[str]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+
+        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        - Constraints: Minimum 30-minute window.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -984,6 +1096,11 @@ class ReplicationInstance(pulumi.CustomResource):
     def replication_instance_id(self) -> pulumi.Output[str]:
         """
         The replication instance identifier. This parameter is stored as a lowercase string.
+
+        - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        - First character must be a letter.
+        - Cannot end with a hyphen
+        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_instance_id")
 

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
+ * Using `pulumi import`, import the EBS default KMS CMK using the KMS key ARN. For example:
  *
  * ```sh
  *  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234

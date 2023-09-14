@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CodeGuru Reviewer Repository Association.
@@ -20,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codegurureviewer"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codegurureviewer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,6 +78,8 @@ type RepositoryAssociation struct {
 	// The provider type of the repository association.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository          RepositoryAssociationRepositoryOutput              `pulumi:"repository"`
 	S3RepositoryDetails RepositoryAssociationS3RepositoryDetailArrayOutput `pulumi:"s3RepositoryDetails"`
 	// The state of the repository association.
@@ -96,6 +100,7 @@ func NewRepositoryAssociation(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryAssociation
 	err := ctx.RegisterResource("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -133,6 +138,8 @@ type repositoryAssociationState struct {
 	// The provider type of the repository association.
 	ProviderType *string `pulumi:"providerType"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository          *RepositoryAssociationRepository          `pulumi:"repository"`
 	S3RepositoryDetails []RepositoryAssociationS3RepositoryDetail `pulumi:"s3RepositoryDetails"`
 	// The state of the repository association.
@@ -159,6 +166,8 @@ type RepositoryAssociationState struct {
 	// The provider type of the repository association.
 	ProviderType pulumi.StringPtrInput
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository          RepositoryAssociationRepositoryPtrInput
 	S3RepositoryDetails RepositoryAssociationS3RepositoryDetailArrayInput
 	// The state of the repository association.
@@ -177,6 +186,8 @@ type repositoryAssociationArgs struct {
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository RepositoryAssociationRepository `pulumi:"repository"`
 	Tags       map[string]string               `pulumi:"tags"`
 }
@@ -186,6 +197,8 @@ type RepositoryAssociationArgs struct {
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrInput
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository RepositoryAssociationRepositoryInput
 	Tags       pulumi.StringMapInput
 }
@@ -213,6 +226,12 @@ func (i *RepositoryAssociation) ToRepositoryAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationOutput)
 }
 
+func (i *RepositoryAssociation) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociation] {
+	return pulumix.Output[*RepositoryAssociation]{
+		OutputState: i.ToRepositoryAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryAssociationArrayInput is an input type that accepts RepositoryAssociationArray and RepositoryAssociationArrayOutput values.
 // You can construct a concrete instance of `RepositoryAssociationArrayInput` via:
 //
@@ -236,6 +255,12 @@ func (i RepositoryAssociationArray) ToRepositoryAssociationArrayOutput() Reposit
 
 func (i RepositoryAssociationArray) ToRepositoryAssociationArrayOutputWithContext(ctx context.Context) RepositoryAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationArrayOutput)
+}
+
+func (i RepositoryAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryAssociation] {
+	return pulumix.Output[[]*RepositoryAssociation]{
+		OutputState: i.ToRepositoryAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryAssociationMapInput is an input type that accepts RepositoryAssociationMap and RepositoryAssociationMapOutput values.
@@ -263,6 +288,12 @@ func (i RepositoryAssociationMap) ToRepositoryAssociationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationMapOutput)
 }
 
+func (i RepositoryAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryAssociation] {
+	return pulumix.Output[map[string]*RepositoryAssociation]{
+		OutputState: i.ToRepositoryAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryAssociationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationOutput) ElementType() reflect.Type {
@@ -275,6 +306,12 @@ func (o RepositoryAssociationOutput) ToRepositoryAssociationOutput() RepositoryA
 
 func (o RepositoryAssociationOutput) ToRepositoryAssociationOutputWithContext(ctx context.Context) RepositoryAssociationOutput {
 	return o
+}
+
+func (o RepositoryAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociation] {
+	return pulumix.Output[*RepositoryAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) identifying the repository association.
@@ -313,6 +350,8 @@ func (o RepositoryAssociationOutput) ProviderType() pulumi.StringOutput {
 }
 
 // An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+//
+// The following arguments are optional:
 func (o RepositoryAssociationOutput) Repository() RepositoryAssociationRepositoryOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) RepositoryAssociationRepositoryOutput { return v.Repository }).(RepositoryAssociationRepositoryOutput)
 }
@@ -355,6 +394,12 @@ func (o RepositoryAssociationArrayOutput) ToRepositoryAssociationArrayOutputWith
 	return o
 }
 
+func (o RepositoryAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryAssociation] {
+	return pulumix.Output[[]*RepositoryAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryAssociationArrayOutput) Index(i pulumi.IntInput) RepositoryAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryAssociation {
 		return vs[0].([]*RepositoryAssociation)[vs[1].(int)]
@@ -373,6 +418,12 @@ func (o RepositoryAssociationMapOutput) ToRepositoryAssociationMapOutput() Repos
 
 func (o RepositoryAssociationMapOutput) ToRepositoryAssociationMapOutputWithContext(ctx context.Context) RepositoryAssociationMapOutput {
 	return o
+}
+
+func (o RepositoryAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryAssociation] {
+	return pulumix.Output[map[string]*RepositoryAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryAssociationMapOutput) MapIndex(k pulumi.StringInput) RepositoryAssociationOutput {

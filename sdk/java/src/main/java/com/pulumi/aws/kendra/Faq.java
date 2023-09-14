@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_kendra_faq` can be imported using the unique identifiers of the FAQ and index separated by a slash (`/`), e.g.,
+ * Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
@@ -283,12 +283,16 @@ public class Faq extends com.pulumi.resources.CustomResource {
     /**
      * The S3 location of the FAQ input data. Detailed below.
      * 
+     * The `s3_path` configuration block supports the following arguments:
+     * 
      */
     @Export(name="s3Path", refs={FaqS3Path.class}, tree="[0]")
     private Output<FaqS3Path> s3Path;
 
     /**
      * @return The S3 location of the FAQ input data. Detailed below.
+     * 
+     * The `s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<FaqS3Path> s3Path() {

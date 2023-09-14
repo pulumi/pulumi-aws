@@ -164,7 +164,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+        Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
 
         ```sh
          $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
@@ -229,7 +229,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+        Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
 
         ```sh
          $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901

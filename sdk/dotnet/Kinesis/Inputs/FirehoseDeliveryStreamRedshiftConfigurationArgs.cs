@@ -89,6 +89,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        [Input("s3Configuration", required: true)]
+        public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;
+
+        /// <summary>
         /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
         /// </summary>
         [Input("username", required: true)]

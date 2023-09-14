@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
@@ -30,7 +32,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -139,6 +141,7 @@ func NewAmiCopy(ctx *pulumi.Context,
 	if args.SourceAmiRegion == nil {
 		return nil, errors.New("invalid value for required argument 'SourceAmiRegion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AmiCopy
 	err := ctx.RegisterResource("aws:ec2/amiCopy:AmiCopy", name, args, &resource, opts...)
 	if err != nil {
@@ -390,6 +393,12 @@ func (i *AmiCopy) ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyOutput)
 }
 
+func (i *AmiCopy) ToOutput(ctx context.Context) pulumix.Output[*AmiCopy] {
+	return pulumix.Output[*AmiCopy]{
+		OutputState: i.ToAmiCopyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AmiCopyArrayInput is an input type that accepts AmiCopyArray and AmiCopyArrayOutput values.
 // You can construct a concrete instance of `AmiCopyArrayInput` via:
 //
@@ -413,6 +422,12 @@ func (i AmiCopyArray) ToAmiCopyArrayOutput() AmiCopyArrayOutput {
 
 func (i AmiCopyArray) ToAmiCopyArrayOutputWithContext(ctx context.Context) AmiCopyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyArrayOutput)
+}
+
+func (i AmiCopyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AmiCopy] {
+	return pulumix.Output[[]*AmiCopy]{
+		OutputState: i.ToAmiCopyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AmiCopyMapInput is an input type that accepts AmiCopyMap and AmiCopyMapOutput values.
@@ -440,6 +455,12 @@ func (i AmiCopyMap) ToAmiCopyMapOutputWithContext(ctx context.Context) AmiCopyMa
 	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyMapOutput)
 }
 
+func (i AmiCopyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AmiCopy] {
+	return pulumix.Output[map[string]*AmiCopy]{
+		OutputState: i.ToAmiCopyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AmiCopyOutput struct{ *pulumi.OutputState }
 
 func (AmiCopyOutput) ElementType() reflect.Type {
@@ -452,6 +473,12 @@ func (o AmiCopyOutput) ToAmiCopyOutput() AmiCopyOutput {
 
 func (o AmiCopyOutput) ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOutput {
 	return o
+}
+
+func (o AmiCopyOutput) ToOutput(ctx context.Context) pulumix.Output[*AmiCopy] {
+	return pulumix.Output[*AmiCopy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Machine architecture for created instances. Defaults to "x8664".
@@ -638,6 +665,12 @@ func (o AmiCopyArrayOutput) ToAmiCopyArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o AmiCopyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AmiCopy] {
+	return pulumix.Output[[]*AmiCopy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AmiCopyArrayOutput) Index(i pulumi.IntInput) AmiCopyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AmiCopy {
 		return vs[0].([]*AmiCopy)[vs[1].(int)]
@@ -656,6 +689,12 @@ func (o AmiCopyMapOutput) ToAmiCopyMapOutput() AmiCopyMapOutput {
 
 func (o AmiCopyMapOutput) ToAmiCopyMapOutputWithContext(ctx context.Context) AmiCopyMapOutput {
 	return o
+}
+
+func (o AmiCopyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AmiCopy] {
+	return pulumix.Output[map[string]*AmiCopy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AmiCopyMapOutput) MapIndex(k pulumi.StringInput) AmiCopyOutput {

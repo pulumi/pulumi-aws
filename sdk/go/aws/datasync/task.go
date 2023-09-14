@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,8 +53,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,7 +84,7 @@ import (
 //
 // ## Import
 //
-// `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -129,6 +131,7 @@ func NewTask(ctx *pulumi.Context,
 	if args.SourceLocationArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceLocationArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Task
 	err := ctx.RegisterResource("aws:datasync/task:Task", name, args, &resource, opts...)
 	if err != nil {
@@ -270,6 +273,12 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOutput)
 }
 
+func (i *Task) ToOutput(ctx context.Context) pulumix.Output[*Task] {
+	return pulumix.Output[*Task]{
+		OutputState: i.ToTaskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaskArrayInput is an input type that accepts TaskArray and TaskArrayOutput values.
 // You can construct a concrete instance of `TaskArrayInput` via:
 //
@@ -293,6 +302,12 @@ func (i TaskArray) ToTaskArrayOutput() TaskArrayOutput {
 
 func (i TaskArray) ToTaskArrayOutputWithContext(ctx context.Context) TaskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskArrayOutput)
+}
+
+func (i TaskArray) ToOutput(ctx context.Context) pulumix.Output[[]*Task] {
+	return pulumix.Output[[]*Task]{
+		OutputState: i.ToTaskArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TaskMapInput is an input type that accepts TaskMap and TaskMapOutput values.
@@ -320,6 +335,12 @@ func (i TaskMap) ToTaskMapOutputWithContext(ctx context.Context) TaskMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskMapOutput)
 }
 
+func (i TaskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Task] {
+	return pulumix.Output[map[string]*Task]{
+		OutputState: i.ToTaskMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
@@ -332,6 +353,12 @@ func (o TaskOutput) ToTaskOutput() TaskOutput {
 
 func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
+}
+
+func (o TaskOutput) ToOutput(ctx context.Context) pulumix.Output[*Task] {
+	return pulumix.Output[*Task]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the DataSync Task.
@@ -403,6 +430,12 @@ func (o TaskArrayOutput) ToTaskArrayOutputWithContext(ctx context.Context) TaskA
 	return o
 }
 
+func (o TaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Task] {
+	return pulumix.Output[[]*Task]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskArrayOutput) Index(i pulumi.IntInput) TaskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Task {
 		return vs[0].([]*Task)[vs[1].(int)]
@@ -421,6 +454,12 @@ func (o TaskMapOutput) ToTaskMapOutput() TaskMapOutput {
 
 func (o TaskMapOutput) ToTaskMapOutputWithContext(ctx context.Context) TaskMapOutput {
 	return o
+}
+
+func (o TaskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Task] {
+	return pulumix.Output[map[string]*Task]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskMapOutput) MapIndex(k pulumi.StringInput) TaskOutput {

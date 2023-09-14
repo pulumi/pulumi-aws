@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// ## Import
     /// 
-    /// Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+    /// Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
@@ -107,6 +107,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Medical Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vocabularyName")]
         public Output<string> VocabularyName { get; private set; } = null!;
@@ -183,6 +185,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Medical Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName", required: true)]
         public Input<string> VocabularyName { get; set; } = null!;
@@ -241,6 +245,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Medical Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName")]
         public Input<string>? VocabularyName { get; set; }

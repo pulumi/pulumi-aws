@@ -97,12 +97,16 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
      * @return The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -310,6 +314,8 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param priority The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -320,6 +326,8 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param priority The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

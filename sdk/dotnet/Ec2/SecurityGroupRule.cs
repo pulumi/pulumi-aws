@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or
     /// `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID.
-    /// The `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources have been added to address these limitations and should be used for all new security group rules.
-    /// You should not use the `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+    /// The `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules.
+    /// You should not use the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
     /// 
     /// &gt; **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
     /// 
@@ -126,43 +126,57 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Security Group Rules can be imported using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (e.g., `cidr_block`) separated by underscores (`_`). All parts are required. Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule. Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
+    /// __NOTE:__ Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule.
+    /// 
+    /// Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
+    /// 
+    /// Import a rule with various IPv4 and IPv6 source CIDR blocks:
+    /// 
+    /// Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
+    /// 
+    /// Import a default any/any egress rule to 0.0.0.0/0:
+    /// 
+    /// Import an egress rule with a prefix list ID destination:
+    /// 
+    /// Import a rule applicable to all protocols and ports with a security group source:
+    /// 
+    /// Import a rule that has itself and an IPv6 CIDR block as sources:
+    /// 
+    /// __Using `pulumi import` to import__ Security Group Rules using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (such as a `cidr_block`) separated by underscores (`_`). All parts are required. For example:
+    /// 
+    /// __NOTE:__ Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule.
+    /// 
+    /// Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
     /// ```
-    /// 
-    ///  Import a rule with various IPv4 and IPv6 source CIDR blocksconsole
+    ///  Import a rule with various IPv4 and IPv6 source CIDR blocks:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
     /// ```
-    /// 
-    ///  Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number, e.g., 92. console
+    ///  Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example92.
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
     /// ```
-    /// 
-    ///  Import a default any/any egress rule to 0.0.0.0/0console
+    ///  Import a default any/any egress rule to 0.0.0.0/0:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
     /// ```
-    /// 
-    ///  Import an egress rule with a prefix list ID destinationconsole
+    ///  Import an egress rule with a prefix list ID destination:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
     /// ```
-    /// 
-    ///  Import a rule applicable to all protocols and ports with a security group sourceconsole
+    ///  Import a rule applicable to all protocols and ports with a security group source:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
     /// ```
-    /// 
-    ///  Import a rule that has itself and an IPv6 CIDR block as sourcesconsole
+    ///  Import a rule that has itself and an IPv6 CIDR block as sources:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
@@ -240,6 +254,10 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
+        /// 
+        /// The following arguments are optional:
+        /// 
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -371,6 +389,10 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
+        /// 
+        /// The following arguments are optional:
+        /// 
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -470,6 +492,10 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
+        /// 
+        /// The following arguments are optional:
+        /// 
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

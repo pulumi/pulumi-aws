@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Import
     /// 
-    /// ELBs can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import ELBs using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
@@ -222,13 +222,16 @@ namespace Pulumi.Aws.Elb
         public Output<string> SourceSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -417,7 +420,7 @@ namespace Pulumi.Aws.Elb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -430,6 +433,9 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -587,7 +593,7 @@ namespace Pulumi.Aws.Elb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -600,6 +606,9 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
         {

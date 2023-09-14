@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a QuickSight Template.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // ## Import
 //
-// A QuickSight Template can be imported using the AWS account ID and template ID separated by a comma (`,`) e.g.,
+// Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
 //
 // ```sh
 //
@@ -83,6 +85,8 @@ type Template struct {
 	// Identifier for the template.
 	TemplateId pulumi.StringOutput `pulumi:"templateId"`
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription pulumi.StringOutput `pulumi:"versionDescription"`
 	// The version number of the template version.
 	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
@@ -101,6 +105,7 @@ func NewTemplate(ctx *pulumi.Context,
 	if args.VersionDescription == nil {
 		return nil, errors.New("invalid value for required argument 'VersionDescription'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Template
 	err := ctx.RegisterResource("aws:quicksight/template:Template", name, args, &resource, opts...)
 	if err != nil {
@@ -148,6 +153,8 @@ type templateState struct {
 	// Identifier for the template.
 	TemplateId *string `pulumi:"templateId"`
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The version number of the template version.
 	VersionNumber *int `pulumi:"versionNumber"`
@@ -179,6 +186,8 @@ type TemplateState struct {
 	// Identifier for the template.
 	TemplateId pulumi.StringPtrInput
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription pulumi.StringPtrInput
 	// The version number of the template version.
 	VersionNumber pulumi.IntPtrInput
@@ -202,6 +211,8 @@ type templateArgs struct {
 	// Identifier for the template.
 	TemplateId string `pulumi:"templateId"`
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription string `pulumi:"versionDescription"`
 }
 
@@ -220,6 +231,8 @@ type TemplateArgs struct {
 	// Identifier for the template.
 	TemplateId pulumi.StringInput
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription pulumi.StringInput
 }
 
@@ -244,6 +257,12 @@ func (i *Template) ToTemplateOutput() TemplateOutput {
 
 func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateOutput)
+}
+
+func (i *Template) ToOutput(ctx context.Context) pulumix.Output[*Template] {
+	return pulumix.Output[*Template]{
+		OutputState: i.ToTemplateOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TemplateArrayInput is an input type that accepts TemplateArray and TemplateArrayOutput values.
@@ -271,6 +290,12 @@ func (i TemplateArray) ToTemplateArrayOutputWithContext(ctx context.Context) Tem
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateArrayOutput)
 }
 
+func (i TemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Template] {
+	return pulumix.Output[[]*Template]{
+		OutputState: i.ToTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TemplateMapInput is an input type that accepts TemplateMap and TemplateMapOutput values.
 // You can construct a concrete instance of `TemplateMapInput` via:
 //
@@ -296,6 +321,12 @@ func (i TemplateMap) ToTemplateMapOutputWithContext(ctx context.Context) Templat
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateMapOutput)
 }
 
+func (i TemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Template] {
+	return pulumix.Output[map[string]*Template]{
+		OutputState: i.ToTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateOutput) ElementType() reflect.Type {
@@ -308,6 +339,12 @@ func (o TemplateOutput) ToTemplateOutput() TemplateOutput {
 
 func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
 	return o
+}
+
+func (o TemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*Template] {
+	return pulumix.Output[*Template]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the resource.
@@ -371,6 +408,8 @@ func (o TemplateOutput) TemplateId() pulumi.StringOutput {
 }
 
 // A description of the current template version being created/updated.
+//
+// The following arguments are optional:
 func (o TemplateOutput) VersionDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.VersionDescription }).(pulumi.StringOutput)
 }
@@ -394,6 +433,12 @@ func (o TemplateArrayOutput) ToTemplateArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o TemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Template] {
+	return pulumix.Output[[]*Template]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TemplateArrayOutput) Index(i pulumi.IntInput) TemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Template {
 		return vs[0].([]*Template)[vs[1].(int)]
@@ -412,6 +457,12 @@ func (o TemplateMapOutput) ToTemplateMapOutput() TemplateMapOutput {
 
 func (o TemplateMapOutput) ToTemplateMapOutputWithContext(ctx context.Context) TemplateMapOutput {
 	return o
+}
+
+func (o TemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Template] {
+	return pulumix.Output[map[string]*Template]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TemplateMapOutput) MapIndex(k pulumi.StringInput) TemplateOutput {

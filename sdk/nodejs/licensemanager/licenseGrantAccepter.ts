@@ -7,9 +7,18 @@ import * as utilities from "../utilities";
 /**
  * Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.licensemanager.LicenseGrantAccepter("test", {grantArn: "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329"});
+ * ```
+ *
  * ## Import
  *
- * `aws_licensemanager_grant_accepter` can be imported using the grant arn.
+ * Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
  *
  * ```sh
  *  $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329

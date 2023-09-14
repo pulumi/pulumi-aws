@@ -136,6 +136,11 @@ namespace Pulumi.Aws.Batch
     ///         CidrBlock = "10.1.1.0/24",
     ///     });
     /// 
+    ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("samplePlacementGroup", new()
+    ///     {
+    ///         Strategy = "cluster",
+    ///     });
+    /// 
     ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new()
     ///     {
     ///         ComputeEnvironmentName = "sample",
@@ -148,6 +153,7 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             MaxVcpus = 16,
     ///             MinVcpus = 0,
+    ///             PlacementGroup = samplePlacementGroup.Name,
     ///             SecurityGroupIds = new[]
     ///             {
     ///                 sampleSecurityGroup.Id,
@@ -211,13 +217,11 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Import
     /// 
-    /// AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+    /// Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
     /// ```
-    /// 
-    ///  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
     /// </summary>
     [AwsResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
     public partial class ComputeEnvironment : global::Pulumi.CustomResource

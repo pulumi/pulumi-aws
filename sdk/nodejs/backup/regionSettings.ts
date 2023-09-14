@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Backup Region Settings can be imported using the `region`, e.g.,
+ * Using `pulumi import`, import Backup Region Settings using the `region`. For example:
  *
  * ```sh
  *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
@@ -71,7 +71,7 @@ export class RegionSettings extends pulumi.CustomResource {
     }
 
     /**
-     * A map of services along with the management preferences for the Region.
+     * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      */
     public readonly resourceTypeManagementPreference!: pulumi.Output<{[key: string]: boolean}>;
     /**
@@ -112,7 +112,7 @@ export class RegionSettings extends pulumi.CustomResource {
  */
 export interface RegionSettingsState {
     /**
-     * A map of services along with the management preferences for the Region.
+     * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      */
     resourceTypeManagementPreference?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
@@ -126,7 +126,7 @@ export interface RegionSettingsState {
  */
 export interface RegionSettingsArgs {
     /**
-     * A map of services along with the management preferences for the Region.
+     * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      */
     resourceTypeManagementPreference?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**

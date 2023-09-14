@@ -79,12 +79,16 @@ public final class TrackerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the tracker resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="trackerName", required=true)
     private Output<String> trackerName;
 
     /**
      * @return The name of the tracker resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> trackerName() {
@@ -206,6 +210,8 @@ public final class TrackerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trackerName The name of the tracker resource.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -216,6 +222,8 @@ public final class TrackerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param trackerName The name of the tracker resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

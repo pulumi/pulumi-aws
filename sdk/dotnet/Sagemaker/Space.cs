@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Spaces can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name

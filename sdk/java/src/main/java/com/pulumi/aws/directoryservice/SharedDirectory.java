@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
+ * Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
@@ -138,12 +138,16 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="target", refs={SharedDirectoryTarget.class}, tree="[0]")
     private Output<SharedDirectoryTarget> target;
 
     /**
      * @return Identifier for the directory consumer account with whom the directory is to be shared. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<SharedDirectoryTarget> target() {

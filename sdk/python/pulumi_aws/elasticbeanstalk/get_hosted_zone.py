@@ -79,8 +79,8 @@ def get_hosted_zone(region: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getHostedZone:getHostedZone', __args__, opts=opts, typ=GetHostedZoneResult).value
 
     return AwaitableGetHostedZoneResult(
-        id=__ret__.id,
-        region=__ret__.region)
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 
 
 @_utilities.lift_output_func(get_hosted_zone)

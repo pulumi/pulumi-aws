@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement? GeoMatchStatement;
         /// <summary>
-        /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement? IpSetReferenceStatement;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement? RegexMatchStatement;
         /// <summary>
-        /// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        /// Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
         /// <summary>

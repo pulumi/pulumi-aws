@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for retrieving a value from an AWS DynamoDB table.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,6 +46,7 @@ import (
 //
 // ```
 func LookupTableItem(ctx *pulumi.Context, args *LookupTableItemArgs, opts ...pulumi.InvokeOption) (*LookupTableItemResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableItemResult
 	err := ctx.Invoke("aws:dynamodb/getTableItem:getTableItem", args, &rv, opts...)
 	if err != nil {
@@ -57,6 +60,8 @@ type LookupTableItemArgs struct {
 	ExpressionAttributeNames map[string]string `pulumi:"expressionAttributeNames"`
 	// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
 	// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+	//
+	// The following arguments are optional:
 	Key string `pulumi:"key"`
 	// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
 	// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
@@ -95,6 +100,8 @@ type LookupTableItemOutputArgs struct {
 	ExpressionAttributeNames pulumi.StringMapInput `pulumi:"expressionAttributeNames"`
 	// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
 	// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
 	// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
 	// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
@@ -120,6 +127,12 @@ func (o LookupTableItemResultOutput) ToLookupTableItemResultOutput() LookupTable
 
 func (o LookupTableItemResultOutput) ToLookupTableItemResultOutputWithContext(ctx context.Context) LookupTableItemResultOutput {
 	return o
+}
+
+func (o LookupTableItemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTableItemResult] {
+	return pulumix.Output[LookupTableItemResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTableItemResultOutput) ExpressionAttributeNames() pulumi.StringMapOutput {

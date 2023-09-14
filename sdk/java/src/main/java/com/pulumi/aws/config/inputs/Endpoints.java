@@ -15,61 +15,43 @@ public final class Endpoints {
     private @Nullable String account;
     private @Nullable String acm;
     private @Nullable String acmpca;
-    private @Nullable String alexaforbusiness;
     private @Nullable String amg;
     private @Nullable String amp;
     private @Nullable String amplify;
-    private @Nullable String amplifybackend;
-    private @Nullable String amplifyuibuilder;
     private @Nullable String apigateway;
-    private @Nullable String apigatewaymanagementapi;
     private @Nullable String apigatewayv2;
     private @Nullable String appautoscaling;
     private @Nullable String appconfig;
-    private @Nullable String appconfigdata;
     private @Nullable String appflow;
     private @Nullable String appintegrations;
     private @Nullable String appintegrationsservice;
     private @Nullable String applicationautoscaling;
-    private @Nullable String applicationcostprofiler;
-    private @Nullable String applicationdiscovery;
-    private @Nullable String applicationdiscoveryservice;
     private @Nullable String applicationinsights;
     private @Nullable String appmesh;
-    private @Nullable String appregistry;
     private @Nullable String apprunner;
     private @Nullable String appstream;
     private @Nullable String appsync;
     private @Nullable String athena;
     private @Nullable String auditmanager;
-    private @Nullable String augmentedairuntime;
     private @Nullable String autoscaling;
     private @Nullable String autoscalingplans;
     private @Nullable String backup;
-    private @Nullable String backupgateway;
     private @Nullable String batch;
     private @Nullable String beanstalk;
-    private @Nullable String billingconductor;
-    private @Nullable String braket;
     private @Nullable String budgets;
     private @Nullable String ce;
     private @Nullable String chime;
-    private @Nullable String chimesdkidentity;
     private @Nullable String chimesdkmediapipelines;
-    private @Nullable String chimesdkmeetings;
-    private @Nullable String chimesdkmessaging;
     private @Nullable String chimesdkvoice;
     private @Nullable String cleanrooms;
     private @Nullable String cloud9;
     private @Nullable String cloudcontrol;
     private @Nullable String cloudcontrolapi;
-    private @Nullable String clouddirectory;
     private @Nullable String cloudformation;
     private @Nullable String cloudfront;
     private @Nullable String cloudhsm;
     private @Nullable String cloudhsmv2;
     private @Nullable String cloudsearch;
-    private @Nullable String cloudsearchdomain;
     private @Nullable String cloudtrail;
     private @Nullable String cloudwatch;
     private @Nullable String cloudwatchevents;
@@ -80,35 +62,27 @@ public final class Endpoints {
     private @Nullable String cloudwatchrum;
     private @Nullable String codeartifact;
     private @Nullable String codebuild;
+    private @Nullable String codecatalyst;
     private @Nullable String codecommit;
     private @Nullable String codedeploy;
-    private @Nullable String codeguruprofiler;
     private @Nullable String codegurureviewer;
     private @Nullable String codepipeline;
-    private @Nullable String codestar;
     private @Nullable String codestarconnections;
     private @Nullable String codestarnotifications;
     private @Nullable String cognitoidentity;
     private @Nullable String cognitoidentityprovider;
     private @Nullable String cognitoidp;
-    private @Nullable String cognitosync;
     private @Nullable String comprehend;
-    private @Nullable String comprehendmedical;
     private @Nullable String computeoptimizer;
     private @Nullable String config;
     private @Nullable String configservice;
     private @Nullable String connect;
-    private @Nullable String connectcontactlens;
-    private @Nullable String connectparticipant;
-    private @Nullable String connectwisdomservice;
     private @Nullable String controltower;
     private @Nullable String costandusagereportservice;
     private @Nullable String costexplorer;
     private @Nullable String cur;
-    private @Nullable String customerprofiles;
     private @Nullable String databasemigration;
     private @Nullable String databasemigrationservice;
-    private @Nullable String databrew;
     private @Nullable String dataexchange;
     private @Nullable String datapipeline;
     private @Nullable String datasync;
@@ -116,21 +90,15 @@ public final class Endpoints {
     private @Nullable String deploy;
     private @Nullable String detective;
     private @Nullable String devicefarm;
-    private @Nullable String devopsguru;
     private @Nullable String directconnect;
     private @Nullable String directoryservice;
-    private @Nullable String discovery;
     private @Nullable String dlm;
     private @Nullable String dms;
     private @Nullable String docdb;
     private @Nullable String docdbelastic;
-    private @Nullable String drs;
     private @Nullable String ds;
     private @Nullable String dynamodb;
-    private @Nullable String dynamodbstreams;
-    private @Nullable String ebs;
     private @Nullable String ec2;
-    private @Nullable String ec2instanceconnect;
     private @Nullable String ecr;
     private @Nullable String ecrpublic;
     private @Nullable String ecs;
@@ -138,7 +106,6 @@ public final class Endpoints {
     private @Nullable String eks;
     private @Nullable String elasticache;
     private @Nullable String elasticbeanstalk;
-    private @Nullable String elasticinference;
     private @Nullable String elasticloadbalancing;
     private @Nullable String elasticloadbalancingv2;
     private @Nullable String elasticsearch;
@@ -154,29 +121,18 @@ public final class Endpoints {
     private @Nullable String events;
     private @Nullable String evidently;
     private @Nullable String finspace;
-    private @Nullable String finspacedata;
     private @Nullable String firehose;
     private @Nullable String fis;
     private @Nullable String fms;
-    private @Nullable String forecast;
-    private @Nullable String forecastquery;
-    private @Nullable String forecastqueryservice;
-    private @Nullable String forecastservice;
-    private @Nullable String frauddetector;
     private @Nullable String fsx;
     private @Nullable String gamelift;
     private @Nullable String glacier;
     private @Nullable String globalaccelerator;
     private @Nullable String glue;
-    private @Nullable String gluedatabrew;
     private @Nullable String grafana;
     private @Nullable String greengrass;
-    private @Nullable String greengrassv2;
-    private @Nullable String groundstation;
     private @Nullable String guardduty;
-    private @Nullable String health;
     private @Nullable String healthlake;
-    private @Nullable String honeycode;
     private @Nullable String iam;
     private @Nullable String identitystore;
     private @Nullable String imagebuilder;
@@ -185,23 +141,8 @@ public final class Endpoints {
     private @Nullable String inspectorv2;
     private @Nullable String internetmonitor;
     private @Nullable String iot;
-    private @Nullable String iot1clickdevices;
-    private @Nullable String iot1clickdevicesservice;
-    private @Nullable String iot1clickprojects;
     private @Nullable String iotanalytics;
-    private @Nullable String iotdata;
-    private @Nullable String iotdataplane;
-    private @Nullable String iotdeviceadvisor;
     private @Nullable String iotevents;
-    private @Nullable String ioteventsdata;
-    private @Nullable String iotfleethub;
-    private @Nullable String iotjobsdata;
-    private @Nullable String iotjobsdataplane;
-    private @Nullable String iotsecuretunneling;
-    private @Nullable String iotsitewise;
-    private @Nullable String iotthingsgraph;
-    private @Nullable String iottwinmaker;
-    private @Nullable String iotwireless;
     private @Nullable String ivs;
     private @Nullable String ivschat;
     private @Nullable String kafka;
@@ -212,10 +153,6 @@ public final class Endpoints {
     private @Nullable String kinesisanalytics;
     private @Nullable String kinesisanalyticsv2;
     private @Nullable String kinesisvideo;
-    private @Nullable String kinesisvideoarchivedmedia;
-    private @Nullable String kinesisvideomedia;
-    private @Nullable String kinesisvideosignaling;
-    private @Nullable String kinesisvideosignalingchannels;
     private @Nullable String kms;
     private @Nullable String lakeformation;
     private @Nullable String lambda;
@@ -224,103 +161,55 @@ public final class Endpoints {
     private @Nullable String lexmodelbuildingservice;
     private @Nullable String lexmodels;
     private @Nullable String lexmodelsv2;
-    private @Nullable String lexruntime;
-    private @Nullable String lexruntimeservice;
-    private @Nullable String lexruntimev2;
     private @Nullable String lexv2models;
-    private @Nullable String lexv2runtime;
     private @Nullable String licensemanager;
     private @Nullable String lightsail;
     private @Nullable String location;
     private @Nullable String locationservice;
     private @Nullable String logs;
-    private @Nullable String lookoutequipment;
-    private @Nullable String lookoutforvision;
-    private @Nullable String lookoutmetrics;
-    private @Nullable String lookoutvision;
-    private @Nullable String machinelearning;
-    private @Nullable String macie;
     private @Nullable String macie2;
-    private @Nullable String managedblockchain;
     private @Nullable String managedgrafana;
-    private @Nullable String marketplacecatalog;
-    private @Nullable String marketplacecommerceanalytics;
-    private @Nullable String marketplaceentitlement;
-    private @Nullable String marketplaceentitlementservice;
-    private @Nullable String marketplacemetering;
     private @Nullable String mediaconnect;
     private @Nullable String mediaconvert;
     private @Nullable String medialive;
     private @Nullable String mediapackage;
-    private @Nullable String mediapackagevod;
     private @Nullable String mediastore;
-    private @Nullable String mediastoredata;
-    private @Nullable String mediatailor;
     private @Nullable String memorydb;
-    private @Nullable String meteringmarketplace;
-    private @Nullable String mgh;
-    private @Nullable String mgn;
-    private @Nullable String migrationhub;
-    private @Nullable String migrationhubconfig;
-    private @Nullable String migrationhubrefactorspaces;
-    private @Nullable String migrationhubstrategy;
-    private @Nullable String migrationhubstrategyrecommendations;
-    private @Nullable String mobile;
     private @Nullable String mq;
     private @Nullable String msk;
-    private @Nullable String mturk;
     private @Nullable String mwaa;
     private @Nullable String neptune;
     private @Nullable String networkfirewall;
     private @Nullable String networkmanager;
-    private @Nullable String nimble;
-    private @Nullable String nimblestudio;
     private @Nullable String oam;
     private @Nullable String opensearch;
     private @Nullable String opensearchserverless;
     private @Nullable String opensearchservice;
     private @Nullable String opsworks;
-    private @Nullable String opsworkscm;
     private @Nullable String organizations;
     private @Nullable String outposts;
-    private @Nullable String panorama;
-    private @Nullable String personalize;
-    private @Nullable String personalizeevents;
-    private @Nullable String personalizeruntime;
-    private @Nullable String pi;
     private @Nullable String pinpoint;
-    private @Nullable String pinpointemail;
-    private @Nullable String pinpointsmsvoice;
     private @Nullable String pipes;
-    private @Nullable String polly;
     private @Nullable String pricing;
     private @Nullable String prometheus;
     private @Nullable String prometheusservice;
-    private @Nullable String proton;
     private @Nullable String qldb;
-    private @Nullable String qldbsession;
     private @Nullable String quicksight;
     private @Nullable String ram;
     private @Nullable String rbin;
     private @Nullable String rds;
-    private @Nullable String rdsdata;
-    private @Nullable String rdsdataservice;
     private @Nullable String recyclebin;
     private @Nullable String redshift;
     private @Nullable String redshiftdata;
     private @Nullable String redshiftdataapiservice;
     private @Nullable String redshiftserverless;
-    private @Nullable String rekognition;
-    private @Nullable String resiliencehub;
     private @Nullable String resourceexplorer2;
     private @Nullable String resourcegroups;
     private @Nullable String resourcegroupstagging;
     private @Nullable String resourcegroupstaggingapi;
-    private @Nullable String robomaker;
     private @Nullable String rolesanywhere;
     private @Nullable String route53;
     private @Nullable String route53domains;
-    private @Nullable String route53recoverycluster;
     private @Nullable String route53recoverycontrolconfig;
     private @Nullable String route53recoveryreadiness;
     private @Nullable String route53resolver;
@@ -330,12 +219,6 @@ public final class Endpoints {
     private @Nullable String s3control;
     private @Nullable String s3outposts;
     private @Nullable String sagemaker;
-    private @Nullable String sagemakera2iruntime;
-    private @Nullable String sagemakeredge;
-    private @Nullable String sagemakeredgemanager;
-    private @Nullable String sagemakerfeaturestoreruntime;
-    private @Nullable String sagemakerruntime;
-    private @Nullable String savingsplans;
     private @Nullable String scheduler;
     private @Nullable String schemas;
     private @Nullable String sdb;
@@ -346,7 +229,6 @@ public final class Endpoints {
     private @Nullable String serverlessapprepo;
     private @Nullable String serverlessrepo;
     private @Nullable String servicecatalog;
-    private @Nullable String servicecatalogappregistry;
     private @Nullable String servicediscovery;
     private @Nullable String servicequotas;
     private @Nullable String ses;
@@ -355,45 +237,28 @@ public final class Endpoints {
     private @Nullable String shield;
     private @Nullable String signer;
     private @Nullable String simpledb;
-    private @Nullable String sms;
-    private @Nullable String snowball;
-    private @Nullable String snowdevicemanagement;
     private @Nullable String sns;
     private @Nullable String sqs;
     private @Nullable String ssm;
     private @Nullable String ssmcontacts;
     private @Nullable String ssmincidents;
-    private @Nullable String sso;
     private @Nullable String ssoadmin;
-    private @Nullable String ssooidc;
     private @Nullable String stepfunctions;
     private @Nullable String storagegateway;
     private @Nullable String sts;
-    private @Nullable String support;
     private @Nullable String swf;
     private @Nullable String synthetics;
-    private @Nullable String textract;
-    private @Nullable String timestreamquery;
     private @Nullable String timestreamwrite;
     private @Nullable String transcribe;
     private @Nullable String transcribeservice;
-    private @Nullable String transcribestreaming;
-    private @Nullable String transcribestreamingservice;
     private @Nullable String transfer;
-    private @Nullable String translate;
-    private @Nullable String voiceid;
+    private @Nullable String verifiedpermissions;
     private @Nullable String vpclattice;
     private @Nullable String waf;
     private @Nullable String wafregional;
     private @Nullable String wafv2;
-    private @Nullable String wellarchitected;
-    private @Nullable String wisdom;
-    private @Nullable String workdocs;
     private @Nullable String worklink;
-    private @Nullable String workmail;
-    private @Nullable String workmailmessageflow;
     private @Nullable String workspaces;
-    private @Nullable String workspacesweb;
     private @Nullable String xray;
 
     private Endpoints() {}
@@ -409,9 +274,6 @@ public final class Endpoints {
     public Optional<String> acmpca() {
         return Optional.ofNullable(this.acmpca);
     }
-    public Optional<String> alexaforbusiness() {
-        return Optional.ofNullable(this.alexaforbusiness);
-    }
     public Optional<String> amg() {
         return Optional.ofNullable(this.amg);
     }
@@ -421,17 +283,8 @@ public final class Endpoints {
     public Optional<String> amplify() {
         return Optional.ofNullable(this.amplify);
     }
-    public Optional<String> amplifybackend() {
-        return Optional.ofNullable(this.amplifybackend);
-    }
-    public Optional<String> amplifyuibuilder() {
-        return Optional.ofNullable(this.amplifyuibuilder);
-    }
     public Optional<String> apigateway() {
         return Optional.ofNullable(this.apigateway);
-    }
-    public Optional<String> apigatewaymanagementapi() {
-        return Optional.ofNullable(this.apigatewaymanagementapi);
     }
     public Optional<String> apigatewayv2() {
         return Optional.ofNullable(this.apigatewayv2);
@@ -441,9 +294,6 @@ public final class Endpoints {
     }
     public Optional<String> appconfig() {
         return Optional.ofNullable(this.appconfig);
-    }
-    public Optional<String> appconfigdata() {
-        return Optional.ofNullable(this.appconfigdata);
     }
     public Optional<String> appflow() {
         return Optional.ofNullable(this.appflow);
@@ -457,23 +307,11 @@ public final class Endpoints {
     public Optional<String> applicationautoscaling() {
         return Optional.ofNullable(this.applicationautoscaling);
     }
-    public Optional<String> applicationcostprofiler() {
-        return Optional.ofNullable(this.applicationcostprofiler);
-    }
-    public Optional<String> applicationdiscovery() {
-        return Optional.ofNullable(this.applicationdiscovery);
-    }
-    public Optional<String> applicationdiscoveryservice() {
-        return Optional.ofNullable(this.applicationdiscoveryservice);
-    }
     public Optional<String> applicationinsights() {
         return Optional.ofNullable(this.applicationinsights);
     }
     public Optional<String> appmesh() {
         return Optional.ofNullable(this.appmesh);
-    }
-    public Optional<String> appregistry() {
-        return Optional.ofNullable(this.appregistry);
     }
     public Optional<String> apprunner() {
         return Optional.ofNullable(this.apprunner);
@@ -490,9 +328,6 @@ public final class Endpoints {
     public Optional<String> auditmanager() {
         return Optional.ofNullable(this.auditmanager);
     }
-    public Optional<String> augmentedairuntime() {
-        return Optional.ofNullable(this.augmentedairuntime);
-    }
     public Optional<String> autoscaling() {
         return Optional.ofNullable(this.autoscaling);
     }
@@ -502,20 +337,11 @@ public final class Endpoints {
     public Optional<String> backup() {
         return Optional.ofNullable(this.backup);
     }
-    public Optional<String> backupgateway() {
-        return Optional.ofNullable(this.backupgateway);
-    }
     public Optional<String> batch() {
         return Optional.ofNullable(this.batch);
     }
     public Optional<String> beanstalk() {
         return Optional.ofNullable(this.beanstalk);
-    }
-    public Optional<String> billingconductor() {
-        return Optional.ofNullable(this.billingconductor);
-    }
-    public Optional<String> braket() {
-        return Optional.ofNullable(this.braket);
     }
     public Optional<String> budgets() {
         return Optional.ofNullable(this.budgets);
@@ -526,17 +352,8 @@ public final class Endpoints {
     public Optional<String> chime() {
         return Optional.ofNullable(this.chime);
     }
-    public Optional<String> chimesdkidentity() {
-        return Optional.ofNullable(this.chimesdkidentity);
-    }
     public Optional<String> chimesdkmediapipelines() {
         return Optional.ofNullable(this.chimesdkmediapipelines);
-    }
-    public Optional<String> chimesdkmeetings() {
-        return Optional.ofNullable(this.chimesdkmeetings);
-    }
-    public Optional<String> chimesdkmessaging() {
-        return Optional.ofNullable(this.chimesdkmessaging);
     }
     public Optional<String> chimesdkvoice() {
         return Optional.ofNullable(this.chimesdkvoice);
@@ -553,9 +370,6 @@ public final class Endpoints {
     public Optional<String> cloudcontrolapi() {
         return Optional.ofNullable(this.cloudcontrolapi);
     }
-    public Optional<String> clouddirectory() {
-        return Optional.ofNullable(this.clouddirectory);
-    }
     public Optional<String> cloudformation() {
         return Optional.ofNullable(this.cloudformation);
     }
@@ -570,9 +384,6 @@ public final class Endpoints {
     }
     public Optional<String> cloudsearch() {
         return Optional.ofNullable(this.cloudsearch);
-    }
-    public Optional<String> cloudsearchdomain() {
-        return Optional.ofNullable(this.cloudsearchdomain);
     }
     public Optional<String> cloudtrail() {
         return Optional.ofNullable(this.cloudtrail);
@@ -604,23 +415,20 @@ public final class Endpoints {
     public Optional<String> codebuild() {
         return Optional.ofNullable(this.codebuild);
     }
+    public Optional<String> codecatalyst() {
+        return Optional.ofNullable(this.codecatalyst);
+    }
     public Optional<String> codecommit() {
         return Optional.ofNullable(this.codecommit);
     }
     public Optional<String> codedeploy() {
         return Optional.ofNullable(this.codedeploy);
     }
-    public Optional<String> codeguruprofiler() {
-        return Optional.ofNullable(this.codeguruprofiler);
-    }
     public Optional<String> codegurureviewer() {
         return Optional.ofNullable(this.codegurureviewer);
     }
     public Optional<String> codepipeline() {
         return Optional.ofNullable(this.codepipeline);
-    }
-    public Optional<String> codestar() {
-        return Optional.ofNullable(this.codestar);
     }
     public Optional<String> codestarconnections() {
         return Optional.ofNullable(this.codestarconnections);
@@ -637,14 +445,8 @@ public final class Endpoints {
     public Optional<String> cognitoidp() {
         return Optional.ofNullable(this.cognitoidp);
     }
-    public Optional<String> cognitosync() {
-        return Optional.ofNullable(this.cognitosync);
-    }
     public Optional<String> comprehend() {
         return Optional.ofNullable(this.comprehend);
-    }
-    public Optional<String> comprehendmedical() {
-        return Optional.ofNullable(this.comprehendmedical);
     }
     public Optional<String> computeoptimizer() {
         return Optional.ofNullable(this.computeoptimizer);
@@ -658,15 +460,6 @@ public final class Endpoints {
     public Optional<String> connect() {
         return Optional.ofNullable(this.connect);
     }
-    public Optional<String> connectcontactlens() {
-        return Optional.ofNullable(this.connectcontactlens);
-    }
-    public Optional<String> connectparticipant() {
-        return Optional.ofNullable(this.connectparticipant);
-    }
-    public Optional<String> connectwisdomservice() {
-        return Optional.ofNullable(this.connectwisdomservice);
-    }
     public Optional<String> controltower() {
         return Optional.ofNullable(this.controltower);
     }
@@ -679,17 +472,11 @@ public final class Endpoints {
     public Optional<String> cur() {
         return Optional.ofNullable(this.cur);
     }
-    public Optional<String> customerprofiles() {
-        return Optional.ofNullable(this.customerprofiles);
-    }
     public Optional<String> databasemigration() {
         return Optional.ofNullable(this.databasemigration);
     }
     public Optional<String> databasemigrationservice() {
         return Optional.ofNullable(this.databasemigrationservice);
-    }
-    public Optional<String> databrew() {
-        return Optional.ofNullable(this.databrew);
     }
     public Optional<String> dataexchange() {
         return Optional.ofNullable(this.dataexchange);
@@ -712,17 +499,11 @@ public final class Endpoints {
     public Optional<String> devicefarm() {
         return Optional.ofNullable(this.devicefarm);
     }
-    public Optional<String> devopsguru() {
-        return Optional.ofNullable(this.devopsguru);
-    }
     public Optional<String> directconnect() {
         return Optional.ofNullable(this.directconnect);
     }
     public Optional<String> directoryservice() {
         return Optional.ofNullable(this.directoryservice);
-    }
-    public Optional<String> discovery() {
-        return Optional.ofNullable(this.discovery);
     }
     public Optional<String> dlm() {
         return Optional.ofNullable(this.dlm);
@@ -736,26 +517,14 @@ public final class Endpoints {
     public Optional<String> docdbelastic() {
         return Optional.ofNullable(this.docdbelastic);
     }
-    public Optional<String> drs() {
-        return Optional.ofNullable(this.drs);
-    }
     public Optional<String> ds() {
         return Optional.ofNullable(this.ds);
     }
     public Optional<String> dynamodb() {
         return Optional.ofNullable(this.dynamodb);
     }
-    public Optional<String> dynamodbstreams() {
-        return Optional.ofNullable(this.dynamodbstreams);
-    }
-    public Optional<String> ebs() {
-        return Optional.ofNullable(this.ebs);
-    }
     public Optional<String> ec2() {
         return Optional.ofNullable(this.ec2);
-    }
-    public Optional<String> ec2instanceconnect() {
-        return Optional.ofNullable(this.ec2instanceconnect);
     }
     public Optional<String> ecr() {
         return Optional.ofNullable(this.ecr);
@@ -777,9 +546,6 @@ public final class Endpoints {
     }
     public Optional<String> elasticbeanstalk() {
         return Optional.ofNullable(this.elasticbeanstalk);
-    }
-    public Optional<String> elasticinference() {
-        return Optional.ofNullable(this.elasticinference);
     }
     public Optional<String> elasticloadbalancing() {
         return Optional.ofNullable(this.elasticloadbalancing);
@@ -826,9 +592,6 @@ public final class Endpoints {
     public Optional<String> finspace() {
         return Optional.ofNullable(this.finspace);
     }
-    public Optional<String> finspacedata() {
-        return Optional.ofNullable(this.finspacedata);
-    }
     public Optional<String> firehose() {
         return Optional.ofNullable(this.firehose);
     }
@@ -837,21 +600,6 @@ public final class Endpoints {
     }
     public Optional<String> fms() {
         return Optional.ofNullable(this.fms);
-    }
-    public Optional<String> forecast() {
-        return Optional.ofNullable(this.forecast);
-    }
-    public Optional<String> forecastquery() {
-        return Optional.ofNullable(this.forecastquery);
-    }
-    public Optional<String> forecastqueryservice() {
-        return Optional.ofNullable(this.forecastqueryservice);
-    }
-    public Optional<String> forecastservice() {
-        return Optional.ofNullable(this.forecastservice);
-    }
-    public Optional<String> frauddetector() {
-        return Optional.ofNullable(this.frauddetector);
     }
     public Optional<String> fsx() {
         return Optional.ofNullable(this.fsx);
@@ -868,32 +616,17 @@ public final class Endpoints {
     public Optional<String> glue() {
         return Optional.ofNullable(this.glue);
     }
-    public Optional<String> gluedatabrew() {
-        return Optional.ofNullable(this.gluedatabrew);
-    }
     public Optional<String> grafana() {
         return Optional.ofNullable(this.grafana);
     }
     public Optional<String> greengrass() {
         return Optional.ofNullable(this.greengrass);
     }
-    public Optional<String> greengrassv2() {
-        return Optional.ofNullable(this.greengrassv2);
-    }
-    public Optional<String> groundstation() {
-        return Optional.ofNullable(this.groundstation);
-    }
     public Optional<String> guardduty() {
         return Optional.ofNullable(this.guardduty);
     }
-    public Optional<String> health() {
-        return Optional.ofNullable(this.health);
-    }
     public Optional<String> healthlake() {
         return Optional.ofNullable(this.healthlake);
-    }
-    public Optional<String> honeycode() {
-        return Optional.ofNullable(this.honeycode);
     }
     public Optional<String> iam() {
         return Optional.ofNullable(this.iam);
@@ -919,56 +652,11 @@ public final class Endpoints {
     public Optional<String> iot() {
         return Optional.ofNullable(this.iot);
     }
-    public Optional<String> iot1clickdevices() {
-        return Optional.ofNullable(this.iot1clickdevices);
-    }
-    public Optional<String> iot1clickdevicesservice() {
-        return Optional.ofNullable(this.iot1clickdevicesservice);
-    }
-    public Optional<String> iot1clickprojects() {
-        return Optional.ofNullable(this.iot1clickprojects);
-    }
     public Optional<String> iotanalytics() {
         return Optional.ofNullable(this.iotanalytics);
     }
-    public Optional<String> iotdata() {
-        return Optional.ofNullable(this.iotdata);
-    }
-    public Optional<String> iotdataplane() {
-        return Optional.ofNullable(this.iotdataplane);
-    }
-    public Optional<String> iotdeviceadvisor() {
-        return Optional.ofNullable(this.iotdeviceadvisor);
-    }
     public Optional<String> iotevents() {
         return Optional.ofNullable(this.iotevents);
-    }
-    public Optional<String> ioteventsdata() {
-        return Optional.ofNullable(this.ioteventsdata);
-    }
-    public Optional<String> iotfleethub() {
-        return Optional.ofNullable(this.iotfleethub);
-    }
-    public Optional<String> iotjobsdata() {
-        return Optional.ofNullable(this.iotjobsdata);
-    }
-    public Optional<String> iotjobsdataplane() {
-        return Optional.ofNullable(this.iotjobsdataplane);
-    }
-    public Optional<String> iotsecuretunneling() {
-        return Optional.ofNullable(this.iotsecuretunneling);
-    }
-    public Optional<String> iotsitewise() {
-        return Optional.ofNullable(this.iotsitewise);
-    }
-    public Optional<String> iotthingsgraph() {
-        return Optional.ofNullable(this.iotthingsgraph);
-    }
-    public Optional<String> iottwinmaker() {
-        return Optional.ofNullable(this.iottwinmaker);
-    }
-    public Optional<String> iotwireless() {
-        return Optional.ofNullable(this.iotwireless);
     }
     public Optional<String> ivs() {
         return Optional.ofNullable(this.ivs);
@@ -1000,18 +688,6 @@ public final class Endpoints {
     public Optional<String> kinesisvideo() {
         return Optional.ofNullable(this.kinesisvideo);
     }
-    public Optional<String> kinesisvideoarchivedmedia() {
-        return Optional.ofNullable(this.kinesisvideoarchivedmedia);
-    }
-    public Optional<String> kinesisvideomedia() {
-        return Optional.ofNullable(this.kinesisvideomedia);
-    }
-    public Optional<String> kinesisvideosignaling() {
-        return Optional.ofNullable(this.kinesisvideosignaling);
-    }
-    public Optional<String> kinesisvideosignalingchannels() {
-        return Optional.ofNullable(this.kinesisvideosignalingchannels);
-    }
     public Optional<String> kms() {
         return Optional.ofNullable(this.kms);
     }
@@ -1036,20 +712,8 @@ public final class Endpoints {
     public Optional<String> lexmodelsv2() {
         return Optional.ofNullable(this.lexmodelsv2);
     }
-    public Optional<String> lexruntime() {
-        return Optional.ofNullable(this.lexruntime);
-    }
-    public Optional<String> lexruntimeservice() {
-        return Optional.ofNullable(this.lexruntimeservice);
-    }
-    public Optional<String> lexruntimev2() {
-        return Optional.ofNullable(this.lexruntimev2);
-    }
     public Optional<String> lexv2models() {
         return Optional.ofNullable(this.lexv2models);
-    }
-    public Optional<String> lexv2runtime() {
-        return Optional.ofNullable(this.lexv2runtime);
     }
     public Optional<String> licensemanager() {
         return Optional.ofNullable(this.licensemanager);
@@ -1066,47 +730,11 @@ public final class Endpoints {
     public Optional<String> logs() {
         return Optional.ofNullable(this.logs);
     }
-    public Optional<String> lookoutequipment() {
-        return Optional.ofNullable(this.lookoutequipment);
-    }
-    public Optional<String> lookoutforvision() {
-        return Optional.ofNullable(this.lookoutforvision);
-    }
-    public Optional<String> lookoutmetrics() {
-        return Optional.ofNullable(this.lookoutmetrics);
-    }
-    public Optional<String> lookoutvision() {
-        return Optional.ofNullable(this.lookoutvision);
-    }
-    public Optional<String> machinelearning() {
-        return Optional.ofNullable(this.machinelearning);
-    }
-    public Optional<String> macie() {
-        return Optional.ofNullable(this.macie);
-    }
     public Optional<String> macie2() {
         return Optional.ofNullable(this.macie2);
     }
-    public Optional<String> managedblockchain() {
-        return Optional.ofNullable(this.managedblockchain);
-    }
     public Optional<String> managedgrafana() {
         return Optional.ofNullable(this.managedgrafana);
-    }
-    public Optional<String> marketplacecatalog() {
-        return Optional.ofNullable(this.marketplacecatalog);
-    }
-    public Optional<String> marketplacecommerceanalytics() {
-        return Optional.ofNullable(this.marketplacecommerceanalytics);
-    }
-    public Optional<String> marketplaceentitlement() {
-        return Optional.ofNullable(this.marketplaceentitlement);
-    }
-    public Optional<String> marketplaceentitlementservice() {
-        return Optional.ofNullable(this.marketplaceentitlementservice);
-    }
-    public Optional<String> marketplacemetering() {
-        return Optional.ofNullable(this.marketplacemetering);
     }
     public Optional<String> mediaconnect() {
         return Optional.ofNullable(this.mediaconnect);
@@ -1120,56 +748,17 @@ public final class Endpoints {
     public Optional<String> mediapackage() {
         return Optional.ofNullable(this.mediapackage);
     }
-    public Optional<String> mediapackagevod() {
-        return Optional.ofNullable(this.mediapackagevod);
-    }
     public Optional<String> mediastore() {
         return Optional.ofNullable(this.mediastore);
     }
-    public Optional<String> mediastoredata() {
-        return Optional.ofNullable(this.mediastoredata);
-    }
-    public Optional<String> mediatailor() {
-        return Optional.ofNullable(this.mediatailor);
-    }
     public Optional<String> memorydb() {
         return Optional.ofNullable(this.memorydb);
-    }
-    public Optional<String> meteringmarketplace() {
-        return Optional.ofNullable(this.meteringmarketplace);
-    }
-    public Optional<String> mgh() {
-        return Optional.ofNullable(this.mgh);
-    }
-    public Optional<String> mgn() {
-        return Optional.ofNullable(this.mgn);
-    }
-    public Optional<String> migrationhub() {
-        return Optional.ofNullable(this.migrationhub);
-    }
-    public Optional<String> migrationhubconfig() {
-        return Optional.ofNullable(this.migrationhubconfig);
-    }
-    public Optional<String> migrationhubrefactorspaces() {
-        return Optional.ofNullable(this.migrationhubrefactorspaces);
-    }
-    public Optional<String> migrationhubstrategy() {
-        return Optional.ofNullable(this.migrationhubstrategy);
-    }
-    public Optional<String> migrationhubstrategyrecommendations() {
-        return Optional.ofNullable(this.migrationhubstrategyrecommendations);
-    }
-    public Optional<String> mobile() {
-        return Optional.ofNullable(this.mobile);
     }
     public Optional<String> mq() {
         return Optional.ofNullable(this.mq);
     }
     public Optional<String> msk() {
         return Optional.ofNullable(this.msk);
-    }
-    public Optional<String> mturk() {
-        return Optional.ofNullable(this.mturk);
     }
     public Optional<String> mwaa() {
         return Optional.ofNullable(this.mwaa);
@@ -1182,12 +771,6 @@ public final class Endpoints {
     }
     public Optional<String> networkmanager() {
         return Optional.ofNullable(this.networkmanager);
-    }
-    public Optional<String> nimble() {
-        return Optional.ofNullable(this.nimble);
-    }
-    public Optional<String> nimblestudio() {
-        return Optional.ofNullable(this.nimblestudio);
     }
     public Optional<String> oam() {
         return Optional.ofNullable(this.oam);
@@ -1204,44 +787,17 @@ public final class Endpoints {
     public Optional<String> opsworks() {
         return Optional.ofNullable(this.opsworks);
     }
-    public Optional<String> opsworkscm() {
-        return Optional.ofNullable(this.opsworkscm);
-    }
     public Optional<String> organizations() {
         return Optional.ofNullable(this.organizations);
     }
     public Optional<String> outposts() {
         return Optional.ofNullable(this.outposts);
     }
-    public Optional<String> panorama() {
-        return Optional.ofNullable(this.panorama);
-    }
-    public Optional<String> personalize() {
-        return Optional.ofNullable(this.personalize);
-    }
-    public Optional<String> personalizeevents() {
-        return Optional.ofNullable(this.personalizeevents);
-    }
-    public Optional<String> personalizeruntime() {
-        return Optional.ofNullable(this.personalizeruntime);
-    }
-    public Optional<String> pi() {
-        return Optional.ofNullable(this.pi);
-    }
     public Optional<String> pinpoint() {
         return Optional.ofNullable(this.pinpoint);
     }
-    public Optional<String> pinpointemail() {
-        return Optional.ofNullable(this.pinpointemail);
-    }
-    public Optional<String> pinpointsmsvoice() {
-        return Optional.ofNullable(this.pinpointsmsvoice);
-    }
     public Optional<String> pipes() {
         return Optional.ofNullable(this.pipes);
-    }
-    public Optional<String> polly() {
-        return Optional.ofNullable(this.polly);
     }
     public Optional<String> pricing() {
         return Optional.ofNullable(this.pricing);
@@ -1252,14 +808,8 @@ public final class Endpoints {
     public Optional<String> prometheusservice() {
         return Optional.ofNullable(this.prometheusservice);
     }
-    public Optional<String> proton() {
-        return Optional.ofNullable(this.proton);
-    }
     public Optional<String> qldb() {
         return Optional.ofNullable(this.qldb);
-    }
-    public Optional<String> qldbsession() {
-        return Optional.ofNullable(this.qldbsession);
     }
     public Optional<String> quicksight() {
         return Optional.ofNullable(this.quicksight);
@@ -1272,12 +822,6 @@ public final class Endpoints {
     }
     public Optional<String> rds() {
         return Optional.ofNullable(this.rds);
-    }
-    public Optional<String> rdsdata() {
-        return Optional.ofNullable(this.rdsdata);
-    }
-    public Optional<String> rdsdataservice() {
-        return Optional.ofNullable(this.rdsdataservice);
     }
     public Optional<String> recyclebin() {
         return Optional.ofNullable(this.recyclebin);
@@ -1294,12 +838,6 @@ public final class Endpoints {
     public Optional<String> redshiftserverless() {
         return Optional.ofNullable(this.redshiftserverless);
     }
-    public Optional<String> rekognition() {
-        return Optional.ofNullable(this.rekognition);
-    }
-    public Optional<String> resiliencehub() {
-        return Optional.ofNullable(this.resiliencehub);
-    }
     public Optional<String> resourceexplorer2() {
         return Optional.ofNullable(this.resourceexplorer2);
     }
@@ -1312,9 +850,6 @@ public final class Endpoints {
     public Optional<String> resourcegroupstaggingapi() {
         return Optional.ofNullable(this.resourcegroupstaggingapi);
     }
-    public Optional<String> robomaker() {
-        return Optional.ofNullable(this.robomaker);
-    }
     public Optional<String> rolesanywhere() {
         return Optional.ofNullable(this.rolesanywhere);
     }
@@ -1323,9 +858,6 @@ public final class Endpoints {
     }
     public Optional<String> route53domains() {
         return Optional.ofNullable(this.route53domains);
-    }
-    public Optional<String> route53recoverycluster() {
-        return Optional.ofNullable(this.route53recoverycluster);
     }
     public Optional<String> route53recoverycontrolconfig() {
         return Optional.ofNullable(this.route53recoverycontrolconfig);
@@ -1353,24 +885,6 @@ public final class Endpoints {
     }
     public Optional<String> sagemaker() {
         return Optional.ofNullable(this.sagemaker);
-    }
-    public Optional<String> sagemakera2iruntime() {
-        return Optional.ofNullable(this.sagemakera2iruntime);
-    }
-    public Optional<String> sagemakeredge() {
-        return Optional.ofNullable(this.sagemakeredge);
-    }
-    public Optional<String> sagemakeredgemanager() {
-        return Optional.ofNullable(this.sagemakeredgemanager);
-    }
-    public Optional<String> sagemakerfeaturestoreruntime() {
-        return Optional.ofNullable(this.sagemakerfeaturestoreruntime);
-    }
-    public Optional<String> sagemakerruntime() {
-        return Optional.ofNullable(this.sagemakerruntime);
-    }
-    public Optional<String> savingsplans() {
-        return Optional.ofNullable(this.savingsplans);
     }
     public Optional<String> scheduler() {
         return Optional.ofNullable(this.scheduler);
@@ -1402,9 +916,6 @@ public final class Endpoints {
     public Optional<String> servicecatalog() {
         return Optional.ofNullable(this.servicecatalog);
     }
-    public Optional<String> servicecatalogappregistry() {
-        return Optional.ofNullable(this.servicecatalogappregistry);
-    }
     public Optional<String> servicediscovery() {
         return Optional.ofNullable(this.servicediscovery);
     }
@@ -1429,15 +940,6 @@ public final class Endpoints {
     public Optional<String> simpledb() {
         return Optional.ofNullable(this.simpledb);
     }
-    public Optional<String> sms() {
-        return Optional.ofNullable(this.sms);
-    }
-    public Optional<String> snowball() {
-        return Optional.ofNullable(this.snowball);
-    }
-    public Optional<String> snowdevicemanagement() {
-        return Optional.ofNullable(this.snowdevicemanagement);
-    }
     public Optional<String> sns() {
         return Optional.ofNullable(this.sns);
     }
@@ -1453,14 +955,8 @@ public final class Endpoints {
     public Optional<String> ssmincidents() {
         return Optional.ofNullable(this.ssmincidents);
     }
-    public Optional<String> sso() {
-        return Optional.ofNullable(this.sso);
-    }
     public Optional<String> ssoadmin() {
         return Optional.ofNullable(this.ssoadmin);
-    }
-    public Optional<String> ssooidc() {
-        return Optional.ofNullable(this.ssooidc);
     }
     public Optional<String> stepfunctions() {
         return Optional.ofNullable(this.stepfunctions);
@@ -1471,20 +967,11 @@ public final class Endpoints {
     public Optional<String> sts() {
         return Optional.ofNullable(this.sts);
     }
-    public Optional<String> support() {
-        return Optional.ofNullable(this.support);
-    }
     public Optional<String> swf() {
         return Optional.ofNullable(this.swf);
     }
     public Optional<String> synthetics() {
         return Optional.ofNullable(this.synthetics);
-    }
-    public Optional<String> textract() {
-        return Optional.ofNullable(this.textract);
-    }
-    public Optional<String> timestreamquery() {
-        return Optional.ofNullable(this.timestreamquery);
     }
     public Optional<String> timestreamwrite() {
         return Optional.ofNullable(this.timestreamwrite);
@@ -1495,20 +982,11 @@ public final class Endpoints {
     public Optional<String> transcribeservice() {
         return Optional.ofNullable(this.transcribeservice);
     }
-    public Optional<String> transcribestreaming() {
-        return Optional.ofNullable(this.transcribestreaming);
-    }
-    public Optional<String> transcribestreamingservice() {
-        return Optional.ofNullable(this.transcribestreamingservice);
-    }
     public Optional<String> transfer() {
         return Optional.ofNullable(this.transfer);
     }
-    public Optional<String> translate() {
-        return Optional.ofNullable(this.translate);
-    }
-    public Optional<String> voiceid() {
-        return Optional.ofNullable(this.voiceid);
+    public Optional<String> verifiedpermissions() {
+        return Optional.ofNullable(this.verifiedpermissions);
     }
     public Optional<String> vpclattice() {
         return Optional.ofNullable(this.vpclattice);
@@ -1522,29 +1000,11 @@ public final class Endpoints {
     public Optional<String> wafv2() {
         return Optional.ofNullable(this.wafv2);
     }
-    public Optional<String> wellarchitected() {
-        return Optional.ofNullable(this.wellarchitected);
-    }
-    public Optional<String> wisdom() {
-        return Optional.ofNullable(this.wisdom);
-    }
-    public Optional<String> workdocs() {
-        return Optional.ofNullable(this.workdocs);
-    }
     public Optional<String> worklink() {
         return Optional.ofNullable(this.worklink);
     }
-    public Optional<String> workmail() {
-        return Optional.ofNullable(this.workmail);
-    }
-    public Optional<String> workmailmessageflow() {
-        return Optional.ofNullable(this.workmailmessageflow);
-    }
     public Optional<String> workspaces() {
         return Optional.ofNullable(this.workspaces);
-    }
-    public Optional<String> workspacesweb() {
-        return Optional.ofNullable(this.workspacesweb);
     }
     public Optional<String> xray() {
         return Optional.ofNullable(this.xray);
@@ -1563,61 +1023,43 @@ public final class Endpoints {
         private @Nullable String account;
         private @Nullable String acm;
         private @Nullable String acmpca;
-        private @Nullable String alexaforbusiness;
         private @Nullable String amg;
         private @Nullable String amp;
         private @Nullable String amplify;
-        private @Nullable String amplifybackend;
-        private @Nullable String amplifyuibuilder;
         private @Nullable String apigateway;
-        private @Nullable String apigatewaymanagementapi;
         private @Nullable String apigatewayv2;
         private @Nullable String appautoscaling;
         private @Nullable String appconfig;
-        private @Nullable String appconfigdata;
         private @Nullable String appflow;
         private @Nullable String appintegrations;
         private @Nullable String appintegrationsservice;
         private @Nullable String applicationautoscaling;
-        private @Nullable String applicationcostprofiler;
-        private @Nullable String applicationdiscovery;
-        private @Nullable String applicationdiscoveryservice;
         private @Nullable String applicationinsights;
         private @Nullable String appmesh;
-        private @Nullable String appregistry;
         private @Nullable String apprunner;
         private @Nullable String appstream;
         private @Nullable String appsync;
         private @Nullable String athena;
         private @Nullable String auditmanager;
-        private @Nullable String augmentedairuntime;
         private @Nullable String autoscaling;
         private @Nullable String autoscalingplans;
         private @Nullable String backup;
-        private @Nullable String backupgateway;
         private @Nullable String batch;
         private @Nullable String beanstalk;
-        private @Nullable String billingconductor;
-        private @Nullable String braket;
         private @Nullable String budgets;
         private @Nullable String ce;
         private @Nullable String chime;
-        private @Nullable String chimesdkidentity;
         private @Nullable String chimesdkmediapipelines;
-        private @Nullable String chimesdkmeetings;
-        private @Nullable String chimesdkmessaging;
         private @Nullable String chimesdkvoice;
         private @Nullable String cleanrooms;
         private @Nullable String cloud9;
         private @Nullable String cloudcontrol;
         private @Nullable String cloudcontrolapi;
-        private @Nullable String clouddirectory;
         private @Nullable String cloudformation;
         private @Nullable String cloudfront;
         private @Nullable String cloudhsm;
         private @Nullable String cloudhsmv2;
         private @Nullable String cloudsearch;
-        private @Nullable String cloudsearchdomain;
         private @Nullable String cloudtrail;
         private @Nullable String cloudwatch;
         private @Nullable String cloudwatchevents;
@@ -1628,35 +1070,27 @@ public final class Endpoints {
         private @Nullable String cloudwatchrum;
         private @Nullable String codeartifact;
         private @Nullable String codebuild;
+        private @Nullable String codecatalyst;
         private @Nullable String codecommit;
         private @Nullable String codedeploy;
-        private @Nullable String codeguruprofiler;
         private @Nullable String codegurureviewer;
         private @Nullable String codepipeline;
-        private @Nullable String codestar;
         private @Nullable String codestarconnections;
         private @Nullable String codestarnotifications;
         private @Nullable String cognitoidentity;
         private @Nullable String cognitoidentityprovider;
         private @Nullable String cognitoidp;
-        private @Nullable String cognitosync;
         private @Nullable String comprehend;
-        private @Nullable String comprehendmedical;
         private @Nullable String computeoptimizer;
         private @Nullable String config;
         private @Nullable String configservice;
         private @Nullable String connect;
-        private @Nullable String connectcontactlens;
-        private @Nullable String connectparticipant;
-        private @Nullable String connectwisdomservice;
         private @Nullable String controltower;
         private @Nullable String costandusagereportservice;
         private @Nullable String costexplorer;
         private @Nullable String cur;
-        private @Nullable String customerprofiles;
         private @Nullable String databasemigration;
         private @Nullable String databasemigrationservice;
-        private @Nullable String databrew;
         private @Nullable String dataexchange;
         private @Nullable String datapipeline;
         private @Nullable String datasync;
@@ -1664,21 +1098,15 @@ public final class Endpoints {
         private @Nullable String deploy;
         private @Nullable String detective;
         private @Nullable String devicefarm;
-        private @Nullable String devopsguru;
         private @Nullable String directconnect;
         private @Nullable String directoryservice;
-        private @Nullable String discovery;
         private @Nullable String dlm;
         private @Nullable String dms;
         private @Nullable String docdb;
         private @Nullable String docdbelastic;
-        private @Nullable String drs;
         private @Nullable String ds;
         private @Nullable String dynamodb;
-        private @Nullable String dynamodbstreams;
-        private @Nullable String ebs;
         private @Nullable String ec2;
-        private @Nullable String ec2instanceconnect;
         private @Nullable String ecr;
         private @Nullable String ecrpublic;
         private @Nullable String ecs;
@@ -1686,7 +1114,6 @@ public final class Endpoints {
         private @Nullable String eks;
         private @Nullable String elasticache;
         private @Nullable String elasticbeanstalk;
-        private @Nullable String elasticinference;
         private @Nullable String elasticloadbalancing;
         private @Nullable String elasticloadbalancingv2;
         private @Nullable String elasticsearch;
@@ -1702,29 +1129,18 @@ public final class Endpoints {
         private @Nullable String events;
         private @Nullable String evidently;
         private @Nullable String finspace;
-        private @Nullable String finspacedata;
         private @Nullable String firehose;
         private @Nullable String fis;
         private @Nullable String fms;
-        private @Nullable String forecast;
-        private @Nullable String forecastquery;
-        private @Nullable String forecastqueryservice;
-        private @Nullable String forecastservice;
-        private @Nullable String frauddetector;
         private @Nullable String fsx;
         private @Nullable String gamelift;
         private @Nullable String glacier;
         private @Nullable String globalaccelerator;
         private @Nullable String glue;
-        private @Nullable String gluedatabrew;
         private @Nullable String grafana;
         private @Nullable String greengrass;
-        private @Nullable String greengrassv2;
-        private @Nullable String groundstation;
         private @Nullable String guardduty;
-        private @Nullable String health;
         private @Nullable String healthlake;
-        private @Nullable String honeycode;
         private @Nullable String iam;
         private @Nullable String identitystore;
         private @Nullable String imagebuilder;
@@ -1733,23 +1149,8 @@ public final class Endpoints {
         private @Nullable String inspectorv2;
         private @Nullable String internetmonitor;
         private @Nullable String iot;
-        private @Nullable String iot1clickdevices;
-        private @Nullable String iot1clickdevicesservice;
-        private @Nullable String iot1clickprojects;
         private @Nullable String iotanalytics;
-        private @Nullable String iotdata;
-        private @Nullable String iotdataplane;
-        private @Nullable String iotdeviceadvisor;
         private @Nullable String iotevents;
-        private @Nullable String ioteventsdata;
-        private @Nullable String iotfleethub;
-        private @Nullable String iotjobsdata;
-        private @Nullable String iotjobsdataplane;
-        private @Nullable String iotsecuretunneling;
-        private @Nullable String iotsitewise;
-        private @Nullable String iotthingsgraph;
-        private @Nullable String iottwinmaker;
-        private @Nullable String iotwireless;
         private @Nullable String ivs;
         private @Nullable String ivschat;
         private @Nullable String kafka;
@@ -1760,10 +1161,6 @@ public final class Endpoints {
         private @Nullable String kinesisanalytics;
         private @Nullable String kinesisanalyticsv2;
         private @Nullable String kinesisvideo;
-        private @Nullable String kinesisvideoarchivedmedia;
-        private @Nullable String kinesisvideomedia;
-        private @Nullable String kinesisvideosignaling;
-        private @Nullable String kinesisvideosignalingchannels;
         private @Nullable String kms;
         private @Nullable String lakeformation;
         private @Nullable String lambda;
@@ -1772,103 +1169,55 @@ public final class Endpoints {
         private @Nullable String lexmodelbuildingservice;
         private @Nullable String lexmodels;
         private @Nullable String lexmodelsv2;
-        private @Nullable String lexruntime;
-        private @Nullable String lexruntimeservice;
-        private @Nullable String lexruntimev2;
         private @Nullable String lexv2models;
-        private @Nullable String lexv2runtime;
         private @Nullable String licensemanager;
         private @Nullable String lightsail;
         private @Nullable String location;
         private @Nullable String locationservice;
         private @Nullable String logs;
-        private @Nullable String lookoutequipment;
-        private @Nullable String lookoutforvision;
-        private @Nullable String lookoutmetrics;
-        private @Nullable String lookoutvision;
-        private @Nullable String machinelearning;
-        private @Nullable String macie;
         private @Nullable String macie2;
-        private @Nullable String managedblockchain;
         private @Nullable String managedgrafana;
-        private @Nullable String marketplacecatalog;
-        private @Nullable String marketplacecommerceanalytics;
-        private @Nullable String marketplaceentitlement;
-        private @Nullable String marketplaceentitlementservice;
-        private @Nullable String marketplacemetering;
         private @Nullable String mediaconnect;
         private @Nullable String mediaconvert;
         private @Nullable String medialive;
         private @Nullable String mediapackage;
-        private @Nullable String mediapackagevod;
         private @Nullable String mediastore;
-        private @Nullable String mediastoredata;
-        private @Nullable String mediatailor;
         private @Nullable String memorydb;
-        private @Nullable String meteringmarketplace;
-        private @Nullable String mgh;
-        private @Nullable String mgn;
-        private @Nullable String migrationhub;
-        private @Nullable String migrationhubconfig;
-        private @Nullable String migrationhubrefactorspaces;
-        private @Nullable String migrationhubstrategy;
-        private @Nullable String migrationhubstrategyrecommendations;
-        private @Nullable String mobile;
         private @Nullable String mq;
         private @Nullable String msk;
-        private @Nullable String mturk;
         private @Nullable String mwaa;
         private @Nullable String neptune;
         private @Nullable String networkfirewall;
         private @Nullable String networkmanager;
-        private @Nullable String nimble;
-        private @Nullable String nimblestudio;
         private @Nullable String oam;
         private @Nullable String opensearch;
         private @Nullable String opensearchserverless;
         private @Nullable String opensearchservice;
         private @Nullable String opsworks;
-        private @Nullable String opsworkscm;
         private @Nullable String organizations;
         private @Nullable String outposts;
-        private @Nullable String panorama;
-        private @Nullable String personalize;
-        private @Nullable String personalizeevents;
-        private @Nullable String personalizeruntime;
-        private @Nullable String pi;
         private @Nullable String pinpoint;
-        private @Nullable String pinpointemail;
-        private @Nullable String pinpointsmsvoice;
         private @Nullable String pipes;
-        private @Nullable String polly;
         private @Nullable String pricing;
         private @Nullable String prometheus;
         private @Nullable String prometheusservice;
-        private @Nullable String proton;
         private @Nullable String qldb;
-        private @Nullable String qldbsession;
         private @Nullable String quicksight;
         private @Nullable String ram;
         private @Nullable String rbin;
         private @Nullable String rds;
-        private @Nullable String rdsdata;
-        private @Nullable String rdsdataservice;
         private @Nullable String recyclebin;
         private @Nullable String redshift;
         private @Nullable String redshiftdata;
         private @Nullable String redshiftdataapiservice;
         private @Nullable String redshiftserverless;
-        private @Nullable String rekognition;
-        private @Nullable String resiliencehub;
         private @Nullable String resourceexplorer2;
         private @Nullable String resourcegroups;
         private @Nullable String resourcegroupstagging;
         private @Nullable String resourcegroupstaggingapi;
-        private @Nullable String robomaker;
         private @Nullable String rolesanywhere;
         private @Nullable String route53;
         private @Nullable String route53domains;
-        private @Nullable String route53recoverycluster;
         private @Nullable String route53recoverycontrolconfig;
         private @Nullable String route53recoveryreadiness;
         private @Nullable String route53resolver;
@@ -1878,12 +1227,6 @@ public final class Endpoints {
         private @Nullable String s3control;
         private @Nullable String s3outposts;
         private @Nullable String sagemaker;
-        private @Nullable String sagemakera2iruntime;
-        private @Nullable String sagemakeredge;
-        private @Nullable String sagemakeredgemanager;
-        private @Nullable String sagemakerfeaturestoreruntime;
-        private @Nullable String sagemakerruntime;
-        private @Nullable String savingsplans;
         private @Nullable String scheduler;
         private @Nullable String schemas;
         private @Nullable String sdb;
@@ -1894,7 +1237,6 @@ public final class Endpoints {
         private @Nullable String serverlessapprepo;
         private @Nullable String serverlessrepo;
         private @Nullable String servicecatalog;
-        private @Nullable String servicecatalogappregistry;
         private @Nullable String servicediscovery;
         private @Nullable String servicequotas;
         private @Nullable String ses;
@@ -1903,45 +1245,28 @@ public final class Endpoints {
         private @Nullable String shield;
         private @Nullable String signer;
         private @Nullable String simpledb;
-        private @Nullable String sms;
-        private @Nullable String snowball;
-        private @Nullable String snowdevicemanagement;
         private @Nullable String sns;
         private @Nullable String sqs;
         private @Nullable String ssm;
         private @Nullable String ssmcontacts;
         private @Nullable String ssmincidents;
-        private @Nullable String sso;
         private @Nullable String ssoadmin;
-        private @Nullable String ssooidc;
         private @Nullable String stepfunctions;
         private @Nullable String storagegateway;
         private @Nullable String sts;
-        private @Nullable String support;
         private @Nullable String swf;
         private @Nullable String synthetics;
-        private @Nullable String textract;
-        private @Nullable String timestreamquery;
         private @Nullable String timestreamwrite;
         private @Nullable String transcribe;
         private @Nullable String transcribeservice;
-        private @Nullable String transcribestreaming;
-        private @Nullable String transcribestreamingservice;
         private @Nullable String transfer;
-        private @Nullable String translate;
-        private @Nullable String voiceid;
+        private @Nullable String verifiedpermissions;
         private @Nullable String vpclattice;
         private @Nullable String waf;
         private @Nullable String wafregional;
         private @Nullable String wafv2;
-        private @Nullable String wellarchitected;
-        private @Nullable String wisdom;
-        private @Nullable String workdocs;
         private @Nullable String worklink;
-        private @Nullable String workmail;
-        private @Nullable String workmailmessageflow;
         private @Nullable String workspaces;
-        private @Nullable String workspacesweb;
         private @Nullable String xray;
         public Builder() {}
         public Builder(Endpoints defaults) {
@@ -1950,61 +1275,43 @@ public final class Endpoints {
     	      this.account = defaults.account;
     	      this.acm = defaults.acm;
     	      this.acmpca = defaults.acmpca;
-    	      this.alexaforbusiness = defaults.alexaforbusiness;
     	      this.amg = defaults.amg;
     	      this.amp = defaults.amp;
     	      this.amplify = defaults.amplify;
-    	      this.amplifybackend = defaults.amplifybackend;
-    	      this.amplifyuibuilder = defaults.amplifyuibuilder;
     	      this.apigateway = defaults.apigateway;
-    	      this.apigatewaymanagementapi = defaults.apigatewaymanagementapi;
     	      this.apigatewayv2 = defaults.apigatewayv2;
     	      this.appautoscaling = defaults.appautoscaling;
     	      this.appconfig = defaults.appconfig;
-    	      this.appconfigdata = defaults.appconfigdata;
     	      this.appflow = defaults.appflow;
     	      this.appintegrations = defaults.appintegrations;
     	      this.appintegrationsservice = defaults.appintegrationsservice;
     	      this.applicationautoscaling = defaults.applicationautoscaling;
-    	      this.applicationcostprofiler = defaults.applicationcostprofiler;
-    	      this.applicationdiscovery = defaults.applicationdiscovery;
-    	      this.applicationdiscoveryservice = defaults.applicationdiscoveryservice;
     	      this.applicationinsights = defaults.applicationinsights;
     	      this.appmesh = defaults.appmesh;
-    	      this.appregistry = defaults.appregistry;
     	      this.apprunner = defaults.apprunner;
     	      this.appstream = defaults.appstream;
     	      this.appsync = defaults.appsync;
     	      this.athena = defaults.athena;
     	      this.auditmanager = defaults.auditmanager;
-    	      this.augmentedairuntime = defaults.augmentedairuntime;
     	      this.autoscaling = defaults.autoscaling;
     	      this.autoscalingplans = defaults.autoscalingplans;
     	      this.backup = defaults.backup;
-    	      this.backupgateway = defaults.backupgateway;
     	      this.batch = defaults.batch;
     	      this.beanstalk = defaults.beanstalk;
-    	      this.billingconductor = defaults.billingconductor;
-    	      this.braket = defaults.braket;
     	      this.budgets = defaults.budgets;
     	      this.ce = defaults.ce;
     	      this.chime = defaults.chime;
-    	      this.chimesdkidentity = defaults.chimesdkidentity;
     	      this.chimesdkmediapipelines = defaults.chimesdkmediapipelines;
-    	      this.chimesdkmeetings = defaults.chimesdkmeetings;
-    	      this.chimesdkmessaging = defaults.chimesdkmessaging;
     	      this.chimesdkvoice = defaults.chimesdkvoice;
     	      this.cleanrooms = defaults.cleanrooms;
     	      this.cloud9 = defaults.cloud9;
     	      this.cloudcontrol = defaults.cloudcontrol;
     	      this.cloudcontrolapi = defaults.cloudcontrolapi;
-    	      this.clouddirectory = defaults.clouddirectory;
     	      this.cloudformation = defaults.cloudformation;
     	      this.cloudfront = defaults.cloudfront;
     	      this.cloudhsm = defaults.cloudhsm;
     	      this.cloudhsmv2 = defaults.cloudhsmv2;
     	      this.cloudsearch = defaults.cloudsearch;
-    	      this.cloudsearchdomain = defaults.cloudsearchdomain;
     	      this.cloudtrail = defaults.cloudtrail;
     	      this.cloudwatch = defaults.cloudwatch;
     	      this.cloudwatchevents = defaults.cloudwatchevents;
@@ -2015,35 +1322,27 @@ public final class Endpoints {
     	      this.cloudwatchrum = defaults.cloudwatchrum;
     	      this.codeartifact = defaults.codeartifact;
     	      this.codebuild = defaults.codebuild;
+    	      this.codecatalyst = defaults.codecatalyst;
     	      this.codecommit = defaults.codecommit;
     	      this.codedeploy = defaults.codedeploy;
-    	      this.codeguruprofiler = defaults.codeguruprofiler;
     	      this.codegurureviewer = defaults.codegurureviewer;
     	      this.codepipeline = defaults.codepipeline;
-    	      this.codestar = defaults.codestar;
     	      this.codestarconnections = defaults.codestarconnections;
     	      this.codestarnotifications = defaults.codestarnotifications;
     	      this.cognitoidentity = defaults.cognitoidentity;
     	      this.cognitoidentityprovider = defaults.cognitoidentityprovider;
     	      this.cognitoidp = defaults.cognitoidp;
-    	      this.cognitosync = defaults.cognitosync;
     	      this.comprehend = defaults.comprehend;
-    	      this.comprehendmedical = defaults.comprehendmedical;
     	      this.computeoptimizer = defaults.computeoptimizer;
     	      this.config = defaults.config;
     	      this.configservice = defaults.configservice;
     	      this.connect = defaults.connect;
-    	      this.connectcontactlens = defaults.connectcontactlens;
-    	      this.connectparticipant = defaults.connectparticipant;
-    	      this.connectwisdomservice = defaults.connectwisdomservice;
     	      this.controltower = defaults.controltower;
     	      this.costandusagereportservice = defaults.costandusagereportservice;
     	      this.costexplorer = defaults.costexplorer;
     	      this.cur = defaults.cur;
-    	      this.customerprofiles = defaults.customerprofiles;
     	      this.databasemigration = defaults.databasemigration;
     	      this.databasemigrationservice = defaults.databasemigrationservice;
-    	      this.databrew = defaults.databrew;
     	      this.dataexchange = defaults.dataexchange;
     	      this.datapipeline = defaults.datapipeline;
     	      this.datasync = defaults.datasync;
@@ -2051,21 +1350,15 @@ public final class Endpoints {
     	      this.deploy = defaults.deploy;
     	      this.detective = defaults.detective;
     	      this.devicefarm = defaults.devicefarm;
-    	      this.devopsguru = defaults.devopsguru;
     	      this.directconnect = defaults.directconnect;
     	      this.directoryservice = defaults.directoryservice;
-    	      this.discovery = defaults.discovery;
     	      this.dlm = defaults.dlm;
     	      this.dms = defaults.dms;
     	      this.docdb = defaults.docdb;
     	      this.docdbelastic = defaults.docdbelastic;
-    	      this.drs = defaults.drs;
     	      this.ds = defaults.ds;
     	      this.dynamodb = defaults.dynamodb;
-    	      this.dynamodbstreams = defaults.dynamodbstreams;
-    	      this.ebs = defaults.ebs;
     	      this.ec2 = defaults.ec2;
-    	      this.ec2instanceconnect = defaults.ec2instanceconnect;
     	      this.ecr = defaults.ecr;
     	      this.ecrpublic = defaults.ecrpublic;
     	      this.ecs = defaults.ecs;
@@ -2073,7 +1366,6 @@ public final class Endpoints {
     	      this.eks = defaults.eks;
     	      this.elasticache = defaults.elasticache;
     	      this.elasticbeanstalk = defaults.elasticbeanstalk;
-    	      this.elasticinference = defaults.elasticinference;
     	      this.elasticloadbalancing = defaults.elasticloadbalancing;
     	      this.elasticloadbalancingv2 = defaults.elasticloadbalancingv2;
     	      this.elasticsearch = defaults.elasticsearch;
@@ -2089,29 +1381,18 @@ public final class Endpoints {
     	      this.events = defaults.events;
     	      this.evidently = defaults.evidently;
     	      this.finspace = defaults.finspace;
-    	      this.finspacedata = defaults.finspacedata;
     	      this.firehose = defaults.firehose;
     	      this.fis = defaults.fis;
     	      this.fms = defaults.fms;
-    	      this.forecast = defaults.forecast;
-    	      this.forecastquery = defaults.forecastquery;
-    	      this.forecastqueryservice = defaults.forecastqueryservice;
-    	      this.forecastservice = defaults.forecastservice;
-    	      this.frauddetector = defaults.frauddetector;
     	      this.fsx = defaults.fsx;
     	      this.gamelift = defaults.gamelift;
     	      this.glacier = defaults.glacier;
     	      this.globalaccelerator = defaults.globalaccelerator;
     	      this.glue = defaults.glue;
-    	      this.gluedatabrew = defaults.gluedatabrew;
     	      this.grafana = defaults.grafana;
     	      this.greengrass = defaults.greengrass;
-    	      this.greengrassv2 = defaults.greengrassv2;
-    	      this.groundstation = defaults.groundstation;
     	      this.guardduty = defaults.guardduty;
-    	      this.health = defaults.health;
     	      this.healthlake = defaults.healthlake;
-    	      this.honeycode = defaults.honeycode;
     	      this.iam = defaults.iam;
     	      this.identitystore = defaults.identitystore;
     	      this.imagebuilder = defaults.imagebuilder;
@@ -2120,23 +1401,8 @@ public final class Endpoints {
     	      this.inspectorv2 = defaults.inspectorv2;
     	      this.internetmonitor = defaults.internetmonitor;
     	      this.iot = defaults.iot;
-    	      this.iot1clickdevices = defaults.iot1clickdevices;
-    	      this.iot1clickdevicesservice = defaults.iot1clickdevicesservice;
-    	      this.iot1clickprojects = defaults.iot1clickprojects;
     	      this.iotanalytics = defaults.iotanalytics;
-    	      this.iotdata = defaults.iotdata;
-    	      this.iotdataplane = defaults.iotdataplane;
-    	      this.iotdeviceadvisor = defaults.iotdeviceadvisor;
     	      this.iotevents = defaults.iotevents;
-    	      this.ioteventsdata = defaults.ioteventsdata;
-    	      this.iotfleethub = defaults.iotfleethub;
-    	      this.iotjobsdata = defaults.iotjobsdata;
-    	      this.iotjobsdataplane = defaults.iotjobsdataplane;
-    	      this.iotsecuretunneling = defaults.iotsecuretunneling;
-    	      this.iotsitewise = defaults.iotsitewise;
-    	      this.iotthingsgraph = defaults.iotthingsgraph;
-    	      this.iottwinmaker = defaults.iottwinmaker;
-    	      this.iotwireless = defaults.iotwireless;
     	      this.ivs = defaults.ivs;
     	      this.ivschat = defaults.ivschat;
     	      this.kafka = defaults.kafka;
@@ -2147,10 +1413,6 @@ public final class Endpoints {
     	      this.kinesisanalytics = defaults.kinesisanalytics;
     	      this.kinesisanalyticsv2 = defaults.kinesisanalyticsv2;
     	      this.kinesisvideo = defaults.kinesisvideo;
-    	      this.kinesisvideoarchivedmedia = defaults.kinesisvideoarchivedmedia;
-    	      this.kinesisvideomedia = defaults.kinesisvideomedia;
-    	      this.kinesisvideosignaling = defaults.kinesisvideosignaling;
-    	      this.kinesisvideosignalingchannels = defaults.kinesisvideosignalingchannels;
     	      this.kms = defaults.kms;
     	      this.lakeformation = defaults.lakeformation;
     	      this.lambda = defaults.lambda;
@@ -2159,103 +1421,55 @@ public final class Endpoints {
     	      this.lexmodelbuildingservice = defaults.lexmodelbuildingservice;
     	      this.lexmodels = defaults.lexmodels;
     	      this.lexmodelsv2 = defaults.lexmodelsv2;
-    	      this.lexruntime = defaults.lexruntime;
-    	      this.lexruntimeservice = defaults.lexruntimeservice;
-    	      this.lexruntimev2 = defaults.lexruntimev2;
     	      this.lexv2models = defaults.lexv2models;
-    	      this.lexv2runtime = defaults.lexv2runtime;
     	      this.licensemanager = defaults.licensemanager;
     	      this.lightsail = defaults.lightsail;
     	      this.location = defaults.location;
     	      this.locationservice = defaults.locationservice;
     	      this.logs = defaults.logs;
-    	      this.lookoutequipment = defaults.lookoutequipment;
-    	      this.lookoutforvision = defaults.lookoutforvision;
-    	      this.lookoutmetrics = defaults.lookoutmetrics;
-    	      this.lookoutvision = defaults.lookoutvision;
-    	      this.machinelearning = defaults.machinelearning;
-    	      this.macie = defaults.macie;
     	      this.macie2 = defaults.macie2;
-    	      this.managedblockchain = defaults.managedblockchain;
     	      this.managedgrafana = defaults.managedgrafana;
-    	      this.marketplacecatalog = defaults.marketplacecatalog;
-    	      this.marketplacecommerceanalytics = defaults.marketplacecommerceanalytics;
-    	      this.marketplaceentitlement = defaults.marketplaceentitlement;
-    	      this.marketplaceentitlementservice = defaults.marketplaceentitlementservice;
-    	      this.marketplacemetering = defaults.marketplacemetering;
     	      this.mediaconnect = defaults.mediaconnect;
     	      this.mediaconvert = defaults.mediaconvert;
     	      this.medialive = defaults.medialive;
     	      this.mediapackage = defaults.mediapackage;
-    	      this.mediapackagevod = defaults.mediapackagevod;
     	      this.mediastore = defaults.mediastore;
-    	      this.mediastoredata = defaults.mediastoredata;
-    	      this.mediatailor = defaults.mediatailor;
     	      this.memorydb = defaults.memorydb;
-    	      this.meteringmarketplace = defaults.meteringmarketplace;
-    	      this.mgh = defaults.mgh;
-    	      this.mgn = defaults.mgn;
-    	      this.migrationhub = defaults.migrationhub;
-    	      this.migrationhubconfig = defaults.migrationhubconfig;
-    	      this.migrationhubrefactorspaces = defaults.migrationhubrefactorspaces;
-    	      this.migrationhubstrategy = defaults.migrationhubstrategy;
-    	      this.migrationhubstrategyrecommendations = defaults.migrationhubstrategyrecommendations;
-    	      this.mobile = defaults.mobile;
     	      this.mq = defaults.mq;
     	      this.msk = defaults.msk;
-    	      this.mturk = defaults.mturk;
     	      this.mwaa = defaults.mwaa;
     	      this.neptune = defaults.neptune;
     	      this.networkfirewall = defaults.networkfirewall;
     	      this.networkmanager = defaults.networkmanager;
-    	      this.nimble = defaults.nimble;
-    	      this.nimblestudio = defaults.nimblestudio;
     	      this.oam = defaults.oam;
     	      this.opensearch = defaults.opensearch;
     	      this.opensearchserverless = defaults.opensearchserverless;
     	      this.opensearchservice = defaults.opensearchservice;
     	      this.opsworks = defaults.opsworks;
-    	      this.opsworkscm = defaults.opsworkscm;
     	      this.organizations = defaults.organizations;
     	      this.outposts = defaults.outposts;
-    	      this.panorama = defaults.panorama;
-    	      this.personalize = defaults.personalize;
-    	      this.personalizeevents = defaults.personalizeevents;
-    	      this.personalizeruntime = defaults.personalizeruntime;
-    	      this.pi = defaults.pi;
     	      this.pinpoint = defaults.pinpoint;
-    	      this.pinpointemail = defaults.pinpointemail;
-    	      this.pinpointsmsvoice = defaults.pinpointsmsvoice;
     	      this.pipes = defaults.pipes;
-    	      this.polly = defaults.polly;
     	      this.pricing = defaults.pricing;
     	      this.prometheus = defaults.prometheus;
     	      this.prometheusservice = defaults.prometheusservice;
-    	      this.proton = defaults.proton;
     	      this.qldb = defaults.qldb;
-    	      this.qldbsession = defaults.qldbsession;
     	      this.quicksight = defaults.quicksight;
     	      this.ram = defaults.ram;
     	      this.rbin = defaults.rbin;
     	      this.rds = defaults.rds;
-    	      this.rdsdata = defaults.rdsdata;
-    	      this.rdsdataservice = defaults.rdsdataservice;
     	      this.recyclebin = defaults.recyclebin;
     	      this.redshift = defaults.redshift;
     	      this.redshiftdata = defaults.redshiftdata;
     	      this.redshiftdataapiservice = defaults.redshiftdataapiservice;
     	      this.redshiftserverless = defaults.redshiftserverless;
-    	      this.rekognition = defaults.rekognition;
-    	      this.resiliencehub = defaults.resiliencehub;
     	      this.resourceexplorer2 = defaults.resourceexplorer2;
     	      this.resourcegroups = defaults.resourcegroups;
     	      this.resourcegroupstagging = defaults.resourcegroupstagging;
     	      this.resourcegroupstaggingapi = defaults.resourcegroupstaggingapi;
-    	      this.robomaker = defaults.robomaker;
     	      this.rolesanywhere = defaults.rolesanywhere;
     	      this.route53 = defaults.route53;
     	      this.route53domains = defaults.route53domains;
-    	      this.route53recoverycluster = defaults.route53recoverycluster;
     	      this.route53recoverycontrolconfig = defaults.route53recoverycontrolconfig;
     	      this.route53recoveryreadiness = defaults.route53recoveryreadiness;
     	      this.route53resolver = defaults.route53resolver;
@@ -2265,12 +1479,6 @@ public final class Endpoints {
     	      this.s3control = defaults.s3control;
     	      this.s3outposts = defaults.s3outposts;
     	      this.sagemaker = defaults.sagemaker;
-    	      this.sagemakera2iruntime = defaults.sagemakera2iruntime;
-    	      this.sagemakeredge = defaults.sagemakeredge;
-    	      this.sagemakeredgemanager = defaults.sagemakeredgemanager;
-    	      this.sagemakerfeaturestoreruntime = defaults.sagemakerfeaturestoreruntime;
-    	      this.sagemakerruntime = defaults.sagemakerruntime;
-    	      this.savingsplans = defaults.savingsplans;
     	      this.scheduler = defaults.scheduler;
     	      this.schemas = defaults.schemas;
     	      this.sdb = defaults.sdb;
@@ -2281,7 +1489,6 @@ public final class Endpoints {
     	      this.serverlessapprepo = defaults.serverlessapprepo;
     	      this.serverlessrepo = defaults.serverlessrepo;
     	      this.servicecatalog = defaults.servicecatalog;
-    	      this.servicecatalogappregistry = defaults.servicecatalogappregistry;
     	      this.servicediscovery = defaults.servicediscovery;
     	      this.servicequotas = defaults.servicequotas;
     	      this.ses = defaults.ses;
@@ -2290,45 +1497,28 @@ public final class Endpoints {
     	      this.shield = defaults.shield;
     	      this.signer = defaults.signer;
     	      this.simpledb = defaults.simpledb;
-    	      this.sms = defaults.sms;
-    	      this.snowball = defaults.snowball;
-    	      this.snowdevicemanagement = defaults.snowdevicemanagement;
     	      this.sns = defaults.sns;
     	      this.sqs = defaults.sqs;
     	      this.ssm = defaults.ssm;
     	      this.ssmcontacts = defaults.ssmcontacts;
     	      this.ssmincidents = defaults.ssmincidents;
-    	      this.sso = defaults.sso;
     	      this.ssoadmin = defaults.ssoadmin;
-    	      this.ssooidc = defaults.ssooidc;
     	      this.stepfunctions = defaults.stepfunctions;
     	      this.storagegateway = defaults.storagegateway;
     	      this.sts = defaults.sts;
-    	      this.support = defaults.support;
     	      this.swf = defaults.swf;
     	      this.synthetics = defaults.synthetics;
-    	      this.textract = defaults.textract;
-    	      this.timestreamquery = defaults.timestreamquery;
     	      this.timestreamwrite = defaults.timestreamwrite;
     	      this.transcribe = defaults.transcribe;
     	      this.transcribeservice = defaults.transcribeservice;
-    	      this.transcribestreaming = defaults.transcribestreaming;
-    	      this.transcribestreamingservice = defaults.transcribestreamingservice;
     	      this.transfer = defaults.transfer;
-    	      this.translate = defaults.translate;
-    	      this.voiceid = defaults.voiceid;
+    	      this.verifiedpermissions = defaults.verifiedpermissions;
     	      this.vpclattice = defaults.vpclattice;
     	      this.waf = defaults.waf;
     	      this.wafregional = defaults.wafregional;
     	      this.wafv2 = defaults.wafv2;
-    	      this.wellarchitected = defaults.wellarchitected;
-    	      this.wisdom = defaults.wisdom;
-    	      this.workdocs = defaults.workdocs;
     	      this.worklink = defaults.worklink;
-    	      this.workmail = defaults.workmail;
-    	      this.workmailmessageflow = defaults.workmailmessageflow;
     	      this.workspaces = defaults.workspaces;
-    	      this.workspacesweb = defaults.workspacesweb;
     	      this.xray = defaults.xray;
         }
 
@@ -2353,11 +1543,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder alexaforbusiness(@Nullable String alexaforbusiness) {
-            this.alexaforbusiness = alexaforbusiness;
-            return this;
-        }
-        @CustomType.Setter
         public Builder amg(@Nullable String amg) {
             this.amg = amg;
             return this;
@@ -2373,23 +1558,8 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder amplifybackend(@Nullable String amplifybackend) {
-            this.amplifybackend = amplifybackend;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder amplifyuibuilder(@Nullable String amplifyuibuilder) {
-            this.amplifyuibuilder = amplifyuibuilder;
-            return this;
-        }
-        @CustomType.Setter
         public Builder apigateway(@Nullable String apigateway) {
             this.apigateway = apigateway;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder apigatewaymanagementapi(@Nullable String apigatewaymanagementapi) {
-            this.apigatewaymanagementapi = apigatewaymanagementapi;
             return this;
         }
         @CustomType.Setter
@@ -2405,11 +1575,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder appconfig(@Nullable String appconfig) {
             this.appconfig = appconfig;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder appconfigdata(@Nullable String appconfigdata) {
-            this.appconfigdata = appconfigdata;
             return this;
         }
         @CustomType.Setter
@@ -2433,21 +1598,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder applicationcostprofiler(@Nullable String applicationcostprofiler) {
-            this.applicationcostprofiler = applicationcostprofiler;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder applicationdiscovery(@Nullable String applicationdiscovery) {
-            this.applicationdiscovery = applicationdiscovery;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder applicationdiscoveryservice(@Nullable String applicationdiscoveryservice) {
-            this.applicationdiscoveryservice = applicationdiscoveryservice;
-            return this;
-        }
-        @CustomType.Setter
         public Builder applicationinsights(@Nullable String applicationinsights) {
             this.applicationinsights = applicationinsights;
             return this;
@@ -2455,11 +1605,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder appmesh(@Nullable String appmesh) {
             this.appmesh = appmesh;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder appregistry(@Nullable String appregistry) {
-            this.appregistry = appregistry;
             return this;
         }
         @CustomType.Setter
@@ -2488,11 +1633,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder augmentedairuntime(@Nullable String augmentedairuntime) {
-            this.augmentedairuntime = augmentedairuntime;
-            return this;
-        }
-        @CustomType.Setter
         public Builder autoscaling(@Nullable String autoscaling) {
             this.autoscaling = autoscaling;
             return this;
@@ -2508,11 +1648,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder backupgateway(@Nullable String backupgateway) {
-            this.backupgateway = backupgateway;
-            return this;
-        }
-        @CustomType.Setter
         public Builder batch(@Nullable String batch) {
             this.batch = batch;
             return this;
@@ -2520,16 +1655,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder beanstalk(@Nullable String beanstalk) {
             this.beanstalk = beanstalk;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder billingconductor(@Nullable String billingconductor) {
-            this.billingconductor = billingconductor;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder braket(@Nullable String braket) {
-            this.braket = braket;
             return this;
         }
         @CustomType.Setter
@@ -2548,23 +1673,8 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder chimesdkidentity(@Nullable String chimesdkidentity) {
-            this.chimesdkidentity = chimesdkidentity;
-            return this;
-        }
-        @CustomType.Setter
         public Builder chimesdkmediapipelines(@Nullable String chimesdkmediapipelines) {
             this.chimesdkmediapipelines = chimesdkmediapipelines;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder chimesdkmeetings(@Nullable String chimesdkmeetings) {
-            this.chimesdkmeetings = chimesdkmeetings;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder chimesdkmessaging(@Nullable String chimesdkmessaging) {
-            this.chimesdkmessaging = chimesdkmessaging;
             return this;
         }
         @CustomType.Setter
@@ -2593,11 +1703,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder clouddirectory(@Nullable String clouddirectory) {
-            this.clouddirectory = clouddirectory;
-            return this;
-        }
-        @CustomType.Setter
         public Builder cloudformation(@Nullable String cloudformation) {
             this.cloudformation = cloudformation;
             return this;
@@ -2620,11 +1725,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder cloudsearch(@Nullable String cloudsearch) {
             this.cloudsearch = cloudsearch;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder cloudsearchdomain(@Nullable String cloudsearchdomain) {
-            this.cloudsearchdomain = cloudsearchdomain;
             return this;
         }
         @CustomType.Setter
@@ -2678,6 +1778,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder codecatalyst(@Nullable String codecatalyst) {
+            this.codecatalyst = codecatalyst;
+            return this;
+        }
+        @CustomType.Setter
         public Builder codecommit(@Nullable String codecommit) {
             this.codecommit = codecommit;
             return this;
@@ -2688,11 +1793,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder codeguruprofiler(@Nullable String codeguruprofiler) {
-            this.codeguruprofiler = codeguruprofiler;
-            return this;
-        }
-        @CustomType.Setter
         public Builder codegurureviewer(@Nullable String codegurureviewer) {
             this.codegurureviewer = codegurureviewer;
             return this;
@@ -2700,11 +1800,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder codepipeline(@Nullable String codepipeline) {
             this.codepipeline = codepipeline;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder codestar(@Nullable String codestar) {
-            this.codestar = codestar;
             return this;
         }
         @CustomType.Setter
@@ -2733,18 +1828,8 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder cognitosync(@Nullable String cognitosync) {
-            this.cognitosync = cognitosync;
-            return this;
-        }
-        @CustomType.Setter
         public Builder comprehend(@Nullable String comprehend) {
             this.comprehend = comprehend;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder comprehendmedical(@Nullable String comprehendmedical) {
-            this.comprehendmedical = comprehendmedical;
             return this;
         }
         @CustomType.Setter
@@ -2768,21 +1853,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder connectcontactlens(@Nullable String connectcontactlens) {
-            this.connectcontactlens = connectcontactlens;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder connectparticipant(@Nullable String connectparticipant) {
-            this.connectparticipant = connectparticipant;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder connectwisdomservice(@Nullable String connectwisdomservice) {
-            this.connectwisdomservice = connectwisdomservice;
-            return this;
-        }
-        @CustomType.Setter
         public Builder controltower(@Nullable String controltower) {
             this.controltower = controltower;
             return this;
@@ -2803,11 +1873,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder customerprofiles(@Nullable String customerprofiles) {
-            this.customerprofiles = customerprofiles;
-            return this;
-        }
-        @CustomType.Setter
         public Builder databasemigration(@Nullable String databasemigration) {
             this.databasemigration = databasemigration;
             return this;
@@ -2815,11 +1880,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder databasemigrationservice(@Nullable String databasemigrationservice) {
             this.databasemigrationservice = databasemigrationservice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder databrew(@Nullable String databrew) {
-            this.databrew = databrew;
             return this;
         }
         @CustomType.Setter
@@ -2858,11 +1918,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder devopsguru(@Nullable String devopsguru) {
-            this.devopsguru = devopsguru;
-            return this;
-        }
-        @CustomType.Setter
         public Builder directconnect(@Nullable String directconnect) {
             this.directconnect = directconnect;
             return this;
@@ -2870,11 +1925,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder directoryservice(@Nullable String directoryservice) {
             this.directoryservice = directoryservice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder discovery(@Nullable String discovery) {
-            this.discovery = discovery;
             return this;
         }
         @CustomType.Setter
@@ -2898,11 +1948,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder drs(@Nullable String drs) {
-            this.drs = drs;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ds(@Nullable String ds) {
             this.ds = ds;
             return this;
@@ -2913,23 +1958,8 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder dynamodbstreams(@Nullable String dynamodbstreams) {
-            this.dynamodbstreams = dynamodbstreams;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ebs(@Nullable String ebs) {
-            this.ebs = ebs;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ec2(@Nullable String ec2) {
             this.ec2 = ec2;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ec2instanceconnect(@Nullable String ec2instanceconnect) {
-            this.ec2instanceconnect = ec2instanceconnect;
             return this;
         }
         @CustomType.Setter
@@ -2965,11 +1995,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder elasticbeanstalk(@Nullable String elasticbeanstalk) {
             this.elasticbeanstalk = elasticbeanstalk;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder elasticinference(@Nullable String elasticinference) {
-            this.elasticinference = elasticinference;
             return this;
         }
         @CustomType.Setter
@@ -3048,11 +2073,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder finspacedata(@Nullable String finspacedata) {
-            this.finspacedata = finspacedata;
-            return this;
-        }
-        @CustomType.Setter
         public Builder firehose(@Nullable String firehose) {
             this.firehose = firehose;
             return this;
@@ -3065,31 +2085,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder fms(@Nullable String fms) {
             this.fms = fms;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder forecast(@Nullable String forecast) {
-            this.forecast = forecast;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder forecastquery(@Nullable String forecastquery) {
-            this.forecastquery = forecastquery;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder forecastqueryservice(@Nullable String forecastqueryservice) {
-            this.forecastqueryservice = forecastqueryservice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder forecastservice(@Nullable String forecastservice) {
-            this.forecastservice = forecastservice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder frauddetector(@Nullable String frauddetector) {
-            this.frauddetector = frauddetector;
             return this;
         }
         @CustomType.Setter
@@ -3118,11 +2113,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder gluedatabrew(@Nullable String gluedatabrew) {
-            this.gluedatabrew = gluedatabrew;
-            return this;
-        }
-        @CustomType.Setter
         public Builder grafana(@Nullable String grafana) {
             this.grafana = grafana;
             return this;
@@ -3133,33 +2123,13 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder greengrassv2(@Nullable String greengrassv2) {
-            this.greengrassv2 = greengrassv2;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder groundstation(@Nullable String groundstation) {
-            this.groundstation = groundstation;
-            return this;
-        }
-        @CustomType.Setter
         public Builder guardduty(@Nullable String guardduty) {
             this.guardduty = guardduty;
             return this;
         }
         @CustomType.Setter
-        public Builder health(@Nullable String health) {
-            this.health = health;
-            return this;
-        }
-        @CustomType.Setter
         public Builder healthlake(@Nullable String healthlake) {
             this.healthlake = healthlake;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder honeycode(@Nullable String honeycode) {
-            this.honeycode = honeycode;
             return this;
         }
         @CustomType.Setter
@@ -3203,88 +2173,13 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder iot1clickdevices(@Nullable String iot1clickdevices) {
-            this.iot1clickdevices = iot1clickdevices;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iot1clickdevicesservice(@Nullable String iot1clickdevicesservice) {
-            this.iot1clickdevicesservice = iot1clickdevicesservice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iot1clickprojects(@Nullable String iot1clickprojects) {
-            this.iot1clickprojects = iot1clickprojects;
-            return this;
-        }
-        @CustomType.Setter
         public Builder iotanalytics(@Nullable String iotanalytics) {
             this.iotanalytics = iotanalytics;
             return this;
         }
         @CustomType.Setter
-        public Builder iotdata(@Nullable String iotdata) {
-            this.iotdata = iotdata;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotdataplane(@Nullable String iotdataplane) {
-            this.iotdataplane = iotdataplane;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotdeviceadvisor(@Nullable String iotdeviceadvisor) {
-            this.iotdeviceadvisor = iotdeviceadvisor;
-            return this;
-        }
-        @CustomType.Setter
         public Builder iotevents(@Nullable String iotevents) {
             this.iotevents = iotevents;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ioteventsdata(@Nullable String ioteventsdata) {
-            this.ioteventsdata = ioteventsdata;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotfleethub(@Nullable String iotfleethub) {
-            this.iotfleethub = iotfleethub;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotjobsdata(@Nullable String iotjobsdata) {
-            this.iotjobsdata = iotjobsdata;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotjobsdataplane(@Nullable String iotjobsdataplane) {
-            this.iotjobsdataplane = iotjobsdataplane;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotsecuretunneling(@Nullable String iotsecuretunneling) {
-            this.iotsecuretunneling = iotsecuretunneling;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotsitewise(@Nullable String iotsitewise) {
-            this.iotsitewise = iotsitewise;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotthingsgraph(@Nullable String iotthingsgraph) {
-            this.iotthingsgraph = iotthingsgraph;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iottwinmaker(@Nullable String iottwinmaker) {
-            this.iottwinmaker = iottwinmaker;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotwireless(@Nullable String iotwireless) {
-            this.iotwireless = iotwireless;
             return this;
         }
         @CustomType.Setter
@@ -3338,26 +2233,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder kinesisvideoarchivedmedia(@Nullable String kinesisvideoarchivedmedia) {
-            this.kinesisvideoarchivedmedia = kinesisvideoarchivedmedia;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder kinesisvideomedia(@Nullable String kinesisvideomedia) {
-            this.kinesisvideomedia = kinesisvideomedia;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder kinesisvideosignaling(@Nullable String kinesisvideosignaling) {
-            this.kinesisvideosignaling = kinesisvideosignaling;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder kinesisvideosignalingchannels(@Nullable String kinesisvideosignalingchannels) {
-            this.kinesisvideosignalingchannels = kinesisvideosignalingchannels;
-            return this;
-        }
-        @CustomType.Setter
         public Builder kms(@Nullable String kms) {
             this.kms = kms;
             return this;
@@ -3398,28 +2273,8 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder lexruntime(@Nullable String lexruntime) {
-            this.lexruntime = lexruntime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder lexruntimeservice(@Nullable String lexruntimeservice) {
-            this.lexruntimeservice = lexruntimeservice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder lexruntimev2(@Nullable String lexruntimev2) {
-            this.lexruntimev2 = lexruntimev2;
-            return this;
-        }
-        @CustomType.Setter
         public Builder lexv2models(@Nullable String lexv2models) {
             this.lexv2models = lexv2models;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder lexv2runtime(@Nullable String lexv2runtime) {
-            this.lexv2runtime = lexv2runtime;
             return this;
         }
         @CustomType.Setter
@@ -3448,73 +2303,13 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder lookoutequipment(@Nullable String lookoutequipment) {
-            this.lookoutequipment = lookoutequipment;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder lookoutforvision(@Nullable String lookoutforvision) {
-            this.lookoutforvision = lookoutforvision;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder lookoutmetrics(@Nullable String lookoutmetrics) {
-            this.lookoutmetrics = lookoutmetrics;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder lookoutvision(@Nullable String lookoutvision) {
-            this.lookoutvision = lookoutvision;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder machinelearning(@Nullable String machinelearning) {
-            this.machinelearning = machinelearning;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder macie(@Nullable String macie) {
-            this.macie = macie;
-            return this;
-        }
-        @CustomType.Setter
         public Builder macie2(@Nullable String macie2) {
             this.macie2 = macie2;
             return this;
         }
         @CustomType.Setter
-        public Builder managedblockchain(@Nullable String managedblockchain) {
-            this.managedblockchain = managedblockchain;
-            return this;
-        }
-        @CustomType.Setter
         public Builder managedgrafana(@Nullable String managedgrafana) {
             this.managedgrafana = managedgrafana;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder marketplacecatalog(@Nullable String marketplacecatalog) {
-            this.marketplacecatalog = marketplacecatalog;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder marketplacecommerceanalytics(@Nullable String marketplacecommerceanalytics) {
-            this.marketplacecommerceanalytics = marketplacecommerceanalytics;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder marketplaceentitlement(@Nullable String marketplaceentitlement) {
-            this.marketplaceentitlement = marketplaceentitlement;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder marketplaceentitlementservice(@Nullable String marketplaceentitlementservice) {
-            this.marketplaceentitlementservice = marketplaceentitlementservice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder marketplacemetering(@Nullable String marketplacemetering) {
-            this.marketplacemetering = marketplacemetering;
             return this;
         }
         @CustomType.Setter
@@ -3538,73 +2333,13 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder mediapackagevod(@Nullable String mediapackagevod) {
-            this.mediapackagevod = mediapackagevod;
-            return this;
-        }
-        @CustomType.Setter
         public Builder mediastore(@Nullable String mediastore) {
             this.mediastore = mediastore;
             return this;
         }
         @CustomType.Setter
-        public Builder mediastoredata(@Nullable String mediastoredata) {
-            this.mediastoredata = mediastoredata;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder mediatailor(@Nullable String mediatailor) {
-            this.mediatailor = mediatailor;
-            return this;
-        }
-        @CustomType.Setter
         public Builder memorydb(@Nullable String memorydb) {
             this.memorydb = memorydb;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder meteringmarketplace(@Nullable String meteringmarketplace) {
-            this.meteringmarketplace = meteringmarketplace;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder mgh(@Nullable String mgh) {
-            this.mgh = mgh;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder mgn(@Nullable String mgn) {
-            this.mgn = mgn;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder migrationhub(@Nullable String migrationhub) {
-            this.migrationhub = migrationhub;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder migrationhubconfig(@Nullable String migrationhubconfig) {
-            this.migrationhubconfig = migrationhubconfig;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder migrationhubrefactorspaces(@Nullable String migrationhubrefactorspaces) {
-            this.migrationhubrefactorspaces = migrationhubrefactorspaces;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder migrationhubstrategy(@Nullable String migrationhubstrategy) {
-            this.migrationhubstrategy = migrationhubstrategy;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder migrationhubstrategyrecommendations(@Nullable String migrationhubstrategyrecommendations) {
-            this.migrationhubstrategyrecommendations = migrationhubstrategyrecommendations;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder mobile(@Nullable String mobile) {
-            this.mobile = mobile;
             return this;
         }
         @CustomType.Setter
@@ -3615,11 +2350,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder msk(@Nullable String msk) {
             this.msk = msk;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder mturk(@Nullable String mturk) {
-            this.mturk = mturk;
             return this;
         }
         @CustomType.Setter
@@ -3640,16 +2370,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder networkmanager(@Nullable String networkmanager) {
             this.networkmanager = networkmanager;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder nimble(@Nullable String nimble) {
-            this.nimble = nimble;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder nimblestudio(@Nullable String nimblestudio) {
-            this.nimblestudio = nimblestudio;
             return this;
         }
         @CustomType.Setter
@@ -3678,11 +2398,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder opsworkscm(@Nullable String opsworkscm) {
-            this.opsworkscm = opsworkscm;
-            return this;
-        }
-        @CustomType.Setter
         public Builder organizations(@Nullable String organizations) {
             this.organizations = organizations;
             return this;
@@ -3693,53 +2408,13 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder panorama(@Nullable String panorama) {
-            this.panorama = panorama;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder personalize(@Nullable String personalize) {
-            this.personalize = personalize;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder personalizeevents(@Nullable String personalizeevents) {
-            this.personalizeevents = personalizeevents;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder personalizeruntime(@Nullable String personalizeruntime) {
-            this.personalizeruntime = personalizeruntime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder pi(@Nullable String pi) {
-            this.pi = pi;
-            return this;
-        }
-        @CustomType.Setter
         public Builder pinpoint(@Nullable String pinpoint) {
             this.pinpoint = pinpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder pinpointemail(@Nullable String pinpointemail) {
-            this.pinpointemail = pinpointemail;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder pinpointsmsvoice(@Nullable String pinpointsmsvoice) {
-            this.pinpointsmsvoice = pinpointsmsvoice;
-            return this;
-        }
-        @CustomType.Setter
         public Builder pipes(@Nullable String pipes) {
             this.pipes = pipes;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder polly(@Nullable String polly) {
-            this.polly = polly;
             return this;
         }
         @CustomType.Setter
@@ -3758,18 +2433,8 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder proton(@Nullable String proton) {
-            this.proton = proton;
-            return this;
-        }
-        @CustomType.Setter
         public Builder qldb(@Nullable String qldb) {
             this.qldb = qldb;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder qldbsession(@Nullable String qldbsession) {
-            this.qldbsession = qldbsession;
             return this;
         }
         @CustomType.Setter
@@ -3790,16 +2455,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder rds(@Nullable String rds) {
             this.rds = rds;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder rdsdata(@Nullable String rdsdata) {
-            this.rdsdata = rdsdata;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder rdsdataservice(@Nullable String rdsdataservice) {
-            this.rdsdataservice = rdsdataservice;
             return this;
         }
         @CustomType.Setter
@@ -3828,16 +2483,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder rekognition(@Nullable String rekognition) {
-            this.rekognition = rekognition;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder resiliencehub(@Nullable String resiliencehub) {
-            this.resiliencehub = resiliencehub;
-            return this;
-        }
-        @CustomType.Setter
         public Builder resourceexplorer2(@Nullable String resourceexplorer2) {
             this.resourceexplorer2 = resourceexplorer2;
             return this;
@@ -3858,11 +2503,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder robomaker(@Nullable String robomaker) {
-            this.robomaker = robomaker;
-            return this;
-        }
-        @CustomType.Setter
         public Builder rolesanywhere(@Nullable String rolesanywhere) {
             this.rolesanywhere = rolesanywhere;
             return this;
@@ -3875,11 +2515,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder route53domains(@Nullable String route53domains) {
             this.route53domains = route53domains;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder route53recoverycluster(@Nullable String route53recoverycluster) {
-            this.route53recoverycluster = route53recoverycluster;
             return this;
         }
         @CustomType.Setter
@@ -3925,36 +2560,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder sagemaker(@Nullable String sagemaker) {
             this.sagemaker = sagemaker;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder sagemakera2iruntime(@Nullable String sagemakera2iruntime) {
-            this.sagemakera2iruntime = sagemakera2iruntime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder sagemakeredge(@Nullable String sagemakeredge) {
-            this.sagemakeredge = sagemakeredge;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder sagemakeredgemanager(@Nullable String sagemakeredgemanager) {
-            this.sagemakeredgemanager = sagemakeredgemanager;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder sagemakerfeaturestoreruntime(@Nullable String sagemakerfeaturestoreruntime) {
-            this.sagemakerfeaturestoreruntime = sagemakerfeaturestoreruntime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder sagemakerruntime(@Nullable String sagemakerruntime) {
-            this.sagemakerruntime = sagemakerruntime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder savingsplans(@Nullable String savingsplans) {
-            this.savingsplans = savingsplans;
             return this;
         }
         @CustomType.Setter
@@ -4008,11 +2613,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder servicecatalogappregistry(@Nullable String servicecatalogappregistry) {
-            this.servicecatalogappregistry = servicecatalogappregistry;
-            return this;
-        }
-        @CustomType.Setter
         public Builder servicediscovery(@Nullable String servicediscovery) {
             this.servicediscovery = servicediscovery;
             return this;
@@ -4053,21 +2653,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder sms(@Nullable String sms) {
-            this.sms = sms;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder snowball(@Nullable String snowball) {
-            this.snowball = snowball;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder snowdevicemanagement(@Nullable String snowdevicemanagement) {
-            this.snowdevicemanagement = snowdevicemanagement;
-            return this;
-        }
-        @CustomType.Setter
         public Builder sns(@Nullable String sns) {
             this.sns = sns;
             return this;
@@ -4093,18 +2678,8 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder sso(@Nullable String sso) {
-            this.sso = sso;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ssoadmin(@Nullable String ssoadmin) {
             this.ssoadmin = ssoadmin;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ssooidc(@Nullable String ssooidc) {
-            this.ssooidc = ssooidc;
             return this;
         }
         @CustomType.Setter
@@ -4123,11 +2698,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder support(@Nullable String support) {
-            this.support = support;
-            return this;
-        }
-        @CustomType.Setter
         public Builder swf(@Nullable String swf) {
             this.swf = swf;
             return this;
@@ -4135,16 +2705,6 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder synthetics(@Nullable String synthetics) {
             this.synthetics = synthetics;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder textract(@Nullable String textract) {
-            this.textract = textract;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder timestreamquery(@Nullable String timestreamquery) {
-            this.timestreamquery = timestreamquery;
             return this;
         }
         @CustomType.Setter
@@ -4163,28 +2723,13 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder transcribestreaming(@Nullable String transcribestreaming) {
-            this.transcribestreaming = transcribestreaming;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder transcribestreamingservice(@Nullable String transcribestreamingservice) {
-            this.transcribestreamingservice = transcribestreamingservice;
-            return this;
-        }
-        @CustomType.Setter
         public Builder transfer(@Nullable String transfer) {
             this.transfer = transfer;
             return this;
         }
         @CustomType.Setter
-        public Builder translate(@Nullable String translate) {
-            this.translate = translate;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder voiceid(@Nullable String voiceid) {
-            this.voiceid = voiceid;
+        public Builder verifiedpermissions(@Nullable String verifiedpermissions) {
+            this.verifiedpermissions = verifiedpermissions;
             return this;
         }
         @CustomType.Setter
@@ -4208,43 +2753,13 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder wellarchitected(@Nullable String wellarchitected) {
-            this.wellarchitected = wellarchitected;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder wisdom(@Nullable String wisdom) {
-            this.wisdom = wisdom;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder workdocs(@Nullable String workdocs) {
-            this.workdocs = workdocs;
-            return this;
-        }
-        @CustomType.Setter
         public Builder worklink(@Nullable String worklink) {
             this.worklink = worklink;
             return this;
         }
         @CustomType.Setter
-        public Builder workmail(@Nullable String workmail) {
-            this.workmail = workmail;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder workmailmessageflow(@Nullable String workmailmessageflow) {
-            this.workmailmessageflow = workmailmessageflow;
-            return this;
-        }
-        @CustomType.Setter
         public Builder workspaces(@Nullable String workspaces) {
             this.workspaces = workspaces;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder workspacesweb(@Nullable String workspacesweb) {
-            this.workspacesweb = workspacesweb;
             return this;
         }
         @CustomType.Setter
@@ -4258,61 +2773,43 @@ public final class Endpoints {
             o.account = account;
             o.acm = acm;
             o.acmpca = acmpca;
-            o.alexaforbusiness = alexaforbusiness;
             o.amg = amg;
             o.amp = amp;
             o.amplify = amplify;
-            o.amplifybackend = amplifybackend;
-            o.amplifyuibuilder = amplifyuibuilder;
             o.apigateway = apigateway;
-            o.apigatewaymanagementapi = apigatewaymanagementapi;
             o.apigatewayv2 = apigatewayv2;
             o.appautoscaling = appautoscaling;
             o.appconfig = appconfig;
-            o.appconfigdata = appconfigdata;
             o.appflow = appflow;
             o.appintegrations = appintegrations;
             o.appintegrationsservice = appintegrationsservice;
             o.applicationautoscaling = applicationautoscaling;
-            o.applicationcostprofiler = applicationcostprofiler;
-            o.applicationdiscovery = applicationdiscovery;
-            o.applicationdiscoveryservice = applicationdiscoveryservice;
             o.applicationinsights = applicationinsights;
             o.appmesh = appmesh;
-            o.appregistry = appregistry;
             o.apprunner = apprunner;
             o.appstream = appstream;
             o.appsync = appsync;
             o.athena = athena;
             o.auditmanager = auditmanager;
-            o.augmentedairuntime = augmentedairuntime;
             o.autoscaling = autoscaling;
             o.autoscalingplans = autoscalingplans;
             o.backup = backup;
-            o.backupgateway = backupgateway;
             o.batch = batch;
             o.beanstalk = beanstalk;
-            o.billingconductor = billingconductor;
-            o.braket = braket;
             o.budgets = budgets;
             o.ce = ce;
             o.chime = chime;
-            o.chimesdkidentity = chimesdkidentity;
             o.chimesdkmediapipelines = chimesdkmediapipelines;
-            o.chimesdkmeetings = chimesdkmeetings;
-            o.chimesdkmessaging = chimesdkmessaging;
             o.chimesdkvoice = chimesdkvoice;
             o.cleanrooms = cleanrooms;
             o.cloud9 = cloud9;
             o.cloudcontrol = cloudcontrol;
             o.cloudcontrolapi = cloudcontrolapi;
-            o.clouddirectory = clouddirectory;
             o.cloudformation = cloudformation;
             o.cloudfront = cloudfront;
             o.cloudhsm = cloudhsm;
             o.cloudhsmv2 = cloudhsmv2;
             o.cloudsearch = cloudsearch;
-            o.cloudsearchdomain = cloudsearchdomain;
             o.cloudtrail = cloudtrail;
             o.cloudwatch = cloudwatch;
             o.cloudwatchevents = cloudwatchevents;
@@ -4323,35 +2820,27 @@ public final class Endpoints {
             o.cloudwatchrum = cloudwatchrum;
             o.codeartifact = codeartifact;
             o.codebuild = codebuild;
+            o.codecatalyst = codecatalyst;
             o.codecommit = codecommit;
             o.codedeploy = codedeploy;
-            o.codeguruprofiler = codeguruprofiler;
             o.codegurureviewer = codegurureviewer;
             o.codepipeline = codepipeline;
-            o.codestar = codestar;
             o.codestarconnections = codestarconnections;
             o.codestarnotifications = codestarnotifications;
             o.cognitoidentity = cognitoidentity;
             o.cognitoidentityprovider = cognitoidentityprovider;
             o.cognitoidp = cognitoidp;
-            o.cognitosync = cognitosync;
             o.comprehend = comprehend;
-            o.comprehendmedical = comprehendmedical;
             o.computeoptimizer = computeoptimizer;
             o.config = config;
             o.configservice = configservice;
             o.connect = connect;
-            o.connectcontactlens = connectcontactlens;
-            o.connectparticipant = connectparticipant;
-            o.connectwisdomservice = connectwisdomservice;
             o.controltower = controltower;
             o.costandusagereportservice = costandusagereportservice;
             o.costexplorer = costexplorer;
             o.cur = cur;
-            o.customerprofiles = customerprofiles;
             o.databasemigration = databasemigration;
             o.databasemigrationservice = databasemigrationservice;
-            o.databrew = databrew;
             o.dataexchange = dataexchange;
             o.datapipeline = datapipeline;
             o.datasync = datasync;
@@ -4359,21 +2848,15 @@ public final class Endpoints {
             o.deploy = deploy;
             o.detective = detective;
             o.devicefarm = devicefarm;
-            o.devopsguru = devopsguru;
             o.directconnect = directconnect;
             o.directoryservice = directoryservice;
-            o.discovery = discovery;
             o.dlm = dlm;
             o.dms = dms;
             o.docdb = docdb;
             o.docdbelastic = docdbelastic;
-            o.drs = drs;
             o.ds = ds;
             o.dynamodb = dynamodb;
-            o.dynamodbstreams = dynamodbstreams;
-            o.ebs = ebs;
             o.ec2 = ec2;
-            o.ec2instanceconnect = ec2instanceconnect;
             o.ecr = ecr;
             o.ecrpublic = ecrpublic;
             o.ecs = ecs;
@@ -4381,7 +2864,6 @@ public final class Endpoints {
             o.eks = eks;
             o.elasticache = elasticache;
             o.elasticbeanstalk = elasticbeanstalk;
-            o.elasticinference = elasticinference;
             o.elasticloadbalancing = elasticloadbalancing;
             o.elasticloadbalancingv2 = elasticloadbalancingv2;
             o.elasticsearch = elasticsearch;
@@ -4397,29 +2879,18 @@ public final class Endpoints {
             o.events = events;
             o.evidently = evidently;
             o.finspace = finspace;
-            o.finspacedata = finspacedata;
             o.firehose = firehose;
             o.fis = fis;
             o.fms = fms;
-            o.forecast = forecast;
-            o.forecastquery = forecastquery;
-            o.forecastqueryservice = forecastqueryservice;
-            o.forecastservice = forecastservice;
-            o.frauddetector = frauddetector;
             o.fsx = fsx;
             o.gamelift = gamelift;
             o.glacier = glacier;
             o.globalaccelerator = globalaccelerator;
             o.glue = glue;
-            o.gluedatabrew = gluedatabrew;
             o.grafana = grafana;
             o.greengrass = greengrass;
-            o.greengrassv2 = greengrassv2;
-            o.groundstation = groundstation;
             o.guardduty = guardduty;
-            o.health = health;
             o.healthlake = healthlake;
-            o.honeycode = honeycode;
             o.iam = iam;
             o.identitystore = identitystore;
             o.imagebuilder = imagebuilder;
@@ -4428,23 +2899,8 @@ public final class Endpoints {
             o.inspectorv2 = inspectorv2;
             o.internetmonitor = internetmonitor;
             o.iot = iot;
-            o.iot1clickdevices = iot1clickdevices;
-            o.iot1clickdevicesservice = iot1clickdevicesservice;
-            o.iot1clickprojects = iot1clickprojects;
             o.iotanalytics = iotanalytics;
-            o.iotdata = iotdata;
-            o.iotdataplane = iotdataplane;
-            o.iotdeviceadvisor = iotdeviceadvisor;
             o.iotevents = iotevents;
-            o.ioteventsdata = ioteventsdata;
-            o.iotfleethub = iotfleethub;
-            o.iotjobsdata = iotjobsdata;
-            o.iotjobsdataplane = iotjobsdataplane;
-            o.iotsecuretunneling = iotsecuretunneling;
-            o.iotsitewise = iotsitewise;
-            o.iotthingsgraph = iotthingsgraph;
-            o.iottwinmaker = iottwinmaker;
-            o.iotwireless = iotwireless;
             o.ivs = ivs;
             o.ivschat = ivschat;
             o.kafka = kafka;
@@ -4455,10 +2911,6 @@ public final class Endpoints {
             o.kinesisanalytics = kinesisanalytics;
             o.kinesisanalyticsv2 = kinesisanalyticsv2;
             o.kinesisvideo = kinesisvideo;
-            o.kinesisvideoarchivedmedia = kinesisvideoarchivedmedia;
-            o.kinesisvideomedia = kinesisvideomedia;
-            o.kinesisvideosignaling = kinesisvideosignaling;
-            o.kinesisvideosignalingchannels = kinesisvideosignalingchannels;
             o.kms = kms;
             o.lakeformation = lakeformation;
             o.lambda = lambda;
@@ -4467,103 +2919,55 @@ public final class Endpoints {
             o.lexmodelbuildingservice = lexmodelbuildingservice;
             o.lexmodels = lexmodels;
             o.lexmodelsv2 = lexmodelsv2;
-            o.lexruntime = lexruntime;
-            o.lexruntimeservice = lexruntimeservice;
-            o.lexruntimev2 = lexruntimev2;
             o.lexv2models = lexv2models;
-            o.lexv2runtime = lexv2runtime;
             o.licensemanager = licensemanager;
             o.lightsail = lightsail;
             o.location = location;
             o.locationservice = locationservice;
             o.logs = logs;
-            o.lookoutequipment = lookoutequipment;
-            o.lookoutforvision = lookoutforvision;
-            o.lookoutmetrics = lookoutmetrics;
-            o.lookoutvision = lookoutvision;
-            o.machinelearning = machinelearning;
-            o.macie = macie;
             o.macie2 = macie2;
-            o.managedblockchain = managedblockchain;
             o.managedgrafana = managedgrafana;
-            o.marketplacecatalog = marketplacecatalog;
-            o.marketplacecommerceanalytics = marketplacecommerceanalytics;
-            o.marketplaceentitlement = marketplaceentitlement;
-            o.marketplaceentitlementservice = marketplaceentitlementservice;
-            o.marketplacemetering = marketplacemetering;
             o.mediaconnect = mediaconnect;
             o.mediaconvert = mediaconvert;
             o.medialive = medialive;
             o.mediapackage = mediapackage;
-            o.mediapackagevod = mediapackagevod;
             o.mediastore = mediastore;
-            o.mediastoredata = mediastoredata;
-            o.mediatailor = mediatailor;
             o.memorydb = memorydb;
-            o.meteringmarketplace = meteringmarketplace;
-            o.mgh = mgh;
-            o.mgn = mgn;
-            o.migrationhub = migrationhub;
-            o.migrationhubconfig = migrationhubconfig;
-            o.migrationhubrefactorspaces = migrationhubrefactorspaces;
-            o.migrationhubstrategy = migrationhubstrategy;
-            o.migrationhubstrategyrecommendations = migrationhubstrategyrecommendations;
-            o.mobile = mobile;
             o.mq = mq;
             o.msk = msk;
-            o.mturk = mturk;
             o.mwaa = mwaa;
             o.neptune = neptune;
             o.networkfirewall = networkfirewall;
             o.networkmanager = networkmanager;
-            o.nimble = nimble;
-            o.nimblestudio = nimblestudio;
             o.oam = oam;
             o.opensearch = opensearch;
             o.opensearchserverless = opensearchserverless;
             o.opensearchservice = opensearchservice;
             o.opsworks = opsworks;
-            o.opsworkscm = opsworkscm;
             o.organizations = organizations;
             o.outposts = outposts;
-            o.panorama = panorama;
-            o.personalize = personalize;
-            o.personalizeevents = personalizeevents;
-            o.personalizeruntime = personalizeruntime;
-            o.pi = pi;
             o.pinpoint = pinpoint;
-            o.pinpointemail = pinpointemail;
-            o.pinpointsmsvoice = pinpointsmsvoice;
             o.pipes = pipes;
-            o.polly = polly;
             o.pricing = pricing;
             o.prometheus = prometheus;
             o.prometheusservice = prometheusservice;
-            o.proton = proton;
             o.qldb = qldb;
-            o.qldbsession = qldbsession;
             o.quicksight = quicksight;
             o.ram = ram;
             o.rbin = rbin;
             o.rds = rds;
-            o.rdsdata = rdsdata;
-            o.rdsdataservice = rdsdataservice;
             o.recyclebin = recyclebin;
             o.redshift = redshift;
             o.redshiftdata = redshiftdata;
             o.redshiftdataapiservice = redshiftdataapiservice;
             o.redshiftserverless = redshiftserverless;
-            o.rekognition = rekognition;
-            o.resiliencehub = resiliencehub;
             o.resourceexplorer2 = resourceexplorer2;
             o.resourcegroups = resourcegroups;
             o.resourcegroupstagging = resourcegroupstagging;
             o.resourcegroupstaggingapi = resourcegroupstaggingapi;
-            o.robomaker = robomaker;
             o.rolesanywhere = rolesanywhere;
             o.route53 = route53;
             o.route53domains = route53domains;
-            o.route53recoverycluster = route53recoverycluster;
             o.route53recoverycontrolconfig = route53recoverycontrolconfig;
             o.route53recoveryreadiness = route53recoveryreadiness;
             o.route53resolver = route53resolver;
@@ -4573,12 +2977,6 @@ public final class Endpoints {
             o.s3control = s3control;
             o.s3outposts = s3outposts;
             o.sagemaker = sagemaker;
-            o.sagemakera2iruntime = sagemakera2iruntime;
-            o.sagemakeredge = sagemakeredge;
-            o.sagemakeredgemanager = sagemakeredgemanager;
-            o.sagemakerfeaturestoreruntime = sagemakerfeaturestoreruntime;
-            o.sagemakerruntime = sagemakerruntime;
-            o.savingsplans = savingsplans;
             o.scheduler = scheduler;
             o.schemas = schemas;
             o.sdb = sdb;
@@ -4589,7 +2987,6 @@ public final class Endpoints {
             o.serverlessapprepo = serverlessapprepo;
             o.serverlessrepo = serverlessrepo;
             o.servicecatalog = servicecatalog;
-            o.servicecatalogappregistry = servicecatalogappregistry;
             o.servicediscovery = servicediscovery;
             o.servicequotas = servicequotas;
             o.ses = ses;
@@ -4598,45 +2995,28 @@ public final class Endpoints {
             o.shield = shield;
             o.signer = signer;
             o.simpledb = simpledb;
-            o.sms = sms;
-            o.snowball = snowball;
-            o.snowdevicemanagement = snowdevicemanagement;
             o.sns = sns;
             o.sqs = sqs;
             o.ssm = ssm;
             o.ssmcontacts = ssmcontacts;
             o.ssmincidents = ssmincidents;
-            o.sso = sso;
             o.ssoadmin = ssoadmin;
-            o.ssooidc = ssooidc;
             o.stepfunctions = stepfunctions;
             o.storagegateway = storagegateway;
             o.sts = sts;
-            o.support = support;
             o.swf = swf;
             o.synthetics = synthetics;
-            o.textract = textract;
-            o.timestreamquery = timestreamquery;
             o.timestreamwrite = timestreamwrite;
             o.transcribe = transcribe;
             o.transcribeservice = transcribeservice;
-            o.transcribestreaming = transcribestreaming;
-            o.transcribestreamingservice = transcribestreamingservice;
             o.transfer = transfer;
-            o.translate = translate;
-            o.voiceid = voiceid;
+            o.verifiedpermissions = verifiedpermissions;
             o.vpclattice = vpclattice;
             o.waf = waf;
             o.wafregional = wafregional;
             o.wafv2 = wafv2;
-            o.wellarchitected = wellarchitected;
-            o.wisdom = wisdom;
-            o.workdocs = workdocs;
             o.worklink = worklink;
-            o.workmail = workmail;
-            o.workmailmessageflow = workmailmessageflow;
             o.workspaces = workspaces;
-            o.workspacesweb = workspacesweb;
             o.xray = xray;
             return o;
         }

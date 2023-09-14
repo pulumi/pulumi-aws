@@ -381,7 +381,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Evidently Project can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
@@ -454,7 +454,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Evidently Project can be imported using the `arn`, e.g.,
+        Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
 
         ```sh
          $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example

@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
@@ -144,12 +144,16 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayRouteTableId() {

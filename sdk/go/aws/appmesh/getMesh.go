@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,8 +45,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +70,7 @@ import (
 //
 // ```
 func LookupMesh(ctx *pulumi.Context, args *LookupMeshArgs, opts ...pulumi.InvokeOption) (*LookupMeshResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMeshResult
 	err := ctx.Invoke("aws:appmesh/getMesh:getMesh", args, &rv, opts...)
 	if err != nil {
@@ -146,6 +149,12 @@ func (o LookupMeshResultOutput) ToLookupMeshResultOutput() LookupMeshResultOutpu
 
 func (o LookupMeshResultOutput) ToLookupMeshResultOutputWithContext(ctx context.Context) LookupMeshResultOutput {
 	return o
+}
+
+func (o LookupMeshResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMeshResult] {
+	return pulumix.Output[LookupMeshResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the service mesh.

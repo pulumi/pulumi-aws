@@ -285,7 +285,7 @@ class ProtectionGroup(pulumi.CustomResource):
 
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
+        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
         example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
         example_protection_group = aws.shield.ProtectionGroup("exampleProtectionGroup",
             protection_group_id="example",
@@ -309,7 +309,7 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ## Import
 
-        Shield protection group resources can be imported by specifying their protection group id.
+        Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 
         ```sh
          $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
@@ -355,7 +355,7 @@ class ProtectionGroup(pulumi.CustomResource):
 
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
+        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
         example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
         example_protection_group = aws.shield.ProtectionGroup("exampleProtectionGroup",
             protection_group_id="example",
@@ -379,7 +379,7 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ## Import
 
-        Shield protection group resources can be imported by specifying their protection group id.
+        Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 
         ```sh
          $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example

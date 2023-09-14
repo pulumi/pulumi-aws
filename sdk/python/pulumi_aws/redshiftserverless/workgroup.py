@@ -29,6 +29,8 @@ class WorkgroupArgs:
         The set of arguments for constructing a Workgroup resource.
         :param pulumi.Input[str] namespace_name: The name of the namespace.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
@@ -71,6 +73,8 @@ class WorkgroupArgs:
     def workgroup_name(self) -> pulumi.Input[str]:
         """
         The name of the workgroup.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workgroup_name")
 
@@ -194,6 +198,8 @@ class _WorkgroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -371,6 +377,8 @@ class _WorkgroupState:
     def workgroup_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the workgroup.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workgroup_name")
 
@@ -410,7 +418,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+        Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 
         ```sh
          $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
@@ -427,6 +435,8 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -450,7 +460,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+        Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 
         ```sh
          $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
@@ -549,6 +559,8 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -670,6 +682,8 @@ class Workgroup(pulumi.CustomResource):
     def workgroup_name(self) -> pulumi.Output[str]:
         """
         The name of the workgroup.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workgroup_name")
 

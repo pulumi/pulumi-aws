@@ -15,6 +15,12 @@ __all__ = [
     'FsxOpenZfsFileSystemProtocol',
     'FsxOpenZfsFileSystemProtocolNfs',
     'FsxOpenZfsFileSystemProtocolNfsMountOptions',
+    'LocationAzureBlobSasConfiguration',
+    'LocationFsxOntapFileSystemProtocol',
+    'LocationFsxOntapFileSystemProtocolNfs',
+    'LocationFsxOntapFileSystemProtocolNfsMountOptions',
+    'LocationFsxOntapFileSystemProtocolSmb',
+    'LocationFsxOntapFileSystemProtocolSmbMountOptions',
     'LocationHdfsNameNode',
     'LocationHdfsQopConfiguration',
     'LocationSmbMountOptions',
@@ -143,6 +149,197 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
     def version(self) -> Optional[str]:
         """
         The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class LocationAzureBlobSasConfiguration(dict):
+    def __init__(__self__, *,
+                 token: str):
+        """
+        :param str token: A SAS token that provides permissions to access your Azure Blob Storage.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        A SAS token that provides permissions to access your Azure Blob Storage.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class LocationFsxOntapFileSystemProtocol(dict):
+    def __init__(__self__, *,
+                 nfs: Optional['outputs.LocationFsxOntapFileSystemProtocolNfs'] = None,
+                 smb: Optional['outputs.LocationFsxOntapFileSystemProtocolSmb'] = None):
+        """
+        :param 'LocationFsxOntapFileSystemProtocolNfsArgs' nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+        :param 'LocationFsxOntapFileSystemProtocolSmbArgs' smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        """
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter
+    def nfs(self) -> Optional['outputs.LocationFsxOntapFileSystemProtocolNfs']:
+        """
+        Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+        """
+        return pulumi.get(self, "nfs")
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional['outputs.LocationFsxOntapFileSystemProtocolSmb']:
+        """
+        Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        """
+        return pulumi.get(self, "smb")
+
+
+@pulumi.output_type
+class LocationFsxOntapFileSystemProtocolNfs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationFsxOntapFileSystemProtocolNfs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationFsxOntapFileSystemProtocolNfs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationFsxOntapFileSystemProtocolNfs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_options: 'outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions'):
+        """
+        :param 'LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs' mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> 'outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions':
+        """
+        Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+        """
+        return pulumi.get(self, "mount_options")
+
+
+@pulumi.output_type
+class LocationFsxOntapFileSystemProtocolNfsMountOptions(dict):
+    def __init__(__self__, *,
+                 version: Optional[str] = None):
+        """
+        :param str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class LocationFsxOntapFileSystemProtocolSmb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationFsxOntapFileSystemProtocolSmb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationFsxOntapFileSystemProtocolSmb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationFsxOntapFileSystemProtocolSmb.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_options: 'outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions',
+                 password: str,
+                 user: str,
+                 domain: Optional[str] = None):
+        """
+        :param 'LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs' mount_options: Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+        :param str password: Password of a user who has permission to access your SVM.
+        :param str user: Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+        :param str domain: Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user", user)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> 'outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions':
+        """
+        Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Password of a user who has permission to access your SVM.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def user(self) -> str:
+        """
+        Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+        """
+        return pulumi.get(self, "user")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[str]:
+        """
+        Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class LocationFsxOntapFileSystemProtocolSmbMountOptions(dict):
+    def __init__(__self__, *,
+                 version: Optional[str] = None):
+        """
+        :param str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
         """
         return pulumi.get(self, "version")
 
@@ -439,6 +636,8 @@ class TaskOptions(dict):
             suggest = "bytes_per_second"
         elif key == "logLevel":
             suggest = "log_level"
+        elif key == "objectTags":
+            suggest = "object_tags"
         elif key == "overwriteMode":
             suggest = "overwrite_mode"
         elif key == "posixPermissions":
@@ -473,6 +672,7 @@ class TaskOptions(dict):
                  gid: Optional[str] = None,
                  log_level: Optional[str] = None,
                  mtime: Optional[str] = None,
+                 object_tags: Optional[str] = None,
                  overwrite_mode: Optional[str] = None,
                  posix_permissions: Optional[str] = None,
                  preserve_deleted_files: Optional[str] = None,
@@ -488,11 +688,12 @@ class TaskOptions(dict):
         :param str gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         :param str log_level: Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         :param str mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+        :param str object_tags: Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
         :param str overwrite_mode: Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
         :param str posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param str preserve_deleted_files: Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
         :param str preserve_devices: Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-        :param str security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        :param str security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         :param str task_queueing: Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
         :param str transfer_mode: Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
         :param str uid: User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
@@ -508,6 +709,8 @@ class TaskOptions(dict):
             pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
+        if object_tags is not None:
+            pulumi.set(__self__, "object_tags", object_tags)
         if overwrite_mode is not None:
             pulumi.set(__self__, "overwrite_mode", overwrite_mode)
         if posix_permissions is not None:
@@ -568,6 +771,14 @@ class TaskOptions(dict):
         return pulumi.get(self, "mtime")
 
     @property
+    @pulumi.getter(name="objectTags")
+    def object_tags(self) -> Optional[str]:
+        """
+        Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+        """
+        return pulumi.get(self, "object_tags")
+
+    @property
     @pulumi.getter(name="overwriteMode")
     def overwrite_mode(self) -> Optional[str]:
         """
@@ -603,7 +814,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="securityDescriptorCopyFlags")
     def security_descriptor_copy_flags(self) -> Optional[str]:
         """
-        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         """
         return pulumi.get(self, "security_descriptor_copy_flags")
 

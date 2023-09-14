@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Comprehend Document Classifier.
@@ -23,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/comprehend"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +63,7 @@ import (
 //
 // ## Import
 //
-// Comprehend Document Classifier can be imported using the ARN, e.g.,
+// Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 //
 // ```sh
 //
@@ -91,6 +93,8 @@ type DocumentClassifier struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -136,6 +140,7 @@ func NewDocumentClassifier(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentClassifier
 	err := ctx.RegisterResource("aws:comprehend/documentClassifier:DocumentClassifier", name, args, &resource, opts...)
 	if err != nil {
@@ -178,6 +183,8 @@ type documentClassifierState struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -228,6 +235,8 @@ type DocumentClassifierState struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -280,6 +289,8 @@ type documentClassifierArgs struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -327,6 +338,8 @@ type DocumentClassifierArgs struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -377,6 +390,12 @@ func (i *DocumentClassifier) ToDocumentClassifierOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutput)
 }
 
+func (i *DocumentClassifier) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifier] {
+	return pulumix.Output[*DocumentClassifier]{
+		OutputState: i.ToDocumentClassifierOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DocumentClassifierArrayInput is an input type that accepts DocumentClassifierArray and DocumentClassifierArrayOutput values.
 // You can construct a concrete instance of `DocumentClassifierArrayInput` via:
 //
@@ -400,6 +419,12 @@ func (i DocumentClassifierArray) ToDocumentClassifierArrayOutput() DocumentClass
 
 func (i DocumentClassifierArray) ToDocumentClassifierArrayOutputWithContext(ctx context.Context) DocumentClassifierArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierArrayOutput)
+}
+
+func (i DocumentClassifierArray) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentClassifier] {
+	return pulumix.Output[[]*DocumentClassifier]{
+		OutputState: i.ToDocumentClassifierArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DocumentClassifierMapInput is an input type that accepts DocumentClassifierMap and DocumentClassifierMapOutput values.
@@ -427,6 +452,12 @@ func (i DocumentClassifierMap) ToDocumentClassifierMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierMapOutput)
 }
 
+func (i DocumentClassifierMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentClassifier] {
+	return pulumix.Output[map[string]*DocumentClassifier]{
+		OutputState: i.ToDocumentClassifierMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DocumentClassifierOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierOutput) ElementType() reflect.Type {
@@ -439,6 +470,12 @@ func (o DocumentClassifierOutput) ToDocumentClassifierOutput() DocumentClassifie
 
 func (o DocumentClassifierOutput) ToDocumentClassifierOutputWithContext(ctx context.Context) DocumentClassifierOutput {
 	return o
+}
+
+func (o DocumentClassifierOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifier] {
+	return pulumix.Output[*DocumentClassifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Document Classifier version.
@@ -479,6 +516,8 @@ func (o DocumentClassifierOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 // Name for the Document Classifier.
 // Has a maximum length of 63 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+//
+// The following arguments are optional:
 func (o DocumentClassifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -544,6 +583,12 @@ func (o DocumentClassifierArrayOutput) ToDocumentClassifierArrayOutputWithContex
 	return o
 }
 
+func (o DocumentClassifierArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentClassifier] {
+	return pulumix.Output[[]*DocumentClassifier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierArrayOutput) Index(i pulumi.IntInput) DocumentClassifierOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DocumentClassifier {
 		return vs[0].([]*DocumentClassifier)[vs[1].(int)]
@@ -562,6 +607,12 @@ func (o DocumentClassifierMapOutput) ToDocumentClassifierMapOutput() DocumentCla
 
 func (o DocumentClassifierMapOutput) ToDocumentClassifierMapOutputWithContext(ctx context.Context) DocumentClassifierMapOutput {
 	return o
+}
+
+func (o DocumentClassifierMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentClassifier] {
+	return pulumix.Output[map[string]*DocumentClassifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DocumentClassifierMapOutput) MapIndex(k pulumi.StringInput) DocumentClassifierOutput {

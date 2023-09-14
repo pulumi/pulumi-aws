@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Instance Storage Config resource. For more information see
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +88,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,7 +125,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,7 +158,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -189,7 +191,7 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Instance Storage Configs can be imported using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import Amazon Connect Instance Storage Configs using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -203,7 +205,7 @@ type InstanceStorageConfig struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfigOutput `pulumi:"storageConfig"`
@@ -225,6 +227,7 @@ func NewInstanceStorageConfig(ctx *pulumi.Context,
 	if args.StorageConfig == nil {
 		return nil, errors.New("invalid value for required argument 'StorageConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceStorageConfig
 	err := ctx.RegisterResource("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -251,7 +254,7 @@ type instanceStorageConfigState struct {
 	AssociationId *string `pulumi:"associationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId *string `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
 	ResourceType *string `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig *InstanceStorageConfigStorageConfig `pulumi:"storageConfig"`
@@ -262,7 +265,7 @@ type InstanceStorageConfigState struct {
 	AssociationId pulumi.StringPtrInput
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringPtrInput
-	// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
 	ResourceType pulumi.StringPtrInput
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfigPtrInput
@@ -275,7 +278,7 @@ func (InstanceStorageConfigState) ElementType() reflect.Type {
 type instanceStorageConfigArgs struct {
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId string `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
 	ResourceType string `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfig `pulumi:"storageConfig"`
@@ -285,7 +288,7 @@ type instanceStorageConfigArgs struct {
 type InstanceStorageConfigArgs struct {
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringInput
-	// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
 	ResourceType pulumi.StringInput
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfigInput
@@ -314,6 +317,12 @@ func (i *InstanceStorageConfig) ToInstanceStorageConfigOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigOutput)
 }
 
+func (i *InstanceStorageConfig) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfig] {
+	return pulumix.Output[*InstanceStorageConfig]{
+		OutputState: i.ToInstanceStorageConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceStorageConfigArrayInput is an input type that accepts InstanceStorageConfigArray and InstanceStorageConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceStorageConfigArrayInput` via:
 //
@@ -337,6 +346,12 @@ func (i InstanceStorageConfigArray) ToInstanceStorageConfigArrayOutput() Instanc
 
 func (i InstanceStorageConfigArray) ToInstanceStorageConfigArrayOutputWithContext(ctx context.Context) InstanceStorageConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigArrayOutput)
+}
+
+func (i InstanceStorageConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceStorageConfig] {
+	return pulumix.Output[[]*InstanceStorageConfig]{
+		OutputState: i.ToInstanceStorageConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceStorageConfigMapInput is an input type that accepts InstanceStorageConfigMap and InstanceStorageConfigMapOutput values.
@@ -364,6 +379,12 @@ func (i InstanceStorageConfigMap) ToInstanceStorageConfigMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigMapOutput)
 }
 
+func (i InstanceStorageConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceStorageConfig] {
+	return pulumix.Output[map[string]*InstanceStorageConfig]{
+		OutputState: i.ToInstanceStorageConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceStorageConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceStorageConfigOutput) ElementType() reflect.Type {
@@ -378,6 +399,12 @@ func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutputWithContext(ct
 	return o
 }
 
+func (o InstanceStorageConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfig] {
+	return pulumix.Output[*InstanceStorageConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 func (o InstanceStorageConfigOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
@@ -388,7 +415,7 @@ func (o InstanceStorageConfigOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
 func (o InstanceStorageConfigOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -412,6 +439,12 @@ func (o InstanceStorageConfigArrayOutput) ToInstanceStorageConfigArrayOutputWith
 	return o
 }
 
+func (o InstanceStorageConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceStorageConfig] {
+	return pulumix.Output[[]*InstanceStorageConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceStorageConfigArrayOutput) Index(i pulumi.IntInput) InstanceStorageConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceStorageConfig {
 		return vs[0].([]*InstanceStorageConfig)[vs[1].(int)]
@@ -430,6 +463,12 @@ func (o InstanceStorageConfigMapOutput) ToInstanceStorageConfigMapOutput() Insta
 
 func (o InstanceStorageConfigMapOutput) ToInstanceStorageConfigMapOutputWithContext(ctx context.Context) InstanceStorageConfigMapOutput {
 	return o
+}
+
+func (o InstanceStorageConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceStorageConfig] {
+	return pulumix.Output[map[string]*InstanceStorageConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStorageConfigMapOutput) MapIndex(k pulumi.StringInput) InstanceStorageConfigOutput {

@@ -17,14 +17,14 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetProductArgs Empty = new GetProductArgs();
 
     /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      * 
      */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
     /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * @return Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      * 
      */
     public Optional<Output<String>> acceptLanguage() {
@@ -32,14 +32,18 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Product ID.
+     * ID of the product.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return Product ID.
+     * @return ID of the product.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> id() {
@@ -47,14 +51,14 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Tags to apply to the product.
+     * Tags applied to the product.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the product.
+     * @return Tags applied to the product.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -88,7 +92,7 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+         * @param acceptLanguage Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
          * 
          * @return builder
          * 
@@ -99,7 +103,7 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+         * @param acceptLanguage Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
          * 
          * @return builder
          * 
@@ -109,7 +113,9 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Product ID.
+         * @param id ID of the product.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -120,7 +126,9 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Product ID.
+         * @param id ID of the product.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -130,7 +138,7 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Tags to apply to the product.
+         * @param tags Tags applied to the product.
          * 
          * @return builder
          * 
@@ -141,7 +149,7 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Tags to apply to the product.
+         * @param tags Tags applied to the product.
          * 
          * @return builder
          * 

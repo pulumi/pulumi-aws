@@ -78,6 +78,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public List<Inputs.GetRouteTablePropagationsFilterArgs> Filters
         {
@@ -87,6 +90,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public string TransitGatewayRouteTableId { get; set; } = null!;
@@ -104,6 +109,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public InputList<Inputs.GetRouteTablePropagationsFilterInputArgs> Filters
         {
@@ -113,6 +121,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;

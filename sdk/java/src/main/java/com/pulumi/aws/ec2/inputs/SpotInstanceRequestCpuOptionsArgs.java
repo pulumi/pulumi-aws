@@ -49,12 +49,16 @@ public final class SpotInstanceRequestCpuOptionsArgs extends com.pulumi.resource
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
+     * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
+     * 
      */
     @Import(name="threadsPerCore")
     private @Nullable Output<Integer> threadsPerCore;
 
     /**
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * 
+     * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
      * 
      */
     public Optional<Output<Integer>> threadsPerCore() {
@@ -132,6 +136,8 @@ public final class SpotInstanceRequestCpuOptionsArgs extends com.pulumi.resource
         /**
          * @param threadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
          * 
+         * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
+         * 
          * @return builder
          * 
          */
@@ -142,6 +148,8 @@ public final class SpotInstanceRequestCpuOptionsArgs extends com.pulumi.resource
 
         /**
          * @param threadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+         * 
+         * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
          * 
          * @return builder
          * 

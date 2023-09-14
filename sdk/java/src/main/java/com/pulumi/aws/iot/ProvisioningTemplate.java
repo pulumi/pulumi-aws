@@ -86,6 +86,7 @@ import javax.annotation.Nullable;
  *         var fleet = new ProvisioningTemplate(&#34;fleet&#34;, ProvisioningTemplateArgs.builder()        
  *             .description(&#34;My provisioning template&#34;)
  *             .provisioningRoleArn(iotFleetProvisioning.arn())
+ *             .enabled(true)
  *             .templateBody(devicePolicyPolicy.name().applyValue(name -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
@@ -119,7 +120,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IoT fleet provisioning templates can be imported using the `name`, e.g.
+ * Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate

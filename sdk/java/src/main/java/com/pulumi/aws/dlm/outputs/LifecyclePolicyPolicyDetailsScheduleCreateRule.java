@@ -13,17 +13,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
     /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
      * 
      */
     private @Nullable String cronExpression;
     /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     private @Nullable Integer interval;
     /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     private @Nullable String intervalUnit;
@@ -33,28 +33,28 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
      */
     private @Nullable String location;
     /**
-     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     private @Nullable String times;
 
     private LifecyclePolicyPolicyDetailsScheduleCreateRule() {}
     /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
      * 
      */
     public Optional<String> cronExpression() {
         return Optional.ofNullable(this.cronExpression);
     }
     /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
     /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     public Optional<String> intervalUnit() {
@@ -68,7 +68,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     public Optional<String> times() {

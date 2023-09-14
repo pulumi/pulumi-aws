@@ -21,6 +21,72 @@ namespace Pulumi.Aws.Lambda
     /// &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
     /// 
     /// ## Example Usage
+    /// ### Basic Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Archive = Pulumi.Archive;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "lambda.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var lambda = Archive.GetFile.Invoke(new()
+    ///     {
+    ///         Type = "zip",
+    ///         SourceFile = "lambda.js",
+    ///         OutputPath = "lambda_function_payload.zip",
+    ///     });
+    /// 
+    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     {
+    ///         Code = new FileArchive("lambda_function_payload.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "index.test",
+    ///         Runtime = "nodejs18.x",
+    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///         {
+    ///             Variables = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Lambda Layers
     /// 
     /// ```csharp
@@ -92,7 +158,7 @@ namespace Pulumi.Aws.Lambda
     ///         Code = new FileArchive("lambda_function_payload.zip"),
     ///         Role = iamForLambda.Arn,
     ///         Handler = "index.test",
-    ///         Runtime = "nodejs14.x",
+    ///         Runtime = "nodejs18.x",
     ///         EphemeralStorage = new Aws.Lambda.Inputs.FunctionEphemeralStorageArgs
     ///         {
     ///             Size = 10240,
@@ -266,7 +332,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Lambda Functions can be imported using the `function_name`, e.g.,
+    /// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
@@ -408,7 +474,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedInvokeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Output("replaceSecurityGroupsOnDestroy")]
         public Output<bool?> ReplaceSecurityGroupsOnDestroy { get; private set; } = null!;
@@ -427,6 +493,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -690,7 +758,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -701,6 +769,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
+        [Obsolete(@"AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.")]
         public InputList<string> ReplacementSecurityGroupIds
         {
             get => _replacementSecurityGroupIds ?? (_replacementSecurityGroupIds = new InputList<string>());
@@ -715,6 +784,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -944,7 +1015,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? QualifiedInvokeArn { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -955,6 +1026,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
+        [Obsolete(@"AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.")]
         public InputList<string> ReplacementSecurityGroupIds
         {
             get => _replacementSecurityGroupIds ?? (_replacementSecurityGroupIds = new InputList<string>());
@@ -969,6 +1041,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

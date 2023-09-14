@@ -398,7 +398,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
+ * Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
@@ -494,12 +494,16 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
     /**
      * A unique name for your task definition.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
      * @return A unique name for your task definition.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> family() {

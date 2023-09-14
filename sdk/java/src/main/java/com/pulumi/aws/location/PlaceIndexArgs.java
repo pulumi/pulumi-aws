@@ -65,12 +65,16 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the place index resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
     /**
      * @return The name of the place index resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> indexName() {
@@ -186,6 +190,8 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param indexName The name of the place index resource.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -196,6 +202,8 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param indexName The name of the place index resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

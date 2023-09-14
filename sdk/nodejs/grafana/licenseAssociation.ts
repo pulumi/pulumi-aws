@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Grafana workspace license association can be imported using the workspace's `id`, e.g.,
+ * Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02

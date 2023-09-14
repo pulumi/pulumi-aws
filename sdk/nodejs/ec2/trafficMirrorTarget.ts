@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Traffic mirror targets can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import traffic mirror targets using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
@@ -92,6 +92,8 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -166,6 +168,8 @@ export interface TrafficMirrorTargetState {
     ownerId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -196,6 +200,8 @@ export interface TrafficMirrorTargetArgs {
     networkLoadBalancerArn?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

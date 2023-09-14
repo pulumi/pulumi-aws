@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         type: "S",
  *     }],
  * }, {
- *     provider: "aws.main",
+ *     provider: aws.main,
  * });
  * const exampleTableReplica = new aws.dynamodb.TableReplica("exampleTableReplica", {
  *     globalTableArn: exampleTable.arn,
@@ -39,13 +39,17 @@ import * as utilities from "../utilities";
  *         Pozo: "Amargo",
  *     },
  * }, {
- *     provider: "aws.alt",
+ *     provider: aws.alt,
  * });
  * ```
  *
  * ## Import
  *
- * DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
+ * ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
+ *
+ * Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For example:
+ *
+ * ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
  *
  * ```sh
  *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
@@ -85,6 +89,8 @@ export class TableReplica extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ARN of the _main_ or global table which this resource will replicate.
+     *
+     * Optional arguments:
      */
     public readonly globalTableArn!: pulumi.Output<string>;
     /**
@@ -156,6 +162,8 @@ export interface TableReplicaState {
     arn?: pulumi.Input<string>;
     /**
      * ARN of the _main_ or global table which this resource will replicate.
+     *
+     * Optional arguments:
      */
     globalTableArn?: pulumi.Input<string>;
     /**
@@ -186,6 +194,8 @@ export interface TableReplicaState {
 export interface TableReplicaArgs {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
+     *
+     * Optional arguments:
      */
     globalTableArn: pulumi.Input<string>;
     /**

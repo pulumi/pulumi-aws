@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Network Interfaces can be imported using the `id`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
- * ```
+ *  to = aws_network_interface.test
+ *
+ *  id = "eni-e5aa89a3" } Using `TODO import`, import Network Interfaces using the `id`. For exampleconsole % TODO import aws_network_interface.test eni-e5aa89a3
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -167,6 +167,8 @@ export class NetworkInterface extends pulumi.CustomResource {
     public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
     /**
      * Subnet ID to create the ENI in.
+     *
+     * The following arguments are optional:
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -346,6 +348,8 @@ export interface NetworkInterfaceState {
     sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * Subnet ID to create the ENI in.
+     *
+     * The following arguments are optional:
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -433,6 +437,8 @@ export interface NetworkInterfaceArgs {
     sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * Subnet ID to create the ENI in.
+     *
+     * The following arguments are optional:
      */
     subnetId: pulumi.Input<string>;
     /**

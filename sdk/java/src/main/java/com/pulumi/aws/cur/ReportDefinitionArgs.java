@@ -33,14 +33,14 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      * 
      */
     @Import(name="additionalSchemaElements", required=true)
     private Output<List<String>> additionalSchemaElements;
 
     /**
-     * @return A list of schema elements. Valid values are: `RESOURCES`.
+     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      * 
      */
     public Output<List<String>> additionalSchemaElements() {
@@ -248,7 +248,7 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
          * 
          * @return builder
          * 

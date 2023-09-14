@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:sfn/activity:Activity":
 		r = &Activity{}
+	case "aws:sfn/alias:Alias":
+		r = &Alias{}
 	case "aws:sfn/stateMachine:StateMachine":
 		r = &StateMachine{}
 	default:
@@ -34,13 +36,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sfn/activity",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sfn/alias",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

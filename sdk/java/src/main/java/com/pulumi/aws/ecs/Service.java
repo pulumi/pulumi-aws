@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
+ * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -441,12 +441,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

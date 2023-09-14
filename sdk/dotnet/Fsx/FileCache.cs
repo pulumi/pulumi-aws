@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Amazon File Cache cache can be imported using the resource `id`.
+    /// Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
@@ -173,6 +173,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -310,6 +312,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -454,6 +458,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {

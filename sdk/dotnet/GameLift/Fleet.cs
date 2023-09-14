@@ -45,7 +45,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// GameLift Fleets can be imported using the ID, e.g.,
+    /// Using `pulumi import`, import GameLift Fleets using the ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;

@@ -20,6 +20,7 @@ class ExperimentTemplateArgs:
                  description: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]],
+                 log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]]] = None):
         """
@@ -28,6 +29,9 @@ class ExperimentTemplateArgs:
         :param pulumi.Input[str] description: Description for the experiment template.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
@@ -35,6 +39,8 @@ class ExperimentTemplateArgs:
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stop_conditions", stop_conditions)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if targets is not None:
@@ -81,12 +87,26 @@ class ExperimentTemplateArgs:
     def stop_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]:
         """
         When an ongoing experiment should be stopped. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stop_conditions")
 
     @stop_conditions.setter
     def stop_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]):
         pulumi.set(self, "stop_conditions", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]:
+        """
+        The configuration for experiment logging. See below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
 
     @property
     @pulumi.getter
@@ -118,6 +138,7 @@ class _ExperimentTemplateState:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -127,8 +148,11 @@ class _ExperimentTemplateState:
         Input properties used for looking up and filtering ExperimentTemplate resources.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[str] description: Description for the experiment template.
+        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
@@ -136,6 +160,8 @@ class _ExperimentTemplateState:
             pulumi.set(__self__, "actions", actions)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if stop_conditions is not None:
@@ -172,6 +198,18 @@ class _ExperimentTemplateState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]:
+        """
+        The configuration for experiment logging. See below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -188,6 +226,8 @@ class _ExperimentTemplateState:
     def stop_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]]:
         """
         When an ongoing experiment should be stopped. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stop_conditions")
 
@@ -236,6 +276,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -281,7 +322,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        FIS Experiment Templates can be imported using the `id`, e.g.
+        Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
 
         ```sh
          $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
@@ -291,8 +332,11 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[str] description: Description for the experiment template.
+        :param pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetArgs']]]] targets: Target of an action. See below.
         """
@@ -342,7 +386,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        FIS Experiment Templates can be imported using the `id`, e.g.
+        Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
 
         ```sh
          $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
@@ -365,6 +409,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -384,6 +429,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
+            __props__.__dict__["log_configuration"] = log_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -405,6 +451,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -419,8 +466,11 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[str] description: Description for the experiment template.
+        :param pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']] log_configuration: The configuration for experiment logging. See below.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetArgs']]]] targets: Target of an action. See below.
         """
@@ -430,6 +480,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         __props__.__dict__["actions"] = actions
         __props__.__dict__["description"] = description
+        __props__.__dict__["log_configuration"] = log_configuration
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["stop_conditions"] = stop_conditions
         __props__.__dict__["tags"] = tags
@@ -454,6 +505,14 @@ class ExperimentTemplate(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateLogConfiguration']]:
+        """
+        The configuration for experiment logging. See below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
@@ -466,6 +525,8 @@ class ExperimentTemplate(pulumi.CustomResource):
     def stop_conditions(self) -> pulumi.Output[Sequence['outputs.ExperimentTemplateStopCondition']]:
         """
         When an ongoing experiment should be stopped. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stop_conditions")
 

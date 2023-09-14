@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
  * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
@@ -64,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
+ * Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator

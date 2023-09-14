@@ -199,12 +199,16 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="triggerTypes", required=true)
     private Output<List<String>> triggerTypes;
 
     /**
      * @return List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> triggerTypes() {
@@ -532,6 +536,8 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         /**
          * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -543,6 +549,8 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         /**
          * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -552,6 +560,8 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
 
         /**
          * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

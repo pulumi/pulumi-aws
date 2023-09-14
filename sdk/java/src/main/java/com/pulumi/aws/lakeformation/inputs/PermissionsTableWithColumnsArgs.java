@@ -95,12 +95,16 @@ public final class PermissionsTableWithColumnsArgs extends com.pulumi.resources.
     /**
      * Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
     /**
      * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Boolean>> wildcard() {
@@ -264,6 +268,8 @@ public final class PermissionsTableWithColumnsArgs extends com.pulumi.resources.
         /**
          * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -274,6 +280,8 @@ public final class PermissionsTableWithColumnsArgs extends com.pulumi.resources.
 
         /**
          * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

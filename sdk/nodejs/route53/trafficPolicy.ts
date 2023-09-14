@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Traffic Policy can be imported using the `id` and `version`, e.g.
+ * Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
  *
  * ```sh
  *  $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
@@ -73,6 +73,8 @@ export class TrafficPolicy extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     *
+     * The following arguments are optional:
      */
     public readonly document!: pulumi.Output<string>;
     /**
@@ -132,6 +134,8 @@ export interface TrafficPolicyState {
     comment?: pulumi.Input<string>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     *
+     * The following arguments are optional:
      */
     document?: pulumi.Input<string>;
     /**
@@ -158,6 +162,8 @@ export interface TrafficPolicyArgs {
     comment?: pulumi.Input<string>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     *
+     * The following arguments are optional:
      */
     document: pulumi.Input<string>;
     /**

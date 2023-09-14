@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.,
+ * Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432

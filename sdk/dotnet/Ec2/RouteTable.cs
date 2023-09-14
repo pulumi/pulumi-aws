@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Ec2
     /// the separate resource.
     /// 
     /// ## Example Usage
+    /// ### Basic example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -88,10 +89,88 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// ### Adopting an existing local route
+    /// 
+    /// AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+    /// 
+    /// First, adopt an existing AWS-created route:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
+    /// 
+    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     {
+    ///         VpcId = testVpc.Id,
+    ///         Routes = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///             {
+    ///                 CidrBlock = "10.1.0.0/16",
+    ///                 GatewayId = "local",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Next, update the target of the route:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
+    /// 
+    ///     var testSubnet = new Aws.Ec2.Subnet("testSubnet", new()
+    ///     {
+    ///         CidrBlock = "10.1.1.0/24",
+    ///         VpcId = testVpc.Id,
+    ///     });
+    /// 
+    ///     var testNetworkInterface = new Aws.Ec2.NetworkInterface("testNetworkInterface", new()
+    ///     {
+    ///         SubnetId = testSubnet.Id,
+    ///     });
+    /// 
+    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     {
+    ///         VpcId = testVpc.Id,
+    ///         Routes = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///             {
+    ///                 CidrBlock = testVpc.CidrBlock,
+    ///                 NetworkInterfaceId = testNetworkInterface.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// The target could then be updated again back to `local`.
     /// 
     /// ## Import
     /// 
-    /// Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command
+    /// Using `pulumi import`, import Route Tables using the route table `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69

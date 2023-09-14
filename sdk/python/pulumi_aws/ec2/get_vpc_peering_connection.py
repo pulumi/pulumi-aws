@@ -242,6 +242,9 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     :param str status: Status of the specific VPC Peering Connection to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     __args__ = dict()
@@ -261,22 +264,22 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__, opts=opts, typ=GetVpcPeeringConnectionResult).value
 
     return AwaitableGetVpcPeeringConnectionResult(
-        accepter=__ret__.accepter,
-        cidr_block=__ret__.cidr_block,
-        cidr_block_sets=__ret__.cidr_block_sets,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        owner_id=__ret__.owner_id,
-        peer_cidr_block=__ret__.peer_cidr_block,
-        peer_cidr_block_sets=__ret__.peer_cidr_block_sets,
-        peer_owner_id=__ret__.peer_owner_id,
-        peer_region=__ret__.peer_region,
-        peer_vpc_id=__ret__.peer_vpc_id,
-        region=__ret__.region,
-        requester=__ret__.requester,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        accepter=pulumi.get(__ret__, 'accepter'),
+        cidr_block=pulumi.get(__ret__, 'cidr_block'),
+        cidr_block_sets=pulumi.get(__ret__, 'cidr_block_sets'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        peer_cidr_block=pulumi.get(__ret__, 'peer_cidr_block'),
+        peer_cidr_block_sets=pulumi.get(__ret__, 'peer_cidr_block_sets'),
+        peer_owner_id=pulumi.get(__ret__, 'peer_owner_id'),
+        peer_region=pulumi.get(__ret__, 'peer_region'),
+        peer_vpc_id=pulumi.get(__ret__, 'peer_vpc_id'),
+        region=pulumi.get(__ret__, 'region'),
+        requester=pulumi.get(__ret__, 'requester'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_vpc_peering_connection)
@@ -327,6 +330,9 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     :param str status: Status of the specific VPC Peering Connection to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     ...

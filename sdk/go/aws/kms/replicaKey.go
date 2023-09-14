@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a KMS multi-Region replica key.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +60,7 @@ import (
 //
 // ## Import
 //
-// KMS multi-Region replica keys can be imported using the `id`, e.g.,
+// Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
 //
 // ```sh
 //
@@ -110,6 +112,7 @@ func NewReplicaKey(ctx *pulumi.Context,
 	if args.PrimaryKeyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryKeyArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicaKey
 	err := ctx.RegisterResource("aws:kms/replicaKey:ReplicaKey", name, args, &resource, opts...)
 	if err != nil {
@@ -267,6 +270,12 @@ func (i *ReplicaKey) ToReplicaKeyOutputWithContext(ctx context.Context) ReplicaK
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyOutput)
 }
 
+func (i *ReplicaKey) ToOutput(ctx context.Context) pulumix.Output[*ReplicaKey] {
+	return pulumix.Output[*ReplicaKey]{
+		OutputState: i.ToReplicaKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicaKeyArrayInput is an input type that accepts ReplicaKeyArray and ReplicaKeyArrayOutput values.
 // You can construct a concrete instance of `ReplicaKeyArrayInput` via:
 //
@@ -290,6 +299,12 @@ func (i ReplicaKeyArray) ToReplicaKeyArrayOutput() ReplicaKeyArrayOutput {
 
 func (i ReplicaKeyArray) ToReplicaKeyArrayOutputWithContext(ctx context.Context) ReplicaKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyArrayOutput)
+}
+
+func (i ReplicaKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicaKey] {
+	return pulumix.Output[[]*ReplicaKey]{
+		OutputState: i.ToReplicaKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicaKeyMapInput is an input type that accepts ReplicaKeyMap and ReplicaKeyMapOutput values.
@@ -317,6 +332,12 @@ func (i ReplicaKeyMap) ToReplicaKeyMapOutputWithContext(ctx context.Context) Rep
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyMapOutput)
 }
 
+func (i ReplicaKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicaKey] {
+	return pulumix.Output[map[string]*ReplicaKey]{
+		OutputState: i.ToReplicaKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicaKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicaKeyOutput) ElementType() reflect.Type {
@@ -329,6 +350,12 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutput() ReplicaKeyOutput {
 
 func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) ReplicaKeyOutput {
 	return o
+}
+
+func (o ReplicaKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicaKey] {
+	return pulumix.Output[*ReplicaKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
@@ -414,6 +441,12 @@ func (o ReplicaKeyArrayOutput) ToReplicaKeyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ReplicaKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicaKey] {
+	return pulumix.Output[[]*ReplicaKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicaKeyArrayOutput) Index(i pulumi.IntInput) ReplicaKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicaKey {
 		return vs[0].([]*ReplicaKey)[vs[1].(int)]
@@ -432,6 +465,12 @@ func (o ReplicaKeyMapOutput) ToReplicaKeyMapOutput() ReplicaKeyMapOutput {
 
 func (o ReplicaKeyMapOutput) ToReplicaKeyMapOutputWithContext(ctx context.Context) ReplicaKeyMapOutput {
 	return o
+}
+
+func (o ReplicaKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicaKey] {
+	return pulumix.Output[map[string]*ReplicaKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicaKeyMapOutput) MapIndex(k pulumi.StringInput) ReplicaKeyOutput {

@@ -424,10 +424,43 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Emit events to EventBridge
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketNotification;
+ * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bucket = new BucketV2(&#34;bucket&#34;);
+ * 
+ *         var bucketNotification = new BucketNotification(&#34;bucketNotification&#34;, BucketNotificationArgs.builder()        
+ *             .bucket(bucket.id())
+ *             .eventbridge(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
- * S3 bucket notification can be imported using the `bucket`, e.g.,
+ * Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
@@ -439,6 +472,8 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
     /**
      * Name of the bucket for notification configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
@@ -446,19 +481,21 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
     /**
      * @return Name of the bucket for notification configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
     @Export(name="eventbridge", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> eventbridge;
 
     /**
-     * @return Whether to enable Amazon EventBridge notifications.
+     * @return Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> eventbridge() {

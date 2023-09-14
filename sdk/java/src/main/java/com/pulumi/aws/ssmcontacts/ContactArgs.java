@@ -17,14 +17,14 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
     public static final ContactArgs Empty = new ContactArgs();
 
     /**
-     * A unique and identifiable alias for the contact or escalation plan.
+     * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
     @Import(name="alias", required=true)
     private Output<String> alias;
 
     /**
-     * @return A unique and identifiable alias for the contact or escalation plan.
+     * @return A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
     public Output<String> alias() {
@@ -32,14 +32,14 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Full friendly name of the contact or escalation plan.
+     * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Full friendly name of the contact or escalation plan.
+     * @return Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -65,6 +65,8 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
@@ -72,6 +74,8 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -106,7 +110,7 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias A unique and identifiable alias for the contact or escalation plan.
+         * @param alias A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
          * 
          * @return builder
          * 
@@ -117,7 +121,7 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias A unique and identifiable alias for the contact or escalation plan.
+         * @param alias A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
          * 
          * @return builder
          * 
@@ -127,7 +131,7 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Full friendly name of the contact or escalation plan.
+         * @param displayName Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
          * 
          * @return builder
          * 
@@ -138,7 +142,7 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Full friendly name of the contact or escalation plan.
+         * @param displayName Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
          * 
          * @return builder
          * 
@@ -172,6 +176,8 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
          * @param type The type of contact engaged. A single contact is type PERSONAL and an escalation
          * plan is type ESCALATION.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -183,6 +189,8 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of contact engaged. A single contact is type PERSONAL and an escalation
          * plan is type ESCALATION.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

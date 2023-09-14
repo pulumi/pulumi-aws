@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoApiKey = new ApiKey(&#34;myDemoApiKey&#34;);
+ *         var example = new ApiKey(&#34;example&#34;);
  * 
  *     }
  * }
@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * API Gateway Keys can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
- * ```
+ *  to = aws_api_gateway_api_key.example
+ * 
+ *  id = &#34;8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk&#34; } Using `pulumi import`, import API Gateway Keys using the `id`. For exampleconsole % TODO import aws_api_gateway_api_key.example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
  * 
  */
 @ResourceType(type="aws:apigateway/apiKey:ApiKey")
@@ -87,6 +87,20 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdDate() {
         return this.createdDate;
+    }
+    /**
+     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * 
+     */
+    @Export(name="customerId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customerId;
+
+    /**
+     * @return An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * 
+     */
+    public Output<Optional<String>> customerId() {
+        return Codegen.optional(this.customerId);
     }
     /**
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.

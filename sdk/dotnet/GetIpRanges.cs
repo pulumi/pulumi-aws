@@ -127,6 +127,9 @@ namespace Pulumi.Aws
 
     public sealed class GetIpRangesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public string? Id { get; set; }
+
         [Input("regions")]
         private List<string>? _regions;
 
@@ -150,6 +153,9 @@ namespace Pulumi.Aws
         /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
         /// `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
         /// [`service` attribute][2] documentation for other possible values.
+        /// 
+        /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
+        /// CIDR blocks, this call will fail.
         /// </summary>
         public List<string> Services
         {
@@ -171,6 +177,9 @@ namespace Pulumi.Aws
 
     public sealed class GetIpRangesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         [Input("regions")]
         private InputList<string>? _regions;
 
@@ -194,6 +203,9 @@ namespace Pulumi.Aws
         /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
         /// `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
         /// [`service` attribute][2] documentation for other possible values.
+        /// 
+        /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
+        /// CIDR blocks, this call will fail.
         /// </summary>
         public InputList<string> Services
         {
@@ -225,9 +237,6 @@ namespace Pulumi.Aws
         /// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
         /// </summary>
         public readonly string CreateDate;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Lexically ordered list of IPv6 CIDR blocks.

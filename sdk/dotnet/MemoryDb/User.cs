@@ -50,12 +50,11 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Use the `user_name` to import a user. For example
+    /// Using `pulumi import`, import a user using the `user_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:memorydb/user:User example my-user
     /// ```
-    /// 
     ///  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
     /// </summary>
     [AwsResourceType("aws:memorydb/user:User")]
@@ -99,6 +98,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -175,6 +176,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -237,6 +240,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

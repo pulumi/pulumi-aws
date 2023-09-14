@@ -209,7 +209,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Config Rule can be imported using the name, e.g.,
+ * Using `pulumi import`, import Config Rule using the name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cfg/rule:Rule foo example

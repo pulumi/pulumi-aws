@@ -121,6 +121,8 @@ class ScheduleTarget(dict):
         """
         :param str arn: ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
         :param str role_arn: ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+               
+               The following arguments are optional:
         :param 'ScheduleTargetDeadLetterConfigArgs' dead_letter_config: Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
         :param 'ScheduleTargetEcsParametersArgs' ecs_parameters: Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
         :param 'ScheduleTargetEventbridgeParametersArgs' eventbridge_parameters: Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
@@ -162,6 +164,8 @@ class ScheduleTarget(dict):
     def role_arn(self) -> str:
         """
         ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role_arn")
 
@@ -306,6 +310,8 @@ class ScheduleTargetEcsParameters(dict):
                  task_count: Optional[int] = None):
         """
         :param str task_definition_arn: ARN of the task definition to use.
+               
+               The following arguments are optional:
         :param Sequence['ScheduleTargetEcsParametersCapacityProviderStrategyArgs'] capacity_provider_strategies: Up to `6` capacity provider strategies to use for the task. Detailed below.
         :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
         :param bool enable_execute_command: Specifies whether to enable the execute command functionality for the containers in this task.
@@ -353,6 +359,8 @@ class ScheduleTargetEcsParameters(dict):
     def task_definition_arn(self) -> str:
         """
         ARN of the task definition to use.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "task_definition_arn")
 

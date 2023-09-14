@@ -74,6 +74,10 @@ export interface GetDataLakeSettingsResult {
      */
     readonly id: string;
     /**
+     * List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     */
+    readonly readOnlyAdmins: string[];
+    /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
     readonly trustedResourceOwners: string[];

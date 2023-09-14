@@ -198,7 +198,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Backup vault lock configuration can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
 
         ```sh
          $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
@@ -235,7 +235,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Backup vault lock configuration can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
 
         ```sh
          $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault

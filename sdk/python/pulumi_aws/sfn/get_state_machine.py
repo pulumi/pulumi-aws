@@ -21,7 +21,7 @@ class GetStateMachineResult:
     """
     A collection of values returned by getStateMachine.
     """
-    def __init__(__self__, arn=None, creation_date=None, definition=None, id=None, name=None, role_arn=None, status=None):
+    def __init__(__self__, arn=None, creation_date=None, definition=None, description=None, id=None, name=None, revision_id=None, role_arn=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -31,12 +31,18 @@ class GetStateMachineResult:
         if definition and not isinstance(definition, str):
             raise TypeError("Expected argument 'definition' to be a str")
         pulumi.set(__self__, "definition", definition)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if revision_id and not isinstance(revision_id, str):
+            raise TypeError("Expected argument 'revision_id' to be a str")
+        pulumi.set(__self__, "revision_id", revision_id)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -70,6 +76,11 @@ class GetStateMachineResult:
 
     @property
     @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
@@ -80,6 +91,14 @@ class GetStateMachineResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="revisionId")
+    def revision_id(self) -> str:
+        """
+        The revision identifier for the state machine.
+        """
+        return pulumi.get(self, "revision_id")
 
     @property
     @pulumi.getter(name="roleArn")
@@ -107,8 +126,10 @@ class AwaitableGetStateMachineResult(GetStateMachineResult):
             arn=self.arn,
             creation_date=self.creation_date,
             definition=self.definition,
+            description=self.description,
             id=self.id,
             name=self.name,
+            revision_id=self.revision_id,
             role_arn=self.role_arn,
             status=self.status)
 
@@ -138,13 +159,15 @@ def get_state_machine(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sfn/getStateMachine:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult).value
 
     return AwaitableGetStateMachineResult(
-        arn=__ret__.arn,
-        creation_date=__ret__.creation_date,
-        definition=__ret__.definition,
-        id=__ret__.id,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        definition=pulumi.get(__ret__, 'definition'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        revision_id=pulumi.get(__ret__, 'revision_id'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_state_machine)

@@ -113,12 +113,16 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
     /**
      * Name for the configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name for the configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -390,6 +394,8 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
         /**
          * @param name Name for the configuration.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -400,6 +406,8 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
 
         /**
          * @param name Name for the configuration.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

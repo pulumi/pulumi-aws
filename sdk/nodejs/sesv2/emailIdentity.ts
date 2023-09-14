@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
@@ -106,6 +106,8 @@ export class EmailIdentity extends pulumi.CustomResource {
     public readonly dkimSigningAttributes!: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes>;
     /**
      * The email address or domain to verify.
+     *
+     * The following arguments are optional:
      */
     public readonly emailIdentity!: pulumi.Output<string>;
     /**
@@ -113,9 +115,12 @@ export class EmailIdentity extends pulumi.CustomResource {
      */
     public /*out*/ readonly identityType!: pulumi.Output<string>;
     /**
-     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether or not the identity is verified.
@@ -180,6 +185,8 @@ export interface EmailIdentityState {
     dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
     /**
      * The email address or domain to verify.
+     *
+     * The following arguments are optional:
      */
     emailIdentity?: pulumi.Input<string>;
     /**
@@ -187,9 +194,12 @@ export interface EmailIdentityState {
      */
     identityType?: pulumi.Input<string>;
     /**
-     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether or not the identity is verified.
@@ -211,10 +221,12 @@ export interface EmailIdentityArgs {
     dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
     /**
      * The email address or domain to verify.
+     *
+     * The following arguments are optional:
      */
     emailIdentity: pulumi.Input<string>;
     /**
-     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

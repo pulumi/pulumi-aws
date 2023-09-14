@@ -12,10 +12,14 @@ import java.util.Objects;
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
     private Integer captionChannel;
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     private String languageCode;
+    /**
+     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * 
+     */
     private String languageDescription;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping() {}
@@ -23,12 +27,16 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return this.captionChannel;
     }
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     public String languageCode() {
         return this.languageCode;
     }
+    /**
+     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * 
+     */
     public String languageDescription() {
         return this.languageDescription;
     }

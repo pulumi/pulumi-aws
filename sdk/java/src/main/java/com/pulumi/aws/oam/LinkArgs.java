@@ -50,12 +50,16 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of the sink to use to create this link.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="sinkIdentifier", required=true)
     private Output<String> sinkIdentifier;
 
     /**
      * @return Identifier of the sink to use to create this link.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> sinkIdentifier() {
@@ -159,6 +163,8 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sinkIdentifier Identifier of the sink to use to create this link.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -169,6 +175,8 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sinkIdentifier Identifier of the sink to use to create this link.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

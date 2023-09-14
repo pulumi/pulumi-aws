@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Shield
     /// 
     ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
     ///     {
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///     });
     /// 
     ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ## Import
     /// 
-    /// Shield protection group resources can be imported by specifying their protection group id.
+    /// Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example

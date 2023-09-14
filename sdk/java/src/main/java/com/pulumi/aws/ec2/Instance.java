@@ -12,6 +12,7 @@ import com.pulumi.aws.ec2.outputs.InstanceCreditSpecification;
 import com.pulumi.aws.ec2.outputs.InstanceEbsBlockDevice;
 import com.pulumi.aws.ec2.outputs.InstanceEnclaveOptions;
 import com.pulumi.aws.ec2.outputs.InstanceEphemeralBlockDevice;
+import com.pulumi.aws.ec2.outputs.InstanceInstanceMarketOptions;
 import com.pulumi.aws.ec2.outputs.InstanceLaunchTemplate;
 import com.pulumi.aws.ec2.outputs.InstanceMaintenanceOptions;
 import com.pulumi.aws.ec2.outputs.InstanceMetadataOptions;
@@ -76,6 +77,60 @@ import javax.annotation.Nullable;
  *             .ami(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t3.micro&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Spot instance example
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.aws.ec2.inputs.InstanceInstanceMarketOptionsArgs;
+ * import com.pulumi.aws.ec2.inputs.InstanceInstanceMarketOptionsSpotOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var thisAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *             .mostRecent(true)
+ *             .owners(&#34;amazon&#34;)
+ *             .filters(            
+ *                 GetAmiFilterArgs.builder()
+ *                     .name(&#34;architecture&#34;)
+ *                     .values(&#34;arm64&#34;)
+ *                     .build(),
+ *                 GetAmiFilterArgs.builder()
+ *                     .name(&#34;name&#34;)
+ *                     .values(&#34;al2023-ami-2023*&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var thisInstance = new Instance(&#34;thisInstance&#34;, InstanceArgs.builder()        
+ *             .ami(thisAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
+ *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
+ *                     .maxPrice(0.0031)
+ *                     .build())
+ *                 .build())
+ *             .instanceType(&#34;t4g.nano&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;test-spot&#34;))
  *             .build());
  * 
  *     }
@@ -247,7 +302,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Instances can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import instances using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/instance:Instance web i-12345678
@@ -315,12 +370,16 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+     * 
      */
     @Export(name="capacityReservationSpecification", refs={InstanceCapacityReservationSpecification.class}, tree="[0]")
     private Output<InstanceCapacityReservationSpecification> capacityReservationSpecification;
 
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
     public Output<InstanceCapacityReservationSpecification> capacityReservationSpecification() {
@@ -557,6 +616,34 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> instanceInitiatedShutdownBehavior() {
         return this.instanceInitiatedShutdownBehavior;
+    }
+    /**
+     * Indicates whether this is a Spot Instance or a Scheduled Instance.
+     * 
+     */
+    @Export(name="instanceLifecycle", refs={String.class}, tree="[0]")
+    private Output<String> instanceLifecycle;
+
+    /**
+     * @return Indicates whether this is a Spot Instance or a Scheduled Instance.
+     * 
+     */
+    public Output<String> instanceLifecycle() {
+        return this.instanceLifecycle;
+    }
+    /**
+     * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    @Export(name="instanceMarketOptions", refs={InstanceInstanceMarketOptions.class}, tree="[0]")
+    private Output<InstanceInstanceMarketOptions> instanceMarketOptions;
+
+    /**
+     * @return Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    public Output<InstanceInstanceMarketOptions> instanceMarketOptions() {
+        return this.instanceMarketOptions;
     }
     /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
@@ -869,6 +956,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * List of security group names to associate with.
      * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      * 
@@ -879,6 +968,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return List of security group names to associate with.
+     * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      */
     public Output<List<String>> securityGroups() {
@@ -897,6 +988,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> sourceDestCheck() {
         return Codegen.optional(this.sourceDestCheck);
+    }
+    /**
+     * If the request is a Spot Instance request, the ID of the request.
+     * 
+     */
+    @Export(name="spotInstanceRequestId", refs={String.class}, tree="[0]")
+    private Output<String> spotInstanceRequestId;
+
+    /**
+     * @return If the request is a Spot Instance request, the ID of the request.
+     * 
+     */
+    public Output<String> spotInstanceRequestId() {
+        return this.spotInstanceRequestId;
     }
     /**
      * VPC Subnet ID to launch in.
@@ -999,12 +1104,16 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+     * 
      */
     @Export(name="volumeTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> volumeTags;
 
     /**
      * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
     public Output<Optional<Map<String,String>>> volumeTags() {

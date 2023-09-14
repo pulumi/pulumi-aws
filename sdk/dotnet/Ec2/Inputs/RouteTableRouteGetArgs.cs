@@ -32,6 +32,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The ID of a managed prefix list destination of the route.
+        /// 
+        /// One of the following target arguments must be supplied:
         /// </summary>
         [Input("destinationPrefixListId")]
         public Input<string>? DestinationPrefixListId { get; set; }
@@ -43,16 +45,10 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? EgressOnlyGatewayId { get; set; }
 
         /// <summary>
-        /// Identifier of a VPC internet gateway or a virtual private gateway.
+        /// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
 
         /// <summary>
         /// The Ipv6 CIDR block of the route.
@@ -92,6 +88,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// Identifier of a VPC peering connection.
+        /// 
+        /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }

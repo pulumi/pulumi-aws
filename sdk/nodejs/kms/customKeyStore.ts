@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +46,21 @@ import (
 //
 // ## Import
 //
-// AWS Client VPN authorization rules can be imported using the endpoint ID and target network CIDR. If there is a specific group name that is included as well. All values are separated by a `,`.
+// Using the endpoint ID and target network CIDR:
+//
+// Using the endpoint ID, target network CIDR, and group name:
+//
+// __Using `pulumi import` to import__ AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
+//
+// Using the endpoint ID and target network CIDR:
 //
 // ```sh
 //
 //	$ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
 //
 // ```
+//
+//	Using the endpoint ID, target network CIDR, and group name:
 //
 // ```sh
 //
@@ -85,6 +95,7 @@ func NewAuthorizationRule(ctx *pulumi.Context,
 	if args.TargetNetworkCidr == nil {
 		return nil, errors.New("invalid value for required argument 'TargetNetworkCidr'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthorizationRule
 	err := ctx.RegisterResource("aws:ec2clientvpn/authorizationRule:AuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
@@ -186,6 +197,12 @@ func (i *AuthorizationRule) ToAuthorizationRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRuleOutput)
 }
 
+func (i *AuthorizationRule) ToOutput(ctx context.Context) pulumix.Output[*AuthorizationRule] {
+	return pulumix.Output[*AuthorizationRule]{
+		OutputState: i.ToAuthorizationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthorizationRuleArrayInput is an input type that accepts AuthorizationRuleArray and AuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `AuthorizationRuleArrayInput` via:
 //
@@ -209,6 +226,12 @@ func (i AuthorizationRuleArray) ToAuthorizationRuleArrayOutput() AuthorizationRu
 
 func (i AuthorizationRuleArray) ToAuthorizationRuleArrayOutputWithContext(ctx context.Context) AuthorizationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRuleArrayOutput)
+}
+
+func (i AuthorizationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthorizationRule] {
+	return pulumix.Output[[]*AuthorizationRule]{
+		OutputState: i.ToAuthorizationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AuthorizationRuleMapInput is an input type that accepts AuthorizationRuleMap and AuthorizationRuleMapOutput values.
@@ -236,6 +259,12 @@ func (i AuthorizationRuleMap) ToAuthorizationRuleMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRuleMapOutput)
 }
 
+func (i AuthorizationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthorizationRule] {
+	return pulumix.Output[map[string]*AuthorizationRule]{
+		OutputState: i.ToAuthorizationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationRuleOutput) ElementType() reflect.Type {
@@ -248,6 +277,12 @@ func (o AuthorizationRuleOutput) ToAuthorizationRuleOutput() AuthorizationRuleOu
 
 func (o AuthorizationRuleOutput) ToAuthorizationRuleOutputWithContext(ctx context.Context) AuthorizationRuleOutput {
 	return o
+}
+
+func (o AuthorizationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthorizationRule] {
+	return pulumix.Output[*AuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
@@ -289,6 +324,12 @@ func (o AuthorizationRuleArrayOutput) ToAuthorizationRuleArrayOutputWithContext(
 	return o
 }
 
+func (o AuthorizationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthorizationRule] {
+	return pulumix.Output[[]*AuthorizationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthorizationRuleArrayOutput) Index(i pulumi.IntInput) AuthorizationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthorizationRule {
 		return vs[0].([]*AuthorizationRule)[vs[1].(int)]
@@ -307,6 +348,12 @@ func (o AuthorizationRuleMapOutput) ToAuthorizationRuleMapOutput() Authorization
 
 func (o AuthorizationRuleMapOutput) ToAuthorizationRuleMapOutputWithContext(ctx context.Context) AuthorizationRuleMapOutput {
 	return o
+}
+
+func (o AuthorizationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthorizationRule] {
+	return pulumix.Output[map[string]*AuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) AuthorizationRuleOutput {

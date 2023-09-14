@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DocumentDB Event Subscriptions can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub

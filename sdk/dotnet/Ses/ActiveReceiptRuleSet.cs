@@ -29,6 +29,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")]
     public partial class ActiveReceiptRuleSet : global::Pulumi.CustomResource

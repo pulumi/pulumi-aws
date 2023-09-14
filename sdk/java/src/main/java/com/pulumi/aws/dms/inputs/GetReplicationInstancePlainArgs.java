@@ -16,14 +16,14 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
     public static final GetReplicationInstancePlainArgs Empty = new GetReplicationInstancePlainArgs();
 
     /**
-     * The replication instance identifier. This parameter is stored as a lowercase string.
+     * The replication instance identifier.
      * 
      */
     @Import(name="replicationInstanceId", required=true)
     private String replicationInstanceId;
 
     /**
-     * @return The replication instance identifier. This parameter is stored as a lowercase string.
+     * @return The replication instance identifier.
      * 
      */
     public String replicationInstanceId() {
@@ -63,7 +63,7 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
+         * @param replicationInstanceId The replication instance identifier.
          * 
          * @return builder
          * 

@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Domains can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import SageMaker Domains using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -182,6 +182,8 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly url!: pulumi.Output<string>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     *
+     * The following arguments are optional:
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -328,6 +330,8 @@ export interface DomainState {
     url?: pulumi.Input<string>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     *
+     * The following arguments are optional:
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -379,6 +383,8 @@ export interface DomainArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     *
+     * The following arguments are optional:
      */
     vpcId: pulumi.Input<string>;
 }

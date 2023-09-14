@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.directconnect.Gateway;
  * import com.pulumi.aws.directconnect.GatewayArgs;
  * import com.pulumi.aws.directconnect.HostedTransitVirtualInterface;
@@ -84,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.,
+ * Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd

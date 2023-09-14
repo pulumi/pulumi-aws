@@ -29,6 +29,8 @@ public final class ContactListTopic {
     /**
      * @return The name of the topic.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String topicName;
 
@@ -56,6 +58,8 @@ public final class ContactListTopic {
     }
     /**
      * @return The name of the topic.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String topicName() {

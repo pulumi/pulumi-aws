@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Transcoder pipeline resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elastictranscoder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elastictranscoder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // ## Import
 //
-// Elastic Transcoder pipelines can be imported using the `id`, e.g.,
+// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 //
 // ```sh
 //
@@ -81,6 +83,13 @@ type Pipeline struct {
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigOutput `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
+	//
+	// The `contentConfig` object specifies information about the Amazon S3 bucket in
+	// which you want Elastic Transcoder to save transcoded files and playlists: which
+	// bucket to use, and the storage class that you want to assign to the files. If
+	// you specify values for `contentConfig`, you must also specify values for
+	// `thumbnailConfig`. If you specify values for `contentConfig` and
+	// `thumbnailConfig`, omit the `outputBucket` object.
 	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionArrayOutput `pulumi:"thumbnailConfigPermissions"`
 }
 
@@ -97,6 +106,7 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:elastictranscoder/pipeline:Pipeline", name, args, &resource, opts...)
 	if err != nil {
@@ -140,6 +150,13 @@ type pipelineState struct {
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
+	//
+	// The `contentConfig` object specifies information about the Amazon S3 bucket in
+	// which you want Elastic Transcoder to save transcoded files and playlists: which
+	// bucket to use, and the storage class that you want to assign to the files. If
+	// you specify values for `contentConfig`, you must also specify values for
+	// `thumbnailConfig`. If you specify values for `contentConfig` and
+	// `thumbnailConfig`, omit the `outputBucket` object.
 	ThumbnailConfigPermissions []PipelineThumbnailConfigPermission `pulumi:"thumbnailConfigPermissions"`
 }
 
@@ -165,6 +182,13 @@ type PipelineState struct {
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigPtrInput
 	// The permissions for the `thumbnailConfig` object. (documented below)
+	//
+	// The `contentConfig` object specifies information about the Amazon S3 bucket in
+	// which you want Elastic Transcoder to save transcoded files and playlists: which
+	// bucket to use, and the storage class that you want to assign to the files. If
+	// you specify values for `contentConfig`, you must also specify values for
+	// `thumbnailConfig`. If you specify values for `contentConfig` and
+	// `thumbnailConfig`, omit the `outputBucket` object.
 	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionArrayInput
 }
 
@@ -192,6 +216,13 @@ type pipelineArgs struct {
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
+	//
+	// The `contentConfig` object specifies information about the Amazon S3 bucket in
+	// which you want Elastic Transcoder to save transcoded files and playlists: which
+	// bucket to use, and the storage class that you want to assign to the files. If
+	// you specify values for `contentConfig`, you must also specify values for
+	// `thumbnailConfig`. If you specify values for `contentConfig` and
+	// `thumbnailConfig`, omit the `outputBucket` object.
 	ThumbnailConfigPermissions []PipelineThumbnailConfigPermission `pulumi:"thumbnailConfigPermissions"`
 }
 
@@ -216,6 +247,13 @@ type PipelineArgs struct {
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigPtrInput
 	// The permissions for the `thumbnailConfig` object. (documented below)
+	//
+	// The `contentConfig` object specifies information about the Amazon S3 bucket in
+	// which you want Elastic Transcoder to save transcoded files and playlists: which
+	// bucket to use, and the storage class that you want to assign to the files. If
+	// you specify values for `contentConfig`, you must also specify values for
+	// `thumbnailConfig`. If you specify values for `contentConfig` and
+	// `thumbnailConfig`, omit the `outputBucket` object.
 	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionArrayInput
 }
 
@@ -240,6 +278,12 @@ func (i *Pipeline) ToPipelineOutput() PipelineOutput {
 
 func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
+}
+
+func (i *Pipeline) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: i.ToPipelineOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PipelineArrayInput is an input type that accepts PipelineArray and PipelineArrayOutput values.
@@ -267,6 +311,12 @@ func (i PipelineArray) ToPipelineArrayOutputWithContext(ctx context.Context) Pip
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArrayOutput)
 }
 
+func (i PipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*Pipeline] {
+	return pulumix.Output[[]*Pipeline]{
+		OutputState: i.ToPipelineArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineMapInput is an input type that accepts PipelineMap and PipelineMapOutput values.
 // You can construct a concrete instance of `PipelineMapInput` via:
 //
@@ -292,6 +342,12 @@ func (i PipelineMap) ToPipelineMapOutputWithContext(ctx context.Context) Pipelin
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineMapOutput)
 }
 
+func (i PipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipeline] {
+	return pulumix.Output[map[string]*Pipeline]{
+		OutputState: i.ToPipelineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
@@ -304,6 +360,12 @@ func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
 
 func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return o
+}
+
+func (o PipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Elastictranscoder pipeline.
@@ -357,6 +419,13 @@ func (o PipelineOutput) ThumbnailConfig() PipelineThumbnailConfigOutput {
 }
 
 // The permissions for the `thumbnailConfig` object. (documented below)
+//
+// The `contentConfig` object specifies information about the Amazon S3 bucket in
+// which you want Elastic Transcoder to save transcoded files and playlists: which
+// bucket to use, and the storage class that you want to assign to the files. If
+// you specify values for `contentConfig`, you must also specify values for
+// `thumbnailConfig`. If you specify values for `contentConfig` and
+// `thumbnailConfig`, omit the `outputBucket` object.
 func (o PipelineOutput) ThumbnailConfigPermissions() PipelineThumbnailConfigPermissionArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineThumbnailConfigPermissionArrayOutput { return v.ThumbnailConfigPermissions }).(PipelineThumbnailConfigPermissionArrayOutput)
 }
@@ -373,6 +442,12 @@ func (o PipelineArrayOutput) ToPipelineArrayOutput() PipelineArrayOutput {
 
 func (o PipelineArrayOutput) ToPipelineArrayOutputWithContext(ctx context.Context) PipelineArrayOutput {
 	return o
+}
+
+func (o PipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Pipeline] {
+	return pulumix.Output[[]*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineArrayOutput) Index(i pulumi.IntInput) PipelineOutput {
@@ -393,6 +468,12 @@ func (o PipelineMapOutput) ToPipelineMapOutput() PipelineMapOutput {
 
 func (o PipelineMapOutput) ToPipelineMapOutputWithContext(ctx context.Context) PipelineMapOutput {
 	return o
+}
+
+func (o PipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipeline] {
+	return pulumix.Output[map[string]*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineMapOutput) MapIndex(k pulumi.StringInput) PipelineOutput {

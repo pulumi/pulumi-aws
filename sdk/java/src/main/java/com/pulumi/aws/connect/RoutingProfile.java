@@ -8,7 +8,6 @@ import com.pulumi.aws.connect.RoutingProfileArgs;
 import com.pulumi.aws.connect.inputs.RoutingProfileState;
 import com.pulumi.aws.connect.outputs.RoutingProfileMediaConcurrency;
 import com.pulumi.aws.connect.outputs.RoutingProfileQueueConfig;
-import com.pulumi.aws.connect.outputs.RoutingProfileQueueConfigsAssociated;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -70,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
@@ -176,18 +175,6 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<RoutingProfileQueueConfig>>> queueConfigs() {
         return Codegen.optional(this.queueConfigs);
-    }
-    /**
-     * @deprecated
-     * Use the queue_configs instead
-     * 
-     */
-    @Deprecated /* Use the queue_configs instead */
-    @Export(name="queueConfigsAssociateds", refs={List.class,RoutingProfileQueueConfigsAssociated.class}, tree="[0,1]")
-    private Output<List<RoutingProfileQueueConfigsAssociated>> queueConfigsAssociateds;
-
-    public Output<List<RoutingProfileQueueConfigsAssociated>> queueConfigsAssociateds() {
-        return this.queueConfigsAssociateds;
     }
     /**
      * The identifier for the Routing Profile.

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Certificates can be imported using the `certificate_id`, e.g.,
+ * Using `pulumi import`, import certificates using the `certificate_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
@@ -65,6 +65,8 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly certificateArn!: pulumi.Output<string>;
     /**
      * The certificate identifier.
+     *
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     public readonly certificateId!: pulumi.Output<string>;
     /**
@@ -132,6 +134,8 @@ export interface CertificateState {
     certificateArn?: pulumi.Input<string>;
     /**
      * The certificate identifier.
+     *
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     certificateId?: pulumi.Input<string>;
     /**
@@ -158,6 +162,8 @@ export interface CertificateState {
 export interface CertificateArgs {
     /**
      * The certificate identifier.
+     *
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     certificateId: pulumi.Input<string>;
     /**

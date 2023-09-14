@@ -354,7 +354,7 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Provides a security group resource.
 
-        > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+        > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
 
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 
@@ -429,6 +429,19 @@ class SecurityGroup(pulumi.CustomResource):
         ```
 
         You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
+        ### Removing All Ingress and Egress Rules
+
+        The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.SecurityGroup("example",
+            vpc_id=aws_vpc["example"]["id"],
+            ingress=[],
+            egress=[])
+        ```
         ### Recreating a Security Group
 
         A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -483,7 +496,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        Security Groups can be imported using the `security group id`, e.g.,
+        Using `pulumi import`, import Security Groups using the security group `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
@@ -509,7 +522,7 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Provides a security group resource.
 
-        > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+        > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
 
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 
@@ -584,6 +597,19 @@ class SecurityGroup(pulumi.CustomResource):
         ```
 
         You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
+        ### Removing All Ingress and Egress Rules
+
+        The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.SecurityGroup("example",
+            vpc_id=aws_vpc["example"]["id"],
+            ingress=[],
+            egress=[])
+        ```
         ### Recreating a Security Group
 
         A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -638,7 +664,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        Security Groups can be imported using the `security group id`, e.g.,
+        Using `pulumi import`, import Security Groups using the security group `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8

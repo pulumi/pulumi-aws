@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get an Identity Store User.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult
 	err := ctx.Invoke("aws:identitystore/getUser:getUser", args, &rv, opts...)
 	if err != nil {
@@ -29,8 +32,12 @@ type LookupUserArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter *GetUserFilter `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -95,8 +102,12 @@ type LookupUserOutputArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter GetUserFilterPtrInput `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 
@@ -117,6 +128,12 @@ func (o LookupUserResultOutput) ToLookupUserResultOutput() LookupUserResultOutpu
 
 func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.Context) LookupUserResultOutput {
 	return o
+}
+
+func (o LookupUserResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserResult] {
+	return pulumix.Output[LookupUserResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of details about the user's address.

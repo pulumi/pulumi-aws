@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +65,7 @@ import (
 //
 // ## Import
 //
-// Security Hub Organization Admin Accounts can be imported using the AWS account ID, e.g.,
+// Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
 //
 // ```sh
 //
@@ -87,6 +89,7 @@ func NewOrganizationAdminAccount(ctx *pulumi.Context,
 	if args.AdminAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AdminAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationAdminAccount
 	err := ctx.RegisterResource("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", name, args, &resource, opts...)
 	if err != nil {
@@ -156,6 +159,12 @@ func (i *OrganizationAdminAccount) ToOrganizationAdminAccountOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountOutput)
 }
 
+func (i *OrganizationAdminAccount) ToOutput(ctx context.Context) pulumix.Output[*OrganizationAdminAccount] {
+	return pulumix.Output[*OrganizationAdminAccount]{
+		OutputState: i.ToOrganizationAdminAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationAdminAccountArrayInput is an input type that accepts OrganizationAdminAccountArray and OrganizationAdminAccountArrayOutput values.
 // You can construct a concrete instance of `OrganizationAdminAccountArrayInput` via:
 //
@@ -179,6 +188,12 @@ func (i OrganizationAdminAccountArray) ToOrganizationAdminAccountArrayOutput() O
 
 func (i OrganizationAdminAccountArray) ToOrganizationAdminAccountArrayOutputWithContext(ctx context.Context) OrganizationAdminAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountArrayOutput)
+}
+
+func (i OrganizationAdminAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationAdminAccount] {
+	return pulumix.Output[[]*OrganizationAdminAccount]{
+		OutputState: i.ToOrganizationAdminAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationAdminAccountMapInput is an input type that accepts OrganizationAdminAccountMap and OrganizationAdminAccountMapOutput values.
@@ -206,6 +221,12 @@ func (i OrganizationAdminAccountMap) ToOrganizationAdminAccountMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountMapOutput)
 }
 
+func (i OrganizationAdminAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationAdminAccount] {
+	return pulumix.Output[map[string]*OrganizationAdminAccount]{
+		OutputState: i.ToOrganizationAdminAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationAdminAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAdminAccountOutput) ElementType() reflect.Type {
@@ -218,6 +239,12 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutput() Organ
 
 func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput {
 	return o
+}
+
+func (o OrganizationAdminAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationAdminAccount] {
+	return pulumix.Output[*OrganizationAdminAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS account identifier of the account to designate as the Security Hub administrator account.
@@ -239,6 +266,12 @@ func (o OrganizationAdminAccountArrayOutput) ToOrganizationAdminAccountArrayOutp
 	return o
 }
 
+func (o OrganizationAdminAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationAdminAccount] {
+	return pulumix.Output[[]*OrganizationAdminAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationAdminAccountArrayOutput) Index(i pulumi.IntInput) OrganizationAdminAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationAdminAccount {
 		return vs[0].([]*OrganizationAdminAccount)[vs[1].(int)]
@@ -257,6 +290,12 @@ func (o OrganizationAdminAccountMapOutput) ToOrganizationAdminAccountMapOutput()
 
 func (o OrganizationAdminAccountMapOutput) ToOrganizationAdminAccountMapOutputWithContext(ctx context.Context) OrganizationAdminAccountMapOutput {
 	return o
+}
+
+func (o OrganizationAdminAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationAdminAccount] {
+	return pulumix.Output[map[string]*OrganizationAdminAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationAdminAccountMapOutput) MapIndex(k pulumi.StringInput) OrganizationAdminAccountOutput {

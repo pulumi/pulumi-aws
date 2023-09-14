@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS VPC Lattice Target Group.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +100,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -119,7 +121,7 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Target Group can be imported using the `id`, e.g.,
+// Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
 //
 // ```sh
 //
@@ -142,6 +144,8 @@ type TargetGroup struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -155,6 +159,7 @@ func NewTargetGroup(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TargetGroup
 	err := ctx.RegisterResource("aws:vpclattice/targetGroup:TargetGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -190,6 +195,8 @@ type targetGroupState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -207,6 +214,8 @@ type TargetGroupState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -222,6 +231,8 @@ type targetGroupArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -234,6 +245,8 @@ type TargetGroupArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -258,6 +271,12 @@ func (i *TargetGroup) ToTargetGroupOutput() TargetGroupOutput {
 
 func (i *TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupOutput)
+}
+
+func (i *TargetGroup) ToOutput(ctx context.Context) pulumix.Output[*TargetGroup] {
+	return pulumix.Output[*TargetGroup]{
+		OutputState: i.ToTargetGroupOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TargetGroupArrayInput is an input type that accepts TargetGroupArray and TargetGroupArrayOutput values.
@@ -285,6 +304,12 @@ func (i TargetGroupArray) ToTargetGroupArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupArrayOutput)
 }
 
+func (i TargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*TargetGroup] {
+	return pulumix.Output[[]*TargetGroup]{
+		OutputState: i.ToTargetGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TargetGroupMapInput is an input type that accepts TargetGroupMap and TargetGroupMapOutput values.
 // You can construct a concrete instance of `TargetGroupMapInput` via:
 //
@@ -310,6 +335,12 @@ func (i TargetGroupMap) ToTargetGroupMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMapOutput)
 }
 
+func (i TargetGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TargetGroup] {
+	return pulumix.Output[map[string]*TargetGroup]{
+		OutputState: i.ToTargetGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupOutput) ElementType() reflect.Type {
@@ -322,6 +353,12 @@ func (o TargetGroupOutput) ToTargetGroupOutput() TargetGroupOutput {
 
 func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
 	return o
+}
+
+func (o TargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroup] {
+	return pulumix.Output[*TargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the target group.
@@ -355,6 +392,8 @@ func (o TargetGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+//
+// The following arguments are optional:
 func (o TargetGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -371,6 +410,12 @@ func (o TargetGroupArrayOutput) ToTargetGroupArrayOutput() TargetGroupArrayOutpu
 
 func (o TargetGroupArrayOutput) ToTargetGroupArrayOutputWithContext(ctx context.Context) TargetGroupArrayOutput {
 	return o
+}
+
+func (o TargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TargetGroup] {
+	return pulumix.Output[[]*TargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupArrayOutput) Index(i pulumi.IntInput) TargetGroupOutput {
@@ -391,6 +436,12 @@ func (o TargetGroupMapOutput) ToTargetGroupMapOutput() TargetGroupMapOutput {
 
 func (o TargetGroupMapOutput) ToTargetGroupMapOutputWithContext(ctx context.Context) TargetGroupMapOutput {
 	return o
+}
+
+func (o TargetGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TargetGroup] {
+	return pulumix.Output[map[string]*TargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupMapOutput) MapIndex(k pulumi.StringInput) TargetGroupOutput {

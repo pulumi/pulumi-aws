@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type TriggerTrigger struct {
 	// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
@@ -59,6 +63,12 @@ func (i TriggerTriggerArgs) ToTriggerTriggerOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTriggerOutput)
 }
 
+func (i TriggerTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[TriggerTrigger] {
+	return pulumix.Output[TriggerTrigger]{
+		OutputState: i.ToTriggerTriggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TriggerTriggerArrayInput is an input type that accepts TriggerTriggerArray and TriggerTriggerArrayOutput values.
 // You can construct a concrete instance of `TriggerTriggerArrayInput` via:
 //
@@ -84,6 +94,12 @@ func (i TriggerTriggerArray) ToTriggerTriggerArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTriggerArrayOutput)
 }
 
+func (i TriggerTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]TriggerTrigger] {
+	return pulumix.Output[[]TriggerTrigger]{
+		OutputState: i.ToTriggerTriggerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TriggerTriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerTriggerOutput) ElementType() reflect.Type {
@@ -96,6 +112,12 @@ func (o TriggerTriggerOutput) ToTriggerTriggerOutput() TriggerTriggerOutput {
 
 func (o TriggerTriggerOutput) ToTriggerTriggerOutputWithContext(ctx context.Context) TriggerTriggerOutput {
 	return o
+}
+
+func (o TriggerTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[TriggerTrigger] {
+	return pulumix.Output[TriggerTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
@@ -135,6 +157,12 @@ func (o TriggerTriggerArrayOutput) ToTriggerTriggerArrayOutput() TriggerTriggerA
 
 func (o TriggerTriggerArrayOutput) ToTriggerTriggerArrayOutputWithContext(ctx context.Context) TriggerTriggerArrayOutput {
 	return o
+}
+
+func (o TriggerTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TriggerTrigger] {
+	return pulumix.Output[[]TriggerTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TriggerTriggerArrayOutput) Index(i pulumi.IntInput) TriggerTriggerOutput {

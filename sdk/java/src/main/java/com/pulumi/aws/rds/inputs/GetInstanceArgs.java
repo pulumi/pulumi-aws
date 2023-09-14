@@ -17,23 +17,31 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetInstanceArgs Empty = new GetInstanceArgs();
 
     /**
-     * Name of the RDS instance
+     * Name of the RDS instance.
      * 
      */
-    @Import(name="dbInstanceIdentifier", required=true)
-    private Output<String> dbInstanceIdentifier;
+    @Import(name="dbInstanceIdentifier")
+    private @Nullable Output<String> dbInstanceIdentifier;
 
     /**
-     * @return Name of the RDS instance
+     * @return Name of the RDS instance.
      * 
      */
-    public Output<String> dbInstanceIdentifier() {
-        return this.dbInstanceIdentifier;
+    public Optional<Output<String>> dbInstanceIdentifier() {
+        return Optional.ofNullable(this.dbInstanceIdentifier);
     }
 
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired instance.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags, each pair of which must exactly match a pair on the desired instance.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -64,18 +72,18 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dbInstanceIdentifier Name of the RDS instance
+         * @param dbInstanceIdentifier Name of the RDS instance.
          * 
          * @return builder
          * 
          */
-        public Builder dbInstanceIdentifier(Output<String> dbInstanceIdentifier) {
+        public Builder dbInstanceIdentifier(@Nullable Output<String> dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
         /**
-         * @param dbInstanceIdentifier Name of the RDS instance
+         * @param dbInstanceIdentifier Name of the RDS instance.
          * 
          * @return builder
          * 
@@ -84,17 +92,28 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         public GetInstanceArgs build() {
-            $.dbInstanceIdentifier = Objects.requireNonNull($.dbInstanceIdentifier, "expected parameter 'dbInstanceIdentifier' to be non-null");
             return $;
         }
     }

@@ -219,6 +219,8 @@ def get_route(carrier_gateway_id: Optional[str] = None,
     :param str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
     :param str route_table_id: ID of the specific Route Table containing the Route entry.
+           
+           The following arguments are optional:
     :param str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
     """
@@ -241,21 +243,21 @@ def get_route(carrier_gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        carrier_gateway_id=__ret__.carrier_gateway_id,
-        core_network_arn=__ret__.core_network_arn,
-        destination_cidr_block=__ret__.destination_cidr_block,
-        destination_ipv6_cidr_block=__ret__.destination_ipv6_cidr_block,
-        destination_prefix_list_id=__ret__.destination_prefix_list_id,
-        egress_only_gateway_id=__ret__.egress_only_gateway_id,
-        gateway_id=__ret__.gateway_id,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        local_gateway_id=__ret__.local_gateway_id,
-        nat_gateway_id=__ret__.nat_gateway_id,
-        network_interface_id=__ret__.network_interface_id,
-        route_table_id=__ret__.route_table_id,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        vpc_peering_connection_id=__ret__.vpc_peering_connection_id)
+        carrier_gateway_id=pulumi.get(__ret__, 'carrier_gateway_id'),
+        core_network_arn=pulumi.get(__ret__, 'core_network_arn'),
+        destination_cidr_block=pulumi.get(__ret__, 'destination_cidr_block'),
+        destination_ipv6_cidr_block=pulumi.get(__ret__, 'destination_ipv6_cidr_block'),
+        destination_prefix_list_id=pulumi.get(__ret__, 'destination_prefix_list_id'),
+        egress_only_gateway_id=pulumi.get(__ret__, 'egress_only_gateway_id'),
+        gateway_id=pulumi.get(__ret__, 'gateway_id'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
+        nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        route_table_id=pulumi.get(__ret__, 'route_table_id'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        vpc_peering_connection_id=pulumi.get(__ret__, 'vpc_peering_connection_id'))
 
 
 @_utilities.lift_output_func(get_route)
@@ -308,6 +310,8 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
     :param str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
     :param str route_table_id: ID of the specific Route Table containing the Route entry.
+           
+           The following arguments are optional:
     :param str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
     """

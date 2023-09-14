@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
@@ -142,7 +143,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GuardDuty PublishingDestination can be imported using the master GuardDuty detector ID and PublishingDestinationID, e.g.,
+ * Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
@@ -168,12 +169,16 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
     /**
      * Currently there is only &#34;S3&#34; available as destination type which is also the default value
      * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     * 
      */
     @Export(name="destinationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationType;
 
     /**
      * @return Currently there is only &#34;S3&#34; available as destination type which is also the default value
+     * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      * 
      */
     public Output<Optional<String>> destinationType() {

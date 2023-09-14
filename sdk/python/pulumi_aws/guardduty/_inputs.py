@@ -545,7 +545,7 @@ class OrganizationConfigurationDatasourcesS3LogsArgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[bool]):
         """
-        :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        :param pulumi.Input[bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
 
@@ -553,7 +553,7 @@ class OrganizationConfigurationDatasourcesS3LogsArgs:
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Input[bool]:
         """
-        When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         return pulumi.get(self, "auto_enable")
 

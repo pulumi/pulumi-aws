@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SNS topic resource
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-//				DeliveryPolicy: pulumi.String("{\n  \"http\": {\n    \"defaultHealthyRetryPolicy\": {\n      \"minDelayTarget\": 20,\n      \"maxDelayTarget\": 20,\n      \"numRetries\": 3,\n      \"numMaxDelayRetries\": 0,\n      \"numNoDelayRetries\": 0,\n      \"numMinDelayRetries\": 0,\n      \"backoffFunction\": \"linear\"\n    },\n    \"disableSubscriptionOverrides\": false,\n    \"defaultThrottlePolicy\": {\n      \"maxReceivesPerSecond\": 1\n    }\n  }\n}\n\n"),
+//				DeliveryPolicy: pulumi.String(`{
+//	  "http": {
+//	    "defaultHealthyRetryPolicy": {
+//	      "minDelayTarget": 20,
+//	      "maxDelayTarget": 20,
+//	      "numRetries": 3,
+//	      "numMaxDelayRetries": 0,
+//	      "numNoDelayRetries": 0,
+//	      "numMinDelayRetries": 0,
+//	      "backoffFunction": "linear"
+//	    },
+//	    "disableSubscriptionOverrides": false,
+//	    "defaultThrottlePolicy": {
+//	      "maxReceivesPerSecond": 1
+//	    }
+//	  }
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -68,7 +89,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,7 +115,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +141,7 @@ import (
 //
 // ## Import
 //
-// SNS Topics can be imported using the `topic arn`, e.g.,
+// Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
 //
 // ```sh
 //
@@ -197,6 +218,7 @@ func NewTopic(ctx *pulumi.Context,
 		args = &TopicArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Topic
 	err := ctx.RegisterResource("aws:sns/topic:Topic", name, args, &resource, opts...)
 	if err != nil {
@@ -478,6 +500,12 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
 }
 
+func (i *Topic) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
+	return pulumix.Output[*Topic]{
+		OutputState: i.ToTopicOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicArrayInput is an input type that accepts TopicArray and TopicArrayOutput values.
 // You can construct a concrete instance of `TopicArrayInput` via:
 //
@@ -501,6 +529,12 @@ func (i TopicArray) ToTopicArrayOutput() TopicArrayOutput {
 
 func (i TopicArray) ToTopicArrayOutputWithContext(ctx context.Context) TopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicArrayOutput)
+}
+
+func (i TopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*Topic] {
+	return pulumix.Output[[]*Topic]{
+		OutputState: i.ToTopicArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicMapInput is an input type that accepts TopicMap and TopicMapOutput values.
@@ -528,6 +562,12 @@ func (i TopicMap) ToTopicMapOutputWithContext(ctx context.Context) TopicMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicMapOutput)
 }
 
+func (i TopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Topic] {
+	return pulumix.Output[map[string]*Topic]{
+		OutputState: i.ToTopicMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
@@ -540,6 +580,12 @@ func (o TopicOutput) ToTopicOutput() TopicOutput {
 
 func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
+}
+
+func (o TopicOutput) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
+	return pulumix.Output[*Topic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IAM role for failure feedback
@@ -701,6 +747,12 @@ func (o TopicArrayOutput) ToTopicArrayOutputWithContext(ctx context.Context) Top
 	return o
 }
 
+func (o TopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Topic] {
+	return pulumix.Output[[]*Topic]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TopicArrayOutput) Index(i pulumi.IntInput) TopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Topic {
 		return vs[0].([]*Topic)[vs[1].(int)]
@@ -719,6 +771,12 @@ func (o TopicMapOutput) ToTopicMapOutput() TopicMapOutput {
 
 func (o TopicMapOutput) ToTopicMapOutputWithContext(ctx context.Context) TopicMapOutput {
 	return o
+}
+
+func (o TopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Topic] {
+	return pulumix.Output[map[string]*Topic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicMapOutput) MapIndex(k pulumi.StringInput) TopicOutput {

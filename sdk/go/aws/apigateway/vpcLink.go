@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway VPC Link.
@@ -18,7 +20,7 @@ import (
 //
 // ## Import
 //
-// API Gateway VPC Link can be imported using the `id`, e.g.,
+// Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
 //
 // ```sh
 //
@@ -51,6 +53,7 @@ func NewVpcLink(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcLink
 	err := ctx.RegisterResource("aws:apigateway/vpcLink:VpcLink", name, args, &resource, opts...)
 	if err != nil {
@@ -150,6 +153,12 @@ func (i *VpcLink) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkOutput)
 }
 
+func (i *VpcLink) ToOutput(ctx context.Context) pulumix.Output[*VpcLink] {
+	return pulumix.Output[*VpcLink]{
+		OutputState: i.ToVpcLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcLinkArrayInput is an input type that accepts VpcLinkArray and VpcLinkArrayOutput values.
 // You can construct a concrete instance of `VpcLinkArrayInput` via:
 //
@@ -173,6 +182,12 @@ func (i VpcLinkArray) ToVpcLinkArrayOutput() VpcLinkArrayOutput {
 
 func (i VpcLinkArray) ToVpcLinkArrayOutputWithContext(ctx context.Context) VpcLinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkArrayOutput)
+}
+
+func (i VpcLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcLink] {
+	return pulumix.Output[[]*VpcLink]{
+		OutputState: i.ToVpcLinkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcLinkMapInput is an input type that accepts VpcLinkMap and VpcLinkMapOutput values.
@@ -200,6 +215,12 @@ func (i VpcLinkMap) ToVpcLinkMapOutputWithContext(ctx context.Context) VpcLinkMa
 	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkMapOutput)
 }
 
+func (i VpcLinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcLink] {
+	return pulumix.Output[map[string]*VpcLink]{
+		OutputState: i.ToVpcLinkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcLinkOutput struct{ *pulumi.OutputState }
 
 func (VpcLinkOutput) ElementType() reflect.Type {
@@ -212,6 +233,12 @@ func (o VpcLinkOutput) ToVpcLinkOutput() VpcLinkOutput {
 
 func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput {
 	return o
+}
+
+func (o VpcLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcLink] {
+	return pulumix.Output[*VpcLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcLinkOutput) Arn() pulumi.StringOutput {
@@ -257,6 +284,12 @@ func (o VpcLinkArrayOutput) ToVpcLinkArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o VpcLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcLink] {
+	return pulumix.Output[[]*VpcLink]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcLinkArrayOutput) Index(i pulumi.IntInput) VpcLinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcLink {
 		return vs[0].([]*VpcLink)[vs[1].(int)]
@@ -275,6 +308,12 @@ func (o VpcLinkMapOutput) ToVpcLinkMapOutput() VpcLinkMapOutput {
 
 func (o VpcLinkMapOutput) ToVpcLinkMapOutputWithContext(ctx context.Context) VpcLinkMapOutput {
 	return o
+}
+
+func (o VpcLinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcLink] {
+	return pulumix.Output[map[string]*VpcLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcLinkMapOutput) MapIndex(k pulumi.StringInput) VpcLinkOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an individual Service Quota.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicequotas"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicequotas"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,11 @@ import (
 //
 // ## Import
 //
-// ~> *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.,
+// ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
+//
+// Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For example:
+//
+// ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
 //
 // ```sh
 //
@@ -93,6 +99,7 @@ func NewServiceQuota(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceQuota
 	err := ctx.RegisterResource("aws:servicequotas/serviceQuota:ServiceQuota", name, args, &resource, opts...)
 	if err != nil {
@@ -206,6 +213,12 @@ func (i *ServiceQuota) ToServiceQuotaOutputWithContext(ctx context.Context) Serv
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaOutput)
 }
 
+func (i *ServiceQuota) ToOutput(ctx context.Context) pulumix.Output[*ServiceQuota] {
+	return pulumix.Output[*ServiceQuota]{
+		OutputState: i.ToServiceQuotaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceQuotaArrayInput is an input type that accepts ServiceQuotaArray and ServiceQuotaArrayOutput values.
 // You can construct a concrete instance of `ServiceQuotaArrayInput` via:
 //
@@ -229,6 +242,12 @@ func (i ServiceQuotaArray) ToServiceQuotaArrayOutput() ServiceQuotaArrayOutput {
 
 func (i ServiceQuotaArray) ToServiceQuotaArrayOutputWithContext(ctx context.Context) ServiceQuotaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaArrayOutput)
+}
+
+func (i ServiceQuotaArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceQuota] {
+	return pulumix.Output[[]*ServiceQuota]{
+		OutputState: i.ToServiceQuotaArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceQuotaMapInput is an input type that accepts ServiceQuotaMap and ServiceQuotaMapOutput values.
@@ -256,6 +275,12 @@ func (i ServiceQuotaMap) ToServiceQuotaMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaMapOutput)
 }
 
+func (i ServiceQuotaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceQuota] {
+	return pulumix.Output[map[string]*ServiceQuota]{
+		OutputState: i.ToServiceQuotaMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceQuotaOutput struct{ *pulumi.OutputState }
 
 func (ServiceQuotaOutput) ElementType() reflect.Type {
@@ -268,6 +293,12 @@ func (o ServiceQuotaOutput) ToServiceQuotaOutput() ServiceQuotaOutput {
 
 func (o ServiceQuotaOutput) ToServiceQuotaOutputWithContext(ctx context.Context) ServiceQuotaOutput {
 	return o
+}
+
+func (o ServiceQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceQuota] {
+	return pulumix.Output[*ServiceQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the service quota can be increased.
@@ -337,6 +368,12 @@ func (o ServiceQuotaArrayOutput) ToServiceQuotaArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServiceQuotaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceQuota] {
+	return pulumix.Output[[]*ServiceQuota]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceQuotaArrayOutput) Index(i pulumi.IntInput) ServiceQuotaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceQuota {
 		return vs[0].([]*ServiceQuota)[vs[1].(int)]
@@ -355,6 +392,12 @@ func (o ServiceQuotaMapOutput) ToServiceQuotaMapOutput() ServiceQuotaMapOutput {
 
 func (o ServiceQuotaMapOutput) ToServiceQuotaMapOutputWithContext(ctx context.Context) ServiceQuotaMapOutput {
 	return o
+}
+
+func (o ServiceQuotaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceQuota] {
+	return pulumix.Output[map[string]*ServiceQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceQuotaMapOutput) MapIndex(k pulumi.StringInput) ServiceQuotaOutput {

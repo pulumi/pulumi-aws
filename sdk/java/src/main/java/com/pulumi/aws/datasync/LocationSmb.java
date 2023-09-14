@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_datasync_location_smb` can be imported by using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  *  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567

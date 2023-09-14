@@ -18,6 +18,8 @@ __all__ = [
     'get_vpc_iam_pool_output',
 ]
 
+warnings.warn("""aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVpcIamPoolResult:
     """
@@ -282,18 +284,18 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
-        aws.ec2.GetVpcIamPoolFilterArgs(
+    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="address-family",
             values=["ipv4"],
         ),
     ])
     test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_iam_pool.id,
+        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
         ipv4_netmask_length=28)
     ```
 
@@ -304,6 +306,7 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
+    pulumi.log.warn("""get_vpc_iam_pool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""")
     __args__ = dict()
     __args__['allocationResourceTags'] = allocation_resource_tags
     __args__['filters'] = filters
@@ -314,26 +317,26 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIamPool:getVpcIamPool', __args__, opts=opts, typ=GetVpcIamPoolResult).value
 
     return AwaitableGetVpcIamPoolResult(
-        address_family=__ret__.address_family,
-        allocation_default_netmask_length=__ret__.allocation_default_netmask_length,
-        allocation_max_netmask_length=__ret__.allocation_max_netmask_length,
-        allocation_min_netmask_length=__ret__.allocation_min_netmask_length,
-        allocation_resource_tags=__ret__.allocation_resource_tags,
-        arn=__ret__.arn,
-        auto_import=__ret__.auto_import,
-        aws_service=__ret__.aws_service,
-        description=__ret__.description,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ipam_pool_id=__ret__.ipam_pool_id,
-        ipam_scope_id=__ret__.ipam_scope_id,
-        ipam_scope_type=__ret__.ipam_scope_type,
-        locale=__ret__.locale,
-        pool_depth=__ret__.pool_depth,
-        publicly_advertisable=__ret__.publicly_advertisable,
-        source_ipam_pool_id=__ret__.source_ipam_pool_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        address_family=pulumi.get(__ret__, 'address_family'),
+        allocation_default_netmask_length=pulumi.get(__ret__, 'allocation_default_netmask_length'),
+        allocation_max_netmask_length=pulumi.get(__ret__, 'allocation_max_netmask_length'),
+        allocation_min_netmask_length=pulumi.get(__ret__, 'allocation_min_netmask_length'),
+        allocation_resource_tags=pulumi.get(__ret__, 'allocation_resource_tags'),
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_import=pulumi.get(__ret__, 'auto_import'),
+        aws_service=pulumi.get(__ret__, 'aws_service'),
+        description=pulumi.get(__ret__, 'description'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
+        ipam_scope_id=pulumi.get(__ret__, 'ipam_scope_id'),
+        ipam_scope_type=pulumi.get(__ret__, 'ipam_scope_type'),
+        locale=pulumi.get(__ret__, 'locale'),
+        pool_depth=pulumi.get(__ret__, 'pool_depth'),
+        publicly_advertisable=pulumi.get(__ret__, 'publicly_advertisable'),
+        source_ipam_pool_id=pulumi.get(__ret__, 'source_ipam_pool_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vpc_iam_pool)
@@ -360,18 +363,18 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
-        aws.ec2.GetVpcIamPoolFilterArgs(
+    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="address-family",
             values=["ipv4"],
         ),
     ])
     test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_iam_pool.id,
+        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
         ipv4_netmask_length=28)
     ```
 
@@ -382,4 +385,5 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
+    pulumi.log.warn("""get_vpc_iam_pool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""")
     ...

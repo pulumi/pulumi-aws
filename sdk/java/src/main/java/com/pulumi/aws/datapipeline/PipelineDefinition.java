@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
+ * Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
  * 
  * ```sh
  *  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
@@ -162,12 +162,16 @@ public class PipelineDefinition extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for the objects that define the pipeline. See below
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="pipelineObjects", refs={List.class,PipelineDefinitionPipelineObject.class}, tree="[0,1]")
     private Output<List<PipelineDefinitionPipelineObject>> pipelineObjects;
 
     /**
      * @return Configuration block for the objects that define the pipeline. See below
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<PipelineDefinitionPipelineObject>> pipelineObjects() {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudTrail resource.
@@ -30,35 +32,43 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooBucketV2, err := s3.NewBucketV2(ctx, "fooBucketV2", &s3.BucketV2Args{
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudtrail.NewTrail(ctx, "foobar", &cloudtrail.TrailArgs{
-//				S3BucketName:               fooBucketV2.ID(),
+//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
+//				S3BucketName:               exampleBucketV2.ID(),
 //				S3KeyPrefix:                pulumi.String("prefix"),
 //				IncludeGlobalServiceEvents: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			fooPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Sid:    pulumi.String("AWSCloudTrailAclCheck"),
@@ -75,7 +85,16 @@ import (
 //							pulumi.String("s3:GetBucketAcl"),
 //						},
 //						Resources: pulumi.StringArray{
-//							fooBucketV2.Arn,
+//							exampleBucketV2.Arn,
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
+//								},
+//							},
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
@@ -93,8 +112,8 @@ import (
 //							pulumi.String("s3:PutObject"),
 //						},
 //						Resources: pulumi.StringArray{
-//							fooBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, current.AccountId), nil
+//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, currentCallerIdentity.AccountId), nil
 //							}).(pulumi.StringOutput),
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
@@ -105,14 +124,21 @@ import (
 //									pulumi.String("bucket-owner-full-control"),
 //								},
 //							},
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
+//								},
+//							},
 //						},
 //					},
 //				},
 //			}, nil)
-//			_, err = s3.NewBucketPolicy(ctx, "fooBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: fooBucketV2.ID(),
-//				Policy: fooPolicyDocument.ApplyT(func(fooPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &fooPolicyDocument.Json, nil
+//			_, err = s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &examplePolicyDocument.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -136,7 +162,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -174,7 +200,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -214,8 +240,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -261,8 +287,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -289,7 +315,7 @@ import (
 //
 // ## Import
 //
-// Cloudtrails can be imported using the `name`, e.g.,
+// Using `pulumi import`, import Cloudtrails using the `name`. For example:
 //
 // ```sh
 //
@@ -328,6 +354,8 @@ type Trail struct {
 	// Name of the trail.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
@@ -349,6 +377,7 @@ func NewTrail(ctx *pulumi.Context,
 	if args.S3BucketName == nil {
 		return nil, errors.New("invalid value for required argument 'S3BucketName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Trail
 	err := ctx.RegisterResource("aws:cloudtrail/trail:Trail", name, args, &resource, opts...)
 	if err != nil {
@@ -400,6 +429,8 @@ type trailState struct {
 	// Name of the trail.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -441,6 +472,8 @@ type TrailState struct {
 	// Name of the trail.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringPtrInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
@@ -482,6 +515,8 @@ type trailArgs struct {
 	// Name of the trail.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -518,6 +553,8 @@ type TrailArgs struct {
 	// Name of the trail.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
@@ -550,6 +587,12 @@ func (i *Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrailOutput)
 }
 
+func (i *Trail) ToOutput(ctx context.Context) pulumix.Output[*Trail] {
+	return pulumix.Output[*Trail]{
+		OutputState: i.ToTrailOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrailArrayInput is an input type that accepts TrailArray and TrailArrayOutput values.
 // You can construct a concrete instance of `TrailArrayInput` via:
 //
@@ -573,6 +616,12 @@ func (i TrailArray) ToTrailArrayOutput() TrailArrayOutput {
 
 func (i TrailArray) ToTrailArrayOutputWithContext(ctx context.Context) TrailArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrailArrayOutput)
+}
+
+func (i TrailArray) ToOutput(ctx context.Context) pulumix.Output[[]*Trail] {
+	return pulumix.Output[[]*Trail]{
+		OutputState: i.ToTrailArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TrailMapInput is an input type that accepts TrailMap and TrailMapOutput values.
@@ -600,6 +649,12 @@ func (i TrailMap) ToTrailMapOutputWithContext(ctx context.Context) TrailMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TrailMapOutput)
 }
 
+func (i TrailMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Trail] {
+	return pulumix.Output[map[string]*Trail]{
+		OutputState: i.ToTrailMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrailOutput struct{ *pulumi.OutputState }
 
 func (TrailOutput) ElementType() reflect.Type {
@@ -612,6 +667,12 @@ func (o TrailOutput) ToTrailOutput() TrailOutput {
 
 func (o TrailOutput) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return o
+}
+
+func (o TrailOutput) ToOutput(ctx context.Context) pulumix.Output[*Trail] {
+	return pulumix.Output[*Trail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
@@ -685,6 +746,8 @@ func (o TrailOutput) Name() pulumi.StringOutput {
 }
 
 // Name of the S3 bucket designated for publishing log files.
+//
+// The following arguments are optional:
 func (o TrailOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.S3BucketName }).(pulumi.StringOutput)
 }
@@ -723,6 +786,12 @@ func (o TrailArrayOutput) ToTrailArrayOutputWithContext(ctx context.Context) Tra
 	return o
 }
 
+func (o TrailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Trail] {
+	return pulumix.Output[[]*Trail]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrailArrayOutput) Index(i pulumi.IntInput) TrailOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Trail {
 		return vs[0].([]*Trail)[vs[1].(int)]
@@ -741,6 +810,12 @@ func (o TrailMapOutput) ToTrailMapOutput() TrailMapOutput {
 
 func (o TrailMapOutput) ToTrailMapOutputWithContext(ctx context.Context) TrailMapOutput {
 	return o
+}
+
+func (o TrailMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Trail] {
+	return pulumix.Output[map[string]*Trail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrailMapOutput) MapIndex(k pulumi.StringInput) TrailOutput {

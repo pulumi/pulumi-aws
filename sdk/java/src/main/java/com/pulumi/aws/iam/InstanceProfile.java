@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Instance Profiles can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Instance Profiles using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1

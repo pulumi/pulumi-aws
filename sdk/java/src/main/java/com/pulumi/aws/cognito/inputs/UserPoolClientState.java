@@ -350,12 +350,16 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
     /**
      * User pool the client belongs to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userPoolId")
     private @Nullable Output<String> userPoolId;
 
     /**
      * @return User pool the client belongs to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> userPoolId() {
@@ -949,6 +953,8 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
         /**
          * @param userPoolId User pool the client belongs to.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -959,6 +965,8 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param userPoolId User pool the client belongs to.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

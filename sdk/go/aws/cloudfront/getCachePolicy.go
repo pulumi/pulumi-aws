@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a CloudFront cache policy.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +68,7 @@ import (
 //
 // ```
 func LookupCachePolicy(ctx *pulumi.Context, args *LookupCachePolicyArgs, opts ...pulumi.InvokeOption) (*LookupCachePolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCachePolicyResult
 	err := ctx.Invoke("aws:cloudfront/getCachePolicy:getCachePolicy", args, &rv, opts...)
 	if err != nil {
@@ -138,6 +141,12 @@ func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutput() LookupC
 
 func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContext(ctx context.Context) LookupCachePolicyResultOutput {
 	return o
+}
+
+func (o LookupCachePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCachePolicyResult] {
+	return pulumix.Output[LookupCachePolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Comment to describe the cache policy.

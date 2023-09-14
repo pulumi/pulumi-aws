@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The EFS file system policies can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import the EFS file system policies using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
@@ -86,6 +86,8 @@ export class FileSystemPolicy extends pulumi.CustomResource {
     public readonly fileSystemId!: pulumi.Output<string>;
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     *
+     * The following arguments are optional:
      */
     public readonly policy!: pulumi.Output<string>;
 
@@ -136,6 +138,8 @@ export interface FileSystemPolicyState {
     fileSystemId?: pulumi.Input<string>;
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     *
+     * The following arguments are optional:
      */
     policy?: pulumi.Input<string>;
 }
@@ -154,6 +158,8 @@ export interface FileSystemPolicyArgs {
     fileSystemId: pulumi.Input<string>;
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     *
+     * The following arguments are optional:
      */
     policy: pulumi.Input<string>;
 }

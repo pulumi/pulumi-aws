@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about EMR Release Labels.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...pulumi.InvokeOption) (*GetReleaseLabelsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReleaseLabelsResult
 	err := ctx.Invoke("aws:emr/getReleaseLabels:getReleaseLabels", args, &rv, opts...)
 	if err != nil {
@@ -100,6 +103,12 @@ func (o GetReleaseLabelsResultOutput) ToGetReleaseLabelsResultOutput() GetReleas
 
 func (o GetReleaseLabelsResultOutput) ToGetReleaseLabelsResultOutputWithContext(ctx context.Context) GetReleaseLabelsResultOutput {
 	return o
+}
+
+func (o GetReleaseLabelsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetReleaseLabelsResult] {
+	return pulumix.Output[GetReleaseLabelsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReleaseLabelsResultOutput) Filters() GetReleaseLabelsFiltersPtrOutput {

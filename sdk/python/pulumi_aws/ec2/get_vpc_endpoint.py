@@ -108,13 +108,16 @@ class GetVpcEndpointResult:
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetVpcEndpointDnsEntryResult']:
         """
-        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
         """
         return pulumi.get(self, "dns_entries")
 
     @property
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> Sequence['outputs.GetVpcEndpointDnsOptionResult']:
+        """
+        DNS options for the VPC Endpoint. DNS options blocks are documented below.
+        """
         return pulumi.get(self, "dns_options")
 
     @property
@@ -294,6 +297,9 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
     :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -306,27 +312,27 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult).value
 
     return AwaitableGetVpcEndpointResult(
-        arn=__ret__.arn,
-        cidr_blocks=__ret__.cidr_blocks,
-        dns_entries=__ret__.dns_entries,
-        dns_options=__ret__.dns_options,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ip_address_type=__ret__.ip_address_type,
-        network_interface_ids=__ret__.network_interface_ids,
-        owner_id=__ret__.owner_id,
-        policy=__ret__.policy,
-        prefix_list_id=__ret__.prefix_list_id,
-        private_dns_enabled=__ret__.private_dns_enabled,
-        requester_managed=__ret__.requester_managed,
-        route_table_ids=__ret__.route_table_ids,
-        security_group_ids=__ret__.security_group_ids,
-        service_name=__ret__.service_name,
-        state=__ret__.state,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        vpc_endpoint_type=__ret__.vpc_endpoint_type,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        cidr_blocks=pulumi.get(__ret__, 'cidr_blocks'),
+        dns_entries=pulumi.get(__ret__, 'dns_entries'),
+        dns_options=pulumi.get(__ret__, 'dns_options'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        policy=pulumi.get(__ret__, 'policy'),
+        prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
+        private_dns_enabled=pulumi.get(__ret__, 'private_dns_enabled'),
+        requester_managed=pulumi.get(__ret__, 'requester_managed'),
+        route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        state=pulumi.get(__ret__, 'state'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoint_type=pulumi.get(__ret__, 'vpc_endpoint_type'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint)
@@ -362,5 +368,8 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
     :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Synthetics Canary resource.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/synthetics"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // ## Import
 //
-// Synthetics Canaries can be imported using the `name`, e.g.,
+// Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 //
 // ```sh
 //
@@ -89,6 +91,8 @@ type Canary struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version pulumi.StringPtrOutput `pulumi:"s3Version"`
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanaryScheduleOutput `pulumi:"schedule"`
 	// ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
@@ -132,6 +136,7 @@ func NewCanary(ctx *pulumi.Context,
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Canary
 	err := ctx.RegisterResource("aws:synthetics/canary:Canary", name, args, &resource, opts...)
 	if err != nil {
@@ -183,6 +188,8 @@ type canaryState struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version *string `pulumi:"s3Version"`
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule *CanarySchedule `pulumi:"schedule"`
 	// ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn *string `pulumi:"sourceLocationArn"`
@@ -234,6 +241,8 @@ type CanaryState struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version pulumi.StringPtrInput
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanarySchedulePtrInput
 	// ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn pulumi.StringPtrInput
@@ -285,6 +294,8 @@ type canaryArgs struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version *string `pulumi:"s3Version"`
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanarySchedule `pulumi:"schedule"`
 	// Whether to run or stop the canary.
 	StartCanary *bool `pulumi:"startCanary"`
@@ -325,6 +336,8 @@ type CanaryArgs struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version pulumi.StringPtrInput
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanaryScheduleInput
 	// Whether to run or stop the canary.
 	StartCanary pulumi.BoolPtrInput
@@ -361,6 +374,12 @@ func (i *Canary) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryOutput)
 }
 
+func (i *Canary) ToOutput(ctx context.Context) pulumix.Output[*Canary] {
+	return pulumix.Output[*Canary]{
+		OutputState: i.ToCanaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CanaryArrayInput is an input type that accepts CanaryArray and CanaryArrayOutput values.
 // You can construct a concrete instance of `CanaryArrayInput` via:
 //
@@ -384,6 +403,12 @@ func (i CanaryArray) ToCanaryArrayOutput() CanaryArrayOutput {
 
 func (i CanaryArray) ToCanaryArrayOutputWithContext(ctx context.Context) CanaryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryArrayOutput)
+}
+
+func (i CanaryArray) ToOutput(ctx context.Context) pulumix.Output[[]*Canary] {
+	return pulumix.Output[[]*Canary]{
+		OutputState: i.ToCanaryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CanaryMapInput is an input type that accepts CanaryMap and CanaryMapOutput values.
@@ -411,6 +436,12 @@ func (i CanaryMap) ToCanaryMapOutputWithContext(ctx context.Context) CanaryMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryMapOutput)
 }
 
+func (i CanaryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Canary] {
+	return pulumix.Output[map[string]*Canary]{
+		OutputState: i.ToCanaryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryOutput struct{ *pulumi.OutputState }
 
 func (CanaryOutput) ElementType() reflect.Type {
@@ -423,6 +454,12 @@ func (o CanaryOutput) ToCanaryOutput() CanaryOutput {
 
 func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 	return o
+}
+
+func (o CanaryOutput) ToOutput(ctx context.Context) pulumix.Output[*Canary] {
+	return pulumix.Output[*Canary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Canary.
@@ -496,6 +533,8 @@ func (o CanaryOutput) S3Version() pulumi.StringPtrOutput {
 }
 
 // Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+//
+// The following arguments are optional:
 func (o CanaryOutput) Schedule() CanaryScheduleOutput {
 	return o.ApplyT(func(v *Canary) CanaryScheduleOutput { return v.Schedule }).(CanaryScheduleOutput)
 }
@@ -559,6 +598,12 @@ func (o CanaryArrayOutput) ToCanaryArrayOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CanaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Canary] {
+	return pulumix.Output[[]*Canary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CanaryArrayOutput) Index(i pulumi.IntInput) CanaryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Canary {
 		return vs[0].([]*Canary)[vs[1].(int)]
@@ -577,6 +622,12 @@ func (o CanaryMapOutput) ToCanaryMapOutput() CanaryMapOutput {
 
 func (o CanaryMapOutput) ToCanaryMapOutputWithContext(ctx context.Context) CanaryMapOutput {
 	return o
+}
+
+func (o CanaryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Canary] {
+	return pulumix.Output[map[string]*Canary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryMapOutput) MapIndex(k pulumi.StringInput) CanaryOutput {

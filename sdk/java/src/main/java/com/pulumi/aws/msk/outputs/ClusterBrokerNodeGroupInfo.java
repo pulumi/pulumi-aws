@@ -6,7 +6,6 @@ package com.pulumi.aws.msk.outputs;
 import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoConnectivityInfo;
 import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoStorageInfo;
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -30,15 +29,6 @@ public final class ClusterBrokerNodeGroupInfo {
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo;
-    /**
-     * @return The size in GiB of the EBS volume for the data drive on each broker node.
-     * 
-     * @deprecated
-     * use &#39;storage_info&#39; argument instead
-     * 
-     */
-    @Deprecated /* use 'storage_info' argument instead */
-    private @Nullable Integer ebsVolumeSize;
     /**
      * @return Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
      * 
@@ -78,17 +68,6 @@ public final class ClusterBrokerNodeGroupInfo {
         return Optional.ofNullable(this.connectivityInfo);
     }
     /**
-     * @return The size in GiB of the EBS volume for the data drive on each broker node.
-     * 
-     * @deprecated
-     * use &#39;storage_info&#39; argument instead
-     * 
-     */
-    @Deprecated /* use 'storage_info' argument instead */
-    public Optional<Integer> ebsVolumeSize() {
-        return Optional.ofNullable(this.ebsVolumeSize);
-    }
-    /**
      * @return Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
      * 
      */
@@ -122,7 +101,6 @@ public final class ClusterBrokerNodeGroupInfo {
         private @Nullable String azDistribution;
         private List<String> clientSubnets;
         private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo;
-        private @Nullable Integer ebsVolumeSize;
         private String instanceType;
         private List<String> securityGroups;
         private @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo;
@@ -132,7 +110,6 @@ public final class ClusterBrokerNodeGroupInfo {
     	      this.azDistribution = defaults.azDistribution;
     	      this.clientSubnets = defaults.clientSubnets;
     	      this.connectivityInfo = defaults.connectivityInfo;
-    	      this.ebsVolumeSize = defaults.ebsVolumeSize;
     	      this.instanceType = defaults.instanceType;
     	      this.securityGroups = defaults.securityGroups;
     	      this.storageInfo = defaults.storageInfo;
@@ -154,11 +131,6 @@ public final class ClusterBrokerNodeGroupInfo {
         @CustomType.Setter
         public Builder connectivityInfo(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo) {
             this.connectivityInfo = connectivityInfo;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ebsVolumeSize(@Nullable Integer ebsVolumeSize) {
-            this.ebsVolumeSize = ebsVolumeSize;
             return this;
         }
         @CustomType.Setter
@@ -184,7 +156,6 @@ public final class ClusterBrokerNodeGroupInfo {
             o.azDistribution = azDistribution;
             o.clientSubnets = clientSubnets;
             o.connectivityInfo = connectivityInfo;
-            o.ebsVolumeSize = ebsVolumeSize;
             o.instanceType = instanceType;
             o.securityGroups = securityGroups;
             o.storageInfo = storageInfo;

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IOT Authorizers can be imported using the name, e.g.,
+ * Using `pulumi import`, import IOT Authorizers using the name. For example:
  *
  * ```sh
  *  $ pulumi import aws:iot/authorizer:Authorizer example example

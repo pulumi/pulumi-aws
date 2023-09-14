@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS DMS (Database Migration) Replication Task.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupReplicationTask(ctx *pulumi.Context, args *LookupReplicationTaskArgs, opts ...pulumi.InvokeOption) (*LookupReplicationTaskResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationTaskResult
 	err := ctx.Invoke("aws:dms/getReplicationTask:getReplicationTask", args, &rv, opts...)
 	if err != nil {
@@ -50,6 +53,11 @@ func LookupReplicationTask(ctx *pulumi.Context, args *LookupReplicationTaskArgs,
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskArgs struct {
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId string            `pulumi:"replicationTaskId"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -100,6 +108,11 @@ func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTask
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskOutputArgs struct {
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringInput    `pulumi:"replicationTaskId"`
 	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -121,6 +134,12 @@ func (o LookupReplicationTaskResultOutput) ToLookupReplicationTaskResultOutput()
 
 func (o LookupReplicationTaskResultOutput) ToLookupReplicationTaskResultOutputWithContext(ctx context.Context) LookupReplicationTaskResultOutput {
 	return o
+}
+
+func (o LookupReplicationTaskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationTaskResult] {
+	return pulumix.Output[LookupReplicationTaskResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Conflicts with `cdcStartTime`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).

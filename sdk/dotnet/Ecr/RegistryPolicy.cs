@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Import
     /// 
-    /// ECR Registry Policy can be imported using the registry id, e.g.,
+    /// Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012

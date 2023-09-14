@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amplify Branch resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,10 +50,150 @@ import (
 //	}
 //
 // ```
+// ### Notifications
+//
+// Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := amplify.NewApp(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
+// AppId: example.ID(),
+// BranchName: pulumi.String("master"),
+// EnableNotification: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplifyAppMasterEventRule", &cloudwatch.EventRuleArgs{
+// Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
+// return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", aws_amplify_app.App.Id, branchName), nil
+// }).(pulumi.StringOutput),
+// EventPattern: pulumi.All(example.ID(),master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
+// id := _args[0].(string)
+// branchName := _args[1].(string)
+// var _zero string
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "detail": map[string]interface{}{
+// "appId": []string{
+// id,
+// },
+// "branchName": []string{
+// branchName,
+// },
+// "jobStatus": []string{
+// "SUCCEED",
+// "FAILED",
+// "STARTED",
+// },
+// },
+// "detail-type": []string{
+// "Amplify Deployment Status Change",
+// },
+// "source": []string{
+// "aws.amplify",
+// },
+// })
+// if err != nil {
+// return _zero, err
+// }
+// json0 := string(tmpJSON0)
+// return json0, nil
+// }).(pulumi.StringOutput),
+// })
+// if err != nil {
+// return err
+// }
+// amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplifyAppMasterTopic", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewEventTarget(ctx, "amplifyAppMasterEventTarget", &cloudwatch.EventTargetArgs{
+// Rule: amplifyAppMasterEventRule.Name,
+// Arn: amplifyAppMasterTopic.Arn,
+// InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
+// InputPaths: pulumi.StringMap{
+// "jobId": pulumi.String("$.detail.jobId"),
+// "appId": pulumi.String("$.detail.appId"),
+// "region": pulumi.String("$.region"),
+// "branch": pulumi.String("$.detail.branchName"),
+// "status": pulumi.String("$.detail.jobStatus"),
+// },
+// InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// amplifyAppMasterPolicyDocument := pulumi.All(master.Arn,amplifyAppMasterTopic.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// masterArn := _args[0].(string)
+// amplifyAppMasterTopicArn := _args[1].(string)
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: fmt.Sprintf("Allow_Publish_Events %v", masterArn),
+// Effect: "Allow",
+// Actions: []string{
+// "SNS:Publish",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "events.amazonaws.com",
+// },
+// },
+// },
+// Resources: interface{}{
+// amplifyAppMasterTopicArn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sns.NewTopicPolicy(ctx, "amplifyAppMasterTopicPolicy", &sns.TopicPolicyArgs{
+// Arn: amplifyAppMasterTopic.Arn,
+// Policy: amplifyAppMasterPolicyDocument.ApplyT(func(amplifyAppMasterPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &amplifyAppMasterPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sns.NewTopicSubscription(ctx, "this", &sns.TopicSubscriptionArgs{
+// Topic: amplifyAppMasterTopic.Arn,
+// Protocol: pulumi.String("email"),
+// Endpoint: pulumi.String("user@acme.com"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //
-// Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
+// Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
 //
 // ```sh
 //
@@ -129,6 +271,7 @@ func NewBranch(ctx *pulumi.Context,
 		"basicAuthCredentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Branch
 	err := ctx.RegisterResource("aws:amplify/branch:Branch", name, args, &resource, opts...)
 	if err != nil {
@@ -350,6 +493,12 @@ func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchOutput)
 }
 
+func (i *Branch) ToOutput(ctx context.Context) pulumix.Output[*Branch] {
+	return pulumix.Output[*Branch]{
+		OutputState: i.ToBranchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchArrayInput is an input type that accepts BranchArray and BranchArrayOutput values.
 // You can construct a concrete instance of `BranchArrayInput` via:
 //
@@ -373,6 +522,12 @@ func (i BranchArray) ToBranchArrayOutput() BranchArrayOutput {
 
 func (i BranchArray) ToBranchArrayOutputWithContext(ctx context.Context) BranchArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchArrayOutput)
+}
+
+func (i BranchArray) ToOutput(ctx context.Context) pulumix.Output[[]*Branch] {
+	return pulumix.Output[[]*Branch]{
+		OutputState: i.ToBranchArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchMapInput is an input type that accepts BranchMap and BranchMapOutput values.
@@ -400,6 +555,12 @@ func (i BranchMap) ToBranchMapOutputWithContext(ctx context.Context) BranchMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BranchMapOutput)
 }
 
+func (i BranchMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Branch] {
+	return pulumix.Output[map[string]*Branch]{
+		OutputState: i.ToBranchMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchOutput struct{ *pulumi.OutputState }
 
 func (BranchOutput) ElementType() reflect.Type {
@@ -412,6 +573,12 @@ func (o BranchOutput) ToBranchOutput() BranchOutput {
 
 func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 	return o
+}
+
+func (o BranchOutput) ToOutput(ctx context.Context) pulumix.Output[*Branch] {
+	return pulumix.Output[*Branch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Unique ID for an Amplify app.
@@ -543,6 +710,12 @@ func (o BranchArrayOutput) ToBranchArrayOutputWithContext(ctx context.Context) B
 	return o
 }
 
+func (o BranchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Branch] {
+	return pulumix.Output[[]*Branch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchArrayOutput) Index(i pulumi.IntInput) BranchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Branch {
 		return vs[0].([]*Branch)[vs[1].(int)]
@@ -561,6 +734,12 @@ func (o BranchMapOutput) ToBranchMapOutput() BranchMapOutput {
 
 func (o BranchMapOutput) ToBranchMapOutputWithContext(ctx context.Context) BranchMapOutput {
 	return o
+}
+
+func (o BranchMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Branch] {
+	return pulumix.Output[map[string]*Branch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchMapOutput) MapIndex(k pulumi.StringInput) BranchOutput {

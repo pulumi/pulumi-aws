@@ -40,11 +40,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Key Pairs can be imported using the `key_name`, e.g.,
+    /// Using `pulumi import`, import Key Pairs using the `key_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
     /// ```
+    ///  ~&gt; __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
     /// </summary>
     [AwsResourceType("aws:ec2/keyPair:KeyPair")]
     public partial class KeyPair : global::Pulumi.CustomResource

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * API Gateway Client Certificates can be imported using the id, e.g.,
+ * Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
  *
  * ```sh
  *  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe

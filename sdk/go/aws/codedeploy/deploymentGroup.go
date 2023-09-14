@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeDeploy Deployment Group for a CodeDeploy Application
@@ -22,9 +24,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,7 +132,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -204,7 +206,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -254,15 +256,13 @@ import (
 //
 // ## Import
 //
-// CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
+// Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
 //
 // ```
-//
-//	[1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
 
@@ -324,6 +324,7 @@ func NewDeploymentGroup(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentGroup
 	err := ctx.RegisterResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -529,6 +530,12 @@ func (i *DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOutput)
 }
 
+func (i *DeploymentGroup) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroup] {
+	return pulumix.Output[*DeploymentGroup]{
+		OutputState: i.ToDeploymentGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupArrayInput is an input type that accepts DeploymentGroupArray and DeploymentGroupArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupArrayInput` via:
 //
@@ -552,6 +559,12 @@ func (i DeploymentGroupArray) ToDeploymentGroupArrayOutput() DeploymentGroupArra
 
 func (i DeploymentGroupArray) ToDeploymentGroupArrayOutputWithContext(ctx context.Context) DeploymentGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupArrayOutput)
+}
+
+func (i DeploymentGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeploymentGroup] {
+	return pulumix.Output[[]*DeploymentGroup]{
+		OutputState: i.ToDeploymentGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DeploymentGroupMapInput is an input type that accepts DeploymentGroupMap and DeploymentGroupMapOutput values.
@@ -579,6 +592,12 @@ func (i DeploymentGroupMap) ToDeploymentGroupMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupMapOutput)
 }
 
+func (i DeploymentGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeploymentGroup] {
+	return pulumix.Output[map[string]*DeploymentGroup]{
+		OutputState: i.ToDeploymentGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupOutput) ElementType() reflect.Type {
@@ -591,6 +610,12 @@ func (o DeploymentGroupOutput) ToDeploymentGroupOutput() DeploymentGroupOutput {
 
 func (o DeploymentGroupOutput) ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput {
 	return o
+}
+
+func (o DeploymentGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroup] {
+	return pulumix.Output[*DeploymentGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block of alarms associated with the deployment group (documented below).
@@ -715,6 +740,12 @@ func (o DeploymentGroupArrayOutput) ToDeploymentGroupArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o DeploymentGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeploymentGroup] {
+	return pulumix.Output[[]*DeploymentGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeploymentGroupArrayOutput) Index(i pulumi.IntInput) DeploymentGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeploymentGroup {
 		return vs[0].([]*DeploymentGroup)[vs[1].(int)]
@@ -733,6 +764,12 @@ func (o DeploymentGroupMapOutput) ToDeploymentGroupMapOutput() DeploymentGroupMa
 
 func (o DeploymentGroupMapOutput) ToDeploymentGroupMapOutputWithContext(ctx context.Context) DeploymentGroupMapOutput {
 	return o
+}
+
+func (o DeploymentGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeploymentGroup] {
+	return pulumix.Output[map[string]*DeploymentGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupMapOutput) MapIndex(k pulumi.StringInput) DeploymentGroupOutput {

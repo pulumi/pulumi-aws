@@ -170,12 +170,16 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
     /**
      * ARN of the SNS topic to subscribe to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="topic", required=true)
     private Output<String> topic;
 
     /**
      * @return ARN of the SNS topic to subscribe to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> topic() {
@@ -429,6 +433,8 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param topic ARN of the SNS topic to subscribe to.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -439,6 +445,8 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param topic ARN of the SNS topic to subscribe to.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK Configuration.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("aws:msk/getConfiguration:getConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -105,6 +108,12 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutput() Loo
 
 func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithContext(ctx context.Context) LookupConfigurationResultOutput {
 	return o
+}
+
+func (o LookupConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationResult] {
+	return pulumix.Output[LookupConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the configuration.

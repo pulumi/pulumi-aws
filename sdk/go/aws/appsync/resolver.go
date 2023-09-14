@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppSync Resolver.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,7 +31,26 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
-//				Schema:             pulumi.String("type Mutation {\n	putPost(id: ID!, title: String!): Post\n}\n\ntype Post {\n	id: ID!\n	title: String!\n}\n\ntype Query {\n	singlePost(id: ID!): Post\n}\n\nschema {\n	query: Query\n	mutation: Mutation\n}\n"),
+//				Schema: pulumi.String(`type Mutation {
+//		putPost(id: ID!, title: String!): Post
+//	}
+//
+//	type Post {
+//		id: ID!
+//		title: String!
+//	}
+//
+//	type Query {
+//		singlePost(id: ID!): Post
+//	}
+//
+//	schema {
+//		query: Query
+//		mutation: Mutation
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -46,12 +67,31 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
-//				ApiId:            testGraphQLApi.ID(),
-//				Field:            pulumi.String("singlePost"),
-//				Type:             pulumi.String("Query"),
-//				DataSource:       testDataSource.Name,
-//				RequestTemplate:  pulumi.String("{\n    \"version\": \"2018-05-29\",\n    \"method\": \"GET\",\n    \"resourcePath\": \"/\",\n    \"params\":{\n        \"headers\": $utils.http.copyheaders($ctx.request.headers)\n    }\n}\n"),
-//				ResponseTemplate: pulumi.String("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n"),
+//				ApiId:      testGraphQLApi.ID(),
+//				Field:      pulumi.String("singlePost"),
+//				Type:       pulumi.String("Query"),
+//				DataSource: testDataSource.Name,
+//				RequestTemplate: pulumi.String(`{
+//	    "version": "2018-05-29",
+//	    "method": "GET",
+//	    "resourcePath": "/",
+//	    "params":{
+//	        "headers": $utils.http.copyheaders($ctx.request.headers)
+//	    }
+//	}
+//
+// `),
+//
+//				ResponseTemplate: pulumi.String(`#if($ctx.result.statusCode == 200)
+//	    $ctx.result.body
+//
+// #else
+//
+//	$utils.appendError($ctx.result.body, $ctx.result.statusCode)
+//
+// #end
+// `),
+//
 //				CachingConfig: &appsync.ResolverCachingConfigArgs{
 //					CachingKeys: pulumi.StringArray{
 //						pulumi.String("$context.identity.sub"),
@@ -95,7 +135,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -137,7 +177,7 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.,
+// Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 //
 // ```sh
 //
@@ -193,6 +233,7 @@ func NewResolver(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resolver
 	err := ctx.RegisterResource("aws:appsync/resolver:Resolver", name, args, &resource, opts...)
 	if err != nil {
@@ -362,6 +403,12 @@ func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutput)
 }
 
+func (i *Resolver) ToOutput(ctx context.Context) pulumix.Output[*Resolver] {
+	return pulumix.Output[*Resolver]{
+		OutputState: i.ToResolverOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverArrayInput is an input type that accepts ResolverArray and ResolverArrayOutput values.
 // You can construct a concrete instance of `ResolverArrayInput` via:
 //
@@ -385,6 +432,12 @@ func (i ResolverArray) ToResolverArrayOutput() ResolverArrayOutput {
 
 func (i ResolverArray) ToResolverArrayOutputWithContext(ctx context.Context) ResolverArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverArrayOutput)
+}
+
+func (i ResolverArray) ToOutput(ctx context.Context) pulumix.Output[[]*Resolver] {
+	return pulumix.Output[[]*Resolver]{
+		OutputState: i.ToResolverArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverMapInput is an input type that accepts ResolverMap and ResolverMapOutput values.
@@ -412,6 +465,12 @@ func (i ResolverMap) ToResolverMapOutputWithContext(ctx context.Context) Resolve
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverMapOutput)
 }
 
+func (i ResolverMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resolver] {
+	return pulumix.Output[map[string]*Resolver]{
+		OutputState: i.ToResolverMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverOutput struct{ *pulumi.OutputState }
 
 func (ResolverOutput) ElementType() reflect.Type {
@@ -424,6 +483,12 @@ func (o ResolverOutput) ToResolverOutput() ResolverOutput {
 
 func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) ResolverOutput {
 	return o
+}
+
+func (o ResolverOutput) ToOutput(ctx context.Context) pulumix.Output[*Resolver] {
+	return pulumix.Output[*Resolver]{
+		OutputState: o.OutputState,
+	}
 }
 
 // API ID for the GraphQL API.
@@ -510,6 +575,12 @@ func (o ResolverArrayOutput) ToResolverArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ResolverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Resolver] {
+	return pulumix.Output[[]*Resolver]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverArrayOutput) Index(i pulumi.IntInput) ResolverOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Resolver {
 		return vs[0].([]*Resolver)[vs[1].(int)]
@@ -528,6 +599,12 @@ func (o ResolverMapOutput) ToResolverMapOutput() ResolverMapOutput {
 
 func (o ResolverMapOutput) ToResolverMapOutputWithContext(ctx context.Context) ResolverMapOutput {
 	return o
+}
+
+func (o ResolverMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resolver] {
+	return pulumix.Output[map[string]*Resolver]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverMapOutput) MapIndex(k pulumi.StringInput) ResolverOutput {

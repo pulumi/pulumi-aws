@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+    /// Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
@@ -127,6 +127,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// 
+        /// The follow arguments are optional:
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -142,6 +144,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// </summary>
+        [Output("openTableFormatInput")]
+        public Output<Outputs.CatalogTableOpenTableFormatInput?> OpenTableFormatInput { get; private set; } = null!;
 
         /// <summary>
         /// Owner of the table.
@@ -257,6 +265,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// 
+        /// The follow arguments are optional:
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -272,6 +282,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// </summary>
+        [Input("openTableFormatInput")]
+        public Input<Inputs.CatalogTableOpenTableFormatInputArgs>? OpenTableFormatInput { get; set; }
 
         /// <summary>
         /// Owner of the table.
@@ -373,6 +389,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// 
+        /// The follow arguments are optional:
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -388,6 +406,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// </summary>
+        [Input("openTableFormatInput")]
+        public Input<Inputs.CatalogTableOpenTableFormatInputGetArgs>? OpenTableFormatInput { get; set; }
 
         /// <summary>
         /// Owner of the table.

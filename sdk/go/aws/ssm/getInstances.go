@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the instance IDs of SSM managed instances.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,6 +47,7 @@ import (
 //
 // ```
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:ssm/getInstances:getInstances", args, &rv, opts...)
 	if err != nil {
@@ -104,6 +107,12 @@ func (o GetInstancesResultOutput) ToGetInstancesResultOutput() GetInstancesResul
 
 func (o GetInstancesResultOutput) ToGetInstancesResultOutputWithContext(ctx context.Context) GetInstancesResultOutput {
 	return o
+}
+
+func (o GetInstancesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstancesResult] {
+	return pulumix.Output[GetInstancesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInstancesResultOutput) Filters() GetInstancesFilterArrayOutput {

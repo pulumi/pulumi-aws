@@ -131,6 +131,10 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        /// </summary>
+        public readonly ImmutableArray<string> ReadOnlyAdmins;
+        /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// </summary>
         public readonly ImmutableArray<string> TrustedResourceOwners;
@@ -153,6 +157,8 @@ namespace Pulumi.Aws.LakeFormation
 
             string id,
 
+            ImmutableArray<string> readOnlyAdmins,
+
             ImmutableArray<string> trustedResourceOwners)
         {
             Admins = admins;
@@ -163,6 +169,7 @@ namespace Pulumi.Aws.LakeFormation
             CreateTableDefaultPermissions = createTableDefaultPermissions;
             ExternalDataFilteringAllowLists = externalDataFilteringAllowLists;
             Id = id;
+            ReadOnlyAdmins = readOnlyAdmins;
             TrustedResourceOwners = trustedResourceOwners;
         }
     }

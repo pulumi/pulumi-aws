@@ -44,6 +44,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The IPv6 CIDR block.
+        /// 
+        /// &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
@@ -62,6 +64,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The to port to match.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

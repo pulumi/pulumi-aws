@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
+ * Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
@@ -126,6 +126,8 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
     public readonly sourcePortRange!: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleSourcePortRange | undefined>;
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
+     *
+     * Traffic mirror port range support following attributes:
      */
     public readonly trafficDirection!: pulumi.Output<string>;
     /**
@@ -236,6 +238,8 @@ export interface TrafficMirrorFilterRuleState {
     sourcePortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleSourcePortRange>;
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
+     *
+     * Traffic mirror port range support following attributes:
      */
     trafficDirection?: pulumi.Input<string>;
     /**
@@ -282,6 +286,8 @@ export interface TrafficMirrorFilterRuleArgs {
     sourcePortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleSourcePortRange>;
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
+     *
+     * Traffic mirror port range support following attributes:
      */
     trafficDirection: pulumi.Input<string>;
     /**

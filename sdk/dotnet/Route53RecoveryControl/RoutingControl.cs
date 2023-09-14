@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+    /// Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
@@ -78,6 +78,8 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         /// <summary>
         /// The name describing the routing control.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -148,6 +150,8 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         /// <summary>
         /// The name describing the routing control.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -180,6 +184,8 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         /// <summary>
         /// The name describing the routing control.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

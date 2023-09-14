@@ -32,7 +32,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// Direct Connect Gateways can be imported using the `gateway id`, e.g.,
+    /// Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45

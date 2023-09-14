@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a load balancer policy to an ELB backend server.
@@ -22,7 +24,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,6 +132,7 @@ func NewLoadBalancerBackendServerPolicy(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancerBackendServerPolicy
 	err := ctx.RegisterResource("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -215,6 +218,12 @@ func (i *LoadBalancerBackendServerPolicy) ToLoadBalancerBackendServerPolicyOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyOutput)
 }
 
+func (i *LoadBalancerBackendServerPolicy) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerBackendServerPolicy] {
+	return pulumix.Output[*LoadBalancerBackendServerPolicy]{
+		OutputState: i.ToLoadBalancerBackendServerPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoadBalancerBackendServerPolicyArrayInput is an input type that accepts LoadBalancerBackendServerPolicyArray and LoadBalancerBackendServerPolicyArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerBackendServerPolicyArrayInput` via:
 //
@@ -238,6 +247,12 @@ func (i LoadBalancerBackendServerPolicyArray) ToLoadBalancerBackendServerPolicyA
 
 func (i LoadBalancerBackendServerPolicyArray) ToLoadBalancerBackendServerPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyArrayOutput)
+}
+
+func (i LoadBalancerBackendServerPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerBackendServerPolicy] {
+	return pulumix.Output[[]*LoadBalancerBackendServerPolicy]{
+		OutputState: i.ToLoadBalancerBackendServerPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LoadBalancerBackendServerPolicyMapInput is an input type that accepts LoadBalancerBackendServerPolicyMap and LoadBalancerBackendServerPolicyMapOutput values.
@@ -265,6 +280,12 @@ func (i LoadBalancerBackendServerPolicyMap) ToLoadBalancerBackendServerPolicyMap
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyMapOutput)
 }
 
+func (i LoadBalancerBackendServerPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerBackendServerPolicy] {
+	return pulumix.Output[map[string]*LoadBalancerBackendServerPolicy]{
+		OutputState: i.ToLoadBalancerBackendServerPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerBackendServerPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerBackendServerPolicyOutput) ElementType() reflect.Type {
@@ -277,6 +298,12 @@ func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicy
 
 func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicyOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyOutput {
 	return o
+}
+
+func (o LoadBalancerBackendServerPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerBackendServerPolicy] {
+	return pulumix.Output[*LoadBalancerBackendServerPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The instance port to apply the policy to.
@@ -308,6 +335,12 @@ func (o LoadBalancerBackendServerPolicyArrayOutput) ToLoadBalancerBackendServerP
 	return o
 }
 
+func (o LoadBalancerBackendServerPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerBackendServerPolicy] {
+	return pulumix.Output[[]*LoadBalancerBackendServerPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoadBalancerBackendServerPolicyArrayOutput) Index(i pulumi.IntInput) LoadBalancerBackendServerPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerBackendServerPolicy {
 		return vs[0].([]*LoadBalancerBackendServerPolicy)[vs[1].(int)]
@@ -326,6 +359,12 @@ func (o LoadBalancerBackendServerPolicyMapOutput) ToLoadBalancerBackendServerPol
 
 func (o LoadBalancerBackendServerPolicyMapOutput) ToLoadBalancerBackendServerPolicyMapOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyMapOutput {
 	return o
+}
+
+func (o LoadBalancerBackendServerPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerBackendServerPolicy] {
+	return pulumix.Output[map[string]*LoadBalancerBackendServerPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerBackendServerPolicyMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerBackendServerPolicyOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
@@ -21,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,7 +76,7 @@ import (
 //
 // ## Import
 //
-// Multi-Region Access Points can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+// Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -108,6 +110,7 @@ func NewMultiRegionAccessPoint(ctx *pulumi.Context,
 	if args.Details == nil {
 		return nil, errors.New("invalid value for required argument 'Details'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MultiRegionAccessPoint
 	err := ctx.RegisterResource("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint", name, args, &resource, opts...)
 	if err != nil {
@@ -201,6 +204,12 @@ func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointOutput)
 }
 
+func (i *MultiRegionAccessPoint) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPoint] {
+	return pulumix.Output[*MultiRegionAccessPoint]{
+		OutputState: i.ToMultiRegionAccessPointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MultiRegionAccessPointArrayInput is an input type that accepts MultiRegionAccessPointArray and MultiRegionAccessPointArrayOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointArrayInput` via:
 //
@@ -224,6 +233,12 @@ func (i MultiRegionAccessPointArray) ToMultiRegionAccessPointArrayOutput() Multi
 
 func (i MultiRegionAccessPointArray) ToMultiRegionAccessPointArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointArrayOutput)
+}
+
+func (i MultiRegionAccessPointArray) ToOutput(ctx context.Context) pulumix.Output[[]*MultiRegionAccessPoint] {
+	return pulumix.Output[[]*MultiRegionAccessPoint]{
+		OutputState: i.ToMultiRegionAccessPointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MultiRegionAccessPointMapInput is an input type that accepts MultiRegionAccessPointMap and MultiRegionAccessPointMapOutput values.
@@ -251,6 +266,12 @@ func (i MultiRegionAccessPointMap) ToMultiRegionAccessPointMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointMapOutput)
 }
 
+func (i MultiRegionAccessPointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiRegionAccessPoint] {
+	return pulumix.Output[map[string]*MultiRegionAccessPoint]{
+		OutputState: i.ToMultiRegionAccessPointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MultiRegionAccessPointOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointOutput) ElementType() reflect.Type {
@@ -263,6 +284,12 @@ func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutput() MultiRegi
 
 func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutputWithContext(ctx context.Context) MultiRegionAccessPointOutput {
 	return o
+}
+
+func (o MultiRegionAccessPointOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPoint] {
+	return pulumix.Output[*MultiRegionAccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -309,6 +336,12 @@ func (o MultiRegionAccessPointArrayOutput) ToMultiRegionAccessPointArrayOutputWi
 	return o
 }
 
+func (o MultiRegionAccessPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MultiRegionAccessPoint] {
+	return pulumix.Output[[]*MultiRegionAccessPoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MultiRegionAccessPointArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MultiRegionAccessPoint {
 		return vs[0].([]*MultiRegionAccessPoint)[vs[1].(int)]
@@ -327,6 +360,12 @@ func (o MultiRegionAccessPointMapOutput) ToMultiRegionAccessPointMapOutput() Mul
 
 func (o MultiRegionAccessPointMapOutput) ToMultiRegionAccessPointMapOutputWithContext(ctx context.Context) MultiRegionAccessPointMapOutput {
 	return o
+}
+
+func (o MultiRegionAccessPointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiRegionAccessPoint] {
+	return pulumix.Output[map[string]*MultiRegionAccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MultiRegionAccessPointMapOutput) MapIndex(k pulumi.StringInput) MultiRegionAccessPointOutput {

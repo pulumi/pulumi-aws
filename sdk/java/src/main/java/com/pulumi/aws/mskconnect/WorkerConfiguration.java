@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MSK Connect Worker Configuration can be imported using the plugin&#39;s `arn`, e.g.,
+ * Using `pulumi import`, import MSK Connect Worker Configuration using the plugin&#39;s `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4&#39;
@@ -123,12 +123,16 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="propertiesFileContent", refs={String.class}, tree="[0]")
     private Output<String> propertiesFileContent;
 
     /**
      * @return Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> propertiesFileContent() {

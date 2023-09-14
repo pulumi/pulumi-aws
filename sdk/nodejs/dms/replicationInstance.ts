@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Replication instances can be imported using the `replication_instance_id`, e.g.,
+ * Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
@@ -135,7 +135,16 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     public readonly multiAz!: pulumi.Output<boolean>;
     /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     */
+    public readonly networkType!: pulumi.Output<string>;
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     *
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
@@ -152,6 +161,11 @@ export class ReplicationInstance extends pulumi.CustomResource {
     public readonly replicationInstanceClass!: pulumi.Output<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
+     *
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      */
     public readonly replicationInstanceId!: pulumi.Output<string>;
     /**
@@ -200,6 +214,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["multiAz"] = state ? state.multiAz : undefined;
+            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
@@ -227,6 +242,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["multiAz"] = args ? args.multiAz : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
@@ -281,7 +297,16 @@ export interface ReplicationInstanceState {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     *
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
@@ -298,6 +323,11 @@ export interface ReplicationInstanceState {
     replicationInstanceClass?: pulumi.Input<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
+     *
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      */
     replicationInstanceId?: pulumi.Input<string>;
     /**
@@ -363,7 +393,16 @@ export interface ReplicationInstanceArgs {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     *
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
@@ -376,6 +415,11 @@ export interface ReplicationInstanceArgs {
     replicationInstanceClass: pulumi.Input<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
+     *
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      */
     replicationInstanceId: pulumi.Input<string>;
     /**

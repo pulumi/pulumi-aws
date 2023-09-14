@@ -131,10 +131,17 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// CloudFormation StackSets can be imported using the `name`, e.g.,
+    /// Import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+    /// 
+    /// Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+    /// ```
+    ///  Using `TODO import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSet:StackSet")]
@@ -181,6 +188,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Output("executionRoleName")]
         public Output<string> ExecutionRoleName { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Output("managedExecution")]
+        public Output<Outputs.StackSetManagedExecution?> ManagedExecution { get; private set; } = null!;
 
         /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
@@ -325,6 +338,12 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? ExecutionRoleName { get; set; }
 
         /// <summary>
+        /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Input("managedExecution")]
+        public Input<Inputs.StackSetManagedExecutionArgs>? ManagedExecution { get; set; }
+
+        /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
         [Input("name")]
@@ -433,6 +452,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
+
+        /// <summary>
+        /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Input("managedExecution")]
+        public Input<Inputs.StackSetManagedExecutionGetArgs>? ManagedExecution { get; set; }
 
         /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.

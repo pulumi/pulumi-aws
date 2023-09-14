@@ -7,10 +7,101 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// The following shows outputting all network interface ids in a region.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleNetworkInterfaces, err := ec2.GetNetworkInterfaces(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example", exampleNetworkInterfaces.Ids)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
+//				Tags: map[string]interface{}{
+//					"Name": "test",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example1", example.Ids)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following example retrieves a network interface ids which associated
+// with specific subnet.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleNetworkInterfaces, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
+// Filters: []ec2.GetNetworkInterfacesFilter{
+// {
+// Name: "subnet-id",
+// Values: interface{}{
+// aws_subnet.Test.Id,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// ctx.Export("example", exampleNetworkInterfaces.Ids)
+// return nil
+// })
+// }
+// ```
 func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfacesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkInterfacesResult
 	err := ctx.Invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, &rv, opts...)
 	if err != nil {
@@ -22,6 +113,9 @@ func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, o
 // A collection of arguments for invoking getNetworkInterfaces.
 type GetNetworkInterfacesArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetNetworkInterfacesFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network interfaces.
@@ -54,6 +148,9 @@ func GetNetworkInterfacesOutput(ctx *pulumi.Context, args GetNetworkInterfacesOu
 // A collection of arguments for invoking getNetworkInterfaces.
 type GetNetworkInterfacesOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetNetworkInterfacesFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network interfaces.
@@ -77,6 +174,12 @@ func (o GetNetworkInterfacesResultOutput) ToGetNetworkInterfacesResultOutput() G
 
 func (o GetNetworkInterfacesResultOutput) ToGetNetworkInterfacesResultOutputWithContext(ctx context.Context) GetNetworkInterfacesResultOutput {
 	return o
+}
+
+func (o GetNetworkInterfacesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkInterfacesResult] {
+	return pulumix.Output[GetNetworkInterfacesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkInterfacesResultOutput) Filters() GetNetworkInterfacesFilterArrayOutput {

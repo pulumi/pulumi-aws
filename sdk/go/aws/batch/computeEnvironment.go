@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
@@ -27,9 +29,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -138,6 +140,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			samplePlacementGroup, err := ec2.NewPlacementGroup(ctx, "samplePlacementGroup", &ec2.PlacementGroupArgs{
+//				Strategy: pulumi.String("cluster"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = batch.NewComputeEnvironment(ctx, "sampleComputeEnvironment", &batch.ComputeEnvironmentArgs{
 //				ComputeEnvironmentName: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
@@ -145,8 +153,9 @@ import (
 //					InstanceTypes: pulumi.StringArray{
 //						pulumi.String("c4.large"),
 //					},
-//					MaxVcpus: pulumi.Int(16),
-//					MinVcpus: pulumi.Int(0),
+//					MaxVcpus:       pulumi.Int(16),
+//					MinVcpus:       pulumi.Int(0),
+//					PlacementGroup: samplePlacementGroup.Name,
 //					SecurityGroupIds: pulumi.StringArray{
 //						sampleSecurityGroup.ID(),
 //					},
@@ -175,7 +184,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -210,15 +219,13 @@ import (
 //
 // ## Import
 //
-// AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+// Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
 //
 // ```
-//
-//	[1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 
@@ -260,6 +267,7 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ComputeEnvironment
 	err := ctx.RegisterResource("aws:batch/computeEnvironment:ComputeEnvironment", name, args, &resource, opts...)
 	if err != nil {
@@ -405,6 +413,12 @@ func (i *ComputeEnvironment) ToComputeEnvironmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentOutput)
 }
 
+func (i *ComputeEnvironment) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironment] {
+	return pulumix.Output[*ComputeEnvironment]{
+		OutputState: i.ToComputeEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ComputeEnvironmentArrayInput is an input type that accepts ComputeEnvironmentArray and ComputeEnvironmentArrayOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentArrayInput` via:
 //
@@ -428,6 +442,12 @@ func (i ComputeEnvironmentArray) ToComputeEnvironmentArrayOutput() ComputeEnviro
 
 func (i ComputeEnvironmentArray) ToComputeEnvironmentArrayOutputWithContext(ctx context.Context) ComputeEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentArrayOutput)
+}
+
+func (i ComputeEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ComputeEnvironment] {
+	return pulumix.Output[[]*ComputeEnvironment]{
+		OutputState: i.ToComputeEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ComputeEnvironmentMapInput is an input type that accepts ComputeEnvironmentMap and ComputeEnvironmentMapOutput values.
@@ -455,6 +475,12 @@ func (i ComputeEnvironmentMap) ToComputeEnvironmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentMapOutput)
 }
 
+func (i ComputeEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ComputeEnvironment] {
+	return pulumix.Output[map[string]*ComputeEnvironment]{
+		OutputState: i.ToComputeEnvironmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentOutput) ElementType() reflect.Type {
@@ -467,6 +493,12 @@ func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutput() ComputeEnvironmen
 
 func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutputWithContext(ctx context.Context) ComputeEnvironmentOutput {
 	return o
+}
+
+func (o ComputeEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironment] {
+	return pulumix.Output[*ComputeEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the compute environment.
@@ -548,6 +580,12 @@ func (o ComputeEnvironmentArrayOutput) ToComputeEnvironmentArrayOutputWithContex
 	return o
 }
 
+func (o ComputeEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ComputeEnvironment] {
+	return pulumix.Output[[]*ComputeEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ComputeEnvironmentArrayOutput) Index(i pulumi.IntInput) ComputeEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ComputeEnvironment {
 		return vs[0].([]*ComputeEnvironment)[vs[1].(int)]
@@ -566,6 +604,12 @@ func (o ComputeEnvironmentMapOutput) ToComputeEnvironmentMapOutput() ComputeEnvi
 
 func (o ComputeEnvironmentMapOutput) ToComputeEnvironmentMapOutputWithContext(ctx context.Context) ComputeEnvironmentMapOutput {
 	return o
+}
+
+func (o ComputeEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ComputeEnvironment] {
+	return pulumix.Output[map[string]*ComputeEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeEnvironmentMapOutput) MapIndex(k pulumi.StringInput) ComputeEnvironmentOutput {

@@ -7,8 +7,199 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
+
+type ConnectionAliasTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// ConnectionAliasTimeoutsInput is an input type that accepts ConnectionAliasTimeoutsArgs and ConnectionAliasTimeoutsOutput values.
+// You can construct a concrete instance of `ConnectionAliasTimeoutsInput` via:
+//
+//	ConnectionAliasTimeoutsArgs{...}
+type ConnectionAliasTimeoutsInput interface {
+	pulumi.Input
+
+	ToConnectionAliasTimeoutsOutput() ConnectionAliasTimeoutsOutput
+	ToConnectionAliasTimeoutsOutputWithContext(context.Context) ConnectionAliasTimeoutsOutput
+}
+
+type ConnectionAliasTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ConnectionAliasTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsOutput() ConnectionAliasTimeoutsOutput {
+	return i.ToConnectionAliasTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTimeoutsOutput)
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectionAliasTimeouts] {
+	return pulumix.Output[ConnectionAliasTimeouts]{
+		OutputState: i.ToConnectionAliasTimeoutsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return i.ToConnectionAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTimeoutsOutput).ToConnectionAliasTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ConnectionAliasTimeoutsPtrInput is an input type that accepts ConnectionAliasTimeoutsArgs, ConnectionAliasTimeoutsPtr and ConnectionAliasTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ConnectionAliasTimeoutsPtrInput` via:
+//
+//	        ConnectionAliasTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAliasTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput
+	ToConnectionAliasTimeoutsPtrOutputWithContext(context.Context) ConnectionAliasTimeoutsPtrOutput
+}
+
+type connectionAliasTimeoutsPtrType ConnectionAliasTimeoutsArgs
+
+func ConnectionAliasTimeoutsPtr(v *ConnectionAliasTimeoutsArgs) ConnectionAliasTimeoutsPtrInput {
+	return (*connectionAliasTimeoutsPtrType)(v)
+}
+
+func (*connectionAliasTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (i *connectionAliasTimeoutsPtrType) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return i.ToConnectionAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAliasTimeoutsPtrType) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTimeoutsPtrOutput)
+}
+
+func (i *connectionAliasTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAliasTimeouts] {
+	return pulumix.Output[*ConnectionAliasTimeouts]{
+		OutputState: i.ToConnectionAliasTimeoutsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConnectionAliasTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsOutput() ConnectionAliasTimeoutsOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return o.ToConnectionAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAliasTimeouts) *ConnectionAliasTimeouts {
+		return &v
+	}).(ConnectionAliasTimeoutsPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionAliasTimeouts] {
+	return pulumix.Output[ConnectionAliasTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConnectionAliasTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAliasTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAliasTimeouts] {
+	return pulumix.Output[*ConnectionAliasTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Elem() ConnectionAliasTimeoutsOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) ConnectionAliasTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAliasTimeouts
+		return ret
+	}).(ConnectionAliasTimeoutsOutput)
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
 
 type DirectorySelfServicePermissions struct {
 	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
@@ -59,6 +250,12 @@ func (i DirectorySelfServicePermissionsArgs) ToDirectorySelfServicePermissionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(DirectorySelfServicePermissionsOutput)
 }
 
+func (i DirectorySelfServicePermissionsArgs) ToOutput(ctx context.Context) pulumix.Output[DirectorySelfServicePermissions] {
+	return pulumix.Output[DirectorySelfServicePermissions]{
+		OutputState: i.ToDirectorySelfServicePermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DirectorySelfServicePermissionsArgs) ToDirectorySelfServicePermissionsPtrOutput() DirectorySelfServicePermissionsPtrOutput {
 	return i.ToDirectorySelfServicePermissionsPtrOutputWithContext(context.Background())
 }
@@ -100,6 +297,12 @@ func (i *directorySelfServicePermissionsPtrType) ToDirectorySelfServicePermissio
 	return pulumi.ToOutputWithContext(ctx, i).(DirectorySelfServicePermissionsPtrOutput)
 }
 
+func (i *directorySelfServicePermissionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DirectorySelfServicePermissions] {
+	return pulumix.Output[*DirectorySelfServicePermissions]{
+		OutputState: i.ToDirectorySelfServicePermissionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectorySelfServicePermissionsOutput struct{ *pulumi.OutputState }
 
 func (DirectorySelfServicePermissionsOutput) ElementType() reflect.Type {
@@ -122,6 +325,12 @@ func (o DirectorySelfServicePermissionsOutput) ToDirectorySelfServicePermissions
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfServicePermissions) *DirectorySelfServicePermissions {
 		return &v
 	}).(DirectorySelfServicePermissionsPtrOutput)
+}
+
+func (o DirectorySelfServicePermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[DirectorySelfServicePermissions] {
+	return pulumix.Output[DirectorySelfServicePermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
@@ -161,6 +370,12 @@ func (o DirectorySelfServicePermissionsPtrOutput) ToDirectorySelfServicePermissi
 
 func (o DirectorySelfServicePermissionsPtrOutput) ToDirectorySelfServicePermissionsPtrOutputWithContext(ctx context.Context) DirectorySelfServicePermissionsPtrOutput {
 	return o
+}
+
+func (o DirectorySelfServicePermissionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectorySelfServicePermissions] {
+	return pulumix.Output[*DirectorySelfServicePermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectorySelfServicePermissionsPtrOutput) Elem() DirectorySelfServicePermissionsOutput {
@@ -284,6 +499,12 @@ func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessProper
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesOutput)
 }
 
+func (i DirectoryWorkspaceAccessPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[DirectoryWorkspaceAccessProperties] {
+	return pulumix.Output[DirectoryWorkspaceAccessProperties]{
+		OutputState: i.ToDirectoryWorkspaceAccessPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessPropertiesPtrOutput() DirectoryWorkspaceAccessPropertiesPtrOutput {
 	return i.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(context.Background())
 }
@@ -325,6 +546,12 @@ func (i *directoryWorkspaceAccessPropertiesPtrType) ToDirectoryWorkspaceAccessPr
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesPtrOutput)
 }
 
+func (i *directoryWorkspaceAccessPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DirectoryWorkspaceAccessProperties] {
+	return pulumix.Output[*DirectoryWorkspaceAccessProperties]{
+		OutputState: i.ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectoryWorkspaceAccessPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DirectoryWorkspaceAccessPropertiesOutput) ElementType() reflect.Type {
@@ -347,6 +574,12 @@ func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessProp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessProperties {
 		return &v
 	}).(DirectoryWorkspaceAccessPropertiesPtrOutput)
+}
+
+func (o DirectoryWorkspaceAccessPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryWorkspaceAccessProperties] {
+	return pulumix.Output[DirectoryWorkspaceAccessProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether users can use Android devices to access their WorkSpaces.
@@ -401,6 +634,12 @@ func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToDirectoryWorkspaceAccessP
 
 func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
 	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryWorkspaceAccessProperties] {
+	return pulumix.Output[*DirectoryWorkspaceAccessProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryWorkspaceAccessPropertiesPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesOutput {
@@ -542,6 +781,12 @@ func (i DirectoryWorkspaceCreationPropertiesArgs) ToDirectoryWorkspaceCreationPr
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceCreationPropertiesOutput)
 }
 
+func (i DirectoryWorkspaceCreationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[DirectoryWorkspaceCreationProperties] {
+	return pulumix.Output[DirectoryWorkspaceCreationProperties]{
+		OutputState: i.ToDirectoryWorkspaceCreationPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DirectoryWorkspaceCreationPropertiesArgs) ToDirectoryWorkspaceCreationPropertiesPtrOutput() DirectoryWorkspaceCreationPropertiesPtrOutput {
 	return i.ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -583,6 +828,12 @@ func (i *directoryWorkspaceCreationPropertiesPtrType) ToDirectoryWorkspaceCreati
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceCreationPropertiesPtrOutput)
 }
 
+func (i *directoryWorkspaceCreationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DirectoryWorkspaceCreationProperties] {
+	return pulumix.Output[*DirectoryWorkspaceCreationProperties]{
+		OutputState: i.ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectoryWorkspaceCreationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DirectoryWorkspaceCreationPropertiesOutput) ElementType() reflect.Type {
@@ -605,6 +856,12 @@ func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreation
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceCreationProperties) *DirectoryWorkspaceCreationProperties {
 		return &v
 	}).(DirectoryWorkspaceCreationPropertiesPtrOutput)
+}
+
+func (o DirectoryWorkspaceCreationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryWorkspaceCreationProperties] {
+	return pulumix.Output[DirectoryWorkspaceCreationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -644,6 +901,12 @@ func (o DirectoryWorkspaceCreationPropertiesPtrOutput) ToDirectoryWorkspaceCreat
 
 func (o DirectoryWorkspaceCreationPropertiesPtrOutput) ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesPtrOutput {
 	return o
+}
+
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryWorkspaceCreationProperties] {
+	return pulumix.Output[*DirectoryWorkspaceCreationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryWorkspaceCreationPropertiesPtrOutput) Elem() DirectoryWorkspaceCreationPropertiesOutput {
@@ -743,6 +1006,12 @@ func (i IpGroupRuleArgs) ToIpGroupRuleOutputWithContext(ctx context.Context) IpG
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupRuleOutput)
 }
 
+func (i IpGroupRuleArgs) ToOutput(ctx context.Context) pulumix.Output[IpGroupRule] {
+	return pulumix.Output[IpGroupRule]{
+		OutputState: i.ToIpGroupRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IpGroupRuleArrayInput is an input type that accepts IpGroupRuleArray and IpGroupRuleArrayOutput values.
 // You can construct a concrete instance of `IpGroupRuleArrayInput` via:
 //
@@ -768,6 +1037,12 @@ func (i IpGroupRuleArray) ToIpGroupRuleArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupRuleArrayOutput)
 }
 
+func (i IpGroupRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]IpGroupRule] {
+	return pulumix.Output[[]IpGroupRule]{
+		OutputState: i.ToIpGroupRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IpGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (IpGroupRuleOutput) ElementType() reflect.Type {
@@ -780,6 +1055,12 @@ func (o IpGroupRuleOutput) ToIpGroupRuleOutput() IpGroupRuleOutput {
 
 func (o IpGroupRuleOutput) ToIpGroupRuleOutputWithContext(ctx context.Context) IpGroupRuleOutput {
 	return o
+}
+
+func (o IpGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[IpGroupRule] {
+	return pulumix.Output[IpGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the IP group.
@@ -804,6 +1085,12 @@ func (o IpGroupRuleArrayOutput) ToIpGroupRuleArrayOutput() IpGroupRuleArrayOutpu
 
 func (o IpGroupRuleArrayOutput) ToIpGroupRuleArrayOutputWithContext(ctx context.Context) IpGroupRuleArrayOutput {
 	return o
+}
+
+func (o IpGroupRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IpGroupRule] {
+	return pulumix.Output[[]IpGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpGroupRuleArrayOutput) Index(i pulumi.IntInput) IpGroupRuleOutput {
@@ -861,6 +1148,12 @@ func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesOutput)
 }
 
+func (i WorkspaceWorkspacePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceWorkspaceProperties] {
+	return pulumix.Output[WorkspaceWorkspaceProperties]{
+		OutputState: i.ToWorkspaceWorkspacePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
 	return i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
 }
@@ -902,6 +1195,12 @@ func (i *workspaceWorkspacePropertiesPtrType) ToWorkspaceWorkspacePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesPtrOutput)
 }
 
+func (i *workspaceWorkspacePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceWorkspaceProperties] {
+	return pulumix.Output[*WorkspaceWorkspaceProperties]{
+		OutputState: i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceWorkspacePropertiesOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceWorkspacePropertiesOutput) ElementType() reflect.Type {
@@ -924,6 +1223,12 @@ func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceWorkspaceProperties) *WorkspaceWorkspaceProperties {
 		return &v
 	}).(WorkspaceWorkspacePropertiesPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceWorkspaceProperties] {
+	return pulumix.Output[WorkspaceWorkspaceProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
@@ -963,6 +1268,12 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtr
 
 func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
 	return o
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceWorkspaceProperties] {
+	return pulumix.Output[*WorkspaceWorkspaceProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceWorkspacePropertiesPtrOutput) Elem() WorkspaceWorkspacePropertiesOutput {
@@ -1058,6 +1369,12 @@ func (i GetBundleComputeTypeArgs) ToGetBundleComputeTypeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleComputeTypeOutput)
 }
 
+func (i GetBundleComputeTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GetBundleComputeType] {
+	return pulumix.Output[GetBundleComputeType]{
+		OutputState: i.ToGetBundleComputeTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBundleComputeTypeArrayInput is an input type that accepts GetBundleComputeTypeArray and GetBundleComputeTypeArrayOutput values.
 // You can construct a concrete instance of `GetBundleComputeTypeArrayInput` via:
 //
@@ -1083,6 +1400,12 @@ func (i GetBundleComputeTypeArray) ToGetBundleComputeTypeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleComputeTypeArrayOutput)
 }
 
+func (i GetBundleComputeTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBundleComputeType] {
+	return pulumix.Output[[]GetBundleComputeType]{
+		OutputState: i.ToGetBundleComputeTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBundleComputeTypeOutput struct{ *pulumi.OutputState }
 
 func (GetBundleComputeTypeOutput) ElementType() reflect.Type {
@@ -1095,6 +1418,12 @@ func (o GetBundleComputeTypeOutput) ToGetBundleComputeTypeOutput() GetBundleComp
 
 func (o GetBundleComputeTypeOutput) ToGetBundleComputeTypeOutputWithContext(ctx context.Context) GetBundleComputeTypeOutput {
 	return o
+}
+
+func (o GetBundleComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GetBundleComputeType] {
+	return pulumix.Output[GetBundleComputeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bundle. You cannot combine this parameter with `bundleId`.
@@ -1114,6 +1443,12 @@ func (o GetBundleComputeTypeArrayOutput) ToGetBundleComputeTypeArrayOutput() Get
 
 func (o GetBundleComputeTypeArrayOutput) ToGetBundleComputeTypeArrayOutputWithContext(ctx context.Context) GetBundleComputeTypeArrayOutput {
 	return o
+}
+
+func (o GetBundleComputeTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBundleComputeType] {
+	return pulumix.Output[[]GetBundleComputeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBundleComputeTypeArrayOutput) Index(i pulumi.IntInput) GetBundleComputeTypeOutput {
@@ -1155,6 +1490,12 @@ func (i GetBundleRootStorageArgs) ToGetBundleRootStorageOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleRootStorageOutput)
 }
 
+func (i GetBundleRootStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GetBundleRootStorage] {
+	return pulumix.Output[GetBundleRootStorage]{
+		OutputState: i.ToGetBundleRootStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBundleRootStorageArrayInput is an input type that accepts GetBundleRootStorageArray and GetBundleRootStorageArrayOutput values.
 // You can construct a concrete instance of `GetBundleRootStorageArrayInput` via:
 //
@@ -1180,6 +1521,12 @@ func (i GetBundleRootStorageArray) ToGetBundleRootStorageArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleRootStorageArrayOutput)
 }
 
+func (i GetBundleRootStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBundleRootStorage] {
+	return pulumix.Output[[]GetBundleRootStorage]{
+		OutputState: i.ToGetBundleRootStorageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBundleRootStorageOutput struct{ *pulumi.OutputState }
 
 func (GetBundleRootStorageOutput) ElementType() reflect.Type {
@@ -1192,6 +1539,12 @@ func (o GetBundleRootStorageOutput) ToGetBundleRootStorageOutput() GetBundleRoot
 
 func (o GetBundleRootStorageOutput) ToGetBundleRootStorageOutputWithContext(ctx context.Context) GetBundleRootStorageOutput {
 	return o
+}
+
+func (o GetBundleRootStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GetBundleRootStorage] {
+	return pulumix.Output[GetBundleRootStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Size of the user storage.
@@ -1211,6 +1564,12 @@ func (o GetBundleRootStorageArrayOutput) ToGetBundleRootStorageArrayOutput() Get
 
 func (o GetBundleRootStorageArrayOutput) ToGetBundleRootStorageArrayOutputWithContext(ctx context.Context) GetBundleRootStorageArrayOutput {
 	return o
+}
+
+func (o GetBundleRootStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBundleRootStorage] {
+	return pulumix.Output[[]GetBundleRootStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBundleRootStorageArrayOutput) Index(i pulumi.IntInput) GetBundleRootStorageOutput {
@@ -1252,6 +1611,12 @@ func (i GetBundleUserStorageArgs) ToGetBundleUserStorageOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleUserStorageOutput)
 }
 
+func (i GetBundleUserStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GetBundleUserStorage] {
+	return pulumix.Output[GetBundleUserStorage]{
+		OutputState: i.ToGetBundleUserStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBundleUserStorageArrayInput is an input type that accepts GetBundleUserStorageArray and GetBundleUserStorageArrayOutput values.
 // You can construct a concrete instance of `GetBundleUserStorageArrayInput` via:
 //
@@ -1277,6 +1642,12 @@ func (i GetBundleUserStorageArray) ToGetBundleUserStorageArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleUserStorageArrayOutput)
 }
 
+func (i GetBundleUserStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBundleUserStorage] {
+	return pulumix.Output[[]GetBundleUserStorage]{
+		OutputState: i.ToGetBundleUserStorageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBundleUserStorageOutput struct{ *pulumi.OutputState }
 
 func (GetBundleUserStorageOutput) ElementType() reflect.Type {
@@ -1289,6 +1660,12 @@ func (o GetBundleUserStorageOutput) ToGetBundleUserStorageOutput() GetBundleUser
 
 func (o GetBundleUserStorageOutput) ToGetBundleUserStorageOutputWithContext(ctx context.Context) GetBundleUserStorageOutput {
 	return o
+}
+
+func (o GetBundleUserStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GetBundleUserStorage] {
+	return pulumix.Output[GetBundleUserStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Size of the user storage.
@@ -1308,6 +1685,12 @@ func (o GetBundleUserStorageArrayOutput) ToGetBundleUserStorageArrayOutput() Get
 
 func (o GetBundleUserStorageArrayOutput) ToGetBundleUserStorageArrayOutputWithContext(ctx context.Context) GetBundleUserStorageArrayOutput {
 	return o
+}
+
+func (o GetBundleUserStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBundleUserStorage] {
+	return pulumix.Output[[]GetBundleUserStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBundleUserStorageArrayOutput) Index(i pulumi.IntInput) GetBundleUserStorageOutput {
@@ -1365,6 +1748,12 @@ func (i GetDirectorySelfServicePermissionArgs) ToGetDirectorySelfServicePermissi
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySelfServicePermissionOutput)
 }
 
+func (i GetDirectorySelfServicePermissionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectorySelfServicePermission] {
+	return pulumix.Output[GetDirectorySelfServicePermission]{
+		OutputState: i.ToGetDirectorySelfServicePermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDirectorySelfServicePermissionArrayInput is an input type that accepts GetDirectorySelfServicePermissionArray and GetDirectorySelfServicePermissionArrayOutput values.
 // You can construct a concrete instance of `GetDirectorySelfServicePermissionArrayInput` via:
 //
@@ -1390,6 +1779,12 @@ func (i GetDirectorySelfServicePermissionArray) ToGetDirectorySelfServicePermiss
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySelfServicePermissionArrayOutput)
 }
 
+func (i GetDirectorySelfServicePermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectorySelfServicePermission] {
+	return pulumix.Output[[]GetDirectorySelfServicePermission]{
+		OutputState: i.ToGetDirectorySelfServicePermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDirectorySelfServicePermissionOutput struct{ *pulumi.OutputState }
 
 func (GetDirectorySelfServicePermissionOutput) ElementType() reflect.Type {
@@ -1402,6 +1797,12 @@ func (o GetDirectorySelfServicePermissionOutput) ToGetDirectorySelfServicePermis
 
 func (o GetDirectorySelfServicePermissionOutput) ToGetDirectorySelfServicePermissionOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionOutput {
 	return o
+}
+
+func (o GetDirectorySelfServicePermissionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectorySelfServicePermission] {
+	return pulumix.Output[GetDirectorySelfServicePermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
@@ -1441,6 +1842,12 @@ func (o GetDirectorySelfServicePermissionArrayOutput) ToGetDirectorySelfServiceP
 
 func (o GetDirectorySelfServicePermissionArrayOutput) ToGetDirectorySelfServicePermissionArrayOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionArrayOutput {
 	return o
+}
+
+func (o GetDirectorySelfServicePermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectorySelfServicePermission] {
+	return pulumix.Output[[]GetDirectorySelfServicePermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectorySelfServicePermissionArrayOutput) Index(i pulumi.IntInput) GetDirectorySelfServicePermissionOutput {
@@ -1510,6 +1917,12 @@ func (i GetDirectoryWorkspaceAccessPropertyArgs) ToGetDirectoryWorkspaceAccessPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceAccessPropertyOutput)
 }
 
+func (i GetDirectoryWorkspaceAccessPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryWorkspaceAccessProperty] {
+	return pulumix.Output[GetDirectoryWorkspaceAccessProperty]{
+		OutputState: i.ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDirectoryWorkspaceAccessPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArray and GetDirectoryWorkspaceAccessPropertyArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryWorkspaceAccessPropertyArrayInput` via:
 //
@@ -1535,6 +1948,12 @@ func (i GetDirectoryWorkspaceAccessPropertyArray) ToGetDirectoryWorkspaceAccessP
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceAccessPropertyArrayOutput)
 }
 
+func (i GetDirectoryWorkspaceAccessPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryWorkspaceAccessProperty] {
+	return pulumix.Output[[]GetDirectoryWorkspaceAccessProperty]{
+		OutputState: i.ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDirectoryWorkspaceAccessPropertyOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryWorkspaceAccessPropertyOutput) ElementType() reflect.Type {
@@ -1547,6 +1966,12 @@ func (o GetDirectoryWorkspaceAccessPropertyOutput) ToGetDirectoryWorkspaceAccess
 
 func (o GetDirectoryWorkspaceAccessPropertyOutput) ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyOutput {
 	return o
+}
+
+func (o GetDirectoryWorkspaceAccessPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryWorkspaceAccessProperty] {
+	return pulumix.Output[GetDirectoryWorkspaceAccessProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
@@ -1601,6 +2026,12 @@ func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) ToGetDirectoryWorkspaceA
 
 func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyArrayOutput {
 	return o
+}
+
+func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryWorkspaceAccessProperty] {
+	return pulumix.Output[[]GetDirectoryWorkspaceAccessProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) Index(i pulumi.IntInput) GetDirectoryWorkspaceAccessPropertyOutput {
@@ -1658,6 +2089,12 @@ func (i GetDirectoryWorkspaceCreationPropertyArgs) ToGetDirectoryWorkspaceCreati
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertyOutput)
 }
 
+func (i GetDirectoryWorkspaceCreationPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryWorkspaceCreationProperty] {
+	return pulumix.Output[GetDirectoryWorkspaceCreationProperty]{
+		OutputState: i.ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDirectoryWorkspaceCreationPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArray and GetDirectoryWorkspaceCreationPropertyArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertyArrayInput` via:
 //
@@ -1683,6 +2120,12 @@ func (i GetDirectoryWorkspaceCreationPropertyArray) ToGetDirectoryWorkspaceCreat
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertyArrayOutput)
 }
 
+func (i GetDirectoryWorkspaceCreationPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryWorkspaceCreationProperty] {
+	return pulumix.Output[[]GetDirectoryWorkspaceCreationProperty]{
+		OutputState: i.ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDirectoryWorkspaceCreationPropertyOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryWorkspaceCreationPropertyOutput) ElementType() reflect.Type {
@@ -1695,6 +2138,12 @@ func (o GetDirectoryWorkspaceCreationPropertyOutput) ToGetDirectoryWorkspaceCrea
 
 func (o GetDirectoryWorkspaceCreationPropertyOutput) ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyOutput {
 	return o
+}
+
+func (o GetDirectoryWorkspaceCreationPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryWorkspaceCreationProperty] {
+	return pulumix.Output[GetDirectoryWorkspaceCreationProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -1734,6 +2183,12 @@ func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) ToGetDirectoryWorkspac
 
 func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyArrayOutput {
 	return o
+}
+
+func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryWorkspaceCreationProperty] {
+	return pulumix.Output[[]GetDirectoryWorkspaceCreationProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) Index(i pulumi.IntInput) GetDirectoryWorkspaceCreationPropertyOutput {
@@ -1791,6 +2246,12 @@ func (i GetWorkspaceWorkspacePropertyArgs) ToGetWorkspaceWorkspacePropertyOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceWorkspacePropertyOutput)
 }
 
+func (i GetWorkspaceWorkspacePropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceWorkspaceProperty] {
+	return pulumix.Output[GetWorkspaceWorkspaceProperty]{
+		OutputState: i.ToGetWorkspaceWorkspacePropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWorkspaceWorkspacePropertyArrayInput is an input type that accepts GetWorkspaceWorkspacePropertyArray and GetWorkspaceWorkspacePropertyArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceWorkspacePropertyArrayInput` via:
 //
@@ -1816,6 +2277,12 @@ func (i GetWorkspaceWorkspacePropertyArray) ToGetWorkspaceWorkspacePropertyArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceWorkspacePropertyArrayOutput)
 }
 
+func (i GetWorkspaceWorkspacePropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceWorkspaceProperty] {
+	return pulumix.Output[[]GetWorkspaceWorkspaceProperty]{
+		OutputState: i.ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWorkspaceWorkspacePropertyOutput struct{ *pulumi.OutputState }
 
 func (GetWorkspaceWorkspacePropertyOutput) ElementType() reflect.Type {
@@ -1828,6 +2295,12 @@ func (o GetWorkspaceWorkspacePropertyOutput) ToGetWorkspaceWorkspacePropertyOutp
 
 func (o GetWorkspaceWorkspacePropertyOutput) ToGetWorkspaceWorkspacePropertyOutputWithContext(ctx context.Context) GetWorkspaceWorkspacePropertyOutput {
 	return o
+}
+
+func (o GetWorkspaceWorkspacePropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceWorkspaceProperty] {
+	return pulumix.Output[GetWorkspaceWorkspaceProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
@@ -1869,6 +2342,12 @@ func (o GetWorkspaceWorkspacePropertyArrayOutput) ToGetWorkspaceWorkspacePropert
 	return o
 }
 
+func (o GetWorkspaceWorkspacePropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceWorkspaceProperty] {
+	return pulumix.Output[[]GetWorkspaceWorkspaceProperty]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWorkspaceWorkspacePropertyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspaceWorkspaceProperty {
 		return vs[0].([]GetWorkspaceWorkspaceProperty)[vs[1].(int)]
@@ -1876,6 +2355,8 @@ func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsPtrInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsPtrInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesArgs{})
@@ -1900,6 +2381,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryWorkspaceCreationPropertyArrayInput)(nil)).Elem(), GetDirectoryWorkspaceCreationPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyArrayInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArray{})
+	pulumi.RegisterOutputType(ConnectionAliasTimeoutsOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesOutput{})

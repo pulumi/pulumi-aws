@@ -60,6 +60,44 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Ray Job
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Job;
+ * import com.pulumi.aws.glue.JobArgs;
+ * import com.pulumi.aws.glue.inputs.JobCommandArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .glueVersion(&#34;4.0&#34;)
+ *             .workerType(&#34;Z.2X&#34;)
+ *             .command(JobCommandArgs.builder()
+ *                 .name(&#34;glueray&#34;)
+ *                 .pythonVersion(&#34;3.9&#34;)
+ *                 .runtime(&#34;Ray2.4&#34;)
+ *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, aws_s3_bucket.example().bucket()))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Scala Job
  * ```java
  * package generated_program;
@@ -171,7 +209,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Jobs can be imported using `name`, e.g.,
+ * Using `pulumi import`, import Glue Jobs using `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:glue/job:Job MyJob MyJob
@@ -279,14 +317,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.executionProperty;
     }
     /**
-     * The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * The version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
     private Output<String> glueVersion;
 
     /**
-     * @return The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * @return The version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     public Output<String> glueVersion() {
@@ -447,14 +485,24 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.timeout;
     }
     /**
-     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+     * * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+     * * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+     * * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+     * * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+     * * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
      * 
      */
     @Export(name="workerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workerType;
 
     /**
-     * @return The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     * @return The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+     * * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+     * * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+     * * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+     * * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+     * * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
      * 
      */
     public Output<Optional<String>> workerType() {

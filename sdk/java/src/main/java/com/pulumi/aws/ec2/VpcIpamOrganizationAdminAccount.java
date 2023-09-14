@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccount;
  * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccountArgs;
  * import com.pulumi.aws.Provider;
@@ -56,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IPAMs can be imported using the `delegate account id`, e.g.
+ * Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901

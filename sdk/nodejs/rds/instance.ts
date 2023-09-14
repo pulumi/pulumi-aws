@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DB Instances can be imported using the `identifier`, e.g.,
+ * Using `pulumi import`, import DB Instances using the `identifier`. For example:
  *
  * ```sh
  *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
@@ -202,6 +202,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number>;
     /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     */
+    public readonly backupTarget!: pulumi.Output<string>;
+    /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
@@ -232,6 +236,10 @@ export class Instance extends pulumi.CustomResource {
     public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     *
+     * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
      */
     public readonly customerOwnedIpEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -277,7 +285,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
-     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -300,13 +308,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     public readonly identifierPrefix!: pulumi.Output<string>;
     /**
@@ -382,9 +388,9 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly multiAz!: pulumi.Output<boolean>;
     /**
-     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * @deprecated This property has been deprecated. Please use 'dbName' instead.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -460,14 +466,6 @@ export class Instance extends pulumi.CustomResource {
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
     public readonly s3Import!: pulumi.Output<outputs.rds.InstanceS3Import | undefined>;
-    /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -552,6 +550,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
+            resourceInputs["backupTarget"] = state ? state.backupTarget : undefined;
             resourceInputs["backupWindow"] = state ? state.backupWindow : undefined;
             resourceInputs["blueGreenUpdate"] = state ? state.blueGreenUpdate : undefined;
             resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
@@ -606,7 +605,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = state ? state.s3Import : undefined;
-            resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -629,6 +627,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["backupTarget"] = args ? args.backupTarget : undefined;
             resourceInputs["backupWindow"] = args ? args.backupWindow : undefined;
             resourceInputs["blueGreenUpdate"] = args ? args.blueGreenUpdate : undefined;
             resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
@@ -675,7 +674,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["replicateSourceDb"] = args ? args.replicateSourceDb : undefined;
             resourceInputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = args ? args.s3Import : undefined;
-            resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
@@ -754,6 +752,10 @@ export interface InstanceState {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     */
+    backupTarget?: pulumi.Input<string>;
+    /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
@@ -784,6 +786,10 @@ export interface InstanceState {
     customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     *
+     * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
      */
     customerOwnedIpEnabled?: pulumi.Input<boolean>;
     /**
@@ -829,7 +835,7 @@ export interface InstanceState {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -852,13 +858,11 @@ export interface InstanceState {
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     identifierPrefix?: pulumi.Input<string>;
     /**
@@ -934,7 +938,7 @@ export interface InstanceState {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
-     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * @deprecated This property has been deprecated. Please use 'dbName' instead.
      */
     name?: pulumi.Input<string>;
     /**
@@ -1012,14 +1016,6 @@ export interface InstanceState {
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
     s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
-    /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -1125,6 +1121,10 @@ export interface InstanceArgs {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     */
+    backupTarget?: pulumi.Input<string>;
+    /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
@@ -1155,6 +1155,10 @@ export interface InstanceArgs {
     customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     *
+     * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
      */
     customerOwnedIpEnabled?: pulumi.Input<boolean>;
     /**
@@ -1196,7 +1200,7 @@ export interface InstanceArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -1211,13 +1215,11 @@ export interface InstanceArgs {
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     identifierPrefix?: pulumi.Input<string>;
     /**
@@ -1281,7 +1283,7 @@ export interface InstanceArgs {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
-     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * @deprecated This property has been deprecated. Please use 'dbName' instead.
      */
     name?: pulumi.Input<string>;
     /**
@@ -1354,14 +1356,6 @@ export interface InstanceArgs {
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
     s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
-    /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot

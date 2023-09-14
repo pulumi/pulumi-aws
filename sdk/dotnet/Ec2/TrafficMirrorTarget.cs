@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Traffic mirror targets can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import traffic mirror targets using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
@@ -95,6 +95,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -180,6 +182,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         /// </summary>
         public InputMap<string> Tags
         {
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         /// </summary>
         public InputMap<string> Tags
         {

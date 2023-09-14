@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don't fit a standard resource lifecycle. See the feature request issue for additional context.
@@ -16,6 +18,7 @@ import (
 //
 // ## Example Usage
 func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...pulumi.InvokeOption) (*GetTaskExecutionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTaskExecutionResult
 	err := ctx.Invoke("aws:ecs/getTaskExecution:getTaskExecution", args, &rv, opts...)
 	if err != nil {
@@ -59,6 +62,8 @@ type GetTaskExecutionArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+	//
+	// The following arguments are optional:
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
@@ -135,6 +140,8 @@ type GetTaskExecutionOutputArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
 }
 
@@ -155,6 +162,12 @@ func (o GetTaskExecutionResultOutput) ToGetTaskExecutionResultOutput() GetTaskEx
 
 func (o GetTaskExecutionResultOutput) ToGetTaskExecutionResultOutputWithContext(ctx context.Context) GetTaskExecutionResultOutput {
 	return o
+}
+
+func (o GetTaskExecutionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTaskExecutionResult] {
+	return pulumix.Output[GetTaskExecutionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTaskExecutionResultOutput) CapacityProviderStrategies() GetTaskExecutionCapacityProviderStrategyArrayOutput {

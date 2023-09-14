@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route53 traffic policy instance can be imported using its id.
+    /// Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e

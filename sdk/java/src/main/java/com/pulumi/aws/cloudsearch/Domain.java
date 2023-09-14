@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudSearch Domains can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudsearch/domain:Domain example example-domain

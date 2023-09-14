@@ -393,21 +393,6 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Deprecated. This setting has no effect. Will be removed in a future version.
-     * 
-     */
-    @Import(name="ignoreHeadersRow")
-    private @Nullable Output<Integer> ignoreHeadersRow;
-
-    /**
-     * @return Deprecated. This setting has no effect. Will be removed in a future version.
-     * 
-     */
-    public Optional<Output<Integer>> ignoreHeadersRow() {
-        return Optional.ofNullable(this.ignoreHeadersRow);
-    }
-
-    /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
@@ -615,7 +600,6 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         this.encryptionMode = $.encryptionMode;
         this.externalTableDefinition = $.externalTableDefinition;
         this.ignoreHeaderRows = $.ignoreHeaderRows;
-        this.ignoreHeadersRow = $.ignoreHeadersRow;
         this.includeOpForFullLoad = $.includeOpForFullLoad;
         this.maxFileSize = $.maxFileSize;
         this.parquetTimestampInMillisecond = $.parquetTimestampInMillisecond;
@@ -1171,27 +1155,6 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
          */
         public Builder ignoreHeaderRows(Integer ignoreHeaderRows) {
             return ignoreHeaderRows(Output.of(ignoreHeaderRows));
-        }
-
-        /**
-         * @param ignoreHeadersRow Deprecated. This setting has no effect. Will be removed in a future version.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ignoreHeadersRow(@Nullable Output<Integer> ignoreHeadersRow) {
-            $.ignoreHeadersRow = ignoreHeadersRow;
-            return this;
-        }
-
-        /**
-         * @param ignoreHeadersRow Deprecated. This setting has no effect. Will be removed in a future version.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ignoreHeadersRow(Integer ignoreHeadersRow) {
-            return ignoreHeadersRow(Output.of(ignoreHeadersRow));
         }
 
         /**

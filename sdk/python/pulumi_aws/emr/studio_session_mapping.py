@@ -213,7 +213,7 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Import
 
-        EMR studio session mappings can be imported using the `id`, e.g., `studio-id:identity-type:identity-id`
+        Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
         ```sh
          $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
@@ -251,7 +251,7 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Import
 
-        EMR studio session mappings can be imported using the `id`, e.g., `studio-id:identity-type:identity-id`
+        Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
         ```sh
          $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx

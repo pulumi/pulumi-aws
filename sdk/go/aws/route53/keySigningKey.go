@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
@@ -23,9 +25,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,7 +127,7 @@ import (
 //
 // ## Import
 //
-// `aws_route53_key_signing_key` resources can be imported by using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`), e.g.,
+// Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
 //
 // ```sh
 //
@@ -154,6 +156,8 @@ type KeySigningKey struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag pulumi.IntOutput `pulumi:"keyTag"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
@@ -178,6 +182,7 @@ func NewKeySigningKey(ctx *pulumi.Context,
 	if args.KeyManagementServiceArn == nil {
 		return nil, errors.New("invalid value for required argument 'KeyManagementServiceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeySigningKey
 	err := ctx.RegisterResource("aws:route53/keySigningKey:KeySigningKey", name, args, &resource, opts...)
 	if err != nil {
@@ -219,6 +224,8 @@ type keySigningKeyState struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag *int `pulumi:"keyTag"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey *string `pulumi:"publicKey"`
@@ -250,6 +257,8 @@ type KeySigningKeyState struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag pulumi.IntPtrInput
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey pulumi.StringPtrInput
@@ -271,6 +280,8 @@ type keySigningKeyArgs struct {
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 	KeyManagementServiceArn string `pulumi:"keyManagementServiceArn"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 	Status *string `pulumi:"status"`
@@ -283,6 +294,8 @@ type KeySigningKeyArgs struct {
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 	KeyManagementServiceArn pulumi.StringInput
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 	Status pulumi.StringPtrInput
@@ -311,6 +324,12 @@ func (i *KeySigningKey) ToKeySigningKeyOutputWithContext(ctx context.Context) Ke
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyOutput)
 }
 
+func (i *KeySigningKey) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKey] {
+	return pulumix.Output[*KeySigningKey]{
+		OutputState: i.ToKeySigningKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KeySigningKeyArrayInput is an input type that accepts KeySigningKeyArray and KeySigningKeyArrayOutput values.
 // You can construct a concrete instance of `KeySigningKeyArrayInput` via:
 //
@@ -334,6 +353,12 @@ func (i KeySigningKeyArray) ToKeySigningKeyArrayOutput() KeySigningKeyArrayOutpu
 
 func (i KeySigningKeyArray) ToKeySigningKeyArrayOutputWithContext(ctx context.Context) KeySigningKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyArrayOutput)
+}
+
+func (i KeySigningKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*KeySigningKey] {
+	return pulumix.Output[[]*KeySigningKey]{
+		OutputState: i.ToKeySigningKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KeySigningKeyMapInput is an input type that accepts KeySigningKeyMap and KeySigningKeyMapOutput values.
@@ -361,6 +386,12 @@ func (i KeySigningKeyMap) ToKeySigningKeyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyMapOutput)
 }
 
+func (i KeySigningKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeySigningKey] {
+	return pulumix.Output[map[string]*KeySigningKey]{
+		OutputState: i.ToKeySigningKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeySigningKeyOutput struct{ *pulumi.OutputState }
 
 func (KeySigningKeyOutput) ElementType() reflect.Type {
@@ -373,6 +404,12 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutput() KeySigningKeyOutput {
 
 func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Context) KeySigningKeyOutput {
 	return o
+}
+
+func (o KeySigningKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKey] {
+	return pulumix.Output[*KeySigningKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
@@ -421,6 +458,8 @@ func (o KeySigningKeyOutput) KeyTag() pulumi.IntOutput {
 }
 
 // Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+//
+// The following arguments are optional:
 func (o KeySigningKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -459,6 +498,12 @@ func (o KeySigningKeyArrayOutput) ToKeySigningKeyArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o KeySigningKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KeySigningKey] {
+	return pulumix.Output[[]*KeySigningKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeySigningKeyArrayOutput) Index(i pulumi.IntInput) KeySigningKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeySigningKey {
 		return vs[0].([]*KeySigningKey)[vs[1].(int)]
@@ -477,6 +522,12 @@ func (o KeySigningKeyMapOutput) ToKeySigningKeyMapOutput() KeySigningKeyMapOutpu
 
 func (o KeySigningKeyMapOutput) ToKeySigningKeyMapOutputWithContext(ctx context.Context) KeySigningKeyMapOutput {
 	return o
+}
+
+func (o KeySigningKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeySigningKey] {
+	return pulumix.Output[map[string]*KeySigningKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeySigningKeyMapOutput) MapIndex(k pulumi.StringInput) KeySigningKeyOutput {

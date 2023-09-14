@@ -23,6 +23,8 @@ namespace Pulumi.Aws.Ssm.Outputs
         public readonly string? S3KeyPrefix;
         /// <summary>
         /// The S3 bucket region.
+        /// 
+        /// Targets specify what instance IDs or tags to apply the document to and has these keys:
         /// </summary>
         public readonly string? S3Region;
 

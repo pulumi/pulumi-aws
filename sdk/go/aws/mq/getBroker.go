@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a MQ Broker.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -54,6 +56,7 @@ import (
 //
 // ```
 func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.InvokeOption) (*LookupBrokerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBrokerResult
 	err := ctx.Invoke("aws:mq/getBroker:getBroker", args, &rv, opts...)
 	if err != nil {
@@ -137,6 +140,12 @@ func (o LookupBrokerResultOutput) ToLookupBrokerResultOutput() LookupBrokerResul
 
 func (o LookupBrokerResultOutput) ToLookupBrokerResultOutputWithContext(ctx context.Context) LookupBrokerResultOutput {
 	return o
+}
+
+func (o LookupBrokerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBrokerResult] {
+	return pulumix.Output[LookupBrokerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBrokerResultOutput) Arn() pulumi.StringOutput {

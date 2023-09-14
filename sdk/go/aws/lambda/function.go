@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
@@ -22,6 +24,76 @@ import (
 // > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 //
 // ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-archive/sdk/go/archive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = archive.LookupFile(ctx, &archive.LookupFileArgs{
+//				Type:       "zip",
+//				SourceFile: pulumi.StringRef("lambda.js"),
+//				OutputPath: "lambda_function_payload.zip",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
+//				Role:    iamForLambda.Arn,
+//				Handler: pulumi.String("index.test"),
+//				Runtime: pulumi.String("nodejs18.x"),
+//				Environment: &lambda.FunctionEnvironmentArgs{
+//					Variables: pulumi.StringMap{
+//						"foo": pulumi.String("bar"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Lambda Layers
 //
 // ```go
@@ -29,7 +101,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,8 +134,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,7 +173,7 @@ import (
 //				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs14.x"),
+//				Runtime: pulumi.String("nodejs18.x"),
 //				EphemeralStorage: &lambda.FunctionEphemeralStorageArgs{
 //					Size: pulumi.Int(10240),
 //				},
@@ -123,8 +195,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -203,9 +275,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -280,7 +352,7 @@ import (
 //
 // ## Import
 //
-// Lambda Functions can be imported using the `function_name`, e.g.,
+// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 //
 // ```sh
 //
@@ -334,13 +406,19 @@ type Function struct {
 	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringOutput `pulumi:"qualifiedInvokeArn"`
-	// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplaceSecurityGroupsOnDestroy pulumi.BoolPtrOutput `pulumi:"replaceSecurityGroupsOnDestroy"`
 	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplacementSecurityGroupIds pulumi.StringArrayOutput `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+	//
+	// The following arguments are optional:
 	Role pulumi.StringOutput `pulumi:"role"`
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime pulumi.StringPtrOutput `pulumi:"runtime"`
@@ -388,6 +466,7 @@ func NewFunction(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Function
 	err := ctx.RegisterResource("aws:lambda/function:Function", name, args, &resource, opts...)
 	if err != nil {
@@ -454,13 +533,19 @@ type functionState struct {
 	QualifiedArn *string `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn *string `pulumi:"qualifiedInvokeArn"`
-	// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplaceSecurityGroupsOnDestroy *bool `pulumi:"replaceSecurityGroupsOnDestroy"`
 	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplacementSecurityGroupIds []string `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+	//
+	// The following arguments are optional:
 	Role *string `pulumi:"role"`
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime *string `pulumi:"runtime"`
@@ -543,13 +628,19 @@ type FunctionState struct {
 	QualifiedArn pulumi.StringPtrInput
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringPtrInput
-	// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplaceSecurityGroupsOnDestroy pulumi.BoolPtrInput
 	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplacementSecurityGroupIds pulumi.StringArrayInput
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrInput
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+	//
+	// The following arguments are optional:
 	Role pulumi.StringPtrInput
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime pulumi.StringPtrInput
@@ -626,13 +717,19 @@ type functionArgs struct {
 	PackageType *string `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish *bool `pulumi:"publish"`
-	// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplaceSecurityGroupsOnDestroy *bool `pulumi:"replaceSecurityGroupsOnDestroy"`
 	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplacementSecurityGroupIds []string `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+	//
+	// The following arguments are optional:
 	Role string `pulumi:"role"`
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime *string `pulumi:"runtime"`
@@ -694,13 +791,19 @@ type FunctionArgs struct {
 	PackageType pulumi.StringPtrInput
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrInput
-	// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplaceSecurityGroupsOnDestroy pulumi.BoolPtrInput
 	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+	//
+	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 	ReplacementSecurityGroupIds pulumi.StringArrayInput
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrInput
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+	//
+	// The following arguments are optional:
 	Role pulumi.StringInput
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime pulumi.StringPtrInput
@@ -749,6 +852,12 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutput)
 }
 
+func (i *Function) ToOutput(ctx context.Context) pulumix.Output[*Function] {
+	return pulumix.Output[*Function]{
+		OutputState: i.ToFunctionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionArrayInput is an input type that accepts FunctionArray and FunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionArrayInput` via:
 //
@@ -772,6 +881,12 @@ func (i FunctionArray) ToFunctionArrayOutput() FunctionArrayOutput {
 
 func (i FunctionArray) ToFunctionArrayOutputWithContext(ctx context.Context) FunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionArrayOutput)
+}
+
+func (i FunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Function] {
+	return pulumix.Output[[]*Function]{
+		OutputState: i.ToFunctionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionMapInput is an input type that accepts FunctionMap and FunctionMapOutput values.
@@ -799,6 +914,12 @@ func (i FunctionMap) ToFunctionMapOutputWithContext(ctx context.Context) Functio
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionMapOutput)
 }
 
+func (i FunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Function] {
+	return pulumix.Output[map[string]*Function]{
+		OutputState: i.ToFunctionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionOutput struct{ *pulumi.OutputState }
 
 func (FunctionOutput) ElementType() reflect.Type {
@@ -811,6 +932,12 @@ func (o FunctionOutput) ToFunctionOutput() FunctionOutput {
 
 func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
 	return o
+}
+
+func (o FunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*Function] {
+	return pulumix.Output[*Function]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
@@ -923,12 +1050,16 @@ func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
 }
 
-// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+//
+// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 func (o FunctionOutput) ReplaceSecurityGroupsOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.ReplaceSecurityGroupsOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+//
+// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
 func (o FunctionOutput) ReplacementSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.ReplacementSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -939,6 +1070,8 @@ func (o FunctionOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+//
+// The following arguments are optional:
 func (o FunctionOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
@@ -1039,6 +1172,12 @@ func (o FunctionArrayOutput) ToFunctionArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o FunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Function] {
+	return pulumix.Output[[]*Function]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionArrayOutput) Index(i pulumi.IntInput) FunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Function {
 		return vs[0].([]*Function)[vs[1].(int)]
@@ -1057,6 +1196,12 @@ func (o FunctionMapOutput) ToFunctionMapOutput() FunctionMapOutput {
 
 func (o FunctionMapOutput) ToFunctionMapOutputWithContext(ctx context.Context) FunctionMapOutput {
 	return o
+}
+
+func (o FunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Function] {
+	return pulumix.Output[map[string]*Function]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionMapOutput) MapIndex(k pulumi.StringInput) FunctionOutput {

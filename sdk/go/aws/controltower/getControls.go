@@ -7,11 +7,51 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // List of Control Tower controls applied to an OU.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/controltower"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisOrganization, err := organizations.LookupOrganization(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			thisOrganizationalUnits, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
+//				ParentId: thisOrganization.Roots[0].Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = controltower.GetControls(ctx, &controltower.GetControlsArgs{
+//				TargetIdentifier: "TODO: For expression"[0],
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetControlsResult
 	err := ctx.Invoke("aws:controltower/getControls:getControls", args, &rv, opts...)
 	if err != nil {
@@ -71,6 +111,12 @@ func (o GetControlsResultOutput) ToGetControlsResultOutput() GetControlsResultOu
 
 func (o GetControlsResultOutput) ToGetControlsResultOutputWithContext(ctx context.Context) GetControlsResultOutput {
 	return o
+}
+
+func (o GetControlsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetControlsResult] {
+	return pulumix.Output[GetControlsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of all the ARNs for the controls applied to the `targetIdentifier`.

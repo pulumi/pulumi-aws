@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+ * Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
@@ -108,14 +108,14 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
         return this.memberName;
     }
     /**
-     * The namespace. Defaults to `default`. Currently only `default` is supported.
+     * The namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namespace;
 
     /**
-     * @return The namespace. Defaults to `default`. Currently only `default` is supported.
+     * @return The namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     public Output<Optional<String>> namespace() {

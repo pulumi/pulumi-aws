@@ -8,14 +8,85 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup vault notifications resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testTopic, err := sns.NewTopic(ctx, "testTopic", nil)
+// if err != nil {
+// return err
+// }
+// testPolicyDocument := testTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// PolicyId: "__default_policy_ID",
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "SNS:Publish",
+// },
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "backup.amazonaws.com",
+// },
+// },
+// },
+// Resources: interface{}{
+// arn,
+// },
+// Sid: "__default_statement_ID",
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sns.NewTopicPolicy(ctx, "testTopicPolicy", &sns.TopicPolicyArgs{
+// Arn: testTopic.Arn,
+// Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &testPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = backup.NewVaultNotifications(ctx, "testVaultNotifications", &backup.VaultNotificationsArgs{
+// BackupVaultName: pulumi.String("example_backup_vault"),
+// SnsTopicArn: testTopic.Arn,
+// BackupVaultEvents: pulumi.StringArray{
+// pulumi.String("BACKUP_JOB_STARTED"),
+// pulumi.String("RESTORE_JOB_COMPLETED"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// Backup vault notifications can be imported using the `name`, e.g.,
+// Using `pulumi import`, import Backup vault notifications using the `name`. For example:
 //
 // ```sh
 //
@@ -51,6 +122,7 @@ func NewVaultNotifications(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VaultNotifications
 	err := ctx.RegisterResource("aws:backup/vaultNotifications:VaultNotifications", name, args, &resource, opts...)
 	if err != nil {
@@ -140,6 +212,12 @@ func (i *VaultNotifications) ToVaultNotificationsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsOutput)
 }
 
+func (i *VaultNotifications) ToOutput(ctx context.Context) pulumix.Output[*VaultNotifications] {
+	return pulumix.Output[*VaultNotifications]{
+		OutputState: i.ToVaultNotificationsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VaultNotificationsArrayInput is an input type that accepts VaultNotificationsArray and VaultNotificationsArrayOutput values.
 // You can construct a concrete instance of `VaultNotificationsArrayInput` via:
 //
@@ -163,6 +241,12 @@ func (i VaultNotificationsArray) ToVaultNotificationsArrayOutput() VaultNotifica
 
 func (i VaultNotificationsArray) ToVaultNotificationsArrayOutputWithContext(ctx context.Context) VaultNotificationsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsArrayOutput)
+}
+
+func (i VaultNotificationsArray) ToOutput(ctx context.Context) pulumix.Output[[]*VaultNotifications] {
+	return pulumix.Output[[]*VaultNotifications]{
+		OutputState: i.ToVaultNotificationsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VaultNotificationsMapInput is an input type that accepts VaultNotificationsMap and VaultNotificationsMapOutput values.
@@ -190,6 +274,12 @@ func (i VaultNotificationsMap) ToVaultNotificationsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsMapOutput)
 }
 
+func (i VaultNotificationsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultNotifications] {
+	return pulumix.Output[map[string]*VaultNotifications]{
+		OutputState: i.ToVaultNotificationsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VaultNotificationsOutput struct{ *pulumi.OutputState }
 
 func (VaultNotificationsOutput) ElementType() reflect.Type {
@@ -202,6 +292,12 @@ func (o VaultNotificationsOutput) ToVaultNotificationsOutput() VaultNotification
 
 func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
 	return o
+}
+
+func (o VaultNotificationsOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultNotifications] {
+	return pulumix.Output[*VaultNotifications]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the vault.
@@ -238,6 +334,12 @@ func (o VaultNotificationsArrayOutput) ToVaultNotificationsArrayOutputWithContex
 	return o
 }
 
+func (o VaultNotificationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VaultNotifications] {
+	return pulumix.Output[[]*VaultNotifications]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VaultNotificationsArrayOutput) Index(i pulumi.IntInput) VaultNotificationsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultNotifications {
 		return vs[0].([]*VaultNotifications)[vs[1].(int)]
@@ -256,6 +358,12 @@ func (o VaultNotificationsMapOutput) ToVaultNotificationsMapOutput() VaultNotifi
 
 func (o VaultNotificationsMapOutput) ToVaultNotificationsMapOutputWithContext(ctx context.Context) VaultNotificationsMapOutput {
 	return o
+}
+
+func (o VaultNotificationsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultNotifications] {
+	return pulumix.Output[map[string]*VaultNotifications]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VaultNotificationsMapOutput) MapIndex(k pulumi.StringInput) VaultNotificationsOutput {

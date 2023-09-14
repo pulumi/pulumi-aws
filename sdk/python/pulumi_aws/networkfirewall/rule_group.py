@@ -469,7 +469,7 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Import
 
-        Network Firewall Rule Groups can be imported using their `ARN`.
+        Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
 
         ```sh
          $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
@@ -616,7 +616,7 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Import
 
-        Network Firewall Rule Groups can be imported using their `ARN`.
+        Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
 
         ```sh
          $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example

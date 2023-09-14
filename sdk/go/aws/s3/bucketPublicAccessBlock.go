@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
+// Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 //
 // ```sh
 //
@@ -86,6 +88,7 @@ func NewBucketPublicAccessBlock(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketPublicAccessBlock
 	err := ctx.RegisterResource("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock", name, args, &resource, opts...)
 	if err != nil {
@@ -207,6 +210,12 @@ func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockOutput)
 }
 
+func (i *BucketPublicAccessBlock) ToOutput(ctx context.Context) pulumix.Output[*BucketPublicAccessBlock] {
+	return pulumix.Output[*BucketPublicAccessBlock]{
+		OutputState: i.ToBucketPublicAccessBlockOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketPublicAccessBlockArrayInput is an input type that accepts BucketPublicAccessBlockArray and BucketPublicAccessBlockArrayOutput values.
 // You can construct a concrete instance of `BucketPublicAccessBlockArrayInput` via:
 //
@@ -230,6 +239,12 @@ func (i BucketPublicAccessBlockArray) ToBucketPublicAccessBlockArrayOutput() Buc
 
 func (i BucketPublicAccessBlockArray) ToBucketPublicAccessBlockArrayOutputWithContext(ctx context.Context) BucketPublicAccessBlockArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockArrayOutput)
+}
+
+func (i BucketPublicAccessBlockArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketPublicAccessBlock] {
+	return pulumix.Output[[]*BucketPublicAccessBlock]{
+		OutputState: i.ToBucketPublicAccessBlockArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketPublicAccessBlockMapInput is an input type that accepts BucketPublicAccessBlockMap and BucketPublicAccessBlockMapOutput values.
@@ -257,6 +272,12 @@ func (i BucketPublicAccessBlockMap) ToBucketPublicAccessBlockMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockMapOutput)
 }
 
+func (i BucketPublicAccessBlockMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketPublicAccessBlock] {
+	return pulumix.Output[map[string]*BucketPublicAccessBlock]{
+		OutputState: i.ToBucketPublicAccessBlockMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketPublicAccessBlockOutput struct{ *pulumi.OutputState }
 
 func (BucketPublicAccessBlockOutput) ElementType() reflect.Type {
@@ -269,6 +290,12 @@ func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockOutput() BucketP
 
 func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockOutputWithContext(ctx context.Context) BucketPublicAccessBlockOutput {
 	return o
+}
+
+func (o BucketPublicAccessBlockOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketPublicAccessBlock] {
+	return pulumix.Output[*BucketPublicAccessBlock]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -315,6 +342,12 @@ func (o BucketPublicAccessBlockArrayOutput) ToBucketPublicAccessBlockArrayOutput
 	return o
 }
 
+func (o BucketPublicAccessBlockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketPublicAccessBlock] {
+	return pulumix.Output[[]*BucketPublicAccessBlock]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketPublicAccessBlockArrayOutput) Index(i pulumi.IntInput) BucketPublicAccessBlockOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketPublicAccessBlock {
 		return vs[0].([]*BucketPublicAccessBlock)[vs[1].(int)]
@@ -333,6 +366,12 @@ func (o BucketPublicAccessBlockMapOutput) ToBucketPublicAccessBlockMapOutput() B
 
 func (o BucketPublicAccessBlockMapOutput) ToBucketPublicAccessBlockMapOutputWithContext(ctx context.Context) BucketPublicAccessBlockMapOutput {
 	return o
+}
+
+func (o BucketPublicAccessBlockMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketPublicAccessBlock] {
+	return pulumix.Output[map[string]*BucketPublicAccessBlock]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketPublicAccessBlockMapOutput) MapIndex(k pulumi.StringInput) BucketPublicAccessBlockOutput {

@@ -283,11 +283,11 @@ class EmailChannel(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint Email Channel can be imported using the `application-id`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint Email Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-        ```
+         to = aws_pinpoint_email_channel.email
+
+         id = "application-id" } Using `TODO import`, import Pinpoint Email Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_email_channel.email application-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,11 +343,11 @@ class EmailChannel(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint Email Channel can be imported using the `application-id`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint Email Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-        ```
+         to = aws_pinpoint_email_channel.email
+
+         id = "application-id" } Using `TODO import`, import Pinpoint Email Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_email_channel.email application-id
 
         :param str resource_name: The name of the resource.
         :param EmailChannelArgs args: The arguments to use to populate this resource's properties.

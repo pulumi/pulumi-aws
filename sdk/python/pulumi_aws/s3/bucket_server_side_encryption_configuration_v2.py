@@ -135,6 +135,8 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         """
         Provides a S3 bucket server-side encryption configuration resource.
 
+        > **NOTE:** Destroying an `s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
+
         ## Example Usage
 
         ```python
@@ -157,13 +159,18 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        __Using `pulumi import` to import__ S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
          $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
         ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
          $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
@@ -184,6 +191,8 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         """
         Provides a S3 bucket server-side encryption configuration resource.
 
+        > **NOTE:** Destroying an `s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
+
         ## Example Usage
 
         ```python
@@ -206,13 +215,18 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        __Using `pulumi import` to import__ S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
          $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
         ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
          $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012

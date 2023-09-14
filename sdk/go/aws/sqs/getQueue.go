@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueResult
 	err := ctx.Invoke("aws:sqs/getQueue:getQueue", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutput() LookupQueueResultOu
 
 func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx context.Context) LookupQueueResultOutput {
 	return o
+}
+
+func (o LookupQueueResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQueueResult] {
+	return pulumix.Output[LookupQueueResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the queue.

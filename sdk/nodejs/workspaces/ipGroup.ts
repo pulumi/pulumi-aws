@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WorkSpaces IP groups can be imported using their GroupID, e.g.,
+ * Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
  *
  * ```sh
  *  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k

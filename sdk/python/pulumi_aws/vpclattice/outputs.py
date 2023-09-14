@@ -62,6 +62,8 @@ class ListenerDefaultAction(dict):
                  forwards: Optional[Sequence['outputs.ListenerDefaultActionForward']] = None):
         """
         :param Sequence['ListenerDefaultActionForwardArgs'] forwards: Route requests to one or more target groups. See Forward blocks below.
+               
+               > **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
         """
         if fixed_response is not None:
             pulumi.set(__self__, "fixed_response", fixed_response)
@@ -78,6 +80,8 @@ class ListenerDefaultAction(dict):
     def forwards(self) -> Optional[Sequence['outputs.ListenerDefaultActionForward']]:
         """
         Route requests to one or more target groups. See Forward blocks below.
+
+        > **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
         """
         return pulumi.get(self, "forwards")
 
@@ -309,6 +313,8 @@ class ListenerRuleActionForward(dict):
                  target_groups: Sequence['outputs.ListenerRuleActionForwardTargetGroup']):
         """
         :param Sequence['ListenerRuleActionForwardTargetGroupArgs'] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+               
+               The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
         """
         pulumi.set(__self__, "target_groups", target_groups)
 
@@ -317,6 +323,8 @@ class ListenerRuleActionForward(dict):
     def target_groups(self) -> Sequence['outputs.ListenerRuleActionForwardTargetGroup']:
         """
         The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+
+        The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
         """
         return pulumi.get(self, "target_groups")
 

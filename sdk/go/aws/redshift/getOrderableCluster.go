@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about Redshift Orderable Clusters and valid parameter combinations.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func GetOrderableCluster(ctx *pulumi.Context, args *GetOrderableClusterArgs, opts ...pulumi.InvokeOption) (*GetOrderableClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrderableClusterResult
 	err := ctx.Invoke("aws:redshift/getOrderableCluster:getOrderableCluster", args, &rv, opts...)
 	if err != nil {
@@ -64,7 +67,7 @@ type GetOrderableClusterArgs struct {
 
 // A collection of values returned by getOrderableCluster.
 type GetOrderableClusterResult struct {
-	// List of Availability Zone names where the Redshit Cluster is available.
+	// List of Availability Zone names where the Redshift Cluster is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	ClusterType       string   `pulumi:"clusterType"`
 	ClusterVersion    string   `pulumi:"clusterVersion"`
@@ -118,7 +121,13 @@ func (o GetOrderableClusterResultOutput) ToGetOrderableClusterResultOutputWithCo
 	return o
 }
 
-// List of Availability Zone names where the Redshit Cluster is available.
+func (o GetOrderableClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrderableClusterResult] {
+	return pulumix.Output[GetOrderableClusterResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of Availability Zone names where the Redshift Cluster is available.
 func (o GetOrderableClusterResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableClusterResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }

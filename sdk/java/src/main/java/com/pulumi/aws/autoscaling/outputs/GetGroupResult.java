@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.GetGroupLaunchTemplate;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicy;
 import com.pulumi.aws.autoscaling.outputs.GetGroupTag;
+import com.pulumi.aws.autoscaling.outputs.GetGroupTrafficSource;
 import com.pulumi.aws.autoscaling.outputs.GetGroupWarmPool;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -138,6 +139,11 @@ public final class GetGroupResult {
      * 
      */
     private List<String> terminationPolicies;
+    /**
+     * @return Traffic sources.
+     * 
+     */
+    private List<GetGroupTrafficSource> trafficSources;
     /**
      * @return VPC ID for the group.
      * 
@@ -330,6 +336,13 @@ public final class GetGroupResult {
         return this.terminationPolicies;
     }
     /**
+     * @return Traffic sources.
+     * 
+     */
+    public List<GetGroupTrafficSource> trafficSources() {
+        return this.trafficSources;
+    }
+    /**
      * @return VPC ID for the group.
      * 
      */
@@ -386,6 +399,7 @@ public final class GetGroupResult {
         private List<GetGroupTag> tags;
         private List<String> targetGroupArns;
         private List<String> terminationPolicies;
+        private List<GetGroupTrafficSource> trafficSources;
         private String vpcZoneIdentifier;
         private Integer warmPoolSize;
         private List<GetGroupWarmPool> warmPools;
@@ -418,6 +432,7 @@ public final class GetGroupResult {
     	      this.tags = defaults.tags;
     	      this.targetGroupArns = defaults.targetGroupArns;
     	      this.terminationPolicies = defaults.terminationPolicies;
+    	      this.trafficSources = defaults.trafficSources;
     	      this.vpcZoneIdentifier = defaults.vpcZoneIdentifier;
     	      this.warmPoolSize = defaults.warmPoolSize;
     	      this.warmPools = defaults.warmPools;
@@ -581,6 +596,14 @@ public final class GetGroupResult {
             return terminationPolicies(List.of(terminationPolicies));
         }
         @CustomType.Setter
+        public Builder trafficSources(List<GetGroupTrafficSource> trafficSources) {
+            this.trafficSources = Objects.requireNonNull(trafficSources);
+            return this;
+        }
+        public Builder trafficSources(GetGroupTrafficSource... trafficSources) {
+            return trafficSources(List.of(trafficSources));
+        }
+        @CustomType.Setter
         public Builder vpcZoneIdentifier(String vpcZoneIdentifier) {
             this.vpcZoneIdentifier = Objects.requireNonNull(vpcZoneIdentifier);
             return this;
@@ -626,6 +649,7 @@ public final class GetGroupResult {
             o.tags = tags;
             o.targetGroupArns = targetGroupArns;
             o.terminationPolicies = terminationPolicies;
+            o.trafficSources = trafficSources;
             o.vpcZoneIdentifier = vpcZoneIdentifier;
             o.warmPoolSize = warmPoolSize;
             o.warmPools = warmPools;

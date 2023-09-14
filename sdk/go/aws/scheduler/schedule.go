@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Scheduler Schedule resource.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -37,7 +39,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.Any(aws_sqs_queue.Example.Arn),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
@@ -60,8 +62,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +78,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
@@ -105,7 +107,7 @@ import (
 //
 // ## Import
 //
-// Schedules can be imported using the combination `group_name/name`. For example
+// Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 //
 // ```sh
 //
@@ -140,6 +142,8 @@ type Schedule struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTargetOutput `pulumi:"target"`
 }
 
@@ -159,6 +163,7 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schedule
 	err := ctx.RegisterResource("aws:scheduler/schedule:Schedule", name, args, &resource, opts...)
 	if err != nil {
@@ -206,6 +211,8 @@ type scheduleState struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State *string `pulumi:"state"`
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target *ScheduleTarget `pulumi:"target"`
 }
 
@@ -235,6 +242,8 @@ type ScheduleState struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State pulumi.StringPtrInput
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTargetPtrInput
 }
 
@@ -266,6 +275,8 @@ type scheduleArgs struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State *string `pulumi:"state"`
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTarget `pulumi:"target"`
 }
 
@@ -294,6 +305,8 @@ type ScheduleArgs struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State pulumi.StringPtrInput
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTargetInput
 }
 
@@ -318,6 +331,12 @@ func (i *Schedule) ToScheduleOutput() ScheduleOutput {
 
 func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleOutput)
+}
+
+func (i *Schedule) ToOutput(ctx context.Context) pulumix.Output[*Schedule] {
+	return pulumix.Output[*Schedule]{
+		OutputState: i.ToScheduleOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
@@ -345,6 +364,12 @@ func (i ScheduleArray) ToScheduleArrayOutputWithContext(ctx context.Context) Sch
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleArrayOutput)
 }
 
+func (i ScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*Schedule] {
+	return pulumix.Output[[]*Schedule]{
+		OutputState: i.ToScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduleMapInput is an input type that accepts ScheduleMap and ScheduleMapOutput values.
 // You can construct a concrete instance of `ScheduleMapInput` via:
 //
@@ -370,6 +395,12 @@ func (i ScheduleMap) ToScheduleMapOutputWithContext(ctx context.Context) Schedul
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMapOutput)
 }
 
+func (i ScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Schedule] {
+	return pulumix.Output[map[string]*Schedule]{
+		OutputState: i.ToScheduleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleOutput) ElementType() reflect.Type {
@@ -382,6 +413,12 @@ func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
 
 func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return o
+}
+
+func (o ScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*Schedule] {
+	return pulumix.Output[*Schedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
@@ -445,6 +482,8 @@ func (o ScheduleOutput) State() pulumi.StringPtrOutput {
 }
 
 // Configures the target of the schedule. Detailed below.
+//
+// The following arguments are optional:
 func (o ScheduleOutput) Target() ScheduleTargetOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleTargetOutput { return v.Target }).(ScheduleTargetOutput)
 }
@@ -461,6 +500,12 @@ func (o ScheduleArrayOutput) ToScheduleArrayOutput() ScheduleArrayOutput {
 
 func (o ScheduleArrayOutput) ToScheduleArrayOutputWithContext(ctx context.Context) ScheduleArrayOutput {
 	return o
+}
+
+func (o ScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Schedule] {
+	return pulumix.Output[[]*Schedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleOutput {
@@ -481,6 +526,12 @@ func (o ScheduleMapOutput) ToScheduleMapOutput() ScheduleMapOutput {
 
 func (o ScheduleMapOutput) ToScheduleMapOutputWithContext(ctx context.Context) ScheduleMapOutput {
 	return o
+}
+
+func (o ScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Schedule] {
+	return pulumix.Output[map[string]*Schedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleMapOutput) MapIndex(k pulumi.StringInput) ScheduleOutput {

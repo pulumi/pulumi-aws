@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Signer
     /// 
     /// ## Import
     /// 
-    /// Signer signing profiles can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import Signer signing profiles using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
@@ -98,6 +98,9 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         [Output("signatureValidityPeriod")]
         public Output<Outputs.SigningProfileSignatureValidityPeriod> SignatureValidityPeriod { get; private set; } = null!;
+
+        [Output("signingMaterial")]
+        public Output<Outputs.SigningProfileSigningMaterial> SigningMaterial { get; private set; } = null!;
 
         /// <summary>
         /// The status of the target signing profile.
@@ -199,6 +202,9 @@ namespace Pulumi.Aws.Signer
         [Input("signatureValidityPeriod")]
         public Input<Inputs.SigningProfileSignatureValidityPeriodArgs>? SignatureValidityPeriod { get; set; }
 
+        [Input("signingMaterial")]
+        public Input<Inputs.SigningProfileSigningMaterialArgs>? SigningMaterial { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -266,6 +272,9 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         [Input("signatureValidityPeriod")]
         public Input<Inputs.SigningProfileSignatureValidityPeriodGetArgs>? SignatureValidityPeriod { get; set; }
+
+        [Input("signingMaterial")]
+        public Input<Inputs.SigningProfileSigningMaterialGetArgs>? SigningMaterial { get; set; }
 
         /// <summary>
         /// The status of the target signing profile.

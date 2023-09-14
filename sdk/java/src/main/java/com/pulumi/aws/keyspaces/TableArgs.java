@@ -4,6 +4,7 @@
 package com.pulumi.aws.keyspaces;
 
 import com.pulumi.aws.keyspaces.inputs.TableCapacitySpecificationArgs;
+import com.pulumi.aws.keyspaces.inputs.TableClientSideTimestampsArgs;
 import com.pulumi.aws.keyspaces.inputs.TableCommentArgs;
 import com.pulumi.aws.keyspaces.inputs.TableEncryptionSpecificationArgs;
 import com.pulumi.aws.keyspaces.inputs.TablePointInTimeRecoveryArgs;
@@ -36,6 +37,21 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<TableCapacitySpecificationArgs>> capacitySpecification() {
         return Optional.ofNullable(this.capacitySpecification);
+    }
+
+    /**
+     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * 
+     */
+    @Import(name="clientSideTimestamps")
+    private @Nullable Output<TableClientSideTimestampsArgs> clientSideTimestamps;
+
+    /**
+     * @return Enables client-side timestamps for the table. By default, the setting is disabled.
+     * 
+     */
+    public Optional<Output<TableClientSideTimestampsArgs>> clientSideTimestamps() {
+        return Optional.ofNullable(this.clientSideTimestamps);
     }
 
     /**
@@ -131,12 +147,16 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
      * @return The name of the table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> tableName() {
@@ -177,6 +197,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
 
     private TableArgs(TableArgs $) {
         this.capacitySpecification = $.capacitySpecification;
+        this.clientSideTimestamps = $.clientSideTimestamps;
         this.comment = $.comment;
         this.defaultTimeToLive = $.defaultTimeToLive;
         this.encryptionSpecification = $.encryptionSpecification;
@@ -225,6 +246,27 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder capacitySpecification(TableCapacitySpecificationArgs capacitySpecification) {
             return capacitySpecification(Output.of(capacitySpecification));
+        }
+
+        /**
+         * @param clientSideTimestamps Enables client-side timestamps for the table. By default, the setting is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSideTimestamps(@Nullable Output<TableClientSideTimestampsArgs> clientSideTimestamps) {
+            $.clientSideTimestamps = clientSideTimestamps;
+            return this;
+        }
+
+        /**
+         * @param clientSideTimestamps Enables client-side timestamps for the table. By default, the setting is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSideTimestamps(TableClientSideTimestampsArgs clientSideTimestamps) {
+            return clientSideTimestamps(Output.of(clientSideTimestamps));
         }
 
         /**
@@ -356,6 +398,8 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableName The name of the table.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -366,6 +410,8 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tableName The name of the table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

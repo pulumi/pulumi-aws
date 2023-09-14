@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an EC2 Local Gateway Route Table.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -46,6 +48,7 @@ import (
 //
 // ```
 func GetLocalGatewayRouteTable(ctx *pulumi.Context, args *GetLocalGatewayRouteTableArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayRouteTableResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args, &rv, opts...)
 	if err != nil {
@@ -67,6 +70,9 @@ type GetLocalGatewayRouteTableArgs struct {
 	State *string `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -108,6 +114,9 @@ type GetLocalGatewayRouteTableOutputArgs struct {
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -128,6 +137,12 @@ func (o GetLocalGatewayRouteTableResultOutput) ToGetLocalGatewayRouteTableResult
 
 func (o GetLocalGatewayRouteTableResultOutput) ToGetLocalGatewayRouteTableResultOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableResultOutput {
 	return o
+}
+
+func (o GetLocalGatewayRouteTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewayRouteTableResult] {
+	return pulumix.Output[GetLocalGatewayRouteTableResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalGatewayRouteTableResultOutput) Filters() GetLocalGatewayRouteTableFilterArrayOutput {

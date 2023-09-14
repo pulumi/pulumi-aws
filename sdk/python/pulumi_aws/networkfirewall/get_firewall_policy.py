@@ -162,13 +162,13 @@ def get_firewall_policy(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkfirewall/getFirewallPolicy:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult).value
 
     return AwaitableGetFirewallPolicyResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        firewall_policies=__ret__.firewall_policies,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        update_token=__ret__.update_token)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        firewall_policies=pulumi.get(__ret__, 'firewall_policies'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        update_token=pulumi.get(__ret__, 'update_token'))
 
 
 @_utilities.lift_output_func(get_firewall_policy)

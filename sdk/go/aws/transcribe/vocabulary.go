@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Transcribe Vocabulary.
@@ -23,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +73,7 @@ import (
 //
 // ## Import
 //
-// Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+// Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
 //
 // ```sh
 //
@@ -95,6 +97,8 @@ type Vocabulary struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringOutput `pulumi:"vocabularyName"`
 }
 
@@ -111,6 +115,7 @@ func NewVocabulary(ctx *pulumi.Context,
 	if args.VocabularyName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vocabulary
 	err := ctx.RegisterResource("aws:transcribe/vocabulary:Vocabulary", name, args, &resource, opts...)
 	if err != nil {
@@ -147,6 +152,8 @@ type vocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName *string `pulumi:"vocabularyName"`
 }
 
@@ -165,6 +172,8 @@ type VocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringPtrInput
 }
 
@@ -182,6 +191,8 @@ type vocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName string `pulumi:"vocabularyName"`
 }
 
@@ -196,6 +207,8 @@ type VocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringInput
 }
 
@@ -220,6 +233,12 @@ func (i *Vocabulary) ToVocabularyOutput() VocabularyOutput {
 
 func (i *Vocabulary) ToVocabularyOutputWithContext(ctx context.Context) VocabularyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyOutput)
+}
+
+func (i *Vocabulary) ToOutput(ctx context.Context) pulumix.Output[*Vocabulary] {
+	return pulumix.Output[*Vocabulary]{
+		OutputState: i.ToVocabularyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VocabularyArrayInput is an input type that accepts VocabularyArray and VocabularyArrayOutput values.
@@ -247,6 +266,12 @@ func (i VocabularyArray) ToVocabularyArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyArrayOutput)
 }
 
+func (i VocabularyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Vocabulary] {
+	return pulumix.Output[[]*Vocabulary]{
+		OutputState: i.ToVocabularyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VocabularyMapInput is an input type that accepts VocabularyMap and VocabularyMapOutput values.
 // You can construct a concrete instance of `VocabularyMapInput` via:
 //
@@ -272,6 +297,12 @@ func (i VocabularyMap) ToVocabularyMapOutputWithContext(ctx context.Context) Voc
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyMapOutput)
 }
 
+func (i VocabularyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Vocabulary] {
+	return pulumix.Output[map[string]*Vocabulary]{
+		OutputState: i.ToVocabularyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VocabularyOutput struct{ *pulumi.OutputState }
 
 func (VocabularyOutput) ElementType() reflect.Type {
@@ -284,6 +315,12 @@ func (o VocabularyOutput) ToVocabularyOutput() VocabularyOutput {
 
 func (o VocabularyOutput) ToVocabularyOutputWithContext(ctx context.Context) VocabularyOutput {
 	return o
+}
+
+func (o VocabularyOutput) ToOutput(ctx context.Context) pulumix.Output[*Vocabulary] {
+	return pulumix.Output[*Vocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Vocabulary.
@@ -321,6 +358,8 @@ func (o VocabularyOutput) VocabularyFileUri() pulumi.StringOutput {
 }
 
 // The name of the Vocabulary.
+//
+// The following arguments are optional:
 func (o VocabularyOutput) VocabularyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.VocabularyName }).(pulumi.StringOutput)
 }
@@ -337,6 +376,12 @@ func (o VocabularyArrayOutput) ToVocabularyArrayOutput() VocabularyArrayOutput {
 
 func (o VocabularyArrayOutput) ToVocabularyArrayOutputWithContext(ctx context.Context) VocabularyArrayOutput {
 	return o
+}
+
+func (o VocabularyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Vocabulary] {
+	return pulumix.Output[[]*Vocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VocabularyArrayOutput) Index(i pulumi.IntInput) VocabularyOutput {
@@ -357,6 +402,12 @@ func (o VocabularyMapOutput) ToVocabularyMapOutput() VocabularyMapOutput {
 
 func (o VocabularyMapOutput) ToVocabularyMapOutputWithContext(ctx context.Context) VocabularyMapOutput {
 	return o
+}
+
+func (o VocabularyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Vocabulary] {
+	return pulumix.Output[map[string]*Vocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VocabularyMapOutput) MapIndex(k pulumi.StringInput) VocabularyOutput {

@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.opensearch.OutboundConnection;
  * import com.pulumi.aws.opensearch.OutboundConnectionArgs;
@@ -69,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+ * Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id

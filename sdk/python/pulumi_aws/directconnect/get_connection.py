@@ -52,8 +52,8 @@ class GetConnectionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if vlan_id and not isinstance(vlan_id, str):
-            raise TypeError("Expected argument 'vlan_id' to be a str")
+        if vlan_id and not isinstance(vlan_id, int):
+            raise TypeError("Expected argument 'vlan_id' to be a int")
         pulumi.set(__self__, "vlan_id", vlan_id)
 
     @property
@@ -135,7 +135,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> str:
+    def vlan_id(self) -> int:
         """
         The VLAN ID.
         """
@@ -187,17 +187,17 @@ def get_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        arn=__ret__.arn,
-        aws_device=__ret__.aws_device,
-        bandwidth=__ret__.bandwidth,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        owner_account_id=__ret__.owner_account_id,
-        partner_name=__ret__.partner_name,
-        provider_name=__ret__.provider_name,
-        tags=__ret__.tags,
-        vlan_id=__ret__.vlan_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_device=pulumi.get(__ret__, 'aws_device'),
+        bandwidth=pulumi.get(__ret__, 'bandwidth'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
+        partner_name=pulumi.get(__ret__, 'partner_name'),
+        provider_name=pulumi.get(__ret__, 'provider_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vlan_id=pulumi.get(__ret__, 'vlan_id'))
 
 
 @_utilities.lift_output_func(get_connection)

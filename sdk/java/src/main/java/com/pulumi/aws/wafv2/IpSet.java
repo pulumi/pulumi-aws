@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * WAFv2 IP Sets can be imported using `ID/name/scope`
+ * Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/ipSet:IpSet")
 public class IpSet extends com.pulumi.resources.CustomResource {
     /**
-     * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+     * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      * 
      */
     @Export(name="addresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> addresses;
 
     /**
-     * @return Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+     * @return Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      * 
      */
     public Output<Optional<List<String>>> addresses() {

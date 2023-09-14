@@ -59,6 +59,8 @@ export class Resource extends pulumi.CustomResource {
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     *
+     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
     public readonly roleArn!: pulumi.Output<string>;
 
@@ -106,6 +108,8 @@ export interface ResourceState {
     lastModified?: pulumi.Input<string>;
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     *
+     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
     roleArn?: pulumi.Input<string>;
 }
@@ -120,6 +124,8 @@ export interface ResourceArgs {
     arn: pulumi.Input<string>;
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     *
+     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
     roleArn?: pulumi.Input<string>;
 }

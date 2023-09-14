@@ -181,7 +181,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Import
     /// 
-    /// GuardDuty PublishingDestination can be imported using the master GuardDuty detector ID and PublishingDestinationID, e.g.,
+    /// Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
@@ -198,6 +198,8 @@ namespace Pulumi.Aws.GuardDuty
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Output("destinationType")]
         public Output<string?> DestinationType { get; private set; } = null!;
@@ -268,6 +270,8 @@ namespace Pulumi.Aws.GuardDuty
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Input("destinationType")]
         public Input<string>? DestinationType { get; set; }
@@ -300,6 +304,8 @@ namespace Pulumi.Aws.GuardDuty
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Input("destinationType")]
         public Input<string>? DestinationType { get; set; }

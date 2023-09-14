@@ -116,7 +116,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
@@ -152,7 +152,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
+        Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
 
         ```sh
          $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste

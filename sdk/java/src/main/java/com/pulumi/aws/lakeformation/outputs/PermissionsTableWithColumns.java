@@ -41,6 +41,8 @@ public final class PermissionsTableWithColumns {
     /**
      * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
      * 
+     * The following arguments are optional:
+     * 
      */
     private @Nullable Boolean wildcard;
 
@@ -82,6 +84,8 @@ public final class PermissionsTableWithColumns {
     }
     /**
      * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Boolean> wildcard() {

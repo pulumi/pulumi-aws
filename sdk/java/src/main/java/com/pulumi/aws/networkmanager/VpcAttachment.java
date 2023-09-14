@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+ * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
@@ -264,12 +264,16 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
     /**
      * The ARN of the VPC.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcArn", refs={String.class}, tree="[0]")
     private Output<String> vpcArn;
 
     /**
      * @return The ARN of the VPC.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcArn() {

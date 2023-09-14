@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Lattice Service Network can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
@@ -63,6 +63,8 @@ export class ServiceNetwork extends pulumi.CustomResource {
     public readonly authType!: pulumi.Output<string>;
     /**
      * Name of the service network
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -119,6 +121,8 @@ export interface ServiceNetworkState {
     authType?: pulumi.Input<string>;
     /**
      * Name of the service network
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -141,6 +145,8 @@ export interface ServiceNetworkArgs {
     authType?: pulumi.Input<string>;
     /**
      * Name of the service network
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

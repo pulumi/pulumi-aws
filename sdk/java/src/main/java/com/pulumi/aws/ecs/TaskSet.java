@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
+ * Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
@@ -339,12 +339,16 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="taskDefinition", refs={String.class}, tree="[0]")
     private Output<String> taskDefinition;
 
     /**
      * @return The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> taskDefinition() {

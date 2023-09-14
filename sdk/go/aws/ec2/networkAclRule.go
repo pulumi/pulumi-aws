@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an entry (a rule) in a network ACL with the specified rule number.
@@ -26,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +64,15 @@ import (
 //
 // ## Import
 //
-// Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+// __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
+//
+// Using the procotol's string value:
+//
+// Using the procotol's decimal value:
+//
+// __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
+//
+// Using the procotol's string value:
 //
 // ```sh
 //
@@ -70,7 +80,7 @@ import (
 //
 // ```
 //
-//	Or by the procotol's decimal valueconsole
+//	Using the procotol's decimal value:
 //
 // ```sh
 //
@@ -87,6 +97,12 @@ type NetworkAclRule struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrOutput `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode pulumi.IntPtrOutput `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.IntPtrOutput `pulumi:"icmpType"`
@@ -123,6 +139,7 @@ func NewNetworkAclRule(ctx *pulumi.Context,
 	if args.RuleNumber == nil {
 		return nil, errors.New("invalid value for required argument 'RuleNumber'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAclRule
 	err := ctx.RegisterResource("aws:ec2/networkAclRule:NetworkAclRule", name, args, &resource, opts...)
 	if err != nil {
@@ -152,6 +169,12 @@ type networkAclRuleState struct {
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode *int `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType *int `pulumi:"icmpType"`
@@ -177,6 +200,12 @@ type NetworkAclRuleState struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode pulumi.IntPtrInput
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.IntPtrInput
@@ -206,6 +235,12 @@ type networkAclRuleArgs struct {
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode *int `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType *int `pulumi:"icmpType"`
@@ -232,6 +267,12 @@ type NetworkAclRuleArgs struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode pulumi.IntPtrInput
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.IntPtrInput
@@ -272,6 +313,12 @@ func (i *NetworkAclRule) ToNetworkAclRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleOutput)
 }
 
+func (i *NetworkAclRule) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclRule] {
+	return pulumix.Output[*NetworkAclRule]{
+		OutputState: i.ToNetworkAclRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkAclRuleArrayInput is an input type that accepts NetworkAclRuleArray and NetworkAclRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkAclRuleArrayInput` via:
 //
@@ -295,6 +342,12 @@ func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutput() NetworkAclRuleArrayOu
 
 func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutputWithContext(ctx context.Context) NetworkAclRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleArrayOutput)
+}
+
+func (i NetworkAclRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAclRule] {
+	return pulumix.Output[[]*NetworkAclRule]{
+		OutputState: i.ToNetworkAclRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkAclRuleMapInput is an input type that accepts NetworkAclRuleMap and NetworkAclRuleMapOutput values.
@@ -322,6 +375,12 @@ func (i NetworkAclRuleMap) ToNetworkAclRuleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleMapOutput)
 }
 
+func (i NetworkAclRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAclRule] {
+	return pulumix.Output[map[string]*NetworkAclRule]{
+		OutputState: i.ToNetworkAclRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAclRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclRuleOutput) ElementType() reflect.Type {
@@ -334,6 +393,12 @@ func (o NetworkAclRuleOutput) ToNetworkAclRuleOutput() NetworkAclRuleOutput {
 
 func (o NetworkAclRuleOutput) ToNetworkAclRuleOutputWithContext(ctx context.Context) NetworkAclRuleOutput {
 	return o
+}
+
+func (o NetworkAclRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclRule] {
+	return pulumix.Output[*NetworkAclRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
@@ -352,6 +417,12 @@ func (o NetworkAclRuleOutput) FromPort() pulumi.IntPtrOutput {
 }
 
 // ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+//
+// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+//
+// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+//
+// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 func (o NetworkAclRuleOutput) IcmpCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.IntPtrOutput { return v.IcmpCode }).(pulumi.IntPtrOutput)
 }
@@ -405,6 +476,12 @@ func (o NetworkAclRuleArrayOutput) ToNetworkAclRuleArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o NetworkAclRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAclRule] {
+	return pulumix.Output[[]*NetworkAclRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkAclRuleArrayOutput) Index(i pulumi.IntInput) NetworkAclRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkAclRule {
 		return vs[0].([]*NetworkAclRule)[vs[1].(int)]
@@ -423,6 +500,12 @@ func (o NetworkAclRuleMapOutput) ToNetworkAclRuleMapOutput() NetworkAclRuleMapOu
 
 func (o NetworkAclRuleMapOutput) ToNetworkAclRuleMapOutputWithContext(ctx context.Context) NetworkAclRuleMapOutput {
 	return o
+}
+
+func (o NetworkAclRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAclRule] {
+	return pulumix.Output[map[string]*NetworkAclRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAclRuleMapOutput) MapIndex(k pulumi.StringInput) NetworkAclRuleOutput {

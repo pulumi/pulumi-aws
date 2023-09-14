@@ -6,6 +6,9 @@ import json
 
 repo_url = "https://github.com/edalongeville/pulumi_sample_codebuild.git"
 
+# Codebuild only allows a single credential per given server type in a given
+# AWS region. Therefore, when you define aws.codebuild.SourceCredential,
+# aws.codebuild.Project resource defined in the same module will use it.
 source_credentials = codebuild.SourceCredential(
     resource_name="Github-Credentials",
     auth_type="PERSONAL_ACCESS_TOKEN",
@@ -77,6 +80,5 @@ prebuild_project = codebuild.Project(
         "buildspec": "build.yml",
         "type": "GITHUB",
         "report_build_status": True,
-        "auth": {"type": "OAUTH", "resource": source_credentials.arn, },
     },
 )

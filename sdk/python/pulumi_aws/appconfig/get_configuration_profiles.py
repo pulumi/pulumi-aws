@@ -72,6 +72,16 @@ def get_configuration_profiles(application_id: Optional[str] = None,
     Profile IDs to another resource.
 
     ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
+    example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+        application_id=aws_appconfig_application["example"]["id"]) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+    ```
 
 
     :param str application_id: ID of the AppConfig Application.
@@ -82,9 +92,9 @@ def get_configuration_profiles(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getConfigurationProfiles:getConfigurationProfiles', __args__, opts=opts, typ=GetConfigurationProfilesResult).value
 
     return AwaitableGetConfigurationProfilesResult(
-        application_id=__ret__.application_id,
-        configuration_profile_ids=__ret__.configuration_profile_ids,
-        id=__ret__.id)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        configuration_profile_ids=pulumi.get(__ret__, 'configuration_profile_ids'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_configuration_profiles)
@@ -95,6 +105,16 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
     Profile IDs to another resource.
 
     ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
+    example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+        application_id=aws_appconfig_application["example"]["id"]) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+    ```
 
 
     :param str application_id: ID of the AppConfig Application.

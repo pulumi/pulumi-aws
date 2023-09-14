@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -77,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Workflows can be imported using `name`, e.g.,
+ * Using `pulumi import`, import Glue Workflows using `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
@@ -104,14 +103,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
-    @Export(name="defaultRunProperties", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> defaultRunProperties;
+    @Export(name="defaultRunProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> defaultRunProperties;
 
     /**
      * @return A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
-    public Output<Optional<Map<String,Object>>> defaultRunProperties() {
+    public Output<Optional<Map<String,String>>> defaultRunProperties() {
         return Codegen.optional(this.defaultRunProperties);
     }
     /**

@@ -117,6 +117,8 @@ class _ConnectPeerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bgp_asn: Optional[pulumi.Input[str]] = None,
+                 bgp_peer_address: Optional[pulumi.Input[str]] = None,
+                 bgp_transit_gateway_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -127,6 +129,8 @@ class _ConnectPeerState:
         Input properties used for looking up and filtering ConnectPeer resources.
         :param pulumi.Input[str] arn: EC2 Transit Gateway Connect Peer ARN
         :param pulumi.Input[str] bgp_asn: The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
+        :param pulumi.Input[str] bgp_peer_address: The IP address assigned to customer device, which is used as BGP IP address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bgp_transit_gateway_addresses: The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
         :param pulumi.Input[str] peer_address: The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -138,6 +142,10 @@ class _ConnectPeerState:
             pulumi.set(__self__, "arn", arn)
         if bgp_asn is not None:
             pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_peer_address is not None:
+            pulumi.set(__self__, "bgp_peer_address", bgp_peer_address)
+        if bgp_transit_gateway_addresses is not None:
+            pulumi.set(__self__, "bgp_transit_gateway_addresses", bgp_transit_gateway_addresses)
         if inside_cidr_blocks is not None:
             pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
         if peer_address is not None:
@@ -174,6 +182,30 @@ class _ConnectPeerState:
     @bgp_asn.setter
     def bgp_asn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bgp_asn", value)
+
+    @property
+    @pulumi.getter(name="bgpPeerAddress")
+    def bgp_peer_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address assigned to customer device, which is used as BGP IP address.
+        """
+        return pulumi.get(self, "bgp_peer_address")
+
+    @bgp_peer_address.setter
+    def bgp_peer_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bgp_peer_address", value)
+
+    @property
+    @pulumi.getter(name="bgpTransitGatewayAddresses")
+    def bgp_transit_gateway_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+        """
+        return pulumi.get(self, "bgp_transit_gateway_addresses")
+
+    @bgp_transit_gateway_addresses.setter
+    def bgp_transit_gateway_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "bgp_transit_gateway_addresses", value)
 
     @property
     @pulumi.getter(name="insideCidrBlocks")
@@ -280,7 +312,7 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect_peer` can be imported by using the EC2 Transit Gateway Connect Peer identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
@@ -321,7 +353,7 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect_peer` can be imported by using the EC2 Transit Gateway Connect Peer identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
@@ -370,6 +402,8 @@ class ConnectPeer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["bgp_peer_address"] = None
+            __props__.__dict__["bgp_transit_gateway_addresses"] = None
             __props__.__dict__["tags_all"] = None
         super(ConnectPeer, __self__).__init__(
             'aws:ec2transitgateway/connectPeer:ConnectPeer',
@@ -383,6 +417,8 @@ class ConnectPeer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             bgp_asn: Optional[pulumi.Input[str]] = None,
+            bgp_peer_address: Optional[pulumi.Input[str]] = None,
+            bgp_transit_gateway_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             peer_address: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -398,6 +434,8 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: EC2 Transit Gateway Connect Peer ARN
         :param pulumi.Input[str] bgp_asn: The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
+        :param pulumi.Input[str] bgp_peer_address: The IP address assigned to customer device, which is used as BGP IP address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bgp_transit_gateway_addresses: The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
         :param pulumi.Input[str] peer_address: The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -411,6 +449,8 @@ class ConnectPeer(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bgp_asn"] = bgp_asn
+        __props__.__dict__["bgp_peer_address"] = bgp_peer_address
+        __props__.__dict__["bgp_transit_gateway_addresses"] = bgp_transit_gateway_addresses
         __props__.__dict__["inside_cidr_blocks"] = inside_cidr_blocks
         __props__.__dict__["peer_address"] = peer_address
         __props__.__dict__["tags"] = tags
@@ -434,6 +474,22 @@ class ConnectPeer(pulumi.CustomResource):
         The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="bgpPeerAddress")
+    def bgp_peer_address(self) -> pulumi.Output[str]:
+        """
+        The IP address assigned to customer device, which is used as BGP IP address.
+        """
+        return pulumi.get(self, "bgp_peer_address")
+
+    @property
+    @pulumi.getter(name="bgpTransitGatewayAddresses")
+    def bgp_transit_gateway_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+        """
+        return pulumi.get(self, "bgp_transit_gateway_addresses")
 
     @property
     @pulumi.getter(name="insideCidrBlocks")

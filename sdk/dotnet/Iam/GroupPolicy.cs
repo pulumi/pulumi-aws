@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Group Policies can be imported using the `group_name:group_policy_name`, e.g.,
+    /// Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name

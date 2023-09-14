@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Import
     /// 
-    /// `aws_kendra_faq` can be imported using the unique identifiers of the FAQ and index separated by a slash (`/`), e.g.,
+    /// Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
@@ -162,6 +162,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
+        /// 
+        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Output("s3Path")]
         public Output<Outputs.FaqS3Path> S3Path { get; private set; } = null!;
@@ -274,6 +276,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
+        /// 
+        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("s3Path", required: true)]
         public Input<Inputs.FaqS3PathArgs> S3Path { get; set; } = null!;
@@ -360,6 +364,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
+        /// 
+        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("s3Path")]
         public Input<Inputs.FaqS3PathGetArgs>? S3Path { get; set; }

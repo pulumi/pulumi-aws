@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
  *
  * ```sh
  *  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
@@ -82,7 +82,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Description of the environment. Can be at most 1024 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * AppConfig environment ID.
      */

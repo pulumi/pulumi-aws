@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about an RDS cluster.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:rds/getCluster:getCluster", args, &rv, opts...)
 	if err != nil {
@@ -66,6 +69,7 @@ type LookupClusterResult struct {
 	DatabaseName                     string   `pulumi:"databaseName"`
 	DbClusterParameterGroupName      string   `pulumi:"dbClusterParameterGroupName"`
 	DbSubnetGroupName                string   `pulumi:"dbSubnetGroupName"`
+	DbSystemId                       string   `pulumi:"dbSystemId"`
 	EnabledCloudwatchLogsExports     []string `pulumi:"enabledCloudwatchLogsExports"`
 	Endpoint                         string   `pulumi:"endpoint"`
 	Engine                           string   `pulumi:"engine"`
@@ -132,6 +136,12 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+func (o LookupClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterResult] {
+	return pulumix.Output[LookupClusterResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -170,6 +180,10 @@ func (o LookupClusterResultOutput) DbClusterParameterGroupName() pulumi.StringOu
 
 func (o LookupClusterResultOutput) DbSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DbSubnetGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) DbSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.DbSystemId }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {

@@ -20,7 +20,7 @@ import {ARN} from "..";
  *
  * ## Import
  *
- * `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
+ * Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
@@ -56,6 +56,8 @@ export class TransitGateway extends pulumi.CustomResource {
 
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+     *
+     * > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
      */
     public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
     /**
@@ -172,6 +174,8 @@ export class TransitGateway extends pulumi.CustomResource {
 export interface TransitGatewayState {
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+     *
+     * > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
      */
     amazonSideAsn?: pulumi.Input<number>;
     /**
@@ -238,6 +242,8 @@ export interface TransitGatewayState {
 export interface TransitGatewayArgs {
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+     *
+     * > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
      */
     amazonSideAsn?: pulumi.Input<number>;
     /**

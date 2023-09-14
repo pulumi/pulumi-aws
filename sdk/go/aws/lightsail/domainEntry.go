@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a domain entry resource
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+// Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
 //
 // ```sh
 //
@@ -89,6 +91,7 @@ func NewDomainEntry(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainEntry
 	err := ctx.RegisterResource("aws:lightsail/domainEntry:DomainEntry", name, args, &resource, opts...)
 	if err != nil {
@@ -190,6 +193,12 @@ func (i *DomainEntry) ToDomainEntryOutputWithContext(ctx context.Context) Domain
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEntryOutput)
 }
 
+func (i *DomainEntry) ToOutput(ctx context.Context) pulumix.Output[*DomainEntry] {
+	return pulumix.Output[*DomainEntry]{
+		OutputState: i.ToDomainEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainEntryArrayInput is an input type that accepts DomainEntryArray and DomainEntryArrayOutput values.
 // You can construct a concrete instance of `DomainEntryArrayInput` via:
 //
@@ -213,6 +222,12 @@ func (i DomainEntryArray) ToDomainEntryArrayOutput() DomainEntryArrayOutput {
 
 func (i DomainEntryArray) ToDomainEntryArrayOutputWithContext(ctx context.Context) DomainEntryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEntryArrayOutput)
+}
+
+func (i DomainEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainEntry] {
+	return pulumix.Output[[]*DomainEntry]{
+		OutputState: i.ToDomainEntryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainEntryMapInput is an input type that accepts DomainEntryMap and DomainEntryMapOutput values.
@@ -240,6 +255,12 @@ func (i DomainEntryMap) ToDomainEntryMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEntryMapOutput)
 }
 
+func (i DomainEntryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainEntry] {
+	return pulumix.Output[map[string]*DomainEntry]{
+		OutputState: i.ToDomainEntryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainEntryOutput struct{ *pulumi.OutputState }
 
 func (DomainEntryOutput) ElementType() reflect.Type {
@@ -252,6 +273,12 @@ func (o DomainEntryOutput) ToDomainEntryOutput() DomainEntryOutput {
 
 func (o DomainEntryOutput) ToDomainEntryOutputWithContext(ctx context.Context) DomainEntryOutput {
 	return o
+}
+
+func (o DomainEntryOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainEntry] {
+	return pulumix.Output[*DomainEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Lightsail domain in which to create the entry
@@ -293,6 +320,12 @@ func (o DomainEntryArrayOutput) ToDomainEntryArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o DomainEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainEntry] {
+	return pulumix.Output[[]*DomainEntry]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainEntryArrayOutput) Index(i pulumi.IntInput) DomainEntryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainEntry {
 		return vs[0].([]*DomainEntry)[vs[1].(int)]
@@ -311,6 +344,12 @@ func (o DomainEntryMapOutput) ToDomainEntryMapOutput() DomainEntryMapOutput {
 
 func (o DomainEntryMapOutput) ToDomainEntryMapOutputWithContext(ctx context.Context) DomainEntryMapOutput {
 	return o
+}
+
+func (o DomainEntryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainEntry] {
+	return pulumix.Output[map[string]*DomainEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainEntryMapOutput) MapIndex(k pulumi.StringInput) DomainEntryOutput {

@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Import
     /// 
-    /// SNS Topic Policy can be imported using the topic ARN, e.g.,
+    /// Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic

@@ -87,6 +87,7 @@ namespace Pulumi.Aws.Iot
     ///     {
     ///         Description = "My provisioning template",
     ///         ProvisioningRoleArn = iotFleetProvisioning.Arn,
+    ///         Enabled = true,
     ///         TemplateBody = devicePolicyPolicy.Name.Apply(name =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
@@ -127,7 +128,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// IoT fleet provisioning templates can be imported using the `name`, e.g.
+    /// Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate

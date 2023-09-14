@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Default VPCs can be imported using the `vpc id`, e.g.,
+ * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
@@ -122,30 +122,6 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
 
     public Output<String> dhcpOptionsId() {
         return this.dhcpOptionsId;
-    }
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclink", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableClassiclink;
-
-    public Output<Boolean> enableClassiclink() {
-        return this.enableClassiclink;
-    }
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclinkDnsSupport", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableClassiclinkDnsSupport;
-
-    public Output<Boolean> enableClassiclinkDnsSupport() {
-        return this.enableClassiclinkDnsSupport;
     }
     @Export(name="enableDnsHostnames", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsHostnames;

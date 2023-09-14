@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Managed Grafana workspace resource.
@@ -23,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +75,7 @@ import (
 //
 // ## Import
 //
-// Grafana Workspace can be imported using the workspace's `id`, e.g.,
+// Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
 //
 // ```sh
 //
@@ -97,7 +99,7 @@ type Workspace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The endpoint of the Grafana workspace.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -110,6 +112,8 @@ type Workspace struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayOutput `pulumi:"organizationalUnits"`
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -140,6 +144,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.PermissionType == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws:grafana/workspace:Workspace", name, args, &resource, opts...)
 	if err != nil {
@@ -176,7 +181,7 @@ type workspaceState struct {
 	Description *string `pulumi:"description"`
 	// The endpoint of the Grafana workspace.
 	Endpoint *string `pulumi:"endpoint"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
@@ -189,6 +194,8 @@ type workspaceState struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType *string `pulumi:"permissionType"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 *string `pulumi:"roleArn"`
@@ -218,7 +225,7 @@ type WorkspaceState struct {
 	Description pulumi.StringPtrInput
 	// The endpoint of the Grafana workspace.
 	Endpoint pulumi.StringPtrInput
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
@@ -231,6 +238,8 @@ type WorkspaceState struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayInput
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType pulumi.StringPtrInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrInput
@@ -260,7 +269,7 @@ type workspaceArgs struct {
 	DataSources []string `pulumi:"dataSources"`
 	// The workspace description.
 	Description *string `pulumi:"description"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
@@ -273,6 +282,8 @@ type workspaceArgs struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType string `pulumi:"permissionType"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn *string `pulumi:"roleArn"`
@@ -296,7 +307,7 @@ type WorkspaceArgs struct {
 	DataSources pulumi.StringArrayInput
 	// The workspace description.
 	Description pulumi.StringPtrInput
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
@@ -309,6 +320,8 @@ type WorkspaceArgs struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayInput
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType pulumi.StringInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn pulumi.StringPtrInput
@@ -343,6 +356,12 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
+func (i *Workspace) ToOutput(ctx context.Context) pulumix.Output[*Workspace] {
+	return pulumix.Output[*Workspace]{
+		OutputState: i.ToWorkspaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceArrayInput is an input type that accepts WorkspaceArray and WorkspaceArrayOutput values.
 // You can construct a concrete instance of `WorkspaceArrayInput` via:
 //
@@ -366,6 +385,12 @@ func (i WorkspaceArray) ToWorkspaceArrayOutput() WorkspaceArrayOutput {
 
 func (i WorkspaceArray) ToWorkspaceArrayOutputWithContext(ctx context.Context) WorkspaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceArrayOutput)
+}
+
+func (i WorkspaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workspace] {
+	return pulumix.Output[[]*Workspace]{
+		OutputState: i.ToWorkspaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkspaceMapInput is an input type that accepts WorkspaceMap and WorkspaceMapOutput values.
@@ -393,6 +418,12 @@ func (i WorkspaceMap) ToWorkspaceMapOutputWithContext(ctx context.Context) Works
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceMapOutput)
 }
 
+func (i WorkspaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workspace] {
+	return pulumix.Output[map[string]*Workspace]{
+		OutputState: i.ToWorkspaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
@@ -405,6 +436,12 @@ func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {
 
 func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
 	return o
+}
+
+func (o WorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Workspace] {
+	return pulumix.Output[*Workspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
@@ -442,7 +479,7 @@ func (o WorkspaceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 func (o WorkspaceOutput) GrafanaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.GrafanaVersion }).(pulumi.StringOutput)
 }
@@ -473,6 +510,8 @@ func (o WorkspaceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 }
 
 // The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+//
+// The following arguments are optional:
 func (o WorkspaceOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PermissionType }).(pulumi.StringOutput)
 }
@@ -520,6 +559,12 @@ func (o WorkspaceArrayOutput) ToWorkspaceArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o WorkspaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workspace] {
+	return pulumix.Output[[]*Workspace]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkspaceArrayOutput) Index(i pulumi.IntInput) WorkspaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workspace {
 		return vs[0].([]*Workspace)[vs[1].(int)]
@@ -538,6 +583,12 @@ func (o WorkspaceMapOutput) ToWorkspaceMapOutput() WorkspaceMapOutput {
 
 func (o WorkspaceMapOutput) ToWorkspaceMapOutputWithContext(ctx context.Context) WorkspaceMapOutput {
 	return o
+}
+
+func (o WorkspaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workspace] {
+	return pulumix.Output[map[string]*Workspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceMapOutput) MapIndex(k pulumi.StringInput) WorkspaceOutput {

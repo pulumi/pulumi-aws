@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +60,7 @@ import (
 //
 // ```
 func LookupClusterSnapshot(ctx *pulumi.Context, args *LookupClusterSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupClusterSnapshotResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterSnapshotResult
 	err := ctx.Invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, opts...)
 	if err != nil {
@@ -85,7 +88,8 @@ type LookupClusterSnapshotArgs struct {
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType *string `pulumi:"snapshotType"`
-	// Map of tags for the resource.
+	// Mapping of tags, each pair of which must exactly match
+	// a pair on the desired DB cluster snapshot.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -161,7 +165,8 @@ type LookupClusterSnapshotOutputArgs struct {
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType pulumi.StringPtrInput `pulumi:"snapshotType"`
-	// Map of tags for the resource.
+	// Mapping of tags, each pair of which must exactly match
+	// a pair on the desired DB cluster snapshot.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -182,6 +187,12 @@ func (o LookupClusterSnapshotResultOutput) ToLookupClusterSnapshotResultOutput()
 
 func (o LookupClusterSnapshotResultOutput) ToLookupClusterSnapshotResultOutputWithContext(ctx context.Context) LookupClusterSnapshotResultOutput {
 	return o
+}
+
+func (o LookupClusterSnapshotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterSnapshotResult] {
+	return pulumix.Output[LookupClusterSnapshotResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Allocated storage size in gigabytes (GB).

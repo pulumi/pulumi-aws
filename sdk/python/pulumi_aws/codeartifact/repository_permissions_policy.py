@@ -233,8 +233,8 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                 type="*",
                 identifiers=["*"],
             )],
-            actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
+            actions=["codeartifact:ReadFromRepository"],
+            resources=[example_repository.arn],
         )])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
             repository=example_repository.repository,
@@ -244,7 +244,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         ## Import
 
-        CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.,
+        Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 
         ```sh
          $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
@@ -286,8 +286,8 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                 type="*",
                 identifiers=["*"],
             )],
-            actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
+            actions=["codeartifact:ReadFromRepository"],
+            resources=[example_repository.arn],
         )])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
             repository=example_repository.repository,
@@ -297,7 +297,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         ## Import
 
-        CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.,
+        Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 
         ```sh
          $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763

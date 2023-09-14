@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront Public Key can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
@@ -132,12 +132,16 @@ public class PublicKey extends com.pulumi.resources.CustomResource {
     /**
      * The name for the public key. Conflicts with `name`.
      * 
+     * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+     * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
      * @return The name for the public key. Conflicts with `name`.
+     * 
+     * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      * 
      */
     public Output<String> namePrefix() {

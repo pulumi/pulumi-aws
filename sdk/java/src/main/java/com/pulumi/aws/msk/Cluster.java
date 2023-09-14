@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.msk.Cluster;
  * import com.pulumi.aws.msk.ClusterArgs;
  * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
@@ -143,8 +143,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;s3&#34;)
- *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+ *             .destination(&#34;extended_s3&#34;)
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
  *                 .bucketArn(bucket.arn())
  *                 .build())
@@ -259,7 +259,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MSK clusters can be imported using the cluster `arn`, e.g.,
+ * Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -379,6 +379,48 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> bootstrapBrokersTls() {
         return this.bootstrapBrokersTls;
+    }
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Export(name="bootstrapBrokersVpcConnectivitySaslIam", refs={String.class}, tree="[0]")
+    private Output<String> bootstrapBrokersVpcConnectivitySaslIam;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Output<String> bootstrapBrokersVpcConnectivitySaslIam() {
+        return this.bootstrapBrokersVpcConnectivitySaslIam;
+    }
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Export(name="bootstrapBrokersVpcConnectivitySaslScram", refs={String.class}, tree="[0]")
+    private Output<String> bootstrapBrokersVpcConnectivitySaslScram;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Output<String> bootstrapBrokersVpcConnectivitySaslScram() {
+        return this.bootstrapBrokersVpcConnectivitySaslScram;
+    }
+    /**
+     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Export(name="bootstrapBrokersVpcConnectivityTls", refs={String.class}, tree="[0]")
+    private Output<String> bootstrapBrokersVpcConnectivityTls;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Output<String> bootstrapBrokersVpcConnectivityTls() {
+        return this.bootstrapBrokersVpcConnectivityTls;
     }
     /**
      * Configuration block for the broker nodes of the Kafka cluster.

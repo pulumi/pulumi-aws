@@ -22,6 +22,7 @@ class RuleGroupArgs:
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -44,6 +45,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -122,6 +125,15 @@ class RuleGroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
         """
@@ -155,6 +167,7 @@ class _RuleGroupState:
                  description: Optional[pulumi.Input[str]] = None,
                  lock_token: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -185,6 +198,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "lock_token", lock_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if scope is not None:
@@ -266,6 +281,15 @@ class _RuleGroupState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
         """
@@ -335,59 +359,14 @@ class RuleGroup(pulumi.CustomResource):
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
-        Creates a WAFv2 Rule Group resource.
-
-        ## Example Usage
-        ### Simple
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.RuleGroup("example",
-            capacity=2,
-            rules=[aws.wafv2.RuleGroupRuleArgs(
-                action=aws.wafv2.RuleGroupRuleActionArgs(
-                    allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
-                ),
-                name="rule-1",
-                priority=1,
-                statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                    geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                        country_codes=[
-                            "US",
-                            "NL",
-                        ],
-                    ),
-                ),
-                visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            scope="REGIONAL",
-            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-
-        ## Import
-
-        WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
-
-        ```sh
-         $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-        ```
-
+        Create a RuleGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
@@ -406,53 +385,7 @@ class RuleGroup(pulumi.CustomResource):
                  args: RuleGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a WAFv2 Rule Group resource.
-
-        ## Example Usage
-        ### Simple
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.RuleGroup("example",
-            capacity=2,
-            rules=[aws.wafv2.RuleGroupRuleArgs(
-                action=aws.wafv2.RuleGroupRuleActionArgs(
-                    allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
-                ),
-                name="rule-1",
-                priority=1,
-                statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                    geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                        country_codes=[
-                            "US",
-                            "NL",
-                        ],
-                    ),
-                ),
-                visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            scope="REGIONAL",
-            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-
-        ## Import
-
-        WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
-
-        ```sh
-         $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-        ```
-
+        Create a RuleGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -472,6 +405,7 @@ class RuleGroup(pulumi.CustomResource):
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -491,6 +425,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["rules"] = rules
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -518,6 +453,7 @@ class RuleGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             lock_token: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
             scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -551,6 +487,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["lock_token"] = lock_token
         __props__.__dict__["name"] = name
+        __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["rules"] = rules
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
@@ -602,6 +539,11 @@ class RuleGroup(pulumi.CustomResource):
         A friendly name of the rule group.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter

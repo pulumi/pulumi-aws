@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get a list of cognito user pools.
@@ -19,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +55,7 @@ import (
 //
 // ```
 func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolsResult
 	err := ctx.Invoke("aws:cognito/getUserPools:getUserPools", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutput() GetUserPoolsResul
 
 func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutputWithContext(ctx context.Context) GetUserPoolsResultOutput {
 	return o
+}
+
+func (o GetUserPoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserPoolsResult] {
+	return pulumix.Output[GetUserPoolsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of cognito user pool Amazon Resource Names (ARNs).

@@ -49,12 +49,16 @@ public final class SecretPolicyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Secret ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="secretArn", required=true)
     private Output<String> secretArn;
 
     /**
      * @return Secret ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> secretArn() {
@@ -132,6 +136,8 @@ public final class SecretPolicyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param secretArn Secret ARN.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -142,6 +148,8 @@ public final class SecretPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secretArn Secret ARN.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

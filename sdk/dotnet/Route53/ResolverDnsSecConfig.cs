@@ -39,7 +39,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    ///  Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
+    /// Using `pulumi import`, import
+    /// 
+    /// Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95

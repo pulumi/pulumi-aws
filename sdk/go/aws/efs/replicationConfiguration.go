@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system. Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +88,7 @@ import (
 //
 // ## Import
 //
-// EFS Replication Configurations can be imported using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan.
+// Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must __not__ be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:
 //
 // ```sh
 //
@@ -125,6 +127,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 	if args.SourceFileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceFileSystemId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfiguration
 	err := ctx.RegisterResource("aws:efs/replicationConfiguration:ReplicationConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -222,6 +225,12 @@ func (i *ReplicationConfiguration) ToReplicationConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationOutput)
 }
 
+func (i *ReplicationConfiguration) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfiguration] {
+	return pulumix.Output[*ReplicationConfiguration]{
+		OutputState: i.ToReplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationConfigurationArrayInput is an input type that accepts ReplicationConfigurationArray and ReplicationConfigurationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationArrayInput` via:
 //
@@ -245,6 +254,12 @@ func (i ReplicationConfigurationArray) ToReplicationConfigurationArrayOutput() R
 
 func (i ReplicationConfigurationArray) ToReplicationConfigurationArrayOutputWithContext(ctx context.Context) ReplicationConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationArrayOutput)
+}
+
+func (i ReplicationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationConfiguration] {
+	return pulumix.Output[[]*ReplicationConfiguration]{
+		OutputState: i.ToReplicationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicationConfigurationMapInput is an input type that accepts ReplicationConfigurationMap and ReplicationConfigurationMapOutput values.
@@ -272,6 +287,12 @@ func (i ReplicationConfigurationMap) ToReplicationConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationMapOutput)
 }
 
+func (i ReplicationConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationConfiguration] {
+	return pulumix.Output[map[string]*ReplicationConfiguration]{
+		OutputState: i.ToReplicationConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -284,6 +305,12 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutput() Repli
 
 func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationOutput {
 	return o
+}
+
+func (o ReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfiguration] {
+	return pulumix.Output[*ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When the replication configuration was created.
@@ -332,6 +359,12 @@ func (o ReplicationConfigurationArrayOutput) ToReplicationConfigurationArrayOutp
 	return o
 }
 
+func (o ReplicationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationConfiguration] {
+	return pulumix.Output[[]*ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationConfiguration {
 		return vs[0].([]*ReplicationConfiguration)[vs[1].(int)]
@@ -350,6 +383,12 @@ func (o ReplicationConfigurationMapOutput) ToReplicationConfigurationMapOutput()
 
 func (o ReplicationConfigurationMapOutput) ToReplicationConfigurationMapOutputWithContext(ctx context.Context) ReplicationConfigurationMapOutput {
 	return o
+}
+
+func (o ReplicationConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationConfiguration] {
+	return pulumix.Output[map[string]*ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationMapOutput) MapIndex(k pulumi.StringInput) ReplicationConfigurationOutput {

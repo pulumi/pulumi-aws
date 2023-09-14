@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MediaLive Multiplex can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
@@ -88,6 +88,8 @@ export class Multiplex extends pulumi.CustomResource {
     public readonly multiplexSettings!: pulumi.Output<outputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
      * name of Multiplex.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -156,6 +158,8 @@ export interface MultiplexState {
     multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
     /**
      * name of Multiplex.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -183,6 +187,8 @@ export interface MultiplexArgs {
     multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
     /**
      * name of Multiplex.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides redshift cluster temporary credentials.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetClusterCredentials(ctx *pulumi.Context, args *GetClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*GetClusterCredentialsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterCredentialsResult
 	err := ctx.Invoke("aws:redshift/getClusterCredentials:getClusterCredentials", args, &rv, opts...)
 	if err != nil {
@@ -125,6 +128,12 @@ func (o GetClusterCredentialsResultOutput) ToGetClusterCredentialsResultOutput()
 
 func (o GetClusterCredentialsResultOutput) ToGetClusterCredentialsResultOutputWithContext(ctx context.Context) GetClusterCredentialsResultOutput {
 	return o
+}
+
+func (o GetClusterCredentialsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterCredentialsResult] {
+	return pulumix.Output[GetClusterCredentialsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterCredentialsResultOutput) AutoCreate() pulumi.BoolPtrOutput {

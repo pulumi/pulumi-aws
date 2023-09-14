@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS MediaLive InputSecurityGroup.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// MediaLive InputSecurityGroup can be imported using the `id`, e.g.,
+// Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 //
 // ```sh
 //
@@ -67,6 +69,8 @@ type InputSecurityGroup struct {
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayOutput `pulumi:"whitelistRules"`
 }
 
@@ -80,6 +84,7 @@ func NewInputSecurityGroup(ctx *pulumi.Context,
 	if args.WhitelistRules == nil {
 		return nil, errors.New("invalid value for required argument 'WhitelistRules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InputSecurityGroup
 	err := ctx.RegisterResource("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -110,6 +115,8 @@ type inputSecurityGroupState struct {
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
 }
 
@@ -122,6 +129,8 @@ type InputSecurityGroupState struct {
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
 }
 
@@ -133,6 +142,8 @@ type inputSecurityGroupArgs struct {
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
 }
 
@@ -141,6 +152,8 @@ type InputSecurityGroupArgs struct {
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
 }
 
@@ -165,6 +178,12 @@ func (i *InputSecurityGroup) ToInputSecurityGroupOutput() InputSecurityGroupOutp
 
 func (i *InputSecurityGroup) ToInputSecurityGroupOutputWithContext(ctx context.Context) InputSecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupOutput)
+}
+
+func (i *InputSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*InputSecurityGroup] {
+	return pulumix.Output[*InputSecurityGroup]{
+		OutputState: i.ToInputSecurityGroupOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InputSecurityGroupArrayInput is an input type that accepts InputSecurityGroupArray and InputSecurityGroupArrayOutput values.
@@ -192,6 +211,12 @@ func (i InputSecurityGroupArray) ToInputSecurityGroupArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupArrayOutput)
 }
 
+func (i InputSecurityGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*InputSecurityGroup] {
+	return pulumix.Output[[]*InputSecurityGroup]{
+		OutputState: i.ToInputSecurityGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InputSecurityGroupMapInput is an input type that accepts InputSecurityGroupMap and InputSecurityGroupMapOutput values.
 // You can construct a concrete instance of `InputSecurityGroupMapInput` via:
 //
@@ -217,6 +242,12 @@ func (i InputSecurityGroupMap) ToInputSecurityGroupMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupMapOutput)
 }
 
+func (i InputSecurityGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InputSecurityGroup] {
+	return pulumix.Output[map[string]*InputSecurityGroup]{
+		OutputState: i.ToInputSecurityGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InputSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (InputSecurityGroupOutput) ElementType() reflect.Type {
@@ -229,6 +260,12 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutput() InputSecurityGrou
 
 func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx context.Context) InputSecurityGroupOutput {
 	return o
+}
+
+func (o InputSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*InputSecurityGroup] {
+	return pulumix.Output[*InputSecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the InputSecurityGroup.
@@ -251,6 +288,8 @@ func (o InputSecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Whitelist rules. See Whitelist Rules for more details.
+//
+// The following arguments are optional:
 func (o InputSecurityGroupOutput) WhitelistRules() InputSecurityGroupWhitelistRuleArrayOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) InputSecurityGroupWhitelistRuleArrayOutput { return v.WhitelistRules }).(InputSecurityGroupWhitelistRuleArrayOutput)
 }
@@ -267,6 +306,12 @@ func (o InputSecurityGroupArrayOutput) ToInputSecurityGroupArrayOutput() InputSe
 
 func (o InputSecurityGroupArrayOutput) ToInputSecurityGroupArrayOutputWithContext(ctx context.Context) InputSecurityGroupArrayOutput {
 	return o
+}
+
+func (o InputSecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InputSecurityGroup] {
+	return pulumix.Output[[]*InputSecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InputSecurityGroupArrayOutput) Index(i pulumi.IntInput) InputSecurityGroupOutput {
@@ -287,6 +332,12 @@ func (o InputSecurityGroupMapOutput) ToInputSecurityGroupMapOutput() InputSecuri
 
 func (o InputSecurityGroupMapOutput) ToInputSecurityGroupMapOutputWithContext(ctx context.Context) InputSecurityGroupMapOutput {
 	return o
+}
+
+func (o InputSecurityGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InputSecurityGroup] {
+	return pulumix.Output[map[string]*InputSecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InputSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) InputSecurityGroupOutput {

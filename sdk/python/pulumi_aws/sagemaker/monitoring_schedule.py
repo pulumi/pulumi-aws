@@ -184,7 +184,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Monitoring schedules can be imported using the `name`, e.g.,
+        Using `pulumi import`, import monitoring schedules using the `name`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
@@ -221,7 +221,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Monitoring schedules can be imported using the `name`, e.g.,
+        Using `pulumi import`, import monitoring schedules using the `name`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo

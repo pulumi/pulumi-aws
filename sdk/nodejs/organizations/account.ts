@@ -22,31 +22,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The AWS member account can be imported by using the `account_id`, e.g.,
+ * Using `pulumi import`, import the AWS member account using the `account_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:organizations/account:Account my_account 111111111111
  * ```
- *
- *  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
- *
- *  name
- *
- * = "my_new_account"
- *
- *  email
- *
- *  = "john@doe.org"
- *
- *  role_name = "myOrganizationRole"
- *
- * # There is no AWS Organizations API for reading role_name
- *
- *  lifecycle {
- *
- *  ignore_changes = [role_name]
- *
- *  } }
+ *  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -104,6 +85,8 @@ export class Account extends pulumi.CustomResource {
     public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
     /**
      * Friendly name for the member account.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -208,6 +191,8 @@ export interface AccountState {
     joinedTimestamp?: pulumi.Input<string>;
     /**
      * Friendly name for the member account.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -251,6 +236,8 @@ export interface AccountArgs {
     iamUserAccessToBilling?: pulumi.Input<string>;
     /**
      * Friendly name for the member account.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

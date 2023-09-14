@@ -257,7 +257,7 @@ class Mesh(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh service meshes can be imported using the `name`, e.g.,
+        Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 
         ```sh
          $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
@@ -302,7 +302,7 @@ class Mesh(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh service meshes can be imported using the `name`, e.g.,
+        Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 
         ```sh
          $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks ECS Cluster layer resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +84,10 @@ type EcsClusterLayer struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A mapping of tags to assign to the resource.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
@@ -101,6 +107,7 @@ func NewEcsClusterLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EcsClusterLayer
 	err := ctx.RegisterResource("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -163,6 +170,10 @@ type ecsClusterLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A mapping of tags to assign to the resource.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
@@ -210,6 +221,10 @@ type EcsClusterLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
@@ -259,6 +274,10 @@ type ecsClusterLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A mapping of tags to assign to the resource.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -304,6 +323,10 @@ type EcsClusterLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -332,6 +355,12 @@ func (i *EcsClusterLayer) ToEcsClusterLayerOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerOutput)
 }
 
+func (i *EcsClusterLayer) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayer] {
+	return pulumix.Output[*EcsClusterLayer]{
+		OutputState: i.ToEcsClusterLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EcsClusterLayerArrayInput is an input type that accepts EcsClusterLayerArray and EcsClusterLayerArrayOutput values.
 // You can construct a concrete instance of `EcsClusterLayerArrayInput` via:
 //
@@ -355,6 +384,12 @@ func (i EcsClusterLayerArray) ToEcsClusterLayerArrayOutput() EcsClusterLayerArra
 
 func (i EcsClusterLayerArray) ToEcsClusterLayerArrayOutputWithContext(ctx context.Context) EcsClusterLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerArrayOutput)
+}
+
+func (i EcsClusterLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*EcsClusterLayer] {
+	return pulumix.Output[[]*EcsClusterLayer]{
+		OutputState: i.ToEcsClusterLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EcsClusterLayerMapInput is an input type that accepts EcsClusterLayerMap and EcsClusterLayerMapOutput values.
@@ -382,6 +417,12 @@ func (i EcsClusterLayerMap) ToEcsClusterLayerMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerMapOutput)
 }
 
+func (i EcsClusterLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EcsClusterLayer] {
+	return pulumix.Output[map[string]*EcsClusterLayer]{
+		OutputState: i.ToEcsClusterLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EcsClusterLayerOutput struct{ *pulumi.OutputState }
 
 func (EcsClusterLayerOutput) ElementType() reflect.Type {
@@ -394,6 +435,12 @@ func (o EcsClusterLayerOutput) ToEcsClusterLayerOutput() EcsClusterLayerOutput {
 
 func (o EcsClusterLayerOutput) ToEcsClusterLayerOutputWithContext(ctx context.Context) EcsClusterLayerOutput {
 	return o
+}
+
+func (o EcsClusterLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayer] {
+	return pulumix.Output[*EcsClusterLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -507,6 +554,10 @@ func (o EcsClusterLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// The following extra optional arguments, all lists of Chef recipe names, allow
+// custom Chef recipes to be applied to layer instances at the five different
+// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 func (o EcsClusterLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -534,6 +585,12 @@ func (o EcsClusterLayerArrayOutput) ToEcsClusterLayerArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o EcsClusterLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EcsClusterLayer] {
+	return pulumix.Output[[]*EcsClusterLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EcsClusterLayerArrayOutput) Index(i pulumi.IntInput) EcsClusterLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EcsClusterLayer {
 		return vs[0].([]*EcsClusterLayer)[vs[1].(int)]
@@ -552,6 +609,12 @@ func (o EcsClusterLayerMapOutput) ToEcsClusterLayerMapOutput() EcsClusterLayerMa
 
 func (o EcsClusterLayerMapOutput) ToEcsClusterLayerMapOutputWithContext(ctx context.Context) EcsClusterLayerMapOutput {
 	return o
+}
+
+func (o EcsClusterLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EcsClusterLayer] {
+	return pulumix.Output[map[string]*EcsClusterLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerMapOutput) MapIndex(k pulumi.StringInput) EcsClusterLayerOutput {

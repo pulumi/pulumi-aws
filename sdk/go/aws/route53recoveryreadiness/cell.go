@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Readiness Cell.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+// Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
 //
 // ```sh
 //
@@ -54,6 +56,8 @@ type Cell struct {
 	// ARN of the cell
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName pulumi.StringOutput `pulumi:"cellName"`
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells pulumi.StringArrayOutput `pulumi:"cells"`
@@ -75,6 +79,7 @@ func NewCell(ctx *pulumi.Context,
 	if args.CellName == nil {
 		return nil, errors.New("invalid value for required argument 'CellName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cell
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/cell:Cell", name, args, &resource, opts...)
 	if err != nil {
@@ -100,6 +105,8 @@ type cellState struct {
 	// ARN of the cell
 	Arn *string `pulumi:"arn"`
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName *string `pulumi:"cellName"`
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells []string `pulumi:"cells"`
@@ -115,6 +122,8 @@ type CellState struct {
 	// ARN of the cell
 	Arn pulumi.StringPtrInput
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName pulumi.StringPtrInput
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells pulumi.StringArrayInput
@@ -132,6 +141,8 @@ func (CellState) ElementType() reflect.Type {
 
 type cellArgs struct {
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName string `pulumi:"cellName"`
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells []string `pulumi:"cells"`
@@ -142,6 +153,8 @@ type cellArgs struct {
 // The set of arguments for constructing a Cell resource.
 type CellArgs struct {
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName pulumi.StringInput
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells pulumi.StringArrayInput
@@ -172,6 +185,12 @@ func (i *Cell) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellOutput)
 }
 
+func (i *Cell) ToOutput(ctx context.Context) pulumix.Output[*Cell] {
+	return pulumix.Output[*Cell]{
+		OutputState: i.ToCellOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CellArrayInput is an input type that accepts CellArray and CellArrayOutput values.
 // You can construct a concrete instance of `CellArrayInput` via:
 //
@@ -195,6 +214,12 @@ func (i CellArray) ToCellArrayOutput() CellArrayOutput {
 
 func (i CellArray) ToCellArrayOutputWithContext(ctx context.Context) CellArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellArrayOutput)
+}
+
+func (i CellArray) ToOutput(ctx context.Context) pulumix.Output[[]*Cell] {
+	return pulumix.Output[[]*Cell]{
+		OutputState: i.ToCellArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CellMapInput is an input type that accepts CellMap and CellMapOutput values.
@@ -222,6 +247,12 @@ func (i CellMap) ToCellMapOutputWithContext(ctx context.Context) CellMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellMapOutput)
 }
 
+func (i CellMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cell] {
+	return pulumix.Output[map[string]*Cell]{
+		OutputState: i.ToCellMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CellOutput struct{ *pulumi.OutputState }
 
 func (CellOutput) ElementType() reflect.Type {
@@ -236,12 +267,20 @@ func (o CellOutput) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return o
 }
 
+func (o CellOutput) ToOutput(ctx context.Context) pulumix.Output[*Cell] {
+	return pulumix.Output[*Cell]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the cell
 func (o CellOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cell) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Unique name describing the cell.
+//
+// The following arguments are optional:
 func (o CellOutput) CellName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cell) pulumi.StringOutput { return v.CellName }).(pulumi.StringOutput)
 }
@@ -280,6 +319,12 @@ func (o CellArrayOutput) ToCellArrayOutputWithContext(ctx context.Context) CellA
 	return o
 }
 
+func (o CellArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Cell] {
+	return pulumix.Output[[]*Cell]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CellArrayOutput) Index(i pulumi.IntInput) CellOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cell {
 		return vs[0].([]*Cell)[vs[1].(int)]
@@ -298,6 +343,12 @@ func (o CellMapOutput) ToCellMapOutput() CellMapOutput {
 
 func (o CellMapOutput) ToCellMapOutputWithContext(ctx context.Context) CellMapOutput {
 	return o
+}
+
+func (o CellMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cell] {
+	return pulumix.Output[map[string]*Cell]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CellMapOutput) MapIndex(k pulumi.StringInput) CellOutput {

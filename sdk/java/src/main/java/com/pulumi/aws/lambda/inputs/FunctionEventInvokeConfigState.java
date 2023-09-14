@@ -35,12 +35,16 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
     /**
      * @return Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> functionName() {
@@ -144,6 +148,8 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
         /**
          * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -154,6 +160,8 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
 
         /**
          * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

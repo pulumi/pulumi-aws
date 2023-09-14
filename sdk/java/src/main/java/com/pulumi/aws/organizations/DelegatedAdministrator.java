@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.,
+ * Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
  * 
  * ```sh
  *  $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com

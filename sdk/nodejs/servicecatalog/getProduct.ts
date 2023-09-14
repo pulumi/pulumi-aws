@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides information on a Service Catalog Product.
+ * Use this data source to retrieve information about a Service Catalog product.
  *
- * > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+ * > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
  *
  * ## Example Usage
  * ### Basic Usage
@@ -36,15 +36,17 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetProductArgs {
     /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      */
     acceptLanguage?: string;
     /**
-     * Product ID.
+     * ID of the product.
+     *
+     * The following arguments are optional:
      */
     id: string;
     /**
-     * Tags to apply to the product.
+     * Tags applied to the product.
      */
     tags?: {[key: string]: string};
 }
@@ -67,7 +69,7 @@ export interface GetProductResult {
      */
     readonly description: string;
     /**
-     * Distributor (i.e., vendor) of the product.
+     * Vendor of the product.
      */
     readonly distributor: string;
     /**
@@ -88,7 +90,7 @@ export interface GetProductResult {
      */
     readonly status: string;
     /**
-     * Support information about the product.
+     * Field that provides support information about the product.
      */
     readonly supportDescription: string;
     /**
@@ -100,7 +102,7 @@ export interface GetProductResult {
      */
     readonly supportUrl: string;
     /**
-     * Tags to apply to the product.
+     * Tags applied to the product.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -109,9 +111,9 @@ export interface GetProductResult {
     readonly type: string;
 }
 /**
- * Provides information on a Service Catalog Product.
+ * Use this data source to retrieve information about a Service Catalog product.
  *
- * > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+ * > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
  *
  * ## Example Usage
  * ### Basic Usage
@@ -134,15 +136,17 @@ export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.Invok
  */
 export interface GetProductOutputArgs {
     /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      */
     acceptLanguage?: pulumi.Input<string>;
     /**
-     * Product ID.
+     * ID of the product.
+     *
+     * The following arguments are optional:
      */
     id: pulumi.Input<string>;
     /**
-     * Tags to apply to the product.
+     * Tags applied to the product.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

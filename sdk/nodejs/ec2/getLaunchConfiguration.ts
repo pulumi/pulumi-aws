@@ -115,18 +115,6 @@ export interface GetLaunchConfigurationResult {
      * User Data of the instance.
      */
     readonly userData: string;
-    /**
-     * ID of a ClassicLink-enabled VPC.
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-     */
-    readonly vpcClassicLinkId: string;
-    /**
-     * The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    readonly vpcClassicLinkSecurityGroups: string[];
 }
 /**
  * Provides information about a Launch Configuration.

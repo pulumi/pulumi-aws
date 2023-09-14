@@ -33,6 +33,9 @@ namespace Pulumi.Aws.Ec2
     /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
     /// for more information.
     /// 
+    /// &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+    /// We recommend using the EC2 Instance resource with `instance_market_options` instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -92,6 +95,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.SpotInstanceRequestCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
@@ -193,7 +198,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
         /// </summary>
         [Output("instanceInterruptionBehavior")]
         public Output<string?> InstanceInterruptionBehavior { get; private set; } = null!;
@@ -330,6 +335,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -425,13 +432,15 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ValidFrom { get; private set; } = null!;
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+        /// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
         /// </summary>
         [Output("validUntil")]
         public Output<string> ValidUntil { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         [Output("volumeTags")]
         public Output<ImmutableDictionary<string, string>?> VolumeTags { get; private set; } = null!;
@@ -524,6 +533,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.SpotInstanceRequestCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
@@ -637,7 +648,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
@@ -762,6 +773,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -837,7 +850,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ValidFrom { get; set; }
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+        /// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
         /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
@@ -847,6 +860,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {
@@ -913,6 +928,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.SpotInstanceRequestCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
@@ -1026,7 +1043,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
@@ -1184,6 +1201,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -1294,7 +1313,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ValidFrom { get; set; }
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+        /// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
         /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
@@ -1304,6 +1323,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {

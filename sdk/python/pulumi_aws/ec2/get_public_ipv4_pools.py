@@ -106,6 +106,9 @@ def get_public_ipv4_pools(filters: Optional[Sequence[pulumi.InputType['GetPublic
 
     :param Sequence[pulumi.InputType['GetPublicIpv4PoolsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired pools.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -114,10 +117,10 @@ def get_public_ipv4_pools(filters: Optional[Sequence[pulumi.InputType['GetPublic
     __ret__ = pulumi.runtime.invoke('aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools', __args__, opts=opts, typ=GetPublicIpv4PoolsResult).value
 
     return AwaitableGetPublicIpv4PoolsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        pool_ids=__ret__.pool_ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        pool_ids=pulumi.get(__ret__, 'pool_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_public_ipv4_pools)
@@ -151,5 +154,8 @@ def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     :param Sequence[pulumi.InputType['GetPublicIpv4PoolsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired pools.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

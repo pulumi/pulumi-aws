@@ -7,6 +7,7 @@ import com.pulumi.aws.inputs.GetRegionsFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,11 +48,27 @@ public final class GetRegionsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * 
+     */
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    /**
+     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * 
+     */
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     private GetRegionsArgs() {}
 
     private GetRegionsArgs(GetRegionsArgs $) {
         this.allRegions = $.allRegions;
         this.filters = $.filters;
+        this.id = $.id;
     }
 
     public static Builder builder() {
@@ -122,6 +139,27 @@ public final class GetRegionsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetRegionsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         public GetRegionsArgs build() {

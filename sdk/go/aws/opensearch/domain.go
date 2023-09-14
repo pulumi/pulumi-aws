@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon OpenSearch Domain.
@@ -37,7 +39,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,9 +74,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -146,9 +148,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -208,6 +210,142 @@ import (
 //	}
 //
 // ```
+// ### VPC based OpenSearch
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// vpc := cfg.RequireObject("vpc")
+// domain := "tf-test";
+// if param := cfg.Get("domain"); param != ""{
+// domain = param
+// }
+// exampleVpc, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+// Tags: interface{}{
+// Name: vpc,
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// Filters: []ec2.GetSubnetsFilter{
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// exampleVpc.Id,
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Tier": "private",
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// currentRegion, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2.SecurityGroupArgs{
+// Description: pulumi.String("Managed by Pulumi"),
+// VpcId: *pulumi.String(exampleVpc.Id),
+// Ingress: ec2.SecurityGroupIngressArray{
+// &ec2.SecurityGroupIngressArgs{
+// FromPort: pulumi.Int(443),
+// ToPort: pulumi.Int(443),
+// Protocol: pulumi.String("tcp"),
+// CidrBlocks: pulumi.StringArray{
+// *pulumi.String(exampleVpc.CidrBlock),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "exampleServiceLinkedRole", &iam.ServiceLinkedRoleArgs{
+// AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "*",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "es:*",
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", currentRegion.Name, currentCallerIdentity.AccountId, domain),
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
+// EngineVersion: pulumi.String("OpenSearch_1.0"),
+// ClusterConfig: &opensearch.DomainClusterConfigArgs{
+// InstanceType: pulumi.String("m4.large.search"),
+// ZoneAwarenessEnabled: pulumi.Bool(true),
+// },
+// VpcOptions: &opensearch.DomainVpcOptionsArgs{
+// SubnetIds: pulumi.StringArray{
+// *pulumi.String(exampleSubnets.Ids[0]),
+// *pulumi.String(exampleSubnets.Ids[1]),
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// exampleSecurityGroup.ID(),
+// },
+// },
+// AdvancedOptions: pulumi.StringMap{
+// "rest.action.multi.allow_explicit_index": pulumi.String("true"),
+// },
+// AccessPolicies: *pulumi.String(examplePolicyDocument.Json),
+// Tags: pulumi.StringMap{
+// "Domain": pulumi.String("TestDomain"),
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleServiceLinkedRole,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 // ### Enabling fine-grained access control on an existing domain
 //
 // This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
@@ -218,7 +356,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -271,7 +409,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -318,7 +456,7 @@ import (
 //
 // ## Import
 //
-// OpenSearch domains can be imported using the `domain_name`, e.g.,
+// Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
 //
 // ```sh
 //
@@ -349,6 +487,8 @@ type Domain struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsOutput `pulumi:"ebsOptions"`
@@ -356,16 +496,24 @@ type Domain struct {
 	EncryptAtRest DomainEncryptAtRestOutput `pulumi:"encryptAtRest"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
-	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
-	// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+	// Defaults to the lastest version of OpenSearch.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+	//
+	// Deprecated: use 'dashboard_endpoint' attribute instead
 	KibanaEndpoint pulumi.StringOutput `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
+	// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+	OffPeakWindowOptions DomainOffPeakWindowOptionsOutput `pulumi:"offPeakWindowOptions"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions DomainSoftwareUpdateOptionsOutput `pulumi:"softwareUpdateOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -383,6 +531,7 @@ func NewDomain(ctx *pulumi.Context,
 		args = &DomainArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:opensearch/domain:Domain", name, args, &resource, opts...)
 	if err != nil {
@@ -426,6 +575,8 @@ type domainState struct {
 	// Unique identifier for the domain.
 	DomainId *string `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
@@ -433,16 +584,24 @@ type domainState struct {
 	EncryptAtRest *DomainEncryptAtRest `pulumi:"encryptAtRest"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint *string `pulumi:"endpoint"`
-	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+	// Defaults to the lastest version of OpenSearch.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+	//
+	// Deprecated: use 'dashboard_endpoint' attribute instead
 	KibanaEndpoint *string `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
+	// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+	OffPeakWindowOptions *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions *DomainSoftwareUpdateOptions `pulumi:"softwareUpdateOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -475,6 +634,8 @@ type DomainState struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
@@ -482,16 +643,24 @@ type DomainState struct {
 	EncryptAtRest DomainEncryptAtRestPtrInput
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint pulumi.StringPtrInput
-	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringPtrInput
-	// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+	//
+	// Deprecated: use 'dashboard_endpoint' attribute instead
 	KibanaEndpoint pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
+	// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+	OffPeakWindowOptions DomainOffPeakWindowOptionsPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions DomainSoftwareUpdateOptionsPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -522,19 +691,27 @@ type domainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
 	// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
 	EncryptAtRest *DomainEncryptAtRest `pulumi:"encryptAtRest"`
-	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+	// Defaults to the lastest version of OpenSearch.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
+	// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+	OffPeakWindowOptions *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions *DomainSoftwareUpdateOptions `pulumi:"softwareUpdateOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
@@ -558,19 +735,27 @@ type DomainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
 	// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
 	EncryptAtRest DomainEncryptAtRestPtrInput
-	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
+	// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+	OffPeakWindowOptions DomainOffPeakWindowOptionsPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions DomainSoftwareUpdateOptionsPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
@@ -600,6 +785,12 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
+func (i *Domain) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: i.ToDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainArrayInput is an input type that accepts DomainArray and DomainArrayOutput values.
 // You can construct a concrete instance of `DomainArrayInput` via:
 //
@@ -623,6 +814,12 @@ func (i DomainArray) ToDomainArrayOutput() DomainArrayOutput {
 
 func (i DomainArray) ToDomainArrayOutputWithContext(ctx context.Context) DomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainArrayOutput)
+}
+
+func (i DomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: i.ToDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainMapInput is an input type that accepts DomainMap and DomainMapOutput values.
@@ -650,6 +847,12 @@ func (i DomainMap) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainMapOutput)
 }
 
+func (i DomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: i.ToDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
@@ -662,6 +865,12 @@ func (o DomainOutput) ToDomainOutput() DomainOutput {
 
 func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return o
+}
+
+func (o DomainOutput) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IAM policy document specifying the access policies for the domain.
@@ -715,6 +924,8 @@ func (o DomainOutput) DomainId() pulumi.StringOutput {
 }
 
 // Name of the domain.
+//
+// The following arguments are optional:
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -734,12 +945,16 @@ func (o DomainOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
-func (o DomainOutput) EngineVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+// Defaults to the lastest version of OpenSearch.
+func (o DomainOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+//
+// Deprecated: use 'dashboard_endpoint' attribute instead
 func (o DomainOutput) KibanaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }
@@ -754,9 +969,19 @@ func (o DomainOutput) NodeToNodeEncryption() DomainNodeToNodeEncryptionOutput {
 	return o.ApplyT(func(v *Domain) DomainNodeToNodeEncryptionOutput { return v.NodeToNodeEncryption }).(DomainNodeToNodeEncryptionOutput)
 }
 
+// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+func (o DomainOutput) OffPeakWindowOptions() DomainOffPeakWindowOptionsOutput {
+	return o.ApplyT(func(v *Domain) DomainOffPeakWindowOptionsOutput { return v.OffPeakWindowOptions }).(DomainOffPeakWindowOptionsOutput)
+}
+
 // Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 func (o DomainOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSnapshotOptionsPtrOutput { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
+}
+
+// Software update options for the domain. Detailed below.
+func (o DomainOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOptionsOutput {
+	return o.ApplyT(func(v *Domain) DomainSoftwareUpdateOptionsOutput { return v.SoftwareUpdateOptions }).(DomainSoftwareUpdateOptionsOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -790,6 +1015,12 @@ func (o DomainArrayOutput) ToDomainArrayOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainArrayOutput) Index(i pulumi.IntInput) DomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Domain {
 		return vs[0].([]*Domain)[vs[1].(int)]
@@ -808,6 +1039,12 @@ func (o DomainMapOutput) ToDomainMapOutput() DomainMapOutput {
 
 func (o DomainMapOutput) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOutput {
 	return o
+}
+
+func (o DomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainMapOutput) MapIndex(k pulumi.StringInput) DomainOutput {

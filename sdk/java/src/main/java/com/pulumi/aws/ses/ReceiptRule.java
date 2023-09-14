@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SES receipt rules can be imported using the ruleset name and rule name separated by `:`.
+ * Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule

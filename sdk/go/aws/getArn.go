@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Parses an ARN into its constituent parts.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetArnResult
 	err := ctx.Invoke("aws:index/getArn:getArn", args, &rv, opts...)
 	if err != nil {
@@ -49,7 +52,8 @@ func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) 
 // A collection of arguments for invoking getArn.
 type GetArnArgs struct {
 	// ARN to parse.
-	Arn string `pulumi:"arn"`
+	Arn string  `pulumi:"arn"`
+	Id  *string `pulumi:"id"`
 }
 
 // A collection of values returned by getArn.
@@ -57,8 +61,7 @@ type GetArnResult struct {
 	// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
 	Account string `pulumi:"account"`
 	Arn     string `pulumi:"arn"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id      string `pulumi:"id"`
 	// Partition that the resource is in.
 	Partition string `pulumi:"partition"`
 	// Region the resource resides in.
@@ -87,7 +90,8 @@ func GetArnOutput(ctx *pulumi.Context, args GetArnOutputArgs, opts ...pulumi.Inv
 // A collection of arguments for invoking getArn.
 type GetArnOutputArgs struct {
 	// ARN to parse.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringInput    `pulumi:"arn"`
+	Id  pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (GetArnOutputArgs) ElementType() reflect.Type {
@@ -109,6 +113,12 @@ func (o GetArnResultOutput) ToGetArnResultOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GetArnResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetArnResult] {
+	return pulumix.Output[GetArnResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
 func (o GetArnResultOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Account }).(pulumi.StringOutput)
@@ -118,7 +128,6 @@ func (o GetArnResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o GetArnResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Id }).(pulumi.StringOutput)
 }

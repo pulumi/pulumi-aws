@@ -27,6 +27,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? CoreNetworkArn;
         /// <summary>
         /// The ID of a managed prefix list destination of the route.
+        /// 
+        /// One of the following target arguments must be supplied:
         /// </summary>
         public readonly string? DestinationPrefixListId;
         /// <summary>
@@ -34,13 +36,9 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? EgressOnlyGatewayId;
         /// <summary>
-        /// Identifier of a VPC internet gateway or a virtual private gateway.
+        /// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         /// </summary>
         public readonly string? GatewayId;
-        /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        public readonly string? InstanceId;
         /// <summary>
         /// The Ipv6 CIDR block of the route.
         /// </summary>
@@ -67,6 +65,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? VpcEndpointId;
         /// <summary>
         /// Identifier of a VPC peering connection.
+        /// 
+        /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
         public readonly string? VpcPeeringConnectionId;
 
@@ -83,8 +83,6 @@ namespace Pulumi.Aws.Ec2.Outputs
             string? egressOnlyGatewayId,
 
             string? gatewayId,
-
-            string? instanceId,
 
             string? ipv6CidrBlock,
 
@@ -106,7 +104,6 @@ namespace Pulumi.Aws.Ec2.Outputs
             DestinationPrefixListId = destinationPrefixListId;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;
-            InstanceId = instanceId;
             Ipv6CidrBlock = ipv6CidrBlock;
             LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;

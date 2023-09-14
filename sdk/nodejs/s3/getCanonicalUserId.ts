@@ -40,3 +40,22 @@ export interface GetCanonicalUserIdResult {
      */
     readonly id: string;
 }
+/**
+ * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+ * for the effective account in which this provider is working.
+ *
+ * > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.s3.getCanonicalUserId({});
+ * export const canonicalUserId = current.then(current => current.id);
+ * ```
+ */
+export function getCanonicalUserIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCanonicalUserIdResult> {
+    return pulumi.output(getCanonicalUserId(opts))
+}

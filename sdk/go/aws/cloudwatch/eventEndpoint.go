@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create an EventBridge Global Endpoint.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +66,7 @@ import (
 //
 // ## Import
 //
-// EventBridge Global Endpoints can be imported using the `name`, e.g.,
+// Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
 //
 // ```sh
 //
@@ -105,6 +107,7 @@ func NewEventEndpoint(ctx *pulumi.Context,
 	if args.RoutingConfig == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventEndpoint
 	err := ctx.RegisterResource("aws:cloudwatch/eventEndpoint:EventEndpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -222,6 +225,12 @@ func (i *EventEndpoint) ToEventEndpointOutputWithContext(ctx context.Context) Ev
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointOutput)
 }
 
+func (i *EventEndpoint) ToOutput(ctx context.Context) pulumix.Output[*EventEndpoint] {
+	return pulumix.Output[*EventEndpoint]{
+		OutputState: i.ToEventEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventEndpointArrayInput is an input type that accepts EventEndpointArray and EventEndpointArrayOutput values.
 // You can construct a concrete instance of `EventEndpointArrayInput` via:
 //
@@ -245,6 +254,12 @@ func (i EventEndpointArray) ToEventEndpointArrayOutput() EventEndpointArrayOutpu
 
 func (i EventEndpointArray) ToEventEndpointArrayOutputWithContext(ctx context.Context) EventEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointArrayOutput)
+}
+
+func (i EventEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventEndpoint] {
+	return pulumix.Output[[]*EventEndpoint]{
+		OutputState: i.ToEventEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventEndpointMapInput is an input type that accepts EventEndpointMap and EventEndpointMapOutput values.
@@ -272,6 +287,12 @@ func (i EventEndpointMap) ToEventEndpointMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointMapOutput)
 }
 
+func (i EventEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventEndpoint] {
+	return pulumix.Output[map[string]*EventEndpoint]{
+		OutputState: i.ToEventEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventEndpointOutput) ElementType() reflect.Type {
@@ -284,6 +305,12 @@ func (o EventEndpointOutput) ToEventEndpointOutput() EventEndpointOutput {
 
 func (o EventEndpointOutput) ToEventEndpointOutputWithContext(ctx context.Context) EventEndpointOutput {
 	return o
+}
+
+func (o EventEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*EventEndpoint] {
+	return pulumix.Output[*EventEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the endpoint that was created.
@@ -340,6 +367,12 @@ func (o EventEndpointArrayOutput) ToEventEndpointArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o EventEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventEndpoint] {
+	return pulumix.Output[[]*EventEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventEndpointArrayOutput) Index(i pulumi.IntInput) EventEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventEndpoint {
 		return vs[0].([]*EventEndpoint)[vs[1].(int)]
@@ -358,6 +391,12 @@ func (o EventEndpointMapOutput) ToEventEndpointMapOutput() EventEndpointMapOutpu
 
 func (o EventEndpointMapOutput) ToEventEndpointMapOutputWithContext(ctx context.Context) EventEndpointMapOutput {
 	return o
+}
+
+func (o EventEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventEndpoint] {
+	return pulumix.Output[map[string]*EventEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEndpointMapOutput) MapIndex(k pulumi.StringInput) EventEndpointOutput {

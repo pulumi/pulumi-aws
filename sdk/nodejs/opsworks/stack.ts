@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * OpsWorks stacks can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000

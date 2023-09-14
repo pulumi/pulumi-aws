@@ -55,9 +55,6 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -111,6 +108,7 @@ class AwaitableGetServiceResult(GetServiceResult):
 
 
 def get_service(dns_name: Optional[str] = None,
+                id: Optional[str] = None,
                 region: Optional[str] = None,
                 reverse_dns_name: Optional[str] = None,
                 reverse_dns_prefix: Optional[str] = None,
@@ -156,6 +154,7 @@ def get_service(dns_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['dnsName'] = dns_name
+    __args__['id'] = id
     __args__['region'] = region
     __args__['reverseDnsName'] = reverse_dns_name
     __args__['reverseDnsPrefix'] = reverse_dns_prefix
@@ -164,18 +163,19 @@ def get_service(dns_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        dns_name=__ret__.dns_name,
-        id=__ret__.id,
-        partition=__ret__.partition,
-        region=__ret__.region,
-        reverse_dns_name=__ret__.reverse_dns_name,
-        reverse_dns_prefix=__ret__.reverse_dns_prefix,
-        service_id=__ret__.service_id,
-        supported=__ret__.supported)
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        id=pulumi.get(__ret__, 'id'),
+        partition=pulumi.get(__ret__, 'partition'),
+        region=pulumi.get(__ret__, 'region'),
+        reverse_dns_name=pulumi.get(__ret__, 'reverse_dns_name'),
+        reverse_dns_prefix=pulumi.get(__ret__, 'reverse_dns_prefix'),
+        service_id=pulumi.get(__ret__, 'service_id'),
+        supported=pulumi.get(__ret__, 'supported'))
 
 
 @_utilities.lift_output_func(get_service)
 def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
+                       id: Optional[pulumi.Input[Optional[str]]] = None,
                        region: Optional[pulumi.Input[Optional[str]]] = None,
                        reverse_dns_name: Optional[pulumi.Input[Optional[str]]] = None,
                        reverse_dns_prefix: Optional[pulumi.Input[Optional[str]]] = None,

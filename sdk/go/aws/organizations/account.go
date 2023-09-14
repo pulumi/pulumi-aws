@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a member account in the current organization.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // ## Import
 //
-// The AWS member account can be imported by using the `account_id`, e.g.,
+// Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 //
 // ```sh
 //
@@ -53,25 +55,7 @@ import (
 //
 // ```
 //
-//	Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
-//
-//	name
-//
-// = "my_new_account"
-//
-//	email
-//
-//	= "john@doe.org"
-//
-//	role_name = "myOrganizationRole"
-//
-// # There is no AWS Organizations API for reading role_name
-//
-//	lifecycle {
-//
-//	ignore_changes = [role_name]
-//
-//	} }
+//	Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +74,8 @@ type Account struct {
 	JoinedMethod           pulumi.StringOutput    `pulumi:"joinedMethod"`
 	JoinedTimestamp        pulumi.StringOutput    `pulumi:"joinedTimestamp"`
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
@@ -112,6 +98,7 @@ func NewAccount(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Account
 	err := ctx.RegisterResource("aws:organizations/account:Account", name, args, &resource, opts...)
 	if err != nil {
@@ -149,6 +136,8 @@ type accountState struct {
 	JoinedMethod           *string `pulumi:"joinedMethod"`
 	JoinedTimestamp        *string `pulumi:"joinedTimestamp"`
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId *string `pulumi:"parentId"`
@@ -177,6 +166,8 @@ type AccountState struct {
 	JoinedMethod           pulumi.StringPtrInput
 	JoinedTimestamp        pulumi.StringPtrInput
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringPtrInput
@@ -203,6 +194,8 @@ type accountArgs struct {
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
 	IamUserAccessToBilling *string `pulumi:"iamUserAccessToBilling"`
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId *string `pulumi:"parentId"`
@@ -223,6 +216,8 @@ type AccountArgs struct {
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
 	IamUserAccessToBilling pulumi.StringPtrInput
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringPtrInput
@@ -255,6 +250,12 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
+func (i *Account) ToOutput(ctx context.Context) pulumix.Output[*Account] {
+	return pulumix.Output[*Account]{
+		OutputState: i.ToAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountArrayInput is an input type that accepts AccountArray and AccountArrayOutput values.
 // You can construct a concrete instance of `AccountArrayInput` via:
 //
@@ -278,6 +279,12 @@ func (i AccountArray) ToAccountArrayOutput() AccountArrayOutput {
 
 func (i AccountArray) ToAccountArrayOutputWithContext(ctx context.Context) AccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountArrayOutput)
+}
+
+func (i AccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*Account] {
+	return pulumix.Output[[]*Account]{
+		OutputState: i.ToAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccountMapInput is an input type that accepts AccountMap and AccountMapOutput values.
@@ -305,6 +312,12 @@ func (i AccountMap) ToAccountMapOutputWithContext(ctx context.Context) AccountMa
 	return pulumi.ToOutputWithContext(ctx, i).(AccountMapOutput)
 }
 
+func (i AccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Account] {
+	return pulumix.Output[map[string]*Account]{
+		OutputState: i.ToAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
@@ -317,6 +330,12 @@ func (o AccountOutput) ToAccountOutput() AccountOutput {
 
 func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
 	return o
+}
+
+func (o AccountOutput) ToOutput(ctx context.Context) pulumix.Output[*Account] {
+	return pulumix.Output[*Account]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN for this account.
@@ -358,6 +377,8 @@ func (o AccountOutput) JoinedTimestamp() pulumi.StringOutput {
 }
 
 // Friendly name for the member account.
+//
+// The following arguments are optional:
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -400,6 +421,12 @@ func (o AccountArrayOutput) ToAccountArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o AccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Account] {
+	return pulumix.Output[[]*Account]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountArrayOutput) Index(i pulumi.IntInput) AccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Account {
 		return vs[0].([]*Account)[vs[1].(int)]
@@ -418,6 +445,12 @@ func (o AccountMapOutput) ToAccountMapOutput() AccountMapOutput {
 
 func (o AccountMapOutput) ToAccountMapOutputWithContext(ctx context.Context) AccountMapOutput {
 	return o
+}
+
+func (o AccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Account] {
+	return pulumix.Output[map[string]*Account]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountMapOutput) MapIndex(k pulumi.StringInput) AccountOutput {

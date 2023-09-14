@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,8 +100,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -187,7 +189,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -220,7 +222,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -269,7 +271,7 @@ import (
 //
 // ## Import
 //
-// `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.,
+// Using `pulumi import`, import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:
 //
 // ```sh
 //
@@ -277,17 +279,9 @@ import (
 //
 // ```
 //
-//	Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration. Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_rds_global_cluster" "example" {
+//	Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
 //
-// # ... other configuration ...
-//
-// # There is no API for reading source_db_cluster_identifier
-//
-//	lifecycle {
-//
-//	ignore_changes = [source_db_cluster_identifier]
-//
-//	} }
+// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 type GlobalCluster struct {
 	pulumi.CustomResourceState
 
@@ -326,6 +320,7 @@ func NewGlobalCluster(ctx *pulumi.Context,
 	if args.GlobalClusterIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalClusterIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalCluster
 	err := ctx.RegisterResource("aws:rds/globalCluster:GlobalCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -465,6 +460,12 @@ func (i *GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) Gl
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterOutput)
 }
 
+func (i *GlobalCluster) ToOutput(ctx context.Context) pulumix.Output[*GlobalCluster] {
+	return pulumix.Output[*GlobalCluster]{
+		OutputState: i.ToGlobalClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GlobalClusterArrayInput is an input type that accepts GlobalClusterArray and GlobalClusterArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterArrayInput` via:
 //
@@ -488,6 +489,12 @@ func (i GlobalClusterArray) ToGlobalClusterArrayOutput() GlobalClusterArrayOutpu
 
 func (i GlobalClusterArray) ToGlobalClusterArrayOutputWithContext(ctx context.Context) GlobalClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterArrayOutput)
+}
+
+func (i GlobalClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalCluster] {
+	return pulumix.Output[[]*GlobalCluster]{
+		OutputState: i.ToGlobalClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GlobalClusterMapInput is an input type that accepts GlobalClusterMap and GlobalClusterMapOutput values.
@@ -515,6 +522,12 @@ func (i GlobalClusterMap) ToGlobalClusterMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterMapOutput)
 }
 
+func (i GlobalClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalCluster] {
+	return pulumix.Output[map[string]*GlobalCluster]{
+		OutputState: i.ToGlobalClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalClusterOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterOutput) ElementType() reflect.Type {
@@ -527,6 +540,12 @@ func (o GlobalClusterOutput) ToGlobalClusterOutput() GlobalClusterOutput {
 
 func (o GlobalClusterOutput) ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput {
 	return o
+}
+
+func (o GlobalClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalCluster] {
+	return pulumix.Output[*GlobalCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // RDS Global Cluster Amazon Resource Name (ARN)
@@ -602,6 +621,12 @@ func (o GlobalClusterArrayOutput) ToGlobalClusterArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o GlobalClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalCluster] {
+	return pulumix.Output[[]*GlobalCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GlobalClusterArrayOutput) Index(i pulumi.IntInput) GlobalClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalCluster {
 		return vs[0].([]*GlobalCluster)[vs[1].(int)]
@@ -620,6 +645,12 @@ func (o GlobalClusterMapOutput) ToGlobalClusterMapOutput() GlobalClusterMapOutpu
 
 func (o GlobalClusterMapOutput) ToGlobalClusterMapOutputWithContext(ctx context.Context) GlobalClusterMapOutput {
 	return o
+}
+
+func (o GlobalClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalCluster] {
+	return pulumix.Output[map[string]*GlobalCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalClusterMapOutput) MapIndex(k pulumi.StringInput) GlobalClusterOutput {

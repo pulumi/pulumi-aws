@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+ * Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
@@ -167,12 +167,16 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Medical Vocabulary.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vocabularyName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyName;
 
     /**
      * @return The name of the Medical Vocabulary.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vocabularyName() {

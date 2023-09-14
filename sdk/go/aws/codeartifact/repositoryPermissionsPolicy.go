@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeArtifact Repostory Permissions Policy Resource.
@@ -20,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,10 +64,10 @@ import (
 //							},
 //						},
 //						Actions: pulumi.StringArray{
-//							pulumi.String("codeartifact:CreateRepository"),
+//							pulumi.String("codeartifact:ReadFromRepository"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleDomain.Arn,
+//							exampleRepository.Arn,
 //						},
 //					},
 //				},
@@ -88,7 +90,7 @@ import (
 //
 // ## Import
 //
-// CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.,
+// Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 //
 // ```sh
 //
@@ -128,6 +130,7 @@ func NewRepositoryPermissionsPolicy(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryPermissionsPolicy
 	err := ctx.RegisterResource("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -233,6 +236,12 @@ func (i *RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyOutput)
 }
 
+func (i *RepositoryPermissionsPolicy) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPermissionsPolicy] {
+	return pulumix.Output[*RepositoryPermissionsPolicy]{
+		OutputState: i.ToRepositoryPermissionsPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryPermissionsPolicyArrayInput is an input type that accepts RepositoryPermissionsPolicyArray and RepositoryPermissionsPolicyArrayOutput values.
 // You can construct a concrete instance of `RepositoryPermissionsPolicyArrayInput` via:
 //
@@ -256,6 +265,12 @@ func (i RepositoryPermissionsPolicyArray) ToRepositoryPermissionsPolicyArrayOutp
 
 func (i RepositoryPermissionsPolicyArray) ToRepositoryPermissionsPolicyArrayOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyArrayOutput)
+}
+
+func (i RepositoryPermissionsPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPermissionsPolicy] {
+	return pulumix.Output[[]*RepositoryPermissionsPolicy]{
+		OutputState: i.ToRepositoryPermissionsPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryPermissionsPolicyMapInput is an input type that accepts RepositoryPermissionsPolicyMap and RepositoryPermissionsPolicyMapOutput values.
@@ -283,6 +298,12 @@ func (i RepositoryPermissionsPolicyMap) ToRepositoryPermissionsPolicyMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyMapOutput)
 }
 
+func (i RepositoryPermissionsPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPermissionsPolicy] {
+	return pulumix.Output[map[string]*RepositoryPermissionsPolicy]{
+		OutputState: i.ToRepositoryPermissionsPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryPermissionsPolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPermissionsPolicyOutput) ElementType() reflect.Type {
@@ -295,6 +316,12 @@ func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyOutput()
 
 func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyOutput {
 	return o
+}
+
+func (o RepositoryPermissionsPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPermissionsPolicy] {
+	return pulumix.Output[*RepositoryPermissionsPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the domain on which to set the resource policy.
@@ -341,6 +368,12 @@ func (o RepositoryPermissionsPolicyArrayOutput) ToRepositoryPermissionsPolicyArr
 	return o
 }
 
+func (o RepositoryPermissionsPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPermissionsPolicy] {
+	return pulumix.Output[[]*RepositoryPermissionsPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryPermissionsPolicyArrayOutput) Index(i pulumi.IntInput) RepositoryPermissionsPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPermissionsPolicy {
 		return vs[0].([]*RepositoryPermissionsPolicy)[vs[1].(int)]
@@ -359,6 +392,12 @@ func (o RepositoryPermissionsPolicyMapOutput) ToRepositoryPermissionsPolicyMapOu
 
 func (o RepositoryPermissionsPolicyMapOutput) ToRepositoryPermissionsPolicyMapOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyMapOutput {
 	return o
+}
+
+func (o RepositoryPermissionsPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPermissionsPolicy] {
+	return pulumix.Output[map[string]*RepositoryPermissionsPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryPermissionsPolicyMapOutput) MapIndex(k pulumi.StringInput) RepositoryPermissionsPolicyOutput {

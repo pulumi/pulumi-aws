@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,7 +113,7 @@ import (
 //
 // ## Import
 //
-// Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+// Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 //
 // ```sh
 //
@@ -126,11 +128,15 @@ type CatalogTable struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrOutput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// Properties associated with this table, as a list of key-value pairs.
@@ -163,6 +169,7 @@ func NewCatalogTable(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CatalogTable
 	err := ctx.RegisterResource("aws:glue/catalogTable:CatalogTable", name, args, &resource, opts...)
 	if err != nil {
@@ -190,11 +197,15 @@ type catalogTableState struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name *string `pulumi:"name"`
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
 	// Properties associated with this table, as a list of key-value pairs.
@@ -223,11 +234,15 @@ type CatalogTableState struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName pulumi.StringPtrInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringPtrInput
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
 	// Properties associated with this table, as a list of key-value pairs.
@@ -258,11 +273,15 @@ type catalogTableArgs struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name *string `pulumi:"name"`
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
 	// Properties associated with this table, as a list of key-value pairs.
@@ -290,11 +309,15 @@ type CatalogTableArgs struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName pulumi.StringInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringPtrInput
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
 	// Properties associated with this table, as a list of key-value pairs.
@@ -340,6 +363,12 @@ func (i *CatalogTable) ToCatalogTableOutputWithContext(ctx context.Context) Cata
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOutput)
 }
 
+func (i *CatalogTable) ToOutput(ctx context.Context) pulumix.Output[*CatalogTable] {
+	return pulumix.Output[*CatalogTable]{
+		OutputState: i.ToCatalogTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CatalogTableArrayInput is an input type that accepts CatalogTableArray and CatalogTableArrayOutput values.
 // You can construct a concrete instance of `CatalogTableArrayInput` via:
 //
@@ -363,6 +392,12 @@ func (i CatalogTableArray) ToCatalogTableArrayOutput() CatalogTableArrayOutput {
 
 func (i CatalogTableArray) ToCatalogTableArrayOutputWithContext(ctx context.Context) CatalogTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableArrayOutput)
+}
+
+func (i CatalogTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*CatalogTable] {
+	return pulumix.Output[[]*CatalogTable]{
+		OutputState: i.ToCatalogTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CatalogTableMapInput is an input type that accepts CatalogTableMap and CatalogTableMapOutput values.
@@ -390,6 +425,12 @@ func (i CatalogTableMap) ToCatalogTableMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableMapOutput)
 }
 
+func (i CatalogTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CatalogTable] {
+	return pulumix.Output[map[string]*CatalogTable]{
+		OutputState: i.ToCatalogTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CatalogTableOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableOutput) ElementType() reflect.Type {
@@ -404,6 +445,12 @@ func (o CatalogTableOutput) ToCatalogTableOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o CatalogTableOutput) ToOutput(ctx context.Context) pulumix.Output[*CatalogTable] {
+	return pulumix.Output[*CatalogTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Glue Table.
 func (o CatalogTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -415,6 +462,8 @@ func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
 }
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+//
+// The follow arguments are optional:
 func (o CatalogTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -427,6 +476,11 @@ func (o CatalogTableOutput) Description() pulumi.StringPtrOutput {
 // Name of the table. For Hive compatibility, this must be entirely lowercase.
 func (o CatalogTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration block for open table formats. See `openTableFormatInput` below.
+func (o CatalogTableOutput) OpenTableFormatInput() CatalogTableOpenTableFormatInputPtrOutput {
+	return o.ApplyT(func(v *CatalogTable) CatalogTableOpenTableFormatInputPtrOutput { return v.OpenTableFormatInput }).(CatalogTableOpenTableFormatInputPtrOutput)
 }
 
 // Owner of the table.
@@ -493,6 +547,12 @@ func (o CatalogTableArrayOutput) ToCatalogTableArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o CatalogTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CatalogTable] {
+	return pulumix.Output[[]*CatalogTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CatalogTableArrayOutput) Index(i pulumi.IntInput) CatalogTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CatalogTable {
 		return vs[0].([]*CatalogTable)[vs[1].(int)]
@@ -511,6 +571,12 @@ func (o CatalogTableMapOutput) ToCatalogTableMapOutput() CatalogTableMapOutput {
 
 func (o CatalogTableMapOutput) ToCatalogTableMapOutputWithContext(ctx context.Context) CatalogTableMapOutput {
 	return o
+}
+
+func (o CatalogTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CatalogTable] {
+	return pulumix.Output[map[string]*CatalogTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CatalogTableMapOutput) MapIndex(k pulumi.StringInput) CatalogTableOutput {

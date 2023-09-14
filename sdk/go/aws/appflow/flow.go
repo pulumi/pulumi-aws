@@ -8,14 +8,172 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppFlow flow resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appflow"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "exampleSourceBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSourcePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"appflow.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"s3:ListBucket",
+//							"s3:GetObject",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::example_source",
+//							"arn:aws:s3:::example_source/*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleSourceBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: exampleSourceBucketV2.ID(),
+//				Policy: *pulumi.String(exampleSourcePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Bucket: exampleSourceBucketV2.ID(),
+//				Key:    pulumi.String("example_source.csv"),
+//				Source: pulumi.NewFileAsset("example_source.csv"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "exampleDestinationBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDestinationPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"appflow.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"s3:PutObject",
+//							"s3:AbortMultipartUpload",
+//							"s3:ListMultipartUploadParts",
+//							"s3:ListBucketMultipartUploads",
+//							"s3:GetBucketAcl",
+//							"s3:PutObjectAcl",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::example_destination",
+//							"arn:aws:s3:::example_destination/*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleDestinationBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: exampleDestinationBucketV2.ID(),
+//				Policy: *pulumi.String(exampleDestinationPolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appflow.NewFlow(ctx, "exampleFlow", &appflow.FlowArgs{
+//				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
+//					ConnectorType: pulumi.String("S3"),
+//					SourceConnectorProperties: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs{
+//						S3: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3Args{
+//							BucketName:   exampleSourceBucketPolicy.Bucket,
+//							BucketPrefix: pulumi.String("example"),
+//						},
+//					},
+//				},
+//				DestinationFlowConfigs: appflow.FlowDestinationFlowConfigArray{
+//					&appflow.FlowDestinationFlowConfigArgs{
+//						ConnectorType: pulumi.String("S3"),
+//						DestinationConnectorProperties: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs{
+//							S3: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{
+//								BucketName: exampleDestinationBucketPolicy.Bucket,
+//								S3OutputFormatConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{
+//									PrefixConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{
+//										PrefixType: pulumi.String("PATH"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tasks: appflow.FlowTaskArray{
+//					&appflow.FlowTaskArgs{
+//						SourceFields: pulumi.StringArray{
+//							pulumi.String("exampleField"),
+//						},
+//						DestinationField: pulumi.String("exampleField"),
+//						TaskType:         pulumi.String("Map"),
+//						ConnectorOperators: appflow.FlowTaskConnectorOperatorArray{
+//							&appflow.FlowTaskConnectorOperatorArgs{
+//								S3: pulumi.String("NO_OP"),
+//							},
+//						},
+//					},
+//				},
+//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
+//					TriggerType: pulumi.String("OnDemand"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// AppFlow flows can be imported using the `arn`, e.g.
+// Using `pulumi import`, import AppFlow flows using the `arn`. For example:
 //
 // ```sh
 //
@@ -66,6 +224,7 @@ func NewFlow(ctx *pulumi.Context,
 	if args.TriggerConfig == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flow
 	err := ctx.RegisterResource("aws:appflow/flow:Flow", name, args, &resource, opts...)
 	if err != nil {
@@ -199,6 +358,12 @@ func (i *Flow) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowOutput)
 }
 
+func (i *Flow) ToOutput(ctx context.Context) pulumix.Output[*Flow] {
+	return pulumix.Output[*Flow]{
+		OutputState: i.ToFlowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FlowArrayInput is an input type that accepts FlowArray and FlowArrayOutput values.
 // You can construct a concrete instance of `FlowArrayInput` via:
 //
@@ -222,6 +387,12 @@ func (i FlowArray) ToFlowArrayOutput() FlowArrayOutput {
 
 func (i FlowArray) ToFlowArrayOutputWithContext(ctx context.Context) FlowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowArrayOutput)
+}
+
+func (i FlowArray) ToOutput(ctx context.Context) pulumix.Output[[]*Flow] {
+	return pulumix.Output[[]*Flow]{
+		OutputState: i.ToFlowArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FlowMapInput is an input type that accepts FlowMap and FlowMapOutput values.
@@ -249,6 +420,12 @@ func (i FlowMap) ToFlowMapOutputWithContext(ctx context.Context) FlowMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowMapOutput)
 }
 
+func (i FlowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Flow] {
+	return pulumix.Output[map[string]*Flow]{
+		OutputState: i.ToFlowMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlowOutput struct{ *pulumi.OutputState }
 
 func (FlowOutput) ElementType() reflect.Type {
@@ -261,6 +438,12 @@ func (o FlowOutput) ToFlowOutput() FlowOutput {
 
 func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return o
+}
+
+func (o FlowOutput) ToOutput(ctx context.Context) pulumix.Output[*Flow] {
+	return pulumix.Output[*Flow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Flow's ARN.
@@ -327,6 +510,12 @@ func (o FlowArrayOutput) ToFlowArrayOutputWithContext(ctx context.Context) FlowA
 	return o
 }
 
+func (o FlowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Flow] {
+	return pulumix.Output[[]*Flow]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowArrayOutput) Index(i pulumi.IntInput) FlowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Flow {
 		return vs[0].([]*Flow)[vs[1].(int)]
@@ -345,6 +534,12 @@ func (o FlowMapOutput) ToFlowMapOutput() FlowMapOutput {
 
 func (o FlowMapOutput) ToFlowMapOutputWithContext(ctx context.Context) FlowMapOutput {
 	return o
+}
+
+func (o FlowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Flow] {
+	return pulumix.Output[map[string]*Flow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowMapOutput) MapIndex(k pulumi.StringInput) FlowOutput {

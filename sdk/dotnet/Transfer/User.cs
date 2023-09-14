@@ -12,9 +12,104 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooServer = new Aws.Transfer.Server("fooServer", new()
+    ///     {
+    ///         IdentityProviderType = "SERVICE_MANAGED",
+    ///         Tags = 
+    ///         {
+    ///             { "NAME", "tf-acc-test-transfer-server" },
+    ///         },
+    ///     });
+    /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "transfer.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooRole = new Aws.Iam.Role("fooRole", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var fooPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AllowFullAccesstoS3",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new()
+    ///     {
+    ///         Role = fooRole.Id,
+    ///         Policy = fooPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var fooUser = new Aws.Transfer.User("fooUser", new()
+    ///     {
+    ///         ServerId = fooServer.Id,
+    ///         UserName = "tftestuser",
+    ///         Role = fooRole.Arn,
+    ///         HomeDirectoryType = "LOGICAL",
+    ///         HomeDirectoryMappings = new[]
+    ///         {
+    ///             new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
+    ///             {
+    ///                 Entry = "/test.pdf",
+    ///                 Target = "/bucket3/test-path/tftestuser.pdf",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Transfer Users can be imported using the `server_id` and `user_name` separated by `/`.
+    /// Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
@@ -60,7 +155,7 @@ namespace Pulumi.Aws.Transfer
         public Output<Outputs.UserPosixProfile?> PosixProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -172,7 +267,7 @@ namespace Pulumi.Aws.Transfer
         public Input<Inputs.UserPosixProfileArgs>? PosixProfile { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -252,7 +347,7 @@ namespace Pulumi.Aws.Transfer
         public Input<Inputs.UserPosixProfileGetArgs>? PosixProfile { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

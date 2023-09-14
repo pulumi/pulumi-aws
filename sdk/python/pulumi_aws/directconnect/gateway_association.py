@@ -112,6 +112,9 @@ class GatewayAssociationArgs:
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
+
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -269,6 +272,9 @@ class _GatewayAssociationState:
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
+
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -345,7 +351,7 @@ class GatewayAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.,
+        Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
 
         ```sh
          $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
@@ -425,7 +431,7 @@ class GatewayAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.,
+        Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
 
         ```sh
          $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
@@ -598,5 +604,8 @@ class GatewayAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
+
         return pulumi.get(self, "vpn_gateway_id")
 

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+ * Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example

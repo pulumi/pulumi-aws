@@ -25,6 +25,8 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         :param pulumi.Input[bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
         :param pulumi.Input[bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
@@ -54,6 +56,8 @@ class ApplicationArgs:
     def resource_group_name(self) -> pulumi.Input[str]:
         """
         Name of the resource group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -169,6 +173,8 @@ class _ApplicationState:
         :param pulumi.Input[bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -282,6 +288,8 @@ class _ApplicationState:
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the resource group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -352,7 +360,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+        Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
 
         ```sh
          $ pulumi import aws:applicationinsights/application:Application some some-application
@@ -367,6 +375,8 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -399,7 +409,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+        Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
 
         ```sh
          $ pulumi import aws:applicationinsights/application:Application some some-application
@@ -484,6 +494,8 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -564,6 +576,8 @@ class Application(pulumi.CustomResource):
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         Name of the resource group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_group_name")
 

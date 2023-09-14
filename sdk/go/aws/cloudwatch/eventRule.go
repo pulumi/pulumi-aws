@@ -7,16 +7,99 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Rule resource.
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "detail-type": []string{
+// "AWS Console Sign In via CloudTrail",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
+// Description: pulumi.String("Capture each AWS Console Sign In"),
+// EventPattern: pulumi.String(json0),
+// })
+// if err != nil {
+// return err
+// }
+// awsLogins, err := sns.NewTopic(ctx, "awsLogins", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
+// Rule: console.Name,
+// Arn: awsLogins.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// snsTopicPolicy := awsLogins.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "SNS:Publish",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "events.amazonaws.com",
+// },
+// },
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+// Arn: awsLogins.Arn,
+// Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+// return &snsTopicPolicy.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+// Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
 // ```sh
 //
@@ -39,7 +122,7 @@ type EventRule struct {
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -58,6 +141,7 @@ func NewEventRule(ctx *pulumi.Context,
 		args = &EventRuleArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventRule
 	err := ctx.RegisterResource("aws:cloudwatch/eventRule:EventRule", name, args, &resource, opts...)
 	if err != nil {
@@ -93,7 +177,7 @@ type eventRuleState struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
@@ -119,7 +203,7 @@ type EventRuleState struct {
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
@@ -147,7 +231,7 @@ type eventRuleArgs struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
@@ -170,7 +254,7 @@ type EventRuleArgs struct {
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
@@ -203,6 +287,12 @@ func (i *EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleOutput)
 }
 
+func (i *EventRule) ToOutput(ctx context.Context) pulumix.Output[*EventRule] {
+	return pulumix.Output[*EventRule]{
+		OutputState: i.ToEventRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventRuleArrayInput is an input type that accepts EventRuleArray and EventRuleArrayOutput values.
 // You can construct a concrete instance of `EventRuleArrayInput` via:
 //
@@ -226,6 +316,12 @@ func (i EventRuleArray) ToEventRuleArrayOutput() EventRuleArrayOutput {
 
 func (i EventRuleArray) ToEventRuleArrayOutputWithContext(ctx context.Context) EventRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleArrayOutput)
+}
+
+func (i EventRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventRule] {
+	return pulumix.Output[[]*EventRule]{
+		OutputState: i.ToEventRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventRuleMapInput is an input type that accepts EventRuleMap and EventRuleMapOutput values.
@@ -253,6 +349,12 @@ func (i EventRuleMap) ToEventRuleMapOutputWithContext(ctx context.Context) Event
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleMapOutput)
 }
 
+func (i EventRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventRule] {
+	return pulumix.Output[map[string]*EventRule]{
+		OutputState: i.ToEventRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventRuleOutput struct{ *pulumi.OutputState }
 
 func (EventRuleOutput) ElementType() reflect.Type {
@@ -265,6 +367,12 @@ func (o EventRuleOutput) ToEventRuleOutput() EventRuleOutput {
 
 func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
 	return o
+}
+
+func (o EventRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*EventRule] {
+	return pulumix.Output[*EventRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the rule.
@@ -298,7 +406,7 @@ func (o EventRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 func (o EventRuleOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
@@ -337,6 +445,12 @@ func (o EventRuleArrayOutput) ToEventRuleArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EventRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventRule] {
+	return pulumix.Output[[]*EventRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventRuleArrayOutput) Index(i pulumi.IntInput) EventRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventRule {
 		return vs[0].([]*EventRule)[vs[1].(int)]
@@ -355,6 +469,12 @@ func (o EventRuleMapOutput) ToEventRuleMapOutput() EventRuleMapOutput {
 
 func (o EventRuleMapOutput) ToEventRuleMapOutputWithContext(ctx context.Context) EventRuleMapOutput {
 	return o
+}
+
+func (o EventRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventRule] {
+	return pulumix.Output[map[string]*EventRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventRuleMapOutput) MapIndex(k pulumi.StringInput) EventRuleOutput {

@@ -21,13 +21,16 @@ class GetParameterResult:
     """
     A collection of values returned by getParameter.
     """
-    def __init__(__self__, arn=None, id=None, name=None, type=None, value=None, version=None, with_decryption=None):
+    def __init__(__self__, arn=None, id=None, insecure_value=None, name=None, type=None, value=None, version=None, with_decryption=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if insecure_value and not isinstance(insecure_value, str):
+            raise TypeError("Expected argument 'insecure_value' to be a str")
+        pulumi.set(__self__, "insecure_value", insecure_value)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -56,6 +59,11 @@ class GetParameterResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="insecureValue")
+    def insecure_value(self) -> str:
+        return pulumi.get(self, "insecure_value")
 
     @property
     @pulumi.getter
@@ -91,6 +99,7 @@ class AwaitableGetParameterResult(GetParameterResult):
         return GetParameterResult(
             arn=self.arn,
             id=self.id,
+            insecure_value=self.insecure_value,
             name=self.name,
             type=self.type,
             value=self.value,
@@ -118,6 +127,8 @@ def get_parameter(name: Optional[str] = None,
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+           
+           In addition to all arguments above, the following attributes are exported:
     """
     __args__ = dict()
     __args__['name'] = name
@@ -126,13 +137,14 @@ def get_parameter(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts, typ=GetParameterResult).value
 
     return AwaitableGetParameterResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type,
-        value=__ret__.value,
-        version=__ret__.version,
-        with_decryption=__ret__.with_decryption)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        insecure_value=pulumi.get(__ret__, 'insecure_value'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'),
+        version=pulumi.get(__ret__, 'version'),
+        with_decryption=pulumi.get(__ret__, 'with_decryption'))
 
 
 @_utilities.lift_output_func(get_parameter)
@@ -156,5 +168,7 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+           
+           In addition to all arguments above, the following attributes are exported:
     """
     ...

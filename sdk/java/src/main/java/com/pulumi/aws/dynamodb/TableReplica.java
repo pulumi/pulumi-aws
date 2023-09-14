@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .type(&#34;S&#34;)
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.main&#34;)
+ *                 .provider(aws.main())
  *                 .build());
  * 
  *         var exampleTableReplica = new TableReplica(&#34;exampleTableReplica&#34;, TableReplicaArgs.builder()        
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;Pozo&#34;, &#34;Amargo&#34;)
  *             ))
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.alt&#34;)
+ *                 .provider(aws.alt())
  *                 .build());
  * 
  *     }
@@ -89,7 +89,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
+ * ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
+ * 
+ * Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For example:
+ * 
+ * ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
  * 
  * ```sh
  *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
@@ -115,12 +119,16 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      * 
+     * Optional arguments:
+     * 
      */
     @Export(name="globalTableArn", refs={String.class}, tree="[0]")
     private Output<String> globalTableArn;
 
     /**
      * @return ARN of the _main_ or global table which this resource will replicate.
+     * 
+     * Optional arguments:
      * 
      */
     public Output<String> globalTableArn() {

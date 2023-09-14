@@ -416,7 +416,7 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Service can be imported using the service ID, e.g.,
+        Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
         ```sh
          $ pulumi import aws:servicediscovery/service:Service example 0123456789
@@ -492,7 +492,7 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Service can be imported using the service ID, e.g.,
+        Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
         ```sh
          $ pulumi import aws:servicediscovery/service:Service example 0123456789

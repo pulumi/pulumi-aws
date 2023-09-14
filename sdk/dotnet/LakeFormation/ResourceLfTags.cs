@@ -139,6 +139,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Set of LF-tags to attach to the resource. See below.
+        /// 
+        /// Exactly one of the following is required:
         /// </summary>
         [Output("lfTags")]
         public Output<ImmutableArray<Outputs.ResourceLfTagsLfTag>> LfTags { get; private set; } = null!;
@@ -151,6 +153,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("tableWithColumns")]
         public Output<Outputs.ResourceLfTagsTableWithColumns> TableWithColumns { get; private set; } = null!;
@@ -218,6 +222,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Set of LF-tags to attach to the resource. See below.
+        /// 
+        /// Exactly one of the following is required:
         /// </summary>
         public InputList<Inputs.ResourceLfTagsLfTagArgs> LfTags
         {
@@ -233,6 +239,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.ResourceLfTagsTableWithColumnsArgs>? TableWithColumns { get; set; }
@@ -262,6 +270,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Set of LF-tags to attach to the resource. See below.
+        /// 
+        /// Exactly one of the following is required:
         /// </summary>
         public InputList<Inputs.ResourceLfTagsLfTagGetArgs> LfTags
         {
@@ -277,6 +287,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.ResourceLfTagsTableWithColumnsGetArgs>? TableWithColumns { get; set; }

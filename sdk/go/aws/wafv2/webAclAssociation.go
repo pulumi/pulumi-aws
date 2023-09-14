@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a WAFv2 Web ACL Association.
@@ -26,8 +28,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,7 +126,7 @@ import (
 //
 // ## Import
 //
-// WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
+// Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:
 //
 // ```sh
 //
@@ -155,6 +157,7 @@ func NewWebAclAssociation(ctx *pulumi.Context,
 	if args.WebAclArn == nil {
 		return nil, errors.New("invalid value for required argument 'WebAclArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAclAssociation
 	err := ctx.RegisterResource("aws:wafv2/webAclAssociation:WebAclAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -232,6 +235,12 @@ func (i *WebAclAssociation) ToWebAclAssociationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationOutput)
 }
 
+func (i *WebAclAssociation) ToOutput(ctx context.Context) pulumix.Output[*WebAclAssociation] {
+	return pulumix.Output[*WebAclAssociation]{
+		OutputState: i.ToWebAclAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebAclAssociationArrayInput is an input type that accepts WebAclAssociationArray and WebAclAssociationArrayOutput values.
 // You can construct a concrete instance of `WebAclAssociationArrayInput` via:
 //
@@ -255,6 +264,12 @@ func (i WebAclAssociationArray) ToWebAclAssociationArrayOutput() WebAclAssociati
 
 func (i WebAclAssociationArray) ToWebAclAssociationArrayOutputWithContext(ctx context.Context) WebAclAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationArrayOutput)
+}
+
+func (i WebAclAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebAclAssociation] {
+	return pulumix.Output[[]*WebAclAssociation]{
+		OutputState: i.ToWebAclAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WebAclAssociationMapInput is an input type that accepts WebAclAssociationMap and WebAclAssociationMapOutput values.
@@ -282,6 +297,12 @@ func (i WebAclAssociationMap) ToWebAclAssociationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationMapOutput)
 }
 
+func (i WebAclAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAclAssociation] {
+	return pulumix.Output[map[string]*WebAclAssociation]{
+		OutputState: i.ToWebAclAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclAssociationOutput struct{ *pulumi.OutputState }
 
 func (WebAclAssociationOutput) ElementType() reflect.Type {
@@ -294,6 +315,12 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutput() WebAclAssociationOu
 
 func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx context.Context) WebAclAssociationOutput {
 	return o
+}
+
+func (o WebAclAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclAssociation] {
+	return pulumix.Output[*WebAclAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
@@ -320,6 +347,12 @@ func (o WebAclAssociationArrayOutput) ToWebAclAssociationArrayOutputWithContext(
 	return o
 }
 
+func (o WebAclAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebAclAssociation] {
+	return pulumix.Output[[]*WebAclAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebAclAssociationArrayOutput) Index(i pulumi.IntInput) WebAclAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebAclAssociation {
 		return vs[0].([]*WebAclAssociation)[vs[1].(int)]
@@ -338,6 +371,12 @@ func (o WebAclAssociationMapOutput) ToWebAclAssociationMapOutput() WebAclAssocia
 
 func (o WebAclAssociationMapOutput) ToWebAclAssociationMapOutputWithContext(ctx context.Context) WebAclAssociationMapOutput {
 	return o
+}
+
+func (o WebAclAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAclAssociation] {
+	return pulumix.Output[map[string]*WebAclAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclAssociationMapOutput) MapIndex(k pulumi.StringInput) WebAclAssociationOutput {

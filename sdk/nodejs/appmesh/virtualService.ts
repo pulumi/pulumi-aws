@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.,
+ * Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local

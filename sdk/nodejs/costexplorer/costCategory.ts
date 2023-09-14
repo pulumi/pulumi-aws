@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ce_cost_category` can be imported using the id, e.g.
+ * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
  *
  * ```sh
  *  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
@@ -103,6 +103,8 @@ export class CostCategory extends pulumi.CustomResource {
     public /*out*/ readonly effectiveEnd!: pulumi.Output<string>;
     /**
      * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+     *
+     * The following arguments are optional:
      */
     public readonly effectiveStart!: pulumi.Output<string>;
     /**
@@ -195,6 +197,8 @@ export interface CostCategoryState {
     effectiveEnd?: pulumi.Input<string>;
     /**
      * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+     *
+     * The following arguments are optional:
      */
     effectiveStart?: pulumi.Input<string>;
     /**
@@ -233,6 +237,8 @@ export interface CostCategoryArgs {
     defaultValue?: pulumi.Input<string>;
     /**
      * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+     *
+     * The following arguments are optional:
      */
     effectiveStart?: pulumi.Input<string>;
     /**

@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Default VPC route tables can be imported using the `vpc_id`, e.g.,
+ * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
@@ -97,6 +97,8 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the default route table.
+     *
+     * The following arguments are optional:
      */
     public readonly defaultRouteTableId!: pulumi.Output<string>;
     /**
@@ -174,6 +176,8 @@ export interface DefaultRouteTableState {
     arn?: pulumi.Input<string>;
     /**
      * ID of the default route table.
+     *
+     * The following arguments are optional:
      */
     defaultRouteTableId?: pulumi.Input<string>;
     /**
@@ -208,6 +212,8 @@ export interface DefaultRouteTableState {
 export interface DefaultRouteTableArgs {
     /**
      * ID of the default route table.
+     *
+     * The following arguments are optional:
      */
     defaultRouteTableId: pulumi.Input<string>;
     /**

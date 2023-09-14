@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.,
+ * Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
@@ -177,12 +177,16 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     /**
      * The name of this scaling action.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="scheduledActionName", refs={String.class}, tree="[0]")
     private Output<String> scheduledActionName;
 
     /**
      * @return The name of this scaling action.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> scheduledActionName() {
@@ -205,12 +209,16 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
      * 
+     * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
+     * 
      */
     @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**
      * @return Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+     * 
+     * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      * 
      */
     public Output<String> timeZone() {

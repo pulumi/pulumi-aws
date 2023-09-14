@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpnGateway;
  * import com.pulumi.aws.ec2.VpnGatewayArgs;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterface;
@@ -80,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect hosted private virtual interfaces can be imported using the `vif id`, e.g.,
+ * Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd

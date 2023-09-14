@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var exampleProxyTarget = new Aws.Rds.ProxyTarget("exampleProxyTarget", new()
     ///     {
-    ///         DbInstanceIdentifier = aws_db_instance.Example.Id,
+    ///         DbInstanceIdentifier = aws_db_instance.Example.Identifier,
     ///         DbProxyName = exampleProxy.Name,
     ///         TargetGroupName = exampleProxyDefaultTargetGroup.Name,
     ///     });
@@ -82,13 +82,18 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
+    /// Instances:
+    /// 
+    /// Provisioned Clusters:
+    /// 
+    /// __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
+    /// 
+    /// Instances:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
     /// ```
-    /// 
-    ///  Provisioned Clusters
+    ///  Provisioned Clusters:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
@@ -99,6 +104,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
+        /// 
+        /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string?> DbClusterIdentifier { get; private set; } = null!;
@@ -205,6 +212,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
+        /// 
+        /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
@@ -237,6 +246,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
+        /// 
+        /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }

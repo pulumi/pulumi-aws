@@ -127,12 +127,12 @@ def get_stream_consumer(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult).value
 
     return AwaitableGetStreamConsumerResult(
-        arn=__ret__.arn,
-        creation_timestamp=__ret__.creation_timestamp,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        stream_arn=__ret__.stream_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        stream_arn=pulumi.get(__ret__, 'stream_arn'))
 
 
 @_utilities.lift_output_func(get_stream_consumer)

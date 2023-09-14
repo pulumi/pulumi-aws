@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
+import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
+    /**
+     * @return VPC connectivity access control for brokers. See below.
+     * 
+     */
+    private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity;
 
     private ClusterBrokerNodeGroupInfoConnectivityInfo() {}
     /**
@@ -24,6 +30,13 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccess() {
         return Optional.ofNullable(this.publicAccess);
+    }
+    /**
+     * @return VPC connectivity access control for brokers. See below.
+     * 
+     */
+    public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity> vpcConnectivity() {
+        return Optional.ofNullable(this.vpcConnectivity);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
+        private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity;
         public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfoConnectivityInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.publicAccess = defaults.publicAccess;
+    	      this.vpcConnectivity = defaults.vpcConnectivity;
         }
 
         @CustomType.Setter
@@ -47,9 +62,15 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
             this.publicAccess = publicAccess;
             return this;
         }
+        @CustomType.Setter
+        public Builder vpcConnectivity(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity) {
+            this.vpcConnectivity = vpcConnectivity;
+            return this;
+        }
         public ClusterBrokerNodeGroupInfoConnectivityInfo build() {
             final var o = new ClusterBrokerNodeGroupInfoConnectivityInfo();
             o.publicAccess = publicAccess;
+            o.vpcConnectivity = vpcConnectivity;
             return o;
         }
     }

@@ -139,13 +139,13 @@ def get_links(global_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getLinks:getLinks', __args__, opts=opts, typ=GetLinksResult).value
 
     return AwaitableGetLinksResult(
-        global_network_id=__ret__.global_network_id,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        provider_name=__ret__.provider_name,
-        site_id=__ret__.site_id,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        global_network_id=pulumi.get(__ret__, 'global_network_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        provider_name=pulumi.get(__ret__, 'provider_name'),
+        site_id=pulumi.get(__ret__, 'site_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_links)

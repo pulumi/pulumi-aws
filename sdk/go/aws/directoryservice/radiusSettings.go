@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // ## Import
 //
-// RADIUS settings can be imported using the directory ID, e.g.,
+// Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 //
 // ```sh
 //
@@ -118,6 +120,7 @@ func NewRadiusSettings(ctx *pulumi.Context,
 		"sharedSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RadiusSettings
 	err := ctx.RegisterResource("aws:directoryservice/radiusSettings:RadiusSettings", name, args, &resource, opts...)
 	if err != nil {
@@ -251,6 +254,12 @@ func (i *RadiusSettings) ToRadiusSettingsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RadiusSettingsOutput)
 }
 
+func (i *RadiusSettings) ToOutput(ctx context.Context) pulumix.Output[*RadiusSettings] {
+	return pulumix.Output[*RadiusSettings]{
+		OutputState: i.ToRadiusSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RadiusSettingsArrayInput is an input type that accepts RadiusSettingsArray and RadiusSettingsArrayOutput values.
 // You can construct a concrete instance of `RadiusSettingsArrayInput` via:
 //
@@ -274,6 +283,12 @@ func (i RadiusSettingsArray) ToRadiusSettingsArrayOutput() RadiusSettingsArrayOu
 
 func (i RadiusSettingsArray) ToRadiusSettingsArrayOutputWithContext(ctx context.Context) RadiusSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RadiusSettingsArrayOutput)
+}
+
+func (i RadiusSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*RadiusSettings] {
+	return pulumix.Output[[]*RadiusSettings]{
+		OutputState: i.ToRadiusSettingsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RadiusSettingsMapInput is an input type that accepts RadiusSettingsMap and RadiusSettingsMapOutput values.
@@ -301,6 +316,12 @@ func (i RadiusSettingsMap) ToRadiusSettingsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RadiusSettingsMapOutput)
 }
 
+func (i RadiusSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RadiusSettings] {
+	return pulumix.Output[map[string]*RadiusSettings]{
+		OutputState: i.ToRadiusSettingsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RadiusSettingsOutput struct{ *pulumi.OutputState }
 
 func (RadiusSettingsOutput) ElementType() reflect.Type {
@@ -313,6 +334,12 @@ func (o RadiusSettingsOutput) ToRadiusSettingsOutput() RadiusSettingsOutput {
 
 func (o RadiusSettingsOutput) ToRadiusSettingsOutputWithContext(ctx context.Context) RadiusSettingsOutput {
 	return o
+}
+
+func (o RadiusSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*RadiusSettings] {
+	return pulumix.Output[*RadiusSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
@@ -374,6 +401,12 @@ func (o RadiusSettingsArrayOutput) ToRadiusSettingsArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o RadiusSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RadiusSettings] {
+	return pulumix.Output[[]*RadiusSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RadiusSettingsArrayOutput) Index(i pulumi.IntInput) RadiusSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RadiusSettings {
 		return vs[0].([]*RadiusSettings)[vs[1].(int)]
@@ -392,6 +425,12 @@ func (o RadiusSettingsMapOutput) ToRadiusSettingsMapOutput() RadiusSettingsMapOu
 
 func (o RadiusSettingsMapOutput) ToRadiusSettingsMapOutputWithContext(ctx context.Context) RadiusSettingsMapOutput {
 	return o
+}
+
+func (o RadiusSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RadiusSettings] {
+	return pulumix.Output[map[string]*RadiusSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RadiusSettingsMapOutput) MapIndex(k pulumi.StringInput) RadiusSettingsOutput {

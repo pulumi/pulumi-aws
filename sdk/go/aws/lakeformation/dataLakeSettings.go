@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,7 +98,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -151,6 +153,8 @@ type DataLakeSettings struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrOutput `pulumi:"allowExternalDataFiltering"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists pulumi.StringArrayOutput `pulumi:"authorizedSessionTagValueLists"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
@@ -160,6 +164,8 @@ type DataLakeSettings struct {
 	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists pulumi.StringArrayOutput `pulumi:"externalDataFilteringAllowLists"`
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+	ReadOnlyAdmins pulumi.StringArrayOutput `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	TrustedResourceOwners pulumi.StringArrayOutput `pulumi:"trustedResourceOwners"`
 }
@@ -171,6 +177,7 @@ func NewDataLakeSettings(ctx *pulumi.Context,
 		args = &DataLakeSettingsArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataLakeSettings
 	err := ctx.RegisterResource("aws:lakeformation/dataLakeSettings:DataLakeSettings", name, args, &resource, opts...)
 	if err != nil {
@@ -198,6 +205,8 @@ type dataLakeSettingsState struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering *bool `pulumi:"allowExternalDataFiltering"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
@@ -207,6 +216,8 @@ type dataLakeSettingsState struct {
 	CreateTableDefaultPermissions []DataLakeSettingsCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists []string `pulumi:"externalDataFilteringAllowLists"`
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
 }
@@ -217,6 +228,8 @@ type DataLakeSettingsState struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrInput
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists pulumi.StringArrayInput
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput
@@ -226,6 +239,8 @@ type DataLakeSettingsState struct {
 	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayInput
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists pulumi.StringArrayInput
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+	ReadOnlyAdmins pulumi.StringArrayInput
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	TrustedResourceOwners pulumi.StringArrayInput
 }
@@ -240,6 +255,8 @@ type dataLakeSettingsArgs struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering *bool `pulumi:"allowExternalDataFiltering"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
@@ -249,6 +266,8 @@ type dataLakeSettingsArgs struct {
 	CreateTableDefaultPermissions []DataLakeSettingsCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists []string `pulumi:"externalDataFilteringAllowLists"`
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
 }
@@ -260,6 +279,8 @@ type DataLakeSettingsArgs struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrInput
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists pulumi.StringArrayInput
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput
@@ -269,6 +290,8 @@ type DataLakeSettingsArgs struct {
 	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayInput
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists pulumi.StringArrayInput
+	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+	ReadOnlyAdmins pulumi.StringArrayInput
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 	TrustedResourceOwners pulumi.StringArrayInput
 }
@@ -296,6 +319,12 @@ func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsOutput)
 }
 
+func (i *DataLakeSettings) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettings] {
+	return pulumix.Output[*DataLakeSettings]{
+		OutputState: i.ToDataLakeSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataLakeSettingsArrayInput is an input type that accepts DataLakeSettingsArray and DataLakeSettingsArrayOutput values.
 // You can construct a concrete instance of `DataLakeSettingsArrayInput` via:
 //
@@ -319,6 +348,12 @@ func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutput() DataLakeSettingsA
 
 func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutputWithContext(ctx context.Context) DataLakeSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsArrayOutput)
+}
+
+func (i DataLakeSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeSettings] {
+	return pulumix.Output[[]*DataLakeSettings]{
+		OutputState: i.ToDataLakeSettingsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataLakeSettingsMapInput is an input type that accepts DataLakeSettingsMap and DataLakeSettingsMapOutput values.
@@ -346,6 +381,12 @@ func (i DataLakeSettingsMap) ToDataLakeSettingsMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsMapOutput)
 }
 
+func (i DataLakeSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeSettings] {
+	return pulumix.Output[map[string]*DataLakeSettings]{
+		OutputState: i.ToDataLakeSettingsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataLakeSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsOutput) ElementType() reflect.Type {
@@ -360,6 +401,12 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.
 	return o
 }
 
+func (o DataLakeSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettings] {
+	return pulumix.Output[*DataLakeSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 func (o DataLakeSettingsOutput) Admins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.Admins }).(pulumi.StringArrayOutput)
@@ -371,6 +418,8 @@ func (o DataLakeSettingsOutput) AllowExternalDataFiltering() pulumi.BoolPtrOutpu
 }
 
 // Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+//
+// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 func (o DataLakeSettingsOutput) AuthorizedSessionTagValueLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.AuthorizedSessionTagValueLists }).(pulumi.StringArrayOutput)
 }
@@ -399,6 +448,11 @@ func (o DataLakeSettingsOutput) ExternalDataFilteringAllowLists() pulumi.StringA
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.ExternalDataFilteringAllowLists }).(pulumi.StringArrayOutput)
 }
 
+// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+func (o DataLakeSettingsOutput) ReadOnlyAdmins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.ReadOnlyAdmins }).(pulumi.StringArrayOutput)
+}
+
 // List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 func (o DataLakeSettingsOutput) TrustedResourceOwners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.TrustedResourceOwners }).(pulumi.StringArrayOutput)
@@ -416,6 +470,12 @@ func (o DataLakeSettingsArrayOutput) ToDataLakeSettingsArrayOutput() DataLakeSet
 
 func (o DataLakeSettingsArrayOutput) ToDataLakeSettingsArrayOutputWithContext(ctx context.Context) DataLakeSettingsArrayOutput {
 	return o
+}
+
+func (o DataLakeSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeSettings] {
+	return pulumix.Output[[]*DataLakeSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataLakeSettingsArrayOutput) Index(i pulumi.IntInput) DataLakeSettingsOutput {
@@ -436,6 +496,12 @@ func (o DataLakeSettingsMapOutput) ToDataLakeSettingsMapOutput() DataLakeSetting
 
 func (o DataLakeSettingsMapOutput) ToDataLakeSettingsMapOutputWithContext(ctx context.Context) DataLakeSettingsMapOutput {
 	return o
+}
+
+func (o DataLakeSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeSettings] {
+	return pulumix.Output[map[string]*DataLakeSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataLakeSettingsMapOutput) MapIndex(k pulumi.StringInput) DataLakeSettingsOutput {

@@ -88,9 +88,9 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate', __args__, opts=opts, typ=GetUserPoolSigningCertificateResult).value
 
     return AwaitableGetUserPoolSigningCertificateResult(
-        certificate=__ret__.certificate,
-        id=__ret__.id,
-        user_pool_id=__ret__.user_pool_id)
+        certificate=pulumi.get(__ret__, 'certificate'),
+        id=pulumi.get(__ret__, 'id'),
+        user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
 
 
 @_utilities.lift_output_func(get_user_pool_signing_certificate)

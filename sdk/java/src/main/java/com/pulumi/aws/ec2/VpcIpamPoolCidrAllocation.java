@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.2.0.0/16&#34;)
+ *             .cidr(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;exampleVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.2.0.0/24&#34;)
+ *             .cidr(&#34;172.20.0.0/24&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleVpcIpamPoolCidr)
  *                 .build());
@@ -131,13 +131,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.2.0.0/16&#34;)
+ *             .cidr(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;exampleVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
  *             .netmaskLength(28)
- *             .disallowedCidrs(&#34;172.2.0.0/28&#34;)
+ *             .disallowedCidrs(&#34;172.20.0.0/28&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleVpcIpamPoolCidr)
  *                 .build());
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IPAM allocations can be imported using the `allocation id` and `pool id`, separated by `_`, e.g.
+ * Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe

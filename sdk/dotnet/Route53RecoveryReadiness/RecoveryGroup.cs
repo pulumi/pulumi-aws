@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.,
+    /// Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
@@ -55,6 +55,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// A unique name describing the recovery group.
+        /// 
+        /// The following argument are optional:
         /// </summary>
         [Output("recoveryGroupName")]
         public Output<string> RecoveryGroupName { get; private set; } = null!;
@@ -131,6 +133,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// A unique name describing the recovery group.
+        /// 
+        /// The following argument are optional:
         /// </summary>
         [Input("recoveryGroupName", required: true)]
         public Input<string> RecoveryGroupName { get; set; } = null!;
@@ -175,6 +179,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// A unique name describing the recovery group.
+        /// 
+        /// The following argument are optional:
         /// </summary>
         [Input("recoveryGroupName")]
         public Input<string>? RecoveryGroupName { get; set; }

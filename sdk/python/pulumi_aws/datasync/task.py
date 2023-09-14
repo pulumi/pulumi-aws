@@ -400,7 +400,7 @@ class Task(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
@@ -462,7 +462,7 @@ class Task(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+        Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
          $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567

@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ServiceQuotaUsageMetric struct {
 	// The metric dimensions.
@@ -55,6 +59,12 @@ func (i ServiceQuotaUsageMetricArgs) ToServiceQuotaUsageMetricOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaUsageMetricOutput)
 }
 
+func (i ServiceQuotaUsageMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceQuotaUsageMetric] {
+	return pulumix.Output[ServiceQuotaUsageMetric]{
+		OutputState: i.ToServiceQuotaUsageMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceQuotaUsageMetricArrayInput is an input type that accepts ServiceQuotaUsageMetricArray and ServiceQuotaUsageMetricArrayOutput values.
 // You can construct a concrete instance of `ServiceQuotaUsageMetricArrayInput` via:
 //
@@ -80,6 +90,12 @@ func (i ServiceQuotaUsageMetricArray) ToServiceQuotaUsageMetricArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaUsageMetricArrayOutput)
 }
 
+func (i ServiceQuotaUsageMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceQuotaUsageMetric] {
+	return pulumix.Output[[]ServiceQuotaUsageMetric]{
+		OutputState: i.ToServiceQuotaUsageMetricArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceQuotaUsageMetricOutput struct{ *pulumi.OutputState }
 
 func (ServiceQuotaUsageMetricOutput) ElementType() reflect.Type {
@@ -92,6 +108,12 @@ func (o ServiceQuotaUsageMetricOutput) ToServiceQuotaUsageMetricOutput() Service
 
 func (o ServiceQuotaUsageMetricOutput) ToServiceQuotaUsageMetricOutputWithContext(ctx context.Context) ServiceQuotaUsageMetricOutput {
 	return o
+}
+
+func (o ServiceQuotaUsageMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceQuotaUsageMetric] {
+	return pulumix.Output[ServiceQuotaUsageMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The metric dimensions.
@@ -126,6 +148,12 @@ func (o ServiceQuotaUsageMetricArrayOutput) ToServiceQuotaUsageMetricArrayOutput
 
 func (o ServiceQuotaUsageMetricArrayOutput) ToServiceQuotaUsageMetricArrayOutputWithContext(ctx context.Context) ServiceQuotaUsageMetricArrayOutput {
 	return o
+}
+
+func (o ServiceQuotaUsageMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceQuotaUsageMetric] {
+	return pulumix.Output[[]ServiceQuotaUsageMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceQuotaUsageMetricArrayOutput) Index(i pulumi.IntInput) ServiceQuotaUsageMetricOutput {
@@ -171,6 +199,12 @@ func (i ServiceQuotaUsageMetricMetricDimensionArgs) ToServiceQuotaUsageMetricMet
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaUsageMetricMetricDimensionOutput)
 }
 
+func (i ServiceQuotaUsageMetricMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[ServiceQuotaUsageMetricMetricDimension]{
+		OutputState: i.ToServiceQuotaUsageMetricMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceQuotaUsageMetricMetricDimensionArrayInput is an input type that accepts ServiceQuotaUsageMetricMetricDimensionArray and ServiceQuotaUsageMetricMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `ServiceQuotaUsageMetricMetricDimensionArrayInput` via:
 //
@@ -196,6 +230,12 @@ func (i ServiceQuotaUsageMetricMetricDimensionArray) ToServiceQuotaUsageMetricMe
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaUsageMetricMetricDimensionArrayOutput)
 }
 
+func (i ServiceQuotaUsageMetricMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[[]ServiceQuotaUsageMetricMetricDimension]{
+		OutputState: i.ToServiceQuotaUsageMetricMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceQuotaUsageMetricMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (ServiceQuotaUsageMetricMetricDimensionOutput) ElementType() reflect.Type {
@@ -208,6 +248,12 @@ func (o ServiceQuotaUsageMetricMetricDimensionOutput) ToServiceQuotaUsageMetricM
 
 func (o ServiceQuotaUsageMetricMetricDimensionOutput) ToServiceQuotaUsageMetricMetricDimensionOutputWithContext(ctx context.Context) ServiceQuotaUsageMetricMetricDimensionOutput {
 	return o
+}
+
+func (o ServiceQuotaUsageMetricMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[ServiceQuotaUsageMetricMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceQuotaUsageMetricMetricDimensionOutput) Class() pulumi.StringPtrOutput {
@@ -238,6 +284,12 @@ func (o ServiceQuotaUsageMetricMetricDimensionArrayOutput) ToServiceQuotaUsageMe
 
 func (o ServiceQuotaUsageMetricMetricDimensionArrayOutput) ToServiceQuotaUsageMetricMetricDimensionArrayOutputWithContext(ctx context.Context) ServiceQuotaUsageMetricMetricDimensionArrayOutput {
 	return o
+}
+
+func (o ServiceQuotaUsageMetricMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[[]ServiceQuotaUsageMetricMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceQuotaUsageMetricMetricDimensionArrayOutput) Index(i pulumi.IntInput) ServiceQuotaUsageMetricMetricDimensionOutput {
@@ -291,6 +343,12 @@ func (i GetServiceQuotaUsageMetricArgs) ToGetServiceQuotaUsageMetricOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQuotaUsageMetricOutput)
 }
 
+func (i GetServiceQuotaUsageMetricArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceQuotaUsageMetric] {
+	return pulumix.Output[GetServiceQuotaUsageMetric]{
+		OutputState: i.ToGetServiceQuotaUsageMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceQuotaUsageMetricArrayInput is an input type that accepts GetServiceQuotaUsageMetricArray and GetServiceQuotaUsageMetricArrayOutput values.
 // You can construct a concrete instance of `GetServiceQuotaUsageMetricArrayInput` via:
 //
@@ -316,6 +374,12 @@ func (i GetServiceQuotaUsageMetricArray) ToGetServiceQuotaUsageMetricArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQuotaUsageMetricArrayOutput)
 }
 
+func (i GetServiceQuotaUsageMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceQuotaUsageMetric] {
+	return pulumix.Output[[]GetServiceQuotaUsageMetric]{
+		OutputState: i.ToGetServiceQuotaUsageMetricArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceQuotaUsageMetricOutput struct{ *pulumi.OutputState }
 
 func (GetServiceQuotaUsageMetricOutput) ElementType() reflect.Type {
@@ -328,6 +392,12 @@ func (o GetServiceQuotaUsageMetricOutput) ToGetServiceQuotaUsageMetricOutput() G
 
 func (o GetServiceQuotaUsageMetricOutput) ToGetServiceQuotaUsageMetricOutputWithContext(ctx context.Context) GetServiceQuotaUsageMetricOutput {
 	return o
+}
+
+func (o GetServiceQuotaUsageMetricOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceQuotaUsageMetric] {
+	return pulumix.Output[GetServiceQuotaUsageMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The metric dimensions.
@@ -364,6 +434,12 @@ func (o GetServiceQuotaUsageMetricArrayOutput) ToGetServiceQuotaUsageMetricArray
 
 func (o GetServiceQuotaUsageMetricArrayOutput) ToGetServiceQuotaUsageMetricArrayOutputWithContext(ctx context.Context) GetServiceQuotaUsageMetricArrayOutput {
 	return o
+}
+
+func (o GetServiceQuotaUsageMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceQuotaUsageMetric] {
+	return pulumix.Output[[]GetServiceQuotaUsageMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceQuotaUsageMetricArrayOutput) Index(i pulumi.IntInput) GetServiceQuotaUsageMetricOutput {
@@ -409,6 +485,12 @@ func (i GetServiceQuotaUsageMetricMetricDimensionArgs) ToGetServiceQuotaUsageMet
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQuotaUsageMetricMetricDimensionOutput)
 }
 
+func (i GetServiceQuotaUsageMetricMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[GetServiceQuotaUsageMetricMetricDimension]{
+		OutputState: i.ToGetServiceQuotaUsageMetricMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceQuotaUsageMetricMetricDimensionArrayInput is an input type that accepts GetServiceQuotaUsageMetricMetricDimensionArray and GetServiceQuotaUsageMetricMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `GetServiceQuotaUsageMetricMetricDimensionArrayInput` via:
 //
@@ -434,6 +516,12 @@ func (i GetServiceQuotaUsageMetricMetricDimensionArray) ToGetServiceQuotaUsageMe
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQuotaUsageMetricMetricDimensionArrayOutput)
 }
 
+func (i GetServiceQuotaUsageMetricMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[[]GetServiceQuotaUsageMetricMetricDimension]{
+		OutputState: i.ToGetServiceQuotaUsageMetricMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceQuotaUsageMetricMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetServiceQuotaUsageMetricMetricDimensionOutput) ElementType() reflect.Type {
@@ -446,6 +534,12 @@ func (o GetServiceQuotaUsageMetricMetricDimensionOutput) ToGetServiceQuotaUsageM
 
 func (o GetServiceQuotaUsageMetricMetricDimensionOutput) ToGetServiceQuotaUsageMetricMetricDimensionOutputWithContext(ctx context.Context) GetServiceQuotaUsageMetricMetricDimensionOutput {
 	return o
+}
+
+func (o GetServiceQuotaUsageMetricMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[GetServiceQuotaUsageMetricMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Class() pulumi.StringOutput {
@@ -476,6 +570,12 @@ func (o GetServiceQuotaUsageMetricMetricDimensionArrayOutput) ToGetServiceQuotaU
 
 func (o GetServiceQuotaUsageMetricMetricDimensionArrayOutput) ToGetServiceQuotaUsageMetricMetricDimensionArrayOutputWithContext(ctx context.Context) GetServiceQuotaUsageMetricMetricDimensionArrayOutput {
 	return o
+}
+
+func (o GetServiceQuotaUsageMetricMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceQuotaUsageMetricMetricDimension] {
+	return pulumix.Output[[]GetServiceQuotaUsageMetricMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceQuotaUsageMetricMetricDimensionArrayOutput) Index(i pulumi.IntInput) GetServiceQuotaUsageMetricMetricDimensionOutput {

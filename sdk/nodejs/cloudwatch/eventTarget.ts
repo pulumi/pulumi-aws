@@ -273,7 +273,10 @@ import * as utilities from "../utilities";
  *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
  *             principals: [{
  *                 type: "Service",
- *                 identifiers: ["events.amazonaws.com"],
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
  *             }],
  *         },
  *         {
@@ -282,7 +285,10 @@ import * as utilities from "../utilities";
  *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*:*`],
  *             principals: [{
  *                 type: "Service",
- *                 identifiers: ["events.amazonaws.com"],
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
  *             }],
  *             conditions: [{
  *                 test: "ArnEquals",
@@ -304,7 +310,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+ * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  *
  * ```sh
  *  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
@@ -393,12 +399,18 @@ export class EventTarget extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the rule you want to add targets to.
+     *
+     * The following arguments are optional:
      */
     public readonly rule!: pulumi.Output<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
     public readonly runCommandTargets!: pulumi.Output<outputs.cloudwatch.EventTargetRunCommandTarget[] | undefined>;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     */
+    public readonly sagemakerPipelineTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSagemakerPipelineTarget | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
@@ -436,6 +448,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["rule"] = state ? state.rule : undefined;
             resourceInputs["runCommandTargets"] = state ? state.runCommandTargets : undefined;
+            resourceInputs["sagemakerPipelineTarget"] = state ? state.sagemakerPipelineTarget : undefined;
             resourceInputs["sqsTarget"] = state ? state.sqsTarget : undefined;
             resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
@@ -461,6 +474,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["rule"] = args ? args.rule : undefined;
             resourceInputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
+            resourceInputs["sagemakerPipelineTarget"] = args ? args.sagemakerPipelineTarget : undefined;
             resourceInputs["sqsTarget"] = args ? args.sqsTarget : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
@@ -528,12 +542,18 @@ export interface EventTargetState {
     roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
+     *
+     * The following arguments are optional:
      */
     rule?: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
     runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     */
+    sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
@@ -603,12 +623,18 @@ export interface EventTargetArgs {
     roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
+     *
+     * The following arguments are optional:
      */
     rule: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
     runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     */
+    sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */

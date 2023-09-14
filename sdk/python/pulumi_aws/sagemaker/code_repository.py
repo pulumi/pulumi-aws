@@ -205,7 +205,7 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Repositories can be imported using the `name`, e.g.,
+        Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
@@ -264,7 +264,7 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Repositories can be imported using the `name`, e.g.,
+        Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
 
         ```sh
          $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo

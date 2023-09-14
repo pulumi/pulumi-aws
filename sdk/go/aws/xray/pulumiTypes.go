@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type GroupInsightsConfiguration struct {
 	// Specifies whether insights are enabled.
@@ -45,6 +49,12 @@ func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationOutput() Gro
 
 func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationOutputWithContext(ctx context.Context) GroupInsightsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInsightsConfigurationOutput)
+}
+
+func (i GroupInsightsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInsightsConfiguration] {
+	return pulumix.Output[GroupInsightsConfiguration]{
+		OutputState: i.ToGroupInsightsConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationPtrOutput() GroupInsightsConfigurationPtrOutput {
@@ -88,6 +98,12 @@ func (i *groupInsightsConfigurationPtrType) ToGroupInsightsConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInsightsConfigurationPtrOutput)
 }
 
+func (i *groupInsightsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupInsightsConfiguration] {
+	return pulumix.Output[*GroupInsightsConfiguration]{
+		OutputState: i.ToGroupInsightsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInsightsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GroupInsightsConfigurationOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o GroupInsightsConfigurationOutput) ToGroupInsightsConfigurationPtrOutputW
 	}).(GroupInsightsConfigurationPtrOutput)
 }
 
+func (o GroupInsightsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInsightsConfiguration] {
+	return pulumix.Output[GroupInsightsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies whether insights are enabled.
 func (o GroupInsightsConfigurationOutput) InsightsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupInsightsConfiguration) bool { return v.InsightsEnabled }).(pulumi.BoolOutput)
@@ -134,6 +156,12 @@ func (o GroupInsightsConfigurationPtrOutput) ToGroupInsightsConfigurationPtrOutp
 
 func (o GroupInsightsConfigurationPtrOutput) ToGroupInsightsConfigurationPtrOutputWithContext(ctx context.Context) GroupInsightsConfigurationPtrOutput {
 	return o
+}
+
+func (o GroupInsightsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupInsightsConfiguration] {
+	return pulumix.Output[*GroupInsightsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInsightsConfigurationPtrOutput) Elem() GroupInsightsConfigurationOutput {

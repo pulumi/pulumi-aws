@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Rbin.Inputs
     {
         /// <summary>
         /// The tag key.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("resourceTagKey", required: true)]
         public Input<string> ResourceTagKey { get; set; } = null!;

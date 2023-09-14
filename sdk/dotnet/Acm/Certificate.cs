@@ -139,10 +139,51 @@ namespace Pulumi.Aws.Acm
     /// 
     /// });
     /// ```
+    /// ### Referencing domain_validation_options With for_each Based Resources
+    /// 
+    /// See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new List&lt;Aws.Route53.Record&gt;();
+    ///     foreach (var range in .ToDictionary(item =&gt; {
+    ///         var dvo = item.Value;
+    ///         return dvo.DomainName;
+    ///     }, item =&gt; {
+    ///         var dvo = item.Value;
+    ///         return 
+    ///         {
+    ///             { "name", dvo.ResourceRecordName },
+    ///             { "record", dvo.ResourceRecordValue },
+    ///             { "type", dvo.ResourceRecordType },
+    ///         };
+    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     {
+    ///         example.Add(new Aws.Route53.Record($"example-{range.Key}", new()
+    ///         {
+    ///             AllowOverwrite = true,
+    ///             Name = range.Value.Name,
+    ///             Records = new[]
+    ///             {
+    ///                 range.Value.Record,
+    ///             },
+    ///             Ttl = 60,
+    ///             Type = System.Enum.Parse&lt;Aws.Route53/RecordType.RecordType&gt;(range.Value.Type),
+    ///             ZoneId = aws_route53_zone.Example.Zone_id,
+    ///         }));
+    ///     }
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// Certificates can be imported using their ARN, e.g.,
+    /// Using `pulumi import`, import certificates using their ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
@@ -286,7 +327,7 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
@@ -437,7 +478,7 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
@@ -644,7 +685,7 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }

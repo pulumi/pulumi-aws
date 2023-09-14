@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AppStream User Stack association.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +56,7 @@ import (
 //
 // ## Import
 //
-// AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+// Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
 //
 // ```sh
 //
@@ -71,6 +73,8 @@ type UserStackAssociation struct {
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringOutput `pulumi:"stackName"`
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -90,6 +94,7 @@ func NewUserStackAssociation(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserStackAssociation
 	err := ctx.RegisterResource("aws:appstream/userStackAssociation:UserStackAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -119,6 +124,8 @@ type userStackAssociationState struct {
 	// Name of the stack that is associated with the user.
 	StackName *string `pulumi:"stackName"`
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 }
 
@@ -130,6 +137,8 @@ type UserStackAssociationState struct {
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringPtrInput
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 }
 
@@ -145,6 +154,8 @@ type userStackAssociationArgs struct {
 	// Name of the stack that is associated with the user.
 	StackName string `pulumi:"stackName"`
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -157,6 +168,8 @@ type UserStackAssociationArgs struct {
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringInput
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 }
 
@@ -181,6 +194,12 @@ func (i *UserStackAssociation) ToUserStackAssociationOutput() UserStackAssociati
 
 func (i *UserStackAssociation) ToUserStackAssociationOutputWithContext(ctx context.Context) UserStackAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationOutput)
+}
+
+func (i *UserStackAssociation) ToOutput(ctx context.Context) pulumix.Output[*UserStackAssociation] {
+	return pulumix.Output[*UserStackAssociation]{
+		OutputState: i.ToUserStackAssociationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserStackAssociationArrayInput is an input type that accepts UserStackAssociationArray and UserStackAssociationArrayOutput values.
@@ -208,6 +227,12 @@ func (i UserStackAssociationArray) ToUserStackAssociationArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationArrayOutput)
 }
 
+func (i UserStackAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserStackAssociation] {
+	return pulumix.Output[[]*UserStackAssociation]{
+		OutputState: i.ToUserStackAssociationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserStackAssociationMapInput is an input type that accepts UserStackAssociationMap and UserStackAssociationMapOutput values.
 // You can construct a concrete instance of `UserStackAssociationMapInput` via:
 //
@@ -233,6 +258,12 @@ func (i UserStackAssociationMap) ToUserStackAssociationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationMapOutput)
 }
 
+func (i UserStackAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserStackAssociation] {
+	return pulumix.Output[map[string]*UserStackAssociation]{
+		OutputState: i.ToUserStackAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserStackAssociationOutput struct{ *pulumi.OutputState }
 
 func (UserStackAssociationOutput) ElementType() reflect.Type {
@@ -245,6 +276,12 @@ func (o UserStackAssociationOutput) ToUserStackAssociationOutput() UserStackAsso
 
 func (o UserStackAssociationOutput) ToUserStackAssociationOutputWithContext(ctx context.Context) UserStackAssociationOutput {
 	return o
+}
+
+func (o UserStackAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*UserStackAssociation] {
+	return pulumix.Output[*UserStackAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Authentication type for the user.
@@ -263,6 +300,8 @@ func (o UserStackAssociationOutput) StackName() pulumi.StringOutput {
 }
 
 // Email address of the user who is associated with the stack.
+//
+// The following arguments are optional:
 func (o UserStackAssociationOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
@@ -279,6 +318,12 @@ func (o UserStackAssociationArrayOutput) ToUserStackAssociationArrayOutput() Use
 
 func (o UserStackAssociationArrayOutput) ToUserStackAssociationArrayOutputWithContext(ctx context.Context) UserStackAssociationArrayOutput {
 	return o
+}
+
+func (o UserStackAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserStackAssociation] {
+	return pulumix.Output[[]*UserStackAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserStackAssociationArrayOutput) Index(i pulumi.IntInput) UserStackAssociationOutput {
@@ -299,6 +344,12 @@ func (o UserStackAssociationMapOutput) ToUserStackAssociationMapOutput() UserSta
 
 func (o UserStackAssociationMapOutput) ToUserStackAssociationMapOutputWithContext(ctx context.Context) UserStackAssociationMapOutput {
 	return o
+}
+
+func (o UserStackAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserStackAssociation] {
+	return pulumix.Output[map[string]*UserStackAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserStackAssociationMapOutput) MapIndex(k pulumi.StringInput) UserStackAssociationOutput {

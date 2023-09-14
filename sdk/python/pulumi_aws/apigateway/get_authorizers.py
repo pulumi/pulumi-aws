@@ -88,9 +88,9 @@ def get_authorizers(rest_api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getAuthorizers:getAuthorizers', __args__, opts=opts, typ=GetAuthorizersResult).value
 
     return AwaitableGetAuthorizersResult(
-        id=__ret__.id,
-        ids=__ret__.ids,
-        rest_api_id=__ret__.rest_api_id)
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
 
 
 @_utilities.lift_output_func(get_authorizers)

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a DynamoDB table.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableResult
 	err := ctx.Invoke("aws:dynamodb/getTable:getTable", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o LookupTableResultOutput) ToLookupTableResultOutput() LookupTableResultOu
 
 func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx context.Context) LookupTableResultOutput {
 	return o
+}
+
+func (o LookupTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTableResult] {
+	return pulumix.Output[LookupTableResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTableResultOutput) Arn() pulumi.StringOutput {

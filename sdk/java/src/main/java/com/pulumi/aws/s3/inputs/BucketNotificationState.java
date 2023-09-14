@@ -23,6 +23,8 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
     /**
      * Name of the bucket for notification configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
@@ -30,20 +32,22 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
     /**
      * @return Name of the bucket for notification configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
     @Import(name="eventbridge")
     private @Nullable Output<Boolean> eventbridge;
 
     /**
-     * @return Whether to enable Amazon EventBridge notifications.
+     * @return Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> eventbridge() {
@@ -126,6 +130,8 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
         /**
          * @param bucket Name of the bucket for notification configuration.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
         /**
          * @param bucket Name of the bucket for notification configuration.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -145,7 +153,7 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param eventbridge Whether to enable Amazon EventBridge notifications.
+         * @param eventbridge Whether to enable Amazon EventBridge notifications. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -156,7 +164,7 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param eventbridge Whether to enable Amazon EventBridge notifications.
+         * @param eventbridge Whether to enable Amazon EventBridge notifications. Defaults to `false`.
          * 
          * @return builder
          * 

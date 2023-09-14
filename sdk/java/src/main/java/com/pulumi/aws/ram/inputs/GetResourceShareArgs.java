@@ -79,14 +79,14 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Tags attached to the RAM share
+     * Tags attached to the resource share.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Tags attached to the RAM share
+     * @return Tags attached to the resource share.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -216,7 +216,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags Tags attached to the RAM share
+         * @param tags Tags attached to the resource share.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags Tags attached to the RAM share
+         * @param tags Tags attached to the resource share.
          * 
          * @return builder
          * 

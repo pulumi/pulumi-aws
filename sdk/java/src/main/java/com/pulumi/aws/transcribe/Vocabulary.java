@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+ * Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
@@ -182,12 +182,16 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Vocabulary.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vocabularyName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyName;
 
     /**
      * @return The name of the Vocabulary.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vocabularyName() {

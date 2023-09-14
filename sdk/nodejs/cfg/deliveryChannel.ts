@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Delivery Channel can be imported using the name, e.g.,
+ * Using `pulumi import`, import Delivery Channel using the name. For example:
  *
  * ```sh
  *  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example

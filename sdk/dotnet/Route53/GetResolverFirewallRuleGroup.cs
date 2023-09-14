@@ -81,6 +81,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the rule group.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public string FirewallRuleGroupId { get; set; } = null!;
@@ -95,6 +97,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the rule group.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;

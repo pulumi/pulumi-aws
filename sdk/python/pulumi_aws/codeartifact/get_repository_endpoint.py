@@ -126,12 +126,12 @@ def get_repository_endpoint(domain: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint', __args__, opts=opts, typ=GetRepositoryEndpointResult).value
 
     return AwaitableGetRepositoryEndpointResult(
-        domain=__ret__.domain,
-        domain_owner=__ret__.domain_owner,
-        format=__ret__.format,
-        id=__ret__.id,
-        repository=__ret__.repository,
-        repository_endpoint=__ret__.repository_endpoint)
+        domain=pulumi.get(__ret__, 'domain'),
+        domain_owner=pulumi.get(__ret__, 'domain_owner'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        repository=pulumi.get(__ret__, 'repository'),
+        repository_endpoint=pulumi.get(__ret__, 'repository_endpoint'))
 
 
 @_utilities.lift_output_func(get_repository_endpoint)

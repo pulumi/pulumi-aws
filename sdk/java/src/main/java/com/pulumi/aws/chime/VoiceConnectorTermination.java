@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Chime Voice Connector Termination can be imported using the `voice_connector_id`, e.g.,
+ * Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4

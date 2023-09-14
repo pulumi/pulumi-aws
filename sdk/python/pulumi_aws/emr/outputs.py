@@ -402,10 +402,10 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
 class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 properties: Optional[Mapping[str, Any]] = None):
+                 properties: Optional[Mapping[str, str]] = None):
         """
         :param str classification: Classification within a configuration.
-        :param Mapping[str, Any] properties: Map of properties specified within a configuration classification.
+        :param Mapping[str, str] properties: Map of properties specified within a configuration classification.
         """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -422,7 +422,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, Any]]:
+    def properties(self) -> Optional[Mapping[str, str]]:
         """
         Map of properties specified within a configuration classification.
         """
@@ -615,7 +615,7 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
                  timeout_duration_minutes: int,
                  block_duration_minutes: Optional[int] = None):
         """
-        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
         :param str timeout_action: Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
         :param int timeout_duration_minutes: Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
         :param int block_duration_minutes: Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
@@ -630,7 +630,7 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> str:
         """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -911,6 +911,8 @@ class ClusterEc2Attributes(dict):
         :param str service_access_security_group: Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
         :param str subnet_id: VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
         :param Sequence[str] subnet_ids: List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+               
+               > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emr_managed_master_security_group` and `emr_managed_slave_security_group`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for any Security Group used in `emr_managed_master_security_group` and `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
         """
         pulumi.set(__self__, "instance_profile", instance_profile)
         if additional_master_security_groups is not None:
@@ -999,6 +1001,8 @@ class ClusterEc2Attributes(dict):
     def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+
+        > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emr_managed_master_security_group` and `emr_managed_slave_security_group`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for any Security Group used in `emr_managed_master_security_group` and `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -1320,10 +1324,10 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
 class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 properties: Optional[Mapping[str, Any]] = None):
+                 properties: Optional[Mapping[str, str]] = None):
         """
         :param str classification: Classification within a configuration.
-        :param Mapping[str, Any] properties: Map of properties specified within a configuration classification.
+        :param Mapping[str, str] properties: Map of properties specified within a configuration classification.
         """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -1340,7 +1344,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, Any]]:
+    def properties(self) -> Optional[Mapping[str, str]]:
         """
         Map of properties specified within a configuration classification.
         """
@@ -1533,7 +1537,7 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
                  timeout_duration_minutes: int,
                  block_duration_minutes: Optional[int] = None):
         """
-        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
         :param str timeout_action: Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
         :param int timeout_duration_minutes: Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
         :param int block_duration_minutes: Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
@@ -1548,7 +1552,7 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> str:
         """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -2046,10 +2050,10 @@ class InstanceFleetInstanceTypeConfig(dict):
 class InstanceFleetInstanceTypeConfigConfiguration(dict):
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 properties: Optional[Mapping[str, Any]] = None):
+                 properties: Optional[Mapping[str, str]] = None):
         """
         :param str classification: The classification within a configuration.
-        :param Mapping[str, Any] properties: A map of properties specified within a configuration classification
+        :param Mapping[str, str] properties: A map of properties specified within a configuration classification
         """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -2066,7 +2070,7 @@ class InstanceFleetInstanceTypeConfigConfiguration(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, Any]]:
+    def properties(self) -> Optional[Mapping[str, str]]:
         """
         A map of properties specified within a configuration classification
         """

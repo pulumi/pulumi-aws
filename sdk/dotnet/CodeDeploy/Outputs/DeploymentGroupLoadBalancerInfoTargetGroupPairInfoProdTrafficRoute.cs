@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute
     {
         /// <summary>
-        /// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+        /// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
         /// </summary>
         public readonly ImmutableArray<string> ListenerArns;
 

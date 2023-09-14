@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS Account Setting defaults can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat

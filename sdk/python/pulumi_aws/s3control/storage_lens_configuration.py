@@ -247,7 +247,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+        Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
 
         ```sh
          $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
@@ -316,7 +316,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+        Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
 
         ```sh
          $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1

@@ -17,7 +17,7 @@ public final class GetRegionsResult {
     private @Nullable Boolean allRegions;
     private @Nullable List<GetRegionsFilter> filters;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
     private String id;
@@ -35,7 +35,7 @@ public final class GetRegionsResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
     public String id() {

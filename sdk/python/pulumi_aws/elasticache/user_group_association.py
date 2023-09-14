@@ -131,7 +131,7 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+        Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
 
         ```sh
          $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
@@ -182,7 +182,7 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+        Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
 
         ```sh
          $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId

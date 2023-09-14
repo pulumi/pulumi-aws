@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SESv2 (Simple Email V2) Dedicated IP Pool can be imported using the `pool_name`, e.g.,
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
@@ -107,12 +107,16 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
     /**
      * Name of the dedicated IP pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="poolName", refs={String.class}, tree="[0]")
     private Output<String> poolName;
 
     /**
      * @return Name of the dedicated IP pool.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> poolName() {

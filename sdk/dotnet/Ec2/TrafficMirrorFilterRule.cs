@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
+    /// Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
@@ -137,6 +137,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// 
+        /// Traffic mirror port range support following attributes:
         /// </summary>
         [Output("trafficDirection")]
         public Output<string> TrafficDirection { get; private set; } = null!;
@@ -243,6 +245,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// 
+        /// Traffic mirror port range support following attributes:
         /// </summary>
         [Input("trafficDirection", required: true)]
         public Input<string> TrafficDirection { get; set; } = null!;
@@ -317,6 +321,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// 
+        /// Traffic mirror port range support following attributes:
         /// </summary>
         [Input("trafficDirection")]
         public Input<string>? TrafficDirection { get; set; }

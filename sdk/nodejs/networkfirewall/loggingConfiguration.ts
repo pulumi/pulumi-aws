@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
+ * Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example

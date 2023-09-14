@@ -23,10 +23,6 @@ public final class GetIpRangesResult {
      * 
      */
     private String createDate;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     /**
      * @return Lexically ordered list of IPv6 CIDR blocks.
@@ -58,10 +54,6 @@ public final class GetIpRangesResult {
     public String createDate() {
         return this.createDate;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

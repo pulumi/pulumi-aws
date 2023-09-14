@@ -250,6 +250,8 @@ def get_target_group(arn: Optional[str] = None,
     :param str arn: Full ARN of the target group.
     :param str name: Unique name of the target group.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -259,26 +261,26 @@ def get_target_group(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:alb/getTargetGroup:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult).value
 
     return AwaitableGetTargetGroupResult(
-        arn=__ret__.arn,
-        arn_suffix=__ret__.arn_suffix,
-        connection_termination=__ret__.connection_termination,
-        deregistration_delay=__ret__.deregistration_delay,
-        health_check=__ret__.health_check,
-        id=__ret__.id,
-        lambda_multi_value_headers_enabled=__ret__.lambda_multi_value_headers_enabled,
-        load_balancing_algorithm_type=__ret__.load_balancing_algorithm_type,
-        load_balancing_cross_zone_enabled=__ret__.load_balancing_cross_zone_enabled,
-        name=__ret__.name,
-        port=__ret__.port,
-        preserve_client_ip=__ret__.preserve_client_ip,
-        protocol=__ret__.protocol,
-        protocol_version=__ret__.protocol_version,
-        proxy_protocol_v2=__ret__.proxy_protocol_v2,
-        slow_start=__ret__.slow_start,
-        stickiness=__ret__.stickiness,
-        tags=__ret__.tags,
-        target_type=__ret__.target_type,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        arn_suffix=pulumi.get(__ret__, 'arn_suffix'),
+        connection_termination=pulumi.get(__ret__, 'connection_termination'),
+        deregistration_delay=pulumi.get(__ret__, 'deregistration_delay'),
+        health_check=pulumi.get(__ret__, 'health_check'),
+        id=pulumi.get(__ret__, 'id'),
+        lambda_multi_value_headers_enabled=pulumi.get(__ret__, 'lambda_multi_value_headers_enabled'),
+        load_balancing_algorithm_type=pulumi.get(__ret__, 'load_balancing_algorithm_type'),
+        load_balancing_cross_zone_enabled=pulumi.get(__ret__, 'load_balancing_cross_zone_enabled'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        preserve_client_ip=pulumi.get(__ret__, 'preserve_client_ip'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        protocol_version=pulumi.get(__ret__, 'protocol_version'),
+        proxy_protocol_v2=pulumi.get(__ret__, 'proxy_protocol_v2'),
+        slow_start=pulumi.get(__ret__, 'slow_start'),
+        stickiness=pulumi.get(__ret__, 'stickiness'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_type=pulumi.get(__ret__, 'target_type'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_target_group)
@@ -316,5 +318,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str arn: Full ARN of the target group.
     :param str name: Unique name of the target group.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
     """
     ...

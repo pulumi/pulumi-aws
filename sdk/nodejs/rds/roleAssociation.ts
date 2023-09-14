@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.RoleAssociation("example", {
- *     dbInstanceIdentifier: aws_db_instance.example.id,
+ *     dbInstanceIdentifier: aws_db_instance.example.identifier,
  *     featureName: "S3_INTEGRATION",
  *     roleArn: aws_iam_role.example.arn,
  * });
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+ * Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
  *
  * ```sh
  *  $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role

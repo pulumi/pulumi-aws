@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a VPC routing table.
@@ -33,13 +35,14 @@ import (
 // the separate resource.
 //
 // ## Example Usage
+// ### Basic example
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +81,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,10 +103,104 @@ import (
 //	}
 //
 // ```
+// ### Adopting an existing local route
+//
+// AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+//
+// First, adopt an existing AWS-created route:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
+//				VpcId: testVpc.ID(),
+//				Routes: ec2.RouteTableRouteArray{
+//					&ec2.RouteTableRouteArgs{
+//						CidrBlock: pulumi.String("10.1.0.0/16"),
+//						GatewayId: pulumi.String("local"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Next, update the target of the route:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testSubnet, err := ec2.NewSubnet(ctx, "testSubnet", &ec2.SubnetArgs{
+//				CidrBlock: pulumi.String("10.1.1.0/24"),
+//				VpcId:     testVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testNetworkInterface, err := ec2.NewNetworkInterface(ctx, "testNetworkInterface", &ec2.NetworkInterfaceArgs{
+//				SubnetId: testSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
+//				VpcId: testVpc.ID(),
+//				Routes: ec2.RouteTableRouteArray{
+//					&ec2.RouteTableRouteArgs{
+//						CidrBlock:          testVpc.CidrBlock,
+//						NetworkInterfaceId: testNetworkInterface.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The target could then be updated again back to `local`.
 //
 // ## Import
 //
-// Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command
+// Using `pulumi import`, import Route Tables using the route table `id`. For example:
 //
 // ```sh
 //
@@ -140,6 +237,7 @@ func NewRouteTable(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteTable
 	err := ctx.RegisterResource("aws:ec2/routeTable:RouteTable", name, args, &resource, opts...)
 	if err != nil {
@@ -249,6 +347,12 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableOutput)
 }
 
+func (i *RouteTable) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
+	return pulumix.Output[*RouteTable]{
+		OutputState: i.ToRouteTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteTableArrayInput is an input type that accepts RouteTableArray and RouteTableArrayOutput values.
 // You can construct a concrete instance of `RouteTableArrayInput` via:
 //
@@ -272,6 +376,12 @@ func (i RouteTableArray) ToRouteTableArrayOutput() RouteTableArrayOutput {
 
 func (i RouteTableArray) ToRouteTableArrayOutputWithContext(ctx context.Context) RouteTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableArrayOutput)
+}
+
+func (i RouteTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTable] {
+	return pulumix.Output[[]*RouteTable]{
+		OutputState: i.ToRouteTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteTableMapInput is an input type that accepts RouteTableMap and RouteTableMapOutput values.
@@ -299,6 +409,12 @@ func (i RouteTableMap) ToRouteTableMapOutputWithContext(ctx context.Context) Rou
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableMapOutput)
 }
 
+func (i RouteTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTable] {
+	return pulumix.Output[map[string]*RouteTable]{
+		OutputState: i.ToRouteTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
@@ -311,6 +427,12 @@ func (o RouteTableOutput) ToRouteTableOutput() RouteTableOutput {
 
 func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) RouteTableOutput {
 	return o
+}
+
+func (o RouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
+	return pulumix.Output[*RouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the route table.
@@ -363,6 +485,12 @@ func (o RouteTableArrayOutput) ToRouteTableArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o RouteTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTable] {
+	return pulumix.Output[[]*RouteTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTableArrayOutput) Index(i pulumi.IntInput) RouteTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteTable {
 		return vs[0].([]*RouteTable)[vs[1].(int)]
@@ -381,6 +509,12 @@ func (o RouteTableMapOutput) ToRouteTableMapOutput() RouteTableMapOutput {
 
 func (o RouteTableMapOutput) ToRouteTableMapOutputWithContext(ctx context.Context) RouteTableMapOutput {
 	return o
+}
+
+func (o RouteTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTable] {
+	return pulumix.Output[map[string]*RouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTableMapOutput) MapIndex(k pulumi.StringInput) RouteTableOutput {

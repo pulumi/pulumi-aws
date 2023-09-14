@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Classifier resource.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +114,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -136,7 +138,7 @@ import (
 //
 // ## Import
 //
-// Glue Classifiers can be imported using their name, e.g.,
+// Using `pulumi import`, import Glue Classifiers using their name. For example:
 //
 // ```sh
 //
@@ -165,6 +167,7 @@ func NewClassifier(ctx *pulumi.Context,
 		args = &ClassifierArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Classifier
 	err := ctx.RegisterResource("aws:glue/classifier:Classifier", name, args, &resource, opts...)
 	if err != nil {
@@ -266,6 +269,12 @@ func (i *Classifier) ToClassifierOutputWithContext(ctx context.Context) Classifi
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierOutput)
 }
 
+func (i *Classifier) ToOutput(ctx context.Context) pulumix.Output[*Classifier] {
+	return pulumix.Output[*Classifier]{
+		OutputState: i.ToClassifierOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClassifierArrayInput is an input type that accepts ClassifierArray and ClassifierArrayOutput values.
 // You can construct a concrete instance of `ClassifierArrayInput` via:
 //
@@ -289,6 +298,12 @@ func (i ClassifierArray) ToClassifierArrayOutput() ClassifierArrayOutput {
 
 func (i ClassifierArray) ToClassifierArrayOutputWithContext(ctx context.Context) ClassifierArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierArrayOutput)
+}
+
+func (i ClassifierArray) ToOutput(ctx context.Context) pulumix.Output[[]*Classifier] {
+	return pulumix.Output[[]*Classifier]{
+		OutputState: i.ToClassifierArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClassifierMapInput is an input type that accepts ClassifierMap and ClassifierMapOutput values.
@@ -316,6 +331,12 @@ func (i ClassifierMap) ToClassifierMapOutputWithContext(ctx context.Context) Cla
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierMapOutput)
 }
 
+func (i ClassifierMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Classifier] {
+	return pulumix.Output[map[string]*Classifier]{
+		OutputState: i.ToClassifierMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierOutput) ElementType() reflect.Type {
@@ -328,6 +349,12 @@ func (o ClassifierOutput) ToClassifierOutput() ClassifierOutput {
 
 func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
 	return o
+}
+
+func (o ClassifierOutput) ToOutput(ctx context.Context) pulumix.Output[*Classifier] {
+	return pulumix.Output[*Classifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A classifier for Csv content. Defined below.
@@ -369,6 +396,12 @@ func (o ClassifierArrayOutput) ToClassifierArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ClassifierArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Classifier] {
+	return pulumix.Output[[]*Classifier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClassifierArrayOutput) Index(i pulumi.IntInput) ClassifierOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Classifier {
 		return vs[0].([]*Classifier)[vs[1].(int)]
@@ -387,6 +420,12 @@ func (o ClassifierMapOutput) ToClassifierMapOutput() ClassifierMapOutput {
 
 func (o ClassifierMapOutput) ToClassifierMapOutputWithContext(ctx context.Context) ClassifierMapOutput {
 	return o
+}
+
+func (o ClassifierMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Classifier] {
+	return pulumix.Output[map[string]*Classifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClassifierMapOutput) MapIndex(k pulumi.StringInput) ClassifierOutput {

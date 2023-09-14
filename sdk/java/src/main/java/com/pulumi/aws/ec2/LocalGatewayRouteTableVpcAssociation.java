@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_local_gateway_route_table_vpc_association` can be imported by using the Local Gateway Route Table VPC Association identifier, e.g.,
+ * Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
@@ -123,12 +123,16 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
     /**
      * Identifier of EC2 VPC.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
      * @return Identifier of EC2 VPC.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {

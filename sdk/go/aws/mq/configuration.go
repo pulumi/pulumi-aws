@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an MQ Configuration Resource.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -30,7 +32,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
-//				Data:          pulumi.String("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<broker xmlns=\"http://activemq.apache.org/schema/core\">\n  <plugins>\n    <forcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/>\n    <statisticsBrokerPlugin/>\n    <timeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/>\n  </plugins>\n</broker>\n\n"),
+//				Data: pulumi.String(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+//
+// <broker xmlns="http://activemq.apache.org/schema/core">
+//
+//	<plugins>
+//	  <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+//	  <statisticsBrokerPlugin/>
+//	  <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+//	</plugins>
+//
+// </broker>
+//
+// `),
+//
 //				Description:   pulumi.String("Example Configuration"),
 //				EngineType:    pulumi.String("ActiveMQ"),
 //				EngineVersion: pulumi.String("5.15.0"),
@@ -46,7 +61,7 @@ import (
 //
 // ## Import
 //
-// MQ Configurations can be imported using the configuration ID, e.g.,
+// Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
 //
 // ```sh
 //
@@ -71,6 +86,8 @@ type Configuration struct {
 	// Latest revision of the configuration.
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -94,6 +111,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Configuration
 	err := ctx.RegisterResource("aws:mq/configuration:Configuration", name, args, &resource, opts...)
 	if err != nil {
@@ -131,6 +149,8 @@ type configurationState struct {
 	// Latest revision of the configuration.
 	LatestRevision *int `pulumi:"latestRevision"`
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -154,6 +174,8 @@ type ConfigurationState struct {
 	// Latest revision of the configuration.
 	LatestRevision pulumi.IntPtrInput
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -177,6 +199,8 @@ type configurationArgs struct {
 	// Version of the broker engine.
 	EngineVersion string `pulumi:"engineVersion"`
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -195,6 +219,8 @@ type ConfigurationArgs struct {
 	// Version of the broker engine.
 	EngineVersion pulumi.StringInput
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -223,6 +249,12 @@ func (i *Configuration) ToConfigurationOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
 }
 
+func (i *Configuration) ToOutput(ctx context.Context) pulumix.Output[*Configuration] {
+	return pulumix.Output[*Configuration]{
+		OutputState: i.ToConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationArrayInput is an input type that accepts ConfigurationArray and ConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationArrayInput` via:
 //
@@ -246,6 +278,12 @@ func (i ConfigurationArray) ToConfigurationArrayOutput() ConfigurationArrayOutpu
 
 func (i ConfigurationArray) ToConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationArrayOutput)
+}
+
+func (i ConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Configuration] {
+	return pulumix.Output[[]*Configuration]{
+		OutputState: i.ToConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConfigurationMapInput is an input type that accepts ConfigurationMap and ConfigurationMapOutput values.
@@ -273,6 +311,12 @@ func (i ConfigurationMap) ToConfigurationMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationMapOutput)
 }
 
+func (i ConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Configuration] {
+	return pulumix.Output[map[string]*Configuration]{
+		OutputState: i.ToConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationOutput) ElementType() reflect.Type {
@@ -285,6 +329,12 @@ func (o ConfigurationOutput) ToConfigurationOutput() ConfigurationOutput {
 
 func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
 	return o
+}
+
+func (o ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*Configuration] {
+	return pulumix.Output[*Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the configuration.
@@ -323,6 +373,8 @@ func (o ConfigurationOutput) LatestRevision() pulumi.IntOutput {
 }
 
 // Name of the configuration.
+//
+// The following arguments are optional:
 func (o ConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -351,6 +403,12 @@ func (o ConfigurationArrayOutput) ToConfigurationArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Configuration] {
+	return pulumix.Output[[]*Configuration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Configuration {
 		return vs[0].([]*Configuration)[vs[1].(int)]
@@ -369,6 +427,12 @@ func (o ConfigurationMapOutput) ToConfigurationMapOutput() ConfigurationMapOutpu
 
 func (o ConfigurationMapOutput) ToConfigurationMapOutputWithContext(ctx context.Context) ConfigurationMapOutput {
 	return o
+}
+
+func (o ConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Configuration] {
+	return pulumix.Output[map[string]*Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationMapOutput) MapIndex(k pulumi.StringInput) ConfigurationOutput {

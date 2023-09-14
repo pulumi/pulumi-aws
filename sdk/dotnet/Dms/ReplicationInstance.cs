@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Replication instances can be imported using the `replication_instance_id`, e.g.,
+    /// Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
@@ -178,7 +178,18 @@ namespace Pulumi.Aws.Dms
         public Output<bool> MultiAz { get; private set; } = null!;
 
         /// <summary>
+        /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        /// 
+        /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -203,6 +214,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// 
+        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Output("replicationInstanceId")]
         public Output<string> ReplicationInstanceId { get; private set; } = null!;
@@ -338,7 +354,18 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
+        /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        /// 
+        /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -357,6 +384,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// 
+        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationInstanceId", required: true)]
         public Input<string> ReplicationInstanceId { get; set; } = null!;
@@ -448,7 +480,18 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
+        /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        /// 
+        /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -473,6 +516,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// 
+        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationInstanceId")]
         public Input<string>? ReplicationInstanceId { get; set; }

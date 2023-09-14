@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for a Service Catalog Portfolio.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupPortfolio(ctx *pulumi.Context, args *LookupPortfolioArgs, opts ...pulumi.InvokeOption) (*LookupPortfolioResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPortfolioResult
 	err := ctx.Invoke("aws:servicecatalog/getPortfolio:getPortfolio", args, &rv, opts...)
 	if err != nil {
@@ -51,6 +54,8 @@ type LookupPortfolioArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	Id string `pulumi:"id"`
 	// Tags applied to the portfolio.
 	Tags map[string]string `pulumi:"tags"`
@@ -92,6 +97,8 @@ type LookupPortfolioOutputArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
 	// Tags applied to the portfolio.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -114,6 +121,12 @@ func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutput() LookupPortf
 
 func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutputWithContext(ctx context.Context) LookupPortfolioResultOutput {
 	return o
+}
+
+func (o LookupPortfolioResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPortfolioResult] {
+	return pulumix.Output[LookupPortfolioResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPortfolioResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

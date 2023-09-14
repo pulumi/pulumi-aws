@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IoT Topic Rules can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
@@ -150,11 +150,11 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    @Export(name="cloudwatchAlarm", refs={TopicRuleCloudwatchAlarm.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleCloudwatchAlarm> cloudwatchAlarm;
+    @Export(name="cloudwatchAlarms", refs={List.class,TopicRuleCloudwatchAlarm.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleCloudwatchAlarm>> cloudwatchAlarms;
 
-    public Output<Optional<TopicRuleCloudwatchAlarm>> cloudwatchAlarm() {
-        return Codegen.optional(this.cloudwatchAlarm);
+    public Output<Optional<List<TopicRuleCloudwatchAlarm>>> cloudwatchAlarms() {
+        return Codegen.optional(this.cloudwatchAlarms);
     }
     @Export(name="cloudwatchLogs", refs={List.class,TopicRuleCloudwatchLog.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TopicRuleCloudwatchLog>> cloudwatchLogs;
@@ -162,11 +162,11 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleCloudwatchLog>>> cloudwatchLogs() {
         return Codegen.optional(this.cloudwatchLogs);
     }
-    @Export(name="cloudwatchMetric", refs={TopicRuleCloudwatchMetric.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleCloudwatchMetric> cloudwatchMetric;
+    @Export(name="cloudwatchMetrics", refs={List.class,TopicRuleCloudwatchMetric.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleCloudwatchMetric>> cloudwatchMetrics;
 
-    public Output<Optional<TopicRuleCloudwatchMetric>> cloudwatchMetric() {
-        return Codegen.optional(this.cloudwatchMetric);
+    public Output<Optional<List<TopicRuleCloudwatchMetric>>> cloudwatchMetrics() {
+        return Codegen.optional(this.cloudwatchMetrics);
     }
     /**
      * The description of the rule.
@@ -182,11 +182,11 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="dynamodb", refs={TopicRuleDynamodb.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleDynamodb> dynamodb;
+    @Export(name="dynamodbs", refs={List.class,TopicRuleDynamodb.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleDynamodb>> dynamodbs;
 
-    public Output<Optional<TopicRuleDynamodb>> dynamodb() {
-        return Codegen.optional(this.dynamodb);
+    public Output<Optional<List<TopicRuleDynamodb>>> dynamodbs() {
+        return Codegen.optional(this.dynamodbs);
     }
     @Export(name="dynamodbv2s", refs={List.class,TopicRuleDynamodbv2.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TopicRuleDynamodbv2>> dynamodbv2s;
@@ -194,10 +194,10 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleDynamodbv2>>> dynamodbv2s() {
         return Codegen.optional(this.dynamodbv2s);
     }
-    @Export(name="elasticsearch", refs={TopicRuleElasticsearch.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleElasticsearch> elasticsearch;
+    @Export(name="elasticsearch", refs={List.class,TopicRuleElasticsearch.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleElasticsearch>> elasticsearch;
 
-    public Output<Optional<TopicRuleElasticsearch>> elasticsearch() {
+    public Output<Optional<List<TopicRuleElasticsearch>>> elasticsearch() {
         return Codegen.optional(this.elasticsearch);
     }
     /**
@@ -228,11 +228,11 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<TopicRuleErrorAction>> errorAction() {
         return Codegen.optional(this.errorAction);
     }
-    @Export(name="firehose", refs={TopicRuleFirehose.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleFirehose> firehose;
+    @Export(name="firehoses", refs={List.class,TopicRuleFirehose.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleFirehose>> firehoses;
 
-    public Output<Optional<TopicRuleFirehose>> firehose() {
-        return Codegen.optional(this.firehose);
+    public Output<Optional<List<TopicRuleFirehose>>> firehoses() {
+        return Codegen.optional(this.firehoses);
     }
     @Export(name="https", refs={List.class,TopicRuleHttp.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TopicRuleHttp>> https;
@@ -258,17 +258,17 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleKafka>>> kafkas() {
         return Codegen.optional(this.kafkas);
     }
-    @Export(name="kinesis", refs={TopicRuleKinesis.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleKinesis> kinesis;
+    @Export(name="kineses", refs={List.class,TopicRuleKinesis.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleKinesis>> kineses;
 
-    public Output<Optional<TopicRuleKinesis>> kinesis() {
-        return Codegen.optional(this.kinesis);
+    public Output<Optional<List<TopicRuleKinesis>>> kineses() {
+        return Codegen.optional(this.kineses);
     }
-    @Export(name="lambda", refs={TopicRuleLambda.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleLambda> lambda;
+    @Export(name="lambdas", refs={List.class,TopicRuleLambda.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleLambda>> lambdas;
 
-    public Output<Optional<TopicRuleLambda>> lambda() {
-        return Codegen.optional(this.lambda);
+    public Output<Optional<List<TopicRuleLambda>>> lambdas() {
+        return Codegen.optional(this.lambdas);
     }
     /**
      * The name of the rule.
@@ -284,22 +284,22 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="republish", refs={TopicRuleRepublish.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleRepublish> republish;
+    @Export(name="republishes", refs={List.class,TopicRuleRepublish.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleRepublish>> republishes;
 
-    public Output<Optional<TopicRuleRepublish>> republish() {
-        return Codegen.optional(this.republish);
+    public Output<Optional<List<TopicRuleRepublish>>> republishes() {
+        return Codegen.optional(this.republishes);
     }
-    @Export(name="s3", refs={TopicRuleS3.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleS3> s3;
+    @Export(name="s3", refs={List.class,TopicRuleS3.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleS3>> s3;
 
-    public Output<Optional<TopicRuleS3>> s3() {
+    public Output<Optional<List<TopicRuleS3>>> s3() {
         return Codegen.optional(this.s3);
     }
-    @Export(name="sns", refs={TopicRuleSns.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleSns> sns;
+    @Export(name="sns", refs={List.class,TopicRuleSns.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleSns>> sns;
 
-    public Output<Optional<TopicRuleSns>> sns() {
+    public Output<Optional<List<TopicRuleSns>>> sns() {
         return Codegen.optional(this.sns);
     }
     /**
@@ -330,10 +330,10 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<String> sqlVersion() {
         return this.sqlVersion;
     }
-    @Export(name="sqs", refs={TopicRuleSqs.class}, tree="[0]")
-    private Output</* @Nullable */ TopicRuleSqs> sqs;
+    @Export(name="sqs", refs={List.class,TopicRuleSqs.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleSqs>> sqs;
 
-    public Output<Optional<TopicRuleSqs>> sqs() {
+    public Output<Optional<List<TopicRuleSqs>>> sqs() {
         return Codegen.optional(this.sqs);
     }
     @Export(name="stepFunctions", refs={List.class,TopicRuleStepFunction.class}, tree="[0,1]")

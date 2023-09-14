@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Runner AutoScaling Configuration Version.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // ## Import
 //
-// App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
+// Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 //
 // ```sh
 //
@@ -89,6 +91,7 @@ func NewAutoScalingConfigurationVersion(ctx *pulumi.Context,
 	if args.AutoScalingConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingConfigurationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingConfigurationVersion
 	err := ctx.RegisterResource("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, args, &resource, opts...)
 	if err != nil {
@@ -210,6 +213,12 @@ func (i *AutoScalingConfigurationVersion) ToAutoScalingConfigurationVersionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationVersionOutput)
 }
 
+func (i *AutoScalingConfigurationVersion) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingConfigurationVersion] {
+	return pulumix.Output[*AutoScalingConfigurationVersion]{
+		OutputState: i.ToAutoScalingConfigurationVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutoScalingConfigurationVersionArrayInput is an input type that accepts AutoScalingConfigurationVersionArray and AutoScalingConfigurationVersionArrayOutput values.
 // You can construct a concrete instance of `AutoScalingConfigurationVersionArrayInput` via:
 //
@@ -233,6 +242,12 @@ func (i AutoScalingConfigurationVersionArray) ToAutoScalingConfigurationVersionA
 
 func (i AutoScalingConfigurationVersionArray) ToAutoScalingConfigurationVersionArrayOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationVersionArrayOutput)
+}
+
+func (i AutoScalingConfigurationVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutoScalingConfigurationVersion] {
+	return pulumix.Output[[]*AutoScalingConfigurationVersion]{
+		OutputState: i.ToAutoScalingConfigurationVersionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AutoScalingConfigurationVersionMapInput is an input type that accepts AutoScalingConfigurationVersionMap and AutoScalingConfigurationVersionMapOutput values.
@@ -260,6 +275,12 @@ func (i AutoScalingConfigurationVersionMap) ToAutoScalingConfigurationVersionMap
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationVersionMapOutput)
 }
 
+func (i AutoScalingConfigurationVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoScalingConfigurationVersion] {
+	return pulumix.Output[map[string]*AutoScalingConfigurationVersion]{
+		OutputState: i.ToAutoScalingConfigurationVersionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutoScalingConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingConfigurationVersionOutput) ElementType() reflect.Type {
@@ -272,6 +293,12 @@ func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersion
 
 func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersionOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionOutput {
 	return o
+}
+
+func (o AutoScalingConfigurationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingConfigurationVersion] {
+	return pulumix.Output[*AutoScalingConfigurationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of this auto scaling configuration version.
@@ -338,6 +365,12 @@ func (o AutoScalingConfigurationVersionArrayOutput) ToAutoScalingConfigurationVe
 	return o
 }
 
+func (o AutoScalingConfigurationVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutoScalingConfigurationVersion] {
+	return pulumix.Output[[]*AutoScalingConfigurationVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AutoScalingConfigurationVersionArrayOutput) Index(i pulumi.IntInput) AutoScalingConfigurationVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutoScalingConfigurationVersion {
 		return vs[0].([]*AutoScalingConfigurationVersion)[vs[1].(int)]
@@ -356,6 +389,12 @@ func (o AutoScalingConfigurationVersionMapOutput) ToAutoScalingConfigurationVers
 
 func (o AutoScalingConfigurationVersionMapOutput) ToAutoScalingConfigurationVersionMapOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionMapOutput {
 	return o
+}
+
+func (o AutoScalingConfigurationVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoScalingConfigurationVersion] {
+	return pulumix.Output[map[string]*AutoScalingConfigurationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutoScalingConfigurationVersionMapOutput) MapIndex(k pulumi.StringInput) AutoScalingConfigurationVersionOutput {

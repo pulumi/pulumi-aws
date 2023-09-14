@@ -36,6 +36,7 @@ __all__ = [
     'GetConfigurationSetVdmOptionDashboardOptionResult',
     'GetConfigurationSetVdmOptionGuardianOptionResult',
     'GetDedicatedIpPoolDedicatedIpResult',
+    'GetEmailIdentityDkimSigningAttributeResult',
 ]
 
 @pulumi.output_type
@@ -124,6 +125,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  sns_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination'] = None):
         """
         :param Sequence[str] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+               
+               The following arguments are optional:
         :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
         :param bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
         :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
@@ -147,6 +150,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     def matching_event_types(self) -> Sequence[str]:
         """
         An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "matching_event_types")
 
@@ -255,7 +260,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
                  dimension_value_source: str):
         """
         :param str default_dimension_value: The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-               ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        :param str dimension_name: The name of an Amazon CloudWatch dimension associated with an email sending metric.
         :param str dimension_value_source: The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         """
         pulumi.set(__self__, "default_dimension_value", default_dimension_value)
@@ -267,13 +272,15 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
     def default_dimension_value(self) -> str:
         """
         The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-        ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
         """
         return pulumi.get(self, "default_dimension_value")
 
     @property
     @pulumi.getter(name="dimensionName")
     def dimension_name(self) -> str:
+        """
+        The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        """
         return pulumi.get(self, "dimension_name")
 
     @property
@@ -708,6 +715,8 @@ class ContactListTopic(dict):
         :param str default_subscription_status: The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         :param str display_name: The name of the topic the contact will see.
         :param str topic_name: The name of the topic.
+               
+               The following arguments are optional:
         :param str description: A description of what the topic is about, which the contact will see.
         """
         pulumi.set(__self__, "default_subscription_status", default_subscription_status)
@@ -737,6 +746,8 @@ class ContactListTopic(dict):
     def topic_name(self) -> str:
         """
         The name of the topic.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic_name")
 
@@ -790,6 +801,8 @@ class EmailIdentityDkimSigningAttributes(dict):
         """
         :param str current_signing_key_length: [Easy DKIM] The key length of the DKIM key pair in use.
         :param str domain_signing_private_key: [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+               
+               > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
         :param str domain_signing_selector: [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
         :param str last_key_generation_timestamp: [Easy DKIM] The last time a key pair was generated for this identity.
         :param str next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
@@ -827,6 +840,8 @@ class EmailIdentityDkimSigningAttributes(dict):
     def domain_signing_private_key(self) -> Optional[str]:
         """
         [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+
+        > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
         """
         return pulumi.get(self, "domain_signing_private_key")
 
@@ -1094,5 +1109,92 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
         The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
         """
         return pulumi.get(self, "warmup_status")
+
+
+@pulumi.output_type
+class GetEmailIdentityDkimSigningAttributeResult(dict):
+    def __init__(__self__, *,
+                 current_signing_key_length: str,
+                 domain_signing_private_key: str,
+                 domain_signing_selector: str,
+                 last_key_generation_timestamp: str,
+                 next_signing_key_length: str,
+                 signing_attributes_origin: str,
+                 status: str,
+                 tokens: Sequence[str]):
+        """
+        :param str current_signing_key_length: [Easy DKIM] The key length of the DKIM key pair in use.
+        :param str last_key_generation_timestamp: [Easy DKIM] The last time a key pair was generated for this identity.
+        :param str next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+        :param str signing_attributes_origin: A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        :param str status: Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        :param Sequence[str] tokens: If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+        """
+        pulumi.set(__self__, "current_signing_key_length", current_signing_key_length)
+        pulumi.set(__self__, "domain_signing_private_key", domain_signing_private_key)
+        pulumi.set(__self__, "domain_signing_selector", domain_signing_selector)
+        pulumi.set(__self__, "last_key_generation_timestamp", last_key_generation_timestamp)
+        pulumi.set(__self__, "next_signing_key_length", next_signing_key_length)
+        pulumi.set(__self__, "signing_attributes_origin", signing_attributes_origin)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tokens", tokens)
+
+    @property
+    @pulumi.getter(name="currentSigningKeyLength")
+    def current_signing_key_length(self) -> str:
+        """
+        [Easy DKIM] The key length of the DKIM key pair in use.
+        """
+        return pulumi.get(self, "current_signing_key_length")
+
+    @property
+    @pulumi.getter(name="domainSigningPrivateKey")
+    def domain_signing_private_key(self) -> str:
+        return pulumi.get(self, "domain_signing_private_key")
+
+    @property
+    @pulumi.getter(name="domainSigningSelector")
+    def domain_signing_selector(self) -> str:
+        return pulumi.get(self, "domain_signing_selector")
+
+    @property
+    @pulumi.getter(name="lastKeyGenerationTimestamp")
+    def last_key_generation_timestamp(self) -> str:
+        """
+        [Easy DKIM] The last time a key pair was generated for this identity.
+        """
+        return pulumi.get(self, "last_key_generation_timestamp")
+
+    @property
+    @pulumi.getter(name="nextSigningKeyLength")
+    def next_signing_key_length(self) -> str:
+        """
+        [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+        """
+        return pulumi.get(self, "next_signing_key_length")
+
+    @property
+    @pulumi.getter(name="signingAttributesOrigin")
+    def signing_attributes_origin(self) -> str:
+        """
+        A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        """
+        return pulumi.get(self, "signing_attributes_origin")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tokens(self) -> Sequence[str]:
+        """
+        If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+        """
+        return pulumi.get(self, "tokens")
 
 

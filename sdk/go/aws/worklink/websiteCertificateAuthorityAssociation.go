@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -20,7 +22,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +56,7 @@ import (
 //
 // ## Import
 //
-// WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+// Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
 //
 // ```sh
 //
@@ -87,6 +89,7 @@ func NewWebsiteCertificateAuthorityAssociation(ctx *pulumi.Context,
 	if args.FleetArn == nil {
 		return nil, errors.New("invalid value for required argument 'FleetArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebsiteCertificateAuthorityAssociation
 	err := ctx.RegisterResource("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -176,6 +179,12 @@ func (i *WebsiteCertificateAuthorityAssociation) ToWebsiteCertificateAuthorityAs
 	return pulumi.ToOutputWithContext(ctx, i).(WebsiteCertificateAuthorityAssociationOutput)
 }
 
+func (i *WebsiteCertificateAuthorityAssociation) ToOutput(ctx context.Context) pulumix.Output[*WebsiteCertificateAuthorityAssociation] {
+	return pulumix.Output[*WebsiteCertificateAuthorityAssociation]{
+		OutputState: i.ToWebsiteCertificateAuthorityAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebsiteCertificateAuthorityAssociationArrayInput is an input type that accepts WebsiteCertificateAuthorityAssociationArray and WebsiteCertificateAuthorityAssociationArrayOutput values.
 // You can construct a concrete instance of `WebsiteCertificateAuthorityAssociationArrayInput` via:
 //
@@ -199,6 +208,12 @@ func (i WebsiteCertificateAuthorityAssociationArray) ToWebsiteCertificateAuthori
 
 func (i WebsiteCertificateAuthorityAssociationArray) ToWebsiteCertificateAuthorityAssociationArrayOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebsiteCertificateAuthorityAssociationArrayOutput)
+}
+
+func (i WebsiteCertificateAuthorityAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebsiteCertificateAuthorityAssociation] {
+	return pulumix.Output[[]*WebsiteCertificateAuthorityAssociation]{
+		OutputState: i.ToWebsiteCertificateAuthorityAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WebsiteCertificateAuthorityAssociationMapInput is an input type that accepts WebsiteCertificateAuthorityAssociationMap and WebsiteCertificateAuthorityAssociationMapOutput values.
@@ -226,6 +241,12 @@ func (i WebsiteCertificateAuthorityAssociationMap) ToWebsiteCertificateAuthority
 	return pulumi.ToOutputWithContext(ctx, i).(WebsiteCertificateAuthorityAssociationMapOutput)
 }
 
+func (i WebsiteCertificateAuthorityAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebsiteCertificateAuthorityAssociation] {
+	return pulumix.Output[map[string]*WebsiteCertificateAuthorityAssociation]{
+		OutputState: i.ToWebsiteCertificateAuthorityAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebsiteCertificateAuthorityAssociationOutput struct{ *pulumi.OutputState }
 
 func (WebsiteCertificateAuthorityAssociationOutput) ElementType() reflect.Type {
@@ -238,6 +259,12 @@ func (o WebsiteCertificateAuthorityAssociationOutput) ToWebsiteCertificateAuthor
 
 func (o WebsiteCertificateAuthorityAssociationOutput) ToWebsiteCertificateAuthorityAssociationOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationOutput {
 	return o
+}
+
+func (o WebsiteCertificateAuthorityAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*WebsiteCertificateAuthorityAssociation] {
+	return pulumix.Output[*WebsiteCertificateAuthorityAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The root certificate of the Certificate Authority.
@@ -274,6 +301,12 @@ func (o WebsiteCertificateAuthorityAssociationArrayOutput) ToWebsiteCertificateA
 	return o
 }
 
+func (o WebsiteCertificateAuthorityAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebsiteCertificateAuthorityAssociation] {
+	return pulumix.Output[[]*WebsiteCertificateAuthorityAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebsiteCertificateAuthorityAssociationArrayOutput) Index(i pulumi.IntInput) WebsiteCertificateAuthorityAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebsiteCertificateAuthorityAssociation {
 		return vs[0].([]*WebsiteCertificateAuthorityAssociation)[vs[1].(int)]
@@ -292,6 +325,12 @@ func (o WebsiteCertificateAuthorityAssociationMapOutput) ToWebsiteCertificateAut
 
 func (o WebsiteCertificateAuthorityAssociationMapOutput) ToWebsiteCertificateAuthorityAssociationMapOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationMapOutput {
 	return o
+}
+
+func (o WebsiteCertificateAuthorityAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebsiteCertificateAuthorityAssociation] {
+	return pulumix.Output[map[string]*WebsiteCertificateAuthorityAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebsiteCertificateAuthorityAssociationMapOutput) MapIndex(k pulumi.StringInput) WebsiteCertificateAuthorityAssociationOutput {

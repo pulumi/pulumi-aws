@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppConfig Deployment resource for an `appconfig.Application` resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,
+// Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
 //
 // ```sh
 //
@@ -105,6 +107,7 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws:appconfig/deployment:Deployment", name, args, &resource, opts...)
 	if err != nil {
@@ -238,6 +241,12 @@ func (i *Deployment) ToDeploymentOutputWithContext(ctx context.Context) Deployme
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentOutput)
 }
 
+func (i *Deployment) ToOutput(ctx context.Context) pulumix.Output[*Deployment] {
+	return pulumix.Output[*Deployment]{
+		OutputState: i.ToDeploymentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentArrayInput is an input type that accepts DeploymentArray and DeploymentArrayOutput values.
 // You can construct a concrete instance of `DeploymentArrayInput` via:
 //
@@ -261,6 +270,12 @@ func (i DeploymentArray) ToDeploymentArrayOutput() DeploymentArrayOutput {
 
 func (i DeploymentArray) ToDeploymentArrayOutputWithContext(ctx context.Context) DeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentArrayOutput)
+}
+
+func (i DeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Deployment] {
+	return pulumix.Output[[]*Deployment]{
+		OutputState: i.ToDeploymentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DeploymentMapInput is an input type that accepts DeploymentMap and DeploymentMapOutput values.
@@ -288,6 +303,12 @@ func (i DeploymentMap) ToDeploymentMapOutputWithContext(ctx context.Context) Dep
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentMapOutput)
 }
 
+func (i DeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Deployment] {
+	return pulumix.Output[map[string]*Deployment]{
+		OutputState: i.ToDeploymentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentOutput struct{ *pulumi.OutputState }
 
 func (DeploymentOutput) ElementType() reflect.Type {
@@ -300,6 +321,12 @@ func (o DeploymentOutput) ToDeploymentOutput() DeploymentOutput {
 
 func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput {
 	return o
+}
+
+func (o DeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*Deployment] {
+	return pulumix.Output[*Deployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Application ID. Must be between 4 and 7 characters in length.
@@ -371,6 +398,12 @@ func (o DeploymentArrayOutput) ToDeploymentArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Deployment] {
+	return pulumix.Output[[]*Deployment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeploymentArrayOutput) Index(i pulumi.IntInput) DeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Deployment {
 		return vs[0].([]*Deployment)[vs[1].(int)]
@@ -389,6 +422,12 @@ func (o DeploymentMapOutput) ToDeploymentMapOutput() DeploymentMapOutput {
 
 func (o DeploymentMapOutput) ToDeploymentMapOutputWithContext(ctx context.Context) DeploymentMapOutput {
 	return o
+}
+
+func (o DeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Deployment] {
+	return pulumix.Output[map[string]*Deployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentMapOutput) MapIndex(k pulumi.StringInput) DeploymentOutput {

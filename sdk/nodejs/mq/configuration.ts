@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MQ Configurations can be imported using the configuration ID, e.g.,
+ * Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
@@ -98,6 +98,8 @@ export class Configuration extends pulumi.CustomResource {
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
      * Name of the configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -193,6 +195,8 @@ export interface ConfigurationState {
     latestRevision?: pulumi.Input<number>;
     /**
      * Name of the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -231,6 +235,8 @@ export interface ConfigurationArgs {
     engineVersion: pulumi.Input<string>;
     /**
      * Name of the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

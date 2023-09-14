@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// DB proxies can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import DB proxies using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/proxy:Proxy example example
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Output("engineFamily")]
         public Output<string> EngineFamily { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DebugLogging { get; set; }
 
         /// <summary>
-        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Input("engineFamily", required: true)]
         public Input<string> EngineFamily { get; set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Input("engineFamily")]
         public Input<string>? EngineFamily { get; set; }

@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route53 Health Checks can be imported using the `health check id`, e.g.,
+    /// Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
@@ -167,6 +167,8 @@ namespace Pulumi.Aws.Route53
         /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// 
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
@@ -184,7 +186,7 @@ namespace Pulumi.Aws.Route53
         public Output<int> FailureThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Output("fqdn")]
         public Output<string?> Fqdn { get; private set; } = null!;
@@ -355,6 +357,8 @@ namespace Pulumi.Aws.Route53
         /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// 
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -372,7 +376,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
@@ -517,6 +521,8 @@ namespace Pulumi.Aws.Route53
         /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// 
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -534,7 +540,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }

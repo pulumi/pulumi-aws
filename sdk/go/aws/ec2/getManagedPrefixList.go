@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
@@ -23,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,6 +81,7 @@ import (
 //
 // ```
 func LookupManagedPrefixList(ctx *pulumi.Context, args *LookupManagedPrefixListArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrefixListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedPrefixListResult
 	err := ctx.Invoke("aws:ec2/getManagedPrefixList:getManagedPrefixList", args, &rv, opts...)
 	if err != nil {
@@ -163,6 +166,12 @@ func (o LookupManagedPrefixListResultOutput) ToLookupManagedPrefixListResultOutp
 
 func (o LookupManagedPrefixListResultOutput) ToLookupManagedPrefixListResultOutputWithContext(ctx context.Context) LookupManagedPrefixListResultOutput {
 	return o
+}
+
+func (o LookupManagedPrefixListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupManagedPrefixListResult] {
+	return pulumix.Output[LookupManagedPrefixListResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Address family of the prefix list. Valid values are `IPv4` and `IPv6`.

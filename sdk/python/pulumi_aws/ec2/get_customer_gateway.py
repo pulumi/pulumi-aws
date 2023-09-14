@@ -165,6 +165,8 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
 
 
     :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
+           
+           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param str id: ID of the gateway.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """
@@ -176,15 +178,15 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCustomerGateway:getCustomerGateway', __args__, opts=opts, typ=GetCustomerGatewayResult).value
 
     return AwaitableGetCustomerGatewayResult(
-        arn=__ret__.arn,
-        bgp_asn=__ret__.bgp_asn,
-        certificate_arn=__ret__.certificate_arn,
-        device_name=__ret__.device_name,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        bgp_asn=pulumi.get(__ret__, 'bgp_asn'),
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        device_name=pulumi.get(__ret__, 'device_name'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_customer_gateway)
@@ -217,6 +219,8 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
 
     :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
+           
+           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param str id: ID of the gateway.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """

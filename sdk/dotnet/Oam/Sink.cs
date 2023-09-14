@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Oam
     /// 
     /// ## Import
     /// 
-    /// CloudWatch Observability Access Manager Sink can be imported using the `arn`, e.g.,
+    /// Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
@@ -53,6 +53,8 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Name for the sink.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -120,6 +122,8 @@ namespace Pulumi.Aws.Oam
     {
         /// <summary>
         /// Name for the sink.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -152,6 +156,8 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Name for the sink.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

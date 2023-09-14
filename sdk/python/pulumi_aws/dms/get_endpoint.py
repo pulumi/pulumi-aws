@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetEndpointResult',
@@ -112,7 +111,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="elasticsearchSettings")
-    def elasticsearch_settings(self) -> Optional[Sequence['outputs.GetEndpointElasticsearchSettingResult']]:
+    def elasticsearch_settings(self) -> Sequence['outputs.GetEndpointElasticsearchSettingResult']:
         return pulumi.get(self, "elasticsearch_settings")
 
     @property
@@ -137,7 +136,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="extraConnectionAttributes")
-    def extra_connection_attributes(self) -> Optional[str]:
+    def extra_connection_attributes(self) -> str:
         return pulumi.get(self, "extra_connection_attributes")
 
     @property
@@ -150,7 +149,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="kafkaSettings")
-    def kafka_settings(self) -> Optional[Sequence['outputs.GetEndpointKafkaSettingResult']]:
+    def kafka_settings(self) -> Sequence['outputs.GetEndpointKafkaSettingResult']:
         return pulumi.get(self, "kafka_settings")
 
     @property
@@ -165,7 +164,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="mongodbSettings")
-    def mongodb_settings(self) -> Optional[Sequence['outputs.GetEndpointMongodbSettingResult']]:
+    def mongodb_settings(self) -> Sequence['outputs.GetEndpointMongodbSettingResult']:
         return pulumi.get(self, "mongodb_settings")
 
     @property
@@ -262,11 +261,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             username=self.username)
 
 
-def get_endpoint(elasticsearch_settings: Optional[Sequence[pulumi.InputType['GetEndpointElasticsearchSettingArgs']]] = None,
-                 endpoint_id: Optional[str] = None,
-                 extra_connection_attributes: Optional[str] = None,
-                 kafka_settings: Optional[Sequence[pulumi.InputType['GetEndpointKafkaSettingArgs']]] = None,
-                 mongodb_settings: Optional[Sequence[pulumi.InputType['GetEndpointMongodbSettingArgs']]] = None,
+def get_endpoint(endpoint_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
@@ -286,49 +281,41 @@ def get_endpoint(elasticsearch_settings: Optional[Sequence[pulumi.InputType['Get
     :param str endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
     """
     __args__ = dict()
-    __args__['elasticsearchSettings'] = elasticsearch_settings
     __args__['endpointId'] = endpoint_id
-    __args__['extraConnectionAttributes'] = extra_connection_attributes
-    __args__['kafkaSettings'] = kafka_settings
-    __args__['mongodbSettings'] = mongodb_settings
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:dms/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
-        certificate_arn=__ret__.certificate_arn,
-        database_name=__ret__.database_name,
-        elasticsearch_settings=__ret__.elasticsearch_settings,
-        endpoint_arn=__ret__.endpoint_arn,
-        endpoint_id=__ret__.endpoint_id,
-        endpoint_type=__ret__.endpoint_type,
-        engine_name=__ret__.engine_name,
-        extra_connection_attributes=__ret__.extra_connection_attributes,
-        id=__ret__.id,
-        kafka_settings=__ret__.kafka_settings,
-        kinesis_settings=__ret__.kinesis_settings,
-        kms_key_arn=__ret__.kms_key_arn,
-        mongodb_settings=__ret__.mongodb_settings,
-        password=__ret__.password,
-        port=__ret__.port,
-        redis_settings=__ret__.redis_settings,
-        redshift_settings=__ret__.redshift_settings,
-        s3_settings=__ret__.s3_settings,
-        secrets_manager_access_role_arn=__ret__.secrets_manager_access_role_arn,
-        secrets_manager_arn=__ret__.secrets_manager_arn,
-        server_name=__ret__.server_name,
-        service_access_role=__ret__.service_access_role,
-        ssl_mode=__ret__.ssl_mode,
-        tags=__ret__.tags,
-        username=__ret__.username)
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        database_name=pulumi.get(__ret__, 'database_name'),
+        elasticsearch_settings=pulumi.get(__ret__, 'elasticsearch_settings'),
+        endpoint_arn=pulumi.get(__ret__, 'endpoint_arn'),
+        endpoint_id=pulumi.get(__ret__, 'endpoint_id'),
+        endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
+        engine_name=pulumi.get(__ret__, 'engine_name'),
+        extra_connection_attributes=pulumi.get(__ret__, 'extra_connection_attributes'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_settings=pulumi.get(__ret__, 'kafka_settings'),
+        kinesis_settings=pulumi.get(__ret__, 'kinesis_settings'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        mongodb_settings=pulumi.get(__ret__, 'mongodb_settings'),
+        password=pulumi.get(__ret__, 'password'),
+        port=pulumi.get(__ret__, 'port'),
+        redis_settings=pulumi.get(__ret__, 'redis_settings'),
+        redshift_settings=pulumi.get(__ret__, 'redshift_settings'),
+        s3_settings=pulumi.get(__ret__, 's3_settings'),
+        secrets_manager_access_role_arn=pulumi.get(__ret__, 'secrets_manager_access_role_arn'),
+        secrets_manager_arn=pulumi.get(__ret__, 'secrets_manager_arn'),
+        server_name=pulumi.get(__ret__, 'server_name'),
+        service_access_role=pulumi.get(__ret__, 'service_access_role'),
+        ssl_mode=pulumi.get(__ret__, 'ssl_mode'),
+        tags=pulumi.get(__ret__, 'tags'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_endpoint)
-def get_endpoint_output(elasticsearch_settings: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEndpointElasticsearchSettingArgs']]]]] = None,
-                        endpoint_id: Optional[pulumi.Input[str]] = None,
-                        extra_connection_attributes: Optional[pulumi.Input[Optional[str]]] = None,
-                        kafka_settings: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEndpointKafkaSettingArgs']]]]] = None,
-                        mongodb_settings: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEndpointMongodbSettingArgs']]]]] = None,
+def get_endpoint_output(endpoint_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """

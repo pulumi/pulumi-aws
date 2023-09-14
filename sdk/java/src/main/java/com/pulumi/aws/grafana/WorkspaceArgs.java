@@ -95,14 +95,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
     @Import(name="grafanaVersion")
     private @Nullable Output<String> grafanaVersion;
 
     /**
-     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
     public Optional<Output<String>> grafanaVersion() {
@@ -187,12 +187,16 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="permissionType", required=true)
     private Output<String> permissionType;
 
     /**
      * @return The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> permissionType() {
@@ -424,7 +428,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
          * 
          * @return builder
          * 
@@ -435,7 +439,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
          * 
          * @return builder
          * 
@@ -572,6 +576,8 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param permissionType The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -582,6 +588,8 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param permissionType The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

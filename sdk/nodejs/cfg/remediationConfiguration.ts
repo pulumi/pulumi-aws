@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Remediation Configurations can be imported using the name config_rule_name, e.g.,
+ * Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
  *
  * ```sh
  *  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
@@ -130,6 +130,8 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     public readonly targetId!: pulumi.Output<string>;
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
+     *
+     * The following arguments are optional:
      */
     public readonly targetType!: pulumi.Output<string>;
     /**
@@ -231,6 +233,8 @@ export interface RemediationConfigurationState {
     targetId?: pulumi.Input<string>;
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
+     *
+     * The following arguments are optional:
      */
     targetType?: pulumi.Input<string>;
     /**
@@ -277,6 +281,8 @@ export interface RemediationConfigurationArgs {
     targetId: pulumi.Input<string>;
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
+     *
+     * The following arguments are optional:
      */
     targetType: pulumi.Input<string>;
     /**

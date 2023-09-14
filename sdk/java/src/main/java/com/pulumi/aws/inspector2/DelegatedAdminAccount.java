@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inspector2.DelegatedAdminAccount;
  * import com.pulumi.aws.inspector2.DelegatedAdminAccountArgs;
  * import java.util.List;
@@ -52,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Inspector Delegated Admin Account can be imported using the `account_id`, e.g.,
+ * Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901

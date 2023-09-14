@@ -99,25 +99,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * FSx Storage Virtual Machine can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
  * ```
- * 
- *  Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g., terraform resource &#34;aws_fsx_ontap_storage_virtual_machine&#34; &#34;example&#34; {
- * 
- * # ... other configuration ...
- * 
- *  svm_admin_password = &#34;avoid-plaintext-passwords&#34;
- * 
- * # There is no FSx API for reading svm_admin_password
- * 
- *  lifecycle {
- * 
- *  ignore_changes = [svm_admin_password]
- * 
- *  } }
+ *  Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")

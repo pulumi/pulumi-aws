@@ -234,12 +234,16 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
      * @return A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> userName() {
@@ -607,6 +611,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userName A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -617,6 +623,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userName A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

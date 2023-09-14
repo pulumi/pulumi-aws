@@ -1748,6 +1748,80 @@ public final class RdsFunctions {
      * ```
      * 
      */
+    public static Output<GetInstanceResult> getInstance() {
+        return getInstance(GetInstanceArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about an RDS instance
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var database = RdsFunctions.getInstance(GetInstanceArgs.builder()
+     *             .dbInstanceIdentifier(&#34;my-test-database&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetInstanceResult> getInstancePlain() {
+        return getInstancePlain(GetInstancePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about an RDS instance
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var database = RdsFunctions.getInstance(GetInstanceArgs.builder()
+     *             .dbInstanceIdentifier(&#34;my-test-database&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args) {
         return getInstance(args, InvokeOptions.Empty);
     }
@@ -1898,6 +1972,35 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * ### Using tags
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getInstances(GetInstancesArgs.builder()
+     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetInstancesResult> getInstances() {
@@ -1934,6 +2037,35 @@ public final class RdsFunctions {
      *                 .name(&#34;db-instance-id&#34;)
      *                 .values(&#34;my-database-id&#34;)
      *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Using tags
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getInstances(GetInstancesArgs.builder()
+     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
      *             .build());
      * 
      *     }
@@ -1980,6 +2112,35 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * ### Using tags
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getInstances(GetInstancesArgs.builder()
+     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
@@ -2016,6 +2177,35 @@ public final class RdsFunctions {
      *                 .name(&#34;db-instance-id&#34;)
      *                 .values(&#34;my-database-id&#34;)
      *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Using tags
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getInstances(GetInstancesArgs.builder()
+     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
      *             .build());
      * 
      *     }
@@ -2062,6 +2252,35 @@ public final class RdsFunctions {
      *     }
      * }
      * ```
+     * ### Using tags
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getInstances(GetInstancesArgs.builder()
+     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
@@ -2098,6 +2317,35 @@ public final class RdsFunctions {
      *                 .name(&#34;db-instance-id&#34;)
      *                 .values(&#34;my-database-id&#34;)
      *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Using tags
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getInstances(GetInstancesArgs.builder()
+     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
      *             .build());
      * 
      *     }
@@ -2787,7 +3035,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2795,13 +3043,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -2848,7 +3096,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2856,13 +3104,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -2909,7 +3157,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2917,13 +3165,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -2970,7 +3218,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2978,13 +3226,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -3031,7 +3279,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -3039,13 +3287,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -3092,7 +3340,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -3100,13 +3348,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 

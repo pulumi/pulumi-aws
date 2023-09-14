@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Patch Baseline resource.
@@ -26,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -146,7 +148,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -211,7 +213,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -226,8 +228,25 @@ import (
 //				OperatingSystem: pulumi.String("AMAZON_LINUX"),
 //				Sources: ssm.PatchBaselineSourceArray{
 //					&ssm.PatchBaselineSourceArgs{
-//						Configuration: pulumi.String("[amzn-main]\nname=amzn-main-Base\nmirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list\nmirrorlist_expire=300\nmetadata_expire=300\npriority=10\nfailovermethod=priority\nfastestmirror_enabled=0\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga\nenabled=1\nretries=3\ntimeout=5\nreport_instanceid=yes\n\n"),
-//						Name:          pulumi.String("My-AL2017.09"),
+//						Configuration: pulumi.String(`[amzn-main]
+//
+// name=amzn-main-Base
+// mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
+// mirrorlist_expire=300
+// metadata_expire=300
+// priority=10
+// failovermethod=priority
+// fastestmirror_enabled=0
+// gpgcheck=1
+// gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
+// enabled=1
+// retries=3
+// timeout=5
+// report_instanceid=yes
+//
+// `),
+//
+//						Name: pulumi.String("My-AL2017.09"),
 //						Products: pulumi.StringArray{
 //							pulumi.String("AmazonLinux2017.09"),
 //						},
@@ -245,7 +264,7 @@ import (
 //
 // ## Import
 //
-// SSM Patch Baselines can be imported by their baseline ID, e.g.,
+// Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
 //
 // ```sh
 //
@@ -282,9 +301,11 @@ type PatchBaseline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -319,6 +340,7 @@ func NewPatchBaseline(ctx *pulumi.Context,
 		args = &PatchBaselineArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PatchBaseline
 	err := ctx.RegisterResource("aws:ssm/patchBaseline:PatchBaseline", name, args, &resource, opts...)
 	if err != nil {
@@ -368,9 +390,11 @@ type patchBaselineState struct {
 	Name *string `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -426,9 +450,11 @@ type PatchBaselineState struct {
 	Name pulumi.StringPtrInput
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -486,9 +512,11 @@ type patchBaselineArgs struct {
 	Name *string `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -541,9 +569,11 @@ type PatchBaselineArgs struct {
 	Name pulumi.StringPtrInput
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -592,6 +622,12 @@ func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineOutput)
 }
 
+func (i *PatchBaseline) ToOutput(ctx context.Context) pulumix.Output[*PatchBaseline] {
+	return pulumix.Output[*PatchBaseline]{
+		OutputState: i.ToPatchBaselineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PatchBaselineArrayInput is an input type that accepts PatchBaselineArray and PatchBaselineArrayOutput values.
 // You can construct a concrete instance of `PatchBaselineArrayInput` via:
 //
@@ -615,6 +651,12 @@ func (i PatchBaselineArray) ToPatchBaselineArrayOutput() PatchBaselineArrayOutpu
 
 func (i PatchBaselineArray) ToPatchBaselineArrayOutputWithContext(ctx context.Context) PatchBaselineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineArrayOutput)
+}
+
+func (i PatchBaselineArray) ToOutput(ctx context.Context) pulumix.Output[[]*PatchBaseline] {
+	return pulumix.Output[[]*PatchBaseline]{
+		OutputState: i.ToPatchBaselineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PatchBaselineMapInput is an input type that accepts PatchBaselineMap and PatchBaselineMapOutput values.
@@ -642,6 +684,12 @@ func (i PatchBaselineMap) ToPatchBaselineMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineMapOutput)
 }
 
+func (i PatchBaselineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PatchBaseline] {
+	return pulumix.Output[map[string]*PatchBaseline]{
+		OutputState: i.ToPatchBaselineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PatchBaselineOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineOutput) ElementType() reflect.Type {
@@ -654,6 +702,12 @@ func (o PatchBaselineOutput) ToPatchBaselineOutput() PatchBaselineOutput {
 
 func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
 	return o
+}
+
+func (o PatchBaselineOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaseline] {
+	return pulumix.Output[*PatchBaseline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A set of rules used to include patches in the baseline.
@@ -707,9 +761,11 @@ func (o PatchBaselineOutput) Name() pulumi.StringOutput {
 
 // The operating system the patch baseline applies to.
 // Valid values are
+// `ALMA_LINUX`,
 // `AMAZON_LINUX`,
 // `AMAZON_LINUX_2`,
 // `AMAZON_LINUX_2022`,
+// `AMAZON_LINUX_2023`,
 // `CENTOS`,
 // `DEBIAN`,
 // `MACOS`,
@@ -767,6 +823,12 @@ func (o PatchBaselineArrayOutput) ToPatchBaselineArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o PatchBaselineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PatchBaseline] {
+	return pulumix.Output[[]*PatchBaseline]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PatchBaselineArrayOutput) Index(i pulumi.IntInput) PatchBaselineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PatchBaseline {
 		return vs[0].([]*PatchBaseline)[vs[1].(int)]
@@ -785,6 +847,12 @@ func (o PatchBaselineMapOutput) ToPatchBaselineMapOutput() PatchBaselineMapOutpu
 
 func (o PatchBaselineMapOutput) ToPatchBaselineMapOutputWithContext(ctx context.Context) PatchBaselineMapOutput {
 	return o
+}
+
+func (o PatchBaselineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PatchBaseline] {
+	return pulumix.Output[map[string]*PatchBaseline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PatchBaselineMapOutput) MapIndex(k pulumi.StringInput) PatchBaselineOutput {

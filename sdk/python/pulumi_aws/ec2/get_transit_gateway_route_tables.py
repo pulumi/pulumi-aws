@@ -91,13 +91,16 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
     import pulumi_aws as aws
 
     example_transit_gateway_route_tables = aws.ec2.get_transit_gateway_route_tables()
-    pulumi.export("example", data["aws_ec2_transit_gateway_route_table"]["example"]["ids"])
+    pulumi.export("example", example_transit_gateway_route_tables.ids)
     ```
 
 
     :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired transit gateway route table.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -106,10 +109,10 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
     __ret__ = pulumi.runtime.invoke('aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables', __args__, opts=opts, typ=GetTransitGatewayRouteTablesResult).value
 
     return AwaitableGetTransitGatewayRouteTablesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_route_tables)
@@ -128,12 +131,15 @@ def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optio
     import pulumi_aws as aws
 
     example_transit_gateway_route_tables = aws.ec2.get_transit_gateway_route_tables()
-    pulumi.export("example", data["aws_ec2_transit_gateway_route_table"]["example"]["ids"])
+    pulumi.export("example", example_transit_gateway_route_tables.ids)
     ```
 
 
     :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired transit gateway route table.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.fms.inputs;
 
+import com.pulumi.aws.fms.inputs.PolicySecurityServicePolicyDataPolicyOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -31,6 +32,21 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
     }
 
     /**
+     * Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+     * 
+     */
+    @Import(name="policyOption")
+    private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionArgs> policyOption;
+
+    /**
+     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+     * 
+     */
+    public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionArgs>> policyOption() {
+        return Optional.ofNullable(this.policyOption);
+    }
+
+    /**
      * The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
      * 
      */
@@ -49,6 +65,7 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
 
     private PolicySecurityServicePolicyDataArgs(PolicySecurityServicePolicyDataArgs $) {
         this.managedServiceData = $.managedServiceData;
+        this.policyOption = $.policyOption;
         this.type = $.type;
     }
 
@@ -89,6 +106,27 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
          */
         public Builder managedServiceData(String managedServiceData) {
             return managedServiceData(Output.of(managedServiceData));
+        }
+
+        /**
+         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyOption(@Nullable Output<PolicySecurityServicePolicyDataPolicyOptionArgs> policyOption) {
+            $.policyOption = policyOption;
+            return this;
+        }
+
+        /**
+         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyOption(PolicySecurityServicePolicyDataPolicyOptionArgs policyOption) {
+            return policyOption(Output.of(policyOption));
         }
 
         /**

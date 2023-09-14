@@ -38,7 +38,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+    /// Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
@@ -133,6 +133,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcArn")]
         public Output<string> VpcArn { get; private set; } = null!;
@@ -221,6 +223,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcArn", required: true)]
         public Input<string> VpcArn { get; set; } = null!;
@@ -337,6 +341,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcArn")]
         public Input<string>? VpcArn { get; set; }

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +72,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -139,10 +141,14 @@ type ResourceLfTags struct {
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabaseOutput `pulumi:"database"`
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayOutput `pulumi:"lfTags"`
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTableOutput `pulumi:"table"`
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns ResourceLfTagsTableWithColumnsOutput `pulumi:"tableWithColumns"`
 }
 
@@ -156,6 +162,7 @@ func NewResourceLfTags(ctx *pulumi.Context,
 	if args.LfTags == nil {
 		return nil, errors.New("invalid value for required argument 'LfTags'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceLfTags
 	err := ctx.RegisterResource("aws:lakeformation/resourceLfTags:ResourceLfTags", name, args, &resource, opts...)
 	if err != nil {
@@ -183,10 +190,14 @@ type resourceLfTagsState struct {
 	// Configuration block for a database resource. See below.
 	Database *ResourceLfTagsDatabase `pulumi:"database"`
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
 	// Configuration block for a table resource. See below.
 	Table *ResourceLfTagsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns *ResourceLfTagsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -196,10 +207,14 @@ type ResourceLfTagsState struct {
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabasePtrInput
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayInput
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTablePtrInput
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns ResourceLfTagsTableWithColumnsPtrInput
 }
 
@@ -213,10 +228,14 @@ type resourceLfTagsArgs struct {
 	// Configuration block for a database resource. See below.
 	Database *ResourceLfTagsDatabase `pulumi:"database"`
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
 	// Configuration block for a table resource. See below.
 	Table *ResourceLfTagsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns *ResourceLfTagsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -227,10 +246,14 @@ type ResourceLfTagsArgs struct {
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabasePtrInput
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayInput
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTablePtrInput
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns ResourceLfTagsTableWithColumnsPtrInput
 }
 
@@ -255,6 +278,12 @@ func (i *ResourceLfTags) ToResourceLfTagsOutput() ResourceLfTagsOutput {
 
 func (i *ResourceLfTags) ToResourceLfTagsOutputWithContext(ctx context.Context) ResourceLfTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsOutput)
+}
+
+func (i *ResourceLfTags) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTags] {
+	return pulumix.Output[*ResourceLfTags]{
+		OutputState: i.ToResourceLfTagsOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceLfTagsArrayInput is an input type that accepts ResourceLfTagsArray and ResourceLfTagsArrayOutput values.
@@ -282,6 +311,12 @@ func (i ResourceLfTagsArray) ToResourceLfTagsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsArrayOutput)
 }
 
+func (i ResourceLfTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceLfTags] {
+	return pulumix.Output[[]*ResourceLfTags]{
+		OutputState: i.ToResourceLfTagsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceLfTagsMapInput is an input type that accepts ResourceLfTagsMap and ResourceLfTagsMapOutput values.
 // You can construct a concrete instance of `ResourceLfTagsMapInput` via:
 //
@@ -307,6 +342,12 @@ func (i ResourceLfTagsMap) ToResourceLfTagsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsMapOutput)
 }
 
+func (i ResourceLfTagsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceLfTags] {
+	return pulumix.Output[map[string]*ResourceLfTags]{
+		OutputState: i.ToResourceLfTagsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceLfTagsOutput struct{ *pulumi.OutputState }
 
 func (ResourceLfTagsOutput) ElementType() reflect.Type {
@@ -321,6 +362,12 @@ func (o ResourceLfTagsOutput) ToResourceLfTagsOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ResourceLfTagsOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTags] {
+	return pulumix.Output[*ResourceLfTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 func (o ResourceLfTagsOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceLfTags) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
@@ -332,6 +379,8 @@ func (o ResourceLfTagsOutput) Database() ResourceLfTagsDatabaseOutput {
 }
 
 // Set of LF-tags to attach to the resource. See below.
+//
+// Exactly one of the following is required:
 func (o ResourceLfTagsOutput) LfTags() ResourceLfTagsLfTagArrayOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsLfTagArrayOutput { return v.LfTags }).(ResourceLfTagsLfTagArrayOutput)
 }
@@ -342,6 +391,8 @@ func (o ResourceLfTagsOutput) Table() ResourceLfTagsTableOutput {
 }
 
 // Configuration block for a table with columns resource. See below.
+//
+// The following arguments are optional:
 func (o ResourceLfTagsOutput) TableWithColumns() ResourceLfTagsTableWithColumnsOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTableWithColumnsOutput { return v.TableWithColumns }).(ResourceLfTagsTableWithColumnsOutput)
 }
@@ -358,6 +409,12 @@ func (o ResourceLfTagsArrayOutput) ToResourceLfTagsArrayOutput() ResourceLfTagsA
 
 func (o ResourceLfTagsArrayOutput) ToResourceLfTagsArrayOutputWithContext(ctx context.Context) ResourceLfTagsArrayOutput {
 	return o
+}
+
+func (o ResourceLfTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceLfTags] {
+	return pulumix.Output[[]*ResourceLfTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceLfTagsArrayOutput) Index(i pulumi.IntInput) ResourceLfTagsOutput {
@@ -378,6 +435,12 @@ func (o ResourceLfTagsMapOutput) ToResourceLfTagsMapOutput() ResourceLfTagsMapOu
 
 func (o ResourceLfTagsMapOutput) ToResourceLfTagsMapOutputWithContext(ctx context.Context) ResourceLfTagsMapOutput {
 	return o
+}
+
+func (o ResourceLfTagsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceLfTags] {
+	return pulumix.Output[map[string]*ResourceLfTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceLfTagsMapOutput) MapIndex(k pulumi.StringInput) ResourceLfTagsOutput {

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
@@ -91,12 +91,16 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
     /**
      * A unique name describing the recovery group.
      * 
+     * The following argument are optional:
+     * 
      */
     @Export(name="recoveryGroupName", refs={String.class}, tree="[0]")
     private Output<String> recoveryGroupName;
 
     /**
      * @return A unique name describing the recovery group.
+     * 
+     * The following argument are optional:
      * 
      */
     public Output<String> recoveryGroupName() {

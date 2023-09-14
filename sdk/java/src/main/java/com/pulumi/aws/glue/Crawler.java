@@ -9,6 +9,8 @@ import com.pulumi.aws.glue.inputs.CrawlerState;
 import com.pulumi.aws.glue.outputs.CrawlerCatalogTarget;
 import com.pulumi.aws.glue.outputs.CrawlerDeltaTarget;
 import com.pulumi.aws.glue.outputs.CrawlerDynamodbTarget;
+import com.pulumi.aws.glue.outputs.CrawlerHudiTarget;
+import com.pulumi.aws.glue.outputs.CrawlerIcebergTarget;
 import com.pulumi.aws.glue.outputs.CrawlerJdbcTarget;
 import com.pulumi.aws.glue.outputs.CrawlerLakeFormationConfiguration;
 import com.pulumi.aws.glue.outputs.CrawlerLineageConfiguration;
@@ -267,7 +269,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Crawlers can be imported using `name`, e.g.,
+ * Using `pulumi import`, import Glue Crawlers using `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
@@ -338,9 +340,17 @@ public class Crawler extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     @Export(name="deltaTargets", refs={List.class,CrawlerDeltaTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerDeltaTarget>> deltaTargets;
 
+    /**
+     * @return List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     public Output<Optional<List<CrawlerDeltaTarget>>> deltaTargets() {
         return Codegen.optional(this.deltaTargets);
     }
@@ -371,6 +381,34 @@ public class Crawler extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<CrawlerDynamodbTarget>>> dynamodbTargets() {
         return Codegen.optional(this.dynamodbTargets);
+    }
+    /**
+     * List nested Hudi target arguments. See Iceberg Target below.
+     * 
+     */
+    @Export(name="hudiTargets", refs={List.class,CrawlerHudiTarget.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<CrawlerHudiTarget>> hudiTargets;
+
+    /**
+     * @return List nested Hudi target arguments. See Iceberg Target below.
+     * 
+     */
+    public Output<Optional<List<CrawlerHudiTarget>>> hudiTargets() {
+        return Codegen.optional(this.hudiTargets);
+    }
+    /**
+     * List nested Iceberg target arguments. See Iceberg Target below.
+     * 
+     */
+    @Export(name="icebergTargets", refs={List.class,CrawlerIcebergTarget.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<CrawlerIcebergTarget>> icebergTargets;
+
+    /**
+     * @return List nested Iceberg target arguments. See Iceberg Target below.
+     * 
+     */
+    public Output<Optional<List<CrawlerIcebergTarget>>> icebergTargets() {
+        return Codegen.optional(this.icebergTargets);
     }
     /**
      * List of nested JBDC target arguments. See JDBC Target below.

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// IOT Things can be imported using the name, e.g.,
+    /// Using `pulumi import`, import IOT Things using the name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:iot/thing:Thing example example

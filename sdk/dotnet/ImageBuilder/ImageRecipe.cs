@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+    /// Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -155,6 +155,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -279,6 +281,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -401,6 +405,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Intents can be imported using their name.
+ * Using `pulumi import`, import intents using their name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers

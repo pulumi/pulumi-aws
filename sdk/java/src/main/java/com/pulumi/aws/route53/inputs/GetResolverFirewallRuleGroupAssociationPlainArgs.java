@@ -15,12 +15,16 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
     /**
      * The identifier for the association.
      * 
+     * The following attribute is additionally exported:
+     * 
      */
     @Import(name="firewallRuleGroupAssociationId", required=true)
     private String firewallRuleGroupAssociationId;
 
     /**
      * @return The identifier for the association.
+     * 
+     * The following attribute is additionally exported:
      * 
      */
     public String firewallRuleGroupAssociationId() {
@@ -53,6 +57,8 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
 
         /**
          * @param firewallRuleGroupAssociationId The identifier for the association.
+         * 
+         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MediaLive Channel can be imported using the `channel_id`, e.g.,
+ * Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:medialive/channel:Channel example 1234567
@@ -160,6 +160,8 @@ export class Channel extends pulumi.CustomResource {
     public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenance>;
     /**
      * Name of the Channel.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -294,6 +296,8 @@ export interface ChannelState {
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
     /**
      * Name of the Channel.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -353,6 +357,8 @@ export interface ChannelArgs {
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
     /**
      * Name of the Channel.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

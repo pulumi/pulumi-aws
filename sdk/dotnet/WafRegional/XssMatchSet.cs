@@ -50,7 +50,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Import
     /// 
-    /// AWS WAF Regional XSS Match can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde

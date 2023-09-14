@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// ## Import
     /// 
-    /// Elastic Transcoder pipelines can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
@@ -114,6 +114,13 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
+        /// 
+        /// The `content_config` object specifies information about the Amazon S3 bucket in
+        /// which you want Elastic Transcoder to save transcoded files and playlists: which
+        /// bucket to use, and the storage class that you want to assign to the files. If
+        /// you specify values for `content_config`, you must also specify values for
+        /// `thumbnail_config`. If you specify values for `content_config` and
+        /// `thumbnail_config`, omit the `output_bucket` object.
         /// </summary>
         [Output("thumbnailConfigPermissions")]
         public Output<ImmutableArray<Outputs.PipelineThumbnailConfigPermission>> ThumbnailConfigPermissions { get; private set; } = null!;
@@ -229,6 +236,13 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
+        /// 
+        /// The `content_config` object specifies information about the Amazon S3 bucket in
+        /// which you want Elastic Transcoder to save transcoded files and playlists: which
+        /// bucket to use, and the storage class that you want to assign to the files. If
+        /// you specify values for `content_config`, you must also specify values for
+        /// `thumbnail_config`. If you specify values for `content_config` and
+        /// `thumbnail_config`, omit the `output_bucket` object.
         /// </summary>
         public InputList<Inputs.PipelineThumbnailConfigPermissionArgs> ThumbnailConfigPermissions
         {
@@ -315,6 +329,13 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
+        /// 
+        /// The `content_config` object specifies information about the Amazon S3 bucket in
+        /// which you want Elastic Transcoder to save transcoded files and playlists: which
+        /// bucket to use, and the storage class that you want to assign to the files. If
+        /// you specify values for `content_config`, you must also specify values for
+        /// `thumbnail_config`. If you specify values for `content_config` and
+        /// `thumbnail_config`, omit the `output_bucket` object.
         /// </summary>
         public InputList<Inputs.PipelineThumbnailConfigPermissionGetArgs> ThumbnailConfigPermissions
         {

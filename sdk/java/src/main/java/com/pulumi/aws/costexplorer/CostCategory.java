@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ce_cost_category` can be imported using the id, e.g.
+ * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
  * 
  * ```sh
  *  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
@@ -141,12 +141,16 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
     /**
      * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="effectiveStart", refs={String.class}, tree="[0]")
     private Output<String> effectiveStart;
 
     /**
      * @return The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> effectiveStart() {

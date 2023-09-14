@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,7 +17,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,6 +34,7 @@ import (
 //
 // ```
 func LookupSerialConsoleAccess(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSerialConsoleAccessResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSerialConsoleAccessResult
 	err := ctx.Invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", nil, &rv, opts...)
 	if err != nil {

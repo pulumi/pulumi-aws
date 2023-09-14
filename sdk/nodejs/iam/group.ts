@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IAM Groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import IAM Groups using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:iam/group:Group developers developers

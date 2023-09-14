@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
+ * Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example

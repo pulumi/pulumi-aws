@@ -9,10 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    [Obsolete(@"aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools")]
     public static class GetVpcIamPools
     {
         /// <summary>
-        /// `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+        /// `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
         /// 
         /// This resource can prove useful when IPAM pools are created in another root
         /// module and you need the pool ids as input variables. For example, pools
@@ -30,11 +31,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Ec2.GetVpcIamPools.Invoke(new()
+        ///     var test = Aws.Ec2.GetVpcIpamPools.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
         ///             {
         ///                 Name = "description",
         ///                 Values = new[]
@@ -42,7 +43,7 @@ namespace Pulumi.Aws.Ec2
         ///                     "*test*",
         ///                 },
         ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
         ///             {
         ///                 Name = "address-family",
         ///                 Values = new[]
@@ -62,7 +63,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+        /// `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
         /// 
         /// This resource can prove useful when IPAM pools are created in another root
         /// module and you need the pool ids as input variables. For example, pools
@@ -80,11 +81,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Ec2.GetVpcIamPools.Invoke(new()
+        ///     var test = Aws.Ec2.GetVpcIpamPools.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
         ///             {
         ///                 Name = "description",
         ///                 Values = new[]
@@ -92,7 +93,7 @@ namespace Pulumi.Aws.Ec2
         ///                     "*test*",
         ///                 },
         ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
         ///             {
         ///                 Name = "address-family",
         ///                 Values = new[]

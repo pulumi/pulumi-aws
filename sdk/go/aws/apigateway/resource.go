@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway Resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,
+// Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
 //
 // ```sh
 //
@@ -85,6 +87,7 @@ func NewResource(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resource
 	err := ctx.RegisterResource("aws:apigateway/resource:Resource", name, args, &resource, opts...)
 	if err != nil {
@@ -174,6 +177,12 @@ func (i *Resource) ToResourceOutputWithContext(ctx context.Context) ResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceOutput)
 }
 
+func (i *Resource) ToOutput(ctx context.Context) pulumix.Output[*Resource] {
+	return pulumix.Output[*Resource]{
+		OutputState: i.ToResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceArrayInput is an input type that accepts ResourceArray and ResourceArrayOutput values.
 // You can construct a concrete instance of `ResourceArrayInput` via:
 //
@@ -197,6 +206,12 @@ func (i ResourceArray) ToResourceArrayOutput() ResourceArrayOutput {
 
 func (i ResourceArray) ToResourceArrayOutputWithContext(ctx context.Context) ResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceArrayOutput)
+}
+
+func (i ResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Resource] {
+	return pulumix.Output[[]*Resource]{
+		OutputState: i.ToResourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceMapInput is an input type that accepts ResourceMap and ResourceMapOutput values.
@@ -224,6 +239,12 @@ func (i ResourceMap) ToResourceMapOutputWithContext(ctx context.Context) Resourc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMapOutput)
 }
 
+func (i ResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resource] {
+	return pulumix.Output[map[string]*Resource]{
+		OutputState: i.ToResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceOutput) ElementType() reflect.Type {
@@ -236,6 +257,12 @@ func (o ResourceOutput) ToResourceOutput() ResourceOutput {
 
 func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) ResourceOutput {
 	return o
+}
+
+func (o ResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*Resource] {
+	return pulumix.Output[*Resource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the parent API resource
@@ -272,6 +299,12 @@ func (o ResourceArrayOutput) ToResourceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Resource] {
+	return pulumix.Output[[]*Resource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceArrayOutput) Index(i pulumi.IntInput) ResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Resource {
 		return vs[0].([]*Resource)[vs[1].(int)]
@@ -290,6 +323,12 @@ func (o ResourceMapOutput) ToResourceMapOutput() ResourceMapOutput {
 
 func (o ResourceMapOutput) ToResourceMapOutputWithContext(ctx context.Context) ResourceMapOutput {
 	return o
+}
+
+func (o ResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resource] {
+	return pulumix.Output[map[string]*Resource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceMapOutput) MapIndex(k pulumi.StringInput) ResourceOutput {

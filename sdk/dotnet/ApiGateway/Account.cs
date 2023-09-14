@@ -96,7 +96,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
+    /// Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
@@ -106,10 +106,22 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The version of the API keys used for the account.
+        /// </summary>
+        [Output("apiKeyVersion")]
+        public Output<string> ApiKeyVersion { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         /// </summary>
         [Output("cloudwatchRoleArn")]
         public Output<string?> CloudwatchRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of features supported for the account.
+        /// </summary>
+        [Output("features")]
+        public Output<ImmutableArray<string>> Features { get; private set; } = null!;
 
         /// <summary>
         /// Account-Level throttle settings. See exported fields below.
@@ -178,10 +190,28 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The version of the API keys used for the account.
+        /// </summary>
+        [Input("apiKeyVersion")]
+        public Input<string>? ApiKeyVersion { get; set; }
+
+        /// <summary>
         /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         /// </summary>
         [Input("cloudwatchRoleArn")]
         public Input<string>? CloudwatchRoleArn { get; set; }
+
+        [Input("features")]
+        private InputList<string>? _features;
+
+        /// <summary>
+        /// A list of features supported for the account.
+        /// </summary>
+        public InputList<string> Features
+        {
+            get => _features ?? (_features = new InputList<string>());
+            set => _features = value;
+        }
 
         [Input("throttleSettings")]
         private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;

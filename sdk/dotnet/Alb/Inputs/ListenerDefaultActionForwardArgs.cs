@@ -23,6 +23,8 @@ namespace Pulumi.Aws.Alb.Inputs
 
         /// <summary>
         /// Set of 1-5 target group blocks. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ListenerDefaultActionForwardTargetGroupArgs> TargetGroups
         {

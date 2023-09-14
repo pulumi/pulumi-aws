@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    [Obsolete(@"aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool")]
     public static class GetVpcIamPool
     {
         /// <summary>
@@ -34,11 +35,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testVpcIamPool = Aws.Ec2.GetVpcIamPool.Invoke(new()
+        ///     var testVpcIpamPool = Aws.Ec2.GetVpcIpamPool.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
         ///             {
         ///                 Name = "description",
         ///                 Values = new[]
@@ -46,7 +47,7 @@ namespace Pulumi.Aws.Ec2
         ///                     "*test*",
         ///                 },
         ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
         ///             {
         ///                 Name = "address-family",
         ///                 Values = new[]
@@ -59,7 +60,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
         ///     {
-        ///         Ipv4IpamPoolId = testVpcIamPool.Apply(getVpcIamPoolResult =&gt; getVpcIamPoolResult.Id),
+        ///         Ipv4IpamPoolId = testVpcIpamPool.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
         ///         Ipv4NetmaskLength = 28,
         ///     });
         /// 
@@ -94,11 +95,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testVpcIamPool = Aws.Ec2.GetVpcIamPool.Invoke(new()
+        ///     var testVpcIpamPool = Aws.Ec2.GetVpcIpamPool.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
         ///             {
         ///                 Name = "description",
         ///                 Values = new[]
@@ -106,7 +107,7 @@ namespace Pulumi.Aws.Ec2
         ///                     "*test*",
         ///                 },
         ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
         ///             {
         ///                 Name = "address-family",
         ///                 Values = new[]
@@ -119,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
         ///     {
-        ///         Ipv4IpamPoolId = testVpcIamPool.Apply(getVpcIamPoolResult =&gt; getVpcIamPoolResult.Id),
+        ///         Ipv4IpamPoolId = testVpcIpamPool.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
         ///         Ipv4NetmaskLength = 28,
         ///     });
         /// 

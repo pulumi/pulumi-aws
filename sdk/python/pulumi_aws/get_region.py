@@ -54,9 +54,6 @@ class GetRegionResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -81,6 +78,7 @@ class AwaitableGetRegionResult(GetRegionResult):
 
 
 def get_region(endpoint: Optional[str] = None,
+               id: Optional[str] = None,
                name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionResult:
     """
@@ -109,19 +107,21 @@ def get_region(endpoint: Optional[str] = None,
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint
+    __args__['id'] = id
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts, typ=GetRegionResult).value
 
     return AwaitableGetRegionResult(
-        description=__ret__.description,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        name=__ret__.name)
+        description=pulumi.get(__ret__, 'description'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_region)
 def get_region_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
+                      id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionResult]:
     """

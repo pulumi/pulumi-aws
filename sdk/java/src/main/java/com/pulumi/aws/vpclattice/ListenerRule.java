@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Listener Rule can be imported using the `example_id_arg`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
@@ -225,12 +225,16 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
      * @return The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> priority() {

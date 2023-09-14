@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
+ * Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF

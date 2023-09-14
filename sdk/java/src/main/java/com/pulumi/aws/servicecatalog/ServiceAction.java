@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
@@ -109,12 +109,16 @@ public class ServiceAction extends com.pulumi.resources.CustomResource {
     /**
      * Self-service action name.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Self-service action name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

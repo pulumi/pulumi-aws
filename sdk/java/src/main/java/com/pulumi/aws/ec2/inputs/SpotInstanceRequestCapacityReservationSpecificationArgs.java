@@ -34,12 +34,16 @@ public final class SpotInstanceRequestCapacityReservationSpecificationArgs exten
     /**
      * Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
      * 
+     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
+     * 
      */
     @Import(name="capacityReservationTarget")
     private @Nullable Output<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs> capacityReservationTarget;
 
     /**
      * @return Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+     * 
+     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
      * 
      */
     public Optional<Output<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs>> capacityReservationTarget() {
@@ -95,6 +99,8 @@ public final class SpotInstanceRequestCapacityReservationSpecificationArgs exten
         /**
          * @param capacityReservationTarget Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
          * 
+         * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class SpotInstanceRequestCapacityReservationSpecificationArgs exten
 
         /**
          * @param capacityReservationTarget Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+         * 
+         * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
          * 
          * @return builder
          * 

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS DataSync FSx OpenZfs Location.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // ## Import
 //
-// `aws_datasync_location_fsx_openzfs_file_system` can be imported by using the `DataSync-ARN#FSx-openzfs-ARN`, e.g.,
+// Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:
 //
 // ```sh
 //
@@ -97,6 +99,7 @@ func NewFsxOpenZfsFileSystem(ctx *pulumi.Context,
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FsxOpenZfsFileSystem
 	err := ctx.RegisterResource("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem", name, args, &resource, opts...)
 	if err != nil {
@@ -214,6 +217,12 @@ func (i *FsxOpenZfsFileSystem) ToFsxOpenZfsFileSystemOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemOutput)
 }
 
+func (i *FsxOpenZfsFileSystem) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystem] {
+	return pulumix.Output[*FsxOpenZfsFileSystem]{
+		OutputState: i.ToFsxOpenZfsFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FsxOpenZfsFileSystemArrayInput is an input type that accepts FsxOpenZfsFileSystemArray and FsxOpenZfsFileSystemArrayOutput values.
 // You can construct a concrete instance of `FsxOpenZfsFileSystemArrayInput` via:
 //
@@ -237,6 +246,12 @@ func (i FsxOpenZfsFileSystemArray) ToFsxOpenZfsFileSystemArrayOutput() FsxOpenZf
 
 func (i FsxOpenZfsFileSystemArray) ToFsxOpenZfsFileSystemArrayOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemArrayOutput)
+}
+
+func (i FsxOpenZfsFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]*FsxOpenZfsFileSystem] {
+	return pulumix.Output[[]*FsxOpenZfsFileSystem]{
+		OutputState: i.ToFsxOpenZfsFileSystemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FsxOpenZfsFileSystemMapInput is an input type that accepts FsxOpenZfsFileSystemMap and FsxOpenZfsFileSystemMapOutput values.
@@ -264,6 +279,12 @@ func (i FsxOpenZfsFileSystemMap) ToFsxOpenZfsFileSystemMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemMapOutput)
 }
 
+func (i FsxOpenZfsFileSystemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FsxOpenZfsFileSystem] {
+	return pulumix.Output[map[string]*FsxOpenZfsFileSystem]{
+		OutputState: i.ToFsxOpenZfsFileSystemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FsxOpenZfsFileSystemOutput struct{ *pulumi.OutputState }
 
 func (FsxOpenZfsFileSystemOutput) ElementType() reflect.Type {
@@ -276,6 +297,12 @@ func (o FsxOpenZfsFileSystemOutput) ToFsxOpenZfsFileSystemOutput() FsxOpenZfsFil
 
 func (o FsxOpenZfsFileSystemOutput) ToFsxOpenZfsFileSystemOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemOutput {
 	return o
+}
+
+func (o FsxOpenZfsFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystem] {
+	return pulumix.Output[*FsxOpenZfsFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
@@ -337,6 +364,12 @@ func (o FsxOpenZfsFileSystemArrayOutput) ToFsxOpenZfsFileSystemArrayOutputWithCo
 	return o
 }
 
+func (o FsxOpenZfsFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FsxOpenZfsFileSystem] {
+	return pulumix.Output[[]*FsxOpenZfsFileSystem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FsxOpenZfsFileSystemArrayOutput) Index(i pulumi.IntInput) FsxOpenZfsFileSystemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FsxOpenZfsFileSystem {
 		return vs[0].([]*FsxOpenZfsFileSystem)[vs[1].(int)]
@@ -355,6 +388,12 @@ func (o FsxOpenZfsFileSystemMapOutput) ToFsxOpenZfsFileSystemMapOutput() FsxOpen
 
 func (o FsxOpenZfsFileSystemMapOutput) ToFsxOpenZfsFileSystemMapOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemMapOutput {
 	return o
+}
+
+func (o FsxOpenZfsFileSystemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FsxOpenZfsFileSystem] {
+	return pulumix.Output[map[string]*FsxOpenZfsFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FsxOpenZfsFileSystemMapOutput) MapIndex(k pulumi.StringInput) FsxOpenZfsFileSystemOutput {

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Mq
     /// 
     /// ## Import
     /// 
-    /// MQ Configurations can be imported using the configuration ID, e.g.,
+    /// Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
@@ -99,6 +99,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Name of the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -193,6 +195,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Name of the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -261,6 +265,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Name of the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

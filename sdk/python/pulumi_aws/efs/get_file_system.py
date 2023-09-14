@@ -22,7 +22,7 @@ class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
+    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, name=None, performance_mode=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetFileSystemResult:
         if lifecycle_policy and not isinstance(lifecycle_policy, dict):
             raise TypeError("Expected argument 'lifecycle_policy' to be a dict")
         pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if performance_mode and not isinstance(performance_mode, str):
             raise TypeError("Expected argument 'performance_mode' to be a str")
         pulumi.set(__self__, "performance_mode", performance_mode)
@@ -144,6 +147,14 @@ class GetFileSystemResult:
         return pulumi.get(self, "lifecycle_policy")
 
     @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The value of the file system's `Name` tag.
+        """
+        return pulumi.get(self, "name")
+
+    @property
     @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> str:
         """
@@ -200,6 +211,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             id=self.id,
             kms_key_id=self.kms_key_id,
             lifecycle_policy=self.lifecycle_policy,
+            name=self.name,
             performance_mode=self.performance_mode,
             provisioned_throughput_in_mibps=self.provisioned_throughput_in_mibps,
             size_in_bytes=self.size_in_bytes,
@@ -243,21 +255,22 @@ def get_file_system(creation_token: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult).value
 
     return AwaitableGetFileSystemResult(
-        arn=__ret__.arn,
-        availability_zone_id=__ret__.availability_zone_id,
-        availability_zone_name=__ret__.availability_zone_name,
-        creation_token=__ret__.creation_token,
-        dns_name=__ret__.dns_name,
-        encrypted=__ret__.encrypted,
-        file_system_id=__ret__.file_system_id,
-        id=__ret__.id,
-        kms_key_id=__ret__.kms_key_id,
-        lifecycle_policy=__ret__.lifecycle_policy,
-        performance_mode=__ret__.performance_mode,
-        provisioned_throughput_in_mibps=__ret__.provisioned_throughput_in_mibps,
-        size_in_bytes=__ret__.size_in_bytes,
-        tags=__ret__.tags,
-        throughput_mode=__ret__.throughput_mode)
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
+        availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
+        creation_token=pulumi.get(__ret__, 'creation_token'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        file_system_id=pulumi.get(__ret__, 'file_system_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
+        name=pulumi.get(__ret__, 'name'),
+        performance_mode=pulumi.get(__ret__, 'performance_mode'),
+        provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
+        size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
+        tags=pulumi.get(__ret__, 'tags'),
+        throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
 
 
 @_utilities.lift_output_func(get_file_system)

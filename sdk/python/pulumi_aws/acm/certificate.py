@@ -46,7 +46,7 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
                To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -205,7 +205,7 @@ class CertificateArgs:
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         """
         return pulumi.get(self, "validation_method")
 
@@ -284,7 +284,7 @@ class _CertificateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Source of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -599,7 +599,7 @@ class _CertificateState:
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         """
         return pulumi.get(self, "validation_method")
 
@@ -740,10 +740,10 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
-            name: dvo.resourceRecordName,
-            record: dvo.resourceRecordValue,
-            type: dvo.resourceRecordType,
+        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domain_name: {
+            name: dvo.resource_record_name,
+            record: dvo.resource_record_value,
+            type: dvo.resource_record_type,
         } for dvo in aws_acm_certificate.example.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
@@ -756,7 +756,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using their ARN, e.g.,
+        Using `pulumi import`, import certificates using their ARN. For example:
 
         ```sh
          $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
@@ -780,7 +780,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
                To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -891,10 +891,10 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
-            name: dvo.resourceRecordName,
-            record: dvo.resourceRecordValue,
-            type: dvo.resourceRecordType,
+        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domain_name: {
+            name: dvo.resource_record_name,
+            record: dvo.resource_record_value,
+            type: dvo.resource_record_type,
         } for dvo in aws_acm_certificate.example.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
@@ -907,7 +907,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using their ARN, e.g.,
+        Using `pulumi import`, import certificates using their ARN. For example:
 
         ```sh
          $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
@@ -1043,7 +1043,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Source of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -1256,7 +1256,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> pulumi.Output[str]:
         """
-        Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         """
         return pulumi.get(self, "validation_method")
 

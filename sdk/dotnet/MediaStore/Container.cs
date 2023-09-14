@@ -29,7 +29,7 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// ## Import
     /// 
-    /// MediaStore Container can be imported using the MediaStore Container Name, e.g.,
+    /// Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:mediastore/container:Container example example

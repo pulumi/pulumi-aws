@@ -6,6 +6,8 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointConfigurationShadowProductionVariantServerlessConfig {
@@ -19,6 +21,11 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfig 
      * 
      */
     private Integer memorySizeInMb;
+    /**
+     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * 
+     */
+    private @Nullable Integer provisionedConcurrency;
 
     private EndpointConfigurationShadowProductionVariantServerlessConfig() {}
     /**
@@ -35,6 +42,13 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfig 
     public Integer memorySizeInMb() {
         return this.memorySizeInMb;
     }
+    /**
+     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * 
+     */
+    public Optional<Integer> provisionedConcurrency() {
+        return Optional.ofNullable(this.provisionedConcurrency);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -47,11 +61,13 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfig 
     public static final class Builder {
         private Integer maxConcurrency;
         private Integer memorySizeInMb;
+        private @Nullable Integer provisionedConcurrency;
         public Builder() {}
         public Builder(EndpointConfigurationShadowProductionVariantServerlessConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxConcurrency = defaults.maxConcurrency;
     	      this.memorySizeInMb = defaults.memorySizeInMb;
+    	      this.provisionedConcurrency = defaults.provisionedConcurrency;
         }
 
         @CustomType.Setter
@@ -64,10 +80,16 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfig 
             this.memorySizeInMb = Objects.requireNonNull(memorySizeInMb);
             return this;
         }
+        @CustomType.Setter
+        public Builder provisionedConcurrency(@Nullable Integer provisionedConcurrency) {
+            this.provisionedConcurrency = provisionedConcurrency;
+            return this;
+        }
         public EndpointConfigurationShadowProductionVariantServerlessConfig build() {
             final var o = new EndpointConfigurationShadowProductionVariantServerlessConfig();
             o.maxConcurrency = maxConcurrency;
             o.memorySizeInMb = memorySizeInMb;
+            o.provisionedConcurrency = provisionedConcurrency;
             return o;
         }
     }

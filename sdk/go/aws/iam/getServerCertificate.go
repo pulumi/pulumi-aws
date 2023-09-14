@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to lookup information about IAM Server Certificates.
@@ -19,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +56,7 @@ import (
 //
 // ```
 func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateArgs, opts ...pulumi.InvokeOption) (*LookupServerCertificateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerCertificateResult
 	err := ctx.Invoke("aws:iam/getServerCertificate:getServerCertificate", args, &rv, opts...)
 	if err != nil {
@@ -138,6 +141,12 @@ func (o LookupServerCertificateResultOutput) ToLookupServerCertificateResultOutp
 
 func (o LookupServerCertificateResultOutput) ToLookupServerCertificateResultOutputWithContext(ctx context.Context) LookupServerCertificateResultOutput {
 	return o
+}
+
+func (o LookupServerCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerCertificateResult] {
+	return pulumix.Output[LookupServerCertificateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // is set to the ARN of the IAM Server Certificate

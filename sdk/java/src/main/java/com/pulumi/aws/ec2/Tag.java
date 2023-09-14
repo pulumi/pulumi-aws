@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
+ * Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name

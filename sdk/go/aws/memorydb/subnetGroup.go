@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a MemoryDB Subnet Group.
@@ -22,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +62,7 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a subnet group. For example
+// Using `pulumi import`, import a subnet group using its `name`. For example:
 //
 // ```sh
 //
@@ -79,6 +81,8 @@ type SubnetGroup struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -98,6 +102,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:memorydb/subnetGroup:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -129,6 +134,8 @@ type subnetGroupState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -148,6 +155,8 @@ type SubnetGroupState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -169,6 +178,8 @@ type subnetGroupArgs struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -183,6 +194,8 @@ type SubnetGroupArgs struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -211,6 +224,12 @@ func (i *SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) Subnet
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupOutput)
 }
 
+func (i *SubnetGroup) ToOutput(ctx context.Context) pulumix.Output[*SubnetGroup] {
+	return pulumix.Output[*SubnetGroup]{
+		OutputState: i.ToSubnetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubnetGroupArrayInput is an input type that accepts SubnetGroupArray and SubnetGroupArrayOutput values.
 // You can construct a concrete instance of `SubnetGroupArrayInput` via:
 //
@@ -234,6 +253,12 @@ func (i SubnetGroupArray) ToSubnetGroupArrayOutput() SubnetGroupArrayOutput {
 
 func (i SubnetGroupArray) ToSubnetGroupArrayOutputWithContext(ctx context.Context) SubnetGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupArrayOutput)
+}
+
+func (i SubnetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetGroup] {
+	return pulumix.Output[[]*SubnetGroup]{
+		OutputState: i.ToSubnetGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubnetGroupMapInput is an input type that accepts SubnetGroupMap and SubnetGroupMapOutput values.
@@ -261,6 +286,12 @@ func (i SubnetGroupMap) ToSubnetGroupMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupMapOutput)
 }
 
+func (i SubnetGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetGroup] {
+	return pulumix.Output[map[string]*SubnetGroup]{
+		OutputState: i.ToSubnetGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (SubnetGroupOutput) ElementType() reflect.Type {
@@ -273,6 +304,12 @@ func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {
 
 func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
 	return o
+}
+
+func (o SubnetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetGroup] {
+	return pulumix.Output[*SubnetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the subnet group.
@@ -296,6 +333,8 @@ func (o SubnetGroupOutput) NamePrefix() pulumi.StringOutput {
 }
 
 // Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+//
+// The following arguments are optional:
 func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -329,6 +368,12 @@ func (o SubnetGroupArrayOutput) ToSubnetGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o SubnetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetGroup] {
+	return pulumix.Output[[]*SubnetGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubnetGroupArrayOutput) Index(i pulumi.IntInput) SubnetGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetGroup {
 		return vs[0].([]*SubnetGroup)[vs[1].(int)]
@@ -347,6 +392,12 @@ func (o SubnetGroupMapOutput) ToSubnetGroupMapOutput() SubnetGroupMapOutput {
 
 func (o SubnetGroupMapOutput) ToSubnetGroupMapOutputWithContext(ctx context.Context) SubnetGroupMapOutput {
 	return o
+}
+
+func (o SubnetGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetGroup] {
+	return pulumix.Output[map[string]*SubnetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubnetGroupMapOutput) MapIndex(k pulumi.StringInput) SubnetGroupOutput {

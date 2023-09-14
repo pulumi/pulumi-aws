@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // ## Import
 //
-// Code Signing Configs can be imported using their ARN, e.g.,
+// Using `pulumi import`, import Code Signing Configs using their ARN. For example:
 //
 // ```sh
 //
@@ -86,6 +88,7 @@ func NewCodeSigningConfig(ctx *pulumi.Context,
 	if args.AllowedPublishers == nil {
 		return nil, errors.New("invalid value for required argument 'AllowedPublishers'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CodeSigningConfig
 	err := ctx.RegisterResource("aws:lambda/codeSigningConfig:CodeSigningConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -183,6 +186,12 @@ func (i *CodeSigningConfig) ToCodeSigningConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigOutput)
 }
 
+func (i *CodeSigningConfig) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfig] {
+	return pulumix.Output[*CodeSigningConfig]{
+		OutputState: i.ToCodeSigningConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CodeSigningConfigArrayInput is an input type that accepts CodeSigningConfigArray and CodeSigningConfigArrayOutput values.
 // You can construct a concrete instance of `CodeSigningConfigArrayInput` via:
 //
@@ -206,6 +215,12 @@ func (i CodeSigningConfigArray) ToCodeSigningConfigArrayOutput() CodeSigningConf
 
 func (i CodeSigningConfigArray) ToCodeSigningConfigArrayOutputWithContext(ctx context.Context) CodeSigningConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigArrayOutput)
+}
+
+func (i CodeSigningConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*CodeSigningConfig] {
+	return pulumix.Output[[]*CodeSigningConfig]{
+		OutputState: i.ToCodeSigningConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CodeSigningConfigMapInput is an input type that accepts CodeSigningConfigMap and CodeSigningConfigMapOutput values.
@@ -233,6 +248,12 @@ func (i CodeSigningConfigMap) ToCodeSigningConfigMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigMapOutput)
 }
 
+func (i CodeSigningConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodeSigningConfig] {
+	return pulumix.Output[map[string]*CodeSigningConfig]{
+		OutputState: i.ToCodeSigningConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CodeSigningConfigOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigOutput) ElementType() reflect.Type {
@@ -245,6 +266,12 @@ func (o CodeSigningConfigOutput) ToCodeSigningConfigOutput() CodeSigningConfigOu
 
 func (o CodeSigningConfigOutput) ToCodeSigningConfigOutputWithContext(ctx context.Context) CodeSigningConfigOutput {
 	return o
+}
+
+func (o CodeSigningConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfig] {
+	return pulumix.Output[*CodeSigningConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
@@ -291,6 +318,12 @@ func (o CodeSigningConfigArrayOutput) ToCodeSigningConfigArrayOutputWithContext(
 	return o
 }
 
+func (o CodeSigningConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CodeSigningConfig] {
+	return pulumix.Output[[]*CodeSigningConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CodeSigningConfigArrayOutput) Index(i pulumi.IntInput) CodeSigningConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CodeSigningConfig {
 		return vs[0].([]*CodeSigningConfig)[vs[1].(int)]
@@ -309,6 +342,12 @@ func (o CodeSigningConfigMapOutput) ToCodeSigningConfigMapOutput() CodeSigningCo
 
 func (o CodeSigningConfigMapOutput) ToCodeSigningConfigMapOutputWithContext(ctx context.Context) CodeSigningConfigMapOutput {
 	return o
+}
+
+func (o CodeSigningConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodeSigningConfig] {
+	return pulumix.Output[map[string]*CodeSigningConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CodeSigningConfigMapOutput) MapIndex(k pulumi.StringInput) CodeSigningConfigOutput {

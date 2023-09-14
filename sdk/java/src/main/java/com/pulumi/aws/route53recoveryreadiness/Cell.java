@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
@@ -77,12 +77,16 @@ public class Cell extends com.pulumi.resources.CustomResource {
     /**
      * Unique name describing the cell.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="cellName", refs={String.class}, tree="[0]")
     private Output<String> cellName;
 
     /**
      * @return Unique name describing the cell.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> cellName() {

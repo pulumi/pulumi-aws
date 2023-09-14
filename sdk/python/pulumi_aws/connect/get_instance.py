@@ -240,21 +240,21 @@ def get_instance(instance_alias: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        arn=__ret__.arn,
-        auto_resolve_best_voices_enabled=__ret__.auto_resolve_best_voices_enabled,
-        contact_flow_logs_enabled=__ret__.contact_flow_logs_enabled,
-        contact_lens_enabled=__ret__.contact_lens_enabled,
-        created_time=__ret__.created_time,
-        early_media_enabled=__ret__.early_media_enabled,
-        id=__ret__.id,
-        identity_management_type=__ret__.identity_management_type,
-        inbound_calls_enabled=__ret__.inbound_calls_enabled,
-        instance_alias=__ret__.instance_alias,
-        instance_id=__ret__.instance_id,
-        multi_party_conference_enabled=__ret__.multi_party_conference_enabled,
-        outbound_calls_enabled=__ret__.outbound_calls_enabled,
-        service_role=__ret__.service_role,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_resolve_best_voices_enabled=pulumi.get(__ret__, 'auto_resolve_best_voices_enabled'),
+        contact_flow_logs_enabled=pulumi.get(__ret__, 'contact_flow_logs_enabled'),
+        contact_lens_enabled=pulumi.get(__ret__, 'contact_lens_enabled'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        early_media_enabled=pulumi.get(__ret__, 'early_media_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_management_type=pulumi.get(__ret__, 'identity_management_type'),
+        inbound_calls_enabled=pulumi.get(__ret__, 'inbound_calls_enabled'),
+        instance_alias=pulumi.get(__ret__, 'instance_alias'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        multi_party_conference_enabled=pulumi.get(__ret__, 'multi_party_conference_enabled'),
+        outbound_calls_enabled=pulumi.get(__ret__, 'outbound_calls_enabled'),
+        service_role=pulumi.get(__ret__, 'service_role'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_instance)

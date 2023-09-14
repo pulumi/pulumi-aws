@@ -54,6 +54,9 @@ import javax.annotation.Nullable;
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
  * for more information.
  * 
+ * &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+ * We recommend using the EC2 Instance resource with `instance_market_options` instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -159,12 +162,16 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+     * 
      */
     @Export(name="capacityReservationSpecification", refs={SpotInstanceRequestCapacityReservationSpecification.class}, tree="[0]")
     private Output<SpotInstanceRequestCapacityReservationSpecification> capacityReservationSpecification;
 
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
     public Output<SpotInstanceRequestCapacityReservationSpecification> capacityReservationSpecification() {
@@ -403,14 +410,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.instanceInitiatedShutdownBehavior;
     }
     /**
-     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      * 
      */
     @Export(name="instanceInterruptionBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceInterruptionBehavior;
 
     /**
-     * @return Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     * @return The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      * 
      */
     public Output<Optional<String>> instanceInterruptionBehavior() {
@@ -717,12 +724,16 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * List of security group names to associate with.
      * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
      * @return List of security group names to associate with.
+     * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      */
     public Output<List<String>> securityGroups() {
@@ -937,14 +948,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.validFrom;
     }
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      * 
      */
     @Export(name="validUntil", refs={String.class}, tree="[0]")
     private Output<String> validUntil;
 
     /**
-     * @return The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+     * @return The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      * 
      */
     public Output<String> validUntil() {
@@ -953,12 +964,16 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+     * 
      */
     @Export(name="volumeTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> volumeTags;
 
     /**
      * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
     public Output<Optional<Map<String,String>>> volumeTags() {

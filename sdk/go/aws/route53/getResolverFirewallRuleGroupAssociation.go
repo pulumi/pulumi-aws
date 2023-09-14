@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func LookupResolverFirewallRuleGroupAssociation(ctx *pulumi.Context, args *LookupResolverFirewallRuleGroupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallRuleGroupAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallRuleGroupAssociationResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args, &rv, opts...)
 	if err != nil {
@@ -53,6 +56,8 @@ func LookupResolverFirewallRuleGroupAssociation(ctx *pulumi.Context, args *Looku
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationArgs struct {
 	// The identifier for the association.
+	//
+	// The following attribute is additionally exported:
 	FirewallRuleGroupAssociationId string `pulumi:"firewallRuleGroupAssociationId"`
 }
 
@@ -91,6 +96,8 @@ func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args 
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationOutputArgs struct {
 	// The identifier for the association.
+	//
+	// The following attribute is additionally exported:
 	FirewallRuleGroupAssociationId pulumi.StringInput `pulumi:"firewallRuleGroupAssociationId"`
 }
 
@@ -111,6 +118,12 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ToLookupResolver
 
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ToLookupResolverFirewallRuleGroupAssociationResultOutputWithContext(ctx context.Context) LookupResolverFirewallRuleGroupAssociationResultOutput {
 	return o
+}
+
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverFirewallRuleGroupAssociationResult] {
+	return pulumix.Output[LookupResolverFirewallRuleGroupAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Arn() pulumi.StringOutput {

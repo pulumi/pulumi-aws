@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Grafana Workspace SAML configuration can be imported using the workspace's `id`, e.g.,
+ * Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
@@ -128,6 +128,8 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The workspace id.
+     *
+     * The following arguments are optional:
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -244,6 +246,8 @@ export interface WorkspaceSamlConfigurationState {
     status?: pulumi.Input<string>;
     /**
      * The workspace id.
+     *
+     * The following arguments are optional:
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -302,6 +306,8 @@ export interface WorkspaceSamlConfigurationArgs {
     roleAssertion?: pulumi.Input<string>;
     /**
      * The workspace id.
+     *
+     * The following arguments are optional:
      */
     workspaceId: pulumi.Input<string>;
 }

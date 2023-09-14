@@ -22,6 +22,8 @@ class RepositoryAssociationArgs:
         """
         The set of arguments for constructing a RepositoryAssociation resource.
         :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+               
+               The following arguments are optional:
         :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         """
         pulumi.set(__self__, "repository", repository)
@@ -35,6 +37,8 @@ class RepositoryAssociationArgs:
     def repository(self) -> pulumi.Input['RepositoryAssociationRepositoryArgs']:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "repository")
 
@@ -90,6 +94,8 @@ class _RepositoryAssociationState:
         :param pulumi.Input[str] owner: The username for the account that owns the repository.
         :param pulumi.Input[str] provider_type: The provider type of the repository association.
         :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: The state of the repository association.
         :param pulumi.Input[str] state_reason: A description of why the repository association is in the current state.
         """
@@ -209,6 +215,8 @@ class _RepositoryAssociationState:
     def repository(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']]:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "repository")
 
@@ -304,6 +312,8 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         :param pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -414,6 +424,8 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] owner: The username for the account that owns the repository.
         :param pulumi.Input[str] provider_type: The provider type of the repository association.
         :param pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: The state of the repository association.
         :param pulumi.Input[str] state_reason: A description of why the repository association is in the current state.
         """
@@ -497,6 +509,8 @@ class RepositoryAssociation(pulumi.CustomResource):
     def repository(self) -> pulumi.Output['outputs.RepositoryAssociationRepository']:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "repository")
 

@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Auth Policy can be imported using the `example_id_arg`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589

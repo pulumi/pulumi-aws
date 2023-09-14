@@ -8,22 +8,93 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 //
 // ## Example Usage
+// ### Example Event Based Policy Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dlm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dlm.NewLifecyclePolicy(ctx, "exampleLifecyclePolicy", &dlm.LifecyclePolicyArgs{
+//				Description:      pulumi.String("tf-acc-basic"),
+//				ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
+//					PolicyType: pulumi.String("EVENT_BASED_POLICY"),
+//					Action: &dlm.LifecyclePolicyPolicyDetailsActionArgs{
+//						Name: pulumi.String("tf-acc-basic"),
+//						CrossRegionCopies: dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray{
+//							&dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{
+//								EncryptionConfiguration: nil,
+//								RetainRule: &dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{
+//									Interval:     pulumi.Int(15),
+//									IntervalUnit: pulumi.String("MONTHS"),
+//								},
+//								Target: pulumi.String("us-east-1"),
+//							},
+//						},
+//					},
+//					EventSource: &dlm.LifecyclePolicyPolicyDetailsEventSourceArgs{
+//						Type: pulumi.String("MANAGED_CWE"),
+//						Parameters: &dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs{
+//							DescriptionRegex: pulumi.String("^.*Created for policy: policy-1234567890abcdef0.*$"),
+//							EventType:        pulumi.String("shareSnapshot"),
+//							SnapshotOwners: pulumi.StringArray{
+//								*pulumi.String(current.AccountId),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicy, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
+//				Name: pulumi.StringRef("AWSDataLifecycleManagerServiceRole"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				Role:      pulumi.Any(aws_iam_role.Example.Id),
+//				PolicyArn: *pulumi.String(examplePolicy.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// # DLM lifecycle policies can be imported by their policy ID
+// In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_dlm_lifecycle_policy.example
 //
-//	$ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-//
-// ```
+//	id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
@@ -37,7 +108,7 @@ type LifecyclePolicy struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -59,6 +130,7 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args.PolicyDetails == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDetails'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -91,7 +163,7 @@ type lifecyclePolicyState struct {
 	PolicyDetails *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -108,7 +180,7 @@ type LifecyclePolicyState struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsPtrInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -127,7 +199,7 @@ type lifecyclePolicyArgs struct {
 	PolicyDetails LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -141,7 +213,7 @@ type LifecyclePolicyArgs struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -166,6 +238,12 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
 
 func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyOutput)
+}
+
+func (i *LifecyclePolicy) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LifecyclePolicyArrayInput is an input type that accepts LifecyclePolicyArray and LifecyclePolicyArrayOutput values.
@@ -193,6 +271,12 @@ func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArrayOutput)
 }
 
+func (i LifecyclePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LifecyclePolicy] {
+	return pulumix.Output[[]*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyMapInput is an input type that accepts LifecyclePolicyMap and LifecyclePolicyMapOutput values.
 // You can construct a concrete instance of `LifecyclePolicyMapInput` via:
 //
@@ -218,6 +302,12 @@ func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyMapOutput)
 }
 
+func (i LifecyclePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecyclePolicy] {
+	return pulumix.Output[map[string]*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
@@ -230,6 +320,12 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
 	return o
+}
+
+func (o LifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
@@ -257,7 +353,7 @@ func (o LifecyclePolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LifecyclePolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -281,6 +377,12 @@ func (o LifecyclePolicyArrayOutput) ToLifecyclePolicyArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o LifecyclePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LifecyclePolicy] {
+	return pulumix.Output[[]*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LifecyclePolicy {
 		return vs[0].([]*LifecyclePolicy)[vs[1].(int)]
@@ -299,6 +401,12 @@ func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutput() LifecyclePolicyMa
 
 func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutputWithContext(ctx context.Context) LifecyclePolicyMapOutput {
 	return o
+}
+
+func (o LifecyclePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecyclePolicy] {
+	return pulumix.Output[map[string]*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyMapOutput) MapIndex(k pulumi.StringInput) LifecyclePolicyOutput {

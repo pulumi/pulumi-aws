@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
+ * Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
@@ -163,12 +163,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * Email address of the user.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
      * @return Email address of the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {

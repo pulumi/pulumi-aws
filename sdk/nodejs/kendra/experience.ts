@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+ * Using `pulumi import`, import Kendra Experience using the unique identifiers of the experience and index separated by a slash (`/`). For example:
  *
  * ```sh
  *  $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
@@ -99,6 +99,8 @@ export class Experience extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     *
+     * The following arguments are optional:
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
@@ -185,6 +187,8 @@ export interface ExperienceState {
     name?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     *
+     * The following arguments are optional:
      */
     roleArn?: pulumi.Input<string>;
     /**
@@ -215,6 +219,8 @@ export interface ExperienceArgs {
     name?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     *
+     * The following arguments are optional:
      */
     roleArn: pulumi.Input<string>;
 }

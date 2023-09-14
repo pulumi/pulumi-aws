@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 bucket can be imported using the `bucket`, e.g.,
+ * Using `pulumi import`, import S3 bucket using the `bucket`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
@@ -218,14 +218,14 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
         return this.bucketPrefix;
     }
     /**
-     * Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+     * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
     @Export(name="bucketRegionalDomainName", refs={String.class}, tree="[0]")
     private Output<String> bucketRegionalDomainName;
 
     /**
-     * @return Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+     * @return The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
     public Output<String> bucketRegionalDomainName() {
@@ -478,12 +478,16 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * The following arguments are deprecated, and will be removed in a future major version:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * The following arguments are deprecated, and will be removed in a future major version:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

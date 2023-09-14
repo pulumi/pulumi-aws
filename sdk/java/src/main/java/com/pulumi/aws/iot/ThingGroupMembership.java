@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IoT Thing Group Membership can be imported using the thing group name and thing name.
+ * Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name

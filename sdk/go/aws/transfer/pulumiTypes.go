@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AccessHomeDirectoryMapping struct {
 	// Represents an entry and a target.
@@ -47,6 +51,12 @@ func (i AccessHomeDirectoryMappingArgs) ToAccessHomeDirectoryMappingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AccessHomeDirectoryMappingOutput)
 }
 
+func (i AccessHomeDirectoryMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AccessHomeDirectoryMapping] {
+	return pulumix.Output[AccessHomeDirectoryMapping]{
+		OutputState: i.ToAccessHomeDirectoryMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessHomeDirectoryMappingArrayInput is an input type that accepts AccessHomeDirectoryMappingArray and AccessHomeDirectoryMappingArrayOutput values.
 // You can construct a concrete instance of `AccessHomeDirectoryMappingArrayInput` via:
 //
@@ -72,6 +82,12 @@ func (i AccessHomeDirectoryMappingArray) ToAccessHomeDirectoryMappingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AccessHomeDirectoryMappingArrayOutput)
 }
 
+func (i AccessHomeDirectoryMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessHomeDirectoryMapping] {
+	return pulumix.Output[[]AccessHomeDirectoryMapping]{
+		OutputState: i.ToAccessHomeDirectoryMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessHomeDirectoryMappingOutput struct{ *pulumi.OutputState }
 
 func (AccessHomeDirectoryMappingOutput) ElementType() reflect.Type {
@@ -84,6 +100,12 @@ func (o AccessHomeDirectoryMappingOutput) ToAccessHomeDirectoryMappingOutput() A
 
 func (o AccessHomeDirectoryMappingOutput) ToAccessHomeDirectoryMappingOutputWithContext(ctx context.Context) AccessHomeDirectoryMappingOutput {
 	return o
+}
+
+func (o AccessHomeDirectoryMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AccessHomeDirectoryMapping] {
+	return pulumix.Output[AccessHomeDirectoryMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Represents an entry and a target.
@@ -108,6 +130,12 @@ func (o AccessHomeDirectoryMappingArrayOutput) ToAccessHomeDirectoryMappingArray
 
 func (o AccessHomeDirectoryMappingArrayOutput) ToAccessHomeDirectoryMappingArrayOutputWithContext(ctx context.Context) AccessHomeDirectoryMappingArrayOutput {
 	return o
+}
+
+func (o AccessHomeDirectoryMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessHomeDirectoryMapping] {
+	return pulumix.Output[[]AccessHomeDirectoryMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessHomeDirectoryMappingArrayOutput) Index(i pulumi.IntInput) AccessHomeDirectoryMappingOutput {
@@ -157,6 +185,12 @@ func (i AccessPosixProfileArgs) ToAccessPosixProfileOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPosixProfileOutput)
 }
 
+func (i AccessPosixProfileArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPosixProfile] {
+	return pulumix.Output[AccessPosixProfile]{
+		OutputState: i.ToAccessPosixProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccessPosixProfileArgs) ToAccessPosixProfilePtrOutput() AccessPosixProfilePtrOutput {
 	return i.ToAccessPosixProfilePtrOutputWithContext(context.Background())
 }
@@ -198,6 +232,12 @@ func (i *accessPosixProfilePtrType) ToAccessPosixProfilePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPosixProfilePtrOutput)
 }
 
+func (i *accessPosixProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPosixProfile] {
+	return pulumix.Output[*AccessPosixProfile]{
+		OutputState: i.ToAccessPosixProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPosixProfileOutput struct{ *pulumi.OutputState }
 
 func (AccessPosixProfileOutput) ElementType() reflect.Type {
@@ -220,6 +260,12 @@ func (o AccessPosixProfileOutput) ToAccessPosixProfilePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPosixProfile) *AccessPosixProfile {
 		return &v
 	}).(AccessPosixProfilePtrOutput)
+}
+
+func (o AccessPosixProfileOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPosixProfile] {
+	return pulumix.Output[AccessPosixProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The POSIX group ID used for all EFS operations by this user.
@@ -249,6 +295,12 @@ func (o AccessPosixProfilePtrOutput) ToAccessPosixProfilePtrOutput() AccessPosix
 
 func (o AccessPosixProfilePtrOutput) ToAccessPosixProfilePtrOutputWithContext(ctx context.Context) AccessPosixProfilePtrOutput {
 	return o
+}
+
+func (o AccessPosixProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPosixProfile] {
+	return pulumix.Output[*AccessPosixProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPosixProfilePtrOutput) Elem() AccessPosixProfileOutput {
@@ -289,6 +341,300 @@ func (o AccessPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 		}
 		return &v.Uid
 	}).(pulumi.IntPtrOutput)
+}
+
+type ConnectorAs2Config struct {
+	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+	Compression string `pulumi:"compression"`
+	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// The unique identifier for the AS2 local profile.
+	LocalProfileId string `pulumi:"localProfileId"`
+	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+	MdnResponse string `pulumi:"mdnResponse"`
+	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+	MdnSigningAlgorithm *string `pulumi:"mdnSigningAlgorithm"`
+	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+	MessageSubject *string `pulumi:"messageSubject"`
+	// The unique identifier for the AS2 partner profile.
+	PartnerProfileId string `pulumi:"partnerProfileId"`
+	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+	SigningAlgorithm string `pulumi:"signingAlgorithm"`
+}
+
+// ConnectorAs2ConfigInput is an input type that accepts ConnectorAs2ConfigArgs and ConnectorAs2ConfigOutput values.
+// You can construct a concrete instance of `ConnectorAs2ConfigInput` via:
+//
+//	ConnectorAs2ConfigArgs{...}
+type ConnectorAs2ConfigInput interface {
+	pulumi.Input
+
+	ToConnectorAs2ConfigOutput() ConnectorAs2ConfigOutput
+	ToConnectorAs2ConfigOutputWithContext(context.Context) ConnectorAs2ConfigOutput
+}
+
+type ConnectorAs2ConfigArgs struct {
+	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+	Compression pulumi.StringInput `pulumi:"compression"`
+	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// The unique identifier for the AS2 local profile.
+	LocalProfileId pulumi.StringInput `pulumi:"localProfileId"`
+	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+	MdnResponse pulumi.StringInput `pulumi:"mdnResponse"`
+	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+	MdnSigningAlgorithm pulumi.StringPtrInput `pulumi:"mdnSigningAlgorithm"`
+	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+	MessageSubject pulumi.StringPtrInput `pulumi:"messageSubject"`
+	// The unique identifier for the AS2 partner profile.
+	PartnerProfileId pulumi.StringInput `pulumi:"partnerProfileId"`
+	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+	SigningAlgorithm pulumi.StringInput `pulumi:"signingAlgorithm"`
+}
+
+func (ConnectorAs2ConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAs2Config)(nil)).Elem()
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigOutput() ConnectorAs2ConfigOutput {
+	return i.ToConnectorAs2ConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigOutputWithContext(ctx context.Context) ConnectorAs2ConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAs2ConfigOutput)
+}
+
+func (i ConnectorAs2ConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2Config] {
+	return pulumix.Output[ConnectorAs2Config]{
+		OutputState: i.ToConnectorAs2ConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return i.ToConnectorAs2ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAs2ConfigOutput).ToConnectorAs2ConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorAs2ConfigPtrInput is an input type that accepts ConnectorAs2ConfigArgs, ConnectorAs2ConfigPtr and ConnectorAs2ConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorAs2ConfigPtrInput` via:
+//
+//	        ConnectorAs2ConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorAs2ConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput
+	ToConnectorAs2ConfigPtrOutputWithContext(context.Context) ConnectorAs2ConfigPtrOutput
+}
+
+type connectorAs2ConfigPtrType ConnectorAs2ConfigArgs
+
+func ConnectorAs2ConfigPtr(v *ConnectorAs2ConfigArgs) ConnectorAs2ConfigPtrInput {
+	return (*connectorAs2ConfigPtrType)(v)
+}
+
+func (*connectorAs2ConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAs2Config)(nil)).Elem()
+}
+
+func (i *connectorAs2ConfigPtrType) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return i.ToConnectorAs2ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorAs2ConfigPtrType) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAs2ConfigPtrOutput)
+}
+
+func (i *connectorAs2ConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2Config] {
+	return pulumix.Output[*ConnectorAs2Config]{
+		OutputState: i.ToConnectorAs2ConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConnectorAs2ConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAs2ConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAs2Config)(nil)).Elem()
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigOutput() ConnectorAs2ConfigOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigOutputWithContext(ctx context.Context) ConnectorAs2ConfigOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return o.ToConnectorAs2ConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAs2Config) *ConnectorAs2Config {
+		return &v
+	}).(ConnectorAs2ConfigPtrOutput)
+}
+
+func (o ConnectorAs2ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2Config] {
+	return pulumix.Output[ConnectorAs2Config]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+func (o ConnectorAs2ConfigOutput) Compression() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.Compression }).(pulumi.StringOutput)
+}
+
+// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+func (o ConnectorAs2ConfigOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// The unique identifier for the AS2 local profile.
+func (o ConnectorAs2ConfigOutput) LocalProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.LocalProfileId }).(pulumi.StringOutput)
+}
+
+// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+func (o ConnectorAs2ConfigOutput) MdnResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.MdnResponse }).(pulumi.StringOutput)
+}
+
+// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+func (o ConnectorAs2ConfigOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MdnSigningAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+func (o ConnectorAs2ConfigOutput) MessageSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MessageSubject }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the AS2 partner profile.
+func (o ConnectorAs2ConfigOutput) PartnerProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.PartnerProfileId }).(pulumi.StringOutput)
+}
+
+// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+func (o ConnectorAs2ConfigOutput) SigningAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
+}
+
+type ConnectorAs2ConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAs2ConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAs2Config)(nil)).Elem()
+}
+
+func (o ConnectorAs2ConfigPtrOutput) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPtrOutput) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2Config] {
+	return pulumix.Output[*ConnectorAs2Config]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConnectorAs2ConfigPtrOutput) Elem() ConnectorAs2ConfigOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) ConnectorAs2Config {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAs2Config
+		return ret
+	}).(ConnectorAs2ConfigOutput)
+}
+
+// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+func (o ConnectorAs2ConfigPtrOutput) Compression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Compression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+func (o ConnectorAs2ConfigPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the AS2 local profile.
+func (o ConnectorAs2ConfigPtrOutput) LocalProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+func (o ConnectorAs2ConfigPtrOutput) MdnResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MdnResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+func (o ConnectorAs2ConfigPtrOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MdnSigningAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+func (o ConnectorAs2ConfigPtrOutput) MessageSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageSubject
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the AS2 partner profile.
+func (o ConnectorAs2ConfigPtrOutput) PartnerProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartnerProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SigningAlgorithm
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServerEndpointDetails struct {
@@ -340,6 +686,12 @@ func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsOutput)
 }
 
+func (i ServerEndpointDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerEndpointDetails] {
+	return pulumix.Output[ServerEndpointDetails]{
+		OutputState: i.ToServerEndpointDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsPtrOutput() ServerEndpointDetailsPtrOutput {
 	return i.ToServerEndpointDetailsPtrOutputWithContext(context.Background())
 }
@@ -381,6 +733,12 @@ func (i *serverEndpointDetailsPtrType) ToServerEndpointDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsPtrOutput)
 }
 
+func (i *serverEndpointDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerEndpointDetails] {
+	return pulumix.Output[*ServerEndpointDetails]{
+		OutputState: i.ToServerEndpointDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerEndpointDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointDetailsOutput) ElementType() reflect.Type {
@@ -403,6 +761,12 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointDetails) *ServerEndpointDetails {
 		return &v
 	}).(ServerEndpointDetailsPtrOutput)
+}
+
+func (o ServerEndpointDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerEndpointDetails] {
+	return pulumix.Output[ServerEndpointDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
@@ -442,6 +806,12 @@ func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutput() Serve
 
 func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutputWithContext(ctx context.Context) ServerEndpointDetailsPtrOutput {
 	return o
+}
+
+func (o ServerEndpointDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerEndpointDetails] {
+	return pulumix.Output[*ServerEndpointDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
@@ -549,6 +919,12 @@ func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsOutput)
 }
 
+func (i ServerProtocolDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerProtocolDetails] {
+	return pulumix.Output[ServerProtocolDetails]{
+		OutputState: i.ToServerProtocolDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
 	return i.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
 }
@@ -590,6 +966,12 @@ func (i *serverProtocolDetailsPtrType) ToServerProtocolDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsPtrOutput)
 }
 
+func (i *serverProtocolDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerProtocolDetails] {
+	return pulumix.Output[*ServerProtocolDetails]{
+		OutputState: i.ToServerProtocolDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerProtocolDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerProtocolDetailsOutput) ElementType() reflect.Type {
@@ -612,6 +994,12 @@ func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerProtocolDetails) *ServerProtocolDetails {
 		return &v
 	}).(ServerProtocolDetailsPtrOutput)
+}
+
+func (o ServerProtocolDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerProtocolDetails] {
+	return pulumix.Output[ServerProtocolDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
@@ -646,6 +1034,12 @@ func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutput() Serve
 
 func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
 	return o
+}
+
+func (o ServerProtocolDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerProtocolDetails] {
+	return pulumix.Output[*ServerProtocolDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerProtocolDetailsPtrOutput) Elem() ServerProtocolDetailsOutput {
@@ -735,6 +1129,12 @@ func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOutput)
 }
 
+func (i ServerWorkflowDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetails] {
+	return pulumix.Output[ServerWorkflowDetails]{
+		OutputState: i.ToServerWorkflowDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsPtrOutput() ServerWorkflowDetailsPtrOutput {
 	return i.ToServerWorkflowDetailsPtrOutputWithContext(context.Background())
 }
@@ -776,6 +1176,12 @@ func (i *serverWorkflowDetailsPtrType) ToServerWorkflowDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsPtrOutput)
 }
 
+func (i *serverWorkflowDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetails] {
+	return pulumix.Output[*ServerWorkflowDetails]{
+		OutputState: i.ToServerWorkflowDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerWorkflowDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerWorkflowDetailsOutput) ElementType() reflect.Type {
@@ -800,6 +1206,12 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
+func (o ServerWorkflowDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetails] {
+	return pulumix.Output[ServerWorkflowDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
 func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload { return v.OnPartialUpload }).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
@@ -822,6 +1234,12 @@ func (o ServerWorkflowDetailsPtrOutput) ToServerWorkflowDetailsPtrOutput() Serve
 
 func (o ServerWorkflowDetailsPtrOutput) ToServerWorkflowDetailsPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsPtrOutput {
 	return o
+}
+
+func (o ServerWorkflowDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetails] {
+	return pulumix.Output[*ServerWorkflowDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
@@ -891,6 +1309,12 @@ func (i ServerWorkflowDetailsOnPartialUploadArgs) ToServerWorkflowDetailsOnParti
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOnPartialUploadOutput)
 }
 
+func (i ServerWorkflowDetailsOnPartialUploadArgs) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetailsOnPartialUpload] {
+	return pulumix.Output[ServerWorkflowDetailsOnPartialUpload]{
+		OutputState: i.ToServerWorkflowDetailsOnPartialUploadOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerWorkflowDetailsOnPartialUploadArgs) ToServerWorkflowDetailsOnPartialUploadPtrOutput() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return i.ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(context.Background())
 }
@@ -932,6 +1356,12 @@ func (i *serverWorkflowDetailsOnPartialUploadPtrType) ToServerWorkflowDetailsOnP
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
+func (i *serverWorkflowDetailsOnPartialUploadPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetailsOnPartialUpload] {
+	return pulumix.Output[*ServerWorkflowDetailsOnPartialUpload]{
+		OutputState: i.ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerWorkflowDetailsOnPartialUploadOutput struct{ *pulumi.OutputState }
 
 func (ServerWorkflowDetailsOnPartialUploadOutput) ElementType() reflect.Type {
@@ -956,6 +1386,12 @@ func (o ServerWorkflowDetailsOnPartialUploadOutput) ToServerWorkflowDetailsOnPar
 	}).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
+func (o ServerWorkflowDetailsOnPartialUploadOutput) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetailsOnPartialUpload] {
+	return pulumix.Output[ServerWorkflowDetailsOnPartialUpload]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
 func (o ServerWorkflowDetailsOnPartialUploadOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerWorkflowDetailsOnPartialUpload) string { return v.ExecutionRole }).(pulumi.StringOutput)
@@ -978,6 +1414,12 @@ func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) ToServerWorkflowDetailsOn
 
 func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetailsOnPartialUpload] {
+	return pulumix.Output[*ServerWorkflowDetailsOnPartialUpload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) Elem() ServerWorkflowDetailsOnPartialUploadOutput {
@@ -1047,6 +1489,12 @@ func (i ServerWorkflowDetailsOnUploadArgs) ToServerWorkflowDetailsOnUploadOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOnUploadOutput)
 }
 
+func (i ServerWorkflowDetailsOnUploadArgs) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetailsOnUpload] {
+	return pulumix.Output[ServerWorkflowDetailsOnUpload]{
+		OutputState: i.ToServerWorkflowDetailsOnUploadOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerWorkflowDetailsOnUploadArgs) ToServerWorkflowDetailsOnUploadPtrOutput() ServerWorkflowDetailsOnUploadPtrOutput {
 	return i.ToServerWorkflowDetailsOnUploadPtrOutputWithContext(context.Background())
 }
@@ -1088,6 +1536,12 @@ func (i *serverWorkflowDetailsOnUploadPtrType) ToServerWorkflowDetailsOnUploadPt
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOnUploadPtrOutput)
 }
 
+func (i *serverWorkflowDetailsOnUploadPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetailsOnUpload] {
+	return pulumix.Output[*ServerWorkflowDetailsOnUpload]{
+		OutputState: i.ToServerWorkflowDetailsOnUploadPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerWorkflowDetailsOnUploadOutput struct{ *pulumi.OutputState }
 
 func (ServerWorkflowDetailsOnUploadOutput) ElementType() reflect.Type {
@@ -1112,6 +1566,12 @@ func (o ServerWorkflowDetailsOnUploadOutput) ToServerWorkflowDetailsOnUploadPtrO
 	}).(ServerWorkflowDetailsOnUploadPtrOutput)
 }
 
+func (o ServerWorkflowDetailsOnUploadOutput) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetailsOnUpload] {
+	return pulumix.Output[ServerWorkflowDetailsOnUpload]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
 func (o ServerWorkflowDetailsOnUploadOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerWorkflowDetailsOnUpload) string { return v.ExecutionRole }).(pulumi.StringOutput)
@@ -1134,6 +1594,12 @@ func (o ServerWorkflowDetailsOnUploadPtrOutput) ToServerWorkflowDetailsOnUploadP
 
 func (o ServerWorkflowDetailsOnUploadPtrOutput) ToServerWorkflowDetailsOnUploadPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnUploadPtrOutput {
 	return o
+}
+
+func (o ServerWorkflowDetailsOnUploadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetailsOnUpload] {
+	return pulumix.Output[*ServerWorkflowDetailsOnUpload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerWorkflowDetailsOnUploadPtrOutput) Elem() ServerWorkflowDetailsOnUploadOutput {
@@ -1170,6 +1636,22 @@ type UserHomeDirectoryMapping struct {
 	// Represents an entry and a target.
 	Entry string `pulumi:"entry"`
 	// Represents the map target.
+	//
+	// The `Restricted` option is achieved using the following mapping:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Target string `pulumi:"target"`
 }
 
@@ -1188,6 +1670,22 @@ type UserHomeDirectoryMappingArgs struct {
 	// Represents an entry and a target.
 	Entry pulumi.StringInput `pulumi:"entry"`
 	// Represents the map target.
+	//
+	// The `Restricted` option is achieved using the following mapping:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Target pulumi.StringInput `pulumi:"target"`
 }
 
@@ -1201,6 +1699,12 @@ func (i UserHomeDirectoryMappingArgs) ToUserHomeDirectoryMappingOutput() UserHom
 
 func (i UserHomeDirectoryMappingArgs) ToUserHomeDirectoryMappingOutputWithContext(ctx context.Context) UserHomeDirectoryMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMappingOutput)
+}
+
+func (i UserHomeDirectoryMappingArgs) ToOutput(ctx context.Context) pulumix.Output[UserHomeDirectoryMapping] {
+	return pulumix.Output[UserHomeDirectoryMapping]{
+		OutputState: i.ToUserHomeDirectoryMappingOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserHomeDirectoryMappingArrayInput is an input type that accepts UserHomeDirectoryMappingArray and UserHomeDirectoryMappingArrayOutput values.
@@ -1228,6 +1732,12 @@ func (i UserHomeDirectoryMappingArray) ToUserHomeDirectoryMappingArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMappingArrayOutput)
 }
 
+func (i UserHomeDirectoryMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]UserHomeDirectoryMapping] {
+	return pulumix.Output[[]UserHomeDirectoryMapping]{
+		OutputState: i.ToUserHomeDirectoryMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserHomeDirectoryMappingOutput struct{ *pulumi.OutputState }
 
 func (UserHomeDirectoryMappingOutput) ElementType() reflect.Type {
@@ -1242,12 +1752,37 @@ func (o UserHomeDirectoryMappingOutput) ToUserHomeDirectoryMappingOutputWithCont
 	return o
 }
 
+func (o UserHomeDirectoryMappingOutput) ToOutput(ctx context.Context) pulumix.Output[UserHomeDirectoryMapping] {
+	return pulumix.Output[UserHomeDirectoryMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Represents an entry and a target.
 func (o UserHomeDirectoryMappingOutput) Entry() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHomeDirectoryMapping) string { return v.Entry }).(pulumi.StringOutput)
 }
 
 // Represents the map target.
+//
+// The `Restricted` option is achieved using the following mapping:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o UserHomeDirectoryMappingOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHomeDirectoryMapping) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -1264,6 +1799,12 @@ func (o UserHomeDirectoryMappingArrayOutput) ToUserHomeDirectoryMappingArrayOutp
 
 func (o UserHomeDirectoryMappingArrayOutput) ToUserHomeDirectoryMappingArrayOutputWithContext(ctx context.Context) UserHomeDirectoryMappingArrayOutput {
 	return o
+}
+
+func (o UserHomeDirectoryMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserHomeDirectoryMapping] {
+	return pulumix.Output[[]UserHomeDirectoryMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserHomeDirectoryMappingArrayOutput) Index(i pulumi.IntInput) UserHomeDirectoryMappingOutput {
@@ -1313,6 +1854,12 @@ func (i UserPosixProfileArgs) ToUserPosixProfileOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfileOutput)
 }
 
+func (i UserPosixProfileArgs) ToOutput(ctx context.Context) pulumix.Output[UserPosixProfile] {
+	return pulumix.Output[UserPosixProfile]{
+		OutputState: i.ToUserPosixProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i UserPosixProfileArgs) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
 	return i.ToUserPosixProfilePtrOutputWithContext(context.Background())
 }
@@ -1354,6 +1901,12 @@ func (i *userPosixProfilePtrType) ToUserPosixProfilePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfilePtrOutput)
 }
 
+func (i *userPosixProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPosixProfile] {
+	return pulumix.Output[*UserPosixProfile]{
+		OutputState: i.ToUserPosixProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPosixProfileOutput struct{ *pulumi.OutputState }
 
 func (UserPosixProfileOutput) ElementType() reflect.Type {
@@ -1376,6 +1929,12 @@ func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPosixProfile) *UserPosixProfile {
 		return &v
 	}).(UserPosixProfilePtrOutput)
+}
+
+func (o UserPosixProfileOutput) ToOutput(ctx context.Context) pulumix.Output[UserPosixProfile] {
+	return pulumix.Output[UserPosixProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The POSIX group ID used for all EFS operations by this user.
@@ -1405,6 +1964,12 @@ func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutput() UserPosixProfil
 
 func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
 	return o
+}
+
+func (o UserPosixProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPosixProfile] {
+	return pulumix.Output[*UserPosixProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPosixProfilePtrOutput) Elem() UserPosixProfileOutput {
@@ -1500,6 +2065,12 @@ func (i WorkflowOnExceptionStepArgs) ToWorkflowOnExceptionStepOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepOutput)
 }
 
+func (i WorkflowOnExceptionStepArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStep] {
+	return pulumix.Output[WorkflowOnExceptionStep]{
+		OutputState: i.ToWorkflowOnExceptionStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowOnExceptionStepArrayInput is an input type that accepts WorkflowOnExceptionStepArray and WorkflowOnExceptionStepArrayOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepArrayInput` via:
 //
@@ -1525,6 +2096,12 @@ func (i WorkflowOnExceptionStepArray) ToWorkflowOnExceptionStepArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepArrayOutput)
 }
 
+func (i WorkflowOnExceptionStepArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowOnExceptionStep] {
+	return pulumix.Output[[]WorkflowOnExceptionStep]{
+		OutputState: i.ToWorkflowOnExceptionStepArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepOutput) ElementType() reflect.Type {
@@ -1537,6 +2114,12 @@ func (o WorkflowOnExceptionStepOutput) ToWorkflowOnExceptionStepOutput() Workflo
 
 func (o WorkflowOnExceptionStepOutput) ToWorkflowOnExceptionStepOutputWithContext(ctx context.Context) WorkflowOnExceptionStepOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStep] {
+	return pulumix.Output[WorkflowOnExceptionStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Details for a step that performs a file copy. See Copy Step Details below.
@@ -1583,6 +2166,12 @@ func (o WorkflowOnExceptionStepArrayOutput) ToWorkflowOnExceptionStepArrayOutput
 
 func (o WorkflowOnExceptionStepArrayOutput) ToWorkflowOnExceptionStepArrayOutputWithContext(ctx context.Context) WorkflowOnExceptionStepArrayOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowOnExceptionStep] {
+	return pulumix.Output[[]WorkflowOnExceptionStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepArrayOutput) Index(i pulumi.IntInput) WorkflowOnExceptionStepOutput {
@@ -1636,6 +2225,12 @@ func (i WorkflowOnExceptionStepCopyStepDetailsArgs) ToWorkflowOnExceptionStepCop
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsOutput)
 }
 
+func (i WorkflowOnExceptionStepCopyStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepCopyStepDetailsArgs) ToWorkflowOnExceptionStepCopyStepDetailsPtrOutput() WorkflowOnExceptionStepCopyStepDetailsPtrOutput {
 	return i.ToWorkflowOnExceptionStepCopyStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -1677,6 +2272,12 @@ func (i *workflowOnExceptionStepCopyStepDetailsPtrType) ToWorkflowOnExceptionSte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsPtrOutput)
 }
 
+func (i *workflowOnExceptionStepCopyStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepCopyStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepCopyStepDetailsOutput) ElementType() reflect.Type {
@@ -1699,6 +2300,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsOutput) ToWorkflowOnExceptionStepC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepCopyStepDetails) *WorkflowOnExceptionStepCopyStepDetails {
 		return &v
 	}).(WorkflowOnExceptionStepCopyStepDetailsPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
@@ -1735,6 +2342,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) ToWorkflowOnExceptionSt
 
 func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) ToWorkflowOnExceptionStepCopyStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepCopyStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) Elem() WorkflowOnExceptionStepCopyStepDetailsOutput {
@@ -1824,6 +2437,12 @@ func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs) ToWor
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput)
 }
 
+func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs) ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
 }
@@ -1865,6 +2484,12 @@ func (i *workflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+func (i *workflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput) ElementType() reflect.Type {
@@ -1887,6 +2512,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput) ToW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation {
 		return &v
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the details for the EFS file being copied.
@@ -1915,6 +2546,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) 
 
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) Elem() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput {
@@ -1984,6 +2621,12 @@ func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput)
 }
 
+func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
 }
@@ -2025,6 +2668,12 @@ func (i *workflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoc
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+func (i *workflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) ElementType() reflect.Type {
@@ -2047,6 +2696,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
 		return &v
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the file system, assigned by Amazon EFS.
@@ -2075,6 +2730,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Elem() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput {
@@ -2144,6 +2805,12 @@ func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput)
 }
 
+func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
 }
@@ -2185,6 +2852,12 @@ func (i *workflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLoca
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+func (i *workflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) ElementType() reflect.Type {
@@ -2207,6 +2880,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation {
 		return &v
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the S3 bucket for the customer input file.
@@ -2235,6 +2914,12 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Elem() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput {
@@ -2312,6 +2997,12 @@ func (i WorkflowOnExceptionStepCustomStepDetailsArgs) ToWorkflowOnExceptionStepC
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCustomStepDetailsOutput)
 }
 
+func (i WorkflowOnExceptionStepCustomStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCustomStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepCustomStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepCustomStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepCustomStepDetailsArgs) ToWorkflowOnExceptionStepCustomStepDetailsPtrOutput() WorkflowOnExceptionStepCustomStepDetailsPtrOutput {
 	return i.ToWorkflowOnExceptionStepCustomStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -2353,6 +3044,12 @@ func (i *workflowOnExceptionStepCustomStepDetailsPtrType) ToWorkflowOnExceptionS
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepCustomStepDetailsPtrOutput)
 }
 
+func (i *workflowOnExceptionStepCustomStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCustomStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepCustomStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepCustomStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepCustomStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepCustomStepDetailsOutput) ElementType() reflect.Type {
@@ -2375,6 +3072,12 @@ func (o WorkflowOnExceptionStepCustomStepDetailsOutput) ToWorkflowOnExceptionSte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepCustomStepDetails) *WorkflowOnExceptionStepCustomStepDetails {
 		return &v
 	}).(WorkflowOnExceptionStepCustomStepDetailsPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepCustomStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepCustomStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepCustomStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the step, used as an identifier.
@@ -2409,6 +3112,12 @@ func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) ToWorkflowOnException
 
 func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) ToWorkflowOnExceptionStepCustomStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepCustomStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepCustomStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepCustomStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) Elem() WorkflowOnExceptionStepCustomStepDetailsOutput {
@@ -2510,6 +3219,12 @@ func (i WorkflowOnExceptionStepDecryptStepDetailsArgs) ToWorkflowOnExceptionStep
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsOutput)
 }
 
+func (i WorkflowOnExceptionStepDecryptStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepDecryptStepDetailsArgs) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
 	return i.ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -2551,6 +3266,12 @@ func (i *workflowOnExceptionStepDecryptStepDetailsPtrType) ToWorkflowOnException
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput)
 }
 
+func (i *workflowOnExceptionStepDecryptStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepDecryptStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepDecryptStepDetailsOutput) ElementType() reflect.Type {
@@ -2573,6 +3294,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) ToWorkflowOnExceptionSt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetails) *WorkflowOnExceptionStepDecryptStepDetails {
 		return &v
 	}).(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
@@ -2614,6 +3341,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) ToWorkflowOnExceptio
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsOutput {
@@ -2713,6 +3446,12 @@ func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput)
 }
 
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
 	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
 }
@@ -2754,6 +3493,12 @@ func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput)
 }
 
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) ElementType() reflect.Type {
@@ -2776,6 +3521,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation {
 		return &v
 	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the details for the EFS file being copied.
@@ -2804,6 +3555,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutpu
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput {
@@ -2873,6 +3630,12 @@ func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileL
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput)
 }
 
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
 }
@@ -2914,6 +3677,12 @@ func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFile
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ElementType() reflect.Type {
@@ -2936,6 +3705,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileL
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
 		return &v
 	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the file system, assigned by Amazon EFS.
@@ -2964,6 +3739,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileL
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
@@ -3033,6 +3814,12 @@ func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput)
 }
 
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
 }
@@ -3074,6 +3861,12 @@ func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileL
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ElementType() reflect.Type {
@@ -3096,6 +3889,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
 		return &v
 	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the S3 bucket for the customer input file.
@@ -3124,6 +3923,12 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLo
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
@@ -3193,6 +3998,12 @@ func (i WorkflowOnExceptionStepDeleteStepDetailsArgs) ToWorkflowOnExceptionStepD
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDeleteStepDetailsOutput)
 }
 
+func (i WorkflowOnExceptionStepDeleteStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDeleteStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepDeleteStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepDeleteStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepDeleteStepDetailsArgs) ToWorkflowOnExceptionStepDeleteStepDetailsPtrOutput() WorkflowOnExceptionStepDeleteStepDetailsPtrOutput {
 	return i.ToWorkflowOnExceptionStepDeleteStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -3234,6 +4045,12 @@ func (i *workflowOnExceptionStepDeleteStepDetailsPtrType) ToWorkflowOnExceptionS
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput)
 }
 
+func (i *workflowOnExceptionStepDeleteStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDeleteStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepDeleteStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepDeleteStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepDeleteStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepDeleteStepDetailsOutput) ElementType() reflect.Type {
@@ -3258,6 +4075,12 @@ func (o WorkflowOnExceptionStepDeleteStepDetailsOutput) ToWorkflowOnExceptionSte
 	}).(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput)
 }
 
+func (o WorkflowOnExceptionStepDeleteStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepDeleteStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepDeleteStepDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepDeleteStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepDeleteStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -3280,6 +4103,12 @@ func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) ToWorkflowOnException
 
 func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) ToWorkflowOnExceptionStepDeleteStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDeleteStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepDeleteStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepDeleteStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) Elem() WorkflowOnExceptionStepDeleteStepDetailsOutput {
@@ -3353,6 +4182,12 @@ func (i WorkflowOnExceptionStepTagStepDetailsArgs) ToWorkflowOnExceptionStepTagS
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepTagStepDetailsOutput)
 }
 
+func (i WorkflowOnExceptionStepTagStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepTagStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepTagStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepTagStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowOnExceptionStepTagStepDetailsArgs) ToWorkflowOnExceptionStepTagStepDetailsPtrOutput() WorkflowOnExceptionStepTagStepDetailsPtrOutput {
 	return i.ToWorkflowOnExceptionStepTagStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -3394,6 +4229,12 @@ func (i *workflowOnExceptionStepTagStepDetailsPtrType) ToWorkflowOnExceptionStep
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepTagStepDetailsPtrOutput)
 }
 
+func (i *workflowOnExceptionStepTagStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepTagStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepTagStepDetails]{
+		OutputState: i.ToWorkflowOnExceptionStepTagStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepTagStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepTagStepDetailsOutput) ElementType() reflect.Type {
@@ -3416,6 +4257,12 @@ func (o WorkflowOnExceptionStepTagStepDetailsOutput) ToWorkflowOnExceptionStepTa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepTagStepDetails) *WorkflowOnExceptionStepTagStepDetails {
 		return &v
 	}).(WorkflowOnExceptionStepTagStepDetailsPtrOutput)
+}
+
+func (o WorkflowOnExceptionStepTagStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepTagStepDetails] {
+	return pulumix.Output[WorkflowOnExceptionStepTagStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the step, used as an identifier.
@@ -3447,6 +4294,12 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) ToWorkflowOnExceptionSte
 
 func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) ToWorkflowOnExceptionStepTagStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepTagStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowOnExceptionStepTagStepDetails] {
+	return pulumix.Output[*WorkflowOnExceptionStepTagStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Elem() WorkflowOnExceptionStepTagStepDetailsOutput {
@@ -3526,6 +4379,12 @@ func (i WorkflowOnExceptionStepTagStepDetailsTagArgs) ToWorkflowOnExceptionStepT
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepTagStepDetailsTagOutput)
 }
 
+func (i WorkflowOnExceptionStepTagStepDetailsTagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepTagStepDetailsTag] {
+	return pulumix.Output[WorkflowOnExceptionStepTagStepDetailsTag]{
+		OutputState: i.ToWorkflowOnExceptionStepTagStepDetailsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowOnExceptionStepTagStepDetailsTagArrayInput is an input type that accepts WorkflowOnExceptionStepTagStepDetailsTagArray and WorkflowOnExceptionStepTagStepDetailsTagArrayOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepTagStepDetailsTagArrayInput` via:
 //
@@ -3551,6 +4410,12 @@ func (i WorkflowOnExceptionStepTagStepDetailsTagArray) ToWorkflowOnExceptionStep
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepTagStepDetailsTagArrayOutput)
 }
 
+func (i WorkflowOnExceptionStepTagStepDetailsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowOnExceptionStepTagStepDetailsTag] {
+	return pulumix.Output[[]WorkflowOnExceptionStepTagStepDetailsTag]{
+		OutputState: i.ToWorkflowOnExceptionStepTagStepDetailsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOnExceptionStepTagStepDetailsTagOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOnExceptionStepTagStepDetailsTagOutput) ElementType() reflect.Type {
@@ -3563,6 +4428,12 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) ToWorkflowOnExceptionSte
 
 func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) ToWorkflowOnExceptionStepTagStepDetailsTagOutputWithContext(ctx context.Context) WorkflowOnExceptionStepTagStepDetailsTagOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowOnExceptionStepTagStepDetailsTag] {
+	return pulumix.Output[WorkflowOnExceptionStepTagStepDetailsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
@@ -3587,6 +4458,12 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagArrayOutput) ToWorkflowOnExcepti
 
 func (o WorkflowOnExceptionStepTagStepDetailsTagArrayOutput) ToWorkflowOnExceptionStepTagStepDetailsTagArrayOutputWithContext(ctx context.Context) WorkflowOnExceptionStepTagStepDetailsTagArrayOutput {
 	return o
+}
+
+func (o WorkflowOnExceptionStepTagStepDetailsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowOnExceptionStepTagStepDetailsTag] {
+	return pulumix.Output[[]WorkflowOnExceptionStepTagStepDetailsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOnExceptionStepTagStepDetailsTagArrayOutput) Index(i pulumi.IntInput) WorkflowOnExceptionStepTagStepDetailsTagOutput {
@@ -3648,6 +4525,12 @@ func (i WorkflowStepArgs) ToWorkflowStepOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepOutput)
 }
 
+func (i WorkflowStepArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStep] {
+	return pulumix.Output[WorkflowStep]{
+		OutputState: i.ToWorkflowStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowStepArrayInput is an input type that accepts WorkflowStepArray and WorkflowStepArrayOutput values.
 // You can construct a concrete instance of `WorkflowStepArrayInput` via:
 //
@@ -3673,6 +4556,12 @@ func (i WorkflowStepArray) ToWorkflowStepArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepArrayOutput)
 }
 
+func (i WorkflowStepArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowStep] {
+	return pulumix.Output[[]WorkflowStep]{
+		OutputState: i.ToWorkflowStepArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepOutput) ElementType() reflect.Type {
@@ -3685,6 +4574,12 @@ func (o WorkflowStepOutput) ToWorkflowStepOutput() WorkflowStepOutput {
 
 func (o WorkflowStepOutput) ToWorkflowStepOutputWithContext(ctx context.Context) WorkflowStepOutput {
 	return o
+}
+
+func (o WorkflowStepOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStep] {
+	return pulumix.Output[WorkflowStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Details for a step that performs a file copy. See Copy Step Details below.
@@ -3729,6 +4624,12 @@ func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutput() WorkflowStepArrayOu
 
 func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutputWithContext(ctx context.Context) WorkflowStepArrayOutput {
 	return o
+}
+
+func (o WorkflowStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowStep] {
+	return pulumix.Output[[]WorkflowStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepArrayOutput) Index(i pulumi.IntInput) WorkflowStepOutput {
@@ -3782,6 +4683,12 @@ func (i WorkflowStepCopyStepDetailsArgs) ToWorkflowStepCopyStepDetailsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsOutput)
 }
 
+func (i WorkflowStepCopyStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetails] {
+	return pulumix.Output[WorkflowStepCopyStepDetails]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepCopyStepDetailsArgs) ToWorkflowStepCopyStepDetailsPtrOutput() WorkflowStepCopyStepDetailsPtrOutput {
 	return i.ToWorkflowStepCopyStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -3823,6 +4730,12 @@ func (i *workflowStepCopyStepDetailsPtrType) ToWorkflowStepCopyStepDetailsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsPtrOutput)
 }
 
+func (i *workflowStepCopyStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetails] {
+	return pulumix.Output[*WorkflowStepCopyStepDetails]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepCopyStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepCopyStepDetailsOutput) ElementType() reflect.Type {
@@ -3845,6 +4758,12 @@ func (o WorkflowStepCopyStepDetailsOutput) ToWorkflowStepCopyStepDetailsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCopyStepDetails) *WorkflowStepCopyStepDetails {
 		return &v
 	}).(WorkflowStepCopyStepDetailsPtrOutput)
+}
+
+func (o WorkflowStepCopyStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetails] {
+	return pulumix.Output[WorkflowStepCopyStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
@@ -3881,6 +4800,12 @@ func (o WorkflowStepCopyStepDetailsPtrOutput) ToWorkflowStepCopyStepDetailsPtrOu
 
 func (o WorkflowStepCopyStepDetailsPtrOutput) ToWorkflowStepCopyStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowStepCopyStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetails] {
+	return pulumix.Output[*WorkflowStepCopyStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepCopyStepDetailsPtrOutput) Elem() WorkflowStepCopyStepDetailsOutput {
@@ -3970,6 +4895,12 @@ func (i WorkflowStepCopyStepDetailsDestinationFileLocationArgs) ToWorkflowStepCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsDestinationFileLocationOutput)
 }
 
+func (i WorkflowStepCopyStepDetailsDestinationFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsDestinationFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepCopyStepDetailsDestinationFileLocationArgs) ToWorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput() WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return i.ToWorkflowStepCopyStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
 }
@@ -4011,6 +4942,12 @@ func (i *workflowStepCopyStepDetailsDestinationFileLocationPtrType) ToWorkflowSt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+func (i *workflowStepCopyStepDetailsDestinationFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsDestinationFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepCopyStepDetailsDestinationFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepCopyStepDetailsDestinationFileLocationOutput) ElementType() reflect.Type {
@@ -4033,6 +4970,12 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationOutput) ToWorkflowStep
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCopyStepDetailsDestinationFileLocation) *WorkflowStepCopyStepDetailsDestinationFileLocation {
 		return &v
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput)
+}
+
+func (o WorkflowStepCopyStepDetailsDestinationFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the details for the EFS file being copied.
@@ -4061,6 +5004,12 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) ToWorkflowS
 
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) ToWorkflowStepCopyStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) Elem() WorkflowStepCopyStepDetailsDestinationFileLocationOutput {
@@ -4130,6 +5079,12 @@ func (i WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput)
 }
 
+func (i WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return i.ToWorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
 }
@@ -4171,6 +5126,12 @@ func (i *workflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+func (i *workflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) ElementType() reflect.Type {
@@ -4193,6 +5154,12 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
 		return &v
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the file system, assigned by Amazon EFS.
@@ -4219,6 +5186,12 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutp
 
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Elem() WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput {
@@ -4288,6 +5261,12 @@ func (i WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput)
 }
 
+func (i WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return i.ToWorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
 }
@@ -4329,6 +5308,12 @@ func (i *workflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+func (i *workflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) ElementType() reflect.Type {
@@ -4353,6 +5338,12 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) 
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the S3 bucket for the customer input file.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
@@ -4375,6 +5366,12 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutpu
 
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Elem() WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput {
@@ -4452,6 +5449,12 @@ func (i WorkflowStepCustomStepDetailsArgs) ToWorkflowStepCustomStepDetailsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCustomStepDetailsOutput)
 }
 
+func (i WorkflowStepCustomStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCustomStepDetails] {
+	return pulumix.Output[WorkflowStepCustomStepDetails]{
+		OutputState: i.ToWorkflowStepCustomStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepCustomStepDetailsArgs) ToWorkflowStepCustomStepDetailsPtrOutput() WorkflowStepCustomStepDetailsPtrOutput {
 	return i.ToWorkflowStepCustomStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -4493,6 +5496,12 @@ func (i *workflowStepCustomStepDetailsPtrType) ToWorkflowStepCustomStepDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCustomStepDetailsPtrOutput)
 }
 
+func (i *workflowStepCustomStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCustomStepDetails] {
+	return pulumix.Output[*WorkflowStepCustomStepDetails]{
+		OutputState: i.ToWorkflowStepCustomStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepCustomStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepCustomStepDetailsOutput) ElementType() reflect.Type {
@@ -4515,6 +5524,12 @@ func (o WorkflowStepCustomStepDetailsOutput) ToWorkflowStepCustomStepDetailsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCustomStepDetails) *WorkflowStepCustomStepDetails {
 		return &v
 	}).(WorkflowStepCustomStepDetailsPtrOutput)
+}
+
+func (o WorkflowStepCustomStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCustomStepDetails] {
+	return pulumix.Output[WorkflowStepCustomStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the step, used as an identifier.
@@ -4549,6 +5564,12 @@ func (o WorkflowStepCustomStepDetailsPtrOutput) ToWorkflowStepCustomStepDetailsP
 
 func (o WorkflowStepCustomStepDetailsPtrOutput) ToWorkflowStepCustomStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowStepCustomStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCustomStepDetails] {
+	return pulumix.Output[*WorkflowStepCustomStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepCustomStepDetailsPtrOutput) Elem() WorkflowStepCustomStepDetailsOutput {
@@ -4650,6 +5671,12 @@ func (i WorkflowStepDecryptStepDetailsArgs) ToWorkflowStepDecryptStepDetailsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsOutput)
 }
 
+func (i WorkflowStepDecryptStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetails] {
+	return pulumix.Output[WorkflowStepDecryptStepDetails]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepDecryptStepDetailsArgs) ToWorkflowStepDecryptStepDetailsPtrOutput() WorkflowStepDecryptStepDetailsPtrOutput {
 	return i.ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -4691,6 +5718,12 @@ func (i *workflowStepDecryptStepDetailsPtrType) ToWorkflowStepDecryptStepDetails
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsPtrOutput)
 }
 
+func (i *workflowStepDecryptStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetails] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetails]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepDecryptStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepDecryptStepDetailsOutput) ElementType() reflect.Type {
@@ -4713,6 +5746,12 @@ func (o WorkflowStepDecryptStepDetailsOutput) ToWorkflowStepDecryptStepDetailsPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetails) *WorkflowStepDecryptStepDetails {
 		return &v
 	}).(WorkflowStepDecryptStepDetailsPtrOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetails] {
+	return pulumix.Output[WorkflowStepDecryptStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
@@ -4754,6 +5793,12 @@ func (o WorkflowStepDecryptStepDetailsPtrOutput) ToWorkflowStepDecryptStepDetail
 
 func (o WorkflowStepDecryptStepDetailsPtrOutput) ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetails] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepDecryptStepDetailsPtrOutput) Elem() WorkflowStepDecryptStepDetailsOutput {
@@ -4853,6 +5898,12 @@ func (i WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowSte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationOutput)
 }
 
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
 	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
 }
@@ -4894,6 +5945,12 @@ func (i *workflowStepDecryptStepDetailsDestinationFileLocationPtrType) ToWorkflo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput)
 }
 
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepDecryptStepDetailsDestinationFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ElementType() reflect.Type {
@@ -4916,6 +5973,12 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsDestinationFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocation {
 		return &v
 	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the details for the EFS file being copied.
@@ -4944,6 +6007,12 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToWorkfl
 
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocation] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) Elem() WorkflowStepDecryptStepDetailsDestinationFileLocationOutput {
@@ -5013,6 +6082,12 @@ func (i WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput)
 }
 
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
 }
@@ -5054,6 +6129,12 @@ func (i *workflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtr
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ElementType() reflect.Type {
@@ -5076,6 +6157,12 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
 		return &v
 	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the file system, assigned by Amazon EFS.
@@ -5102,6 +6189,12 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrO
 
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Elem() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
@@ -5171,6 +6264,12 @@ func (i WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput)
 }
 
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
 }
@@ -5212,6 +6311,12 @@ func (i *workflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ElementType() reflect.Type {
@@ -5236,6 +6341,12 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutpu
 	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the S3 bucket for the customer input file.
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
@@ -5258,6 +6369,12 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOu
 
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation] {
+	return pulumix.Output[*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Elem() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
@@ -5327,6 +6444,12 @@ func (i WorkflowStepDeleteStepDetailsArgs) ToWorkflowStepDeleteStepDetailsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDeleteStepDetailsOutput)
 }
 
+func (i WorkflowStepDeleteStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDeleteStepDetails] {
+	return pulumix.Output[WorkflowStepDeleteStepDetails]{
+		OutputState: i.ToWorkflowStepDeleteStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepDeleteStepDetailsArgs) ToWorkflowStepDeleteStepDetailsPtrOutput() WorkflowStepDeleteStepDetailsPtrOutput {
 	return i.ToWorkflowStepDeleteStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -5368,6 +6491,12 @@ func (i *workflowStepDeleteStepDetailsPtrType) ToWorkflowStepDeleteStepDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDeleteStepDetailsPtrOutput)
 }
 
+func (i *workflowStepDeleteStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDeleteStepDetails] {
+	return pulumix.Output[*WorkflowStepDeleteStepDetails]{
+		OutputState: i.ToWorkflowStepDeleteStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepDeleteStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepDeleteStepDetailsOutput) ElementType() reflect.Type {
@@ -5392,6 +6521,12 @@ func (o WorkflowStepDeleteStepDetailsOutput) ToWorkflowStepDeleteStepDetailsPtrO
 	}).(WorkflowStepDeleteStepDetailsPtrOutput)
 }
 
+func (o WorkflowStepDeleteStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDeleteStepDetails] {
+	return pulumix.Output[WorkflowStepDeleteStepDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the step, used as an identifier.
 func (o WorkflowStepDeleteStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepDeleteStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -5414,6 +6549,12 @@ func (o WorkflowStepDeleteStepDetailsPtrOutput) ToWorkflowStepDeleteStepDetailsP
 
 func (o WorkflowStepDeleteStepDetailsPtrOutput) ToWorkflowStepDeleteStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowStepDeleteStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDeleteStepDetails] {
+	return pulumix.Output[*WorkflowStepDeleteStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepDeleteStepDetailsPtrOutput) Elem() WorkflowStepDeleteStepDetailsOutput {
@@ -5487,6 +6628,12 @@ func (i WorkflowStepTagStepDetailsArgs) ToWorkflowStepTagStepDetailsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsOutput)
 }
 
+func (i WorkflowStepTagStepDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepTagStepDetails] {
+	return pulumix.Output[WorkflowStepTagStepDetails]{
+		OutputState: i.ToWorkflowStepTagStepDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowStepTagStepDetailsArgs) ToWorkflowStepTagStepDetailsPtrOutput() WorkflowStepTagStepDetailsPtrOutput {
 	return i.ToWorkflowStepTagStepDetailsPtrOutputWithContext(context.Background())
 }
@@ -5528,6 +6675,12 @@ func (i *workflowStepTagStepDetailsPtrType) ToWorkflowStepTagStepDetailsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsPtrOutput)
 }
 
+func (i *workflowStepTagStepDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepTagStepDetails] {
+	return pulumix.Output[*WorkflowStepTagStepDetails]{
+		OutputState: i.ToWorkflowStepTagStepDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepTagStepDetailsOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepTagStepDetailsOutput) ElementType() reflect.Type {
@@ -5550,6 +6703,12 @@ func (o WorkflowStepTagStepDetailsOutput) ToWorkflowStepTagStepDetailsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepTagStepDetails) *WorkflowStepTagStepDetails {
 		return &v
 	}).(WorkflowStepTagStepDetailsPtrOutput)
+}
+
+func (o WorkflowStepTagStepDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepTagStepDetails] {
+	return pulumix.Output[WorkflowStepTagStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the step, used as an identifier.
@@ -5579,6 +6738,12 @@ func (o WorkflowStepTagStepDetailsPtrOutput) ToWorkflowStepTagStepDetailsPtrOutp
 
 func (o WorkflowStepTagStepDetailsPtrOutput) ToWorkflowStepTagStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPtrOutput {
 	return o
+}
+
+func (o WorkflowStepTagStepDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepTagStepDetails] {
+	return pulumix.Output[*WorkflowStepTagStepDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStepTagStepDetailsPtrOutput) Elem() WorkflowStepTagStepDetailsOutput {
@@ -5658,6 +6823,12 @@ func (i WorkflowStepTagStepDetailsTagArgs) ToWorkflowStepTagStepDetailsTagOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsTagOutput)
 }
 
+func (i WorkflowStepTagStepDetailsTagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepTagStepDetailsTag] {
+	return pulumix.Output[WorkflowStepTagStepDetailsTag]{
+		OutputState: i.ToWorkflowStepTagStepDetailsTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowStepTagStepDetailsTagArrayInput is an input type that accepts WorkflowStepTagStepDetailsTagArray and WorkflowStepTagStepDetailsTagArrayOutput values.
 // You can construct a concrete instance of `WorkflowStepTagStepDetailsTagArrayInput` via:
 //
@@ -5683,6 +6854,12 @@ func (i WorkflowStepTagStepDetailsTagArray) ToWorkflowStepTagStepDetailsTagArray
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsTagArrayOutput)
 }
 
+func (i WorkflowStepTagStepDetailsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowStepTagStepDetailsTag] {
+	return pulumix.Output[[]WorkflowStepTagStepDetailsTag]{
+		OutputState: i.ToWorkflowStepTagStepDetailsTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowStepTagStepDetailsTagOutput struct{ *pulumi.OutputState }
 
 func (WorkflowStepTagStepDetailsTagOutput) ElementType() reflect.Type {
@@ -5695,6 +6872,12 @@ func (o WorkflowStepTagStepDetailsTagOutput) ToWorkflowStepTagStepDetailsTagOutp
 
 func (o WorkflowStepTagStepDetailsTagOutput) ToWorkflowStepTagStepDetailsTagOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsTagOutput {
 	return o
+}
+
+func (o WorkflowStepTagStepDetailsTagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepTagStepDetailsTag] {
+	return pulumix.Output[WorkflowStepTagStepDetailsTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
@@ -5721,6 +6904,12 @@ func (o WorkflowStepTagStepDetailsTagArrayOutput) ToWorkflowStepTagStepDetailsTa
 	return o
 }
 
+func (o WorkflowStepTagStepDetailsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowStepTagStepDetailsTag] {
+	return pulumix.Output[[]WorkflowStepTagStepDetailsTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowStepTagStepDetailsTagArrayOutput) Index(i pulumi.IntInput) WorkflowStepTagStepDetailsTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowStepTagStepDetailsTag {
 		return vs[0].([]WorkflowStepTagStepDetailsTag)[vs[1].(int)]
@@ -5732,6 +6921,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessHomeDirectoryMappingArrayInput)(nil)).Elem(), AccessHomeDirectoryMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfileInput)(nil)).Elem(), AccessPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfilePtrInput)(nil)).Elem(), AccessPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPtrInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
@@ -5802,6 +6993,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessHomeDirectoryMappingArrayOutput{})
 	pulumi.RegisterOutputType(AccessPosixProfileOutput{})
 	pulumi.RegisterOutputType(AccessPosixProfilePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAs2ConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorAs2ConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})

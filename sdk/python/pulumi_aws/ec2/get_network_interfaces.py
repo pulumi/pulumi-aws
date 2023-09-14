@@ -120,6 +120,9 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """
@@ -130,10 +133,10 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__, opts=opts, typ=GetNetworkInterfacesResult).value
 
     return AwaitableGetNetworkInterfacesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_interfaces)
@@ -181,6 +184,9 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """

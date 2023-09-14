@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +67,63 @@ import (
 //	}
 //
 // ```
+// ### Spot instance example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
+//				Filters: []ec2.GetAmiFilter{
+//					{
+//						Name: "architecture",
+//						Values: []string{
+//							"arm64",
+//						},
+//					},
+//					{
+//						Name: "name",
+//						Values: []string{
+//							"al2023-ami-2023*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInstance(ctx, "thisInstance", &ec2.InstanceArgs{
+//				Ami: *pulumi.String(thisAmi.Id),
+//				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
+//					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
+//						MaxPrice: pulumi.String("0.0031"),
+//					},
+//				},
+//				InstanceType: pulumi.String("t4g.nano"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("test-spot"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Network and credit specification example
 //
 // ```go
@@ -72,7 +131,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -139,7 +198,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -214,7 +273,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -238,7 +297,7 @@ import (
 //
 // ## Import
 //
-// Instances can be imported using the `id`, e.g.,
+// Using `pulumi import`, import instances using the `id`. For example:
 //
 // ```sh
 //
@@ -257,6 +316,8 @@ type Instance struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -294,6 +355,10 @@ type Instance struct {
 	IamInstanceProfile pulumi.StringOutput `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
+	// Indicates whether this is a Spot Instance or a Scheduled Instance.
+	InstanceLifecycle pulumi.StringOutput `pulumi:"instanceLifecycle"`
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions InstanceInstanceMarketOptionsOutput `pulumi:"instanceMarketOptions"`
 	// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -340,10 +405,14 @@ type Instance struct {
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
+	// If the request is a Spot Instance request, the ID of the request.
+	SpotInstanceRequestId pulumi.StringOutput `pulumi:"spotInstanceRequestId"`
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -359,6 +428,8 @@ type Instance struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrOutput `pulumi:"userDataReplaceOnChange"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapOutput `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -371,6 +442,7 @@ func NewInstance(ctx *pulumi.Context,
 		args = &InstanceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws:ec2/instance:Instance", name, args, &resource, opts...)
 	if err != nil {
@@ -402,6 +474,8 @@ type instanceState struct {
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -439,6 +513,10 @@ type instanceState struct {
 	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
+	// Indicates whether this is a Spot Instance or a Scheduled Instance.
+	InstanceLifecycle *string `pulumi:"instanceLifecycle"`
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions *InstanceInstanceMarketOptions `pulumi:"instanceMarketOptions"`
 	// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState *string `pulumi:"instanceState"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -485,10 +563,14 @@ type instanceState struct {
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
+	// If the request is a Spot Instance request, the ID of the request.
+	SpotInstanceRequestId *string `pulumi:"spotInstanceRequestId"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -504,6 +586,8 @@ type instanceState struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -519,6 +603,8 @@ type InstanceState struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -556,6 +642,10 @@ type InstanceState struct {
 	IamInstanceProfile pulumi.Input
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
+	// Indicates whether this is a Spot Instance or a Scheduled Instance.
+	InstanceLifecycle pulumi.StringPtrInput
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions InstanceInstanceMarketOptionsPtrInput
 	// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringPtrInput
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -602,10 +692,14 @@ type InstanceState struct {
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrInput
+	// If the request is a Spot Instance request, the ID of the request.
+	SpotInstanceRequestId pulumi.StringPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -621,6 +715,8 @@ type InstanceState struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapInput
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -638,6 +734,8 @@ type instanceArgs struct {
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -675,6 +773,8 @@ type instanceArgs struct {
 	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions *InstanceInstanceMarketOptions `pulumi:"instanceMarketOptions"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -707,6 +807,8 @@ type instanceArgs struct {
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -724,6 +826,8 @@ type instanceArgs struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -738,6 +842,8 @@ type InstanceArgs struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -775,6 +881,8 @@ type InstanceArgs struct {
 	IamInstanceProfile pulumi.Input
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions InstanceInstanceMarketOptionsPtrInput
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -807,6 +915,8 @@ type InstanceArgs struct {
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -824,6 +934,8 @@ type InstanceArgs struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapInput
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -852,6 +964,12 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceOutput)
 }
 
+func (i *Instance) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
+	return pulumix.Output[*Instance]{
+		OutputState: i.ToInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
@@ -875,6 +993,12 @@ func (i InstanceArray) ToInstanceArrayOutput() InstanceArrayOutput {
 
 func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) InstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceArrayOutput)
+}
+
+func (i InstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
+	return pulumix.Output[[]*Instance]{
+		OutputState: i.ToInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
@@ -902,6 +1026,12 @@ func (i InstanceMap) ToInstanceMapOutputWithContext(ctx context.Context) Instanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMapOutput)
 }
 
+func (i InstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
+	return pulumix.Output[map[string]*Instance]{
+		OutputState: i.ToInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceOutput struct{ *pulumi.OutputState }
 
 func (InstanceOutput) ElementType() reflect.Type {
@@ -914,6 +1044,12 @@ func (o InstanceOutput) ToInstanceOutput() InstanceOutput {
 
 func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) InstanceOutput {
 	return o
+}
+
+func (o InstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
+	return pulumix.Output[*Instance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -937,6 +1073,8 @@ func (o InstanceOutput) AvailabilityZone() pulumi.StringOutput {
 }
 
 // Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+//
+// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 func (o InstanceOutput) CapacityReservationSpecification() InstanceCapacityReservationSpecificationOutput {
 	return o.ApplyT(func(v *Instance) InstanceCapacityReservationSpecificationOutput {
 		return v.CapacityReservationSpecification
@@ -1025,6 +1163,16 @@ func (o InstanceOutput) IamInstanceProfile() pulumi.StringOutput {
 // Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 func (o InstanceOutput) InstanceInitiatedShutdownBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringOutput)
+}
+
+// Indicates whether this is a Spot Instance or a Scheduled Instance.
+func (o InstanceOutput) InstanceLifecycle() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceLifecycle }).(pulumi.StringOutput)
+}
+
+// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+func (o InstanceOutput) InstanceMarketOptions() InstanceInstanceMarketOptionsOutput {
+	return o.ApplyT(func(v *Instance) InstanceInstanceMarketOptionsOutput { return v.InstanceMarketOptions }).(InstanceInstanceMarketOptionsOutput)
 }
 
 // State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
@@ -1139,6 +1287,8 @@ func (o InstanceOutput) SecondaryPrivateIps() pulumi.StringArrayOutput {
 
 // List of security group names to associate with.
 //
+// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+//
 // Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 func (o InstanceOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -1147,6 +1297,11 @@ func (o InstanceOutput) SecurityGroups() pulumi.StringArrayOutput {
 // Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 func (o InstanceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.SourceDestCheck }).(pulumi.BoolPtrOutput)
+}
+
+// If the request is a Spot Instance request, the ID of the request.
+func (o InstanceOutput) SpotInstanceRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.SpotInstanceRequestId }).(pulumi.StringOutput)
 }
 
 // VPC Subnet ID to launch in.
@@ -1185,6 +1340,8 @@ func (o InstanceOutput) UserDataReplaceOnChange() pulumi.BoolPtrOutput {
 }
 
 // Map of tags to assign, at instance-creation time, to root and EBS volumes.
+//
+// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 func (o InstanceOutput) VolumeTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.VolumeTags }).(pulumi.StringMapOutput)
 }
@@ -1208,6 +1365,12 @@ func (o InstanceArrayOutput) ToInstanceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o InstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
+	return pulumix.Output[[]*Instance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceArrayOutput) Index(i pulumi.IntInput) InstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Instance {
 		return vs[0].([]*Instance)[vs[1].(int)]
@@ -1226,6 +1389,12 @@ func (o InstanceMapOutput) ToInstanceMapOutput() InstanceMapOutput {
 
 func (o InstanceMapOutput) ToInstanceMapOutputWithContext(ctx context.Context) InstanceMapOutput {
 	return o
+}
+
+func (o InstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
+	return pulumix.Output[map[string]*Instance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceMapOutput) MapIndex(k pulumi.StringInput) InstanceOutput {

@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a Pinpoint GCM Channel resource.
  * 
+ * &gt; **Note:** Api Key argument will be stored in the raw state as plain-text.
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -55,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
- * ```
+ *  to = aws_pinpoint_gcm_channel.gcm
+ * 
+ *  id = &#34;application-id&#34; } Using `TODO import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_gcm_channel.gcm application-id
  * 
  */
 @ResourceType(type="aws:pinpoint/gcmChannel:GcmChannel")

@@ -43,9 +43,11 @@ __all__ = [
     'OpenZfsVolumeOriginSnapshot',
     'OpenZfsVolumeUserAndGroupQuota',
     'WindowsFileSystemAuditLogConfiguration',
+    'WindowsFileSystemDiskIopsConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
     'GetOpenZfsSnapshotFilterResult',
     'GetWindowsFileSystemAuditLogConfigurationResult',
+    'GetWindowsFileSystemDiskIopsConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -471,7 +473,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     def __init__(__self__, *,
                  storage_capacity: int):
         """
-        :param int storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        :param int storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         pulumi.set(__self__, "storage_capacity", storage_capacity)
 
@@ -479,7 +481,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> int:
         """
-        The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -1149,6 +1151,7 @@ class OntapVolumeTieringPolicy(dict):
                  cooling_period: Optional[int] = None,
                  name: Optional[str] = None):
         """
+        :param int cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
         :param str name: Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         """
         if cooling_period is not None:
@@ -1159,6 +1162,9 @@ class OntapVolumeTieringPolicy(dict):
     @property
     @pulumi.getter(name="coolingPeriod")
     def cooling_period(self) -> Optional[int]:
+        """
+        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+        """
         return pulumi.get(self, "cooling_period")
 
     @property
@@ -1648,6 +1654,37 @@ class WindowsFileSystemAuditLogConfiguration(dict):
 
 
 @pulumi.output_type
+class WindowsFileSystemDiskIopsConfiguration(dict):
+    def __init__(__self__, *,
+                 iops: Optional[int] = None,
+                 mode: Optional[str] = None):
+        """
+        :param int iops: The total number of SSD IOPS provisioned for the file system.
+        :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
 class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1794,5 +1831,24 @@ class GetWindowsFileSystemAuditLogConfigurationResult(dict):
     @pulumi.getter(name="fileShareAccessAuditLogLevel")
     def file_share_access_audit_log_level(self) -> str:
         return pulumi.get(self, "file_share_access_audit_log_level")
+
+
+@pulumi.output_type
+class GetWindowsFileSystemDiskIopsConfigurationResult(dict):
+    def __init__(__self__, *,
+                 iops: int,
+                 mode: str):
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> int:
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
 
 

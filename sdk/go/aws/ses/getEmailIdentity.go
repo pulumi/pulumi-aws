@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve the active SES email identity
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailIdentityResult
 	err := ctx.Invoke("aws:ses/getEmailIdentity:getEmailIdentity", args, &rv, opts...)
 	if err != nil {
@@ -98,6 +101,12 @@ func (o LookupEmailIdentityResultOutput) ToLookupEmailIdentityResultOutput() Loo
 
 func (o LookupEmailIdentityResultOutput) ToLookupEmailIdentityResultOutputWithContext(ctx context.Context) LookupEmailIdentityResultOutput {
 	return o
+}
+
+func (o LookupEmailIdentityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEmailIdentityResult] {
+	return pulumix.Output[LookupEmailIdentityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the email identity.

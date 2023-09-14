@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EMR studios can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import EMR studios using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
@@ -120,6 +120,8 @@ export class Studio extends pulumi.CustomResource {
     public readonly vpcId!: pulumi.Output<string>;
     /**
      * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+     *
+     * The following arguments are optional:
      */
     public readonly workspaceSecurityGroupId!: pulumi.Output<string>;
 
@@ -260,6 +262,8 @@ export interface StudioState {
     vpcId?: pulumi.Input<string>;
     /**
      * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+     *
+     * The following arguments are optional:
      */
     workspaceSecurityGroupId?: pulumi.Input<string>;
 }
@@ -318,6 +322,8 @@ export interface StudioArgs {
     vpcId: pulumi.Input<string>;
     /**
      * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+     *
+     * The following arguments are optional:
      */
     workspaceSecurityGroupId: pulumi.Input<string>;
 }

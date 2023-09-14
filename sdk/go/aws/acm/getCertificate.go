@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARN of a certificate in AWS Certificate
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +64,7 @@ import (
 //
 // ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateResult
 	err := ctx.Invoke("aws:acm/getCertificate:getCertificate", args, &rv, opts...)
 	if err != nil {
@@ -157,6 +160,12 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupC
 
 func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
 	return o
+}
+
+func (o LookupCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCertificateResult] {
+	return pulumix.Output[LookupCertificateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.

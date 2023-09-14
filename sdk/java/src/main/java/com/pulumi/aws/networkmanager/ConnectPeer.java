@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_networkmanager_connect_peer` can be imported using the connect peer ID, e.g.
+ * Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
@@ -161,12 +161,16 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
     /**
      * The Connect peer address.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="peerAddress", refs={String.class}, tree="[0]")
     private Output<String> peerAddress;
 
     /**
      * @return The Connect peer address.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> peerAddress() {

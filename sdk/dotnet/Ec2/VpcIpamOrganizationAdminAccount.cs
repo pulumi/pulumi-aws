@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// IPAMs can be imported using the `delegate account id`, e.g.
+    /// Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks memcached layer resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,6 +83,10 @@ type MemcachedLayer struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -98,6 +104,7 @@ func NewMemcachedLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MemcachedLayer
 	err := ctx.RegisterResource("aws:opsworks/memcachedLayer:MemcachedLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -160,6 +167,10 @@ type memcachedLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -208,6 +219,10 @@ type MemcachedLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -258,6 +273,10 @@ type memcachedLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -303,6 +322,10 @@ type MemcachedLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -331,6 +354,12 @@ func (i *MemcachedLayer) ToMemcachedLayerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerOutput)
 }
 
+func (i *MemcachedLayer) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayer] {
+	return pulumix.Output[*MemcachedLayer]{
+		OutputState: i.ToMemcachedLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MemcachedLayerArrayInput is an input type that accepts MemcachedLayerArray and MemcachedLayerArrayOutput values.
 // You can construct a concrete instance of `MemcachedLayerArrayInput` via:
 //
@@ -354,6 +383,12 @@ func (i MemcachedLayerArray) ToMemcachedLayerArrayOutput() MemcachedLayerArrayOu
 
 func (i MemcachedLayerArray) ToMemcachedLayerArrayOutputWithContext(ctx context.Context) MemcachedLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerArrayOutput)
+}
+
+func (i MemcachedLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*MemcachedLayer] {
+	return pulumix.Output[[]*MemcachedLayer]{
+		OutputState: i.ToMemcachedLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MemcachedLayerMapInput is an input type that accepts MemcachedLayerMap and MemcachedLayerMapOutput values.
@@ -381,6 +416,12 @@ func (i MemcachedLayerMap) ToMemcachedLayerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerMapOutput)
 }
 
+func (i MemcachedLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemcachedLayer] {
+	return pulumix.Output[map[string]*MemcachedLayer]{
+		OutputState: i.ToMemcachedLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemcachedLayerOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerOutput) ElementType() reflect.Type {
@@ -393,6 +434,12 @@ func (o MemcachedLayerOutput) ToMemcachedLayerOutput() MemcachedLayerOutput {
 
 func (o MemcachedLayerOutput) ToMemcachedLayerOutputWithContext(ctx context.Context) MemcachedLayerOutput {
 	return o
+}
+
+func (o MemcachedLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayer] {
+	return pulumix.Output[*MemcachedLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
@@ -506,6 +553,10 @@ func (o MemcachedLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following extra optional arguments, all lists of Chef recipe names, allow
+// custom Chef recipes to be applied to layer instances at the five different
+// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 func (o MemcachedLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MemcachedLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -534,6 +585,12 @@ func (o MemcachedLayerArrayOutput) ToMemcachedLayerArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o MemcachedLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MemcachedLayer] {
+	return pulumix.Output[[]*MemcachedLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MemcachedLayerArrayOutput) Index(i pulumi.IntInput) MemcachedLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MemcachedLayer {
 		return vs[0].([]*MemcachedLayer)[vs[1].(int)]
@@ -552,6 +609,12 @@ func (o MemcachedLayerMapOutput) ToMemcachedLayerMapOutput() MemcachedLayerMapOu
 
 func (o MemcachedLayerMapOutput) ToMemcachedLayerMapOutputWithContext(ctx context.Context) MemcachedLayerMapOutput {
 	return o
+}
+
+func (o MemcachedLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemcachedLayer] {
+	return pulumix.Output[map[string]*MemcachedLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerMapOutput) MapIndex(k pulumi.StringInput) MemcachedLayerOutput {

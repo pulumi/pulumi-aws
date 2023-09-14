@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+ * Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example

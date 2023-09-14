@@ -19,14 +19,14 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
     public static final RuleGroupRuleStatementRateBasedStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementArgs();
 
     /**
-     * Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+     * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     @Import(name="aggregateKeyType")
     private @Nullable Output<String> aggregateKeyType;
 
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     public Optional<Output<String>> aggregateKeyType() {
@@ -64,14 +64,14 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
     }
 
     /**
-     * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
     @Import(name="scopeDownStatement")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs> scopeDownStatement;
 
     /**
-     * @return An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * @return An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs>> scopeDownStatement() {
@@ -106,7 +106,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param scopeDownStatement An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+         * @param scopeDownStatement An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param scopeDownStatement An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+         * @param scopeDownStatement An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
          * 
          * @return builder
          * 

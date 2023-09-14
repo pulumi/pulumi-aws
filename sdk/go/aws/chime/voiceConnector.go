@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Configuration Recorder can be imported using the name, e.g.,
+// Using `pulumi import`, import Configuration Recorder using the name. For example:
 //
 // ```sh
 //
@@ -52,6 +54,8 @@ import (
 type VoiceConnector struct {
 	pulumi.CustomResourceState
 
+	// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion pulumi.StringPtrOutput `pulumi:"awsRegion"`
 	// The name of the Amazon Chime Voice Connector.
@@ -59,7 +63,13 @@ type VoiceConnector struct {
 	// The outbound host name for the Amazon Chime Voice Connector.
 	OutboundHostName pulumi.StringOutput `pulumi:"outboundHostName"`
 	// When enabled, requires encryption for the Amazon Chime Voice Connector.
+	//
+	// The following arguments are optional:
 	RequireEncryption pulumi.BoolOutput `pulumi:"requireEncryption"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewVoiceConnector registers a new resource with the given unique name, arguments, and options.
@@ -72,6 +82,7 @@ func NewVoiceConnector(ctx *pulumi.Context,
 	if args.RequireEncryption == nil {
 		return nil, errors.New("invalid value for required argument 'RequireEncryption'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnector
 	err := ctx.RegisterResource("aws:chime/voiceConnector:VoiceConnector", name, args, &resource, opts...)
 	if err != nil {
@@ -94,6 +105,8 @@ func GetVoiceConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnector resources.
 type voiceConnectorState struct {
+	// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+	Arn *string `pulumi:"arn"`
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion *string `pulumi:"awsRegion"`
 	// The name of the Amazon Chime Voice Connector.
@@ -101,10 +114,18 @@ type voiceConnectorState struct {
 	// The outbound host name for the Amazon Chime Voice Connector.
 	OutboundHostName *string `pulumi:"outboundHostName"`
 	// When enabled, requires encryption for the Amazon Chime Voice Connector.
+	//
+	// The following arguments are optional:
 	RequireEncryption *bool `pulumi:"requireEncryption"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VoiceConnectorState struct {
+	// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+	Arn pulumi.StringPtrInput
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion pulumi.StringPtrInput
 	// The name of the Amazon Chime Voice Connector.
@@ -112,7 +133,13 @@ type VoiceConnectorState struct {
 	// The outbound host name for the Amazon Chime Voice Connector.
 	OutboundHostName pulumi.StringPtrInput
 	// When enabled, requires encryption for the Amazon Chime Voice Connector.
+	//
+	// The following arguments are optional:
 	RequireEncryption pulumi.BoolPtrInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (VoiceConnectorState) ElementType() reflect.Type {
@@ -125,7 +152,11 @@ type voiceConnectorArgs struct {
 	// The name of the Amazon Chime Voice Connector.
 	Name *string `pulumi:"name"`
 	// When enabled, requires encryption for the Amazon Chime Voice Connector.
+	//
+	// The following arguments are optional:
 	RequireEncryption bool `pulumi:"requireEncryption"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VoiceConnector resource.
@@ -135,7 +166,11 @@ type VoiceConnectorArgs struct {
 	// The name of the Amazon Chime Voice Connector.
 	Name pulumi.StringPtrInput
 	// When enabled, requires encryption for the Amazon Chime Voice Connector.
+	//
+	// The following arguments are optional:
 	RequireEncryption pulumi.BoolInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (VoiceConnectorArgs) ElementType() reflect.Type {
@@ -159,6 +194,12 @@ func (i *VoiceConnector) ToVoiceConnectorOutput() VoiceConnectorOutput {
 
 func (i *VoiceConnector) ToVoiceConnectorOutputWithContext(ctx context.Context) VoiceConnectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOutput)
+}
+
+func (i *VoiceConnector) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnector] {
+	return pulumix.Output[*VoiceConnector]{
+		OutputState: i.ToVoiceConnectorOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VoiceConnectorArrayInput is an input type that accepts VoiceConnectorArray and VoiceConnectorArrayOutput values.
@@ -186,6 +227,12 @@ func (i VoiceConnectorArray) ToVoiceConnectorArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorArrayOutput)
 }
 
+func (i VoiceConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnector] {
+	return pulumix.Output[[]*VoiceConnector]{
+		OutputState: i.ToVoiceConnectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VoiceConnectorMapInput is an input type that accepts VoiceConnectorMap and VoiceConnectorMapOutput values.
 // You can construct a concrete instance of `VoiceConnectorMapInput` via:
 //
@@ -211,6 +258,12 @@ func (i VoiceConnectorMap) ToVoiceConnectorMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorMapOutput)
 }
 
+func (i VoiceConnectorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnector] {
+	return pulumix.Output[map[string]*VoiceConnector]{
+		OutputState: i.ToVoiceConnectorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VoiceConnectorOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorOutput) ElementType() reflect.Type {
@@ -223,6 +276,17 @@ func (o VoiceConnectorOutput) ToVoiceConnectorOutput() VoiceConnectorOutput {
 
 func (o VoiceConnectorOutput) ToVoiceConnectorOutputWithContext(ctx context.Context) VoiceConnectorOutput {
 	return o
+}
+
+func (o VoiceConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnector] {
+	return pulumix.Output[*VoiceConnector]{
+		OutputState: o.OutputState,
+	}
+}
+
+// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+func (o VoiceConnectorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VoiceConnector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -241,8 +305,20 @@ func (o VoiceConnectorOutput) OutboundHostName() pulumi.StringOutput {
 }
 
 // When enabled, requires encryption for the Amazon Chime Voice Connector.
+//
+// The following arguments are optional:
 func (o VoiceConnectorOutput) RequireEncryption() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VoiceConnector) pulumi.BoolOutput { return v.RequireEncryption }).(pulumi.BoolOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o VoiceConnectorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VoiceConnector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o VoiceConnectorOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VoiceConnector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type VoiceConnectorArrayOutput struct{ *pulumi.OutputState }
@@ -257,6 +333,12 @@ func (o VoiceConnectorArrayOutput) ToVoiceConnectorArrayOutput() VoiceConnectorA
 
 func (o VoiceConnectorArrayOutput) ToVoiceConnectorArrayOutputWithContext(ctx context.Context) VoiceConnectorArrayOutput {
 	return o
+}
+
+func (o VoiceConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnector] {
+	return pulumix.Output[[]*VoiceConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VoiceConnectorArrayOutput) Index(i pulumi.IntInput) VoiceConnectorOutput {
@@ -277,6 +359,12 @@ func (o VoiceConnectorMapOutput) ToVoiceConnectorMapOutput() VoiceConnectorMapOu
 
 func (o VoiceConnectorMapOutput) ToVoiceConnectorMapOutputWithContext(ctx context.Context) VoiceConnectorMapOutput {
 	return o
+}
+
+func (o VoiceConnectorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnector] {
+	return pulumix.Output[map[string]*VoiceConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VoiceConnectorMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorOutput {

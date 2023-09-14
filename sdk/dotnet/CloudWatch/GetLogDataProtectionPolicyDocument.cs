@@ -199,6 +199,10 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Configures the data protection policy.
+        /// 
+        /// &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public List<Inputs.GetLogDataProtectionPolicyDocumentStatementArgs> Statements
         {
@@ -231,6 +235,10 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Configures the data protection policy.
+        /// 
+        /// &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs> Statements
         {

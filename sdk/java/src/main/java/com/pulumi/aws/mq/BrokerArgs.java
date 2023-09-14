@@ -297,12 +297,16 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="users", required=true)
     private Output<List<BrokerUserArgs>> users;
 
     /**
      * @return Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<BrokerUserArgs>> users() {
@@ -752,6 +756,8 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param users Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -763,6 +769,8 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param users Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -772,6 +780,8 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param users Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

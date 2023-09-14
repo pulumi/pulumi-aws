@@ -20,6 +20,11 @@ public final class GetDedicatedHostResult {
      */
     private String arn;
     /**
+     * @return The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+     * 
+     */
+    private String assetId;
+    /**
      * @return Whether auto-placement is on or off.
      * 
      */
@@ -85,6 +90,13 @@ public final class GetDedicatedHostResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+     * 
+     */
+    public String assetId() {
+        return this.assetId;
     }
     /**
      * @return Whether auto-placement is on or off.
@@ -183,6 +195,7 @@ public final class GetDedicatedHostResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String assetId;
         private String autoPlacement;
         private String availabilityZone;
         private Integer cores;
@@ -201,6 +214,7 @@ public final class GetDedicatedHostResult {
         public Builder(GetDedicatedHostResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.assetId = defaults.assetId;
     	      this.autoPlacement = defaults.autoPlacement;
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.cores = defaults.cores;
@@ -220,6 +234,11 @@ public final class GetDedicatedHostResult {
         @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder assetId(String assetId) {
+            this.assetId = Objects.requireNonNull(assetId);
             return this;
         }
         @CustomType.Setter
@@ -298,6 +317,7 @@ public final class GetDedicatedHostResult {
         public GetDedicatedHostResult build() {
             final var o = new GetDedicatedHostResult();
             o.arn = arn;
+            o.assetId = assetId;
             o.autoPlacement = autoPlacement;
             o.availabilityZone = availabilityZone;
             o.cores = cores;

@@ -52,12 +52,16 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
      * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * 
      */
     @Import(name="authorizedSessionTagValueLists")
     private @Nullable Output<List<String>> authorizedSessionTagValueLists;
 
     /**
      * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
     public Optional<Output<List<String>>> authorizedSessionTagValueLists() {
@@ -125,6 +129,21 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     * 
+     */
+    @Import(name="readOnlyAdmins")
+    private @Nullable Output<List<String>> readOnlyAdmins;
+
+    /**
+     * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     * 
+     */
+    public Optional<Output<List<String>>> readOnlyAdmins() {
+        return Optional.ofNullable(this.readOnlyAdmins);
+    }
+
+    /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
@@ -149,6 +168,7 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
         this.createDatabaseDefaultPermissions = $.createDatabaseDefaultPermissions;
         this.createTableDefaultPermissions = $.createTableDefaultPermissions;
         this.externalDataFilteringAllowLists = $.externalDataFilteringAllowLists;
+        this.readOnlyAdmins = $.readOnlyAdmins;
         this.trustedResourceOwners = $.trustedResourceOwners;
     }
 
@@ -225,6 +245,8 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
          * 
+         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+         * 
          * @return builder
          * 
          */
@@ -236,6 +258,8 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
          * 
+         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+         * 
          * @return builder
          * 
          */
@@ -245,6 +269,8 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+         * 
+         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
          * 
          * @return builder
          * 
@@ -365,6 +391,37 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder externalDataFilteringAllowLists(String... externalDataFilteringAllowLists) {
             return externalDataFilteringAllowLists(List.of(externalDataFilteringAllowLists));
+        }
+
+        /**
+         * @param readOnlyAdmins Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readOnlyAdmins(@Nullable Output<List<String>> readOnlyAdmins) {
+            $.readOnlyAdmins = readOnlyAdmins;
+            return this;
+        }
+
+        /**
+         * @param readOnlyAdmins Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readOnlyAdmins(List<String> readOnlyAdmins) {
+            return readOnlyAdmins(Output.of(readOnlyAdmins));
+        }
+
+        /**
+         * @param readOnlyAdmins Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readOnlyAdmins(String... readOnlyAdmins) {
+            return readOnlyAdmins(List.of(readOnlyAdmins));
         }
 
         /**

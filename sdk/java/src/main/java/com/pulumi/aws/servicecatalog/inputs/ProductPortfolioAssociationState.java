@@ -48,12 +48,16 @@ public final class ProductPortfolioAssociationState extends com.pulumi.resources
     /**
      * Product identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="productId")
     private @Nullable Output<String> productId;
 
     /**
      * @return Product identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> productId() {
@@ -147,6 +151,8 @@ public final class ProductPortfolioAssociationState extends com.pulumi.resources
         /**
          * @param productId Product identifier.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -157,6 +163,8 @@ public final class ProductPortfolioAssociationState extends com.pulumi.resources
 
         /**
          * @param productId Product identifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

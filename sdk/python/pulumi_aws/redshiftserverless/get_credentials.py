@@ -136,13 +136,13 @@ def get_credentials(db_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:redshiftserverless/getCredentials:getCredentials', __args__, opts=opts, typ=GetCredentialsResult).value
 
     return AwaitableGetCredentialsResult(
-        db_name=__ret__.db_name,
-        db_password=__ret__.db_password,
-        db_user=__ret__.db_user,
-        duration_seconds=__ret__.duration_seconds,
-        expiration=__ret__.expiration,
-        id=__ret__.id,
-        workgroup_name=__ret__.workgroup_name)
+        db_name=pulumi.get(__ret__, 'db_name'),
+        db_password=pulumi.get(__ret__, 'db_password'),
+        db_user=pulumi.get(__ret__, 'db_user'),
+        duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        id=pulumi.get(__ret__, 'id'),
+        workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
 
 
 @_utilities.lift_output_func(get_credentials)

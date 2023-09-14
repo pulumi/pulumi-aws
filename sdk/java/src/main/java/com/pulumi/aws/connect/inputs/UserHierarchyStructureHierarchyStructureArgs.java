@@ -22,12 +22,16 @@ public final class UserHierarchyStructureHierarchyStructureArgs extends com.pulu
     /**
      * A block that defines the details of level five. The level block is documented below.
      * 
+     * Each level block supports the following arguments:
+     * 
      */
     @Import(name="levelFive")
     private @Nullable Output<UserHierarchyStructureHierarchyStructureLevelFiveArgs> levelFive;
 
     /**
      * @return A block that defines the details of level five. The level block is documented below.
+     * 
+     * Each level block supports the following arguments:
      * 
      */
     public Optional<Output<UserHierarchyStructureHierarchyStructureLevelFiveArgs>> levelFive() {
@@ -125,6 +129,8 @@ public final class UserHierarchyStructureHierarchyStructureArgs extends com.pulu
         /**
          * @param levelFive A block that defines the details of level five. The level block is documented below.
          * 
+         * Each level block supports the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -135,6 +141,8 @@ public final class UserHierarchyStructureHierarchyStructureArgs extends com.pulu
 
         /**
          * @param levelFive A block that defines the details of level five. The level block is documented below.
+         * 
+         * Each level block supports the following arguments:
          * 
          * @return builder
          * 

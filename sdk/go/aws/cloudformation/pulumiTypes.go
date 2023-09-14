@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type CloudFormationTypeLoggingConfig struct {
 	// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
@@ -45,6 +49,12 @@ func (i CloudFormationTypeLoggingConfigArgs) ToCloudFormationTypeLoggingConfigOu
 
 func (i CloudFormationTypeLoggingConfigArgs) ToCloudFormationTypeLoggingConfigOutputWithContext(ctx context.Context) CloudFormationTypeLoggingConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypeLoggingConfigOutput)
+}
+
+func (i CloudFormationTypeLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationTypeLoggingConfig] {
+	return pulumix.Output[CloudFormationTypeLoggingConfig]{
+		OutputState: i.ToCloudFormationTypeLoggingConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i CloudFormationTypeLoggingConfigArgs) ToCloudFormationTypeLoggingConfigPtrOutput() CloudFormationTypeLoggingConfigPtrOutput {
@@ -88,6 +98,12 @@ func (i *cloudFormationTypeLoggingConfigPtrType) ToCloudFormationTypeLoggingConf
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypeLoggingConfigPtrOutput)
 }
 
+func (i *cloudFormationTypeLoggingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationTypeLoggingConfig] {
+	return pulumix.Output[*CloudFormationTypeLoggingConfig]{
+		OutputState: i.ToCloudFormationTypeLoggingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CloudFormationTypeLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationTypeLoggingConfigOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o CloudFormationTypeLoggingConfigOutput) ToCloudFormationTypeLoggingConfig
 	}).(CloudFormationTypeLoggingConfigPtrOutput)
 }
 
+func (o CloudFormationTypeLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationTypeLoggingConfig] {
+	return pulumix.Output[CloudFormationTypeLoggingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
 func (o CloudFormationTypeLoggingConfigOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationTypeLoggingConfig) string { return v.LogGroupName }).(pulumi.StringOutput)
@@ -134,6 +156,12 @@ func (o CloudFormationTypeLoggingConfigPtrOutput) ToCloudFormationTypeLoggingCon
 
 func (o CloudFormationTypeLoggingConfigPtrOutput) ToCloudFormationTypeLoggingConfigPtrOutputWithContext(ctx context.Context) CloudFormationTypeLoggingConfigPtrOutput {
 	return o
+}
+
+func (o CloudFormationTypeLoggingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationTypeLoggingConfig] {
+	return pulumix.Output[*CloudFormationTypeLoggingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CloudFormationTypeLoggingConfigPtrOutput) Elem() CloudFormationTypeLoggingConfigOutput {
@@ -203,6 +231,12 @@ func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentOutput)
 }
 
+func (i StackSetAutoDeploymentArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetAutoDeployment] {
+	return pulumix.Output[StackSetAutoDeployment]{
+		OutputState: i.ToStackSetAutoDeploymentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentPtrOutput() StackSetAutoDeploymentPtrOutput {
 	return i.ToStackSetAutoDeploymentPtrOutputWithContext(context.Background())
 }
@@ -244,6 +278,12 @@ func (i *stackSetAutoDeploymentPtrType) ToStackSetAutoDeploymentPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentPtrOutput)
 }
 
+func (i *stackSetAutoDeploymentPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSetAutoDeployment] {
+	return pulumix.Output[*StackSetAutoDeployment]{
+		OutputState: i.ToStackSetAutoDeploymentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetAutoDeploymentOutput struct{ *pulumi.OutputState }
 
 func (StackSetAutoDeploymentOutput) ElementType() reflect.Type {
@@ -268,6 +308,12 @@ func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutputWithConte
 	}).(StackSetAutoDeploymentPtrOutput)
 }
 
+func (o StackSetAutoDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetAutoDeployment] {
+	return pulumix.Output[StackSetAutoDeployment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether or not auto-deployment is enabled.
 func (o StackSetAutoDeploymentOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -290,6 +336,12 @@ func (o StackSetAutoDeploymentPtrOutput) ToStackSetAutoDeploymentPtrOutput() Sta
 
 func (o StackSetAutoDeploymentPtrOutput) ToStackSetAutoDeploymentPtrOutputWithContext(ctx context.Context) StackSetAutoDeploymentPtrOutput {
 	return o
+}
+
+func (o StackSetAutoDeploymentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetAutoDeployment] {
+	return pulumix.Output[*StackSetAutoDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetAutoDeploymentPtrOutput) Elem() StackSetAutoDeploymentOutput {
@@ -355,6 +407,12 @@ func (i StackSetInstanceDeploymentTargetsArgs) ToStackSetInstanceDeploymentTarge
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceDeploymentTargetsOutput)
 }
 
+func (i StackSetInstanceDeploymentTargetsArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetInstanceDeploymentTargets] {
+	return pulumix.Output[StackSetInstanceDeploymentTargets]{
+		OutputState: i.ToStackSetInstanceDeploymentTargetsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StackSetInstanceDeploymentTargetsArgs) ToStackSetInstanceDeploymentTargetsPtrOutput() StackSetInstanceDeploymentTargetsPtrOutput {
 	return i.ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(context.Background())
 }
@@ -396,6 +454,12 @@ func (i *stackSetInstanceDeploymentTargetsPtrType) ToStackSetInstanceDeploymentT
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceDeploymentTargetsPtrOutput)
 }
 
+func (i *stackSetInstanceDeploymentTargetsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstanceDeploymentTargets] {
+	return pulumix.Output[*StackSetInstanceDeploymentTargets]{
+		OutputState: i.ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetInstanceDeploymentTargetsOutput struct{ *pulumi.OutputState }
 
 func (StackSetInstanceDeploymentTargetsOutput) ElementType() reflect.Type {
@@ -420,6 +484,12 @@ func (o StackSetInstanceDeploymentTargetsOutput) ToStackSetInstanceDeploymentTar
 	}).(StackSetInstanceDeploymentTargetsPtrOutput)
 }
 
+func (o StackSetInstanceDeploymentTargetsOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetInstanceDeploymentTargets] {
+	return pulumix.Output[StackSetInstanceDeploymentTargets]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 func (o StackSetInstanceDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetInstanceDeploymentTargets) []string { return v.OrganizationalUnitIds }).(pulumi.StringArrayOutput)
@@ -437,6 +507,12 @@ func (o StackSetInstanceDeploymentTargetsPtrOutput) ToStackSetInstanceDeployment
 
 func (o StackSetInstanceDeploymentTargetsPtrOutput) ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackSetInstanceDeploymentTargetsPtrOutput {
 	return o
+}
+
+func (o StackSetInstanceDeploymentTargetsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstanceDeploymentTargets] {
+	return pulumix.Output[*StackSetInstanceDeploymentTargets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetInstanceDeploymentTargetsPtrOutput) Elem() StackSetInstanceDeploymentTargetsOutput {
@@ -512,6 +588,12 @@ func (i StackSetInstanceOperationPreferencesArgs) ToStackSetInstanceOperationPre
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOperationPreferencesOutput)
 }
 
+func (i StackSetInstanceOperationPreferencesArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetInstanceOperationPreferences] {
+	return pulumix.Output[StackSetInstanceOperationPreferences]{
+		OutputState: i.ToStackSetInstanceOperationPreferencesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StackSetInstanceOperationPreferencesArgs) ToStackSetInstanceOperationPreferencesPtrOutput() StackSetInstanceOperationPreferencesPtrOutput {
 	return i.ToStackSetInstanceOperationPreferencesPtrOutputWithContext(context.Background())
 }
@@ -553,6 +635,12 @@ func (i *stackSetInstanceOperationPreferencesPtrType) ToStackSetInstanceOperatio
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOperationPreferencesPtrOutput)
 }
 
+func (i *stackSetInstanceOperationPreferencesPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstanceOperationPreferences] {
+	return pulumix.Output[*StackSetInstanceOperationPreferences]{
+		OutputState: i.ToStackSetInstanceOperationPreferencesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetInstanceOperationPreferencesOutput struct{ *pulumi.OutputState }
 
 func (StackSetInstanceOperationPreferencesOutput) ElementType() reflect.Type {
@@ -575,6 +663,12 @@ func (o StackSetInstanceOperationPreferencesOutput) ToStackSetInstanceOperationP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetInstanceOperationPreferences) *StackSetInstanceOperationPreferences {
 		return &v
 	}).(StackSetInstanceOperationPreferencesPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetInstanceOperationPreferences] {
+	return pulumix.Output[StackSetInstanceOperationPreferences]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
@@ -619,6 +713,12 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) ToStackSetInstanceOperati
 
 func (o StackSetInstanceOperationPreferencesPtrOutput) ToStackSetInstanceOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetInstanceOperationPreferencesPtrOutput {
 	return o
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstanceOperationPreferences] {
+	return pulumix.Output[*StackSetInstanceOperationPreferences]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetInstanceOperationPreferencesPtrOutput) Elem() StackSetInstanceOperationPreferencesOutput {
@@ -691,6 +791,306 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) RegionOrders() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+type StackSetInstanceStackInstanceSummary struct {
+	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+	AccountId *string `pulumi:"accountId"`
+	// Organizational unit ID in which the stack is deployed.
+	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
+	// Stack identifier.
+	StackId *string `pulumi:"stackId"`
+}
+
+// StackSetInstanceStackInstanceSummaryInput is an input type that accepts StackSetInstanceStackInstanceSummaryArgs and StackSetInstanceStackInstanceSummaryOutput values.
+// You can construct a concrete instance of `StackSetInstanceStackInstanceSummaryInput` via:
+//
+//	StackSetInstanceStackInstanceSummaryArgs{...}
+type StackSetInstanceStackInstanceSummaryInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceStackInstanceSummaryOutput() StackSetInstanceStackInstanceSummaryOutput
+	ToStackSetInstanceStackInstanceSummaryOutputWithContext(context.Context) StackSetInstanceStackInstanceSummaryOutput
+}
+
+type StackSetInstanceStackInstanceSummaryArgs struct {
+	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Organizational unit ID in which the stack is deployed.
+	OrganizationalUnitId pulumi.StringPtrInput `pulumi:"organizationalUnitId"`
+	// Stack identifier.
+	StackId pulumi.StringPtrInput `pulumi:"stackId"`
+}
+
+func (StackSetInstanceStackInstanceSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (i StackSetInstanceStackInstanceSummaryArgs) ToStackSetInstanceStackInstanceSummaryOutput() StackSetInstanceStackInstanceSummaryOutput {
+	return i.ToStackSetInstanceStackInstanceSummaryOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceStackInstanceSummaryArgs) ToStackSetInstanceStackInstanceSummaryOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceStackInstanceSummaryOutput)
+}
+
+func (i StackSetInstanceStackInstanceSummaryArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetInstanceStackInstanceSummary] {
+	return pulumix.Output[StackSetInstanceStackInstanceSummary]{
+		OutputState: i.ToStackSetInstanceStackInstanceSummaryOutputWithContext(ctx).OutputState,
+	}
+}
+
+// StackSetInstanceStackInstanceSummaryArrayInput is an input type that accepts StackSetInstanceStackInstanceSummaryArray and StackSetInstanceStackInstanceSummaryArrayOutput values.
+// You can construct a concrete instance of `StackSetInstanceStackInstanceSummaryArrayInput` via:
+//
+//	StackSetInstanceStackInstanceSummaryArray{ StackSetInstanceStackInstanceSummaryArgs{...} }
+type StackSetInstanceStackInstanceSummaryArrayInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceStackInstanceSummaryArrayOutput() StackSetInstanceStackInstanceSummaryArrayOutput
+	ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(context.Context) StackSetInstanceStackInstanceSummaryArrayOutput
+}
+
+type StackSetInstanceStackInstanceSummaryArray []StackSetInstanceStackInstanceSummaryInput
+
+func (StackSetInstanceStackInstanceSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (i StackSetInstanceStackInstanceSummaryArray) ToStackSetInstanceStackInstanceSummaryArrayOutput() StackSetInstanceStackInstanceSummaryArrayOutput {
+	return i.ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceStackInstanceSummaryArray) ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceStackInstanceSummaryArrayOutput)
+}
+
+func (i StackSetInstanceStackInstanceSummaryArray) ToOutput(ctx context.Context) pulumix.Output[[]StackSetInstanceStackInstanceSummary] {
+	return pulumix.Output[[]StackSetInstanceStackInstanceSummary]{
+		OutputState: i.ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type StackSetInstanceStackInstanceSummaryOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceStackInstanceSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (o StackSetInstanceStackInstanceSummaryOutput) ToStackSetInstanceStackInstanceSummaryOutput() StackSetInstanceStackInstanceSummaryOutput {
+	return o
+}
+
+func (o StackSetInstanceStackInstanceSummaryOutput) ToStackSetInstanceStackInstanceSummaryOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryOutput {
+	return o
+}
+
+func (o StackSetInstanceStackInstanceSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetInstanceStackInstanceSummary] {
+	return pulumix.Output[StackSetInstanceStackInstanceSummary]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+func (o StackSetInstanceStackInstanceSummaryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceStackInstanceSummary) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Organizational unit ID in which the stack is deployed.
+func (o StackSetInstanceStackInstanceSummaryOutput) OrganizationalUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceStackInstanceSummary) *string { return v.OrganizationalUnitId }).(pulumi.StringPtrOutput)
+}
+
+// Stack identifier.
+func (o StackSetInstanceStackInstanceSummaryOutput) StackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceStackInstanceSummary) *string { return v.StackId }).(pulumi.StringPtrOutput)
+}
+
+type StackSetInstanceStackInstanceSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceStackInstanceSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (o StackSetInstanceStackInstanceSummaryArrayOutput) ToStackSetInstanceStackInstanceSummaryArrayOutput() StackSetInstanceStackInstanceSummaryArrayOutput {
+	return o
+}
+
+func (o StackSetInstanceStackInstanceSummaryArrayOutput) ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryArrayOutput {
+	return o
+}
+
+func (o StackSetInstanceStackInstanceSummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackSetInstanceStackInstanceSummary] {
+	return pulumix.Output[[]StackSetInstanceStackInstanceSummary]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StackSetInstanceStackInstanceSummaryArrayOutput) Index(i pulumi.IntInput) StackSetInstanceStackInstanceSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSetInstanceStackInstanceSummary {
+		return vs[0].([]StackSetInstanceStackInstanceSummary)[vs[1].(int)]
+	}).(StackSetInstanceStackInstanceSummaryOutput)
+}
+
+type StackSetManagedExecution struct {
+	// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+	Active *bool `pulumi:"active"`
+}
+
+// StackSetManagedExecutionInput is an input type that accepts StackSetManagedExecutionArgs and StackSetManagedExecutionOutput values.
+// You can construct a concrete instance of `StackSetManagedExecutionInput` via:
+//
+//	StackSetManagedExecutionArgs{...}
+type StackSetManagedExecutionInput interface {
+	pulumi.Input
+
+	ToStackSetManagedExecutionOutput() StackSetManagedExecutionOutput
+	ToStackSetManagedExecutionOutputWithContext(context.Context) StackSetManagedExecutionOutput
+}
+
+type StackSetManagedExecutionArgs struct {
+	// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+	Active pulumi.BoolPtrInput `pulumi:"active"`
+}
+
+func (StackSetManagedExecutionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetManagedExecution)(nil)).Elem()
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionOutput() StackSetManagedExecutionOutput {
+	return i.ToStackSetManagedExecutionOutputWithContext(context.Background())
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionOutputWithContext(ctx context.Context) StackSetManagedExecutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetManagedExecutionOutput)
+}
+
+func (i StackSetManagedExecutionArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetManagedExecution] {
+	return pulumix.Output[StackSetManagedExecution]{
+		OutputState: i.ToStackSetManagedExecutionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return i.ToStackSetManagedExecutionPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetManagedExecutionOutput).ToStackSetManagedExecutionPtrOutputWithContext(ctx)
+}
+
+// StackSetManagedExecutionPtrInput is an input type that accepts StackSetManagedExecutionArgs, StackSetManagedExecutionPtr and StackSetManagedExecutionPtrOutput values.
+// You can construct a concrete instance of `StackSetManagedExecutionPtrInput` via:
+//
+//	        StackSetManagedExecutionArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackSetManagedExecutionPtrInput interface {
+	pulumi.Input
+
+	ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput
+	ToStackSetManagedExecutionPtrOutputWithContext(context.Context) StackSetManagedExecutionPtrOutput
+}
+
+type stackSetManagedExecutionPtrType StackSetManagedExecutionArgs
+
+func StackSetManagedExecutionPtr(v *StackSetManagedExecutionArgs) StackSetManagedExecutionPtrInput {
+	return (*stackSetManagedExecutionPtrType)(v)
+}
+
+func (*stackSetManagedExecutionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetManagedExecution)(nil)).Elem()
+}
+
+func (i *stackSetManagedExecutionPtrType) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return i.ToStackSetManagedExecutionPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetManagedExecutionPtrType) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetManagedExecutionPtrOutput)
+}
+
+func (i *stackSetManagedExecutionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSetManagedExecution] {
+	return pulumix.Output[*StackSetManagedExecution]{
+		OutputState: i.ToStackSetManagedExecutionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type StackSetManagedExecutionOutput struct{ *pulumi.OutputState }
+
+func (StackSetManagedExecutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetManagedExecution)(nil)).Elem()
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionOutput() StackSetManagedExecutionOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionOutputWithContext(ctx context.Context) StackSetManagedExecutionOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return o.ToStackSetManagedExecutionPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetManagedExecution) *StackSetManagedExecution {
+		return &v
+	}).(StackSetManagedExecutionPtrOutput)
+}
+
+func (o StackSetManagedExecutionOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetManagedExecution] {
+	return pulumix.Output[StackSetManagedExecution]{
+		OutputState: o.OutputState,
+	}
+}
+
+// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+func (o StackSetManagedExecutionOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StackSetManagedExecution) *bool { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+type StackSetManagedExecutionPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetManagedExecutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetManagedExecution)(nil)).Elem()
+}
+
+func (o StackSetManagedExecutionPtrOutput) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionPtrOutput) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetManagedExecution] {
+	return pulumix.Output[*StackSetManagedExecution]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StackSetManagedExecutionPtrOutput) Elem() StackSetManagedExecutionOutput {
+	return o.ApplyT(func(v *StackSetManagedExecution) StackSetManagedExecution {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetManagedExecution
+		return ret
+	}).(StackSetManagedExecutionOutput)
+}
+
+// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+func (o StackSetManagedExecutionPtrOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackSetManagedExecution) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Active
+	}).(pulumi.BoolPtrOutput)
+}
+
 type StackSetOperationPreferences struct {
 	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
@@ -744,6 +1144,12 @@ func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesOutput)
 }
 
+func (i StackSetOperationPreferencesArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetOperationPreferences] {
+	return pulumix.Output[StackSetOperationPreferences]{
+		OutputState: i.ToStackSetOperationPreferencesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
 	return i.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
 }
@@ -785,6 +1191,12 @@ func (i *stackSetOperationPreferencesPtrType) ToStackSetOperationPreferencesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesPtrOutput)
 }
 
+func (i *stackSetOperationPreferencesPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSetOperationPreferences] {
+	return pulumix.Output[*StackSetOperationPreferences]{
+		OutputState: i.ToStackSetOperationPreferencesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetOperationPreferencesOutput struct{ *pulumi.OutputState }
 
 func (StackSetOperationPreferencesOutput) ElementType() reflect.Type {
@@ -807,6 +1219,12 @@ func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetOperationPreferences) *StackSetOperationPreferences {
 		return &v
 	}).(StackSetOperationPreferencesPtrOutput)
+}
+
+func (o StackSetOperationPreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetOperationPreferences] {
+	return pulumix.Output[StackSetOperationPreferences]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
@@ -851,6 +1269,12 @@ func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtr
 
 func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
 	return o
+}
+
+func (o StackSetOperationPreferencesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetOperationPreferences] {
+	return pulumix.Output[*StackSetOperationPreferences]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetOperationPreferencesPtrOutput) Elem() StackSetOperationPreferencesOutput {
@@ -960,6 +1384,12 @@ func (i GetCloudFormationTypeLoggingConfigArgs) ToGetCloudFormationTypeLoggingCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCloudFormationTypeLoggingConfigOutput)
 }
 
+func (i GetCloudFormationTypeLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetCloudFormationTypeLoggingConfig] {
+	return pulumix.Output[GetCloudFormationTypeLoggingConfig]{
+		OutputState: i.ToGetCloudFormationTypeLoggingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetCloudFormationTypeLoggingConfigArrayInput is an input type that accepts GetCloudFormationTypeLoggingConfigArray and GetCloudFormationTypeLoggingConfigArrayOutput values.
 // You can construct a concrete instance of `GetCloudFormationTypeLoggingConfigArrayInput` via:
 //
@@ -985,6 +1415,12 @@ func (i GetCloudFormationTypeLoggingConfigArray) ToGetCloudFormationTypeLoggingC
 	return pulumi.ToOutputWithContext(ctx, i).(GetCloudFormationTypeLoggingConfigArrayOutput)
 }
 
+func (i GetCloudFormationTypeLoggingConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCloudFormationTypeLoggingConfig] {
+	return pulumix.Output[[]GetCloudFormationTypeLoggingConfig]{
+		OutputState: i.ToGetCloudFormationTypeLoggingConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetCloudFormationTypeLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (GetCloudFormationTypeLoggingConfigOutput) ElementType() reflect.Type {
@@ -997,6 +1433,12 @@ func (o GetCloudFormationTypeLoggingConfigOutput) ToGetCloudFormationTypeLogging
 
 func (o GetCloudFormationTypeLoggingConfigOutput) ToGetCloudFormationTypeLoggingConfigOutputWithContext(ctx context.Context) GetCloudFormationTypeLoggingConfigOutput {
 	return o
+}
+
+func (o GetCloudFormationTypeLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetCloudFormationTypeLoggingConfig] {
+	return pulumix.Output[GetCloudFormationTypeLoggingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
@@ -1023,6 +1465,12 @@ func (o GetCloudFormationTypeLoggingConfigArrayOutput) ToGetCloudFormationTypeLo
 	return o
 }
 
+func (o GetCloudFormationTypeLoggingConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCloudFormationTypeLoggingConfig] {
+	return pulumix.Output[[]GetCloudFormationTypeLoggingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetCloudFormationTypeLoggingConfigArrayOutput) Index(i pulumi.IntInput) GetCloudFormationTypeLoggingConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudFormationTypeLoggingConfig {
 		return vs[0].([]GetCloudFormationTypeLoggingConfig)[vs[1].(int)]
@@ -1038,6 +1486,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsPtrInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesPtrInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceStackInstanceSummaryInput)(nil)).Elem(), StackSetInstanceStackInstanceSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceStackInstanceSummaryArrayInput)(nil)).Elem(), StackSetInstanceStackInstanceSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetManagedExecutionInput)(nil)).Elem(), StackSetManagedExecutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetManagedExecutionPtrInput)(nil)).Elem(), StackSetManagedExecutionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesPtrInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArgs{})
@@ -1050,6 +1502,10 @@ func init() {
 	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsPtrOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceStackInstanceSummaryOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceStackInstanceSummaryArrayOutput{})
+	pulumi.RegisterOutputType(StackSetManagedExecutionOutput{})
+	pulumi.RegisterOutputType(StackSetManagedExecutionPtrOutput{})
 	pulumi.RegisterOutputType(StackSetOperationPreferencesOutput{})
 	pulumi.RegisterOutputType(StackSetOperationPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(GetCloudFormationTypeLoggingConfigOutput{})

@@ -131,6 +131,12 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+        /// 
+        /// &gt; **NOTE:** If anything other than a single match is returned by the search,
+        /// this call will fail. Ensure that your search is specific enough to return
+        /// a single Instance ID only.
         /// </summary>
         [Input("getUserData")]
         public bool? GetUserData { get; set; }
@@ -196,6 +202,12 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+        /// 
+        /// &gt; **NOTE:** If anything other than a single match is returned by the search,
+        /// this call will fail. Ensure that your search is specific enough to return
+        /// a single Instance ID only.
         /// </summary>
         [Input("getUserData")]
         public Input<bool>? GetUserData { get; set; }

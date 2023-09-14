@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+ * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages

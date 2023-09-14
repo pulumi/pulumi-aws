@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EventBridge API Destinations can be imported using the `name`, e.g., console
+ * Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination

@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+ * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
@@ -102,12 +102,16 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
     /**
      * Name of the Analyzer.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="analyzerName", refs={String.class}, tree="[0]")
     private Output<String> analyzerName;
 
     /**
      * @return Name of the Analyzer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> analyzerName() {

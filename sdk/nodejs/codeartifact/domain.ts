@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodeArtifact Domain can be imported using the CodeArtifact Domain arn, e.g.,
+ * Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
  *
  * ```sh
  *  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
@@ -59,7 +59,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The total size of all assets in the domain.
      */
-    public /*out*/ readonly assetSizeBytes!: pulumi.Output<number>;
+    public /*out*/ readonly assetSizeBytes!: pulumi.Output<string>;
     /**
      * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
@@ -142,7 +142,7 @@ export interface DomainState {
     /**
      * The total size of all assets in the domain.
      */
-    assetSizeBytes?: pulumi.Input<number>;
+    assetSizeBytes?: pulumi.Input<string>;
     /**
      * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM Policies can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials

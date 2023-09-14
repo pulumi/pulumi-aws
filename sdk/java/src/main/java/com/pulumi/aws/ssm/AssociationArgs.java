@@ -97,7 +97,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
      * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
@@ -108,7 +108,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
      * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
@@ -135,14 +135,14 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     @Import(name="maxErrors")
     private @Nullable Output<String> maxErrors;
 
     /**
-     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     public Optional<Output<String>> maxErrors() {
@@ -210,6 +210,21 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     * 
+     */
+    @Import(name="syncCompliance")
+    private @Nullable Output<String> syncCompliance;
+
+    /**
+     * @return The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     * 
+     */
+    public Optional<Output<String>> syncCompliance() {
+        return Optional.ofNullable(this.syncCompliance);
+    }
+
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
@@ -227,12 +242,16 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      * 
+     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+     * 
      */
     @Import(name="waitForSuccessTimeoutSeconds")
     private @Nullable Output<Integer> waitForSuccessTimeoutSeconds;
 
     /**
      * @return The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * 
+     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
      * 
      */
     public Optional<Output<Integer>> waitForSuccessTimeoutSeconds() {
@@ -254,6 +273,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         this.outputLocation = $.outputLocation;
         this.parameters = $.parameters;
         this.scheduleExpression = $.scheduleExpression;
+        this.syncCompliance = $.syncCompliance;
         this.targets = $.targets;
         this.waitForSuccessTimeoutSeconds = $.waitForSuccessTimeoutSeconds;
     }
@@ -382,7 +402,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
          * 
          * @return builder
          * 
@@ -397,7 +417,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
          * 
          * @return builder
          * 
@@ -432,7 +452,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
          * 
          * @return builder
          * 
@@ -443,7 +463,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
          * 
          * @return builder
          * 
@@ -537,6 +557,27 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param syncCompliance The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncCompliance(@Nullable Output<String> syncCompliance) {
+            $.syncCompliance = syncCompliance;
+            return this;
+        }
+
+        /**
+         * @param syncCompliance The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncCompliance(String syncCompliance) {
+            return syncCompliance(Output.of(syncCompliance));
+        }
+
+        /**
          * @param targets A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
          * 
          * @return builder
@@ -570,6 +611,8 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
          * 
+         * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+         * 
          * @return builder
          * 
          */
@@ -580,6 +623,8 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+         * 
+         * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
          * 
          * @return builder
          * 

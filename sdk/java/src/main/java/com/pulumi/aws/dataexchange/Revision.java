@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DataExchange Revisions can be imported by their `data-set-id:revision-id`
+ * Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1

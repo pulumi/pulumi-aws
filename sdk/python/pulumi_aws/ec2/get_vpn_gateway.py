@@ -133,6 +133,9 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
 
 
     :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
@@ -153,14 +156,14 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult).value
 
     return AwaitableGetVpnGatewayResult(
-        amazon_side_asn=__ret__.amazon_side_asn,
-        arn=__ret__.arn,
-        attached_vpc_id=__ret__.attached_vpc_id,
-        availability_zone=__ret__.availability_zone,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        amazon_side_asn=pulumi.get(__ret__, 'amazon_side_asn'),
+        arn=pulumi.get(__ret__, 'arn'),
+        attached_vpc_id=pulumi.get(__ret__, 'attached_vpc_id'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vpn_gateway)
@@ -191,6 +194,9 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
 
 
     :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.

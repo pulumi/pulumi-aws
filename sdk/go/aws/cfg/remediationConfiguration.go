@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Config Remediation Configuration.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +83,7 @@ import (
 //
 // ## Import
 //
-// Remediation Configurations can be imported using the name config_rule_name, e.g.,
+// Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
 //
 // ```sh
 //
@@ -110,6 +112,8 @@ type RemediationConfiguration struct {
 	// Target ID is the name of the public document.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrOutput `pulumi:"targetVersion"`
@@ -131,6 +135,7 @@ func NewRemediationConfiguration(ctx *pulumi.Context,
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RemediationConfiguration
 	err := ctx.RegisterResource("aws:cfg/remediationConfiguration:RemediationConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -172,6 +177,8 @@ type remediationConfigurationState struct {
 	// Target ID is the name of the public document.
 	TargetId *string `pulumi:"targetId"`
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType *string `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion *string `pulumi:"targetVersion"`
@@ -197,6 +204,8 @@ type RemediationConfigurationState struct {
 	// Target ID is the name of the public document.
 	TargetId pulumi.StringPtrInput
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType pulumi.StringPtrInput
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrInput
@@ -224,6 +233,8 @@ type remediationConfigurationArgs struct {
 	// Target ID is the name of the public document.
 	TargetId string `pulumi:"targetId"`
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType string `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion *string `pulumi:"targetVersion"`
@@ -248,6 +259,8 @@ type RemediationConfigurationArgs struct {
 	// Target ID is the name of the public document.
 	TargetId pulumi.StringInput
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType pulumi.StringInput
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrInput
@@ -276,6 +289,12 @@ func (i *RemediationConfiguration) ToRemediationConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationOutput)
 }
 
+func (i *RemediationConfiguration) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfiguration] {
+	return pulumix.Output[*RemediationConfiguration]{
+		OutputState: i.ToRemediationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemediationConfigurationArrayInput is an input type that accepts RemediationConfigurationArray and RemediationConfigurationArrayOutput values.
 // You can construct a concrete instance of `RemediationConfigurationArrayInput` via:
 //
@@ -299,6 +318,12 @@ func (i RemediationConfigurationArray) ToRemediationConfigurationArrayOutput() R
 
 func (i RemediationConfigurationArray) ToRemediationConfigurationArrayOutputWithContext(ctx context.Context) RemediationConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationArrayOutput)
+}
+
+func (i RemediationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemediationConfiguration] {
+	return pulumix.Output[[]*RemediationConfiguration]{
+		OutputState: i.ToRemediationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemediationConfigurationMapInput is an input type that accepts RemediationConfigurationMap and RemediationConfigurationMapOutput values.
@@ -326,6 +351,12 @@ func (i RemediationConfigurationMap) ToRemediationConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationMapOutput)
 }
 
+func (i RemediationConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemediationConfiguration] {
+	return pulumix.Output[map[string]*RemediationConfiguration]{
+		OutputState: i.ToRemediationConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemediationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationOutput) ElementType() reflect.Type {
@@ -338,6 +369,12 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutput() Remed
 
 func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithContext(ctx context.Context) RemediationConfigurationOutput {
 	return o
+}
+
+func (o RemediationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfiguration] {
+	return pulumix.Output[*RemediationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Config Remediation Configuration.
@@ -388,6 +425,8 @@ func (o RemediationConfigurationOutput) TargetId() pulumi.StringOutput {
 }
 
 // Type of the target. Target executes remediation. For example, SSM document.
+//
+// The following arguments are optional:
 func (o RemediationConfigurationOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
 }
@@ -411,6 +450,12 @@ func (o RemediationConfigurationArrayOutput) ToRemediationConfigurationArrayOutp
 	return o
 }
 
+func (o RemediationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemediationConfiguration] {
+	return pulumix.Output[[]*RemediationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemediationConfigurationArrayOutput) Index(i pulumi.IntInput) RemediationConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemediationConfiguration {
 		return vs[0].([]*RemediationConfiguration)[vs[1].(int)]
@@ -429,6 +474,12 @@ func (o RemediationConfigurationMapOutput) ToRemediationConfigurationMapOutput()
 
 func (o RemediationConfigurationMapOutput) ToRemediationConfigurationMapOutputWithContext(ctx context.Context) RemediationConfigurationMapOutput {
 	return o
+}
+
+func (o RemediationConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemediationConfiguration] {
+	return pulumix.Output[map[string]*RemediationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemediationConfigurationMapOutput) MapIndex(k pulumi.StringInput) RemediationConfigurationOutput {

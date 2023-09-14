@@ -42,6 +42,8 @@ export interface GetPortfolioConstraintsArgs {
     acceptLanguage?: string;
     /**
      * Portfolio identifier.
+     *
+     * The following arguments are optional:
      */
     portfolioId: string;
     /**
@@ -101,6 +103,8 @@ export interface GetPortfolioConstraintsOutputArgs {
     acceptLanguage?: pulumi.Input<string>;
     /**
      * Portfolio identifier.
+     *
+     * The following arguments are optional:
      */
     portfolioId: pulumi.Input<string>;
     /**

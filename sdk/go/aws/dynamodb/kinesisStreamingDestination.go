@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +63,7 @@ import (
 //
 // ## Import
 //
-// DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,
+// Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
 //
 // ```sh
 //
@@ -91,6 +93,7 @@ func NewKinesisStreamingDestination(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KinesisStreamingDestination
 	err := ctx.RegisterResource("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination", name, args, &resource, opts...)
 	if err != nil {
@@ -172,6 +175,12 @@ func (i *KinesisStreamingDestination) ToKinesisStreamingDestinationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(KinesisStreamingDestinationOutput)
 }
 
+func (i *KinesisStreamingDestination) ToOutput(ctx context.Context) pulumix.Output[*KinesisStreamingDestination] {
+	return pulumix.Output[*KinesisStreamingDestination]{
+		OutputState: i.ToKinesisStreamingDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KinesisStreamingDestinationArrayInput is an input type that accepts KinesisStreamingDestinationArray and KinesisStreamingDestinationArrayOutput values.
 // You can construct a concrete instance of `KinesisStreamingDestinationArrayInput` via:
 //
@@ -195,6 +204,12 @@ func (i KinesisStreamingDestinationArray) ToKinesisStreamingDestinationArrayOutp
 
 func (i KinesisStreamingDestinationArray) ToKinesisStreamingDestinationArrayOutputWithContext(ctx context.Context) KinesisStreamingDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KinesisStreamingDestinationArrayOutput)
+}
+
+func (i KinesisStreamingDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*KinesisStreamingDestination] {
+	return pulumix.Output[[]*KinesisStreamingDestination]{
+		OutputState: i.ToKinesisStreamingDestinationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KinesisStreamingDestinationMapInput is an input type that accepts KinesisStreamingDestinationMap and KinesisStreamingDestinationMapOutput values.
@@ -222,6 +237,12 @@ func (i KinesisStreamingDestinationMap) ToKinesisStreamingDestinationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KinesisStreamingDestinationMapOutput)
 }
 
+func (i KinesisStreamingDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KinesisStreamingDestination] {
+	return pulumix.Output[map[string]*KinesisStreamingDestination]{
+		OutputState: i.ToKinesisStreamingDestinationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KinesisStreamingDestinationOutput struct{ *pulumi.OutputState }
 
 func (KinesisStreamingDestinationOutput) ElementType() reflect.Type {
@@ -234,6 +255,12 @@ func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationOutput()
 
 func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationOutputWithContext(ctx context.Context) KinesisStreamingDestinationOutput {
 	return o
+}
+
+func (o KinesisStreamingDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*KinesisStreamingDestination] {
+	return pulumix.Output[*KinesisStreamingDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
@@ -261,6 +288,12 @@ func (o KinesisStreamingDestinationArrayOutput) ToKinesisStreamingDestinationArr
 	return o
 }
 
+func (o KinesisStreamingDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KinesisStreamingDestination] {
+	return pulumix.Output[[]*KinesisStreamingDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KinesisStreamingDestinationArrayOutput) Index(i pulumi.IntInput) KinesisStreamingDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KinesisStreamingDestination {
 		return vs[0].([]*KinesisStreamingDestination)[vs[1].(int)]
@@ -279,6 +312,12 @@ func (o KinesisStreamingDestinationMapOutput) ToKinesisStreamingDestinationMapOu
 
 func (o KinesisStreamingDestinationMapOutput) ToKinesisStreamingDestinationMapOutputWithContext(ctx context.Context) KinesisStreamingDestinationMapOutput {
 	return o
+}
+
+func (o KinesisStreamingDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KinesisStreamingDestination] {
+	return pulumix.Output[map[string]*KinesisStreamingDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KinesisStreamingDestinationMapOutput) MapIndex(k pulumi.StringInput) KinesisStreamingDestinationOutput {

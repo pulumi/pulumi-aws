@@ -42,6 +42,9 @@ export function getLocalGateways(args?: GetLocalGatewaysArgs, opts?: pulumi.Invo
 export interface GetLocalGatewaysArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: inputs.ec2.GetLocalGatewaysFilter[];
     /**
@@ -95,6 +98,9 @@ export function getLocalGatewaysOutput(args?: GetLocalGatewaysOutputArgs, opts?:
 export interface GetLocalGatewaysOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewaysFilterArgs>[]>;
     /**

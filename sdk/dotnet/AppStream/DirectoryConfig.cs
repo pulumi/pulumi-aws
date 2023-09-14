@@ -41,7 +41,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// `aws_appstream_directory_config` can be imported using the id, e.g.,
+    /// Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample

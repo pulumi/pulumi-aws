@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DocumentDB Cluster Parameter Groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1

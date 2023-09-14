@@ -27,6 +27,8 @@ namespace Pulumi.Aws.SesV2.Outputs
         public readonly string DisplayName;
         /// <summary>
         /// The name of the topic.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string TopicName;
 

@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Workteams can be imported using the `workteam_name`, e.g.,
+    /// Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/workteam:Workteam example example

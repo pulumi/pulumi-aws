@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Composite Alarm resource.
@@ -24,7 +26,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -37,6 +39,11 @@ import (
 //				AlarmActions:     pulumi.Any(aws_sns_topic.Example.Arn),
 //				OkActions:        pulumi.Any(aws_sns_topic.Example.Arn),
 //				AlarmRule:        pulumi.String(fmt.Sprintf("ALARM(%v) OR\nALARM(%v)\n", aws_cloudwatch_metric_alarm.Alpha.Alarm_name, aws_cloudwatch_metric_alarm.Bravo.Alarm_name)),
+//				ActionsSuppressor: &cloudwatch.CompositeAlarmActionsSuppressorArgs{
+//					Alarm:           pulumi.String("suppressor-alarm"),
+//					ExtensionPeriod: pulumi.Int(10),
+//					WaitPeriod:      pulumi.Int(20),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +56,7 @@ import (
 //
 // ## Import
 //
-// Use the `alarm_name` to import a CloudWatch Composite Alarm. For example
+// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 //
 // ```sh
 //
@@ -61,6 +68,8 @@ type CompositeAlarm struct {
 
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor CompositeAlarmActionsSuppressorPtrOutput `pulumi:"actionsSuppressor"`
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
 	// The description for the composite alarm.
@@ -94,6 +103,7 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 	if args.AlarmRule == nil {
 		return nil, errors.New("invalid value for required argument 'AlarmRule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CompositeAlarm
 	err := ctx.RegisterResource("aws:cloudwatch/compositeAlarm:CompositeAlarm", name, args, &resource, opts...)
 	if err != nil {
@@ -118,6 +128,8 @@ func GetCompositeAlarm(ctx *pulumi.Context,
 type compositeAlarmState struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description for the composite alarm.
@@ -141,6 +153,8 @@ type compositeAlarmState struct {
 type CompositeAlarmState struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor CompositeAlarmActionsSuppressorPtrInput
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions pulumi.StringArrayInput
 	// The description for the composite alarm.
@@ -168,6 +182,8 @@ func (CompositeAlarmState) ElementType() reflect.Type {
 type compositeAlarmArgs struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description for the composite alarm.
@@ -188,6 +204,8 @@ type compositeAlarmArgs struct {
 type CompositeAlarmArgs struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor CompositeAlarmActionsSuppressorPtrInput
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions pulumi.StringArrayInput
 	// The description for the composite alarm.
@@ -227,6 +245,12 @@ func (i *CompositeAlarm) ToCompositeAlarmOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmOutput)
 }
 
+func (i *CompositeAlarm) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarm] {
+	return pulumix.Output[*CompositeAlarm]{
+		OutputState: i.ToCompositeAlarmOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CompositeAlarmArrayInput is an input type that accepts CompositeAlarmArray and CompositeAlarmArrayOutput values.
 // You can construct a concrete instance of `CompositeAlarmArrayInput` via:
 //
@@ -250,6 +274,12 @@ func (i CompositeAlarmArray) ToCompositeAlarmArrayOutput() CompositeAlarmArrayOu
 
 func (i CompositeAlarmArray) ToCompositeAlarmArrayOutputWithContext(ctx context.Context) CompositeAlarmArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmArrayOutput)
+}
+
+func (i CompositeAlarmArray) ToOutput(ctx context.Context) pulumix.Output[[]*CompositeAlarm] {
+	return pulumix.Output[[]*CompositeAlarm]{
+		OutputState: i.ToCompositeAlarmArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CompositeAlarmMapInput is an input type that accepts CompositeAlarmMap and CompositeAlarmMapOutput values.
@@ -277,6 +307,12 @@ func (i CompositeAlarmMap) ToCompositeAlarmMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmMapOutput)
 }
 
+func (i CompositeAlarmMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CompositeAlarm] {
+	return pulumix.Output[map[string]*CompositeAlarm]{
+		OutputState: i.ToCompositeAlarmMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CompositeAlarmOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmOutput) ElementType() reflect.Type {
@@ -291,9 +327,20 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CompositeAlarmOutput) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarm] {
+	return pulumix.Output[*CompositeAlarm]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 func (o CompositeAlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+func (o CompositeAlarmOutput) ActionsSuppressor() CompositeAlarmActionsSuppressorPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) CompositeAlarmActionsSuppressorPtrOutput { return v.ActionsSuppressor }).(CompositeAlarmActionsSuppressorPtrOutput)
 }
 
 // The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -355,6 +402,12 @@ func (o CompositeAlarmArrayOutput) ToCompositeAlarmArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o CompositeAlarmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CompositeAlarm] {
+	return pulumix.Output[[]*CompositeAlarm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CompositeAlarmArrayOutput) Index(i pulumi.IntInput) CompositeAlarmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CompositeAlarm {
 		return vs[0].([]*CompositeAlarm)[vs[1].(int)]
@@ -373,6 +426,12 @@ func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutput() CompositeAlarmMapOu
 
 func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutputWithContext(ctx context.Context) CompositeAlarmMapOutput {
 	return o
+}
+
+func (o CompositeAlarmMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CompositeAlarm] {
+	return pulumix.Output[map[string]*CompositeAlarm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CompositeAlarmMapOutput) MapIndex(k pulumi.StringInput) CompositeAlarmOutput {

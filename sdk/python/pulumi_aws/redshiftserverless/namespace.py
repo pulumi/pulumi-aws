@@ -391,7 +391,7 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
+        Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
 
         ```sh
          $ pulumi import aws:redshiftserverless/namespace:Namespace example example
@@ -429,7 +429,7 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
+        Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
 
         ```sh
          $ pulumi import aws:redshiftserverless/namespace:Namespace example example

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Control Config Safety Rule
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +88,7 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
+// Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
 //
 // ```sh
 //
@@ -113,6 +115,8 @@ type SafetyRule struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayOutput `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs pulumi.IntOutput `pulumi:"waitPeriodMs"`
 }
 
@@ -132,6 +136,7 @@ func NewSafetyRule(ctx *pulumi.Context,
 	if args.WaitPeriodMs == nil {
 		return nil, errors.New("invalid value for required argument 'WaitPeriodMs'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SafetyRule
 	err := ctx.RegisterResource("aws:route53recoverycontrol/safetyRule:SafetyRule", name, args, &resource, opts...)
 	if err != nil {
@@ -171,6 +176,8 @@ type safetyRuleState struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls []string `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs *int `pulumi:"waitPeriodMs"`
 }
 
@@ -192,6 +199,8 @@ type SafetyRuleState struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayInput
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs pulumi.IntPtrInput
 }
 
@@ -213,6 +222,8 @@ type safetyRuleArgs struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls []string `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs int `pulumi:"waitPeriodMs"`
 }
 
@@ -231,6 +242,8 @@ type SafetyRuleArgs struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayInput
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs pulumi.IntInput
 }
 
@@ -255,6 +268,12 @@ func (i *SafetyRule) ToSafetyRuleOutput() SafetyRuleOutput {
 
 func (i *SafetyRule) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleOutput)
+}
+
+func (i *SafetyRule) ToOutput(ctx context.Context) pulumix.Output[*SafetyRule] {
+	return pulumix.Output[*SafetyRule]{
+		OutputState: i.ToSafetyRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SafetyRuleArrayInput is an input type that accepts SafetyRuleArray and SafetyRuleArrayOutput values.
@@ -282,6 +301,12 @@ func (i SafetyRuleArray) ToSafetyRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleArrayOutput)
 }
 
+func (i SafetyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SafetyRule] {
+	return pulumix.Output[[]*SafetyRule]{
+		OutputState: i.ToSafetyRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SafetyRuleMapInput is an input type that accepts SafetyRuleMap and SafetyRuleMapOutput values.
 // You can construct a concrete instance of `SafetyRuleMapInput` via:
 //
@@ -307,6 +332,12 @@ func (i SafetyRuleMap) ToSafetyRuleMapOutputWithContext(ctx context.Context) Saf
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleMapOutput)
 }
 
+func (i SafetyRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SafetyRule] {
+	return pulumix.Output[map[string]*SafetyRule]{
+		OutputState: i.ToSafetyRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SafetyRuleOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleOutput) ElementType() reflect.Type {
@@ -319,6 +350,12 @@ func (o SafetyRuleOutput) ToSafetyRuleOutput() SafetyRuleOutput {
 
 func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRuleOutput {
 	return o
+}
+
+func (o SafetyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRule] {
+	return pulumix.Output[*SafetyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the safety rule.
@@ -362,6 +399,8 @@ func (o SafetyRuleOutput) TargetControls() pulumi.StringArrayOutput {
 }
 
 // Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+//
+// The following arguments are optional:
 func (o SafetyRuleOutput) WaitPeriodMs() pulumi.IntOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.IntOutput { return v.WaitPeriodMs }).(pulumi.IntOutput)
 }
@@ -378,6 +417,12 @@ func (o SafetyRuleArrayOutput) ToSafetyRuleArrayOutput() SafetyRuleArrayOutput {
 
 func (o SafetyRuleArrayOutput) ToSafetyRuleArrayOutputWithContext(ctx context.Context) SafetyRuleArrayOutput {
 	return o
+}
+
+func (o SafetyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SafetyRule] {
+	return pulumix.Output[[]*SafetyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SafetyRuleArrayOutput) Index(i pulumi.IntInput) SafetyRuleOutput {
@@ -398,6 +443,12 @@ func (o SafetyRuleMapOutput) ToSafetyRuleMapOutput() SafetyRuleMapOutput {
 
 func (o SafetyRuleMapOutput) ToSafetyRuleMapOutputWithContext(ctx context.Context) SafetyRuleMapOutput {
 	return o
+}
+
+func (o SafetyRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SafetyRule] {
+	return pulumix.Output[map[string]*SafetyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SafetyRuleMapOutput) MapIndex(k pulumi.StringInput) SafetyRuleOutput {

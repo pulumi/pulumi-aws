@@ -178,12 +178,16 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
     /**
      * Set of LF-tags to attach to the resource. See below.
      * 
+     * Exactly one of the following is required:
+     * 
      */
     @Export(name="lfTags", refs={List.class,ResourceLfTagsLfTag.class}, tree="[0,1]")
     private Output<List<ResourceLfTagsLfTag>> lfTags;
 
     /**
      * @return Set of LF-tags to attach to the resource. See below.
+     * 
+     * Exactly one of the following is required:
      * 
      */
     public Output<List<ResourceLfTagsLfTag>> lfTags() {
@@ -206,12 +210,16 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for a table with columns resource. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="tableWithColumns", refs={ResourceLfTagsTableWithColumns.class}, tree="[0]")
     private Output<ResourceLfTagsTableWithColumns> tableWithColumns;
 
     /**
      * @return Configuration block for a table with columns resource. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ResourceLfTagsTableWithColumns> tableWithColumns() {

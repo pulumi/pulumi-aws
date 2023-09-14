@@ -119,6 +119,8 @@ namespace Pulumi.Aws.CodeStarConnections
 
         /// <summary>
         /// CodeStar Connection name.
+        /// 
+        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -151,6 +153,8 @@ namespace Pulumi.Aws.CodeStarConnections
 
         /// <summary>
         /// CodeStar Connection name.
+        /// 
+        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

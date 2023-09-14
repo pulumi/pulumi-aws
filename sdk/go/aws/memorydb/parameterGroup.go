@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a MemoryDB Parameter Group.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a parameter group. For example
+// Using `pulumi import`, import a parameter group using the `name`. For example:
 //
 // ```sh
 //
@@ -64,6 +66,8 @@ type ParameterGroup struct {
 	// Description for the parameter group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringOutput `pulumi:"family"`
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -87,6 +91,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:memorydb/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -114,6 +119,8 @@ type parameterGroupState struct {
 	// Description for the parameter group.
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family *string `pulumi:"family"`
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -133,6 +140,8 @@ type ParameterGroupState struct {
 	// Description for the parameter group.
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringPtrInput
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -154,6 +163,8 @@ type parameterGroupArgs struct {
 	// Description for the parameter group.
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family string `pulumi:"family"`
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -170,6 +181,8 @@ type ParameterGroupArgs struct {
 	// Description for the parameter group.
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringInput
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -204,6 +217,12 @@ func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupOutput)
 }
 
+func (i *ParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
+	return pulumix.Output[*ParameterGroup]{
+		OutputState: i.ToParameterGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ParameterGroupArrayInput is an input type that accepts ParameterGroupArray and ParameterGroupArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupArrayInput` via:
 //
@@ -227,6 +246,12 @@ func (i ParameterGroupArray) ToParameterGroupArrayOutput() ParameterGroupArrayOu
 
 func (i ParameterGroupArray) ToParameterGroupArrayOutputWithContext(ctx context.Context) ParameterGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupArrayOutput)
+}
+
+func (i ParameterGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ParameterGroup] {
+	return pulumix.Output[[]*ParameterGroup]{
+		OutputState: i.ToParameterGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ParameterGroupMapInput is an input type that accepts ParameterGroupMap and ParameterGroupMapOutput values.
@@ -254,6 +279,12 @@ func (i ParameterGroupMap) ToParameterGroupMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupMapOutput)
 }
 
+func (i ParameterGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ParameterGroup] {
+	return pulumix.Output[map[string]*ParameterGroup]{
+		OutputState: i.ToParameterGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
@@ -268,6 +299,12 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
+	return pulumix.Output[*ParameterGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the parameter group.
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -279,6 +316,8 @@ func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The engine version that the parameter group can be used with.
+//
+// The following arguments are optional:
 func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
@@ -322,6 +361,12 @@ func (o ParameterGroupArrayOutput) ToParameterGroupArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ParameterGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ParameterGroup] {
+	return pulumix.Output[[]*ParameterGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ParameterGroupArrayOutput) Index(i pulumi.IntInput) ParameterGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ParameterGroup {
 		return vs[0].([]*ParameterGroup)[vs[1].(int)]
@@ -340,6 +385,12 @@ func (o ParameterGroupMapOutput) ToParameterGroupMapOutput() ParameterGroupMapOu
 
 func (o ParameterGroupMapOutput) ToParameterGroupMapOutputWithContext(ctx context.Context) ParameterGroupMapOutput {
 	return o
+}
+
+func (o ParameterGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ParameterGroup] {
+	return pulumix.Output[map[string]*ParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ParameterGroupOutput {

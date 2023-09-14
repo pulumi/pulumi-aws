@@ -51,6 +51,8 @@ public final class ListenerDefaultActionAuthenticateCognito {
     /**
      * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String userPoolDomain;
 
@@ -106,6 +108,8 @@ public final class ListenerDefaultActionAuthenticateCognito {
     }
     /**
      * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String userPoolDomain() {

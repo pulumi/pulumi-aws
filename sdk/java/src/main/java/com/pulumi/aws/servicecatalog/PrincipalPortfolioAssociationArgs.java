@@ -48,6 +48,8 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
     /**
      * Principal ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="principalArn", required=true)
     private Output<String> principalArn;
@@ -55,20 +57,22 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
     /**
      * @return Principal ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> principalArn() {
         return this.principalArn;
     }
 
     /**
-     * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+     * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+     * @return Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -147,6 +151,8 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         /**
          * @param principalArn Principal ARN.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -158,6 +164,8 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         /**
          * @param principalArn Principal ARN.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -166,7 +174,7 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
          * 
          * @return builder
          * 
@@ -177,7 +185,7 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
          * 
          * @return builder
          * 

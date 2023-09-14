@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * LBs can be imported using their ARN, e.g.,
+ * Using `pulumi import`, import LBs using their ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
@@ -402,14 +402,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preserveHostHeader);
     }
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     public Output<List<String>> securityGroups() {

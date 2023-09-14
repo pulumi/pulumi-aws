@@ -48,7 +48,7 @@ class GetIpSetResult:
     @pulumi.getter
     def addresses(self) -> Sequence[str]:
         """
-        An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+        An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
         """
         return pulumi.get(self, "addresses")
 
@@ -137,13 +137,13 @@ def get_ip_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:wafv2/getIpSet:getIpSet', __args__, opts=opts, typ=GetIpSetResult).value
 
     return AwaitableGetIpSetResult(
-        addresses=__ret__.addresses,
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        ip_address_version=__ret__.ip_address_version,
-        name=__ret__.name,
-        scope=__ret__.scope)
+        addresses=pulumi.get(__ret__, 'addresses'),
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address_version=pulumi.get(__ret__, 'ip_address_version'),
+        name=pulumi.get(__ret__, 'name'),
+        scope=pulumi.get(__ret__, 'scope'))
 
 
 @_utilities.lift_output_func(get_ip_set)

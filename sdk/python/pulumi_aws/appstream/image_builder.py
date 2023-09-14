@@ -42,6 +42,8 @@ class ImageBuilderArgs:
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
@@ -196,6 +198,8 @@ class ImageBuilderArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the image builder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -263,6 +267,8 @@ class _ImageBuilderState:
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
         :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -452,6 +458,8 @@ class _ImageBuilderState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the image builder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -552,7 +560,7 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+        Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 
         ```sh
          $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
@@ -571,6 +579,8 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
         :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
@@ -605,7 +615,7 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+        Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 
         ```sh
          $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
@@ -714,6 +724,8 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
         :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -843,6 +855,8 @@ class ImageBuilder(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Unique name for the image builder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

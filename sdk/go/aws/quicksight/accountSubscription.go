@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS QuickSight Account Subscription.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Importing is currently not supported on this resource.
+// You cannot import this resource.
 type AccountSubscription struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +77,8 @@ type AccountSubscription struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail pulumi.StringOutput `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups pulumi.StringArrayOutput `pulumi:"readerGroups"`
@@ -101,6 +105,7 @@ func NewAccountSubscription(ctx *pulumi.Context,
 	if args.NotificationEmail == nil {
 		return nil, errors.New("invalid value for required argument 'NotificationEmail'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountSubscription
 	err := ctx.RegisterResource("aws:quicksight/accountSubscription:AccountSubscription", name, args, &resource, opts...)
 	if err != nil {
@@ -150,6 +155,8 @@ type accountSubscriptionState struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail *string `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups []string `pulumi:"readerGroups"`
@@ -185,6 +192,8 @@ type AccountSubscriptionState struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail pulumi.StringPtrInput
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups pulumi.StringArrayInput
@@ -222,6 +231,8 @@ type accountSubscriptionArgs struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail string `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups []string `pulumi:"readerGroups"`
@@ -256,6 +267,8 @@ type AccountSubscriptionArgs struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail pulumi.StringInput
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups pulumi.StringArrayInput
@@ -286,6 +299,12 @@ func (i *AccountSubscription) ToAccountSubscriptionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSubscriptionOutput)
 }
 
+func (i *AccountSubscription) ToOutput(ctx context.Context) pulumix.Output[*AccountSubscription] {
+	return pulumix.Output[*AccountSubscription]{
+		OutputState: i.ToAccountSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountSubscriptionArrayInput is an input type that accepts AccountSubscriptionArray and AccountSubscriptionArrayOutput values.
 // You can construct a concrete instance of `AccountSubscriptionArrayInput` via:
 //
@@ -309,6 +328,12 @@ func (i AccountSubscriptionArray) ToAccountSubscriptionArrayOutput() AccountSubs
 
 func (i AccountSubscriptionArray) ToAccountSubscriptionArrayOutputWithContext(ctx context.Context) AccountSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSubscriptionArrayOutput)
+}
+
+func (i AccountSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountSubscription] {
+	return pulumix.Output[[]*AccountSubscription]{
+		OutputState: i.ToAccountSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccountSubscriptionMapInput is an input type that accepts AccountSubscriptionMap and AccountSubscriptionMapOutput values.
@@ -336,6 +361,12 @@ func (i AccountSubscriptionMap) ToAccountSubscriptionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSubscriptionMapOutput)
 }
 
+func (i AccountSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountSubscription] {
+	return pulumix.Output[map[string]*AccountSubscription]{
+		OutputState: i.ToAccountSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AccountSubscriptionOutput) ElementType() reflect.Type {
@@ -348,6 +379,12 @@ func (o AccountSubscriptionOutput) ToAccountSubscriptionOutput() AccountSubscrip
 
 func (o AccountSubscriptionOutput) ToAccountSubscriptionOutputWithContext(ctx context.Context) AccountSubscriptionOutput {
 	return o
+}
+
+func (o AccountSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountSubscription] {
+	return pulumix.Output[*AccountSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
@@ -416,6 +453,8 @@ func (o AccountSubscriptionOutput) LastName() pulumi.StringPtrOutput {
 }
 
 // Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+//
+// The following arguments are optional:
 func (o AccountSubscriptionOutput) NotificationEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.NotificationEmail }).(pulumi.StringOutput)
 }
@@ -444,6 +483,12 @@ func (o AccountSubscriptionArrayOutput) ToAccountSubscriptionArrayOutputWithCont
 	return o
 }
 
+func (o AccountSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountSubscription] {
+	return pulumix.Output[[]*AccountSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountSubscriptionArrayOutput) Index(i pulumi.IntInput) AccountSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountSubscription {
 		return vs[0].([]*AccountSubscription)[vs[1].(int)]
@@ -462,6 +507,12 @@ func (o AccountSubscriptionMapOutput) ToAccountSubscriptionMapOutput() AccountSu
 
 func (o AccountSubscriptionMapOutput) ToAccountSubscriptionMapOutputWithContext(ctx context.Context) AccountSubscriptionMapOutput {
 	return o
+}
+
+func (o AccountSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountSubscription] {
+	return pulumix.Output[map[string]*AccountSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountSubscriptionMapOutput) MapIndex(k pulumi.StringInput) AccountSubscriptionOutput {

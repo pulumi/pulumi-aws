@@ -114,11 +114,11 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
-        ```
+         to = aws_connect_lambda_function_association.example
+
+         id = "aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example" } Using `TODO import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleconsole % TODO import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,11 +148,11 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
-        ```
+         to = aws_connect_lambda_function_association.example
+
+         id = "aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example" } Using `TODO import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleconsole % TODO import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
 
         :param str resource_name: The name of the resource.
         :param LambdaFunctionAssociationArgs args: The arguments to use to populate this resource's properties.

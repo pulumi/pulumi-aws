@@ -132,7 +132,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         ## Import
 
-        Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+        Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
 
         ```sh
          $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
@@ -168,7 +168,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         ## Import
 
-        Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+        Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
 
         ```sh
          $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public

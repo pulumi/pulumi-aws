@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeCommit Approval Rule Template Resource.
@@ -22,7 +24,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +65,7 @@ import (
 //
 // ## Import
 //
-// CodeCommit approval rule templates can be imported using the `name`, e.g.
+// Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
 //
 // ```sh
 //
@@ -101,6 +103,7 @@ func NewApprovalRuleTemplate(ctx *pulumi.Context,
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApprovalRuleTemplate
 	err := ctx.RegisterResource("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate", name, args, &resource, opts...)
 	if err != nil {
@@ -206,6 +209,12 @@ func (i *ApprovalRuleTemplate) ToApprovalRuleTemplateOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateOutput)
 }
 
+func (i *ApprovalRuleTemplate) ToOutput(ctx context.Context) pulumix.Output[*ApprovalRuleTemplate] {
+	return pulumix.Output[*ApprovalRuleTemplate]{
+		OutputState: i.ToApprovalRuleTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApprovalRuleTemplateArrayInput is an input type that accepts ApprovalRuleTemplateArray and ApprovalRuleTemplateArrayOutput values.
 // You can construct a concrete instance of `ApprovalRuleTemplateArrayInput` via:
 //
@@ -229,6 +238,12 @@ func (i ApprovalRuleTemplateArray) ToApprovalRuleTemplateArrayOutput() ApprovalR
 
 func (i ApprovalRuleTemplateArray) ToApprovalRuleTemplateArrayOutputWithContext(ctx context.Context) ApprovalRuleTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateArrayOutput)
+}
+
+func (i ApprovalRuleTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApprovalRuleTemplate] {
+	return pulumix.Output[[]*ApprovalRuleTemplate]{
+		OutputState: i.ToApprovalRuleTemplateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApprovalRuleTemplateMapInput is an input type that accepts ApprovalRuleTemplateMap and ApprovalRuleTemplateMapOutput values.
@@ -256,6 +271,12 @@ func (i ApprovalRuleTemplateMap) ToApprovalRuleTemplateMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateMapOutput)
 }
 
+func (i ApprovalRuleTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApprovalRuleTemplate] {
+	return pulumix.Output[map[string]*ApprovalRuleTemplate]{
+		OutputState: i.ToApprovalRuleTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApprovalRuleTemplateOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateOutput) ElementType() reflect.Type {
@@ -268,6 +289,12 @@ func (o ApprovalRuleTemplateOutput) ToApprovalRuleTemplateOutput() ApprovalRuleT
 
 func (o ApprovalRuleTemplateOutput) ToApprovalRuleTemplateOutputWithContext(ctx context.Context) ApprovalRuleTemplateOutput {
 	return o
+}
+
+func (o ApprovalRuleTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ApprovalRuleTemplate] {
+	return pulumix.Output[*ApprovalRuleTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the approval rule template
@@ -324,6 +351,12 @@ func (o ApprovalRuleTemplateArrayOutput) ToApprovalRuleTemplateArrayOutputWithCo
 	return o
 }
 
+func (o ApprovalRuleTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApprovalRuleTemplate] {
+	return pulumix.Output[[]*ApprovalRuleTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApprovalRuleTemplateArrayOutput) Index(i pulumi.IntInput) ApprovalRuleTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApprovalRuleTemplate {
 		return vs[0].([]*ApprovalRuleTemplate)[vs[1].(int)]
@@ -342,6 +375,12 @@ func (o ApprovalRuleTemplateMapOutput) ToApprovalRuleTemplateMapOutput() Approva
 
 func (o ApprovalRuleTemplateMapOutput) ToApprovalRuleTemplateMapOutputWithContext(ctx context.Context) ApprovalRuleTemplateMapOutput {
 	return o
+}
+
+func (o ApprovalRuleTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApprovalRuleTemplate] {
+	return pulumix.Output[map[string]*ApprovalRuleTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApprovalRuleTemplateMapOutput) MapIndex(k pulumi.StringInput) ApprovalRuleTemplateOutput {

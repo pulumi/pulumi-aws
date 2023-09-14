@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about link.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult
 	err := ctx.Invoke("aws:networkmanager/getLinks:getLinks", args, &rv, opts...)
 	if err != nil {
@@ -120,6 +123,12 @@ func (o GetLinksResultOutput) ToGetLinksResultOutput() GetLinksResultOutput {
 
 func (o GetLinksResultOutput) ToGetLinksResultOutputWithContext(ctx context.Context) GetLinksResultOutput {
 	return o
+}
+
+func (o GetLinksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinksResult] {
+	return pulumix.Output[GetLinksResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinksResultOutput) GlobalNetworkId() pulumi.StringOutput {

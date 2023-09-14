@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an FIS Experiment Template, which can be used to run an experiment.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,7 +76,7 @@ import (
 //
 // ## Import
 //
-// FIS Experiment Templates can be imported using the `id`, e.g.
+// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
 //
 // ```sh
 //
@@ -88,9 +90,13 @@ type ExperimentTemplate struct {
 	Actions ExperimentTemplateActionArrayOutput `pulumi:"actions"`
 	// Description for the experiment template.
 	Description pulumi.StringOutput `pulumi:"description"`
+	// The configuration for experiment logging. See below.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -118,6 +124,7 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 	if args.StopConditions == nil {
 		return nil, errors.New("invalid value for required argument 'StopConditions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExperimentTemplate
 	err := ctx.RegisterResource("aws:fis/experimentTemplate:ExperimentTemplate", name, args, &resource, opts...)
 	if err != nil {
@@ -144,9 +151,13 @@ type experimentTemplateState struct {
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
 	// Description for the experiment template.
 	Description *string `pulumi:"description"`
+	// The configuration for experiment logging. See below.
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -160,9 +171,13 @@ type ExperimentTemplateState struct {
 	Actions ExperimentTemplateActionArrayInput
 	// Description for the experiment template.
 	Description pulumi.StringPtrInput
+	// The configuration for experiment logging. See below.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -180,9 +195,13 @@ type experimentTemplateArgs struct {
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
 	// Description for the experiment template.
 	Description string `pulumi:"description"`
+	// The configuration for experiment logging. See below.
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -196,9 +215,13 @@ type ExperimentTemplateArgs struct {
 	Actions ExperimentTemplateActionArrayInput
 	// Description for the experiment template.
 	Description pulumi.StringInput
+	// The configuration for experiment logging. See below.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringInput
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -229,6 +252,12 @@ func (i *ExperimentTemplate) ToExperimentTemplateOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateOutput)
 }
 
+func (i *ExperimentTemplate) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplate] {
+	return pulumix.Output[*ExperimentTemplate]{
+		OutputState: i.ToExperimentTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateArrayInput is an input type that accepts ExperimentTemplateArray and ExperimentTemplateArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateArrayInput` via:
 //
@@ -252,6 +281,12 @@ func (i ExperimentTemplateArray) ToExperimentTemplateArrayOutput() ExperimentTem
 
 func (i ExperimentTemplateArray) ToExperimentTemplateArrayOutputWithContext(ctx context.Context) ExperimentTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateArrayOutput)
+}
+
+func (i ExperimentTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExperimentTemplate] {
+	return pulumix.Output[[]*ExperimentTemplate]{
+		OutputState: i.ToExperimentTemplateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ExperimentTemplateMapInput is an input type that accepts ExperimentTemplateMap and ExperimentTemplateMapOutput values.
@@ -279,6 +314,12 @@ func (i ExperimentTemplateMap) ToExperimentTemplateMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateMapOutput)
 }
 
+func (i ExperimentTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExperimentTemplate] {
+	return pulumix.Output[map[string]*ExperimentTemplate]{
+		OutputState: i.ToExperimentTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateOutput) ElementType() reflect.Type {
@@ -293,6 +334,12 @@ func (o ExperimentTemplateOutput) ToExperimentTemplateOutputWithContext(ctx cont
 	return o
 }
 
+func (o ExperimentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplate] {
+	return pulumix.Output[*ExperimentTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Action to be performed during an experiment. See below.
 func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionArrayOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateActionArrayOutput { return v.Actions }).(ExperimentTemplateActionArrayOutput)
@@ -303,12 +350,19 @@ func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The configuration for experiment logging. See below.
+func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
+}
+
 // ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 func (o ExperimentTemplateOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // When an ongoing experiment should be stopped. See below.
+//
+// The following arguments are optional:
 func (o ExperimentTemplateOutput) StopConditions() ExperimentTemplateStopConditionArrayOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateStopConditionArrayOutput { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }
@@ -341,6 +395,12 @@ func (o ExperimentTemplateArrayOutput) ToExperimentTemplateArrayOutputWithContex
 	return o
 }
 
+func (o ExperimentTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExperimentTemplate] {
+	return pulumix.Output[[]*ExperimentTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExperimentTemplateArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExperimentTemplate {
 		return vs[0].([]*ExperimentTemplate)[vs[1].(int)]
@@ -359,6 +419,12 @@ func (o ExperimentTemplateMapOutput) ToExperimentTemplateMapOutput() ExperimentT
 
 func (o ExperimentTemplateMapOutput) ToExperimentTemplateMapOutputWithContext(ctx context.Context) ExperimentTemplateMapOutput {
 	return o
+}
+
+func (o ExperimentTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExperimentTemplate] {
+	return pulumix.Output[map[string]*ExperimentTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateMapOutput) MapIndex(k pulumi.StringInput) ExperimentTemplateOutput {

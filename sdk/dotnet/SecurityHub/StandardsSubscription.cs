@@ -53,25 +53,35 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import Security Hub standards subscriptions using the standards subscription ARN. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
-    /// ```
+    ///  to = aws_securityhub_standards_subscription.cis
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
-    /// ```
+    ///  id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0" } terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
-    /// ```
+    ///  to = aws_securityhub_standards_subscription.pci_321
+    /// 
+    ///  id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1" } terraform import {
+    /// 
+    ///  to = aws_securityhub_standards_subscription.nist_800_53_rev_5
+    /// 
+    ///  id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0" } Using `TODO import`, import Security Hub standards subscriptions using the standards subscription ARN. For exampleconsole % TODO import aws_securityhub_standards_subscription.cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0 console % TODO import aws_securityhub_standards_subscription.pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1 console % TODO import aws_securityhub_standards_subscription.nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsSubscription:StandardsSubscription")]
     public partial class StandardsSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of a standard - see below.
+        /// 
+        /// Currently available standards (remember to replace `${var.region}` as appropriate):
+        /// 
+        /// | Name                                     | ARN                                                                                             |
+        /// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+        /// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+        /// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+        /// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+        /// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+        /// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         /// </summary>
         [Output("standardsArn")]
         public Output<string> StandardsArn { get; private set; } = null!;
@@ -124,6 +134,16 @@ namespace Pulumi.Aws.SecurityHub
     {
         /// <summary>
         /// The ARN of a standard - see below.
+        /// 
+        /// Currently available standards (remember to replace `${var.region}` as appropriate):
+        /// 
+        /// | Name                                     | ARN                                                                                             |
+        /// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+        /// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+        /// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+        /// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+        /// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+        /// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         /// </summary>
         [Input("standardsArn", required: true)]
         public Input<string> StandardsArn { get; set; } = null!;
@@ -138,6 +158,16 @@ namespace Pulumi.Aws.SecurityHub
     {
         /// <summary>
         /// The ARN of a standard - see below.
+        /// 
+        /// Currently available standards (remember to replace `${var.region}` as appropriate):
+        /// 
+        /// | Name                                     | ARN                                                                                             |
+        /// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+        /// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+        /// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+        /// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+        /// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+        /// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         /// </summary>
         [Input("standardsArn")]
         public Input<string>? StandardsArn { get; set; }

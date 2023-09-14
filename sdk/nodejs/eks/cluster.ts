@@ -32,11 +32,9 @@ import * as utilities from "../utilities";
  *             aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
  *         ],
  *     });
- *     const endpoint = example.endpoint;
- *     const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
  *     return {
- *         endpoint: endpoint,
- *         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
+ *         endpoint: example.endpoint,
+ *         "kubeconfig-certificate-authority-data": example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data),
  *     };
  * }
  * ```
@@ -116,7 +114,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EKS Clusters can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import EKS Clusters using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
@@ -223,6 +221,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly version!: pulumi.Output<string>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+     *
+     * The following arguments are optional:
      */
     public readonly vpcConfig!: pulumi.Output<outputs.eks.ClusterVpcConfig>;
 
@@ -370,6 +370,8 @@ export interface ClusterState {
     version?: pulumi.Input<string>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+     *
+     * The following arguments are optional:
      */
     vpcConfig?: pulumi.Input<inputs.eks.ClusterVpcConfig>;
 }
@@ -413,6 +415,8 @@ export interface ClusterArgs {
     version?: pulumi.Input<string>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+     *
+     * The following arguments are optional:
      */
     vpcConfig: pulumi.Input<inputs.eks.ClusterVpcConfig>;
 }

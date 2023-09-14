@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Keyspaces Keyspace.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/keyspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,7 +42,7 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a keyspace. For example
+// Using `pulumi import`, import a keyspace using the `name`. For example:
 //
 // ```sh
 //
@@ -53,6 +55,8 @@ type Keyspace struct {
 	// The ARN of the keyspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -67,6 +71,7 @@ func NewKeyspace(ctx *pulumi.Context,
 		args = &KeyspaceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Keyspace
 	err := ctx.RegisterResource("aws:keyspaces/keyspace:Keyspace", name, args, &resource, opts...)
 	if err != nil {
@@ -92,6 +97,8 @@ type keyspaceState struct {
 	// The ARN of the keyspace.
 	Arn *string `pulumi:"arn"`
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -103,6 +110,8 @@ type KeyspaceState struct {
 	// The ARN of the keyspace.
 	Arn pulumi.StringPtrInput
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -116,6 +125,8 @@ func (KeyspaceState) ElementType() reflect.Type {
 
 type keyspaceArgs struct {
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -124,6 +135,8 @@ type keyspaceArgs struct {
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -152,6 +165,12 @@ func (i *Keyspace) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceOutput)
 }
 
+func (i *Keyspace) ToOutput(ctx context.Context) pulumix.Output[*Keyspace] {
+	return pulumix.Output[*Keyspace]{
+		OutputState: i.ToKeyspaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KeyspaceArrayInput is an input type that accepts KeyspaceArray and KeyspaceArrayOutput values.
 // You can construct a concrete instance of `KeyspaceArrayInput` via:
 //
@@ -175,6 +194,12 @@ func (i KeyspaceArray) ToKeyspaceArrayOutput() KeyspaceArrayOutput {
 
 func (i KeyspaceArray) ToKeyspaceArrayOutputWithContext(ctx context.Context) KeyspaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceArrayOutput)
+}
+
+func (i KeyspaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Keyspace] {
+	return pulumix.Output[[]*Keyspace]{
+		OutputState: i.ToKeyspaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KeyspaceMapInput is an input type that accepts KeyspaceMap and KeyspaceMapOutput values.
@@ -202,6 +227,12 @@ func (i KeyspaceMap) ToKeyspaceMapOutputWithContext(ctx context.Context) Keyspac
 	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceMapOutput)
 }
 
+func (i KeyspaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Keyspace] {
+	return pulumix.Output[map[string]*Keyspace]{
+		OutputState: i.ToKeyspaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyspaceOutput struct{ *pulumi.OutputState }
 
 func (KeyspaceOutput) ElementType() reflect.Type {
@@ -216,12 +247,20 @@ func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) Keyspac
 	return o
 }
 
+func (o KeyspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Keyspace] {
+	return pulumix.Output[*Keyspace]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the keyspace.
 func (o KeyspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The name of the keyspace to be created.
+//
+// The following arguments are optional:
 func (o KeyspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -250,6 +289,12 @@ func (o KeyspaceArrayOutput) ToKeyspaceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o KeyspaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Keyspace] {
+	return pulumix.Output[[]*Keyspace]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyspaceArrayOutput) Index(i pulumi.IntInput) KeyspaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Keyspace {
 		return vs[0].([]*Keyspace)[vs[1].(int)]
@@ -268,6 +313,12 @@ func (o KeyspaceMapOutput) ToKeyspaceMapOutput() KeyspaceMapOutput {
 
 func (o KeyspaceMapOutput) ToKeyspaceMapOutputWithContext(ctx context.Context) KeyspaceMapOutput {
 	return o
+}
+
+func (o KeyspaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Keyspace] {
+	return pulumix.Output[map[string]*Keyspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyspaceMapOutput) MapIndex(k pulumi.StringInput) KeyspaceOutput {

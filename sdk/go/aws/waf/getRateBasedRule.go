@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupRateBasedRule(ctx *pulumi.Context, args *LookupRateBasedRuleArgs, opts ...pulumi.InvokeOption) (*LookupRateBasedRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRateBasedRuleResult
 	err := ctx.Invoke("aws:waf/getRateBasedRule:getRateBasedRule", args, &rv, opts...)
 	if err != nil {
@@ -95,6 +98,12 @@ func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutput() Loo
 
 func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutputWithContext(ctx context.Context) LookupRateBasedRuleResultOutput {
 	return o
+}
+
+func (o LookupRateBasedRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRateBasedRuleResult] {
+	return pulumix.Output[LookupRateBasedRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

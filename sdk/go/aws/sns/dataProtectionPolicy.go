@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SNS data protection topic policy resource
@@ -22,7 +24,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +74,7 @@ import (
 //
 // ## Import
 //
-// SNS Data Protection Topic Policy can be imported using the topic ARN, e.g.,
+// Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
 //
 // ```sh
 //
@@ -101,6 +103,7 @@ func NewDataProtectionPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataProtectionPolicy
 	err := ctx.RegisterResource("aws:sns/dataProtectionPolicy:DataProtectionPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -178,6 +181,12 @@ func (i *DataProtectionPolicy) ToDataProtectionPolicyOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionPolicyOutput)
 }
 
+func (i *DataProtectionPolicy) ToOutput(ctx context.Context) pulumix.Output[*DataProtectionPolicy] {
+	return pulumix.Output[*DataProtectionPolicy]{
+		OutputState: i.ToDataProtectionPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataProtectionPolicyArrayInput is an input type that accepts DataProtectionPolicyArray and DataProtectionPolicyArrayOutput values.
 // You can construct a concrete instance of `DataProtectionPolicyArrayInput` via:
 //
@@ -201,6 +210,12 @@ func (i DataProtectionPolicyArray) ToDataProtectionPolicyArrayOutput() DataProte
 
 func (i DataProtectionPolicyArray) ToDataProtectionPolicyArrayOutputWithContext(ctx context.Context) DataProtectionPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionPolicyArrayOutput)
+}
+
+func (i DataProtectionPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataProtectionPolicy] {
+	return pulumix.Output[[]*DataProtectionPolicy]{
+		OutputState: i.ToDataProtectionPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataProtectionPolicyMapInput is an input type that accepts DataProtectionPolicyMap and DataProtectionPolicyMapOutput values.
@@ -228,6 +243,12 @@ func (i DataProtectionPolicyMap) ToDataProtectionPolicyMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionPolicyMapOutput)
 }
 
+func (i DataProtectionPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataProtectionPolicy] {
+	return pulumix.Output[map[string]*DataProtectionPolicy]{
+		OutputState: i.ToDataProtectionPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataProtectionPolicyOutput) ElementType() reflect.Type {
@@ -240,6 +261,12 @@ func (o DataProtectionPolicyOutput) ToDataProtectionPolicyOutput() DataProtectio
 
 func (o DataProtectionPolicyOutput) ToDataProtectionPolicyOutputWithContext(ctx context.Context) DataProtectionPolicyOutput {
 	return o
+}
+
+func (o DataProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*DataProtectionPolicy] {
+	return pulumix.Output[*DataProtectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the SNS topic
@@ -266,6 +293,12 @@ func (o DataProtectionPolicyArrayOutput) ToDataProtectionPolicyArrayOutputWithCo
 	return o
 }
 
+func (o DataProtectionPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataProtectionPolicy] {
+	return pulumix.Output[[]*DataProtectionPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataProtectionPolicyArrayOutput) Index(i pulumi.IntInput) DataProtectionPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataProtectionPolicy {
 		return vs[0].([]*DataProtectionPolicy)[vs[1].(int)]
@@ -284,6 +317,12 @@ func (o DataProtectionPolicyMapOutput) ToDataProtectionPolicyMapOutput() DataPro
 
 func (o DataProtectionPolicyMapOutput) ToDataProtectionPolicyMapOutputWithContext(ctx context.Context) DataProtectionPolicyMapOutput {
 	return o
+}
+
+func (o DataProtectionPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataProtectionPolicy] {
+	return pulumix.Output[map[string]*DataProtectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataProtectionPolicyMapOutput) MapIndex(k pulumi.StringInput) DataProtectionPolicyOutput {

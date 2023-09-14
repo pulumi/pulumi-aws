@@ -69,7 +69,7 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// ## Import
     /// 
-    /// Import SSM Contact using the `ARN`. For example
+    /// Using `pulumi import`, import SSM Contact using the `ARN`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.SsmContacts
     public partial class Contact : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A unique and identifiable alias for the contact or escalation plan.
+        /// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.SsmContacts
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Full friendly name of the contact or escalation plan.
+        /// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
@@ -111,6 +111,8 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The type of contact engaged. A single contact is type PERSONAL and an escalation
         /// plan is type ESCALATION.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -162,13 +164,13 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class ContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique and identifiable alias for the contact or escalation plan.
+        /// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
-        /// Full friendly name of the contact or escalation plan.
+        /// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -188,6 +190,8 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The type of contact engaged. A single contact is type PERSONAL and an escalation
         /// plan is type ESCALATION.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -201,7 +205,7 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class ContactState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique and identifiable alias for the contact or escalation plan.
+        /// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -213,7 +217,7 @@ namespace Pulumi.Aws.SsmContacts
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Full friendly name of the contact or escalation plan.
+        /// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -245,6 +249,8 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The type of contact engaged. A single contact is type PERSONAL and an escalation
         /// plan is type ESCALATION.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Default EBS encryption state can be imported, e.g.,
+ * Using `pulumi import`, import the default EBS encryption state. For example:
  *
  * ```sh
  *  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default

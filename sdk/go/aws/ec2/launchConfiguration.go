@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a new launch configuration, used for autoscaling groups.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,8 +83,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,8 +154,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -257,11 +259,11 @@ import (
 //
 // ## Import
 //
-// Launch configurations can be imported using the `name`, e.g.,
+// Using `pulumi import`, import launch configurations using the `name`. For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
 //
 // ```
 type LaunchConfiguration struct {
@@ -284,6 +286,8 @@ type LaunchConfiguration struct {
 	// The EC2 image ID to launch.
 	ImageId pulumi.StringOutput `pulumi:"imageId"`
 	// The size of instance to launch.
+	//
+	// The following arguments are optional:
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
@@ -305,14 +309,6 @@ type LaunchConfiguration struct {
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId pulumi.StringPtrOutput `pulumi:"vpcClassicLinkId"`
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups pulumi.StringArrayOutput `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 // NewLaunchConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -328,6 +324,7 @@ func NewLaunchConfiguration(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchConfiguration
 	err := ctx.RegisterResource("aws:ec2/launchConfiguration:LaunchConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -367,6 +364,8 @@ type launchConfigurationState struct {
 	// The EC2 image ID to launch.
 	ImageId *string `pulumi:"imageId"`
 	// The size of instance to launch.
+	//
+	// The following arguments are optional:
 	InstanceType *string `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
 	KeyName *string `pulumi:"keyName"`
@@ -388,14 +387,6 @@ type launchConfigurationState struct {
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId *string `pulumi:"vpcClassicLinkId"`
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups []string `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 type LaunchConfigurationState struct {
@@ -416,6 +407,8 @@ type LaunchConfigurationState struct {
 	// The EC2 image ID to launch.
 	ImageId pulumi.StringPtrInput
 	// The size of instance to launch.
+	//
+	// The following arguments are optional:
 	InstanceType pulumi.StringPtrInput
 	// The key name that should be used for the instance.
 	KeyName pulumi.StringPtrInput
@@ -437,14 +430,6 @@ type LaunchConfigurationState struct {
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId pulumi.StringPtrInput
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups pulumi.StringArrayInput
 }
 
 func (LaunchConfigurationState) ElementType() reflect.Type {
@@ -467,6 +452,8 @@ type launchConfigurationArgs struct {
 	// The EC2 image ID to launch.
 	ImageId string `pulumi:"imageId"`
 	// The size of instance to launch.
+	//
+	// The following arguments are optional:
 	InstanceType string `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
 	KeyName *string `pulumi:"keyName"`
@@ -488,14 +475,6 @@ type launchConfigurationArgs struct {
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId *string `pulumi:"vpcClassicLinkId"`
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups []string `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 // The set of arguments for constructing a LaunchConfiguration resource.
@@ -515,6 +494,8 @@ type LaunchConfigurationArgs struct {
 	// The EC2 image ID to launch.
 	ImageId pulumi.StringInput
 	// The size of instance to launch.
+	//
+	// The following arguments are optional:
 	InstanceType pulumi.StringInput
 	// The key name that should be used for the instance.
 	KeyName pulumi.StringPtrInput
@@ -536,14 +517,6 @@ type LaunchConfigurationArgs struct {
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId pulumi.StringPtrInput
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups pulumi.StringArrayInput
 }
 
 func (LaunchConfigurationArgs) ElementType() reflect.Type {
@@ -567,6 +540,12 @@ func (i *LaunchConfiguration) ToLaunchConfigurationOutput() LaunchConfigurationO
 
 func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationOutput)
+}
+
+func (i *LaunchConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfiguration] {
+	return pulumix.Output[*LaunchConfiguration]{
+		OutputState: i.ToLaunchConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LaunchConfigurationArrayInput is an input type that accepts LaunchConfigurationArray and LaunchConfigurationArrayOutput values.
@@ -594,6 +573,12 @@ func (i LaunchConfigurationArray) ToLaunchConfigurationArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationArrayOutput)
 }
 
+func (i LaunchConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LaunchConfiguration] {
+	return pulumix.Output[[]*LaunchConfiguration]{
+		OutputState: i.ToLaunchConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LaunchConfigurationMapInput is an input type that accepts LaunchConfigurationMap and LaunchConfigurationMapOutput values.
 // You can construct a concrete instance of `LaunchConfigurationMapInput` via:
 //
@@ -619,6 +604,12 @@ func (i LaunchConfigurationMap) ToLaunchConfigurationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMapOutput)
 }
 
+func (i LaunchConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LaunchConfiguration] {
+	return pulumix.Output[map[string]*LaunchConfiguration]{
+		OutputState: i.ToLaunchConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationOutput) ElementType() reflect.Type {
@@ -631,6 +622,12 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutput() LaunchConfigura
 
 func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
 	return o
+}
+
+func (o LaunchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfiguration] {
+	return pulumix.Output[*LaunchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of the launch configuration.
@@ -676,6 +673,8 @@ func (o LaunchConfigurationOutput) ImageId() pulumi.StringOutput {
 }
 
 // The size of instance to launch.
+//
+// The following arguments are optional:
 func (o LaunchConfigurationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -730,20 +729,6 @@ func (o LaunchConfigurationOutput) UserDataBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-//
-// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-func (o LaunchConfigurationOutput) VpcClassicLinkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.VpcClassicLinkId }).(pulumi.StringPtrOutput)
-}
-
-// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-//
-// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-func (o LaunchConfigurationOutput) VpcClassicLinkSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.VpcClassicLinkSecurityGroups }).(pulumi.StringArrayOutput)
-}
-
 type LaunchConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationArrayOutput) ElementType() reflect.Type {
@@ -756,6 +741,12 @@ func (o LaunchConfigurationArrayOutput) ToLaunchConfigurationArrayOutput() Launc
 
 func (o LaunchConfigurationArrayOutput) ToLaunchConfigurationArrayOutputWithContext(ctx context.Context) LaunchConfigurationArrayOutput {
 	return o
+}
+
+func (o LaunchConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LaunchConfiguration] {
+	return pulumix.Output[[]*LaunchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchConfigurationArrayOutput) Index(i pulumi.IntInput) LaunchConfigurationOutput {
@@ -776,6 +767,12 @@ func (o LaunchConfigurationMapOutput) ToLaunchConfigurationMapOutput() LaunchCon
 
 func (o LaunchConfigurationMapOutput) ToLaunchConfigurationMapOutputWithContext(ctx context.Context) LaunchConfigurationMapOutput {
 	return o
+}
+
+func (o LaunchConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LaunchConfiguration] {
+	return pulumix.Output[map[string]*LaunchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchConfigurationMapOutput) MapIndex(k pulumi.StringInput) LaunchConfigurationOutput {

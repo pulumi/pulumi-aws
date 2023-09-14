@@ -33,12 +33,16 @@ public final class GetPortfolioConstraintsArgs extends com.pulumi.resources.Invo
     /**
      * Portfolio identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="portfolioId", required=true)
     private Output<String> portfolioId;
 
     /**
      * @return Portfolio identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> portfolioId() {
@@ -110,6 +114,8 @@ public final class GetPortfolioConstraintsArgs extends com.pulumi.resources.Invo
         /**
          * @param portfolioId Portfolio identifier.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class GetPortfolioConstraintsArgs extends com.pulumi.resources.Invo
 
         /**
          * @param portfolioId Portfolio identifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

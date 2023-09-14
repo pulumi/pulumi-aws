@@ -5,6 +5,10 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsAvailBlankingArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsGlobalConfigurationArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsMotionGraphicsConfigurationArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsNielsenConfigurationArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsTimecodeConfigArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionArgs;
@@ -48,6 +52,66 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<ChannelEncoderSettingsAvailBlankingArgs>> availBlanking() {
         return Optional.ofNullable(this.availBlanking);
+    }
+
+    /**
+     * Caption Descriptions. See Caption Descriptions for more details.
+     * 
+     */
+    @Import(name="captionDescriptions")
+    private @Nullable Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>> captionDescriptions;
+
+    /**
+     * @return Caption Descriptions. See Caption Descriptions for more details.
+     * 
+     */
+    public Optional<Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>>> captionDescriptions() {
+        return Optional.ofNullable(this.captionDescriptions);
+    }
+
+    /**
+     * Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+     * 
+     */
+    @Import(name="globalConfiguration")
+    private @Nullable Output<ChannelEncoderSettingsGlobalConfigurationArgs> globalConfiguration;
+
+    /**
+     * @return Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+     * 
+     */
+    public Optional<Output<ChannelEncoderSettingsGlobalConfigurationArgs>> globalConfiguration() {
+        return Optional.ofNullable(this.globalConfiguration);
+    }
+
+    /**
+     * Settings for motion graphics. See Motion Graphics Configuration for more details.
+     * 
+     */
+    @Import(name="motionGraphicsConfiguration")
+    private @Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs> motionGraphicsConfiguration;
+
+    /**
+     * @return Settings for motion graphics. See Motion Graphics Configuration for more details.
+     * 
+     */
+    public Optional<Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs>> motionGraphicsConfiguration() {
+        return Optional.ofNullable(this.motionGraphicsConfiguration);
+    }
+
+    /**
+     * Nielsen configuration settings. See Nielsen Configuration for more details.
+     * 
+     */
+    @Import(name="nielsenConfiguration")
+    private @Nullable Output<ChannelEncoderSettingsNielsenConfigurationArgs> nielsenConfiguration;
+
+    /**
+     * @return Nielsen configuration settings. See Nielsen Configuration for more details.
+     * 
+     */
+    public Optional<Output<ChannelEncoderSettingsNielsenConfigurationArgs>> nielsenConfiguration() {
+        return Optional.ofNullable(this.nielsenConfiguration);
     }
 
     /**
@@ -100,6 +164,10 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     private ChannelEncoderSettingsArgs(ChannelEncoderSettingsArgs $) {
         this.audioDescriptions = $.audioDescriptions;
         this.availBlanking = $.availBlanking;
+        this.captionDescriptions = $.captionDescriptions;
+        this.globalConfiguration = $.globalConfiguration;
+        this.motionGraphicsConfiguration = $.motionGraphicsConfiguration;
+        this.nielsenConfiguration = $.nielsenConfiguration;
         this.outputGroups = $.outputGroups;
         this.timecodeConfig = $.timecodeConfig;
         this.videoDescriptions = $.videoDescriptions;
@@ -173,6 +241,100 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
          */
         public Builder availBlanking(ChannelEncoderSettingsAvailBlankingArgs availBlanking) {
             return availBlanking(Output.of(availBlanking));
+        }
+
+        /**
+         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captionDescriptions(@Nullable Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>> captionDescriptions) {
+            $.captionDescriptions = captionDescriptions;
+            return this;
+        }
+
+        /**
+         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captionDescriptions(List<ChannelEncoderSettingsCaptionDescriptionArgs> captionDescriptions) {
+            return captionDescriptions(Output.of(captionDescriptions));
+        }
+
+        /**
+         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captionDescriptions(ChannelEncoderSettingsCaptionDescriptionArgs... captionDescriptions) {
+            return captionDescriptions(List.of(captionDescriptions));
+        }
+
+        /**
+         * @param globalConfiguration Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalConfiguration(@Nullable Output<ChannelEncoderSettingsGlobalConfigurationArgs> globalConfiguration) {
+            $.globalConfiguration = globalConfiguration;
+            return this;
+        }
+
+        /**
+         * @param globalConfiguration Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalConfiguration(ChannelEncoderSettingsGlobalConfigurationArgs globalConfiguration) {
+            return globalConfiguration(Output.of(globalConfiguration));
+        }
+
+        /**
+         * @param motionGraphicsConfiguration Settings for motion graphics. See Motion Graphics Configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder motionGraphicsConfiguration(@Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs> motionGraphicsConfiguration) {
+            $.motionGraphicsConfiguration = motionGraphicsConfiguration;
+            return this;
+        }
+
+        /**
+         * @param motionGraphicsConfiguration Settings for motion graphics. See Motion Graphics Configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder motionGraphicsConfiguration(ChannelEncoderSettingsMotionGraphicsConfigurationArgs motionGraphicsConfiguration) {
+            return motionGraphicsConfiguration(Output.of(motionGraphicsConfiguration));
+        }
+
+        /**
+         * @param nielsenConfiguration Nielsen configuration settings. See Nielsen Configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nielsenConfiguration(@Nullable Output<ChannelEncoderSettingsNielsenConfigurationArgs> nielsenConfiguration) {
+            $.nielsenConfiguration = nielsenConfiguration;
+            return this;
+        }
+
+        /**
+         * @param nielsenConfiguration Nielsen configuration settings. See Nielsen Configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nielsenConfiguration(ChannelEncoderSettingsNielsenConfigurationArgs nielsenConfiguration) {
+            return nielsenConfiguration(Output.of(nielsenConfiguration));
         }
 
         /**

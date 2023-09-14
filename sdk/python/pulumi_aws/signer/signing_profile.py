@@ -20,6 +20,7 @@ class SigningProfileArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
+                 signing_material: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
@@ -36,6 +37,8 @@ class SigningProfileArgs:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if signature_validity_period is not None:
             pulumi.set(__self__, "signature_validity_period", signature_validity_period)
+        if signing_material is not None:
+            pulumi.set(__self__, "signing_material", signing_material)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -88,6 +91,15 @@ class SigningProfileArgs:
         pulumi.set(self, "signature_validity_period", value)
 
     @property
+    @pulumi.getter(name="signingMaterial")
+    def signing_material(self) -> Optional[pulumi.Input['SigningProfileSigningMaterialArgs']]:
+        return pulumi.get(self, "signing_material")
+
+    @signing_material.setter
+    def signing_material(self, value: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']]):
+        pulumi.set(self, "signing_material", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -110,6 +122,7 @@ class _SigningProfileState:
                  platform_id: Optional[pulumi.Input[str]] = None,
                  revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileRevocationRecordArgs']]]] = None,
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
+                 signing_material: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -144,6 +157,8 @@ class _SigningProfileState:
             pulumi.set(__self__, "revocation_records", revocation_records)
         if signature_validity_period is not None:
             pulumi.set(__self__, "signature_validity_period", signature_validity_period)
+        if signing_material is not None:
+            pulumi.set(__self__, "signing_material", signing_material)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -240,6 +255,15 @@ class _SigningProfileState:
         pulumi.set(self, "signature_validity_period", value)
 
     @property
+    @pulumi.getter(name="signingMaterial")
+    def signing_material(self) -> Optional[pulumi.Input['SigningProfileSigningMaterialArgs']]:
+        return pulumi.get(self, "signing_material")
+
+    @signing_material.setter
+    def signing_material(self, value: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']]):
+        pulumi.set(self, "signing_material", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -309,6 +333,7 @@ class SigningProfile(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  platform_id: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
+                 signing_material: Optional[pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -336,7 +361,7 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Import
 
-        Signer signing profiles can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Signer signing profiles using the `name`. For example:
 
         ```sh
          $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
@@ -381,7 +406,7 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Import
 
-        Signer signing profiles can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Signer signing profiles using the `name`. For example:
 
         ```sh
          $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
@@ -406,6 +431,7 @@ class SigningProfile(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  platform_id: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
+                 signing_material: Optional[pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -422,6 +448,7 @@ class SigningProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'platform_id'")
             __props__.__dict__["platform_id"] = platform_id
             __props__.__dict__["signature_validity_period"] = signature_validity_period
+            __props__.__dict__["signing_material"] = signing_material
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["platform_display_name"] = None
@@ -447,6 +474,7 @@ class SigningProfile(pulumi.CustomResource):
             platform_id: Optional[pulumi.Input[str]] = None,
             revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileRevocationRecordArgs']]]]] = None,
             signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
+            signing_material: Optional[pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -483,6 +511,7 @@ class SigningProfile(pulumi.CustomResource):
         __props__.__dict__["platform_id"] = platform_id
         __props__.__dict__["revocation_records"] = revocation_records
         __props__.__dict__["signature_validity_period"] = signature_validity_period
+        __props__.__dict__["signing_material"] = signing_material
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -545,6 +574,11 @@ class SigningProfile(pulumi.CustomResource):
         The validity period for a signing job.
         """
         return pulumi.get(self, "signature_validity_period")
+
+    @property
+    @pulumi.getter(name="signingMaterial")
+    def signing_material(self) -> pulumi.Output['outputs.SigningProfileSigningMaterial']:
+        return pulumi.get(self, "signing_material")
 
     @property
     @pulumi.getter

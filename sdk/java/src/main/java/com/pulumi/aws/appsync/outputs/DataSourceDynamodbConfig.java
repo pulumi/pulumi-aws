@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceDynamodbConfig {
+    /**
+     * @return The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+     * 
+     */
     private @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
     /**
      * @return AWS region of the DynamoDB table. Defaults to current region.
@@ -29,9 +33,17 @@ public final class DataSourceDynamodbConfig {
      * 
      */
     private @Nullable Boolean useCallerCredentials;
+    /**
+     * @return Detects Conflict Detection and Resolution with this data source.
+     * 
+     */
     private @Nullable Boolean versioned;
 
     private DataSourceDynamodbConfig() {}
+    /**
+     * @return The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+     * 
+     */
     public Optional<DataSourceDynamodbConfigDeltaSyncConfig> deltaSyncConfig() {
         return Optional.ofNullable(this.deltaSyncConfig);
     }
@@ -56,6 +68,10 @@ public final class DataSourceDynamodbConfig {
     public Optional<Boolean> useCallerCredentials() {
         return Optional.ofNullable(this.useCallerCredentials);
     }
+    /**
+     * @return Detects Conflict Detection and Resolution with this data source.
+     * 
+     */
     public Optional<Boolean> versioned() {
         return Optional.ofNullable(this.versioned);
     }

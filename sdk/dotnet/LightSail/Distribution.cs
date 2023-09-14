@@ -207,7 +207,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Lightsail Distribution can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
@@ -236,6 +236,8 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("cacheBehaviorSettings")]
         public Output<Outputs.DistributionCacheBehaviorSettings?> CacheBehaviorSettings { get; private set; } = null!;
@@ -393,6 +395,8 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("cacheBehaviorSettings")]
         public Input<Inputs.DistributionCacheBehaviorSettingsArgs>? CacheBehaviorSettings { get; set; }
@@ -494,6 +498,8 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("cacheBehaviorSettings")]
         public Input<Inputs.DistributionCacheBehaviorSettingsGetArgs>? CacheBehaviorSettings { get; set; }

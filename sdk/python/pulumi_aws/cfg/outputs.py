@@ -17,6 +17,8 @@ __all__ = [
     'DeliveryChannelSnapshotDeliveryProperties',
     'OrganizationConformancePackInputParameter',
     'RecorderRecordingGroup',
+    'RecorderRecordingGroupExclusionByResourceType',
+    'RecorderRecordingGroupRecordingStrategy',
     'RemediationConfigurationExecutionControls',
     'RemediationConfigurationExecutionControlsSsmControls',
     'RemediationConfigurationParameter',
@@ -55,6 +57,8 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
         :param Sequence[str] account_ids: List of 12-digit account IDs of the account(s) being aggregated.
         :param bool all_regions: If true, aggregate existing AWS Config regions and future regions.
         :param Sequence[str] regions: List of source regions being aggregated.
+               
+               Either `regions` or `all_regions` (as true) must be specified.
         """
         pulumi.set(__self__, "account_ids", account_ids)
         if all_regions is not None:
@@ -83,6 +87,8 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
     def regions(self) -> Optional[Sequence[str]]:
         """
         List of source regions being aggregated.
+
+        Either `regions` or `all_regions` (as true) must be specified.
         """
         return pulumi.get(self, "regions")
 
@@ -114,6 +120,8 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
                  regions: Optional[Sequence[str]] = None):
         """
         :param str role_arn: ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+               
+               Either `regions` or `all_regions` (as true) must be specified.
         :param bool all_regions: If true, aggregate existing AWS Config regions and future regions.
         :param Sequence[str] regions: List of source regions being aggregated.
         """
@@ -128,6 +136,8 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
     def role_arn(self) -> str:
         """
         ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+
+        Either `regions` or `all_regions` (as true) must be specified.
         """
         return pulumi.get(self, "role_arn")
 
@@ -287,8 +297,12 @@ class RecorderRecordingGroup(dict):
         suggest = None
         if key == "allSupported":
             suggest = "all_supported"
+        elif key == "exclusionByResourceTypes":
+            suggest = "exclusion_by_resource_types"
         elif key == "includeGlobalResourceTypes":
             suggest = "include_global_resource_types"
+        elif key == "recordingStrategies":
+            suggest = "recording_strategies"
         elif key == "resourceTypes":
             suggest = "resource_types"
 
@@ -305,17 +319,25 @@ class RecorderRecordingGroup(dict):
 
     def __init__(__self__, *,
                  all_supported: Optional[bool] = None,
+                 exclusion_by_resource_types: Optional[Sequence['outputs.RecorderRecordingGroupExclusionByResourceType']] = None,
                  include_global_resource_types: Optional[bool] = None,
+                 recording_strategies: Optional[Sequence['outputs.RecorderRecordingGroupRecordingStrategy']] = None,
                  resource_types: Optional[Sequence[str]] = None):
         """
         :param bool all_supported: Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
+        :param Sequence['RecorderRecordingGroupExclusionByResourceTypeArgs'] exclusion_by_resource_types: An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
         :param bool include_global_resource_types: Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        :param Sequence['RecorderRecordingGroupRecordingStrategyArgs'] recording_strategies: Recording Strategy - see below..
         :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
         if all_supported is not None:
             pulumi.set(__self__, "all_supported", all_supported)
+        if exclusion_by_resource_types is not None:
+            pulumi.set(__self__, "exclusion_by_resource_types", exclusion_by_resource_types)
         if include_global_resource_types is not None:
             pulumi.set(__self__, "include_global_resource_types", include_global_resource_types)
+        if recording_strategies is not None:
+            pulumi.set(__self__, "recording_strategies", recording_strategies)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
 
@@ -328,6 +350,14 @@ class RecorderRecordingGroup(dict):
         return pulumi.get(self, "all_supported")
 
     @property
+    @pulumi.getter(name="exclusionByResourceTypes")
+    def exclusion_by_resource_types(self) -> Optional[Sequence['outputs.RecorderRecordingGroupExclusionByResourceType']]:
+        """
+        An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+        """
+        return pulumi.get(self, "exclusion_by_resource_types")
+
+    @property
     @pulumi.getter(name="includeGlobalResourceTypes")
     def include_global_resource_types(self) -> Optional[bool]:
         """
@@ -336,12 +366,86 @@ class RecorderRecordingGroup(dict):
         return pulumi.get(self, "include_global_resource_types")
 
     @property
+    @pulumi.getter(name="recordingStrategies")
+    def recording_strategies(self) -> Optional[Sequence['outputs.RecorderRecordingGroupRecordingStrategy']]:
+        """
+        Recording Strategy - see below..
+        """
+        return pulumi.get(self, "recording_strategies")
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence[str]]:
         """
         A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
         return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
+class RecorderRecordingGroupExclusionByResourceType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecorderRecordingGroupExclusionByResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecorderRecordingGroupExclusionByResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecorderRecordingGroupExclusionByResourceType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[str]]:
+        """
+        A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
+        """
+        return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
+class RecorderRecordingGroupRecordingStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useOnly":
+            suggest = "use_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecorderRecordingGroupRecordingStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecorderRecordingGroupRecordingStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecorderRecordingGroupRecordingStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_only: Optional[str] = None):
+        if use_only is not None:
+            pulumi.set(__self__, "use_only", use_only)
+
+    @property
+    @pulumi.getter(name="useOnly")
+    def use_only(self) -> Optional[str]:
+        return pulumi.get(self, "use_only")
 
 
 @pulumi.output_type

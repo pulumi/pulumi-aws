@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Logs destination policy resource.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +75,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+// Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
 //
 // ```sh
 //
@@ -104,6 +106,7 @@ func NewLogDestinationPolicy(ctx *pulumi.Context,
 	if args.DestinationName == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogDestinationPolicy
 	err := ctx.RegisterResource("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -189,6 +192,12 @@ func (i *LogDestinationPolicy) ToLogDestinationPolicyOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPolicyOutput)
 }
 
+func (i *LogDestinationPolicy) ToOutput(ctx context.Context) pulumix.Output[*LogDestinationPolicy] {
+	return pulumix.Output[*LogDestinationPolicy]{
+		OutputState: i.ToLogDestinationPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogDestinationPolicyArrayInput is an input type that accepts LogDestinationPolicyArray and LogDestinationPolicyArrayOutput values.
 // You can construct a concrete instance of `LogDestinationPolicyArrayInput` via:
 //
@@ -212,6 +221,12 @@ func (i LogDestinationPolicyArray) ToLogDestinationPolicyArrayOutput() LogDestin
 
 func (i LogDestinationPolicyArray) ToLogDestinationPolicyArrayOutputWithContext(ctx context.Context) LogDestinationPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPolicyArrayOutput)
+}
+
+func (i LogDestinationPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogDestinationPolicy] {
+	return pulumix.Output[[]*LogDestinationPolicy]{
+		OutputState: i.ToLogDestinationPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogDestinationPolicyMapInput is an input type that accepts LogDestinationPolicyMap and LogDestinationPolicyMapOutput values.
@@ -239,6 +254,12 @@ func (i LogDestinationPolicyMap) ToLogDestinationPolicyMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPolicyMapOutput)
 }
 
+func (i LogDestinationPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogDestinationPolicy] {
+	return pulumix.Output[map[string]*LogDestinationPolicy]{
+		OutputState: i.ToLogDestinationPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogDestinationPolicyOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationPolicyOutput) ElementType() reflect.Type {
@@ -251,6 +272,12 @@ func (o LogDestinationPolicyOutput) ToLogDestinationPolicyOutput() LogDestinatio
 
 func (o LogDestinationPolicyOutput) ToLogDestinationPolicyOutputWithContext(ctx context.Context) LogDestinationPolicyOutput {
 	return o
+}
+
+func (o LogDestinationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LogDestinationPolicy] {
+	return pulumix.Output[*LogDestinationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The policy document. This is a JSON formatted string.
@@ -282,6 +309,12 @@ func (o LogDestinationPolicyArrayOutput) ToLogDestinationPolicyArrayOutputWithCo
 	return o
 }
 
+func (o LogDestinationPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogDestinationPolicy] {
+	return pulumix.Output[[]*LogDestinationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogDestinationPolicyArrayOutput) Index(i pulumi.IntInput) LogDestinationPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogDestinationPolicy {
 		return vs[0].([]*LogDestinationPolicy)[vs[1].(int)]
@@ -300,6 +333,12 @@ func (o LogDestinationPolicyMapOutput) ToLogDestinationPolicyMapOutput() LogDest
 
 func (o LogDestinationPolicyMapOutput) ToLogDestinationPolicyMapOutputWithContext(ctx context.Context) LogDestinationPolicyMapOutput {
 	return o
+}
+
+func (o LogDestinationPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogDestinationPolicy] {
+	return pulumix.Output[map[string]*LogDestinationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogDestinationPolicyMapOutput) MapIndex(k pulumi.StringInput) LogDestinationPolicyOutput {

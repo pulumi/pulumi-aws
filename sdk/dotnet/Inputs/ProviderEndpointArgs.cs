@@ -24,9 +24,6 @@ namespace Pulumi.Aws.Inputs
         [Input("acmpca")]
         public Input<string>? Acmpca { get; set; }
 
-        [Input("alexaforbusiness")]
-        public Input<string>? Alexaforbusiness { get; set; }
-
         [Input("amg")]
         public Input<string>? Amg { get; set; }
 
@@ -36,17 +33,8 @@ namespace Pulumi.Aws.Inputs
         [Input("amplify")]
         public Input<string>? Amplify { get; set; }
 
-        [Input("amplifybackend")]
-        public Input<string>? Amplifybackend { get; set; }
-
-        [Input("amplifyuibuilder")]
-        public Input<string>? Amplifyuibuilder { get; set; }
-
         [Input("apigateway")]
         public Input<string>? Apigateway { get; set; }
-
-        [Input("apigatewaymanagementapi")]
-        public Input<string>? Apigatewaymanagementapi { get; set; }
 
         [Input("apigatewayv2")]
         public Input<string>? Apigatewayv2 { get; set; }
@@ -56,9 +44,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("appconfig")]
         public Input<string>? Appconfig { get; set; }
-
-        [Input("appconfigdata")]
-        public Input<string>? Appconfigdata { get; set; }
 
         [Input("appflow")]
         public Input<string>? Appflow { get; set; }
@@ -72,23 +57,11 @@ namespace Pulumi.Aws.Inputs
         [Input("applicationautoscaling")]
         public Input<string>? Applicationautoscaling { get; set; }
 
-        [Input("applicationcostprofiler")]
-        public Input<string>? Applicationcostprofiler { get; set; }
-
-        [Input("applicationdiscovery")]
-        public Input<string>? Applicationdiscovery { get; set; }
-
-        [Input("applicationdiscoveryservice")]
-        public Input<string>? Applicationdiscoveryservice { get; set; }
-
         [Input("applicationinsights")]
         public Input<string>? Applicationinsights { get; set; }
 
         [Input("appmesh")]
         public Input<string>? Appmesh { get; set; }
-
-        [Input("appregistry")]
-        public Input<string>? Appregistry { get; set; }
 
         [Input("apprunner")]
         public Input<string>? Apprunner { get; set; }
@@ -105,9 +78,6 @@ namespace Pulumi.Aws.Inputs
         [Input("auditmanager")]
         public Input<string>? Auditmanager { get; set; }
 
-        [Input("augmentedairuntime")]
-        public Input<string>? Augmentedairuntime { get; set; }
-
         [Input("autoscaling")]
         public Input<string>? Autoscaling { get; set; }
 
@@ -117,20 +87,11 @@ namespace Pulumi.Aws.Inputs
         [Input("backup")]
         public Input<string>? Backup { get; set; }
 
-        [Input("backupgateway")]
-        public Input<string>? Backupgateway { get; set; }
-
         [Input("batch")]
         public Input<string>? Batch { get; set; }
 
         [Input("beanstalk")]
         public Input<string>? Beanstalk { get; set; }
-
-        [Input("billingconductor")]
-        public Input<string>? Billingconductor { get; set; }
-
-        [Input("braket")]
-        public Input<string>? Braket { get; set; }
 
         [Input("budgets")]
         public Input<string>? Budgets { get; set; }
@@ -141,17 +102,8 @@ namespace Pulumi.Aws.Inputs
         [Input("chime")]
         public Input<string>? Chime { get; set; }
 
-        [Input("chimesdkidentity")]
-        public Input<string>? Chimesdkidentity { get; set; }
-
         [Input("chimesdkmediapipelines")]
         public Input<string>? Chimesdkmediapipelines { get; set; }
-
-        [Input("chimesdkmeetings")]
-        public Input<string>? Chimesdkmeetings { get; set; }
-
-        [Input("chimesdkmessaging")]
-        public Input<string>? Chimesdkmessaging { get; set; }
 
         [Input("chimesdkvoice")]
         public Input<string>? Chimesdkvoice { get; set; }
@@ -168,9 +120,6 @@ namespace Pulumi.Aws.Inputs
         [Input("cloudcontrolapi")]
         public Input<string>? Cloudcontrolapi { get; set; }
 
-        [Input("clouddirectory")]
-        public Input<string>? Clouddirectory { get; set; }
-
         [Input("cloudformation")]
         public Input<string>? Cloudformation { get; set; }
 
@@ -185,9 +134,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("cloudsearch")]
         public Input<string>? Cloudsearch { get; set; }
-
-        [Input("cloudsearchdomain")]
-        public Input<string>? Cloudsearchdomain { get; set; }
 
         [Input("cloudtrail")]
         public Input<string>? Cloudtrail { get; set; }
@@ -219,23 +165,20 @@ namespace Pulumi.Aws.Inputs
         [Input("codebuild")]
         public Input<string>? Codebuild { get; set; }
 
+        [Input("codecatalyst")]
+        public Input<string>? Codecatalyst { get; set; }
+
         [Input("codecommit")]
         public Input<string>? Codecommit { get; set; }
 
         [Input("codedeploy")]
         public Input<string>? Codedeploy { get; set; }
 
-        [Input("codeguruprofiler")]
-        public Input<string>? Codeguruprofiler { get; set; }
-
         [Input("codegurureviewer")]
         public Input<string>? Codegurureviewer { get; set; }
 
         [Input("codepipeline")]
         public Input<string>? Codepipeline { get; set; }
-
-        [Input("codestar")]
-        public Input<string>? Codestar { get; set; }
 
         [Input("codestarconnections")]
         public Input<string>? Codestarconnections { get; set; }
@@ -252,14 +195,8 @@ namespace Pulumi.Aws.Inputs
         [Input("cognitoidp")]
         public Input<string>? Cognitoidp { get; set; }
 
-        [Input("cognitosync")]
-        public Input<string>? Cognitosync { get; set; }
-
         [Input("comprehend")]
         public Input<string>? Comprehend { get; set; }
-
-        [Input("comprehendmedical")]
-        public Input<string>? Comprehendmedical { get; set; }
 
         [Input("computeoptimizer")]
         public Input<string>? Computeoptimizer { get; set; }
@@ -273,15 +210,6 @@ namespace Pulumi.Aws.Inputs
         [Input("connect")]
         public Input<string>? Connect { get; set; }
 
-        [Input("connectcontactlens")]
-        public Input<string>? Connectcontactlens { get; set; }
-
-        [Input("connectparticipant")]
-        public Input<string>? Connectparticipant { get; set; }
-
-        [Input("connectwisdomservice")]
-        public Input<string>? Connectwisdomservice { get; set; }
-
         [Input("controltower")]
         public Input<string>? Controltower { get; set; }
 
@@ -294,17 +222,11 @@ namespace Pulumi.Aws.Inputs
         [Input("cur")]
         public Input<string>? Cur { get; set; }
 
-        [Input("customerprofiles")]
-        public Input<string>? Customerprofiles { get; set; }
-
         [Input("databasemigration")]
         public Input<string>? Databasemigration { get; set; }
 
         [Input("databasemigrationservice")]
         public Input<string>? Databasemigrationservice { get; set; }
-
-        [Input("databrew")]
-        public Input<string>? Databrew { get; set; }
 
         [Input("dataexchange")]
         public Input<string>? Dataexchange { get; set; }
@@ -327,17 +249,11 @@ namespace Pulumi.Aws.Inputs
         [Input("devicefarm")]
         public Input<string>? Devicefarm { get; set; }
 
-        [Input("devopsguru")]
-        public Input<string>? Devopsguru { get; set; }
-
         [Input("directconnect")]
         public Input<string>? Directconnect { get; set; }
 
         [Input("directoryservice")]
         public Input<string>? Directoryservice { get; set; }
-
-        [Input("discovery")]
-        public Input<string>? Discovery { get; set; }
 
         [Input("dlm")]
         public Input<string>? Dlm { get; set; }
@@ -351,26 +267,14 @@ namespace Pulumi.Aws.Inputs
         [Input("docdbelastic")]
         public Input<string>? Docdbelastic { get; set; }
 
-        [Input("drs")]
-        public Input<string>? Drs { get; set; }
-
         [Input("ds")]
         public Input<string>? Ds { get; set; }
 
         [Input("dynamodb")]
         public Input<string>? Dynamodb { get; set; }
 
-        [Input("dynamodbstreams")]
-        public Input<string>? Dynamodbstreams { get; set; }
-
-        [Input("ebs")]
-        public Input<string>? Ebs { get; set; }
-
         [Input("ec2")]
         public Input<string>? Ec2 { get; set; }
-
-        [Input("ec2instanceconnect")]
-        public Input<string>? Ec2instanceconnect { get; set; }
 
         [Input("ecr")]
         public Input<string>? Ecr { get; set; }
@@ -392,9 +296,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("elasticbeanstalk")]
         public Input<string>? Elasticbeanstalk { get; set; }
-
-        [Input("elasticinference")]
-        public Input<string>? Elasticinference { get; set; }
 
         [Input("elasticloadbalancing")]
         public Input<string>? Elasticloadbalancing { get; set; }
@@ -441,9 +342,6 @@ namespace Pulumi.Aws.Inputs
         [Input("finspace")]
         public Input<string>? Finspace { get; set; }
 
-        [Input("finspacedata")]
-        public Input<string>? Finspacedata { get; set; }
-
         [Input("firehose")]
         public Input<string>? Firehose { get; set; }
 
@@ -452,21 +350,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("fms")]
         public Input<string>? Fms { get; set; }
-
-        [Input("forecast")]
-        public Input<string>? Forecast { get; set; }
-
-        [Input("forecastquery")]
-        public Input<string>? Forecastquery { get; set; }
-
-        [Input("forecastqueryservice")]
-        public Input<string>? Forecastqueryservice { get; set; }
-
-        [Input("forecastservice")]
-        public Input<string>? Forecastservice { get; set; }
-
-        [Input("frauddetector")]
-        public Input<string>? Frauddetector { get; set; }
 
         [Input("fsx")]
         public Input<string>? Fsx { get; set; }
@@ -483,32 +366,17 @@ namespace Pulumi.Aws.Inputs
         [Input("glue")]
         public Input<string>? Glue { get; set; }
 
-        [Input("gluedatabrew")]
-        public Input<string>? Gluedatabrew { get; set; }
-
         [Input("grafana")]
         public Input<string>? Grafana { get; set; }
 
         [Input("greengrass")]
         public Input<string>? Greengrass { get; set; }
 
-        [Input("greengrassv2")]
-        public Input<string>? Greengrassv2 { get; set; }
-
-        [Input("groundstation")]
-        public Input<string>? Groundstation { get; set; }
-
         [Input("guardduty")]
         public Input<string>? Guardduty { get; set; }
 
-        [Input("health")]
-        public Input<string>? Health { get; set; }
-
         [Input("healthlake")]
         public Input<string>? Healthlake { get; set; }
-
-        [Input("honeycode")]
-        public Input<string>? Honeycode { get; set; }
 
         [Input("iam")]
         public Input<string>? Iam { get; set; }
@@ -534,56 +402,11 @@ namespace Pulumi.Aws.Inputs
         [Input("iot")]
         public Input<string>? Iot { get; set; }
 
-        [Input("iot1clickdevices")]
-        public Input<string>? Iot1clickdevices { get; set; }
-
-        [Input("iot1clickdevicesservice")]
-        public Input<string>? Iot1clickdevicesservice { get; set; }
-
-        [Input("iot1clickprojects")]
-        public Input<string>? Iot1clickprojects { get; set; }
-
         [Input("iotanalytics")]
         public Input<string>? Iotanalytics { get; set; }
 
-        [Input("iotdata")]
-        public Input<string>? Iotdata { get; set; }
-
-        [Input("iotdataplane")]
-        public Input<string>? Iotdataplane { get; set; }
-
-        [Input("iotdeviceadvisor")]
-        public Input<string>? Iotdeviceadvisor { get; set; }
-
         [Input("iotevents")]
         public Input<string>? Iotevents { get; set; }
-
-        [Input("ioteventsdata")]
-        public Input<string>? Ioteventsdata { get; set; }
-
-        [Input("iotfleethub")]
-        public Input<string>? Iotfleethub { get; set; }
-
-        [Input("iotjobsdata")]
-        public Input<string>? Iotjobsdata { get; set; }
-
-        [Input("iotjobsdataplane")]
-        public Input<string>? Iotjobsdataplane { get; set; }
-
-        [Input("iotsecuretunneling")]
-        public Input<string>? Iotsecuretunneling { get; set; }
-
-        [Input("iotsitewise")]
-        public Input<string>? Iotsitewise { get; set; }
-
-        [Input("iotthingsgraph")]
-        public Input<string>? Iotthingsgraph { get; set; }
-
-        [Input("iottwinmaker")]
-        public Input<string>? Iottwinmaker { get; set; }
-
-        [Input("iotwireless")]
-        public Input<string>? Iotwireless { get; set; }
 
         [Input("ivs")]
         public Input<string>? Ivs { get; set; }
@@ -615,18 +438,6 @@ namespace Pulumi.Aws.Inputs
         [Input("kinesisvideo")]
         public Input<string>? Kinesisvideo { get; set; }
 
-        [Input("kinesisvideoarchivedmedia")]
-        public Input<string>? Kinesisvideoarchivedmedia { get; set; }
-
-        [Input("kinesisvideomedia")]
-        public Input<string>? Kinesisvideomedia { get; set; }
-
-        [Input("kinesisvideosignaling")]
-        public Input<string>? Kinesisvideosignaling { get; set; }
-
-        [Input("kinesisvideosignalingchannels")]
-        public Input<string>? Kinesisvideosignalingchannels { get; set; }
-
         [Input("kms")]
         public Input<string>? Kms { get; set; }
 
@@ -651,20 +462,8 @@ namespace Pulumi.Aws.Inputs
         [Input("lexmodelsv2")]
         public Input<string>? Lexmodelsv2 { get; set; }
 
-        [Input("lexruntime")]
-        public Input<string>? Lexruntime { get; set; }
-
-        [Input("lexruntimeservice")]
-        public Input<string>? Lexruntimeservice { get; set; }
-
-        [Input("lexruntimev2")]
-        public Input<string>? Lexruntimev2 { get; set; }
-
         [Input("lexv2models")]
         public Input<string>? Lexv2models { get; set; }
-
-        [Input("lexv2runtime")]
-        public Input<string>? Lexv2runtime { get; set; }
 
         [Input("licensemanager")]
         public Input<string>? Licensemanager { get; set; }
@@ -681,47 +480,11 @@ namespace Pulumi.Aws.Inputs
         [Input("logs")]
         public Input<string>? Logs { get; set; }
 
-        [Input("lookoutequipment")]
-        public Input<string>? Lookoutequipment { get; set; }
-
-        [Input("lookoutforvision")]
-        public Input<string>? Lookoutforvision { get; set; }
-
-        [Input("lookoutmetrics")]
-        public Input<string>? Lookoutmetrics { get; set; }
-
-        [Input("lookoutvision")]
-        public Input<string>? Lookoutvision { get; set; }
-
-        [Input("machinelearning")]
-        public Input<string>? Machinelearning { get; set; }
-
-        [Input("macie")]
-        public Input<string>? Macie { get; set; }
-
         [Input("macie2")]
         public Input<string>? Macie2 { get; set; }
 
-        [Input("managedblockchain")]
-        public Input<string>? Managedblockchain { get; set; }
-
         [Input("managedgrafana")]
         public Input<string>? Managedgrafana { get; set; }
-
-        [Input("marketplacecatalog")]
-        public Input<string>? Marketplacecatalog { get; set; }
-
-        [Input("marketplacecommerceanalytics")]
-        public Input<string>? Marketplacecommerceanalytics { get; set; }
-
-        [Input("marketplaceentitlement")]
-        public Input<string>? Marketplaceentitlement { get; set; }
-
-        [Input("marketplaceentitlementservice")]
-        public Input<string>? Marketplaceentitlementservice { get; set; }
-
-        [Input("marketplacemetering")]
-        public Input<string>? Marketplacemetering { get; set; }
 
         [Input("mediaconnect")]
         public Input<string>? Mediaconnect { get; set; }
@@ -735,56 +498,17 @@ namespace Pulumi.Aws.Inputs
         [Input("mediapackage")]
         public Input<string>? Mediapackage { get; set; }
 
-        [Input("mediapackagevod")]
-        public Input<string>? Mediapackagevod { get; set; }
-
         [Input("mediastore")]
         public Input<string>? Mediastore { get; set; }
 
-        [Input("mediastoredata")]
-        public Input<string>? Mediastoredata { get; set; }
-
-        [Input("mediatailor")]
-        public Input<string>? Mediatailor { get; set; }
-
         [Input("memorydb")]
         public Input<string>? Memorydb { get; set; }
-
-        [Input("meteringmarketplace")]
-        public Input<string>? Meteringmarketplace { get; set; }
-
-        [Input("mgh")]
-        public Input<string>? Mgh { get; set; }
-
-        [Input("mgn")]
-        public Input<string>? Mgn { get; set; }
-
-        [Input("migrationhub")]
-        public Input<string>? Migrationhub { get; set; }
-
-        [Input("migrationhubconfig")]
-        public Input<string>? Migrationhubconfig { get; set; }
-
-        [Input("migrationhubrefactorspaces")]
-        public Input<string>? Migrationhubrefactorspaces { get; set; }
-
-        [Input("migrationhubstrategy")]
-        public Input<string>? Migrationhubstrategy { get; set; }
-
-        [Input("migrationhubstrategyrecommendations")]
-        public Input<string>? Migrationhubstrategyrecommendations { get; set; }
-
-        [Input("mobile")]
-        public Input<string>? Mobile { get; set; }
 
         [Input("mq")]
         public Input<string>? Mq { get; set; }
 
         [Input("msk")]
         public Input<string>? Msk { get; set; }
-
-        [Input("mturk")]
-        public Input<string>? Mturk { get; set; }
 
         [Input("mwaa")]
         public Input<string>? Mwaa { get; set; }
@@ -797,12 +521,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("networkmanager")]
         public Input<string>? Networkmanager { get; set; }
-
-        [Input("nimble")]
-        public Input<string>? Nimble { get; set; }
-
-        [Input("nimblestudio")]
-        public Input<string>? Nimblestudio { get; set; }
 
         [Input("oam")]
         public Input<string>? Oam { get; set; }
@@ -819,44 +537,17 @@ namespace Pulumi.Aws.Inputs
         [Input("opsworks")]
         public Input<string>? Opsworks { get; set; }
 
-        [Input("opsworkscm")]
-        public Input<string>? Opsworkscm { get; set; }
-
         [Input("organizations")]
         public Input<string>? Organizations { get; set; }
 
         [Input("outposts")]
         public Input<string>? Outposts { get; set; }
 
-        [Input("panorama")]
-        public Input<string>? Panorama { get; set; }
-
-        [Input("personalize")]
-        public Input<string>? Personalize { get; set; }
-
-        [Input("personalizeevents")]
-        public Input<string>? Personalizeevents { get; set; }
-
-        [Input("personalizeruntime")]
-        public Input<string>? Personalizeruntime { get; set; }
-
-        [Input("pi")]
-        public Input<string>? Pi { get; set; }
-
         [Input("pinpoint")]
         public Input<string>? Pinpoint { get; set; }
 
-        [Input("pinpointemail")]
-        public Input<string>? Pinpointemail { get; set; }
-
-        [Input("pinpointsmsvoice")]
-        public Input<string>? Pinpointsmsvoice { get; set; }
-
         [Input("pipes")]
         public Input<string>? Pipes { get; set; }
-
-        [Input("polly")]
-        public Input<string>? Polly { get; set; }
 
         [Input("pricing")]
         public Input<string>? Pricing { get; set; }
@@ -867,14 +558,8 @@ namespace Pulumi.Aws.Inputs
         [Input("prometheusservice")]
         public Input<string>? Prometheusservice { get; set; }
 
-        [Input("proton")]
-        public Input<string>? Proton { get; set; }
-
         [Input("qldb")]
         public Input<string>? Qldb { get; set; }
-
-        [Input("qldbsession")]
-        public Input<string>? Qldbsession { get; set; }
 
         [Input("quicksight")]
         public Input<string>? Quicksight { get; set; }
@@ -887,12 +572,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("rds")]
         public Input<string>? Rds { get; set; }
-
-        [Input("rdsdata")]
-        public Input<string>? Rdsdata { get; set; }
-
-        [Input("rdsdataservice")]
-        public Input<string>? Rdsdataservice { get; set; }
 
         [Input("recyclebin")]
         public Input<string>? Recyclebin { get; set; }
@@ -909,12 +588,6 @@ namespace Pulumi.Aws.Inputs
         [Input("redshiftserverless")]
         public Input<string>? Redshiftserverless { get; set; }
 
-        [Input("rekognition")]
-        public Input<string>? Rekognition { get; set; }
-
-        [Input("resiliencehub")]
-        public Input<string>? Resiliencehub { get; set; }
-
         [Input("resourceexplorer2")]
         public Input<string>? Resourceexplorer2 { get; set; }
 
@@ -927,9 +600,6 @@ namespace Pulumi.Aws.Inputs
         [Input("resourcegroupstaggingapi")]
         public Input<string>? Resourcegroupstaggingapi { get; set; }
 
-        [Input("robomaker")]
-        public Input<string>? Robomaker { get; set; }
-
         [Input("rolesanywhere")]
         public Input<string>? Rolesanywhere { get; set; }
 
@@ -938,9 +608,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("route53domains")]
         public Input<string>? Route53domains { get; set; }
-
-        [Input("route53recoverycluster")]
-        public Input<string>? Route53recoverycluster { get; set; }
 
         [Input("route53recoverycontrolconfig")]
         public Input<string>? Route53recoverycontrolconfig { get; set; }
@@ -968,24 +635,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("sagemaker")]
         public Input<string>? Sagemaker { get; set; }
-
-        [Input("sagemakera2iruntime")]
-        public Input<string>? Sagemakera2iruntime { get; set; }
-
-        [Input("sagemakeredge")]
-        public Input<string>? Sagemakeredge { get; set; }
-
-        [Input("sagemakeredgemanager")]
-        public Input<string>? Sagemakeredgemanager { get; set; }
-
-        [Input("sagemakerfeaturestoreruntime")]
-        public Input<string>? Sagemakerfeaturestoreruntime { get; set; }
-
-        [Input("sagemakerruntime")]
-        public Input<string>? Sagemakerruntime { get; set; }
-
-        [Input("savingsplans")]
-        public Input<string>? Savingsplans { get; set; }
 
         [Input("scheduler")]
         public Input<string>? Scheduler { get; set; }
@@ -1017,9 +666,6 @@ namespace Pulumi.Aws.Inputs
         [Input("servicecatalog")]
         public Input<string>? Servicecatalog { get; set; }
 
-        [Input("servicecatalogappregistry")]
-        public Input<string>? Servicecatalogappregistry { get; set; }
-
         [Input("servicediscovery")]
         public Input<string>? Servicediscovery { get; set; }
 
@@ -1044,15 +690,6 @@ namespace Pulumi.Aws.Inputs
         [Input("simpledb")]
         public Input<string>? Simpledb { get; set; }
 
-        [Input("sms")]
-        public Input<string>? Sms { get; set; }
-
-        [Input("snowball")]
-        public Input<string>? Snowball { get; set; }
-
-        [Input("snowdevicemanagement")]
-        public Input<string>? Snowdevicemanagement { get; set; }
-
         [Input("sns")]
         public Input<string>? Sns { get; set; }
 
@@ -1068,14 +705,8 @@ namespace Pulumi.Aws.Inputs
         [Input("ssmincidents")]
         public Input<string>? Ssmincidents { get; set; }
 
-        [Input("sso")]
-        public Input<string>? Sso { get; set; }
-
         [Input("ssoadmin")]
         public Input<string>? Ssoadmin { get; set; }
-
-        [Input("ssooidc")]
-        public Input<string>? Ssooidc { get; set; }
 
         [Input("stepfunctions")]
         public Input<string>? Stepfunctions { get; set; }
@@ -1086,20 +717,11 @@ namespace Pulumi.Aws.Inputs
         [Input("sts")]
         public Input<string>? Sts { get; set; }
 
-        [Input("support")]
-        public Input<string>? Support { get; set; }
-
         [Input("swf")]
         public Input<string>? Swf { get; set; }
 
         [Input("synthetics")]
         public Input<string>? Synthetics { get; set; }
-
-        [Input("textract")]
-        public Input<string>? Textract { get; set; }
-
-        [Input("timestreamquery")]
-        public Input<string>? Timestreamquery { get; set; }
 
         [Input("timestreamwrite")]
         public Input<string>? Timestreamwrite { get; set; }
@@ -1110,20 +732,11 @@ namespace Pulumi.Aws.Inputs
         [Input("transcribeservice")]
         public Input<string>? Transcribeservice { get; set; }
 
-        [Input("transcribestreaming")]
-        public Input<string>? Transcribestreaming { get; set; }
-
-        [Input("transcribestreamingservice")]
-        public Input<string>? Transcribestreamingservice { get; set; }
-
         [Input("transfer")]
         public Input<string>? Transfer { get; set; }
 
-        [Input("translate")]
-        public Input<string>? Translate { get; set; }
-
-        [Input("voiceid")]
-        public Input<string>? Voiceid { get; set; }
+        [Input("verifiedpermissions")]
+        public Input<string>? Verifiedpermissions { get; set; }
 
         [Input("vpclattice")]
         public Input<string>? Vpclattice { get; set; }
@@ -1137,29 +750,11 @@ namespace Pulumi.Aws.Inputs
         [Input("wafv2")]
         public Input<string>? Wafv2 { get; set; }
 
-        [Input("wellarchitected")]
-        public Input<string>? Wellarchitected { get; set; }
-
-        [Input("wisdom")]
-        public Input<string>? Wisdom { get; set; }
-
-        [Input("workdocs")]
-        public Input<string>? Workdocs { get; set; }
-
         [Input("worklink")]
         public Input<string>? Worklink { get; set; }
 
-        [Input("workmail")]
-        public Input<string>? Workmail { get; set; }
-
-        [Input("workmailmessageflow")]
-        public Input<string>? Workmailmessageflow { get; set; }
-
         [Input("workspaces")]
         public Input<string>? Workspaces { get; set; }
-
-        [Input("workspacesweb")]
-        public Input<string>? Workspacesweb { get; set; }
 
         [Input("xray")]
         public Input<string>? Xray { get; set; }

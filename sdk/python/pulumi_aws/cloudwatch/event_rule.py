@@ -31,7 +31,7 @@ class EventRuleArgs:
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -120,7 +120,7 @@ class EventRuleArgs:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -188,7 +188,7 @@ class _EventRuleState:
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -294,7 +294,7 @@ class _EventRuleState:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -403,7 +403,7 @@ class EventRule(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+        Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
@@ -417,7 +417,7 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -465,7 +465,7 @@ class EventRule(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+        Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
@@ -550,7 +550,7 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -626,7 +626,7 @@ class EventRule(pulumi.CustomResource):
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
         """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         """
         return pulumi.get(self, "name_prefix")
 

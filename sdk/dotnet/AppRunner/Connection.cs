@@ -39,7 +39,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Import
     /// 
-    /// App Runner Connections can be imported by using the `connection_name`, e.g.,
+    /// Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:apprunner/connection:Connection example example

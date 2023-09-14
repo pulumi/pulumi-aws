@@ -194,7 +194,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.,
+        Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 
         ```sh
          $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
@@ -226,7 +226,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.,
+        Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 
         ```sh
          $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789

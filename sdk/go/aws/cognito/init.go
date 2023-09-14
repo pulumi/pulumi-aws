@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityPoolRoleAttachment{}
 	case "aws:cognito/identityProvider:IdentityProvider":
 		r = &IdentityProvider{}
+	case "aws:cognito/managedUserPoolClient:ManagedUserPoolClient":
+		r = &ManagedUserPoolClient{}
 	case "aws:cognito/resourceServer:ResourceServer":
 		r = &ResourceServer{}
 	case "aws:cognito/riskConfiguration:RiskConfiguration":
@@ -56,7 +58,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cognito/identityProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cognito/managedUserPoolClient",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

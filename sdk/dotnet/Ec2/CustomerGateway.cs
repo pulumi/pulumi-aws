@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Customer Gateways can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import Customer Gateways using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961

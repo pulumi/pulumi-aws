@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Availability Zones data source allows access to the list of AWS
@@ -27,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,7 +69,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,7 +104,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -128,6 +130,7 @@ import (
 //
 // ```
 func GetAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZonesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAvailabilityZonesResult
 	err := ctx.Invoke("aws:index/getAvailabilityZones:getAvailabilityZones", args, &rv, opts...)
 	if err != nil {
@@ -217,6 +220,12 @@ func (o GetAvailabilityZonesResultOutput) ToGetAvailabilityZonesResultOutput() G
 
 func (o GetAvailabilityZonesResultOutput) ToGetAvailabilityZonesResultOutputWithContext(ctx context.Context) GetAvailabilityZonesResultOutput {
 	return o
+}
+
+func (o GetAvailabilityZonesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAvailabilityZonesResult] {
+	return pulumix.Output[GetAvailabilityZonesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAvailabilityZonesResultOutput) AllAvailabilityZones() pulumi.BoolPtrOutput {

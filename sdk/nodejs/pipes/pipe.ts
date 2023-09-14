@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * You can find out more about EventBridge Pipes in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
  *
+ * EventBridge Pipes are very configurable, and may require IAM permissions to work correctly. More information on the configuration options and IAM permissions can be found in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
+ *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
@@ -22,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getCallerIdentity({});
- * const test = new aws.iam.Role("test", {assumeRolePolicy: main.then(main => JSON.stringify({
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: main.then(main => JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: {
  *         Effect: "Allow",
@@ -39,7 +41,7 @@ import * as utilities from "../utilities";
  * }))});
  * const sourceQueue = new aws.sqs.Queue("sourceQueue", {});
  * const sourceRolePolicy = new aws.iam.RolePolicy("sourceRolePolicy", {
- *     role: test.id,
+ *     role: exampleRole.id,
  *     policy: sourceQueue.arn.apply(arn => JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -55,7 +57,7 @@ import * as utilities from "../utilities";
  * });
  * const targetQueue = new aws.sqs.Queue("targetQueue", {});
  * const targetRolePolicy = new aws.iam.RolePolicy("targetRolePolicy", {
- *     role: test.id,
+ *     role: exampleRole.id,
  *     policy: targetQueue.arn.apply(arn => JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -65,12 +67,10 @@ import * as utilities from "../utilities";
  *         }],
  *     })),
  * });
- * const example = new aws.pipes.Pipe("example", {
- *     roleArn: aws_iam_role.example.arn,
+ * const examplePipe = new aws.pipes.Pipe("examplePipe", {
+ *     roleArn: exampleRole.arn,
  *     source: sourceQueue.arn,
  *     target: targetQueue.arn,
- *     sourceParameters: {},
- *     targetParameters: {},
  * }, {
  *     dependsOn: [
  *         sourceRolePolicy,
@@ -78,10 +78,31 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * ### Filter Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.pipes.Pipe("example", {
+ *     roleArn: aws_iam_role.example.arn,
+ *     source: aws_sqs_queue.source.arn,
+ *     target: aws_sqs_queue.target.arn,
+ *     sourceParameters: {
+ *         filterCriteria: {
+ *             filters: [{
+ *                 pattern: JSON.stringify({
+ *                     source: ["event-source"],
+ *                 }),
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
- * Pipes can be imported using the `name`. For example
+ * Using `pulumi import`, import pipes using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
@@ -116,7 +137,7 @@ export class Pipe extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of this pipe.
+     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -131,6 +152,10 @@ export class Pipe extends pulumi.CustomResource {
      * Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
      */
     public readonly enrichment!: pulumi.Output<string | undefined>;
+    /**
+     * Parameters to configure enrichment for your pipe. Detailed below.
+     */
+    public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -148,7 +173,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string>;
     /**
-     * Parameters required to set up a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. Detailed below.
      */
     public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters>;
     /**
@@ -161,12 +186,14 @@ export class Pipe extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target resource of the pipe (typically an ARN).
+     *
+     * The following arguments are optional:
      */
     public readonly target!: pulumi.Output<string>;
     /**
-     * Parameters required to set up a target for your pipe. Detailed below.
+     * Parameters to configure a target for your pipe. Detailed below.
      */
-    public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters>;
+    public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
 
     /**
      * Create a Pipe resource with the given unique name, arguments, and options.
@@ -185,6 +212,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["desiredState"] = state ? state.desiredState : undefined;
             resourceInputs["enrichment"] = state ? state.enrichment : undefined;
+            resourceInputs["enrichmentParameters"] = state ? state.enrichmentParameters : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
@@ -202,18 +230,13 @@ export class Pipe extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.sourceParameters === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceParameters'");
-            }
             if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
-            }
-            if ((!args || args.targetParameters === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetParameters'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["desiredState"] = args ? args.desiredState : undefined;
             resourceInputs["enrichment"] = args ? args.enrichment : undefined;
+            resourceInputs["enrichmentParameters"] = args ? args.enrichmentParameters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
@@ -235,7 +258,7 @@ export class Pipe extends pulumi.CustomResource {
  */
 export interface PipeState {
     /**
-     * ARN of this pipe.
+     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -250,6 +273,10 @@ export interface PipeState {
      * Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
      */
     enrichment?: pulumi.Input<string>;
+    /**
+     * Parameters to configure enrichment for your pipe. Detailed below.
+     */
+    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -267,7 +294,7 @@ export interface PipeState {
      */
     source?: pulumi.Input<string>;
     /**
-     * Parameters required to set up a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. Detailed below.
      */
     sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters>;
     /**
@@ -280,10 +307,12 @@ export interface PipeState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target resource of the pipe (typically an ARN).
+     *
+     * The following arguments are optional:
      */
     target?: pulumi.Input<string>;
     /**
-     * Parameters required to set up a target for your pipe. Detailed below.
+     * Parameters to configure a target for your pipe. Detailed below.
      */
     targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters>;
 }
@@ -305,6 +334,10 @@ export interface PipeArgs {
      */
     enrichment?: pulumi.Input<string>;
     /**
+     * Parameters to configure enrichment for your pipe. Detailed below.
+     */
+    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
@@ -321,19 +354,21 @@ export interface PipeArgs {
      */
     source: pulumi.Input<string>;
     /**
-     * Parameters required to set up a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. Detailed below.
      */
-    sourceParameters: pulumi.Input<inputs.pipes.PipeSourceParameters>;
+    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target resource of the pipe (typically an ARN).
+     *
+     * The following arguments are optional:
      */
     target: pulumi.Input<string>;
     /**
-     * Parameters required to set up a target for your pipe. Detailed below.
+     * Parameters to configure a target for your pipe. Detailed below.
      */
-    targetParameters: pulumi.Input<inputs.pipes.PipeTargetParameters>;
+    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters>;
 }

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an HSM module in Amazon CloudHSM v2 cluster.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudhsmv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudhsmv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // ## Import
 //
-// HSM modules can be imported using their HSM ID, e.g.,
+// Using `pulumi import`, import HSM modules using their HSM ID. For example:
 //
 // ```sh
 //
@@ -86,6 +88,7 @@ func NewHsm(ctx *pulumi.Context,
 	if args.ClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Hsm
 	err := ctx.RegisterResource("aws:cloudhsmv2/hsm:Hsm", name, args, &resource, opts...)
 	if err != nil {
@@ -191,6 +194,12 @@ func (i *Hsm) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmOutput)
 }
 
+func (i *Hsm) ToOutput(ctx context.Context) pulumix.Output[*Hsm] {
+	return pulumix.Output[*Hsm]{
+		OutputState: i.ToHsmOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HsmArrayInput is an input type that accepts HsmArray and HsmArrayOutput values.
 // You can construct a concrete instance of `HsmArrayInput` via:
 //
@@ -214,6 +223,12 @@ func (i HsmArray) ToHsmArrayOutput() HsmArrayOutput {
 
 func (i HsmArray) ToHsmArrayOutputWithContext(ctx context.Context) HsmArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmArrayOutput)
+}
+
+func (i HsmArray) ToOutput(ctx context.Context) pulumix.Output[[]*Hsm] {
+	return pulumix.Output[[]*Hsm]{
+		OutputState: i.ToHsmArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HsmMapInput is an input type that accepts HsmMap and HsmMapOutput values.
@@ -241,6 +256,12 @@ func (i HsmMap) ToHsmMapOutputWithContext(ctx context.Context) HsmMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmMapOutput)
 }
 
+func (i HsmMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Hsm] {
+	return pulumix.Output[map[string]*Hsm]{
+		OutputState: i.ToHsmMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HsmOutput struct{ *pulumi.OutputState }
 
 func (HsmOutput) ElementType() reflect.Type {
@@ -253,6 +274,12 @@ func (o HsmOutput) ToHsmOutput() HsmOutput {
 
 func (o HsmOutput) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 	return o
+}
+
+func (o HsmOutput) ToOutput(ctx context.Context) pulumix.Output[*Hsm] {
+	return pulumix.Output[*Hsm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
@@ -304,6 +331,12 @@ func (o HsmArrayOutput) ToHsmArrayOutputWithContext(ctx context.Context) HsmArra
 	return o
 }
 
+func (o HsmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Hsm] {
+	return pulumix.Output[[]*Hsm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HsmArrayOutput) Index(i pulumi.IntInput) HsmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Hsm {
 		return vs[0].([]*Hsm)[vs[1].(int)]
@@ -322,6 +355,12 @@ func (o HsmMapOutput) ToHsmMapOutput() HsmMapOutput {
 
 func (o HsmMapOutput) ToHsmMapOutputWithContext(ctx context.Context) HsmMapOutput {
 	return o
+}
+
+func (o HsmMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Hsm] {
+	return pulumix.Output[map[string]*Hsm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HsmMapOutput) MapIndex(k pulumi.StringInput) HsmOutput {

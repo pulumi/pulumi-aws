@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Opsworks Instances can be imported using the `instance id`, e.g.,
+ * Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
@@ -659,12 +659,16 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the stack the instance will belong to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
      * @return Identifier of the stack the instance will belong to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> stackId() {

@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
+    /// Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
@@ -90,6 +90,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -178,6 +180,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -234,6 +238,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

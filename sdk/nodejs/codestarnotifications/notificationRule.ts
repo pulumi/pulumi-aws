@@ -44,11 +44,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodeStar notification rule can be imported using the ARN, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
- * ```
+ *  to = aws_codestarnotifications_notification_rule.foo
+ *
+ *  id = "arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b" } Using `TODO import`, import CodeStar notification rule using the ARN. For exampleconsole % TODO import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
  */
 export class NotificationRule extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface NotificationRuleState {
      */
     status?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -233,7 +233,7 @@ export interface NotificationRuleArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

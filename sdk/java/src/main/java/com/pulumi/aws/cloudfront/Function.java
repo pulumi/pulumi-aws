@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront Functions can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudfront/function:Function test my_test_function
@@ -168,12 +168,16 @@ public class Function extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="runtime", refs={String.class}, tree="[0]")
     private Output<String> runtime;
 
     /**
      * @return Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> runtime() {

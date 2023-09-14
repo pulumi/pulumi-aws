@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Service Network can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
@@ -91,12 +91,16 @@ public class ServiceNetwork extends com.pulumi.resources.CustomResource {
     /**
      * Name of the service network
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the service network
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

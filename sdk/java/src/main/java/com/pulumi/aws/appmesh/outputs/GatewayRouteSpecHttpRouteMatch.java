@@ -28,7 +28,7 @@ public final class GatewayRouteSpecHttpRouteMatch {
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
     /**
-     * @return Client request path to match on.
+     * @return Exact path to rewrite.
      * 
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchPath path;
@@ -64,7 +64,7 @@ public final class GatewayRouteSpecHttpRouteMatch {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return Client request path to match on.
+     * @return Exact path to rewrite.
      * 
      */
     public Optional<GatewayRouteSpecHttpRouteMatchPath> path() {

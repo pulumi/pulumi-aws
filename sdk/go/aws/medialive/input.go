@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS MediaLive Input.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +63,7 @@ import (
 //
 // ## Import
 //
-// MediaLive Input can be imported using the `id`, e.g.,
+// Using `pulumi import`, import MediaLive Input using the `id`. For example:
 //
 // ```sh
 //
@@ -99,6 +101,8 @@ type Input struct {
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc InputVpcPtrOutput `pulumi:"vpc"`
@@ -114,6 +118,7 @@ func NewInput(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Input
 	err := ctx.RegisterResource("aws:medialive/input:Input", name, args, &resource, opts...)
 	if err != nil {
@@ -164,6 +169,8 @@ type inputState struct {
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc *InputVpc `pulumi:"vpc"`
@@ -198,6 +205,8 @@ type InputState struct {
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc InputVpcPtrInput
@@ -225,6 +234,8 @@ type inputArgs struct {
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc *InputVpc `pulumi:"vpc"`
@@ -249,6 +260,8 @@ type InputArgs struct {
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc InputVpcPtrInput
@@ -277,6 +290,12 @@ func (i *Input) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputOutput)
 }
 
+func (i *Input) ToOutput(ctx context.Context) pulumix.Output[*Input] {
+	return pulumix.Output[*Input]{
+		OutputState: i.ToInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InputArrayInput is an input type that accepts InputArray and InputArrayOutput values.
 // You can construct a concrete instance of `InputArrayInput` via:
 //
@@ -300,6 +319,12 @@ func (i InputArray) ToInputArrayOutput() InputArrayOutput {
 
 func (i InputArray) ToInputArrayOutputWithContext(ctx context.Context) InputArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputArrayOutput)
+}
+
+func (i InputArray) ToOutput(ctx context.Context) pulumix.Output[[]*Input] {
+	return pulumix.Output[[]*Input]{
+		OutputState: i.ToInputArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InputMapInput is an input type that accepts InputMap and InputMapOutput values.
@@ -327,6 +352,12 @@ func (i InputMap) ToInputMapOutputWithContext(ctx context.Context) InputMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InputMapOutput)
 }
 
+func (i InputMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Input] {
+	return pulumix.Output[map[string]*Input]{
+		OutputState: i.ToInputMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InputOutput struct{ *pulumi.OutputState }
 
 func (InputOutput) ElementType() reflect.Type {
@@ -339,6 +370,12 @@ func (o InputOutput) ToInputOutput() InputOutput {
 
 func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return o
+}
+
+func (o InputOutput) ToOutput(ctx context.Context) pulumix.Output[*Input] {
+	return pulumix.Output[*Input]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Input.
@@ -411,6 +448,8 @@ func (o InputOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The different types of inputs that AWS Elemental MediaLive supports.
+//
+// The following arguments are optional:
 func (o InputOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -434,6 +473,12 @@ func (o InputArrayOutput) ToInputArrayOutputWithContext(ctx context.Context) Inp
 	return o
 }
 
+func (o InputArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Input] {
+	return pulumix.Output[[]*Input]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InputArrayOutput) Index(i pulumi.IntInput) InputOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Input {
 		return vs[0].([]*Input)[vs[1].(int)]
@@ -452,6 +497,12 @@ func (o InputMapOutput) ToInputMapOutput() InputMapOutput {
 
 func (o InputMapOutput) ToInputMapOutputWithContext(ctx context.Context) InputMapOutput {
 	return o
+}
+
+func (o InputMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Input] {
+	return pulumix.Output[map[string]*Input]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InputMapOutput) MapIndex(k pulumi.StringInput) InputOutput {

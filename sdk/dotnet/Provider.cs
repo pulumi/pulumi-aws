@@ -65,16 +65,25 @@ namespace Pulumi.Aws
         public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        /// `AWS_RETRY_MODE` environment variable.
+        /// </summary>
+        [Output("retryMode")]
+        public Output<string?> RetryMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// </summary>
+        [Output("s3UsEast1RegionalEndpoint")]
+        public Output<string?> S3UsEast1RegionalEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Output("secretKey")]
         public Output<string?> SecretKey { get; private set; } = null!;
-
-        /// <summary>
-        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        /// </summary>
-        [Output("sharedCredentialsFile")]
-        public Output<string?> SharedCredentialsFile { get; private set; } = null!;
 
         /// <summary>
         /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
@@ -217,12 +226,19 @@ namespace Pulumi.Aws
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        /// Specific to the Amazon S3 service.
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        /// `AWS_RETRY_MODE` environment variable.
         /// </summary>
-        [Input("s3ForcePathStyle", json: true)]
-        public Input<bool>? S3ForcePathStyle { get; set; }
+        [Input("retryMode")]
+        public Input<string>? RetryMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// </summary>
+        [Input("s3UsEast1RegionalEndpoint")]
+        public Input<string>? S3UsEast1RegionalEndpoint { get; set; }
 
         /// <summary>
         /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -250,12 +266,6 @@ namespace Pulumi.Aws
             set => _sharedConfigFiles = value;
         }
 
-        /// <summary>
-        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        /// </summary>
-        [Input("sharedCredentialsFile")]
-        public Input<string>? SharedCredentialsFile { get; set; }
-
         [Input("sharedCredentialsFiles", json: true)]
         private InputList<string>? _sharedCredentialsFiles;
 
@@ -274,12 +284,6 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("skipCredentialsValidation", json: true)]
         public Input<bool>? SkipCredentialsValidation { get; set; }
-
-        /// <summary>
-        /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        /// </summary>
-        [Input("skipGetEc2Platforms", json: true)]
-        public Input<bool>? SkipGetEc2Platforms { get; set; }
 
         /// <summary>
         /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.

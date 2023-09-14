@@ -84,12 +84,16 @@ public final class AmiFromInstanceEbsBlockDeviceArgs extends com.pulumi.resource
     /**
      * ARN of the Outpost on which the snapshot is stored.
      * 
+     * &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+     * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
      * @return ARN of the Outpost on which the snapshot is stored.
+     * 
+     * &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -287,6 +291,8 @@ public final class AmiFromInstanceEbsBlockDeviceArgs extends com.pulumi.resource
         /**
          * @param outpostArn ARN of the Outpost on which the snapshot is stored.
          * 
+         * &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+         * 
          * @return builder
          * 
          */
@@ -297,6 +303,8 @@ public final class AmiFromInstanceEbsBlockDeviceArgs extends com.pulumi.resource
 
         /**
          * @param outpostArn ARN of the Outpost on which the snapshot is stored.
+         * 
+         * &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
          * 
          * @return builder
          * 

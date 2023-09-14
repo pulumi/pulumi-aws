@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM user group membership can be imported using the user name and group names separated by `/`.
+ * Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2

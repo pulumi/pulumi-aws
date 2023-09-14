@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint APNs Channel resource.
  *
+ * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
  *
  * ```typescript
@@ -24,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint APNs Channel can be imported using the `application-id`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs Channel using the `application-id`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
- * ```
+ *  to = aws_pinpoint_apns_channel.apns
+ *
+ *  id = "application-id" } Using `TODO import`, import Pinpoint APNs Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_channel.apns application-id
  */
 export class ApnsChannel extends pulumi.CustomResource {
     /**
@@ -75,6 +76,10 @@ export class ApnsChannel extends pulumi.CustomResource {
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+     *
+     * One of the following sets of credentials is also required.
+     *
+     * If you choose to use __Certificate credentials__ you will have to provide:
      */
     public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
     /**
@@ -83,6 +88,8 @@ export class ApnsChannel extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Certificate Private Key file (ie. `.key` file).
+     *
+     * If you choose to use __Key credentials__ you will have to provide:
      */
     public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
@@ -163,6 +170,10 @@ export interface ApnsChannelState {
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+     *
+     * One of the following sets of credentials is also required.
+     *
+     * If you choose to use __Certificate credentials__ you will have to provide:
      */
     defaultAuthenticationMethod?: pulumi.Input<string>;
     /**
@@ -171,6 +182,8 @@ export interface ApnsChannelState {
     enabled?: pulumi.Input<boolean>;
     /**
      * The Certificate Private Key file (ie. `.key` file).
+     *
+     * If you choose to use __Key credentials__ you will have to provide:
      */
     privateKey?: pulumi.Input<string>;
     /**
@@ -208,6 +221,10 @@ export interface ApnsChannelArgs {
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+     *
+     * One of the following sets of credentials is also required.
+     *
+     * If you choose to use __Certificate credentials__ you will have to provide:
      */
     defaultAuthenticationMethod?: pulumi.Input<string>;
     /**
@@ -216,6 +233,8 @@ export interface ApnsChannelArgs {
     enabled?: pulumi.Input<boolean>;
     /**
      * The Certificate Private Key file (ie. `.key` file).
+     *
+     * If you choose to use __Key credentials__ you will have to provide:
      */
     privateKey?: pulumi.Input<string>;
     /**

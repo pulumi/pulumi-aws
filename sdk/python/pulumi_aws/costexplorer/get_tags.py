@@ -130,6 +130,8 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
     :param str tag_key: Key of the tag that you want to return values for.
     :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -141,13 +143,13 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     __ret__ = pulumi.runtime.invoke('aws:costexplorer/getTags:getTags', __args__, opts=opts, typ=GetTagsResult).value
 
     return AwaitableGetTagsResult(
-        filter=__ret__.filter,
-        id=__ret__.id,
-        search_string=__ret__.search_string,
-        sort_bies=__ret__.sort_bies,
-        tag_key=__ret__.tag_key,
-        tags=__ret__.tags,
-        time_period=__ret__.time_period)
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        search_string=pulumi.get(__ret__, 'search_string'),
+        sort_bies=pulumi.get(__ret__, 'sort_bies'),
+        tag_key=pulumi.get(__ret__, 'tag_key'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_period=pulumi.get(__ret__, 'time_period'))
 
 
 @_utilities.lift_output_func(get_tags)
@@ -178,5 +180,7 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
     :param str tag_key: Key of the tag that you want to return values for.
     :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+           
+           The following arguments are optional:
     """
     ...

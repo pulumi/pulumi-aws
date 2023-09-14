@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides SSM Parameters by path.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +43,7 @@ import (
 // > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 // **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
 func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opts ...pulumi.InvokeOption) (*GetParametersByPathResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetParametersByPathResult
 	err := ctx.Invoke("aws:ssm/getParametersByPath:getParametersByPath", args, &rv, opts...)
 	if err != nil {
@@ -54,6 +57,8 @@ type GetParametersByPathArgs struct {
 	// Prefix path of the parameter.
 	Path string `pulumi:"path"`
 	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Recursive *bool `pulumi:"recursive"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption *bool `pulumi:"withDecryption"`
@@ -90,6 +95,8 @@ type GetParametersByPathOutputArgs struct {
 	// Prefix path of the parameter.
 	Path pulumi.StringInput `pulumi:"path"`
 	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
@@ -112,6 +119,12 @@ func (o GetParametersByPathResultOutput) ToGetParametersByPathResultOutput() Get
 
 func (o GetParametersByPathResultOutput) ToGetParametersByPathResultOutputWithContext(ctx context.Context) GetParametersByPathResultOutput {
 	return o
+}
+
+func (o GetParametersByPathResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetParametersByPathResult] {
+	return pulumix.Output[GetParametersByPathResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetParametersByPathResultOutput) Arns() pulumi.StringArrayOutput {

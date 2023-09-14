@@ -318,12 +318,16 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="source", required=true)
     private Output<ProjectSourceArgs> source;
 
     /**
      * @return Configuration block. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ProjectSourceArgs> source() {
@@ -863,6 +867,8 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param source Configuration block. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -873,6 +879,8 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param source Configuration block. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

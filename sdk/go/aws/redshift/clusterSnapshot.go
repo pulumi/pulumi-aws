@@ -8,14 +8,16 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Redshift cluster snapshot
 //
 // ## Import
 //
-// Redshift Cluster Snapshots support import by `snapshot_identifier`, e.g., console
+// Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
 //
 // ```sh
 //
@@ -56,6 +58,7 @@ func NewClusterSnapshot(ctx *pulumi.Context,
 	if args.SnapshotIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSnapshot
 	err := ctx.RegisterResource("aws:redshift/clusterSnapshot:ClusterSnapshot", name, args, &resource, opts...)
 	if err != nil {
@@ -165,6 +168,12 @@ func (i *ClusterSnapshot) ToClusterSnapshotOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotOutput)
 }
 
+func (i *ClusterSnapshot) ToOutput(ctx context.Context) pulumix.Output[*ClusterSnapshot] {
+	return pulumix.Output[*ClusterSnapshot]{
+		OutputState: i.ToClusterSnapshotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterSnapshotArrayInput is an input type that accepts ClusterSnapshotArray and ClusterSnapshotArrayOutput values.
 // You can construct a concrete instance of `ClusterSnapshotArrayInput` via:
 //
@@ -188,6 +197,12 @@ func (i ClusterSnapshotArray) ToClusterSnapshotArrayOutput() ClusterSnapshotArra
 
 func (i ClusterSnapshotArray) ToClusterSnapshotArrayOutputWithContext(ctx context.Context) ClusterSnapshotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotArrayOutput)
+}
+
+func (i ClusterSnapshotArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterSnapshot] {
+	return pulumix.Output[[]*ClusterSnapshot]{
+		OutputState: i.ToClusterSnapshotArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterSnapshotMapInput is an input type that accepts ClusterSnapshotMap and ClusterSnapshotMapOutput values.
@@ -215,6 +230,12 @@ func (i ClusterSnapshotMap) ToClusterSnapshotMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotMapOutput)
 }
 
+func (i ClusterSnapshotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterSnapshot] {
+	return pulumix.Output[map[string]*ClusterSnapshot]{
+		OutputState: i.ToClusterSnapshotMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterSnapshotOutput struct{ *pulumi.OutputState }
 
 func (ClusterSnapshotOutput) ElementType() reflect.Type {
@@ -227,6 +248,12 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutput() ClusterSnapshotOutput {
 
 func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Context) ClusterSnapshotOutput {
 	return o
+}
+
+func (o ClusterSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterSnapshot] {
+	return pulumix.Output[*ClusterSnapshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the snapshot.
@@ -283,6 +310,12 @@ func (o ClusterSnapshotArrayOutput) ToClusterSnapshotArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ClusterSnapshotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterSnapshot] {
+	return pulumix.Output[[]*ClusterSnapshot]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterSnapshotArrayOutput) Index(i pulumi.IntInput) ClusterSnapshotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterSnapshot {
 		return vs[0].([]*ClusterSnapshot)[vs[1].(int)]
@@ -301,6 +334,12 @@ func (o ClusterSnapshotMapOutput) ToClusterSnapshotMapOutput() ClusterSnapshotMa
 
 func (o ClusterSnapshotMapOutput) ToClusterSnapshotMapOutputWithContext(ctx context.Context) ClusterSnapshotMapOutput {
 	return o
+}
+
+func (o ClusterSnapshotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterSnapshot] {
+	return pulumix.Output[map[string]*ClusterSnapshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterSnapshotMapOutput) MapIndex(k pulumi.StringInput) ClusterSnapshotOutput {

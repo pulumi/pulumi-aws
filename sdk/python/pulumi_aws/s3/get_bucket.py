@@ -75,7 +75,7 @@ class GetBucketResult:
     @pulumi.getter(name="bucketRegionalDomainName")
     def bucket_regional_domain_name(self) -> str:
         """
-        The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+        The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         """
         return pulumi.get(self, "bucket_regional_domain_name")
 
@@ -185,15 +185,15 @@ def get_bucket(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__, opts=opts, typ=GetBucketResult).value
 
     return AwaitableGetBucketResult(
-        arn=__ret__.arn,
-        bucket=__ret__.bucket,
-        bucket_domain_name=__ret__.bucket_domain_name,
-        bucket_regional_domain_name=__ret__.bucket_regional_domain_name,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        region=__ret__.region,
-        website_domain=__ret__.website_domain,
-        website_endpoint=__ret__.website_endpoint)
+        arn=pulumi.get(__ret__, 'arn'),
+        bucket=pulumi.get(__ret__, 'bucket'),
+        bucket_domain_name=pulumi.get(__ret__, 'bucket_domain_name'),
+        bucket_regional_domain_name=pulumi.get(__ret__, 'bucket_regional_domain_name'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
+        website_domain=pulumi.get(__ret__, 'website_domain'),
+        website_endpoint=pulumi.get(__ret__, 'website_endpoint'))
 
 
 @_utilities.lift_output_func(get_bucket)

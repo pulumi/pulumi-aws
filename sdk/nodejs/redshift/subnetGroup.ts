@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift subnet groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Redshift subnet groups using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group

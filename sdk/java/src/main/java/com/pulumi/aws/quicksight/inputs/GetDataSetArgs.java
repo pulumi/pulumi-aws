@@ -43,12 +43,16 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Identifier for the data set.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
     /**
      * @return Identifier for the data set.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> dataSetId() {
@@ -62,6 +66,25 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private GetDataSetArgs() {}
 
     private GetDataSetArgs(GetDataSetArgs $) {
@@ -69,6 +92,7 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         this.columnLevelPermissionRules = $.columnLevelPermissionRules;
         this.dataSetId = $.dataSetId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -126,6 +150,8 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param dataSetId Identifier for the data set.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -136,6 +162,8 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param dataSetId Identifier for the data set.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -151,6 +179,31 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
+         */
+        @Deprecated /* this attribute has been deprecated */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
+         */
+        @Deprecated /* this attribute has been deprecated */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public GetDataSetArgs build() {

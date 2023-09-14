@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// RDS DB Instance Reservations can be imported using the `instance_id`, e.g.,
+    /// Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
@@ -106,6 +106,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("offeringId")]
         public Output<string> OfferingId { get; private set; } = null!;
@@ -218,6 +220,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("offeringId", required: true)]
         public Input<string> OfferingId { get; set; } = null!;
@@ -298,6 +302,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("offeringId")]
         public Input<string>? OfferingId { get; set; }

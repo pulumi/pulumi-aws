@@ -67,12 +67,16 @@ public final class PipelineDefinitionArgs extends com.pulumi.resources.ResourceA
     /**
      * Configuration block for the objects that define the pipeline. See below
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="pipelineObjects", required=true)
     private Output<List<PipelineDefinitionPipelineObjectArgs>> pipelineObjects;
 
     /**
      * @return Configuration block for the objects that define the pipeline. See below
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<PipelineDefinitionPipelineObjectArgs>> pipelineObjects() {
@@ -192,6 +196,8 @@ public final class PipelineDefinitionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param pipelineObjects Configuration block for the objects that define the pipeline. See below
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -203,6 +209,8 @@ public final class PipelineDefinitionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param pipelineObjects Configuration block for the objects that define the pipeline. See below
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -212,6 +220,8 @@ public final class PipelineDefinitionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param pipelineObjects Configuration block for the objects that define the pipeline. See below
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

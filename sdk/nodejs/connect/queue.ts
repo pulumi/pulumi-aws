@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect Queue resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
- * > **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
- *
  * ## Example Usage
  * ### Basic
  *
@@ -68,7 +66,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
  *
  * ```sh
  *  $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
@@ -139,10 +137,6 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly quickConnectIds!: pulumi.Output<string[] | undefined>;
     /**
-     * @deprecated Use the quick_connect_ids instead
-     */
-    public /*out*/ readonly quickConnectIdsAssociateds!: pulumi.Output<string[]>;
-    /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -177,7 +171,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["outboundCallerConfig"] = state ? state.outboundCallerConfig : undefined;
             resourceInputs["queueId"] = state ? state.queueId : undefined;
             resourceInputs["quickConnectIds"] = state ? state.quickConnectIds : undefined;
-            resourceInputs["quickConnectIdsAssociateds"] = state ? state.quickConnectIdsAssociateds : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -200,7 +193,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
-            resourceInputs["quickConnectIdsAssociateds"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -248,10 +240,6 @@ export interface QueueState {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * @deprecated Use the quick_connect_ids instead
-     */
-    quickConnectIdsAssociateds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */

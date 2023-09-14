@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS IVS (Interactive Video) Channel.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,7 +41,7 @@ import (
 //
 // ## Import
 //
-// IVS (Interactive Video) Channel can be imported using the ARN, e.g.,
+// Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
 //
 // ```sh
 //
@@ -78,6 +80,7 @@ func NewChannel(ctx *pulumi.Context,
 		args = &ChannelArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws:ivs/channel:Channel", name, args, &resource, opts...)
 	if err != nil {
@@ -203,6 +206,12 @@ func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
 }
 
+func (i *Channel) ToOutput(ctx context.Context) pulumix.Output[*Channel] {
+	return pulumix.Output[*Channel]{
+		OutputState: i.ToChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelArrayInput is an input type that accepts ChannelArray and ChannelArrayOutput values.
 // You can construct a concrete instance of `ChannelArrayInput` via:
 //
@@ -226,6 +235,12 @@ func (i ChannelArray) ToChannelArrayOutput() ChannelArrayOutput {
 
 func (i ChannelArray) ToChannelArrayOutputWithContext(ctx context.Context) ChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArrayOutput)
+}
+
+func (i ChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*Channel] {
+	return pulumix.Output[[]*Channel]{
+		OutputState: i.ToChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ChannelMapInput is an input type that accepts ChannelMap and ChannelMapOutput values.
@@ -253,6 +268,12 @@ func (i ChannelMap) ToChannelMapOutputWithContext(ctx context.Context) ChannelMa
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMapOutput)
 }
 
+func (i ChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Channel] {
+	return pulumix.Output[map[string]*Channel]{
+		OutputState: i.ToChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutput) ElementType() reflect.Type {
@@ -265,6 +286,12 @@ func (o ChannelOutput) ToChannelOutput() ChannelOutput {
 
 func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
 	return o
+}
+
+func (o ChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*Channel] {
+	return pulumix.Output[*Channel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Channel.
@@ -331,6 +358,12 @@ func (o ChannelArrayOutput) ToChannelArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Channel] {
+	return pulumix.Output[[]*Channel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelArrayOutput) Index(i pulumi.IntInput) ChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Channel {
 		return vs[0].([]*Channel)[vs[1].(int)]
@@ -349,6 +382,12 @@ func (o ChannelMapOutput) ToChannelMapOutput() ChannelMapOutput {
 
 func (o ChannelMapOutput) ToChannelMapOutputWithContext(ctx context.Context) ChannelMapOutput {
 	return o
+}
+
+func (o ChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Channel] {
+	return pulumix.Output[map[string]*Channel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelMapOutput) MapIndex(k pulumi.StringInput) ChannelOutput {

@@ -8,10 +8,14 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Lambda Provisioned Concurrency Configuration.
+//
+// > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
 //
 // ## Example Usage
 // ### Alias Name
@@ -21,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,11 +75,11 @@ import (
 //
 // ## Import
 //
-// Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+//	$ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
 //
 // ```
 type ProvisionedConcurrencyConfig struct {
@@ -86,7 +90,11 @@ type ProvisionedConcurrencyConfig struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntOutput `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier pulumi.StringOutput `pulumi:"qualifier"`
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 }
 
 // NewProvisionedConcurrencyConfig registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +113,7 @@ func NewProvisionedConcurrencyConfig(ctx *pulumi.Context,
 	if args.Qualifier == nil {
 		return nil, errors.New("invalid value for required argument 'Qualifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisionedConcurrencyConfig
 	err := ctx.RegisterResource("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -132,7 +141,11 @@ type provisionedConcurrencyConfigState struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions *int `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier *string `pulumi:"qualifier"`
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
 
 type ProvisionedConcurrencyConfigState struct {
@@ -141,7 +154,11 @@ type ProvisionedConcurrencyConfigState struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntPtrInput
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier pulumi.StringPtrInput
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy pulumi.BoolPtrInput
 }
 
 func (ProvisionedConcurrencyConfigState) ElementType() reflect.Type {
@@ -154,7 +171,11 @@ type provisionedConcurrencyConfigArgs struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier string `pulumi:"qualifier"`
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
 
 // The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
@@ -164,7 +185,11 @@ type ProvisionedConcurrencyConfigArgs struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntInput
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier pulumi.StringInput
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy pulumi.BoolPtrInput
 }
 
 func (ProvisionedConcurrencyConfigArgs) ElementType() reflect.Type {
@@ -188,6 +213,12 @@ func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutput() Pr
 
 func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigOutput)
+}
+
+func (i *ProvisionedConcurrencyConfig) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[*ProvisionedConcurrencyConfig]{
+		OutputState: i.ToProvisionedConcurrencyConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProvisionedConcurrencyConfigArrayInput is an input type that accepts ProvisionedConcurrencyConfigArray and ProvisionedConcurrencyConfigArrayOutput values.
@@ -215,6 +246,12 @@ func (i ProvisionedConcurrencyConfigArray) ToProvisionedConcurrencyConfigArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigArrayOutput)
 }
 
+func (i ProvisionedConcurrencyConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[[]*ProvisionedConcurrencyConfig]{
+		OutputState: i.ToProvisionedConcurrencyConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProvisionedConcurrencyConfigMapInput is an input type that accepts ProvisionedConcurrencyConfigMap and ProvisionedConcurrencyConfigMapOutput values.
 // You can construct a concrete instance of `ProvisionedConcurrencyConfigMapInput` via:
 //
@@ -240,6 +277,12 @@ func (i ProvisionedConcurrencyConfigMap) ToProvisionedConcurrencyConfigMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigMapOutput)
 }
 
+func (i ProvisionedConcurrencyConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[map[string]*ProvisionedConcurrencyConfig]{
+		OutputState: i.ToProvisionedConcurrencyConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProvisionedConcurrencyConfigOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedConcurrencyConfigOutput) ElementType() reflect.Type {
@@ -254,6 +297,12 @@ func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput
 	return o
 }
 
+func (o ProvisionedConcurrencyConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[*ProvisionedConcurrencyConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name or Amazon Resource Name (ARN) of the Lambda Function.
 func (o ProvisionedConcurrencyConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
@@ -265,8 +314,15 @@ func (o ProvisionedConcurrencyConfigOutput) ProvisionedConcurrentExecutions() pu
 }
 
 // Lambda Function version or Lambda Alias name.
+//
+// The following arguments are optional:
 func (o ProvisionedConcurrencyConfigOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.Qualifier }).(pulumi.StringOutput)
+}
+
+// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+func (o ProvisionedConcurrencyConfigOutput) SkipDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
 type ProvisionedConcurrencyConfigArrayOutput struct{ *pulumi.OutputState }
@@ -281,6 +337,12 @@ func (o ProvisionedConcurrencyConfigArrayOutput) ToProvisionedConcurrencyConfigA
 
 func (o ProvisionedConcurrencyConfigArrayOutput) ToProvisionedConcurrencyConfigArrayOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigArrayOutput {
 	return o
+}
+
+func (o ProvisionedConcurrencyConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[[]*ProvisionedConcurrencyConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProvisionedConcurrencyConfigArrayOutput) Index(i pulumi.IntInput) ProvisionedConcurrencyConfigOutput {
@@ -301,6 +363,12 @@ func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMap
 
 func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMapOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigMapOutput {
 	return o
+}
+
+func (o ProvisionedConcurrencyConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[map[string]*ProvisionedConcurrencyConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProvisionedConcurrencyConfigMapOutput) MapIndex(k pulumi.StringInput) ProvisionedConcurrencyConfigOutput {

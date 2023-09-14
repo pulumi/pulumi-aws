@@ -162,7 +162,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+ * Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
  *
  * ```sh
  *  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
@@ -243,8 +243,10 @@ export class DataSet extends pulumi.CustomResource {
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetPermission[] | undefined>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     *
+     * The following arguments are optional:
      */
-    public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[]>;
+    public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[] | undefined>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */
@@ -304,9 +306,6 @@ export class DataSet extends pulumi.CustomResource {
             }
             if ((!args || args.importMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'importMode'");
-            }
-            if ((!args || args.physicalTableMaps === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'physicalTableMaps'");
             }
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["columnGroups"] = args ? args.columnGroups : undefined;
@@ -383,6 +382,8 @@ export interface DataSetState {
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPermission>[]>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     *
+     * The following arguments are optional:
      */
     physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
     /**
@@ -453,8 +454,10 @@ export interface DataSetArgs {
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPermission>[]>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     *
+     * The following arguments are optional:
      */
-    physicalTableMaps: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
+    physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */

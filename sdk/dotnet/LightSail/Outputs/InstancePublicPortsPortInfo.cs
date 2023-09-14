@@ -32,6 +32,8 @@ namespace Pulumi.Aws.LightSail.Outputs
         public readonly string Protocol;
         /// <summary>
         /// Last port in a range of open ports on an instance.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly int ToPort;
 

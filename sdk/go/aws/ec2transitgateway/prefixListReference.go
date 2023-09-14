@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Prefix List Reference.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +73,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
+// Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
 //
 // ```sh
 //
@@ -89,6 +91,8 @@ type PrefixListReference struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -105,6 +109,7 @@ func NewPrefixListReference(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrefixListReference
 	err := ctx.RegisterResource("aws:ec2transitgateway/prefixListReference:PrefixListReference", name, args, &resource, opts...)
 	if err != nil {
@@ -135,6 +140,8 @@ type prefixListReferenceState struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -147,6 +154,8 @@ type PrefixListReferenceState struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringPtrInput
 }
 
@@ -162,6 +171,8 @@ type prefixListReferenceArgs struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -174,6 +185,8 @@ type PrefixListReferenceArgs struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -198,6 +211,12 @@ func (i *PrefixListReference) ToPrefixListReferenceOutput() PrefixListReferenceO
 
 func (i *PrefixListReference) ToPrefixListReferenceOutputWithContext(ctx context.Context) PrefixListReferenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferenceOutput)
+}
+
+func (i *PrefixListReference) ToOutput(ctx context.Context) pulumix.Output[*PrefixListReference] {
+	return pulumix.Output[*PrefixListReference]{
+		OutputState: i.ToPrefixListReferenceOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PrefixListReferenceArrayInput is an input type that accepts PrefixListReferenceArray and PrefixListReferenceArrayOutput values.
@@ -225,6 +244,12 @@ func (i PrefixListReferenceArray) ToPrefixListReferenceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferenceArrayOutput)
 }
 
+func (i PrefixListReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrefixListReference] {
+	return pulumix.Output[[]*PrefixListReference]{
+		OutputState: i.ToPrefixListReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PrefixListReferenceMapInput is an input type that accepts PrefixListReferenceMap and PrefixListReferenceMapOutput values.
 // You can construct a concrete instance of `PrefixListReferenceMapInput` via:
 //
@@ -250,6 +275,12 @@ func (i PrefixListReferenceMap) ToPrefixListReferenceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferenceMapOutput)
 }
 
+func (i PrefixListReferenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrefixListReference] {
+	return pulumix.Output[map[string]*PrefixListReference]{
+		OutputState: i.ToPrefixListReferenceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrefixListReferenceOutput struct{ *pulumi.OutputState }
 
 func (PrefixListReferenceOutput) ElementType() reflect.Type {
@@ -262,6 +293,12 @@ func (o PrefixListReferenceOutput) ToPrefixListReferenceOutput() PrefixListRefer
 
 func (o PrefixListReferenceOutput) ToPrefixListReferenceOutputWithContext(ctx context.Context) PrefixListReferenceOutput {
 	return o
+}
+
+func (o PrefixListReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[*PrefixListReference] {
+	return pulumix.Output[*PrefixListReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
@@ -284,6 +321,8 @@ func (o PrefixListReferenceOutput) TransitGatewayAttachmentId() pulumi.StringPtr
 }
 
 // Identifier of EC2 Transit Gateway Route Table.
+//
+// The following arguments are optional:
 func (o PrefixListReferenceOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }
@@ -300,6 +339,12 @@ func (o PrefixListReferenceArrayOutput) ToPrefixListReferenceArrayOutput() Prefi
 
 func (o PrefixListReferenceArrayOutput) ToPrefixListReferenceArrayOutputWithContext(ctx context.Context) PrefixListReferenceArrayOutput {
 	return o
+}
+
+func (o PrefixListReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrefixListReference] {
+	return pulumix.Output[[]*PrefixListReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrefixListReferenceArrayOutput) Index(i pulumi.IntInput) PrefixListReferenceOutput {
@@ -320,6 +365,12 @@ func (o PrefixListReferenceMapOutput) ToPrefixListReferenceMapOutput() PrefixLis
 
 func (o PrefixListReferenceMapOutput) ToPrefixListReferenceMapOutputWithContext(ctx context.Context) PrefixListReferenceMapOutput {
 	return o
+}
+
+func (o PrefixListReferenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrefixListReference] {
+	return pulumix.Output[map[string]*PrefixListReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrefixListReferenceMapOutput) MapIndex(k pulumi.StringInput) PrefixListReferenceOutput {

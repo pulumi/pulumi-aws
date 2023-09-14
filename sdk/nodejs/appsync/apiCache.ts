@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
+ * Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx

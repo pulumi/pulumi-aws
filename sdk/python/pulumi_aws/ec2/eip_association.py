@@ -289,7 +289,7 @@ class EipAssociation(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example = aws.ec2.Eip("example", vpc=True)
+        example = aws.ec2.Eip("example", domain="vpc")
         eip_assoc = aws.ec2.EipAssociation("eipAssoc",
             instance_id=web.id,
             allocation_id=example.id)
@@ -297,7 +297,7 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Import
 
-        EIP Assocations can be imported using their association ID.
+        Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
         ```sh
          $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
@@ -349,7 +349,7 @@ class EipAssociation(pulumi.CustomResource):
             tags={
                 "Name": "HelloWorld",
             })
-        example = aws.ec2.Eip("example", vpc=True)
+        example = aws.ec2.Eip("example", domain="vpc")
         eip_assoc = aws.ec2.EipAssociation("eipAssoc",
             instance_id=web.id,
             allocation_id=example.id)
@@ -357,7 +357,7 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Import
 
-        EIP Assocations can be imported using their association ID.
+        Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
         ```sh
          $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345

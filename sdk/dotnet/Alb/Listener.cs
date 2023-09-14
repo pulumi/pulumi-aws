@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Import
     /// 
-    /// Listeners can be imported using their ARN, e.g.,
+    /// Using `pulumi import`, import listeners using their ARN. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:alb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
@@ -317,6 +317,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// ARN of the target group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -335,6 +337,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// ARN of the load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
@@ -359,6 +363,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -445,6 +451,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// ARN of the load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
@@ -472,6 +480,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -495,6 +505,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// ARN of the target group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -519,6 +531,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// ARN of the load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("loadBalancerArn")]
         public Input<string>? LoadBalancerArn { get; set; }
@@ -546,6 +560,8 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
         /// </summary>
         public InputMap<string> Tags
         {

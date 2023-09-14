@@ -411,7 +411,7 @@ class Listener(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Listener can be imported by using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character, e.g.
+        Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
@@ -505,7 +505,7 @@ class Listener(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Listener can be imported by using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character, e.g.
+        Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
 
         ```sh
          $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321

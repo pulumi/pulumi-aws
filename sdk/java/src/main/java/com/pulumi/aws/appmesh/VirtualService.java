@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Mesh virtual services can be imported using `mesh_name` together with the virtual service&#39;s `name`, e.g.,
+ * Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service&#39;s `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local

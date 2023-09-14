@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Domain resource.
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,7 +84,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,7 +146,7 @@ import (
 //
 // ## Import
 //
-// SageMaker Domains can be imported using the `id`, e.g.,
+// Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 //
 // ```sh
 //
@@ -188,6 +190,8 @@ type Domain struct {
 	// The domain's URL.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -213,6 +217,7 @@ func NewDomain(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:sagemaker/domain:Domain", name, args, &resource, opts...)
 	if err != nil {
@@ -269,6 +274,8 @@ type domainState struct {
 	// The domain's URL.
 	Url *string `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -307,6 +314,8 @@ type DomainState struct {
 	// The domain's URL.
 	Url pulumi.StringPtrInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringPtrInput
 }
 
@@ -337,6 +346,8 @@ type domainArgs struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -364,6 +375,8 @@ type DomainArgs struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringInput
 }
 
@@ -388,6 +401,12 @@ func (i *Domain) ToDomainOutput() DomainOutput {
 
 func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
+}
+
+func (i *Domain) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: i.ToDomainOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainArrayInput is an input type that accepts DomainArray and DomainArrayOutput values.
@@ -415,6 +434,12 @@ func (i DomainArray) ToDomainArrayOutputWithContext(ctx context.Context) DomainA
 	return pulumi.ToOutputWithContext(ctx, i).(DomainArrayOutput)
 }
 
+func (i DomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: i.ToDomainArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainMapInput is an input type that accepts DomainMap and DomainMapOutput values.
 // You can construct a concrete instance of `DomainMapInput` via:
 //
@@ -440,6 +465,12 @@ func (i DomainMap) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainMapOutput)
 }
 
+func (i DomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: i.ToDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
@@ -452,6 +483,12 @@ func (o DomainOutput) ToDomainOutput() DomainOutput {
 
 func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return o
+}
+
+func (o DomainOutput) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
@@ -539,6 +576,8 @@ func (o DomainOutput) Url() pulumi.StringOutput {
 }
 
 // The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+//
+// The following arguments are optional:
 func (o DomainOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -555,6 +594,12 @@ func (o DomainArrayOutput) ToDomainArrayOutput() DomainArrayOutput {
 
 func (o DomainArrayOutput) ToDomainArrayOutputWithContext(ctx context.Context) DomainArrayOutput {
 	return o
+}
+
+func (o DomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainArrayOutput) Index(i pulumi.IntInput) DomainOutput {
@@ -575,6 +620,12 @@ func (o DomainMapOutput) ToDomainMapOutput() DomainMapOutput {
 
 func (o DomainMapOutput) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOutput {
 	return o
+}
+
+func (o DomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainMapOutput) MapIndex(k pulumi.StringInput) DomainOutput {

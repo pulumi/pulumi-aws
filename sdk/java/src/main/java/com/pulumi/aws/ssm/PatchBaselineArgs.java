@@ -147,9 +147,11 @@ public final class PatchBaselineArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The operating system the patch baseline applies to.
      * Valid values are
+     * `ALMA_LINUX`,
      * `AMAZON_LINUX`,
      * `AMAZON_LINUX_2`,
      * `AMAZON_LINUX_2022`,
+     * `AMAZON_LINUX_2023`,
      * `CENTOS`,
      * `DEBIAN`,
      * `MACOS`,
@@ -169,9 +171,11 @@ public final class PatchBaselineArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The operating system the patch baseline applies to.
      * Valid values are
+     * `ALMA_LINUX`,
      * `AMAZON_LINUX`,
      * `AMAZON_LINUX_2`,
      * `AMAZON_LINUX_2022`,
+     * `AMAZON_LINUX_2023`,
      * `CENTOS`,
      * `DEBIAN`,
      * `MACOS`,
@@ -493,9 +497,11 @@ public final class PatchBaselineArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param operatingSystem The operating system the patch baseline applies to.
          * Valid values are
+         * `ALMA_LINUX`,
          * `AMAZON_LINUX`,
          * `AMAZON_LINUX_2`,
          * `AMAZON_LINUX_2022`,
+         * `AMAZON_LINUX_2023`,
          * `CENTOS`,
          * `DEBIAN`,
          * `MACOS`,
@@ -519,9 +525,11 @@ public final class PatchBaselineArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param operatingSystem The operating system the patch baseline applies to.
          * Valid values are
+         * `ALMA_LINUX`,
          * `AMAZON_LINUX`,
          * `AMAZON_LINUX_2`,
          * `AMAZON_LINUX_2022`,
+         * `AMAZON_LINUX_2023`,
          * `CENTOS`,
          * `DEBIAN`,
          * `MACOS`,

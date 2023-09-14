@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create an association between a VPC endpoint and a subnet.
@@ -28,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +52,7 @@ import (
 //
 // ## Import
 //
-// VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
+// Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For example:
 //
 // ```sh
 //
@@ -79,6 +81,7 @@ func NewVpcEndpointSubnetAssociation(ctx *pulumi.Context,
 	if args.VpcEndpointId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointSubnetAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -156,6 +159,12 @@ func (i *VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationOutput)
 }
 
+func (i *VpcEndpointSubnetAssociation) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointSubnetAssociation] {
+	return pulumix.Output[*VpcEndpointSubnetAssociation]{
+		OutputState: i.ToVpcEndpointSubnetAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcEndpointSubnetAssociationArrayInput is an input type that accepts VpcEndpointSubnetAssociationArray and VpcEndpointSubnetAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointSubnetAssociationArrayInput` via:
 //
@@ -179,6 +188,12 @@ func (i VpcEndpointSubnetAssociationArray) ToVpcEndpointSubnetAssociationArrayOu
 
 func (i VpcEndpointSubnetAssociationArray) ToVpcEndpointSubnetAssociationArrayOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationArrayOutput)
+}
+
+func (i VpcEndpointSubnetAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointSubnetAssociation] {
+	return pulumix.Output[[]*VpcEndpointSubnetAssociation]{
+		OutputState: i.ToVpcEndpointSubnetAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcEndpointSubnetAssociationMapInput is an input type that accepts VpcEndpointSubnetAssociationMap and VpcEndpointSubnetAssociationMapOutput values.
@@ -206,6 +221,12 @@ func (i VpcEndpointSubnetAssociationMap) ToVpcEndpointSubnetAssociationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationMapOutput)
 }
 
+func (i VpcEndpointSubnetAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointSubnetAssociation] {
+	return pulumix.Output[map[string]*VpcEndpointSubnetAssociation]{
+		OutputState: i.ToVpcEndpointSubnetAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcEndpointSubnetAssociationOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointSubnetAssociationOutput) ElementType() reflect.Type {
@@ -218,6 +239,12 @@ func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationOutput
 
 func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationOutput {
 	return o
+}
+
+func (o VpcEndpointSubnetAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointSubnetAssociation] {
+	return pulumix.Output[*VpcEndpointSubnetAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the subnet to be associated with the VPC endpoint.
@@ -244,6 +271,12 @@ func (o VpcEndpointSubnetAssociationArrayOutput) ToVpcEndpointSubnetAssociationA
 	return o
 }
 
+func (o VpcEndpointSubnetAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointSubnetAssociation] {
+	return pulumix.Output[[]*VpcEndpointSubnetAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcEndpointSubnetAssociationArrayOutput) Index(i pulumi.IntInput) VpcEndpointSubnetAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointSubnetAssociation {
 		return vs[0].([]*VpcEndpointSubnetAssociation)[vs[1].(int)]
@@ -262,6 +295,12 @@ func (o VpcEndpointSubnetAssociationMapOutput) ToVpcEndpointSubnetAssociationMap
 
 func (o VpcEndpointSubnetAssociationMapOutput) ToVpcEndpointSubnetAssociationMapOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationMapOutput {
 	return o
+}
+
+func (o VpcEndpointSubnetAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointSubnetAssociation] {
+	return pulumix.Output[map[string]*VpcEndpointSubnetAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcEndpointSubnetAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointSubnetAssociationOutput {

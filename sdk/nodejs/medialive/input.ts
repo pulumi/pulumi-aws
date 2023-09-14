@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MediaLive Input can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import MediaLive Input using the `id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:medialive/input:Input example 12345678
@@ -125,6 +125,8 @@ export class Input extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -247,6 +249,8 @@ export interface InputState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
     /**
@@ -293,6 +297,8 @@ export interface InputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
     /**

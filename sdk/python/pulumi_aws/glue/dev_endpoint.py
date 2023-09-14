@@ -15,7 +15,7 @@ __all__ = ['DevEndpointArgs', 'DevEndpoint']
 class DevEndpointArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
                  extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class DevEndpointArgs:
         """
         The set of arguments for constructing a DevEndpoint resource.
         :param pulumi.Input[str] role_arn: The IAM role for this endpoint.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
@@ -44,7 +44,7 @@ class DevEndpointArgs:
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -91,14 +91,14 @@ class DevEndpointArgs:
 
     @property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of arguments used to configure the endpoint.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "arguments", value)
 
     @property
@@ -237,7 +237,7 @@ class DevEndpointArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -261,7 +261,7 @@ class DevEndpointArgs:
 @pulumi.input_type
 class _DevEndpointState:
     def __init__(__self__, *,
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
@@ -288,7 +288,7 @@ class _DevEndpointState:
                  zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering DevEndpoint resources.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] arn: The ARN of the endpoint.
         :param pulumi.Input[str] availability_zone: The AWS availability zone where this endpoint is located.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -307,7 +307,7 @@ class _DevEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] status: The current status of this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -367,14 +367,14 @@ class _DevEndpointState:
 
     @property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of arguments used to configure the endpoint.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "arguments", value)
 
     @property
@@ -597,7 +597,7 @@ class _DevEndpointState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -671,7 +671,7 @@ class DevEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
                  extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
@@ -714,15 +714,15 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-        ```
+         to = aws_glue_dev_endpoint.example
+
+         id = "foo" } Using `TODO import`, import a Glue Development Endpoint using the `name`. For exampleconsole % TODO import aws_glue_dev_endpoint.example foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
@@ -735,7 +735,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         ...
@@ -771,11 +771,11 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.,
+        In TODO v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-        ```
+         to = aws_glue_dev_endpoint.example
+
+         id = "foo" } Using `TODO import`, import a Glue Development Endpoint using the `name`. For exampleconsole % TODO import aws_glue_dev_endpoint.example foo
 
         :param str resource_name: The name of the resource.
         :param DevEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -792,7 +792,7 @@ class DevEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
                  extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
@@ -853,7 +853,7 @@ class DevEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
@@ -885,7 +885,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] arn: The ARN of the endpoint.
         :param pulumi.Input[str] availability_zone: The AWS availability zone where this endpoint is located.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -904,7 +904,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] status: The current status of this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -944,7 +944,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arguments(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def arguments(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of arguments used to configure the endpoint.
         """
@@ -1098,7 +1098,7 @@ class DevEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

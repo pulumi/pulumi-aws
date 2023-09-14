@@ -319,7 +319,7 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repositories can be imported using the `name`, e.g.,
+        Using `pulumi import`, import ECR Repositories using the `name`. For example:
 
         ```sh
          $ pulumi import aws:ecr/repository:Repository service test-service
@@ -359,7 +359,7 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repositories can be imported using the `name`, e.g.,
+        Using `pulumi import`, import ECR Repositories using the `name`. For example:
 
         ```sh
          $ pulumi import aws:ecr/repository:Repository service test-service

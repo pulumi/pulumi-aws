@@ -1,0 +1,45 @@
+From 3f33fb93b233555bd4c2f9265c7a8db51c924c4f Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 4 Nov 2022 17:06:11 +0000
+Subject: [PATCH 05/29] De-deprecate bucket_object
+
+---
+ internal/service/s3/bucket_object.go | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/internal/service/s3/bucket_object.go b/internal/service/s3/bucket_object.go
+index 4c5f6cc740..bb53438c3c 100644
+--- a/internal/service/s3/bucket_object.go
++++ b/internal/service/s3/bucket_object.go
+@@ -66,7 +66,7 @@ func ResourceBucketObject() *schema.Resource {
+ 				ValidateFunc: validation.StringInSlice(s3.ObjectCannedACL_Values(), false),
+ 			},
+ 			"bucket": {
+-				Deprecated:   "Use the aws_s3_object resource instead",
++				// FORK: Stack72 removed the deprecation warning as it was misleading for Pulumi users
+ 				Type:         schema.TypeString,
+ 				Required:     true,
+ 				ForceNew:     true,
+@@ -123,7 +123,7 @@ func ResourceBucketObject() *schema.Resource {
+ 				Default:  false,
+ 			},
+ 			"key": {
+-				Deprecated:   "Use the aws_s3_object resource instead",
++				// FORK: Stack72 removed the deprecation warning as it was misleading for Pulumi users
+ 				Type:         schema.TypeString,
+ 				Required:     true,
+ 				ForceNew:     true,
+@@ -196,7 +196,9 @@ func ResourceBucketObject() *schema.Resource {
+ 			},
+ 		},
+ 
+-		DeprecationMessage: `use the aws_s3_object resource instead`,
++		// We are keeping aws_s3_bucket_object alive just like aws_s3_bucket.
++		//
++		// DeprecationMessage: `use the aws_s3_object resource instead`,
+ 	}
+ }
+ 
+-- 
+2.41.0
+

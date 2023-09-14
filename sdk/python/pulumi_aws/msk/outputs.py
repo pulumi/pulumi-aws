@@ -14,6 +14,9 @@ __all__ = [
     'ClusterBrokerNodeGroupInfo',
     'ClusterBrokerNodeGroupInfoConnectivityInfo',
     'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl',
     'ClusterBrokerNodeGroupInfoStorageInfo',
     'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo',
     'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput',
@@ -54,8 +57,6 @@ class ClusterBrokerNodeGroupInfo(dict):
             suggest = "az_distribution"
         elif key == "connectivityInfo":
             suggest = "connectivity_info"
-        elif key == "ebsVolumeSize":
-            suggest = "ebs_volume_size"
         elif key == "storageInfo":
             suggest = "storage_info"
 
@@ -76,7 +77,6 @@ class ClusterBrokerNodeGroupInfo(dict):
                  security_groups: Sequence[str],
                  az_distribution: Optional[str] = None,
                  connectivity_info: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfo'] = None,
-                 ebs_volume_size: Optional[int] = None,
                  storage_info: Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfo'] = None):
         """
         :param Sequence[str] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
@@ -84,7 +84,6 @@ class ClusterBrokerNodeGroupInfo(dict):
         :param Sequence[str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param str az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
         :param 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs' connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param int ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
         :param 'ClusterBrokerNodeGroupInfoStorageInfoArgs' storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
@@ -94,8 +93,6 @@ class ClusterBrokerNodeGroupInfo(dict):
             pulumi.set(__self__, "az_distribution", az_distribution)
         if connectivity_info is not None:
             pulumi.set(__self__, "connectivity_info", connectivity_info)
-        if ebs_volume_size is not None:
-            pulumi.set(__self__, "ebs_volume_size", ebs_volume_size)
         if storage_info is not None:
             pulumi.set(__self__, "storage_info", storage_info)
 
@@ -140,14 +137,6 @@ class ClusterBrokerNodeGroupInfo(dict):
         return pulumi.get(self, "connectivity_info")
 
     @property
-    @pulumi.getter(name="ebsVolumeSize")
-    def ebs_volume_size(self) -> Optional[int]:
-        """
-        The size in GiB of the EBS volume for the data drive on each broker node.
-        """
-        return pulumi.get(self, "ebs_volume_size")
-
-    @property
     @pulumi.getter(name="storageInfo")
     def storage_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfo']:
         """
@@ -163,6 +152,8 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
         suggest = None
         if key == "publicAccess":
             suggest = "public_access"
+        elif key == "vpcConnectivity":
+            suggest = "vpc_connectivity"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterBrokerNodeGroupInfoConnectivityInfo. Access the value via the '{suggest}' property getter instead.")
@@ -176,12 +167,16 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 public_access: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess'] = None):
+                 public_access: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess'] = None,
+                 vpc_connectivity: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity'] = None):
         """
         :param 'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs' public_access: Access control settings for brokers. See below.
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs' vpc_connectivity: VPC connectivity access control for brokers. See below.
         """
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
+        if vpc_connectivity is not None:
+            pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
 
     @property
     @pulumi.getter(name="publicAccess")
@@ -191,13 +186,21 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
         """
         return pulumi.get(self, "public_access")
 
+    @property
+    @pulumi.getter(name="vpcConnectivity")
+    def vpc_connectivity(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity']:
+        """
+        VPC connectivity access control for brokers. See below.
+        """
+        return pulumi.get(self, "vpc_connectivity")
+
 
 @pulumi.output_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
         """
-        :param str type: Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        :param str type: Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -206,9 +209,107 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAuthentication":
+            suggest = "client_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_authentication: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication'] = None):
+        """
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs' client_authentication: Configuration block for specifying a client authentication. See below.
+        """
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+
+    @property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication']:
+        """
+        Configuration block for specifying a client authentication. See below.
+        """
+        return pulumi.get(self, "client_authentication")
+
+
+@pulumi.output_type
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication(dict):
+    def __init__(__self__, *,
+                 sasl: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl'] = None,
+                 tls: Optional[bool] = None):
+        """
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs' sasl: Configuration block for specifying SASL client authentication. See below.
+        :param bool tls: Configuration block for specifying TLS client authentication. See below.
+        """
+        if sasl is not None:
+            pulumi.set(__self__, "sasl", sasl)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl']:
+        """
+        Configuration block for specifying SASL client authentication. See below.
+        """
+        return pulumi.get(self, "sasl")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[bool]:
+        """
+        Configuration block for specifying TLS client authentication. See below.
+        """
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl(dict):
+    def __init__(__self__, *,
+                 iam: Optional[bool] = None,
+                 scram: Optional[bool] = None):
+        """
+        :param bool iam: Enables SASL/IAM authentication for VPC connectivity.
+        :param bool scram: Enables SASL/SCRAM authentication for VPC connectivity.
+        """
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+        if scram is not None:
+            pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional[bool]:
+        """
+        Enables SASL/IAM authentication for VPC connectivity.
+        """
+        return pulumi.get(self, "iam")
+
+    @property
+    @pulumi.getter
+    def scram(self) -> Optional[bool]:
+        """
+        Enables SASL/SCRAM authentication for VPC connectivity.
+        """
+        return pulumi.get(self, "scram")
 
 
 @pulumi.output_type
@@ -394,8 +495,8 @@ class ClusterClientAuthenticationSasl(dict):
                  iam: Optional[bool] = None,
                  scram: Optional[bool] = None):
         """
-        :param bool iam: Enables IAM client authentication. Defaults to `false`.
-        :param bool scram: Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        :param bool iam: Enables SASL/IAM authentication for VPC connectivity.
+        :param bool scram: Enables SASL/SCRAM authentication for VPC connectivity.
         """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
@@ -406,7 +507,7 @@ class ClusterClientAuthenticationSasl(dict):
     @pulumi.getter
     def iam(self) -> Optional[bool]:
         """
-        Enables IAM client authentication. Defaults to `false`.
+        Enables SASL/IAM authentication for VPC connectivity.
         """
         return pulumi.get(self, "iam")
 
@@ -414,7 +515,7 @@ class ClusterClientAuthenticationSasl(dict):
     @pulumi.getter
     def scram(self) -> Optional[bool]:
         """
-        Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        Enables SASL/SCRAM authentication for VPC connectivity.
         """
         return pulumi.get(self, "scram")
 

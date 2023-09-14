@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
- *             .autoEnable(true)
+ *             .autoEnableOrganizationMembers(&#34;ALL&#34;)
  *             .detectorId(exampleDetector.id())
  *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()
  *                 .s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs.builder()
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.,
+ * Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
@@ -93,18 +93,36 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/organizationConfiguration:OrganizationConfiguration")
 public class OrganizationConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * 
+     * @deprecated
+     * Use auto_enable_organization_members instead
      * 
      */
+    @Deprecated /* Use auto_enable_organization_members instead */
     @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoEnable;
 
     /**
-     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * @return *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      * 
      */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
+    }
+    /**
+     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+     * 
+     */
+    @Export(name="autoEnableOrganizationMembers", refs={String.class}, tree="[0]")
+    private Output<String> autoEnableOrganizationMembers;
+
+    /**
+     * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+     * 
+     */
+    public Output<String> autoEnableOrganizationMembers() {
+        return this.autoEnableOrganizationMembers;
     }
     /**
      * Configuration for the collected datasources.

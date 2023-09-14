@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Local Gateways, such as their identifiers.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,6 +45,7 @@ import (
 //
 // ```
 func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewaysResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewaysResult
 	err := ctx.Invoke("aws:ec2/getLocalGateways:getLocalGateways", args, &rv, opts...)
 	if err != nil {
@@ -54,6 +57,9 @@ func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...p
 // A collection of arguments for invoking getLocalGateways.
 type GetLocalGatewaysArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetLocalGatewaysFilter `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local_gateways.
@@ -86,6 +92,9 @@ func GetLocalGatewaysOutput(ctx *pulumi.Context, args GetLocalGatewaysOutputArgs
 // A collection of arguments for invoking getLocalGateways.
 type GetLocalGatewaysOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetLocalGatewaysFilterArrayInput `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local_gateways.
@@ -109,6 +118,12 @@ func (o GetLocalGatewaysResultOutput) ToGetLocalGatewaysResultOutput() GetLocalG
 
 func (o GetLocalGatewaysResultOutput) ToGetLocalGatewaysResultOutputWithContext(ctx context.Context) GetLocalGatewaysResultOutput {
 	return o
+}
+
+func (o GetLocalGatewaysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewaysResult] {
+	return pulumix.Output[GetLocalGatewaysResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalGatewaysResultOutput) Filters() GetLocalGatewaysFilterArrayOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,6 +81,7 @@ func NewInstancePublicPorts(ctx *pulumi.Context,
 	if args.PortInfos == nil {
 		return nil, errors.New("invalid value for required argument 'PortInfos'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstancePublicPorts
 	err := ctx.RegisterResource("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, args, &resource, opts...)
 	if err != nil {
@@ -156,6 +159,12 @@ func (i *InstancePublicPorts) ToInstancePublicPortsOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsOutput)
 }
 
+func (i *InstancePublicPorts) ToOutput(ctx context.Context) pulumix.Output[*InstancePublicPorts] {
+	return pulumix.Output[*InstancePublicPorts]{
+		OutputState: i.ToInstancePublicPortsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstancePublicPortsArrayInput is an input type that accepts InstancePublicPortsArray and InstancePublicPortsArrayOutput values.
 // You can construct a concrete instance of `InstancePublicPortsArrayInput` via:
 //
@@ -179,6 +188,12 @@ func (i InstancePublicPortsArray) ToInstancePublicPortsArrayOutput() InstancePub
 
 func (i InstancePublicPortsArray) ToInstancePublicPortsArrayOutputWithContext(ctx context.Context) InstancePublicPortsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsArrayOutput)
+}
+
+func (i InstancePublicPortsArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstancePublicPorts] {
+	return pulumix.Output[[]*InstancePublicPorts]{
+		OutputState: i.ToInstancePublicPortsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstancePublicPortsMapInput is an input type that accepts InstancePublicPortsMap and InstancePublicPortsMapOutput values.
@@ -206,6 +221,12 @@ func (i InstancePublicPortsMap) ToInstancePublicPortsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsMapOutput)
 }
 
+func (i InstancePublicPortsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstancePublicPorts] {
+	return pulumix.Output[map[string]*InstancePublicPorts]{
+		OutputState: i.ToInstancePublicPortsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstancePublicPortsOutput struct{ *pulumi.OutputState }
 
 func (InstancePublicPortsOutput) ElementType() reflect.Type {
@@ -218,6 +239,12 @@ func (o InstancePublicPortsOutput) ToInstancePublicPortsOutput() InstancePublicP
 
 func (o InstancePublicPortsOutput) ToInstancePublicPortsOutputWithContext(ctx context.Context) InstancePublicPortsOutput {
 	return o
+}
+
+func (o InstancePublicPortsOutput) ToOutput(ctx context.Context) pulumix.Output[*InstancePublicPorts] {
+	return pulumix.Output[*InstancePublicPorts]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the Lightsail Instance.
@@ -244,6 +271,12 @@ func (o InstancePublicPortsArrayOutput) ToInstancePublicPortsArrayOutputWithCont
 	return o
 }
 
+func (o InstancePublicPortsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstancePublicPorts] {
+	return pulumix.Output[[]*InstancePublicPorts]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstancePublicPortsArrayOutput) Index(i pulumi.IntInput) InstancePublicPortsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstancePublicPorts {
 		return vs[0].([]*InstancePublicPorts)[vs[1].(int)]
@@ -262,6 +295,12 @@ func (o InstancePublicPortsMapOutput) ToInstancePublicPortsMapOutput() InstanceP
 
 func (o InstancePublicPortsMapOutput) ToInstancePublicPortsMapOutputWithContext(ctx context.Context) InstancePublicPortsMapOutput {
 	return o
+}
+
+func (o InstancePublicPortsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstancePublicPorts] {
+	return pulumix.Output[map[string]*InstancePublicPorts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstancePublicPortsMapOutput) MapIndex(k pulumi.StringInput) InstancePublicPortsOutput {

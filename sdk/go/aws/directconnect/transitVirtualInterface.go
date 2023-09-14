@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Direct Connect transit virtual interface resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // ## Import
 //
-// Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.,
+// Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
 //
 // ```sh
 //
@@ -120,6 +122,7 @@ func NewTransitVirtualInterface(ctx *pulumi.Context,
 	if args.Vlan == nil {
 		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", name, args, &resource, opts...)
 	if err != nil {
@@ -299,6 +302,12 @@ func (i *TransitVirtualInterface) ToTransitVirtualInterfaceOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfaceOutput)
 }
 
+func (i *TransitVirtualInterface) ToOutput(ctx context.Context) pulumix.Output[*TransitVirtualInterface] {
+	return pulumix.Output[*TransitVirtualInterface]{
+		OutputState: i.ToTransitVirtualInterfaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitVirtualInterfaceArrayInput is an input type that accepts TransitVirtualInterfaceArray and TransitVirtualInterfaceArrayOutput values.
 // You can construct a concrete instance of `TransitVirtualInterfaceArrayInput` via:
 //
@@ -322,6 +331,12 @@ func (i TransitVirtualInterfaceArray) ToTransitVirtualInterfaceArrayOutput() Tra
 
 func (i TransitVirtualInterfaceArray) ToTransitVirtualInterfaceArrayOutputWithContext(ctx context.Context) TransitVirtualInterfaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfaceArrayOutput)
+}
+
+func (i TransitVirtualInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*TransitVirtualInterface] {
+	return pulumix.Output[[]*TransitVirtualInterface]{
+		OutputState: i.ToTransitVirtualInterfaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TransitVirtualInterfaceMapInput is an input type that accepts TransitVirtualInterfaceMap and TransitVirtualInterfaceMapOutput values.
@@ -349,6 +364,12 @@ func (i TransitVirtualInterfaceMap) ToTransitVirtualInterfaceMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfaceMapOutput)
 }
 
+func (i TransitVirtualInterfaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitVirtualInterface] {
+	return pulumix.Output[map[string]*TransitVirtualInterface]{
+		OutputState: i.ToTransitVirtualInterfaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (TransitVirtualInterfaceOutput) ElementType() reflect.Type {
@@ -361,6 +382,12 @@ func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfaceOutput() Transit
 
 func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput {
 	return o
+}
+
+func (o TransitVirtualInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitVirtualInterface] {
+	return pulumix.Output[*TransitVirtualInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The address family for the BGP peer. ` ipv4  ` or `ipv6`.
@@ -462,6 +489,12 @@ func (o TransitVirtualInterfaceArrayOutput) ToTransitVirtualInterfaceArrayOutput
 	return o
 }
 
+func (o TransitVirtualInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TransitVirtualInterface] {
+	return pulumix.Output[[]*TransitVirtualInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransitVirtualInterfaceArrayOutput) Index(i pulumi.IntInput) TransitVirtualInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitVirtualInterface {
 		return vs[0].([]*TransitVirtualInterface)[vs[1].(int)]
@@ -480,6 +513,12 @@ func (o TransitVirtualInterfaceMapOutput) ToTransitVirtualInterfaceMapOutput() T
 
 func (o TransitVirtualInterfaceMapOutput) ToTransitVirtualInterfaceMapOutputWithContext(ctx context.Context) TransitVirtualInterfaceMapOutput {
 	return o
+}
+
+func (o TransitVirtualInterfaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitVirtualInterface] {
+	return pulumix.Output[map[string]*TransitVirtualInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitVirtualInterfaceMapOutput) MapIndex(k pulumi.StringInput) TransitVirtualInterfaceOutput {

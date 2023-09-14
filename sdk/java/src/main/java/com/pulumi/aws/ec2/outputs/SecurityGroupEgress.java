@@ -57,6 +57,10 @@ public final class SecurityGroupEgress {
     /**
      * @return End range port (or ICMP code if protocol is `icmp`).
      * 
+     * The following arguments are optional:
+     * 
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
+     * 
      */
     private Integer toPort;
 
@@ -119,6 +123,10 @@ public final class SecurityGroupEgress {
     }
     /**
      * @return End range port (or ICMP code if protocol is `icmp`).
+     * 
+     * The following arguments are optional:
+     * 
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
      * 
      */
     public Integer toPort() {

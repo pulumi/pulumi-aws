@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `name` to import a keyspace. For example
+ * Using `pulumi import`, import a keyspace using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
@@ -60,6 +60,8 @@ export class Keyspace extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the keyspace to be created.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -110,6 +112,8 @@ export interface KeyspaceState {
     arn?: pulumi.Input<string>;
     /**
      * The name of the keyspace to be created.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -128,6 +132,8 @@ export interface KeyspaceState {
 export interface KeyspaceArgs {
     /**
      * The name of the keyspace to be created.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

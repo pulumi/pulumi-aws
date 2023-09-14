@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a global network.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupGlobalNetwork(ctx *pulumi.Context, args *LookupGlobalNetworkArgs, opts ...pulumi.InvokeOption) (*LookupGlobalNetworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGlobalNetworkResult
 	err := ctx.Invoke("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args, &rv, opts...)
 	if err != nil {
@@ -105,6 +108,12 @@ func (o LookupGlobalNetworkResultOutput) ToLookupGlobalNetworkResultOutput() Loo
 
 func (o LookupGlobalNetworkResultOutput) ToLookupGlobalNetworkResultOutputWithContext(ctx context.Context) LookupGlobalNetworkResultOutput {
 	return o
+}
+
+func (o LookupGlobalNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGlobalNetworkResult] {
+	return pulumix.Output[LookupGlobalNetworkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the global network.

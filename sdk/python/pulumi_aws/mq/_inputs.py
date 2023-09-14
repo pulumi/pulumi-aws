@@ -418,12 +418,16 @@ class BrokerUserArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
                  console_access: Optional[pulumi.Input[bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 replication_user: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] password: Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
         :param pulumi.Input[str] username: Username of the user.
+               
+               > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         :param pulumi.Input[bool] console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+        :param pulumi.Input[bool] replication_user: Whether to set set replication user. Defaults to `false`.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -431,6 +435,8 @@ class BrokerUserArgs:
             pulumi.set(__self__, "console_access", console_access)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if replication_user is not None:
+            pulumi.set(__self__, "replication_user", replication_user)
 
     @property
     @pulumi.getter
@@ -449,6 +455,8 @@ class BrokerUserArgs:
     def username(self) -> pulumi.Input[str]:
         """
         Username of the user.
+
+        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         """
         return pulumi.get(self, "username")
 
@@ -479,5 +487,17 @@ class BrokerUserArgs:
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="replicationUser")
+    def replication_user(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to set set replication user. Defaults to `false`.
+        """
+        return pulumi.get(self, "replication_user")
+
+    @replication_user.setter
+    def replication_user(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replication_user", value)
 
 

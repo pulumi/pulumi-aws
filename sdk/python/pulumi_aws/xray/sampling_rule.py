@@ -500,7 +500,7 @@ class SamplingRule(pulumi.CustomResource):
             fixed_rate=0.05,
             host="*",
             http_method="*",
-            priority=10000,
+            priority=9999,
             reservoir_size=1,
             resource_arn="*",
             rule_name="example",
@@ -512,7 +512,7 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Import
 
-        XRay Sampling Rules can be imported using the name, e.g.,
+        Using `pulumi import`, import XRay Sampling Rules using the name. For example:
 
         ```sh
          $ pulumi import aws:xray/samplingRule:SamplingRule example example
@@ -556,7 +556,7 @@ class SamplingRule(pulumi.CustomResource):
             fixed_rate=0.05,
             host="*",
             http_method="*",
-            priority=10000,
+            priority=9999,
             reservoir_size=1,
             resource_arn="*",
             rule_name="example",
@@ -568,7 +568,7 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Import
 
-        XRay Sampling Rules can be imported using the name, e.g.,
+        Using `pulumi import`, import XRay Sampling Rules using the name. For example:
 
         ```sh
          $ pulumi import aws:xray/samplingRule:SamplingRule example example

@@ -38,6 +38,13 @@ class PipelineArgs:
         :param pulumi.Input[str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+               
+               The `content_config` object specifies information about the Amazon S3 bucket in
+               which you want Elastic Transcoder to save transcoded files and playlists: which
+               bucket to use, and the storage class that you want to assign to the files. If
+               you specify values for `content_config`, you must also specify values for
+               `thumbnail_config`. If you specify values for `content_config` and
+               `thumbnail_config`, omit the `output_bucket` object.
         """
         pulumi.set(__self__, "input_bucket", input_bucket)
         pulumi.set(__self__, "role", role)
@@ -171,6 +178,13 @@ class PipelineArgs:
     def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]:
         """
         The permissions for the `thumbnail_config` object. (documented below)
+
+        The `content_config` object specifies information about the Amazon S3 bucket in
+        which you want Elastic Transcoder to save transcoded files and playlists: which
+        bucket to use, and the storage class that you want to assign to the files. If
+        you specify values for `content_config`, you must also specify values for
+        `thumbnail_config`. If you specify values for `content_config` and
+        `thumbnail_config`, omit the `output_bucket` object.
         """
         return pulumi.get(self, "thumbnail_config_permissions")
 
@@ -206,6 +220,13 @@ class _PipelineState:
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+               
+               The `content_config` object specifies information about the Amazon S3 bucket in
+               which you want Elastic Transcoder to save transcoded files and playlists: which
+               bucket to use, and the storage class that you want to assign to the files. If
+               you specify values for `content_config`, you must also specify values for
+               `thumbnail_config`. If you specify values for `content_config` and
+               `thumbnail_config`, omit the `output_bucket` object.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -355,6 +376,13 @@ class _PipelineState:
     def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]:
         """
         The permissions for the `thumbnail_config` object. (documented below)
+
+        The `content_config` object specifies information about the Amazon S3 bucket in
+        which you want Elastic Transcoder to save transcoded files and playlists: which
+        bucket to use, and the storage class that you want to assign to the files. If
+        you specify values for `content_config`, you must also specify values for
+        `thumbnail_config`. If you specify values for `content_config` and
+        `thumbnail_config`, omit the `output_bucket` object.
         """
         return pulumi.get(self, "thumbnail_config_permissions")
 
@@ -403,7 +431,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Transcoder pipelines can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
         ```sh
          $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
@@ -421,6 +449,13 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArgs']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArgs']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+               
+               The `content_config` object specifies information about the Amazon S3 bucket in
+               which you want Elastic Transcoder to save transcoded files and playlists: which
+               bucket to use, and the storage class that you want to assign to the files. If
+               you specify values for `content_config`, you must also specify values for
+               `thumbnail_config`. If you specify values for `content_config` and
+               `thumbnail_config`, omit the `output_bucket` object.
         """
         ...
     @overload
@@ -452,7 +487,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Transcoder pipelines can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
         ```sh
          $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
@@ -546,6 +581,13 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArgs']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArgs']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+               
+               The `content_config` object specifies information about the Amazon S3 bucket in
+               which you want Elastic Transcoder to save transcoded files and playlists: which
+               bucket to use, and the storage class that you want to assign to the files. If
+               you specify values for `content_config`, you must also specify values for
+               `thumbnail_config`. If you specify values for `content_config` and
+               `thumbnail_config`, omit the `output_bucket` object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -649,6 +691,13 @@ class Pipeline(pulumi.CustomResource):
     def thumbnail_config_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineThumbnailConfigPermission']]]:
         """
         The permissions for the `thumbnail_config` object. (documented below)
+
+        The `content_config` object specifies information about the Amazon S3 bucket in
+        which you want Elastic Transcoder to save transcoded files and playlists: which
+        bucket to use, and the storage class that you want to assign to the files. If
+        you specify values for `content_config`, you must also specify values for
+        `thumbnail_config`. If you specify values for `content_config` and
+        `thumbnail_config`, omit the `output_bucket` object.
         """
         return pulumi.get(self, "thumbnail_config_permissions")
 

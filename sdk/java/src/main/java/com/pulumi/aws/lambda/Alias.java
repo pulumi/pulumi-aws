@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
+ * Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias

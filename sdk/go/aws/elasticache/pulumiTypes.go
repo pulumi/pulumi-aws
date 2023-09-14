@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ClusterCacheNode struct {
 	Address *string `pulumi:"address"`
@@ -53,6 +57,12 @@ func (i ClusterCacheNodeArgs) ToClusterCacheNodeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCacheNodeOutput)
 }
 
+func (i ClusterCacheNodeArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCacheNode] {
+	return pulumix.Output[ClusterCacheNode]{
+		OutputState: i.ToClusterCacheNodeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterCacheNodeArrayInput is an input type that accepts ClusterCacheNodeArray and ClusterCacheNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterCacheNodeArrayInput` via:
 //
@@ -78,6 +88,12 @@ func (i ClusterCacheNodeArray) ToClusterCacheNodeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCacheNodeArrayOutput)
 }
 
+func (i ClusterCacheNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCacheNode] {
+	return pulumix.Output[[]ClusterCacheNode]{
+		OutputState: i.ToClusterCacheNodeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterCacheNodeOutput struct{ *pulumi.OutputState }
 
 func (ClusterCacheNodeOutput) ElementType() reflect.Type {
@@ -90,6 +106,12 @@ func (o ClusterCacheNodeOutput) ToClusterCacheNodeOutput() ClusterCacheNodeOutpu
 
 func (o ClusterCacheNodeOutput) ToClusterCacheNodeOutputWithContext(ctx context.Context) ClusterCacheNodeOutput {
 	return o
+}
+
+func (o ClusterCacheNodeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCacheNode] {
+	return pulumix.Output[ClusterCacheNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterCacheNodeOutput) Address() pulumi.StringPtrOutput {
@@ -126,6 +148,12 @@ func (o ClusterCacheNodeArrayOutput) ToClusterCacheNodeArrayOutput() ClusterCach
 
 func (o ClusterCacheNodeArrayOutput) ToClusterCacheNodeArrayOutputWithContext(ctx context.Context) ClusterCacheNodeArrayOutput {
 	return o
+}
+
+func (o ClusterCacheNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCacheNode] {
+	return pulumix.Output[[]ClusterCacheNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) ClusterCacheNodeOutput {
@@ -179,6 +207,12 @@ func (i ClusterLogDeliveryConfigurationArgs) ToClusterLogDeliveryConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLogDeliveryConfigurationOutput)
 }
 
+func (i ClusterLogDeliveryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLogDeliveryConfiguration] {
+	return pulumix.Output[ClusterLogDeliveryConfiguration]{
+		OutputState: i.ToClusterLogDeliveryConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterLogDeliveryConfigurationArrayInput is an input type that accepts ClusterLogDeliveryConfigurationArray and ClusterLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `ClusterLogDeliveryConfigurationArrayInput` via:
 //
@@ -204,6 +238,12 @@ func (i ClusterLogDeliveryConfigurationArray) ToClusterLogDeliveryConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLogDeliveryConfigurationArrayOutput)
 }
 
+func (i ClusterLogDeliveryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterLogDeliveryConfiguration] {
+	return pulumix.Output[[]ClusterLogDeliveryConfiguration]{
+		OutputState: i.ToClusterLogDeliveryConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterLogDeliveryConfigurationOutput) ElementType() reflect.Type {
@@ -216,6 +256,12 @@ func (o ClusterLogDeliveryConfigurationOutput) ToClusterLogDeliveryConfiguration
 
 func (o ClusterLogDeliveryConfigurationOutput) ToClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) ClusterLogDeliveryConfigurationOutput {
 	return o
+}
+
+func (o ClusterLogDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLogDeliveryConfiguration] {
+	return pulumix.Output[ClusterLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
@@ -250,6 +296,12 @@ func (o ClusterLogDeliveryConfigurationArrayOutput) ToClusterLogDeliveryConfigur
 
 func (o ClusterLogDeliveryConfigurationArrayOutput) ToClusterLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) ClusterLogDeliveryConfigurationArrayOutput {
 	return o
+}
+
+func (o ClusterLogDeliveryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterLogDeliveryConfiguration] {
+	return pulumix.Output[[]ClusterLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) ClusterLogDeliveryConfigurationOutput {
@@ -295,6 +347,12 @@ func (i GlobalReplicationGroupGlobalNodeGroupArgs) ToGlobalReplicationGroupGloba
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalNodeGroupOutput)
 }
 
+func (i GlobalReplicationGroupGlobalNodeGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupGlobalNodeGroup] {
+	return pulumix.Output[GlobalReplicationGroupGlobalNodeGroup]{
+		OutputState: i.ToGlobalReplicationGroupGlobalNodeGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GlobalReplicationGroupGlobalNodeGroupArrayInput is an input type that accepts GlobalReplicationGroupGlobalNodeGroupArray and GlobalReplicationGroupGlobalNodeGroupArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupGlobalNodeGroupArrayInput` via:
 //
@@ -320,6 +378,12 @@ func (i GlobalReplicationGroupGlobalNodeGroupArray) ToGlobalReplicationGroupGlob
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalNodeGroupArrayOutput)
 }
 
+func (i GlobalReplicationGroupGlobalNodeGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupGlobalNodeGroup] {
+	return pulumix.Output[[]GlobalReplicationGroupGlobalNodeGroup]{
+		OutputState: i.ToGlobalReplicationGroupGlobalNodeGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalReplicationGroupGlobalNodeGroupOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupGlobalNodeGroupOutput) ElementType() reflect.Type {
@@ -332,6 +396,12 @@ func (o GlobalReplicationGroupGlobalNodeGroupOutput) ToGlobalReplicationGroupGlo
 
 func (o GlobalReplicationGroupGlobalNodeGroupOutput) ToGlobalReplicationGroupGlobalNodeGroupOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalNodeGroupOutput {
 	return o
+}
+
+func (o GlobalReplicationGroupGlobalNodeGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupGlobalNodeGroup] {
+	return pulumix.Output[GlobalReplicationGroupGlobalNodeGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the global node group.
@@ -356,6 +426,12 @@ func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) ToGlobalReplicationGro
 
 func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) ToGlobalReplicationGroupGlobalNodeGroupArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalNodeGroupArrayOutput {
 	return o
+}
+
+func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupGlobalNodeGroup] {
+	return pulumix.Output[[]GlobalReplicationGroupGlobalNodeGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupGlobalNodeGroupOutput {
@@ -401,6 +477,12 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
+func (i ParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
+	return pulumix.Output[ParameterGroupParameter]{
+		OutputState: i.ToParameterGroupParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
@@ -426,6 +508,12 @@ func (i ParameterGroupParameterArray) ToParameterGroupParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterArrayOutput)
 }
 
+func (i ParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
+	return pulumix.Output[[]ParameterGroupParameter]{
+		OutputState: i.ToParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -438,6 +526,12 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutput() Paramet
 
 func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContext(ctx context.Context) ParameterGroupParameterOutput {
 	return o
+}
+
+func (o ParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
+	return pulumix.Output[ParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the ElastiCache parameter.
@@ -464,182 +558,16 @@ func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutput
 	return o
 }
 
+func (o ParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
+	return pulumix.Output[[]ParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGroupParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroupParameter {
 		return vs[0].([]ParameterGroupParameter)[vs[1].(int)]
 	}).(ParameterGroupParameterOutput)
-}
-
-type ReplicationGroupClusterMode struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-	//
-	// Deprecated: Use root-level num_node_groups instead
-	NumNodeGroups *int `pulumi:"numNodeGroups"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	//
-	// Deprecated: Use root-level replicas_per_node_group instead
-	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
-}
-
-// ReplicationGroupClusterModeInput is an input type that accepts ReplicationGroupClusterModeArgs and ReplicationGroupClusterModeOutput values.
-// You can construct a concrete instance of `ReplicationGroupClusterModeInput` via:
-//
-//	ReplicationGroupClusterModeArgs{...}
-type ReplicationGroupClusterModeInput interface {
-	pulumi.Input
-
-	ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput
-	ToReplicationGroupClusterModeOutputWithContext(context.Context) ReplicationGroupClusterModeOutput
-}
-
-type ReplicationGroupClusterModeArgs struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-	//
-	// Deprecated: Use root-level num_node_groups instead
-	NumNodeGroups pulumi.IntPtrInput `pulumi:"numNodeGroups"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	//
-	// Deprecated: Use root-level replicas_per_node_group instead
-	ReplicasPerNodeGroup pulumi.IntPtrInput `pulumi:"replicasPerNodeGroup"`
-}
-
-func (ReplicationGroupClusterModeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput {
-	return i.ToReplicationGroupClusterModeOutputWithContext(context.Background())
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModeOutputWithContext(ctx context.Context) ReplicationGroupClusterModeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupClusterModeOutput)
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return i.ToReplicationGroupClusterModePtrOutputWithContext(context.Background())
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupClusterModeOutput).ToReplicationGroupClusterModePtrOutputWithContext(ctx)
-}
-
-// ReplicationGroupClusterModePtrInput is an input type that accepts ReplicationGroupClusterModeArgs, ReplicationGroupClusterModePtr and ReplicationGroupClusterModePtrOutput values.
-// You can construct a concrete instance of `ReplicationGroupClusterModePtrInput` via:
-//
-//	        ReplicationGroupClusterModeArgs{...}
-//
-//	or:
-//
-//	        nil
-type ReplicationGroupClusterModePtrInput interface {
-	pulumi.Input
-
-	ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput
-	ToReplicationGroupClusterModePtrOutputWithContext(context.Context) ReplicationGroupClusterModePtrOutput
-}
-
-type replicationGroupClusterModePtrType ReplicationGroupClusterModeArgs
-
-func ReplicationGroupClusterModePtr(v *ReplicationGroupClusterModeArgs) ReplicationGroupClusterModePtrInput {
-	return (*replicationGroupClusterModePtrType)(v)
-}
-
-func (*replicationGroupClusterModePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (i *replicationGroupClusterModePtrType) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return i.ToReplicationGroupClusterModePtrOutputWithContext(context.Background())
-}
-
-func (i *replicationGroupClusterModePtrType) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupClusterModePtrOutput)
-}
-
-type ReplicationGroupClusterModeOutput struct{ *pulumi.OutputState }
-
-func (ReplicationGroupClusterModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModeOutputWithContext(ctx context.Context) ReplicationGroupClusterModeOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return o.ToReplicationGroupClusterModePtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupClusterMode) *ReplicationGroupClusterMode {
-		return &v
-	}).(ReplicationGroupClusterModePtrOutput)
-}
-
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-//
-// Deprecated: Use root-level num_node_groups instead
-func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
-}
-
-// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-//
-// Deprecated: Use root-level replicas_per_node_group instead
-func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
-}
-
-type ReplicationGroupClusterModePtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationGroupClusterModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (o ReplicationGroupClusterModePtrOutput) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModePtrOutput) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterModeOutput {
-	return o.ApplyT(func(v *ReplicationGroupClusterMode) ReplicationGroupClusterMode {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationGroupClusterMode
-		return ret
-	}).(ReplicationGroupClusterModeOutput)
-}
-
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-//
-// Deprecated: Use root-level num_node_groups instead
-func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NumNodeGroups
-	}).(pulumi.IntPtrOutput)
-}
-
-// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-//
-// Deprecated: Use root-level replicas_per_node_group instead
-func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ReplicasPerNodeGroup
-	}).(pulumi.IntPtrOutput)
 }
 
 type ReplicationGroupLogDeliveryConfiguration struct {
@@ -687,6 +615,12 @@ func (i ReplicationGroupLogDeliveryConfigurationArgs) ToReplicationGroupLogDeliv
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+func (i ReplicationGroupLogDeliveryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[ReplicationGroupLogDeliveryConfiguration]{
+		OutputState: i.ToReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationGroupLogDeliveryConfigurationArrayInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationArray and ReplicationGroupLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationArrayInput` via:
 //
@@ -712,6 +646,12 @@ func (i ReplicationGroupLogDeliveryConfigurationArray) ToReplicationGroupLogDeli
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationArrayOutput)
 }
 
+func (i ReplicationGroupLogDeliveryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[[]ReplicationGroupLogDeliveryConfiguration]{
+		OutputState: i.ToReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationGroupLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupLogDeliveryConfigurationOutput) ElementType() reflect.Type {
@@ -724,6 +664,12 @@ func (o ReplicationGroupLogDeliveryConfigurationOutput) ToReplicationGroupLogDel
 
 func (o ReplicationGroupLogDeliveryConfigurationOutput) ToReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationOutput {
 	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[ReplicationGroupLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
@@ -758,6 +704,12 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) ToReplicationGroupL
 
 func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) ToReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationArrayOutput {
 	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[[]ReplicationGroupLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationGroupLogDeliveryConfigurationOutput {
@@ -805,6 +757,12 @@ func (i UserAuthenticationModeArgs) ToUserAuthenticationModeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationModeOutput)
 }
 
+func (i UserAuthenticationModeArgs) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationMode] {
+	return pulumix.Output[UserAuthenticationMode]{
+		OutputState: i.ToUserAuthenticationModeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i UserAuthenticationModeArgs) ToUserAuthenticationModePtrOutput() UserAuthenticationModePtrOutput {
 	return i.ToUserAuthenticationModePtrOutputWithContext(context.Background())
 }
@@ -846,6 +804,12 @@ func (i *userAuthenticationModePtrType) ToUserAuthenticationModePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationModePtrOutput)
 }
 
+func (i *userAuthenticationModePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationMode] {
+	return pulumix.Output[*UserAuthenticationMode]{
+		OutputState: i.ToUserAuthenticationModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserAuthenticationModeOutput struct{ *pulumi.OutputState }
 
 func (UserAuthenticationModeOutput) ElementType() reflect.Type {
@@ -868,6 +832,12 @@ func (o UserAuthenticationModeOutput) ToUserAuthenticationModePtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAuthenticationMode) *UserAuthenticationMode {
 		return &v
 	}).(UserAuthenticationModePtrOutput)
+}
+
+func (o UserAuthenticationModeOutput) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationMode] {
+	return pulumix.Output[UserAuthenticationMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserAuthenticationModeOutput) PasswordCount() pulumi.IntPtrOutput {
@@ -896,6 +866,12 @@ func (o UserAuthenticationModePtrOutput) ToUserAuthenticationModePtrOutput() Use
 
 func (o UserAuthenticationModePtrOutput) ToUserAuthenticationModePtrOutputWithContext(ctx context.Context) UserAuthenticationModePtrOutput {
 	return o
+}
+
+func (o UserAuthenticationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationMode] {
+	return pulumix.Output[*UserAuthenticationMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserAuthenticationModePtrOutput) Elem() UserAuthenticationModeOutput {
@@ -982,6 +958,12 @@ func (i GetClusterCacheNodeArgs) ToGetClusterCacheNodeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCacheNodeOutput)
 }
 
+func (i GetClusterCacheNodeArgs) ToOutput(ctx context.Context) pulumix.Output[GetClusterCacheNode] {
+	return pulumix.Output[GetClusterCacheNode]{
+		OutputState: i.ToGetClusterCacheNodeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetClusterCacheNodeArrayInput is an input type that accepts GetClusterCacheNodeArray and GetClusterCacheNodeArrayOutput values.
 // You can construct a concrete instance of `GetClusterCacheNodeArrayInput` via:
 //
@@ -1007,6 +989,12 @@ func (i GetClusterCacheNodeArray) ToGetClusterCacheNodeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCacheNodeArrayOutput)
 }
 
+func (i GetClusterCacheNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterCacheNode] {
+	return pulumix.Output[[]GetClusterCacheNode]{
+		OutputState: i.ToGetClusterCacheNodeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetClusterCacheNodeOutput struct{ *pulumi.OutputState }
 
 func (GetClusterCacheNodeOutput) ElementType() reflect.Type {
@@ -1019,6 +1007,12 @@ func (o GetClusterCacheNodeOutput) ToGetClusterCacheNodeOutput() GetClusterCache
 
 func (o GetClusterCacheNodeOutput) ToGetClusterCacheNodeOutputWithContext(ctx context.Context) GetClusterCacheNodeOutput {
 	return o
+}
+
+func (o GetClusterCacheNodeOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterCacheNode] {
+	return pulumix.Output[GetClusterCacheNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterCacheNodeOutput) Address() pulumi.StringOutput {
@@ -1056,6 +1050,12 @@ func (o GetClusterCacheNodeArrayOutput) ToGetClusterCacheNodeArrayOutput() GetCl
 
 func (o GetClusterCacheNodeArrayOutput) ToGetClusterCacheNodeArrayOutputWithContext(ctx context.Context) GetClusterCacheNodeArrayOutput {
 	return o
+}
+
+func (o GetClusterCacheNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterCacheNode] {
+	return pulumix.Output[[]GetClusterCacheNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) GetClusterCacheNodeOutput {
@@ -1101,6 +1101,12 @@ func (i GetClusterLogDeliveryConfigurationArgs) ToGetClusterLogDeliveryConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLogDeliveryConfigurationOutput)
 }
 
+func (i GetClusterLogDeliveryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetClusterLogDeliveryConfiguration] {
+	return pulumix.Output[GetClusterLogDeliveryConfiguration]{
+		OutputState: i.ToGetClusterLogDeliveryConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetClusterLogDeliveryConfigurationArrayInput is an input type that accepts GetClusterLogDeliveryConfigurationArray and GetClusterLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetClusterLogDeliveryConfigurationArrayInput` via:
 //
@@ -1126,6 +1132,12 @@ func (i GetClusterLogDeliveryConfigurationArray) ToGetClusterLogDeliveryConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLogDeliveryConfigurationArrayOutput)
 }
 
+func (i GetClusterLogDeliveryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterLogDeliveryConfiguration] {
+	return pulumix.Output[[]GetClusterLogDeliveryConfiguration]{
+		OutputState: i.ToGetClusterLogDeliveryConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetClusterLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetClusterLogDeliveryConfigurationOutput) ElementType() reflect.Type {
@@ -1138,6 +1150,12 @@ func (o GetClusterLogDeliveryConfigurationOutput) ToGetClusterLogDeliveryConfigu
 
 func (o GetClusterLogDeliveryConfigurationOutput) ToGetClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) GetClusterLogDeliveryConfigurationOutput {
 	return o
+}
+
+func (o GetClusterLogDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterLogDeliveryConfiguration] {
+	return pulumix.Output[GetClusterLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
@@ -1168,6 +1186,12 @@ func (o GetClusterLogDeliveryConfigurationArrayOutput) ToGetClusterLogDeliveryCo
 
 func (o GetClusterLogDeliveryConfigurationArrayOutput) ToGetClusterLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) GetClusterLogDeliveryConfigurationArrayOutput {
 	return o
+}
+
+func (o GetClusterLogDeliveryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterLogDeliveryConfiguration] {
+	return pulumix.Output[[]GetClusterLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) GetClusterLogDeliveryConfigurationOutput {
@@ -1213,6 +1237,12 @@ func (i GetReplicationGroupLogDeliveryConfigurationArgs) ToGetReplicationGroupLo
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+func (i GetReplicationGroupLogDeliveryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[GetReplicationGroupLogDeliveryConfiguration]{
+		OutputState: i.ToGetReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReplicationGroupLogDeliveryConfigurationArrayInput is an input type that accepts GetReplicationGroupLogDeliveryConfigurationArray and GetReplicationGroupLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetReplicationGroupLogDeliveryConfigurationArrayInput` via:
 //
@@ -1238,6 +1268,12 @@ func (i GetReplicationGroupLogDeliveryConfigurationArray) ToGetReplicationGroupL
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationGroupLogDeliveryConfigurationArrayOutput)
 }
 
+func (i GetReplicationGroupLogDeliveryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[[]GetReplicationGroupLogDeliveryConfiguration]{
+		OutputState: i.ToGetReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReplicationGroupLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetReplicationGroupLogDeliveryConfigurationOutput) ElementType() reflect.Type {
@@ -1250,6 +1286,12 @@ func (o GetReplicationGroupLogDeliveryConfigurationOutput) ToGetReplicationGroup
 
 func (o GetReplicationGroupLogDeliveryConfigurationOutput) ToGetReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx context.Context) GetReplicationGroupLogDeliveryConfigurationOutput {
 	return o
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[GetReplicationGroupLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReplicationGroupLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
@@ -1280,6 +1322,12 @@ func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) ToGetReplication
 
 func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) ToGetReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) GetReplicationGroupLogDeliveryConfigurationArrayOutput {
 	return o
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationGroupLogDeliveryConfiguration] {
+	return pulumix.Output[[]GetReplicationGroupLogDeliveryConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) GetReplicationGroupLogDeliveryConfigurationOutput {
@@ -1321,6 +1369,12 @@ func (i GetUserAuthenticationModeArgs) ToGetUserAuthenticationModeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAuthenticationModeOutput)
 }
 
+func (i GetUserAuthenticationModeArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserAuthenticationMode] {
+	return pulumix.Output[GetUserAuthenticationMode]{
+		OutputState: i.ToGetUserAuthenticationModeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUserAuthenticationModeArrayInput is an input type that accepts GetUserAuthenticationModeArray and GetUserAuthenticationModeArrayOutput values.
 // You can construct a concrete instance of `GetUserAuthenticationModeArrayInput` via:
 //
@@ -1346,6 +1400,12 @@ func (i GetUserAuthenticationModeArray) ToGetUserAuthenticationModeArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAuthenticationModeArrayOutput)
 }
 
+func (i GetUserAuthenticationModeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUserAuthenticationMode] {
+	return pulumix.Output[[]GetUserAuthenticationMode]{
+		OutputState: i.ToGetUserAuthenticationModeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserAuthenticationModeOutput struct{ *pulumi.OutputState }
 
 func (GetUserAuthenticationModeOutput) ElementType() reflect.Type {
@@ -1358,6 +1418,12 @@ func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutput() Get
 
 func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutputWithContext(ctx context.Context) GetUserAuthenticationModeOutput {
 	return o
+}
+
+func (o GetUserAuthenticationModeOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserAuthenticationMode] {
+	return pulumix.Output[GetUserAuthenticationMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserAuthenticationModeOutput) PasswordCount() pulumi.IntPtrOutput {
@@ -1382,6 +1448,12 @@ func (o GetUserAuthenticationModeArrayOutput) ToGetUserAuthenticationModeArrayOu
 	return o
 }
 
+func (o GetUserAuthenticationModeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUserAuthenticationMode] {
+	return pulumix.Output[[]GetUserAuthenticationMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetUserAuthenticationModeArrayOutput) Index(i pulumi.IntInput) GetUserAuthenticationModeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserAuthenticationMode {
 		return vs[0].([]GetUserAuthenticationMode)[vs[1].(int)]
@@ -1397,8 +1469,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupGlobalNodeGroupArrayInput)(nil)).Elem(), GlobalReplicationGroupGlobalNodeGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModeInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModePtrInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModeInput)(nil)).Elem(), UserAuthenticationModeArgs{})
@@ -1419,8 +1489,6 @@ func init() {
 	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalNodeGroupArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
-	pulumi.RegisterOutputType(ReplicationGroupClusterModeOutput{})
-	pulumi.RegisterOutputType(ReplicationGroupClusterModePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModeOutput{})

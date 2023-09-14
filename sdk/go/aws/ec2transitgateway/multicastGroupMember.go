@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Registers members (network interfaces) with the transit gateway multicast group.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +70,7 @@ func NewMulticastGroupMember(ctx *pulumi.Context,
 	if args.TransitGatewayMulticastDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MulticastGroupMember
 	err := ctx.RegisterResource("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember", name, args, &resource, opts...)
 	if err != nil {
@@ -153,6 +156,12 @@ func (i *MulticastGroupMember) ToMulticastGroupMemberOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupMemberOutput)
 }
 
+func (i *MulticastGroupMember) ToOutput(ctx context.Context) pulumix.Output[*MulticastGroupMember] {
+	return pulumix.Output[*MulticastGroupMember]{
+		OutputState: i.ToMulticastGroupMemberOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MulticastGroupMemberArrayInput is an input type that accepts MulticastGroupMemberArray and MulticastGroupMemberArrayOutput values.
 // You can construct a concrete instance of `MulticastGroupMemberArrayInput` via:
 //
@@ -176,6 +185,12 @@ func (i MulticastGroupMemberArray) ToMulticastGroupMemberArrayOutput() Multicast
 
 func (i MulticastGroupMemberArray) ToMulticastGroupMemberArrayOutputWithContext(ctx context.Context) MulticastGroupMemberArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupMemberArrayOutput)
+}
+
+func (i MulticastGroupMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastGroupMember] {
+	return pulumix.Output[[]*MulticastGroupMember]{
+		OutputState: i.ToMulticastGroupMemberArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MulticastGroupMemberMapInput is an input type that accepts MulticastGroupMemberMap and MulticastGroupMemberMapOutput values.
@@ -203,6 +218,12 @@ func (i MulticastGroupMemberMap) ToMulticastGroupMemberMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupMemberMapOutput)
 }
 
+func (i MulticastGroupMemberMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastGroupMember] {
+	return pulumix.Output[map[string]*MulticastGroupMember]{
+		OutputState: i.ToMulticastGroupMemberMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MulticastGroupMemberOutput struct{ *pulumi.OutputState }
 
 func (MulticastGroupMemberOutput) ElementType() reflect.Type {
@@ -215,6 +236,12 @@ func (o MulticastGroupMemberOutput) ToMulticastGroupMemberOutput() MulticastGrou
 
 func (o MulticastGroupMemberOutput) ToMulticastGroupMemberOutputWithContext(ctx context.Context) MulticastGroupMemberOutput {
 	return o
+}
+
+func (o MulticastGroupMemberOutput) ToOutput(ctx context.Context) pulumix.Output[*MulticastGroupMember] {
+	return pulumix.Output[*MulticastGroupMember]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IP address assigned to the transit gateway multicast group.
@@ -246,6 +273,12 @@ func (o MulticastGroupMemberArrayOutput) ToMulticastGroupMemberArrayOutputWithCo
 	return o
 }
 
+func (o MulticastGroupMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastGroupMember] {
+	return pulumix.Output[[]*MulticastGroupMember]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MulticastGroupMemberArrayOutput) Index(i pulumi.IntInput) MulticastGroupMemberOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MulticastGroupMember {
 		return vs[0].([]*MulticastGroupMember)[vs[1].(int)]
@@ -264,6 +297,12 @@ func (o MulticastGroupMemberMapOutput) ToMulticastGroupMemberMapOutput() Multica
 
 func (o MulticastGroupMemberMapOutput) ToMulticastGroupMemberMapOutputWithContext(ctx context.Context) MulticastGroupMemberMapOutput {
 	return o
+}
+
+func (o MulticastGroupMemberMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastGroupMember] {
+	return pulumix.Output[map[string]*MulticastGroupMember]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MulticastGroupMemberMapOutput) MapIndex(k pulumi.StringInput) MulticastGroupMemberOutput {

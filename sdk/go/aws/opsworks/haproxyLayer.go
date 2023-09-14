@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks haproxy layer resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,6 +94,10 @@ type HaproxyLayer struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -112,6 +118,7 @@ func NewHaproxyLayer(ctx *pulumi.Context,
 	if args.StatsPassword == nil {
 		return nil, errors.New("invalid value for required argument 'StatsPassword'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HaproxyLayer
 	err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -184,6 +191,10 @@ type haproxyLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -242,6 +253,10 @@ type HaproxyLayerState struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -302,6 +317,10 @@ type haproxyLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -357,6 +376,10 @@ type HaproxyLayerArgs struct {
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following extra optional arguments, all lists of Chef recipe names, allow
+	// custom Chef recipes to be applied to layer instances at the five different
+	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -385,6 +408,12 @@ func (i *HaproxyLayer) ToHaproxyLayerOutputWithContext(ctx context.Context) Hapr
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerOutput)
 }
 
+func (i *HaproxyLayer) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayer] {
+	return pulumix.Output[*HaproxyLayer]{
+		OutputState: i.ToHaproxyLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HaproxyLayerArrayInput is an input type that accepts HaproxyLayerArray and HaproxyLayerArrayOutput values.
 // You can construct a concrete instance of `HaproxyLayerArrayInput` via:
 //
@@ -408,6 +437,12 @@ func (i HaproxyLayerArray) ToHaproxyLayerArrayOutput() HaproxyLayerArrayOutput {
 
 func (i HaproxyLayerArray) ToHaproxyLayerArrayOutputWithContext(ctx context.Context) HaproxyLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerArrayOutput)
+}
+
+func (i HaproxyLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*HaproxyLayer] {
+	return pulumix.Output[[]*HaproxyLayer]{
+		OutputState: i.ToHaproxyLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HaproxyLayerMapInput is an input type that accepts HaproxyLayerMap and HaproxyLayerMapOutput values.
@@ -435,6 +470,12 @@ func (i HaproxyLayerMap) ToHaproxyLayerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerMapOutput)
 }
 
+func (i HaproxyLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HaproxyLayer] {
+	return pulumix.Output[map[string]*HaproxyLayer]{
+		OutputState: i.ToHaproxyLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HaproxyLayerOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerOutput) ElementType() reflect.Type {
@@ -447,6 +488,12 @@ func (o HaproxyLayerOutput) ToHaproxyLayerOutput() HaproxyLayerOutput {
 
 func (o HaproxyLayerOutput) ToHaproxyLayerOutputWithContext(ctx context.Context) HaproxyLayerOutput {
 	return o
+}
+
+func (o HaproxyLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayer] {
+	return pulumix.Output[*HaproxyLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -583,6 +630,10 @@ func (o HaproxyLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following extra optional arguments, all lists of Chef recipe names, allow
+// custom Chef recipes to be applied to layer instances at the five different
+// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 func (o HaproxyLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -611,6 +662,12 @@ func (o HaproxyLayerArrayOutput) ToHaproxyLayerArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o HaproxyLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HaproxyLayer] {
+	return pulumix.Output[[]*HaproxyLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HaproxyLayerArrayOutput) Index(i pulumi.IntInput) HaproxyLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HaproxyLayer {
 		return vs[0].([]*HaproxyLayer)[vs[1].(int)]
@@ -629,6 +686,12 @@ func (o HaproxyLayerMapOutput) ToHaproxyLayerMapOutput() HaproxyLayerMapOutput {
 
 func (o HaproxyLayerMapOutput) ToHaproxyLayerMapOutputWithContext(ctx context.Context) HaproxyLayerMapOutput {
 	return o
+}
+
+func (o HaproxyLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HaproxyLayer] {
+	return pulumix.Output[map[string]*HaproxyLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerMapOutput) MapIndex(k pulumi.StringInput) HaproxyLayerOutput {

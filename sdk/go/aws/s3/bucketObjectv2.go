@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 object resource.
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +109,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -146,7 +148,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -197,26 +199,32 @@ import (
 //
 // ## Import
 //
-// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+// Import using the `id`, which is the bucket name and the key together:
+//
+// Import using S3 URL syntax:
+//
+// __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
+//
+// Import using the `id`, which is the bucket name and the key together:
 //
 // ```sh
 //
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
+//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
 //
 // ```
 //
-//	Additionally, s3 url syntax can be used, e.g.,
+//	Import using S3 URL syntax:
 //
 // ```sh
 //
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
+//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
 //
 // ```
 type BucketObjectv2 struct {
 	pulumi.CustomResourceState
 
-	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
-	Acl pulumi.StringPtrOutput `pulumi:"acl"`
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
+	Acl pulumi.StringOutput `pulumi:"acl"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -240,6 +248,8 @@ type BucketObjectv2 struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringOutput `pulumi:"key"`
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -266,6 +276,10 @@ type BucketObjectv2 struct {
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
 }
 
@@ -285,6 +299,7 @@ func NewBucketObjectv2(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketObjectv2
 	err := ctx.RegisterResource("aws:s3/bucketObjectv2:BucketObjectv2", name, args, &resource, opts...)
 	if err != nil {
@@ -307,7 +322,7 @@ func GetBucketObjectv2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketObjectv2 resources.
 type bucketObjectv2State struct {
-	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl *string `pulumi:"acl"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket interface{} `pulumi:"bucket"`
@@ -332,6 +347,8 @@ type bucketObjectv2State struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key *string `pulumi:"key"`
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -358,11 +375,15 @@ type bucketObjectv2State struct {
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId *string `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
 type BucketObjectv2State struct {
-	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl pulumi.StringPtrInput
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.Input
@@ -387,6 +408,8 @@ type BucketObjectv2State struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringPtrInput
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringPtrInput
@@ -413,6 +436,10 @@ type BucketObjectv2State struct {
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringPtrInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -421,7 +448,7 @@ func (BucketObjectv2State) ElementType() reflect.Type {
 }
 
 type bucketObjectv2Args struct {
-	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl *string `pulumi:"acl"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket interface{} `pulumi:"bucket"`
@@ -446,6 +473,8 @@ type bucketObjectv2Args struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key *string `pulumi:"key"`
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -468,12 +497,16 @@ type bucketObjectv2Args struct {
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
 // The set of arguments for constructing a BucketObjectv2 resource.
 type BucketObjectv2Args struct {
-	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl pulumi.StringPtrInput
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.Input
@@ -498,6 +531,8 @@ type BucketObjectv2Args struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringPtrInput
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringPtrInput
@@ -520,6 +555,10 @@ type BucketObjectv2Args struct {
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -544,6 +583,12 @@ func (i *BucketObjectv2) ToBucketObjectv2Output() BucketObjectv2Output {
 
 func (i *BucketObjectv2) ToBucketObjectv2OutputWithContext(ctx context.Context) BucketObjectv2Output {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2Output)
+}
+
+func (i *BucketObjectv2) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2] {
+	return pulumix.Output[*BucketObjectv2]{
+		OutputState: i.ToBucketObjectv2OutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketObjectv2ArrayInput is an input type that accepts BucketObjectv2Array and BucketObjectv2ArrayOutput values.
@@ -571,6 +616,12 @@ func (i BucketObjectv2Array) ToBucketObjectv2ArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2ArrayOutput)
 }
 
+func (i BucketObjectv2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketObjectv2] {
+	return pulumix.Output[[]*BucketObjectv2]{
+		OutputState: i.ToBucketObjectv2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketObjectv2MapInput is an input type that accepts BucketObjectv2Map and BucketObjectv2MapOutput values.
 // You can construct a concrete instance of `BucketObjectv2MapInput` via:
 //
@@ -596,6 +647,12 @@ func (i BucketObjectv2Map) ToBucketObjectv2MapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2MapOutput)
 }
 
+func (i BucketObjectv2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketObjectv2] {
+	return pulumix.Output[map[string]*BucketObjectv2]{
+		OutputState: i.ToBucketObjectv2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectv2Output struct{ *pulumi.OutputState }
 
 func (BucketObjectv2Output) ElementType() reflect.Type {
@@ -610,9 +667,15 @@ func (o BucketObjectv2Output) ToBucketObjectv2OutputWithContext(ctx context.Cont
 	return o
 }
 
-// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
-func (o BucketObjectv2Output) Acl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
+func (o BucketObjectv2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2] {
+	return pulumix.Output[*BucketObjectv2]{
+		OutputState: o.OutputState,
+	}
+}
+
+// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
+func (o BucketObjectv2Output) Acl() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
 }
 
 // Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
@@ -671,6 +734,8 @@ func (o BucketObjectv2Output) ForceDestroy() pulumi.BoolPtrOutput {
 }
 
 // Name of the object once it is in the bucket.
+//
+// The following arguments are optional:
 func (o BucketObjectv2Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -736,6 +801,10 @@ func (o BucketObjectv2Output) VersionId() pulumi.StringOutput {
 }
 
 // Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+//
+// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+//
+// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 func (o BucketObjectv2Output) WebsiteRedirect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.WebsiteRedirect }).(pulumi.StringPtrOutput)
 }
@@ -752,6 +821,12 @@ func (o BucketObjectv2ArrayOutput) ToBucketObjectv2ArrayOutput() BucketObjectv2A
 
 func (o BucketObjectv2ArrayOutput) ToBucketObjectv2ArrayOutputWithContext(ctx context.Context) BucketObjectv2ArrayOutput {
 	return o
+}
+
+func (o BucketObjectv2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketObjectv2] {
+	return pulumix.Output[[]*BucketObjectv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectv2ArrayOutput) Index(i pulumi.IntInput) BucketObjectv2Output {
@@ -772,6 +847,12 @@ func (o BucketObjectv2MapOutput) ToBucketObjectv2MapOutput() BucketObjectv2MapOu
 
 func (o BucketObjectv2MapOutput) ToBucketObjectv2MapOutputWithContext(ctx context.Context) BucketObjectv2MapOutput {
 	return o
+}
+
+func (o BucketObjectv2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketObjectv2] {
+	return pulumix.Output[map[string]*BucketObjectv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectv2MapOutput) MapIndex(k pulumi.StringInput) BucketObjectv2Output {

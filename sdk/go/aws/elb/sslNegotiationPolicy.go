@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,6 +103,10 @@ type SslNegotiationPolicy struct {
 	// The name of the attribute
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	//
+	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+	//
+	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 }
 
@@ -123,6 +129,7 @@ func NewSslNegotiationPolicy(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SslNegotiationPolicy
 	err := ctx.RegisterResource("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -157,6 +164,10 @@ type sslNegotiationPolicyState struct {
 	// The name of the attribute
 	Name *string `pulumi:"name"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	//
+	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+	//
+	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
 	Triggers map[string]string `pulumi:"triggers"`
 }
 
@@ -173,6 +184,10 @@ type SslNegotiationPolicyState struct {
 	// The name of the attribute
 	Name pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	//
+	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+	//
+	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
 	Triggers pulumi.StringMapInput
 }
 
@@ -193,6 +208,10 @@ type sslNegotiationPolicyArgs struct {
 	// The name of the attribute
 	Name *string `pulumi:"name"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	//
+	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+	//
+	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
 	Triggers map[string]string `pulumi:"triggers"`
 }
 
@@ -210,6 +229,10 @@ type SslNegotiationPolicyArgs struct {
 	// The name of the attribute
 	Name pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	//
+	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+	//
+	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
 	Triggers pulumi.StringMapInput
 }
 
@@ -234,6 +257,12 @@ func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutput() SslNegotiationPoli
 
 func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutputWithContext(ctx context.Context) SslNegotiationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyOutput)
+}
+
+func (i *SslNegotiationPolicy) ToOutput(ctx context.Context) pulumix.Output[*SslNegotiationPolicy] {
+	return pulumix.Output[*SslNegotiationPolicy]{
+		OutputState: i.ToSslNegotiationPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SslNegotiationPolicyArrayInput is an input type that accepts SslNegotiationPolicyArray and SslNegotiationPolicyArrayOutput values.
@@ -261,6 +290,12 @@ func (i SslNegotiationPolicyArray) ToSslNegotiationPolicyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyArrayOutput)
 }
 
+func (i SslNegotiationPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SslNegotiationPolicy] {
+	return pulumix.Output[[]*SslNegotiationPolicy]{
+		OutputState: i.ToSslNegotiationPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SslNegotiationPolicyMapInput is an input type that accepts SslNegotiationPolicyMap and SslNegotiationPolicyMapOutput values.
 // You can construct a concrete instance of `SslNegotiationPolicyMapInput` via:
 //
@@ -286,6 +321,12 @@ func (i SslNegotiationPolicyMap) ToSslNegotiationPolicyMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyMapOutput)
 }
 
+func (i SslNegotiationPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SslNegotiationPolicy] {
+	return pulumix.Output[map[string]*SslNegotiationPolicy]{
+		OutputState: i.ToSslNegotiationPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SslNegotiationPolicyOutput struct{ *pulumi.OutputState }
 
 func (SslNegotiationPolicyOutput) ElementType() reflect.Type {
@@ -298,6 +339,12 @@ func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutput() SslNegotiatio
 
 func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutputWithContext(ctx context.Context) SslNegotiationPolicyOutput {
 	return o
+}
+
+func (o SslNegotiationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SslNegotiationPolicy] {
+	return pulumix.Output[*SslNegotiationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An SSL Negotiation policy attribute. Each has two properties:
@@ -324,6 +371,10 @@ func (o SslNegotiationPolicyOutput) Name() pulumi.StringOutput {
 }
 
 // Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+//
+// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+//
+// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
 func (o SslNegotiationPolicyOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }
@@ -340,6 +391,12 @@ func (o SslNegotiationPolicyArrayOutput) ToSslNegotiationPolicyArrayOutput() Ssl
 
 func (o SslNegotiationPolicyArrayOutput) ToSslNegotiationPolicyArrayOutputWithContext(ctx context.Context) SslNegotiationPolicyArrayOutput {
 	return o
+}
+
+func (o SslNegotiationPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SslNegotiationPolicy] {
+	return pulumix.Output[[]*SslNegotiationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SslNegotiationPolicyArrayOutput) Index(i pulumi.IntInput) SslNegotiationPolicyOutput {
@@ -360,6 +417,12 @@ func (o SslNegotiationPolicyMapOutput) ToSslNegotiationPolicyMapOutput() SslNego
 
 func (o SslNegotiationPolicyMapOutput) ToSslNegotiationPolicyMapOutputWithContext(ctx context.Context) SslNegotiationPolicyMapOutput {
 	return o
+}
+
+func (o SslNegotiationPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SslNegotiationPolicy] {
+	return pulumix.Output[map[string]*SslNegotiationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SslNegotiationPolicyMapOutput) MapIndex(k pulumi.StringInput) SslNegotiationPolicyOutput {

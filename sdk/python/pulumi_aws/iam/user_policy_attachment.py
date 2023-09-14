@@ -119,11 +119,11 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
-        IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+        In TODO v1.5.0 and later, use an `import` block to import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
+         to = aws_iam_user_policy_attachment.test-attach
+
+         id = "test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `TODO import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleconsole % TODO import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +158,11 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
-        IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+        In TODO v1.5.0 and later, use an `import` block to import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
+         to = aws_iam_user_policy_attachment.test-attach
+
+         id = "test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `TODO import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleconsole % TODO import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 
         :param str resource_name: The name of the resource.
         :param UserPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

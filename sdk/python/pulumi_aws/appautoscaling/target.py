@@ -380,7 +380,7 @@ class Target(pulumi.CustomResource):
 
         ## Import
 
-        Application AutoScaling Target can be imported using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`.
+        Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
 
         ```sh
          $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
@@ -491,7 +491,7 @@ class Target(pulumi.CustomResource):
 
         ## Import
 
-        Application AutoScaling Target can be imported using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`.
+        Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
 
         ```sh
          $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +67,7 @@ import (
 //
 // ```
 func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.InvokeOption) (*GetWorkspacesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacesResult
 	err := ctx.Invoke("aws:amp/getWorkspaces:getWorkspaces", args, &rv, opts...)
 	if err != nil {
@@ -128,6 +131,12 @@ func (o GetWorkspacesResultOutput) ToGetWorkspacesResultOutput() GetWorkspacesRe
 
 func (o GetWorkspacesResultOutput) ToGetWorkspacesResultOutputWithContext(ctx context.Context) GetWorkspacesResultOutput {
 	return o
+}
+
+func (o GetWorkspacesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspacesResult] {
+	return pulumix.Output[GetWorkspacesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWorkspacesResultOutput) AliasPrefix() pulumi.StringPtrOutput {

@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// `aws_route53_key_signing_key` resources can be imported by using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`), e.g.,
+    /// Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
@@ -189,6 +189,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -277,6 +279,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -351,6 +355,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

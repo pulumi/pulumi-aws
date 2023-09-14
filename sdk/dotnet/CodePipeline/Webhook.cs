@@ -135,11 +135,11 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Import
     /// 
-    /// CodePipeline Webhooks can be imported by their ARN, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
-    /// ```
+    ///  to = aws_codepipeline_webhook.example
+    /// 
+    ///  id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
     /// </summary>
     [AwsResourceType("aws:codepipeline/webhook:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

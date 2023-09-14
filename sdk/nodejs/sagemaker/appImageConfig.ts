@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker App Image Configs can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example

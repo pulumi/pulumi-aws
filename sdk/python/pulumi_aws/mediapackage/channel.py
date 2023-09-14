@@ -201,7 +201,7 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        Media Package Channels can be imported via the channel ID, e.g.,
+        Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 
         ```sh
          $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
@@ -235,7 +235,7 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        Media Package Channels can be imported via the channel ID, e.g.,
+        Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 
         ```sh
          $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel

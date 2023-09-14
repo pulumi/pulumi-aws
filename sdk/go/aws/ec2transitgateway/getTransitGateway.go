@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupTransitGateway(ctx *pulumi.Context, args *LookupTransitGatewayArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayResult
 	err := ctx.Invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", args, &rv, opts...)
 	if err != nil {
@@ -164,6 +167,12 @@ func (o LookupTransitGatewayResultOutput) ToLookupTransitGatewayResultOutput() L
 
 func (o LookupTransitGatewayResultOutput) ToLookupTransitGatewayResultOutputWithContext(ctx context.Context) LookupTransitGatewayResultOutput {
 	return o
+}
+
+func (o LookupTransitGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayResult] {
+	return pulumix.Output[LookupTransitGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Private Autonomous System Number (ASN) for the Amazon side of a BGP session

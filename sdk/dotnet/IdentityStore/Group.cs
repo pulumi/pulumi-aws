@@ -16,7 +16,7 @@ namespace Pulumi.Aws.IdentityStore
     /// 
     /// ## Import
     /// 
-    /// An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+    /// Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
@@ -51,6 +51,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The globally unique identifier for the identity store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("identityStoreId")]
         public Output<string> IdentityStoreId { get; private set; } = null!;
@@ -115,6 +117,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The globally unique identifier for the identity store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
@@ -159,6 +163,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The globally unique identifier for the identity store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId")]
         public Input<string>? IdentityStoreId { get; set; }

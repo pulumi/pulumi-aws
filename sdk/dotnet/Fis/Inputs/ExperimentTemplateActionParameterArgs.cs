@@ -20,6 +20,8 @@ namespace Pulumi.Aws.Fis.Inputs
 
         /// <summary>
         /// Parameter value.
+        /// 
+        /// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

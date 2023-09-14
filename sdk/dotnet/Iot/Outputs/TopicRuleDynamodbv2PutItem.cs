@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Iot.Outputs
     {
         /// <summary>
         /// The name of the DynamoDB table.
+        /// 
+        /// The `dynamodbv2` object takes the following arguments:
         /// </summary>
         public readonly string TableName;
 

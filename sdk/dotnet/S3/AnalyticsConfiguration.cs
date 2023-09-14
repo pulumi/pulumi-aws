@@ -78,7 +78,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.,
+    /// Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket

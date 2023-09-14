@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS IdentityStore Group.
@@ -17,7 +19,7 @@ import (
 //
 // ## Import
 //
-// An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+// Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 //
 // ```sh
 //
@@ -36,6 +38,8 @@ type Group struct {
 	// The identifier of the newly created group in the identity store.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
 }
 
@@ -52,6 +56,7 @@ func NewGroup(ctx *pulumi.Context,
 	if args.IdentityStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityStoreId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:identitystore/group:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -83,6 +88,8 @@ type groupState struct {
 	// The identifier of the newly created group in the identity store.
 	GroupId *string `pulumi:"groupId"`
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId *string `pulumi:"identityStoreId"`
 }
 
@@ -96,6 +103,8 @@ type GroupState struct {
 	// The identifier of the newly created group in the identity store.
 	GroupId pulumi.StringPtrInput
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringPtrInput
 }
 
@@ -109,6 +118,8 @@ type groupArgs struct {
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 	DisplayName string `pulumi:"displayName"`
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
@@ -119,6 +130,8 @@ type GroupArgs struct {
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 	DisplayName pulumi.StringInput
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput
 }
 
@@ -143,6 +156,12 @@ func (i *Group) ToGroupOutput() GroupOutput {
 
 func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
+}
+
+func (i *Group) ToOutput(ctx context.Context) pulumix.Output[*Group] {
+	return pulumix.Output[*Group]{
+		OutputState: i.ToGroupOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
@@ -170,6 +189,12 @@ func (i GroupArray) ToGroupArrayOutputWithContext(ctx context.Context) GroupArra
 	return pulumi.ToOutputWithContext(ctx, i).(GroupArrayOutput)
 }
 
+func (i GroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*Group] {
+	return pulumix.Output[[]*Group]{
+		OutputState: i.ToGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupMapInput is an input type that accepts GroupMap and GroupMapOutput values.
 // You can construct a concrete instance of `GroupMapInput` via:
 //
@@ -195,6 +220,12 @@ func (i GroupMap) ToGroupMapOutputWithContext(ctx context.Context) GroupMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMapOutput)
 }
 
+func (i GroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Group] {
+	return pulumix.Output[map[string]*Group]{
+		OutputState: i.ToGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
@@ -207,6 +238,12 @@ func (o GroupOutput) ToGroupOutput() GroupOutput {
 
 func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
+}
+
+func (o GroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Group] {
+	return pulumix.Output[*Group]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string containing the description of the group.
@@ -230,6 +267,8 @@ func (o GroupOutput) GroupId() pulumi.StringOutput {
 }
 
 // The globally unique identifier for the identity store.
+//
+// The following arguments are optional:
 func (o GroupOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }
@@ -246,6 +285,12 @@ func (o GroupArrayOutput) ToGroupArrayOutput() GroupArrayOutput {
 
 func (o GroupArrayOutput) ToGroupArrayOutputWithContext(ctx context.Context) GroupArrayOutput {
 	return o
+}
+
+func (o GroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Group] {
+	return pulumix.Output[[]*Group]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupArrayOutput) Index(i pulumi.IntInput) GroupOutput {
@@ -266,6 +311,12 @@ func (o GroupMapOutput) ToGroupMapOutput() GroupMapOutput {
 
 func (o GroupMapOutput) ToGroupMapOutputWithContext(ctx context.Context) GroupMapOutput {
 	return o
+}
+
+func (o GroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Group] {
+	return pulumix.Output[map[string]*Group]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMapOutput) MapIndex(k pulumi.StringInput) GroupOutput {

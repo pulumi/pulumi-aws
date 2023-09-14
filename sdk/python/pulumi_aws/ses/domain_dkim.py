@@ -116,7 +116,7 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Import
 
-        DKIM tokens can be imported using the `domain` attribute, e.g.,
+        Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
 
         ```sh
          $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
@@ -157,7 +157,7 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Import
 
-        DKIM tokens can be imported using the `domain` attribute, e.g.,
+        Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
 
         ```sh
          $ pulumi import aws:ses/domainDkim:DomainDkim example example.com

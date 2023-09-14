@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppConfig Deployment Strategy resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // ## Import
 //
-// AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
+// Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 //
 // ```sh
 //
@@ -97,6 +99,7 @@ func NewDeploymentStrategy(ctx *pulumi.Context,
 	if args.ReplicateTo == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicateTo'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentStrategy
 	err := ctx.RegisterResource("aws:appconfig/deploymentStrategy:DeploymentStrategy", name, args, &resource, opts...)
 	if err != nil {
@@ -230,6 +233,12 @@ func (i *DeploymentStrategy) ToDeploymentStrategyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyOutput)
 }
 
+func (i *DeploymentStrategy) ToOutput(ctx context.Context) pulumix.Output[*DeploymentStrategy] {
+	return pulumix.Output[*DeploymentStrategy]{
+		OutputState: i.ToDeploymentStrategyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentStrategyArrayInput is an input type that accepts DeploymentStrategyArray and DeploymentStrategyArrayOutput values.
 // You can construct a concrete instance of `DeploymentStrategyArrayInput` via:
 //
@@ -253,6 +262,12 @@ func (i DeploymentStrategyArray) ToDeploymentStrategyArrayOutput() DeploymentStr
 
 func (i DeploymentStrategyArray) ToDeploymentStrategyArrayOutputWithContext(ctx context.Context) DeploymentStrategyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyArrayOutput)
+}
+
+func (i DeploymentStrategyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeploymentStrategy] {
+	return pulumix.Output[[]*DeploymentStrategy]{
+		OutputState: i.ToDeploymentStrategyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DeploymentStrategyMapInput is an input type that accepts DeploymentStrategyMap and DeploymentStrategyMapOutput values.
@@ -280,6 +295,12 @@ func (i DeploymentStrategyMap) ToDeploymentStrategyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyMapOutput)
 }
 
+func (i DeploymentStrategyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeploymentStrategy] {
+	return pulumix.Output[map[string]*DeploymentStrategy]{
+		OutputState: i.ToDeploymentStrategyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentStrategyOutput struct{ *pulumi.OutputState }
 
 func (DeploymentStrategyOutput) ElementType() reflect.Type {
@@ -292,6 +313,12 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyOutput() DeploymentStrateg
 
 func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx context.Context) DeploymentStrategyOutput {
 	return o
+}
+
+func (o DeploymentStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentStrategy] {
+	return pulumix.Output[*DeploymentStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the AppConfig Deployment Strategy.
@@ -358,6 +385,12 @@ func (o DeploymentStrategyArrayOutput) ToDeploymentStrategyArrayOutputWithContex
 	return o
 }
 
+func (o DeploymentStrategyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeploymentStrategy] {
+	return pulumix.Output[[]*DeploymentStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeploymentStrategyArrayOutput) Index(i pulumi.IntInput) DeploymentStrategyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeploymentStrategy {
 		return vs[0].([]*DeploymentStrategy)[vs[1].(int)]
@@ -376,6 +409,12 @@ func (o DeploymentStrategyMapOutput) ToDeploymentStrategyMapOutput() DeploymentS
 
 func (o DeploymentStrategyMapOutput) ToDeploymentStrategyMapOutputWithContext(ctx context.Context) DeploymentStrategyMapOutput {
 	return o
+}
+
+func (o DeploymentStrategyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeploymentStrategy] {
+	return pulumix.Output[map[string]*DeploymentStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentStrategyMapOutput) MapIndex(k pulumi.StringInput) DeploymentStrategyOutput {

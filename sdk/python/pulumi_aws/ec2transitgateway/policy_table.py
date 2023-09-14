@@ -164,7 +164,7 @@ class PolicyTable(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_policy_table` can be imported by using the EC2 Transit Gateway Policy Table identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
@@ -199,7 +199,7 @@ class PolicyTable(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_policy_table` can be imported by using the EC2 Transit Gateway Policy Table identifier, e.g.,
+        Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:
 
         ```sh
          $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678

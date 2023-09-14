@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import SSM Contact using the `ARN`. For example
+ * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
@@ -100,14 +100,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssmcontacts/contact:Contact")
 public class Contact extends com.pulumi.resources.CustomResource {
     /**
-     * A unique and identifiable alias for the contact or escalation plan.
+     * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
-     * @return A unique and identifiable alias for the contact or escalation plan.
+     * @return A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
     public Output<String> alias() {
@@ -128,14 +128,14 @@ public class Contact extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Full friendly name of the contact or escalation plan.
+     * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
-     * @return Full friendly name of the contact or escalation plan.
+     * @return Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     public Output<Optional<String>> displayName() {
@@ -173,6 +173,8 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
@@ -180,6 +182,8 @@ public class Contact extends com.pulumi.resources.CustomResource {
     /**
      * @return The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

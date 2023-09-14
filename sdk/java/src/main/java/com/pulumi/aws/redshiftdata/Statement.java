@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Data Statements can be imported using the `id`, e.g.,
+ * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:redshiftdata/statement:Statement example example
@@ -161,12 +161,16 @@ public class Statement extends com.pulumi.resources.CustomResource {
     /**
      * The SQL statement text to run.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="sql", refs={String.class}, tree="[0]")
     private Output<String> sql;
 
     /**
      * @return The SQL statement text to run.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> sql() {

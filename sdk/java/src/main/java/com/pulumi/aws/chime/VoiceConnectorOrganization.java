@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.,
+ * Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4

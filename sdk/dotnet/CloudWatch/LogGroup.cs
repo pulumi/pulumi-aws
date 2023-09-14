@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Cloudwatch Log Groups can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada

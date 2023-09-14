@@ -33,7 +33,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Redshift Serverless Endpoint Access can be imported using the `endpoint_name`, e.g.,
+    /// Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example

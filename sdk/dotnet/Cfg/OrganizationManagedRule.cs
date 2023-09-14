@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Config Organization Managed Rules can be imported using the name, e.g.,
+    /// Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example

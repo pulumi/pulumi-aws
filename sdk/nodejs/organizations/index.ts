@@ -27,7 +27,8 @@ utilities.lazyLoad(exports, ["getDelegatedServices","getDelegatedServicesOutput"
 
 export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
-utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganization"));
+export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
 
 export { GetOrganizationalUnitChildAccountsArgs, GetOrganizationalUnitChildAccountsResult, GetOrganizationalUnitChildAccountsOutputArgs } from "./getOrganizationalUnitChildAccounts";
 export const getOrganizationalUnitChildAccounts: typeof import("./getOrganizationalUnitChildAccounts").getOrganizationalUnitChildAccounts = null as any;
@@ -43,6 +44,16 @@ export { GetOrganizationalUnitsArgs, GetOrganizationalUnitsResult, GetOrganizati
 export const getOrganizationalUnits: typeof import("./getOrganizationalUnits").getOrganizationalUnits = null as any;
 export const getOrganizationalUnitsOutput: typeof import("./getOrganizationalUnits").getOrganizationalUnitsOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationalUnits","getOrganizationalUnitsOutput"], () => require("./getOrganizationalUnits"));
+
+export { GetPoliciesArgs, GetPoliciesResult, GetPoliciesOutputArgs } from "./getPolicies";
+export const getPolicies: typeof import("./getPolicies").getPolicies = null as any;
+export const getPoliciesOutput: typeof import("./getPolicies").getPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicies","getPoliciesOutput"], () => require("./getPolicies"));
+
+export { GetPoliciesForTargetArgs, GetPoliciesForTargetResult, GetPoliciesForTargetOutputArgs } from "./getPoliciesForTarget";
+export const getPoliciesForTarget: typeof import("./getPoliciesForTarget").getPoliciesForTarget = null as any;
+export const getPoliciesForTargetOutput: typeof import("./getPoliciesForTarget").getPoliciesForTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getPoliciesForTarget","getPoliciesForTargetOutput"], () => require("./getPoliciesForTarget"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
@@ -74,6 +85,11 @@ export type PolicyAttachment = import("./policyAttachment").PolicyAttachment;
 export const PolicyAttachment: typeof import("./policyAttachment").PolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachment"));
 
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -91,6 +107,8 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "aws:organizations/policyAttachment:PolicyAttachment":
                 return new PolicyAttachment(name, <any>undefined, { urn })
+            case "aws:organizations/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -102,3 +120,4 @@ pulumi.runtime.registerResourceModule("aws", "organizations/organization", _modu
 pulumi.runtime.registerResourceModule("aws", "organizations/organizationalUnit", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/policyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "organizations/resourcePolicy", _module)

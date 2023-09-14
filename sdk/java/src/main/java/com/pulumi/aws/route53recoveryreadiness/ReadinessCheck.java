@@ -51,10 +51,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Recovery Readiness readiness checks can be imported via the readiness check name, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check
+ *  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
  * ```
  * 
  */
@@ -91,12 +91,16 @@ public class ReadinessCheck extends com.pulumi.resources.CustomResource {
     /**
      * Name describing the resource set that will be monitored for readiness.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="resourceSetName", refs={String.class}, tree="[0]")
     private Output<String> resourceSetName;
 
     /**
      * @return Name describing the resource set that will be monitored for readiness.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> resourceSetName() {

@@ -156,7 +156,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repository Policy can be imported using the repository name, e.g.,
+        Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
 
         ```sh
          $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
@@ -216,7 +216,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repository Policy can be imported using the repository name, e.g.,
+        Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
 
         ```sh
          $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example

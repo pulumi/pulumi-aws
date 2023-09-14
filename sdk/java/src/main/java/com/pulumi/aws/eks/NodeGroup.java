@@ -168,7 +168,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.,
+ * Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
  * 
  * ```sh
  *  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
@@ -290,14 +290,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.labels);
     }
     /**
-     * Configuration block with Launch Template settings. Detailed below.
+     * Configuration block with Launch Template settings. See `launch_template` below for details.
      * 
      */
     @Export(name="launchTemplate", refs={NodeGroupLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupLaunchTemplate> launchTemplate;
 
     /**
-     * @return Configuration block with Launch Template settings. Detailed below.
+     * @return Configuration block with Launch Template settings. See `launch_template` below for details.
      * 
      */
     public Output<Optional<NodeGroupLaunchTemplate>> launchTemplate() {
@@ -360,14 +360,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.releaseVersion;
     }
     /**
-     * Configuration block with remote access settings. Detailed below.
+     * Configuration block with remote access settings. See `remote_access` below for details.
      * 
      */
     @Export(name="remoteAccess", refs={NodeGroupRemoteAccess.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupRemoteAccess> remoteAccess;
 
     /**
-     * @return Configuration block with remote access settings. Detailed below.
+     * @return Configuration block with remote access settings. See `remote_access` below for details.
      * 
      */
     public Output<Optional<NodeGroupRemoteAccess>> remoteAccess() {
@@ -388,14 +388,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.resources;
     }
     /**
-     * Configuration block with scaling settings. Detailed below.
+     * Configuration block with scaling settings. See `scaling_config` below for details.
      * 
      */
     @Export(name="scalingConfig", refs={NodeGroupScalingConfig.class}, tree="[0]")
     private Output<NodeGroupScalingConfig> scalingConfig;
 
     /**
-     * @return Configuration block with scaling settings. Detailed below.
+     * @return Configuration block with scaling settings. See `scaling_config` below for details.
      * 
      */
     public Output<NodeGroupScalingConfig> scalingConfig() {
@@ -416,14 +416,18 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     * Identifiers of EC2 Subnets to associate with the EKS Node Group.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     * @return Identifiers of EC2 Subnets to associate with the EKS Node Group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -458,22 +462,30 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+     * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      * 
      */
     @Export(name="taints", refs={List.class,NodeGroupTaint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NodeGroupTaint>> taints;
 
     /**
-     * @return The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+     * @return The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      * 
      */
     public Output<Optional<List<NodeGroupTaint>>> taints() {
         return Codegen.optional(this.taints);
     }
+    /**
+     * Configuration block with update settings. See `update_config` below for details.
+     * 
+     */
     @Export(name="updateConfig", refs={NodeGroupUpdateConfig.class}, tree="[0]")
     private Output<NodeGroupUpdateConfig> updateConfig;
 
+    /**
+     * @return Configuration block with update settings. See `update_config` below for details.
+     * 
+     */
     public Output<NodeGroupUpdateConfig> updateConfig() {
         return this.updateConfig;
     }

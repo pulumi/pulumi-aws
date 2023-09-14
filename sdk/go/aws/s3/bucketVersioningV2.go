@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource for controlling versioning on an S3 bucket.
@@ -27,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +68,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,7 +113,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -147,7 +149,13 @@ import (
 //
 // ## Import
 //
-// S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+//
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+//
+// __Using `pulumi import` to import__ S3 bucket versioning using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+//
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
 //
@@ -155,7 +163,7 @@ import (
 //
 // ```
 //
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
 //
@@ -188,6 +196,7 @@ func NewBucketVersioningV2(ctx *pulumi.Context,
 	if args.VersioningConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'VersioningConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketVersioningV2
 	err := ctx.RegisterResource("aws:s3/bucketVersioningV2:BucketVersioningV2", name, args, &resource, opts...)
 	if err != nil {
@@ -281,6 +290,12 @@ func (i *BucketVersioningV2) ToBucketVersioningV2OutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2Output)
 }
 
+func (i *BucketVersioningV2) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioningV2] {
+	return pulumix.Output[*BucketVersioningV2]{
+		OutputState: i.ToBucketVersioningV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketVersioningV2ArrayInput is an input type that accepts BucketVersioningV2Array and BucketVersioningV2ArrayOutput values.
 // You can construct a concrete instance of `BucketVersioningV2ArrayInput` via:
 //
@@ -304,6 +319,12 @@ func (i BucketVersioningV2Array) ToBucketVersioningV2ArrayOutput() BucketVersion
 
 func (i BucketVersioningV2Array) ToBucketVersioningV2ArrayOutputWithContext(ctx context.Context) BucketVersioningV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2ArrayOutput)
+}
+
+func (i BucketVersioningV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketVersioningV2] {
+	return pulumix.Output[[]*BucketVersioningV2]{
+		OutputState: i.ToBucketVersioningV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketVersioningV2MapInput is an input type that accepts BucketVersioningV2Map and BucketVersioningV2MapOutput values.
@@ -331,6 +352,12 @@ func (i BucketVersioningV2Map) ToBucketVersioningV2MapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2MapOutput)
 }
 
+func (i BucketVersioningV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketVersioningV2] {
+	return pulumix.Output[map[string]*BucketVersioningV2]{
+		OutputState: i.ToBucketVersioningV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketVersioningV2Output struct{ *pulumi.OutputState }
 
 func (BucketVersioningV2Output) ElementType() reflect.Type {
@@ -343,6 +370,12 @@ func (o BucketVersioningV2Output) ToBucketVersioningV2Output() BucketVersioningV
 
 func (o BucketVersioningV2Output) ToBucketVersioningV2OutputWithContext(ctx context.Context) BucketVersioningV2Output {
 	return o
+}
+
+func (o BucketVersioningV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioningV2] {
+	return pulumix.Output[*BucketVersioningV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 bucket.
@@ -381,6 +414,12 @@ func (o BucketVersioningV2ArrayOutput) ToBucketVersioningV2ArrayOutputWithContex
 	return o
 }
 
+func (o BucketVersioningV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketVersioningV2] {
+	return pulumix.Output[[]*BucketVersioningV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketVersioningV2ArrayOutput) Index(i pulumi.IntInput) BucketVersioningV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketVersioningV2 {
 		return vs[0].([]*BucketVersioningV2)[vs[1].(int)]
@@ -399,6 +438,12 @@ func (o BucketVersioningV2MapOutput) ToBucketVersioningV2MapOutput() BucketVersi
 
 func (o BucketVersioningV2MapOutput) ToBucketVersioningV2MapOutputWithContext(ctx context.Context) BucketVersioningV2MapOutput {
 	return o
+}
+
+func (o BucketVersioningV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketVersioningV2] {
+	return pulumix.Output[map[string]*BucketVersioningV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketVersioningV2MapOutput) MapIndex(k pulumi.StringInput) BucketVersioningV2Output {

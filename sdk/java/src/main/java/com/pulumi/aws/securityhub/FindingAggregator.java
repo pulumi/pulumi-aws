@@ -139,11 +139,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Security Hub finding aggregator can be imported using the `arn`, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub finding aggregator using the `arn`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
- * ```
+ *  to = aws_securityhub_finding_aggregator.example
+ * 
+ *  id = &#34;arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456&#34; } Using `TODO import`, import an existing Security Hub finding aggregator using the `arn`. For exampleconsole % TODO import aws_securityhub_finding_aggregator.example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
  * 
  */
 @ResourceType(type="aws:securityhub/findingAggregator:FindingAggregator")

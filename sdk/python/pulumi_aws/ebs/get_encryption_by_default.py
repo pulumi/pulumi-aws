@@ -73,5 +73,5 @@ def get_encryption_by_default(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
     __ret__ = pulumi.runtime.invoke('aws:ebs/getEncryptionByDefault:getEncryptionByDefault', __args__, opts=opts, typ=GetEncryptionByDefaultResult).value
 
     return AwaitableGetEncryptionByDefaultResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'))

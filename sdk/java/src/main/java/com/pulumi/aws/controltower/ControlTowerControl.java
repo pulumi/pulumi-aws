@@ -17,9 +17,11 @@ import javax.annotation.Nullable;
  * Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
  * [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
- * Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+ * Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE

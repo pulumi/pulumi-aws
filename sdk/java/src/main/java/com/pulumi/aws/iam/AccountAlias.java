@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The current Account Alias can be imported using the `account_alias`, e.g.,
+ * Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias

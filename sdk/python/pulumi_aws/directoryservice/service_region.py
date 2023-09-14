@@ -219,7 +219,7 @@ class ServiceRegion(pulumi.CustomResource):
 
         ## Import
 
-        Replicated Regions can be imported using directory ID,Region name e.g.,
+        Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 
         ```sh
          $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
@@ -245,7 +245,7 @@ class ServiceRegion(pulumi.CustomResource):
 
         ## Import
 
-        Replicated Regions can be imported using directory ID,Region name e.g.,
+        Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 
         ```sh
          $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2

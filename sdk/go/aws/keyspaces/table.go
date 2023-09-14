@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Keyspaces Table.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/keyspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +59,7 @@ import (
 //
 // ## Import
 //
-// Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+// Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
 //
 // ```sh
 //
@@ -71,6 +73,8 @@ type Table struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification TableCapacitySpecificationOutput `pulumi:"capacitySpecification"`
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps TableClientSideTimestampsPtrOutput `pulumi:"clientSideTimestamps"`
 	// A description of the table.
 	Comment TableCommentOutput `pulumi:"comment"`
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -84,6 +88,8 @@ type Table struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionOutput `pulumi:"schemaDefinition"`
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -109,6 +115,7 @@ func NewTable(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws:keyspaces/table:Table", name, args, &resource, opts...)
 	if err != nil {
@@ -135,6 +142,8 @@ type tableState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification *TableCapacitySpecification `pulumi:"capacitySpecification"`
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps *TableClientSideTimestamps `pulumi:"clientSideTimestamps"`
 	// A description of the table.
 	Comment *TableComment `pulumi:"comment"`
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -148,6 +157,8 @@ type tableState struct {
 	// Describes the schema of the table.
 	SchemaDefinition *TableSchemaDefinition `pulumi:"schemaDefinition"`
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName *string `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -162,6 +173,8 @@ type TableState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification TableCapacitySpecificationPtrInput
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps TableClientSideTimestampsPtrInput
 	// A description of the table.
 	Comment TableCommentPtrInput
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -175,6 +188,8 @@ type TableState struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionPtrInput
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -191,6 +206,8 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification *TableCapacitySpecification `pulumi:"capacitySpecification"`
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps *TableClientSideTimestamps `pulumi:"clientSideTimestamps"`
 	// A description of the table.
 	Comment *TableComment `pulumi:"comment"`
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -204,6 +221,8 @@ type tableArgs struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinition `pulumi:"schemaDefinition"`
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName string `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -215,6 +234,8 @@ type tableArgs struct {
 type TableArgs struct {
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification TableCapacitySpecificationPtrInput
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps TableClientSideTimestampsPtrInput
 	// A description of the table.
 	Comment TableCommentPtrInput
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -228,6 +249,8 @@ type TableArgs struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionInput
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -258,6 +281,12 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
 }
 
+func (i *Table) ToOutput(ctx context.Context) pulumix.Output[*Table] {
+	return pulumix.Output[*Table]{
+		OutputState: i.ToTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableArrayInput is an input type that accepts TableArray and TableArrayOutput values.
 // You can construct a concrete instance of `TableArrayInput` via:
 //
@@ -281,6 +310,12 @@ func (i TableArray) ToTableArrayOutput() TableArrayOutput {
 
 func (i TableArray) ToTableArrayOutputWithContext(ctx context.Context) TableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableArrayOutput)
+}
+
+func (i TableArray) ToOutput(ctx context.Context) pulumix.Output[[]*Table] {
+	return pulumix.Output[[]*Table]{
+		OutputState: i.ToTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TableMapInput is an input type that accepts TableMap and TableMapOutput values.
@@ -308,6 +343,12 @@ func (i TableMap) ToTableMapOutputWithContext(ctx context.Context) TableMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TableMapOutput)
 }
 
+func (i TableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Table] {
+	return pulumix.Output[map[string]*Table]{
+		OutputState: i.ToTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableOutput struct{ *pulumi.OutputState }
 
 func (TableOutput) ElementType() reflect.Type {
@@ -322,6 +363,12 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+func (o TableOutput) ToOutput(ctx context.Context) pulumix.Output[*Table] {
+	return pulumix.Output[*Table]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the table.
 func (o TableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -330,6 +377,11 @@ func (o TableOutput) Arn() pulumi.StringOutput {
 // Specifies the read/write throughput capacity mode for the table.
 func (o TableOutput) CapacitySpecification() TableCapacitySpecificationOutput {
 	return o.ApplyT(func(v *Table) TableCapacitySpecificationOutput { return v.CapacitySpecification }).(TableCapacitySpecificationOutput)
+}
+
+// Enables client-side timestamps for the table. By default, the setting is disabled.
+func (o TableOutput) ClientSideTimestamps() TableClientSideTimestampsPtrOutput {
+	return o.ApplyT(func(v *Table) TableClientSideTimestampsPtrOutput { return v.ClientSideTimestamps }).(TableClientSideTimestampsPtrOutput)
 }
 
 // A description of the table.
@@ -363,6 +415,8 @@ func (o TableOutput) SchemaDefinition() TableSchemaDefinitionOutput {
 }
 
 // The name of the table.
+//
+// The following arguments are optional:
 func (o TableOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }
@@ -396,6 +450,12 @@ func (o TableArrayOutput) ToTableArrayOutputWithContext(ctx context.Context) Tab
 	return o
 }
 
+func (o TableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Table] {
+	return pulumix.Output[[]*Table]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableArrayOutput) Index(i pulumi.IntInput) TableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Table {
 		return vs[0].([]*Table)[vs[1].(int)]
@@ -414,6 +474,12 @@ func (o TableMapOutput) ToTableMapOutput() TableMapOutput {
 
 func (o TableMapOutput) ToTableMapOutputWithContext(ctx context.Context) TableMapOutput {
 	return o
+}
+
+func (o TableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Table] {
+	return pulumix.Output[map[string]*Table]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableMapOutput) MapIndex(k pulumi.StringInput) TableOutput {

@@ -12,7 +12,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Example
+ * 
  * ```java
  * package generated_program;
  * 
@@ -66,7 +66,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Threshold Expression
+ * ### Threshold Expression Example
+ * ### For a Specific Dimension
  * ```java
  * package generated_program;
  * 
@@ -110,7 +111,61 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Using an `and` Expression
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.costexplorer.AnomalySubscription;
+ * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
+ * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
+ * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AnomalySubscription(&#34;test&#34;, AnomalySubscriptionArgs.builder()        
+ *             .frequency(&#34;DAILY&#34;)
+ *             .monitorArnLists(aws_ce_anomaly_monitor.test().arn())
+ *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
+ *                 .type(&#34;EMAIL&#34;)
+ *                 .address(&#34;abc@example.com&#34;)
+ *                 .build())
+ *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
+ *                 .ands(                
+ *                     AnomalySubscriptionThresholdExpressionAndArgs.builder()
+ *                         .dimension(AnomalySubscriptionThresholdExpressionAndDimensionArgs.builder()
+ *                             .key(&#34;ANOMALY_TOTAL_IMPACT_ABSOLUTE&#34;)
+ *                             .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
+ *                             .values(&#34;100&#34;)
+ *                             .build())
+ *                         .build(),
+ *                     AnomalySubscriptionThresholdExpressionAndArgs.builder()
+ *                         .dimension(AnomalySubscriptionThresholdExpressionAndDimensionArgs.builder()
+ *                             .key(&#34;ANOMALY_TOTAL_IMPACT_PERCENTAGE&#34;)
+ *                             .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
+ *                             .values(&#34;50&#34;)
+ *                             .build())
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### SNS Example
+ * 
  * ```java
  * package generated_program;
  * 
@@ -210,7 +265,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ce_anomaly_subscription` can be imported using the `id`, e.g.
+ * Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
@@ -330,24 +385,6 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
-    }
-    /**
-     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-     * 
-     * @deprecated
-     * use threshold_expression instead
-     * 
-     */
-    @Deprecated /* use threshold_expression instead */
-    @Export(name="threshold", refs={Double.class}, tree="[0]")
-    private Output<Double> threshold;
-
-    /**
-     * @return The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-     * 
-     */
-    public Output<Double> threshold() {
-        return this.threshold;
     }
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.

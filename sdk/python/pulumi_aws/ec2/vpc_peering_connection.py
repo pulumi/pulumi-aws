@@ -434,7 +434,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         ## Import
 
-        VPC Peering resources can be imported using the `vpc peering id`, e.g.,
+        Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
@@ -550,7 +550,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         ## Import
 
-        VPC Peering resources can be imported using the `vpc peering id`, e.g.,
+        Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
 
         ```sh
          $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IAM OpenID Connect Providers can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com

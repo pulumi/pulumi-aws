@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
+import com.pulumi.aws.opensearch.inputs.GetDomainOffPeakWindowOptions;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Map;
@@ -31,6 +32,21 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Off Peak update options
+     * 
+     */
+    @Import(name="offPeakWindowOptions")
+    private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
+
+    /**
+     * @return Off Peak update options
+     * 
+     */
+    public Optional<GetDomainOffPeakWindowOptions> offPeakWindowOptions() {
+        return Optional.ofNullable(this.offPeakWindowOptions);
+    }
+
+    /**
      * Tags assigned to the domain.
      * 
      */
@@ -49,6 +65,7 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetDomainPlainArgs(GetDomainPlainArgs $) {
         this.domainName = $.domainName;
+        this.offPeakWindowOptions = $.offPeakWindowOptions;
         this.tags = $.tags;
     }
 
@@ -78,6 +95,17 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder domainName(String domainName) {
             $.domainName = domainName;
+            return this;
+        }
+
+        /**
+         * @param offPeakWindowOptions Off Peak update options
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offPeakWindowOptions(@Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions) {
+            $.offPeakWindowOptions = offPeakWindowOptions;
             return this;
         }
 

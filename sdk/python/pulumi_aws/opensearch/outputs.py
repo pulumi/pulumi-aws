@@ -25,12 +25,20 @@ __all__ = [
     'DomainEncryptAtRest',
     'DomainLogPublishingOption',
     'DomainNodeToNodeEncryption',
+    'DomainOffPeakWindowOptions',
+    'DomainOffPeakWindowOptionsOffPeakWindow',
+    'DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime',
     'DomainSamlOptionsSamlOptions',
     'DomainSamlOptionsSamlOptionsIdp',
     'DomainSnapshotOptions',
+    'DomainSoftwareUpdateOptions',
     'DomainVpcOptions',
     'OutboundConnectionLocalDomainInfo',
     'OutboundConnectionRemoteDomainInfo',
+    'ServerlessCollectionTimeouts',
+    'ServerlessSecurityConfigSamlOptions',
+    'ServerlessVpcEndpointTimeouts',
+    'VpcEndpointVpcOptions',
     'GetDomainAdvancedSecurityOptionResult',
     'GetDomainAutoTuneOptionResult',
     'GetDomainAutoTuneOptionMaintenanceScheduleResult',
@@ -43,8 +51,13 @@ __all__ = [
     'GetDomainEncryptionAtRestResult',
     'GetDomainLogPublishingOptionResult',
     'GetDomainNodeToNodeEncryptionResult',
+    'GetDomainOffPeakWindowOptionsResult',
+    'GetDomainOffPeakWindowOptionsOffPeakWindowResult',
+    'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult',
     'GetDomainSnapshotOptionResult',
+    'GetDomainSoftwareUpdateOptionResult',
     'GetDomainVpcOptionResult',
+    'GetServerlessSecurityConfigSamlOptionsResult',
 ]
 
 @pulumi.output_type
@@ -354,6 +367,8 @@ class DomainClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "multiAzWithStandbyEnabled":
+            suggest = "multi_az_with_standby_enabled"
         elif key == "warmCount":
             suggest = "warm_count"
         elif key == "warmEnabled":
@@ -383,6 +398,7 @@ class DomainClusterConfig(dict):
                  dedicated_master_type: Optional[str] = None,
                  instance_count: Optional[int] = None,
                  instance_type: Optional[str] = None,
+                 multi_az_with_standby_enabled: Optional[bool] = None,
                  warm_count: Optional[int] = None,
                  warm_enabled: Optional[bool] = None,
                  warm_type: Optional[str] = None,
@@ -413,6 +429,8 @@ class DomainClusterConfig(dict):
             pulumi.set(__self__, "instance_count", instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if multi_az_with_standby_enabled is not None:
+            pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -471,6 +489,11 @@ class DomainClusterConfig(dict):
         Instance type of data nodes in the cluster.
         """
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="multiAzWithStandbyEnabled")
+    def multi_az_with_standby_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property
     @pulumi.getter(name="warmCount")
@@ -946,6 +969,117 @@ class DomainNodeToNodeEncryption(dict):
 
 
 @pulumi.output_type
+class DomainOffPeakWindowOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offPeakWindow":
+            suggest = "off_peak_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainOffPeakWindowOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainOffPeakWindowOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainOffPeakWindowOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 off_peak_window: Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindow'] = None):
+        """
+        :param bool enabled: Enabled disabled toggle for off-peak update window.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if off_peak_window is not None:
+            pulumi.set(__self__, "off_peak_window", off_peak_window)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enabled disabled toggle for off-peak update window.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="offPeakWindow")
+    def off_peak_window(self) -> Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindow']:
+        return pulumi.get(self, "off_peak_window")
+
+
+@pulumi.output_type
+class DomainOffPeakWindowOptionsOffPeakWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "windowStartTime":
+            suggest = "window_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainOffPeakWindowOptionsOffPeakWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainOffPeakWindowOptionsOffPeakWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainOffPeakWindowOptionsOffPeakWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 window_start_time: Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime'] = None):
+        """
+        :param 'DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs' window_start_time: 10h window for updates
+        """
+        if window_start_time is not None:
+            pulumi.set(__self__, "window_start_time", window_start_time)
+
+    @property
+    @pulumi.getter(name="windowStartTime")
+    def window_start_time(self) -> Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime']:
+        """
+        10h window for updates
+        """
+        return pulumi.get(self, "window_start_time")
+
+
+@pulumi.output_type
+class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime(dict):
+    def __init__(__self__, *,
+                 hours: Optional[int] = None,
+                 minutes: Optional[int] = None):
+        """
+        :param int hours: Starting hour of the 10-hour window for updates
+        :param int minutes: Starting minute of the 10-hour window for updates
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[int]:
+        """
+        Starting hour of the 10-hour window for updates
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[int]:
+        """
+        Starting minute of the 10-hour window for updates
+        """
+        return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
 class DomainSamlOptionsSamlOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1145,6 +1279,42 @@ class DomainSnapshotOptions(dict):
 
 
 @pulumi.output_type
+class DomainSoftwareUpdateOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoSoftwareUpdateEnabled":
+            suggest = "auto_software_update_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSoftwareUpdateOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSoftwareUpdateOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSoftwareUpdateOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_software_update_enabled: Optional[bool] = None):
+        """
+        :param bool auto_software_update_enabled: Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        """
+        if auto_software_update_enabled is not None:
+            pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+
+    @property
+    @pulumi.getter(name="autoSoftwareUpdateEnabled")
+    def auto_software_update_enabled(self) -> Optional[bool]:
+        """
+        Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_software_update_enabled")
+
+
+@pulumi.output_type
 class DomainVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1333,13 +1503,207 @@ class OutboundConnectionRemoteDomainInfo(dict):
 
 
 @pulumi.output_type
+class ServerlessCollectionTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class ServerlessSecurityConfigSamlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupAttribute":
+            suggest = "group_attribute"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+        elif key == "userAttribute":
+            suggest = "user_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessSecurityConfigSamlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessSecurityConfigSamlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessSecurityConfigSamlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata: str,
+                 group_attribute: Optional[str] = None,
+                 session_timeout: Optional[int] = None,
+                 user_attribute: Optional[str] = None):
+        """
+        :param str metadata: The XML IdP metadata file generated from your identity provider.
+        :param str group_attribute: Group attribute for this SAML integration.
+        :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        :param str user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "metadata", metadata)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
+        """
+        The XML IdP metadata file generated from your identity provider.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> Optional[str]:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> Optional[int]:
+        """
+        Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> Optional[str]:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
+
+
+@pulumi.output_type
+class ServerlessVpcEndpointTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class VpcEndpointVpcOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcEndpointVpcOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcEndpointVpcOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcEndpointVpcOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_ids: Sequence[str],
+                 availability_zones: Optional[Sequence[str]] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 vpc_id: Optional[str] = None):
+        """
+        :param Sequence[str] subnet_ids: A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+        :param Sequence[str] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
 class GetDomainAdvancedSecurityOptionResult(dict):
     def __init__(__self__, *,
                  anonymous_auth_enabled: bool,
                  enabled: bool,
                  internal_user_database_enabled: bool):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param bool internal_user_database_enabled: Whether the internal user database is enabled.
         """
         pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
@@ -1355,7 +1719,7 @@ class GetDomainAdvancedSecurityOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1486,6 +1850,7 @@ class GetDomainClusterConfigResult(dict):
                  dedicated_master_type: str,
                  instance_count: int,
                  instance_type: str,
+                 multi_az_with_standby_enabled: bool,
                  warm_count: int,
                  warm_type: str,
                  zone_awareness_configs: Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult'],
@@ -1510,6 +1875,7 @@ class GetDomainClusterConfigResult(dict):
         pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
         pulumi.set(__self__, "warm_count", warm_count)
         pulumi.set(__self__, "warm_type", warm_type)
         pulumi.set(__self__, "zone_awareness_configs", zone_awareness_configs)
@@ -1566,6 +1932,11 @@ class GetDomainClusterConfigResult(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="multiAzWithStandbyEnabled")
+    def multi_az_with_standby_enabled(self) -> bool:
+        return pulumi.get(self, "multi_az_with_standby_enabled")
+
+    @property
     @pulumi.getter(name="warmCount")
     def warm_count(self) -> int:
         """
@@ -1611,7 +1982,7 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -1619,7 +1990,7 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1650,7 +2021,7 @@ class GetDomainCognitoOptionResult(dict):
                  role_arn: str,
                  user_pool_id: str):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str identity_pool_id: Cognito Identity pool used by the domain.
         :param str role_arn: IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
         :param str user_pool_id: Cognito User pool used by the domain.
@@ -1664,7 +2035,7 @@ class GetDomainCognitoOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1761,7 +2132,7 @@ class GetDomainEncryptionAtRestResult(dict):
                  enabled: bool,
                  kms_key_id: str):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str kms_key_id: KMS key id used to encrypt data at rest.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1771,7 +2142,7 @@ class GetDomainEncryptionAtRestResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1792,7 +2163,7 @@ class GetDomainLogPublishingOptionResult(dict):
                  log_type: str):
         """
         :param str cloudwatch_log_group_arn: CloudWatch Log Group where the logs are published.
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str log_type: Type of OpenSearch log being published.
         """
         pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
@@ -1811,7 +2182,7 @@ class GetDomainLogPublishingOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1829,7 +2200,7 @@ class GetDomainNodeToNodeEncryptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -1837,9 +2208,81 @@ class GetDomainNodeToNodeEncryptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class GetDomainOffPeakWindowOptionsResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 off_peak_windows: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']):
+        """
+        :param bool enabled: Enabled disabled toggle for off-peak update window
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "off_peak_windows", off_peak_windows)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Enabled disabled toggle for off-peak update window
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="offPeakWindows")
+    def off_peak_windows(self) -> Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']:
+        return pulumi.get(self, "off_peak_windows")
+
+
+@pulumi.output_type
+class GetDomainOffPeakWindowOptionsOffPeakWindowResult(dict):
+    def __init__(__self__, *,
+                 window_start_times: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']):
+        """
+        :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_times: 10h window for updates
+        """
+        pulumi.set(__self__, "window_start_times", window_start_times)
+
+    @property
+    @pulumi.getter(name="windowStartTimes")
+    def window_start_times(self) -> Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']:
+        """
+        10h window for updates
+        """
+        return pulumi.get(self, "window_start_times")
+
+
+@pulumi.output_type
+class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
+    def __init__(__self__, *,
+                 hours: int,
+                 minutes: int):
+        """
+        :param int hours: Starting hour of the 10-hour window for updates
+        :param int minutes: Starting minute of the 10-hour window for updates
+        """
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> int:
+        """
+        Starting hour of the 10-hour window for updates
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        """
+        Starting minute of the 10-hour window for updates
+        """
+        return pulumi.get(self, "minutes")
 
 
 @pulumi.output_type
@@ -1858,6 +2301,24 @@ class GetDomainSnapshotOptionResult(dict):
         Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
         return pulumi.get(self, "automated_snapshot_start_hour")
+
+
+@pulumi.output_type
+class GetDomainSoftwareUpdateOptionResult(dict):
+    def __init__(__self__, *,
+                 auto_software_update_enabled: bool):
+        """
+        :param bool auto_software_update_enabled: Enabled or disabled.
+        """
+        pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+
+    @property
+    @pulumi.getter(name="autoSoftwareUpdateEnabled")
+    def auto_software_update_enabled(self) -> bool:
+        """
+        Enabled or disabled.
+        """
+        return pulumi.get(self, "auto_software_update_enabled")
 
 
 @pulumi.output_type
@@ -1909,5 +2370,56 @@ class GetDomainVpcOptionResult(dict):
         VPC used by the domain.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetServerlessSecurityConfigSamlOptionsResult(dict):
+    def __init__(__self__, *,
+                 group_attribute: str,
+                 metadata: str,
+                 session_timeout: int,
+                 user_attribute: str):
+        """
+        :param str group_attribute: Group attribute for this SAML integration.
+        :param str metadata: The XML IdP metadata file generated from your identity provider.
+        :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        :param str user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "group_attribute", group_attribute)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "session_timeout", session_timeout)
+        pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> str:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
+        """
+        The XML IdP metadata file generated from your identity provider.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> int:
+        """
+        Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> str:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
 
 

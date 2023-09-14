@@ -80,7 +80,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SimpleDB Domains can be imported using the `name`, e.g.,
+        Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
 
         ```sh
          $ pulumi import aws:simpledb/domain:Domain users users
@@ -110,7 +110,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SimpleDB Domains can be imported using the `name`, e.g.,
+        Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
 
         ```sh
          $ pulumi import aws:simpledb/domain:Domain users users

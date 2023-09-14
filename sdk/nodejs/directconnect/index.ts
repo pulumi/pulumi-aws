@@ -57,7 +57,8 @@ utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("
 
 export { GetLocationsResult } from "./getLocations";
 export const getLocations: typeof import("./getLocations").getLocations = null as any;
-utilities.lazyLoad(exports, ["getLocations"], () => require("./getLocations"));
+export const getLocationsOutput: typeof import("./getLocations").getLocationsOutput = null as any;
+utilities.lazyLoad(exports, ["getLocations","getLocationsOutput"], () => require("./getLocations"));
 
 export { GetRouterConfigurationArgs, GetRouterConfigurationResult, GetRouterConfigurationOutputArgs } from "./getRouterConfiguration";
 export const getRouterConfiguration: typeof import("./getRouterConfiguration").getRouterConfiguration = null as any;

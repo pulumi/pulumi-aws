@@ -35,6 +35,8 @@ namespace Pulumi.Aws.SesV2.Inputs
 
         /// <summary>
         /// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> MatchingEventTypes
         {

@@ -142,6 +142,9 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
     :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -151,13 +154,13 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment', __args__, opts=opts, typ=GetPeeringAttachmentResult).value
 
     return AwaitableGetPeeringAttachmentResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        peer_account_id=__ret__.peer_account_id,
-        peer_region=__ret__.peer_region,
-        peer_transit_gateway_id=__ret__.peer_transit_gateway_id,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        peer_account_id=pulumi.get(__ret__, 'peer_account_id'),
+        peer_region=pulumi.get(__ret__, 'peer_region'),
+        peer_transit_gateway_id=pulumi.get(__ret__, 'peer_transit_gateway_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 
 
 @_utilities.lift_output_func(get_peering_attachment)
@@ -194,5 +197,8 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
     :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

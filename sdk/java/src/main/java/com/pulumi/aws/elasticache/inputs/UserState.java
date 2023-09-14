@@ -149,12 +149,16 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     /**
      * The username of the user.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
      * @return The username of the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> userName() {
@@ -384,6 +388,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userName The username of the user.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -394,6 +400,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userName The username of the user.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

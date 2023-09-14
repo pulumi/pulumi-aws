@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Import
     /// 
-    /// EBS Volumes can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import EBS Volumes using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
@@ -122,6 +122,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
@@ -246,6 +248,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -350,6 +354,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

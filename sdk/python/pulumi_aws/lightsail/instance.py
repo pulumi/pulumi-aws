@@ -177,7 +177,6 @@ class _InstanceState:
                  cpu_count: Optional[pulumi.Input[int]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 ipv6_address: Optional[pulumi.Input[str]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_static_ip: Optional[pulumi.Input[bool]] = None,
                  key_pair_name: Optional[pulumi.Input[str]] = None,
@@ -200,7 +199,6 @@ class _InstanceState:
         :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
         :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
-        :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
         :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
@@ -230,11 +228,6 @@ class _InstanceState:
             pulumi.set(__self__, "created_at", created_at)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
-        if ipv6_address is not None:
-            warnings.warn("""use `ipv6_addresses` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""ipv6_address is deprecated: use `ipv6_addresses` attribute instead""")
-        if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
         if ipv6_addresses is not None:
             pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
         if is_static_ip is not None:
@@ -354,18 +347,6 @@ class _InstanceState:
     @ip_address_type.setter
     def ip_address_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address_type", value)
-
-    @property
-    @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-        """
-        return pulumi.get(self, "ipv6_address")
-
-    @ipv6_address.setter
-    def ipv6_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ipv6_address", value)
 
     @property
     @pulumi.getter(name="ipv6Addresses")
@@ -627,7 +608,7 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Instances can be imported using their name, e.g.,
+        Using `pulumi import`, import Lightsail Instances using their name. For example:
 
         ```sh
          $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
@@ -764,7 +745,7 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Instances can be imported using their name, e.g.,
+        Using `pulumi import`, import Lightsail Instances using their name. For example:
 
         ```sh
          $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
@@ -821,7 +802,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["cpu_count"] = None
             __props__.__dict__["created_at"] = None
-            __props__.__dict__["ipv6_address"] = None
             __props__.__dict__["ipv6_addresses"] = None
             __props__.__dict__["is_static_ip"] = None
             __props__.__dict__["private_ip_address"] = None
@@ -847,7 +827,6 @@ class Instance(pulumi.CustomResource):
             cpu_count: Optional[pulumi.Input[int]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
-            ipv6_address: Optional[pulumi.Input[str]] = None,
             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             is_static_ip: Optional[pulumi.Input[bool]] = None,
             key_pair_name: Optional[pulumi.Input[str]] = None,
@@ -875,7 +854,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
         :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
-        :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
         :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
@@ -901,7 +879,6 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["cpu_count"] = cpu_count
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["ip_address_type"] = ip_address_type
-        __props__.__dict__["ipv6_address"] = ipv6_address
         __props__.__dict__["ipv6_addresses"] = ipv6_addresses
         __props__.__dict__["is_static_ip"] = is_static_ip
         __props__.__dict__["key_pair_name"] = key_pair_name
@@ -979,14 +956,6 @@ class Instance(pulumi.CustomResource):
         The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         """
         return pulumi.get(self, "ip_address_type")
-
-    @property
-    @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> pulumi.Output[str]:
-        """
-        (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-        """
-        return pulumi.get(self, "ipv6_address")
 
     @property
     @pulumi.getter(name="ipv6Addresses")

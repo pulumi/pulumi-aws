@@ -8,12 +8,64 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			var splat0 []interface{}
+//			for _, val0 := range aws_subnet.Example {
+//				splat0 = append(splat0, val0.Id)
+//			}
+//			_, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
+//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				NodeRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				SubnetIds:   toPulumiAnyArray(splat0),
+//				ScalingConfig: &eks.NodeGroupScalingConfigArgs{
+//					DesiredSize: pulumi.Int(1),
+//					MaxSize:     pulumi.Int(2),
+//					MinSize:     pulumi.Int(1),
+//				},
+//				UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
+//					MaxUnavailable: pulumi.Int(1),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_iam_role_policy_attachment.ExampleAmazonEKSWorkerNodePolicy,
+//				aws_iam_role_policy_attachment.ExampleAmazonEKS_CNI_Policy,
+//				aws_iam_role_policy_attachment.ExampleAmazonEC2ContainerRegistryReadOnly,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
+//		var pulumiArr pulumi.AnyArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.Any(v))
+//		}
+//		return pulumiArr
+//	}
+//
+// ```
 // ### Ignoring Changes to Desired Size
 //
 // You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
@@ -23,7 +75,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +104,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -110,7 +162,7 @@ import (
 //
 // ## Import
 //
-// EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.,
+// Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 //
 // ```sh
 //
@@ -136,7 +188,7 @@ type NodeGroup struct {
 	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
-	// Configuration block with Launch Template settings. Detailed below.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
 	LaunchTemplate NodeGroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
@@ -146,22 +198,25 @@ type NodeGroup struct {
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringOutput `pulumi:"releaseVersion"`
-	// Configuration block with remote access settings. Detailed below.
+	// Configuration block with remote access settings. See `remoteAccess` below for details.
 	RemoteAccess NodeGroupRemoteAccessPtrOutput `pulumi:"remoteAccess"`
 	// List of objects containing information about underlying resources.
 	Resources NodeGroupResourceArrayOutput `pulumi:"resources"`
-	// Configuration block with scaling settings. Detailed below.
+	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig NodeGroupScalingConfigOutput `pulumi:"scalingConfig"`
 	// Status of the EKS Node Group.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	// Identifiers of EC2 Subnets to associate with the EKS Node Group.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
-	Taints       NodeGroupTaintArrayOutput   `pulumi:"taints"`
+	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+	Taints NodeGroupTaintArrayOutput `pulumi:"taints"`
+	// Configuration block with update settings. See `updateConfig` below for details.
 	UpdateConfig NodeGroupUpdateConfigOutput `pulumi:"updateConfig"`
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -186,6 +241,7 @@ func NewNodeGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NodeGroup
 	err := ctx.RegisterResource("aws:eks/nodeGroup:NodeGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -224,7 +280,7 @@ type nodeGroupState struct {
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
-	// Configuration block with Launch Template settings. Detailed below.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
@@ -234,22 +290,25 @@ type nodeGroupState struct {
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
-	// Configuration block with remote access settings. Detailed below.
+	// Configuration block with remote access settings. See `remoteAccess` below for details.
 	RemoteAccess *NodeGroupRemoteAccess `pulumi:"remoteAccess"`
 	// List of objects containing information about underlying resources.
 	Resources []NodeGroupResource `pulumi:"resources"`
-	// Configuration block with scaling settings. Detailed below.
+	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig *NodeGroupScalingConfig `pulumi:"scalingConfig"`
 	// Status of the EKS Node Group.
 	Status *string `pulumi:"status"`
-	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	// Identifiers of EC2 Subnets to associate with the EKS Node Group.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
-	Taints       []NodeGroupTaint       `pulumi:"taints"`
+	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+	Taints []NodeGroupTaint `pulumi:"taints"`
+	// Configuration block with update settings. See `updateConfig` below for details.
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version *string `pulumi:"version"`
@@ -272,7 +331,7 @@ type NodeGroupState struct {
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
-	// Configuration block with Launch Template settings. Detailed below.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringPtrInput
@@ -282,22 +341,25 @@ type NodeGroupState struct {
 	NodeRoleArn pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
-	// Configuration block with remote access settings. Detailed below.
+	// Configuration block with remote access settings. See `remoteAccess` below for details.
 	RemoteAccess NodeGroupRemoteAccessPtrInput
 	// List of objects containing information about underlying resources.
 	Resources NodeGroupResourceArrayInput
-	// Configuration block with scaling settings. Detailed below.
+	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig NodeGroupScalingConfigPtrInput
 	// Status of the EKS Node Group.
 	Status pulumi.StringPtrInput
-	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	// Identifiers of EC2 Subnets to associate with the EKS Node Group.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
-	Taints       NodeGroupTaintArrayInput
+	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+	Taints NodeGroupTaintArrayInput
+	// Configuration block with update settings. See `updateConfig` below for details.
 	UpdateConfig NodeGroupUpdateConfigPtrInput
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
@@ -322,7 +384,7 @@ type nodeGroupArgs struct {
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
-	// Configuration block with Launch Template settings. Detailed below.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
@@ -332,16 +394,19 @@ type nodeGroupArgs struct {
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
-	// Configuration block with remote access settings. Detailed below.
+	// Configuration block with remote access settings. See `remoteAccess` below for details.
 	RemoteAccess *NodeGroupRemoteAccess `pulumi:"remoteAccess"`
-	// Configuration block with scaling settings. Detailed below.
+	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig NodeGroupScalingConfig `pulumi:"scalingConfig"`
-	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	// Identifiers of EC2 Subnets to associate with the EKS Node Group.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
-	Taints       []NodeGroupTaint       `pulumi:"taints"`
+	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+	Taints []NodeGroupTaint `pulumi:"taints"`
+	// Configuration block with update settings. See `updateConfig` below for details.
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version *string `pulumi:"version"`
@@ -363,7 +428,7 @@ type NodeGroupArgs struct {
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
-	// Configuration block with Launch Template settings. Detailed below.
+	// Configuration block with Launch Template settings. See `launchTemplate` below for details.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
 	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringPtrInput
@@ -373,16 +438,19 @@ type NodeGroupArgs struct {
 	NodeRoleArn pulumi.StringInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
-	// Configuration block with remote access settings. Detailed below.
+	// Configuration block with remote access settings. See `remoteAccess` below for details.
 	RemoteAccess NodeGroupRemoteAccessPtrInput
-	// Configuration block with scaling settings. Detailed below.
+	// Configuration block with scaling settings. See `scalingConfig` below for details.
 	ScalingConfig NodeGroupScalingConfigInput
-	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	// Identifiers of EC2 Subnets to associate with the EKS Node Group.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
-	Taints       NodeGroupTaintArrayInput
+	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+	Taints NodeGroupTaintArrayInput
+	// Configuration block with update settings. See `updateConfig` below for details.
 	UpdateConfig NodeGroupUpdateConfigPtrInput
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
@@ -411,6 +479,12 @@ func (i *NodeGroup) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupOutput)
 }
 
+func (i *NodeGroup) ToOutput(ctx context.Context) pulumix.Output[*NodeGroup] {
+	return pulumix.Output[*NodeGroup]{
+		OutputState: i.ToNodeGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NodeGroupArrayInput is an input type that accepts NodeGroupArray and NodeGroupArrayOutput values.
 // You can construct a concrete instance of `NodeGroupArrayInput` via:
 //
@@ -434,6 +508,12 @@ func (i NodeGroupArray) ToNodeGroupArrayOutput() NodeGroupArrayOutput {
 
 func (i NodeGroupArray) ToNodeGroupArrayOutputWithContext(ctx context.Context) NodeGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupArrayOutput)
+}
+
+func (i NodeGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*NodeGroup] {
+	return pulumix.Output[[]*NodeGroup]{
+		OutputState: i.ToNodeGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NodeGroupMapInput is an input type that accepts NodeGroupMap and NodeGroupMapOutput values.
@@ -461,6 +541,12 @@ func (i NodeGroupMap) ToNodeGroupMapOutputWithContext(ctx context.Context) NodeG
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupMapOutput)
 }
 
+func (i NodeGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodeGroup] {
+	return pulumix.Output[map[string]*NodeGroup]{
+		OutputState: i.ToNodeGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodeGroupOutput struct{ *pulumi.OutputState }
 
 func (NodeGroupOutput) ElementType() reflect.Type {
@@ -473,6 +559,12 @@ func (o NodeGroupOutput) ToNodeGroupOutput() NodeGroupOutput {
 
 func (o NodeGroupOutput) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput {
 	return o
+}
+
+func (o NodeGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*NodeGroup] {
+	return pulumix.Output[*NodeGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
@@ -515,7 +607,7 @@ func (o NodeGroupOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// Configuration block with Launch Template settings. Detailed below.
+// Configuration block with Launch Template settings. See `launchTemplate` below for details.
 func (o NodeGroupOutput) LaunchTemplate() NodeGroupLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupLaunchTemplatePtrOutput { return v.LaunchTemplate }).(NodeGroupLaunchTemplatePtrOutput)
 }
@@ -540,7 +632,7 @@ func (o NodeGroupOutput) ReleaseVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.ReleaseVersion }).(pulumi.StringOutput)
 }
 
-// Configuration block with remote access settings. Detailed below.
+// Configuration block with remote access settings. See `remoteAccess` below for details.
 func (o NodeGroupOutput) RemoteAccess() NodeGroupRemoteAccessPtrOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupRemoteAccessPtrOutput { return v.RemoteAccess }).(NodeGroupRemoteAccessPtrOutput)
 }
@@ -550,7 +642,7 @@ func (o NodeGroupOutput) Resources() NodeGroupResourceArrayOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupResourceArrayOutput { return v.Resources }).(NodeGroupResourceArrayOutput)
 }
 
-// Configuration block with scaling settings. Detailed below.
+// Configuration block with scaling settings. See `scalingConfig` below for details.
 func (o NodeGroupOutput) ScalingConfig() NodeGroupScalingConfigOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupScalingConfigOutput { return v.ScalingConfig }).(NodeGroupScalingConfigOutput)
 }
@@ -560,7 +652,9 @@ func (o NodeGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+// Identifiers of EC2 Subnets to associate with the EKS Node Group.
+//
+// The following arguments are optional:
 func (o NodeGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -575,11 +669,12 @@ func (o NodeGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
 func (o NodeGroupOutput) Taints() NodeGroupTaintArrayOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupTaintArrayOutput { return v.Taints }).(NodeGroupTaintArrayOutput)
 }
 
+// Configuration block with update settings. See `updateConfig` below for details.
 func (o NodeGroupOutput) UpdateConfig() NodeGroupUpdateConfigOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupUpdateConfigOutput { return v.UpdateConfig }).(NodeGroupUpdateConfigOutput)
 }
@@ -603,6 +698,12 @@ func (o NodeGroupArrayOutput) ToNodeGroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NodeGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NodeGroup] {
+	return pulumix.Output[[]*NodeGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NodeGroupArrayOutput) Index(i pulumi.IntInput) NodeGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NodeGroup {
 		return vs[0].([]*NodeGroup)[vs[1].(int)]
@@ -621,6 +722,12 @@ func (o NodeGroupMapOutput) ToNodeGroupMapOutput() NodeGroupMapOutput {
 
 func (o NodeGroupMapOutput) ToNodeGroupMapOutputWithContext(ctx context.Context) NodeGroupMapOutput {
 	return o
+}
+
+func (o NodeGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodeGroup] {
+	return pulumix.Output[map[string]*NodeGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodeGroupMapOutput) MapIndex(k pulumi.StringInput) NodeGroupOutput {

@@ -357,10 +357,30 @@ namespace Pulumi.Aws.S3
     /// {
     /// });
     /// ```
+    /// ### Emit events to EventBridge
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Eventbridge = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// S3 bucket notification can be imported using the `bucket`, e.g.,
+    /// Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
@@ -371,12 +391,14 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Name of the bucket for notification configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
         [Output("eventbridge")]
         public Output<bool?> Eventbridge { get; private set; } = null!;
@@ -447,12 +469,14 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Name of the bucket for notification configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }
@@ -503,12 +527,14 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Name of the bucket for notification configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }

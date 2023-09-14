@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 health check.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,8 +119,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -155,7 +157,7 @@ import (
 //
 // ## Import
 //
-// Route53 Health Checks can be imported using the `health check id`, e.g.,
+// Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
 //
 // ```sh
 //
@@ -179,12 +181,14 @@ type HealthCheck struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolOutput `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold pulumi.IntOutput `pulumi:"failureThreshold"`
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus pulumi.StringPtrOutput `pulumi:"insufficientDataHealthStatus"`
@@ -227,6 +231,7 @@ func NewHealthCheck(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HealthCheck
 	err := ctx.RegisterResource("aws:route53/healthCheck:HealthCheck", name, args, &resource, opts...)
 	if err != nil {
@@ -263,12 +268,14 @@ type healthCheckState struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled *bool `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni *bool `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn *string `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus *string `pulumi:"insufficientDataHealthStatus"`
@@ -316,12 +323,14 @@ type HealthCheckState struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled pulumi.BoolPtrInput
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolPtrInput
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold pulumi.IntPtrInput
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn pulumi.StringPtrInput
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus pulumi.StringPtrInput
@@ -371,12 +380,14 @@ type healthCheckArgs struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled *bool `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni *bool `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn *string `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus *string `pulumi:"insufficientDataHealthStatus"`
@@ -421,12 +432,14 @@ type HealthCheckArgs struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled pulumi.BoolPtrInput
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolPtrInput
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold pulumi.IntPtrInput
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn pulumi.StringPtrInput
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus pulumi.StringPtrInput
@@ -480,6 +493,12 @@ func (i *HealthCheck) ToHealthCheckOutputWithContext(ctx context.Context) Health
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckOutput)
 }
 
+func (i *HealthCheck) ToOutput(ctx context.Context) pulumix.Output[*HealthCheck] {
+	return pulumix.Output[*HealthCheck]{
+		OutputState: i.ToHealthCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HealthCheckArrayInput is an input type that accepts HealthCheckArray and HealthCheckArrayOutput values.
 // You can construct a concrete instance of `HealthCheckArrayInput` via:
 //
@@ -503,6 +522,12 @@ func (i HealthCheckArray) ToHealthCheckArrayOutput() HealthCheckArrayOutput {
 
 func (i HealthCheckArray) ToHealthCheckArrayOutputWithContext(ctx context.Context) HealthCheckArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckArrayOutput)
+}
+
+func (i HealthCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]*HealthCheck] {
+	return pulumix.Output[[]*HealthCheck]{
+		OutputState: i.ToHealthCheckArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HealthCheckMapInput is an input type that accepts HealthCheckMap and HealthCheckMapOutput values.
@@ -530,6 +555,12 @@ func (i HealthCheckMap) ToHealthCheckMapOutputWithContext(ctx context.Context) H
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckMapOutput)
 }
 
+func (i HealthCheckMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HealthCheck] {
+	return pulumix.Output[map[string]*HealthCheck]{
+		OutputState: i.ToHealthCheckMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HealthCheckOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckOutput) ElementType() reflect.Type {
@@ -542,6 +573,12 @@ func (o HealthCheckOutput) ToHealthCheckOutput() HealthCheckOutput {
 
 func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput {
 	return o
+}
+
+func (o HealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheck] {
+	return pulumix.Output[*HealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Health Check.
@@ -573,6 +610,8 @@ func (o HealthCheckOutput) CloudwatchAlarmRegion() pulumi.StringPtrOutput {
 // * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 // * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 // * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+//
+// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 func (o HealthCheckOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
@@ -587,7 +626,7 @@ func (o HealthCheckOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.IntOutput { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
-// The fully qualified domain name of the endpoint to be checked.
+// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 func (o HealthCheckOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringPtrOutput { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
@@ -677,6 +716,12 @@ func (o HealthCheckArrayOutput) ToHealthCheckArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o HealthCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HealthCheck] {
+	return pulumix.Output[[]*HealthCheck]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HealthCheckArrayOutput) Index(i pulumi.IntInput) HealthCheckOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HealthCheck {
 		return vs[0].([]*HealthCheck)[vs[1].(int)]
@@ -695,6 +740,12 @@ func (o HealthCheckMapOutput) ToHealthCheckMapOutput() HealthCheckMapOutput {
 
 func (o HealthCheckMapOutput) ToHealthCheckMapOutputWithContext(ctx context.Context) HealthCheckMapOutput {
 	return o
+}
+
+func (o HealthCheckMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HealthCheck] {
+	return pulumix.Output[map[string]*HealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HealthCheckMapOutput) MapIndex(k pulumi.StringInput) HealthCheckOutput {

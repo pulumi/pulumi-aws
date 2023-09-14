@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -55,6 +57,7 @@ import (
 //
 // ```
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws:alb/getTargetGroup:getTargetGroup", args, &rv, opts...)
 	if err != nil {
@@ -70,6 +73,8 @@ type LookupTargetGroupArgs struct {
 	// Unique name of the target group.
 	Name *string `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -118,6 +123,8 @@ type LookupTargetGroupOutputArgs struct {
 	// Unique name of the target group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -138,6 +145,12 @@ func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutput() LookupT
 
 func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutputWithContext(ctx context.Context) LookupTargetGroupResultOutput {
 	return o
+}
+
+func (o LookupTargetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTargetGroupResult] {
+	return pulumix.Output[LookupTargetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTargetGroupResultOutput) Arn() pulumi.StringOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Container Recipe.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +65,7 @@ import (
 //
 // ## Import
 //
-// `aws_imagebuilder_container_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -110,6 +112,8 @@ type ContainerRecipe struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryOutput `pulumi:"targetRepository"`
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
@@ -137,6 +141,7 @@ func NewContainerRecipe(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerRecipe
 	err := ctx.RegisterResource("aws:imagebuilder/containerRecipe:ContainerRecipe", name, args, &resource, opts...)
 	if err != nil {
@@ -196,6 +201,8 @@ type containerRecipeState struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository *ContainerRecipeTargetRepository `pulumi:"targetRepository"`
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version *string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -239,6 +246,8 @@ type ContainerRecipeState struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryPtrInput
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringPtrInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -274,6 +283,8 @@ type containerRecipeArgs struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepository `pulumi:"targetRepository"`
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -306,6 +317,8 @@ type ContainerRecipeArgs struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryInput
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -334,6 +347,12 @@ func (i *ContainerRecipe) ToContainerRecipeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeOutput)
 }
 
+func (i *ContainerRecipe) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipe] {
+	return pulumix.Output[*ContainerRecipe]{
+		OutputState: i.ToContainerRecipeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerRecipeArrayInput is an input type that accepts ContainerRecipeArray and ContainerRecipeArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeArrayInput` via:
 //
@@ -357,6 +376,12 @@ func (i ContainerRecipeArray) ToContainerRecipeArrayOutput() ContainerRecipeArra
 
 func (i ContainerRecipeArray) ToContainerRecipeArrayOutputWithContext(ctx context.Context) ContainerRecipeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeArrayOutput)
+}
+
+func (i ContainerRecipeArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerRecipe] {
+	return pulumix.Output[[]*ContainerRecipe]{
+		OutputState: i.ToContainerRecipeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContainerRecipeMapInput is an input type that accepts ContainerRecipeMap and ContainerRecipeMapOutput values.
@@ -384,6 +409,12 @@ func (i ContainerRecipeMap) ToContainerRecipeMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeMapOutput)
 }
 
+func (i ContainerRecipeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerRecipe] {
+	return pulumix.Output[map[string]*ContainerRecipe]{
+		OutputState: i.ToContainerRecipeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerRecipeOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeOutput) ElementType() reflect.Type {
@@ -396,6 +427,12 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutput() ContainerRecipeOutput {
 
 func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Context) ContainerRecipeOutput {
 	return o
+}
+
+func (o ContainerRecipeOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipe] {
+	return pulumix.Output[*ContainerRecipe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required) Amazon Resource Name (ARN) of the container recipe.
@@ -489,6 +526,8 @@ func (o ContainerRecipeOutput) TargetRepository() ContainerRecipeTargetRepositor
 }
 
 // Version of the container recipe.
+//
+// The following attributes are optional:
 func (o ContainerRecipeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
@@ -512,6 +551,12 @@ func (o ContainerRecipeArrayOutput) ToContainerRecipeArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ContainerRecipeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerRecipe] {
+	return pulumix.Output[[]*ContainerRecipe]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerRecipeArrayOutput) Index(i pulumi.IntInput) ContainerRecipeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContainerRecipe {
 		return vs[0].([]*ContainerRecipe)[vs[1].(int)]
@@ -530,6 +575,12 @@ func (o ContainerRecipeMapOutput) ToContainerRecipeMapOutput() ContainerRecipeMa
 
 func (o ContainerRecipeMapOutput) ToContainerRecipeMapOutputWithContext(ctx context.Context) ContainerRecipeMapOutput {
 	return o
+}
+
+func (o ContainerRecipeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerRecipe] {
+	return pulumix.Output[map[string]*ContainerRecipe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeMapOutput) MapIndex(k pulumi.StringInput) ContainerRecipeOutput {

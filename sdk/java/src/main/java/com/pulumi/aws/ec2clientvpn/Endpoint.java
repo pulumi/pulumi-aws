@@ -26,8 +26,6 @@ import javax.annotation.Nullable;
  * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
  * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  * 
- * &gt; **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -73,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
+ * Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
@@ -277,24 +275,6 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> splitTunnel() {
         return Codegen.optional(this.splitTunnel);
-    }
-    /**
-     * **Deprecated** The current state of the Client VPN endpoint.
-     * 
-     * @deprecated
-     * This attribute has been deprecated.
-     * 
-     */
-    @Deprecated /* This attribute has been deprecated. */
-    @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
-
-    /**
-     * @return **Deprecated** The current state of the Client VPN endpoint.
-     * 
-     */
-    public Output<String> status() {
-        return this.status;
     }
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

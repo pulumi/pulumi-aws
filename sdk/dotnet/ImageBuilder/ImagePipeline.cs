@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+    /// Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -107,6 +107,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with image scanning configuration. Detailed below.
+        /// </summary>
+        [Output("imageScanningConfiguration")]
+        public Output<Outputs.ImagePipelineImageScanningConfiguration> ImageScanningConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Output("imageTestsConfiguration")]
@@ -120,6 +126,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name of the image pipeline.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -231,6 +239,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
+        /// Configuration block with image scanning configuration. Detailed below.
+        /// </summary>
+        [Input("imageScanningConfiguration")]
+        public Input<Inputs.ImagePipelineImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
+
+        /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Input("imageTestsConfiguration")]
@@ -244,6 +258,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name of the image pipeline.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -341,6 +357,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
+        /// Configuration block with image scanning configuration. Detailed below.
+        /// </summary>
+        [Input("imageScanningConfiguration")]
+        public Input<Inputs.ImagePipelineImageScanningConfigurationGetArgs>? ImageScanningConfiguration { get; set; }
+
+        /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Input("imageTestsConfiguration")]
@@ -354,6 +376,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name of the image pipeline.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

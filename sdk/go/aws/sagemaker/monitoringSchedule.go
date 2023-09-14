@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker monitoring schedule resource.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 //
 // ## Import
 //
-// Monitoring schedules can be imported using the `name`, e.g.,
+// Using `pulumi import`, import monitoring schedules using the `name`. For example:
 //
 // ```sh
 //
@@ -78,6 +80,7 @@ func NewMonitoringSchedule(ctx *pulumi.Context,
 	if args.MonitoringScheduleConfig == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringScheduleConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitoringSchedule
 	err := ctx.RegisterResource("aws:sagemaker/monitoringSchedule:MonitoringSchedule", name, args, &resource, opts...)
 	if err != nil {
@@ -171,6 +174,12 @@ func (i *MonitoringSchedule) ToMonitoringScheduleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleOutput)
 }
 
+func (i *MonitoringSchedule) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSchedule] {
+	return pulumix.Output[*MonitoringSchedule]{
+		OutputState: i.ToMonitoringScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MonitoringScheduleArrayInput is an input type that accepts MonitoringScheduleArray and MonitoringScheduleArrayOutput values.
 // You can construct a concrete instance of `MonitoringScheduleArrayInput` via:
 //
@@ -194,6 +203,12 @@ func (i MonitoringScheduleArray) ToMonitoringScheduleArrayOutput() MonitoringSch
 
 func (i MonitoringScheduleArray) ToMonitoringScheduleArrayOutputWithContext(ctx context.Context) MonitoringScheduleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleArrayOutput)
+}
+
+func (i MonitoringScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*MonitoringSchedule] {
+	return pulumix.Output[[]*MonitoringSchedule]{
+		OutputState: i.ToMonitoringScheduleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MonitoringScheduleMapInput is an input type that accepts MonitoringScheduleMap and MonitoringScheduleMapOutput values.
@@ -221,6 +236,12 @@ func (i MonitoringScheduleMap) ToMonitoringScheduleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMapOutput)
 }
 
+func (i MonitoringScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitoringSchedule] {
+	return pulumix.Output[map[string]*MonitoringSchedule]{
+		OutputState: i.ToMonitoringScheduleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitoringScheduleOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleOutput) ElementType() reflect.Type {
@@ -233,6 +254,12 @@ func (o MonitoringScheduleOutput) ToMonitoringScheduleOutput() MonitoringSchedul
 
 func (o MonitoringScheduleOutput) ToMonitoringScheduleOutputWithContext(ctx context.Context) MonitoringScheduleOutput {
 	return o
+}
+
+func (o MonitoringScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSchedule] {
+	return pulumix.Output[*MonitoringSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
@@ -276,6 +303,12 @@ func (o MonitoringScheduleArrayOutput) ToMonitoringScheduleArrayOutputWithContex
 	return o
 }
 
+func (o MonitoringScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MonitoringSchedule] {
+	return pulumix.Output[[]*MonitoringSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MonitoringScheduleArrayOutput) Index(i pulumi.IntInput) MonitoringScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitoringSchedule {
 		return vs[0].([]*MonitoringSchedule)[vs[1].(int)]
@@ -294,6 +327,12 @@ func (o MonitoringScheduleMapOutput) ToMonitoringScheduleMapOutput() MonitoringS
 
 func (o MonitoringScheduleMapOutput) ToMonitoringScheduleMapOutputWithContext(ctx context.Context) MonitoringScheduleMapOutput {
 	return o
+}
+
+func (o MonitoringScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitoringSchedule] {
+	return pulumix.Output[map[string]*MonitoringSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitoringScheduleMapOutput) MapIndex(k pulumi.StringInput) MonitoringScheduleOutput {

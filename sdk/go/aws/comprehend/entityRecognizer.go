@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Comprehend Entity Recognizer.
@@ -23,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/comprehend"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +78,7 @@ import (
 //
 // ## Import
 //
-// Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+// Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 //
 // ```sh
 //
@@ -101,6 +103,8 @@ type EntityRecognizer struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -142,6 +146,7 @@ func NewEntityRecognizer(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EntityRecognizer
 	err := ctx.RegisterResource("aws:comprehend/entityRecognizer:EntityRecognizer", name, args, &resource, opts...)
 	if err != nil {
@@ -179,6 +184,8 @@ type entityRecognizerState struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -220,6 +227,8 @@ type EntityRecognizerState struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -263,6 +272,8 @@ type entityRecognizerArgs struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -301,6 +312,8 @@ type EntityRecognizerArgs struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -347,6 +360,12 @@ func (i *EntityRecognizer) ToEntityRecognizerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerOutput)
 }
 
+func (i *EntityRecognizer) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizer] {
+	return pulumix.Output[*EntityRecognizer]{
+		OutputState: i.ToEntityRecognizerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EntityRecognizerArrayInput is an input type that accepts EntityRecognizerArray and EntityRecognizerArrayOutput values.
 // You can construct a concrete instance of `EntityRecognizerArrayInput` via:
 //
@@ -370,6 +389,12 @@ func (i EntityRecognizerArray) ToEntityRecognizerArrayOutput() EntityRecognizerA
 
 func (i EntityRecognizerArray) ToEntityRecognizerArrayOutputWithContext(ctx context.Context) EntityRecognizerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerArrayOutput)
+}
+
+func (i EntityRecognizerArray) ToOutput(ctx context.Context) pulumix.Output[[]*EntityRecognizer] {
+	return pulumix.Output[[]*EntityRecognizer]{
+		OutputState: i.ToEntityRecognizerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EntityRecognizerMapInput is an input type that accepts EntityRecognizerMap and EntityRecognizerMapOutput values.
@@ -397,6 +422,12 @@ func (i EntityRecognizerMap) ToEntityRecognizerMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerMapOutput)
 }
 
+func (i EntityRecognizerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EntityRecognizer] {
+	return pulumix.Output[map[string]*EntityRecognizer]{
+		OutputState: i.ToEntityRecognizerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EntityRecognizerOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerOutput) ElementType() reflect.Type {
@@ -409,6 +440,12 @@ func (o EntityRecognizerOutput) ToEntityRecognizerOutput() EntityRecognizerOutpu
 
 func (o EntityRecognizerOutput) ToEntityRecognizerOutputWithContext(ctx context.Context) EntityRecognizerOutput {
 	return o
+}
+
+func (o EntityRecognizerOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizer] {
+	return pulumix.Output[*EntityRecognizer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Entity Recognizer version.
@@ -441,6 +478,8 @@ func (o EntityRecognizerOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 // Name for the Entity Recognizer.
 // Has a maximum length of 63 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+//
+// The following arguments are optional:
 func (o EntityRecognizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -499,6 +538,12 @@ func (o EntityRecognizerArrayOutput) ToEntityRecognizerArrayOutputWithContext(ct
 	return o
 }
 
+func (o EntityRecognizerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EntityRecognizer] {
+	return pulumix.Output[[]*EntityRecognizer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EntityRecognizerArrayOutput) Index(i pulumi.IntInput) EntityRecognizerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EntityRecognizer {
 		return vs[0].([]*EntityRecognizer)[vs[1].(int)]
@@ -517,6 +562,12 @@ func (o EntityRecognizerMapOutput) ToEntityRecognizerMapOutput() EntityRecognize
 
 func (o EntityRecognizerMapOutput) ToEntityRecognizerMapOutputWithContext(ctx context.Context) EntityRecognizerMapOutput {
 	return o
+}
+
+func (o EntityRecognizerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EntityRecognizer] {
+	return pulumix.Output[map[string]*EntityRecognizer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EntityRecognizerMapOutput) MapIndex(k pulumi.StringInput) EntityRecognizerOutput {

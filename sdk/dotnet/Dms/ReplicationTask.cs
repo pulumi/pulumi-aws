@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Replication tasks can be imported using the `replication_task_id`, e.g.,
+    /// Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
@@ -87,6 +87,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication task identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen.
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Output("replicationTaskId")]
         public Output<string> ReplicationTaskId { get; private set; } = null!;
@@ -211,6 +216,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication task identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen.
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationTaskId", required: true)]
         public Input<string> ReplicationTaskId { get; set; } = null!;
@@ -297,6 +307,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication task identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen.
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationTaskId")]
         public Input<string>? ReplicationTaskId { get; set; }

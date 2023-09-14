@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +60,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +93,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,8 +124,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,7 +158,7 @@ import (
 //
 // ## Import
 //
-// # Use the following command to import an Incident Manager replication set
+// Using `pulumi import`, import an Incident Manager replication. For example:
 //
 // ```sh
 //
@@ -179,6 +181,8 @@ type ReplicationSet struct {
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -194,6 +198,7 @@ func NewReplicationSet(ctx *pulumi.Context,
 	if args.Regions == nil {
 		return nil, errors.New("invalid value for required argument 'Regions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationSet
 	err := ctx.RegisterResource("aws:ssmincidents/replicationSet:ReplicationSet", name, args, &resource, opts...)
 	if err != nil {
@@ -229,6 +234,8 @@ type replicationSetState struct {
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
 	Status *string `pulumi:"status"`
 	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -248,6 +255,8 @@ type ReplicationSetState struct {
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
 	Status pulumi.StringPtrInput
 	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -260,6 +269,8 @@ func (ReplicationSetState) ElementType() reflect.Type {
 type replicationSetArgs struct {
 	Regions []ReplicationSetRegion `pulumi:"regions"`
 	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -267,6 +278,8 @@ type replicationSetArgs struct {
 type ReplicationSetArgs struct {
 	Regions ReplicationSetRegionArrayInput
 	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
 	Tags pulumi.StringMapInput
 }
 
@@ -291,6 +304,12 @@ func (i *ReplicationSet) ToReplicationSetOutput() ReplicationSetOutput {
 
 func (i *ReplicationSet) ToReplicationSetOutputWithContext(ctx context.Context) ReplicationSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetOutput)
+}
+
+func (i *ReplicationSet) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSet] {
+	return pulumix.Output[*ReplicationSet]{
+		OutputState: i.ToReplicationSetOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicationSetArrayInput is an input type that accepts ReplicationSetArray and ReplicationSetArrayOutput values.
@@ -318,6 +337,12 @@ func (i ReplicationSetArray) ToReplicationSetArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetArrayOutput)
 }
 
+func (i ReplicationSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationSet] {
+	return pulumix.Output[[]*ReplicationSet]{
+		OutputState: i.ToReplicationSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationSetMapInput is an input type that accepts ReplicationSetMap and ReplicationSetMapOutput values.
 // You can construct a concrete instance of `ReplicationSetMapInput` via:
 //
@@ -343,6 +368,12 @@ func (i ReplicationSetMap) ToReplicationSetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetMapOutput)
 }
 
+func (i ReplicationSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationSet] {
+	return pulumix.Output[map[string]*ReplicationSet]{
+		OutputState: i.ToReplicationSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationSetOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSetOutput) ElementType() reflect.Type {
@@ -355,6 +386,12 @@ func (o ReplicationSetOutput) ToReplicationSetOutput() ReplicationSetOutput {
 
 func (o ReplicationSetOutput) ToReplicationSetOutputWithContext(ctx context.Context) ReplicationSetOutput {
 	return o
+}
+
+func (o ReplicationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSet] {
+	return pulumix.Output[*ReplicationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the replication set.
@@ -388,6 +425,8 @@ func (o ReplicationSetOutput) Status() pulumi.StringOutput {
 }
 
 // Tags applied to the replication set.
+//
+// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
 func (o ReplicationSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -411,6 +450,12 @@ func (o ReplicationSetArrayOutput) ToReplicationSetArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ReplicationSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationSet] {
+	return pulumix.Output[[]*ReplicationSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationSetArrayOutput) Index(i pulumi.IntInput) ReplicationSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationSet {
 		return vs[0].([]*ReplicationSet)[vs[1].(int)]
@@ -429,6 +474,12 @@ func (o ReplicationSetMapOutput) ToReplicationSetMapOutput() ReplicationSetMapOu
 
 func (o ReplicationSetMapOutput) ToReplicationSetMapOutputWithContext(ctx context.Context) ReplicationSetMapOutput {
 	return o
+}
+
+func (o ReplicationSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationSet] {
+	return pulumix.Output[map[string]*ReplicationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationSetMapOutput) MapIndex(k pulumi.StringInput) ReplicationSetOutput {

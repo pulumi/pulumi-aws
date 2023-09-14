@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudSearch domain service access policies can be imported using the domain name, e.g.,
+ * Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain

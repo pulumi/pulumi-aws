@@ -41,5 +41,6 @@ utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSit
 
 export { GetSitesResult } from "./getSites";
 export const getSites: typeof import("./getSites").getSites = null as any;
-utilities.lazyLoad(exports, ["getSites"], () => require("./getSites"));
+export const getSitesOutput: typeof import("./getSites").getSitesOutput = null as any;
+utilities.lazyLoad(exports, ["getSites","getSitesOutput"], () => require("./getSites"));
 

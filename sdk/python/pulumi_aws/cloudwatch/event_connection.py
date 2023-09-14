@@ -237,7 +237,7 @@ class EventConnection(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Connection can be imported using the `name`, e.g., console
+        Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
@@ -296,7 +296,7 @@ class EventConnection(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Connection can be imported using the `name`, e.g., console
+        Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
 
         ```sh
          $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection

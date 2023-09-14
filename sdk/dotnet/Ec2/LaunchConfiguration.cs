@@ -243,10 +243,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Launch configurations can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import launch configurations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
+    ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]
@@ -302,6 +302,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -365,18 +367,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("userDataBase64")]
         public Output<string?> UserDataBase64 { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
-        [Output("vpcClassicLinkId")]
-        public Output<string?> VpcClassicLinkId { get; private set; } = null!;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
-        [Output("vpcClassicLinkSecurityGroups")]
-        public Output<ImmutableArray<string>> VpcClassicLinkSecurityGroups { get; private set; } = null!;
 
 
         /// <summary>
@@ -480,6 +470,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -549,25 +541,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
-
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
-        [Input("vpcClassicLinkId")]
-        public Input<string>? VpcClassicLinkId { get; set; }
-
-        [Input("vpcClassicLinkSecurityGroups")]
-        private InputList<string>? _vpcClassicLinkSecurityGroups;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> VpcClassicLinkSecurityGroups
-        {
-            get => _vpcClassicLinkSecurityGroups ?? (_vpcClassicLinkSecurityGroups = new InputList<string>());
-            set => _vpcClassicLinkSecurityGroups = value;
-        }
 
         public LaunchConfigurationArgs()
         {
@@ -639,6 +612,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -708,25 +683,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
-
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
-        [Input("vpcClassicLinkId")]
-        public Input<string>? VpcClassicLinkId { get; set; }
-
-        [Input("vpcClassicLinkSecurityGroups")]
-        private InputList<string>? _vpcClassicLinkSecurityGroups;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> VpcClassicLinkSecurityGroups
-        {
-            get => _vpcClassicLinkSecurityGroups ?? (_vpcClassicLinkSecurityGroups = new InputList<string>());
-            set => _vpcClassicLinkSecurityGroups = value;
-        }
 
         public LaunchConfigurationState()
         {

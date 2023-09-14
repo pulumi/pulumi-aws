@@ -549,6 +549,11 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
            filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single AMI ID only, or use `most_recent` to choose the most recent one. If
+           you want to match multiple AMIs, use the `ec2_get_ami_ids` data source instead.
     :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.
@@ -566,45 +571,45 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getAmi:getAmi', __args__, opts=opts, typ=GetAmiResult).value
 
     return AwaitableGetAmiResult(
-        architecture=__ret__.architecture,
-        arn=__ret__.arn,
-        block_device_mappings=__ret__.block_device_mappings,
-        boot_mode=__ret__.boot_mode,
-        creation_date=__ret__.creation_date,
-        deprecation_time=__ret__.deprecation_time,
-        description=__ret__.description,
-        ena_support=__ret__.ena_support,
-        executable_users=__ret__.executable_users,
-        filters=__ret__.filters,
-        hypervisor=__ret__.hypervisor,
-        id=__ret__.id,
-        image_id=__ret__.image_id,
-        image_location=__ret__.image_location,
-        image_owner_alias=__ret__.image_owner_alias,
-        image_type=__ret__.image_type,
-        imds_support=__ret__.imds_support,
-        include_deprecated=__ret__.include_deprecated,
-        kernel_id=__ret__.kernel_id,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        name_regex=__ret__.name_regex,
-        owner_id=__ret__.owner_id,
-        owners=__ret__.owners,
-        platform=__ret__.platform,
-        platform_details=__ret__.platform_details,
-        product_codes=__ret__.product_codes,
-        public=__ret__.public,
-        ramdisk_id=__ret__.ramdisk_id,
-        root_device_name=__ret__.root_device_name,
-        root_device_type=__ret__.root_device_type,
-        root_snapshot_id=__ret__.root_snapshot_id,
-        sriov_net_support=__ret__.sriov_net_support,
-        state=__ret__.state,
-        state_reason=__ret__.state_reason,
-        tags=__ret__.tags,
-        tpm_support=__ret__.tpm_support,
-        usage_operation=__ret__.usage_operation,
-        virtualization_type=__ret__.virtualization_type)
+        architecture=pulumi.get(__ret__, 'architecture'),
+        arn=pulumi.get(__ret__, 'arn'),
+        block_device_mappings=pulumi.get(__ret__, 'block_device_mappings'),
+        boot_mode=pulumi.get(__ret__, 'boot_mode'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        deprecation_time=pulumi.get(__ret__, 'deprecation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        ena_support=pulumi.get(__ret__, 'ena_support'),
+        executable_users=pulumi.get(__ret__, 'executable_users'),
+        filters=pulumi.get(__ret__, 'filters'),
+        hypervisor=pulumi.get(__ret__, 'hypervisor'),
+        id=pulumi.get(__ret__, 'id'),
+        image_id=pulumi.get(__ret__, 'image_id'),
+        image_location=pulumi.get(__ret__, 'image_location'),
+        image_owner_alias=pulumi.get(__ret__, 'image_owner_alias'),
+        image_type=pulumi.get(__ret__, 'image_type'),
+        imds_support=pulumi.get(__ret__, 'imds_support'),
+        include_deprecated=pulumi.get(__ret__, 'include_deprecated'),
+        kernel_id=pulumi.get(__ret__, 'kernel_id'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        name_regex=pulumi.get(__ret__, 'name_regex'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        owners=pulumi.get(__ret__, 'owners'),
+        platform=pulumi.get(__ret__, 'platform'),
+        platform_details=pulumi.get(__ret__, 'platform_details'),
+        product_codes=pulumi.get(__ret__, 'product_codes'),
+        public=pulumi.get(__ret__, 'public'),
+        ramdisk_id=pulumi.get(__ret__, 'ramdisk_id'),
+        root_device_name=pulumi.get(__ret__, 'root_device_name'),
+        root_device_type=pulumi.get(__ret__, 'root_device_type'),
+        root_snapshot_id=pulumi.get(__ret__, 'root_snapshot_id'),
+        sriov_net_support=pulumi.get(__ret__, 'sriov_net_support'),
+        state=pulumi.get(__ret__, 'state'),
+        state_reason=pulumi.get(__ret__, 'state_reason'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tpm_support=pulumi.get(__ret__, 'tpm_support'),
+        usage_operation=pulumi.get(__ret__, 'usage_operation'),
+        virtualization_type=pulumi.get(__ret__, 'virtualization_type'))
 
 
 @_utilities.lift_output_func(get_ami)
@@ -660,6 +665,11 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
            filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single AMI ID only, or use `most_recent` to choose the most recent one. If
+           you want to match multiple AMIs, use the `ec2_get_ami_ids` data source instead.
     :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.

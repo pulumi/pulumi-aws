@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * WAF Rule Group can be imported using the id, e.g.,
+ * Using `pulumi import`, import WAF Rule Group using the id. For example:
  * 
  * ```sh
  *  $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -119,14 +119,14 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
         return this.metricName;
     }
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A friendly name of the rule group
+     * @return Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {

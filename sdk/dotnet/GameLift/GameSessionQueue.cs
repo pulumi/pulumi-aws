@@ -50,7 +50,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// GameLift Game Session Queues can be imported by their `name`, e.g.,
+    /// Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example

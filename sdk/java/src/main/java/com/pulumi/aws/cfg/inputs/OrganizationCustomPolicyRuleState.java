@@ -214,12 +214,16 @@ public final class OrganizationCustomPolicyRuleState extends com.pulumi.resource
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="triggerTypes")
     private @Nullable Output<List<String>> triggerTypes;
 
     /**
      * @return List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<String>>> triggerTypes() {
@@ -569,6 +573,8 @@ public final class OrganizationCustomPolicyRuleState extends com.pulumi.resource
         /**
          * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -580,6 +586,8 @@ public final class OrganizationCustomPolicyRuleState extends com.pulumi.resource
         /**
          * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -589,6 +597,8 @@ public final class OrganizationCustomPolicyRuleState extends com.pulumi.resource
 
         /**
          * @param triggerTypes List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

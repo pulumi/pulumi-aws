@@ -211,7 +211,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
 
         ## Import
 
-        AWS Chime SDK Voice Profile Domain can be imported using the `id`, e.g.,
+        Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 
         ```sh
          $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
@@ -254,7 +254,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
 
         ## Import
 
-        AWS Chime SDK Voice Profile Domain can be imported using the `id`, e.g.,
+        Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 
         ```sh
          $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456

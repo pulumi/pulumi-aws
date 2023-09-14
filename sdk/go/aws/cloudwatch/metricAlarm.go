@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Metric Alarm resource.
@@ -20,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,9 +56,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,8 +106,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -167,8 +169,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -220,8 +222,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -263,7 +265,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.,
+// Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
 //
 // ```sh
 //
@@ -317,6 +319,8 @@ type MetricAlarm struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrOutput `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -343,6 +347,7 @@ func NewMetricAlarm(ctx *pulumi.Context,
 	if args.EvaluationPeriods == nil {
 		return nil, errors.New("invalid value for required argument 'EvaluationPeriods'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricAlarm
 	err := ctx.RegisterResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, args, &resource, opts...)
 	if err != nil {
@@ -409,6 +414,8 @@ type metricAlarmState struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -467,6 +474,8 @@ type MetricAlarmState struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -527,6 +536,8 @@ type metricAlarmArgs struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags map[string]string `pulumi:"tags"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold *float64 `pulumi:"threshold"`
@@ -582,6 +593,8 @@ type MetricAlarmArgs struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapInput
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold pulumi.Float64PtrInput
@@ -616,6 +629,12 @@ func (i *MetricAlarm) ToMetricAlarmOutputWithContext(ctx context.Context) Metric
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmOutput)
 }
 
+func (i *MetricAlarm) ToOutput(ctx context.Context) pulumix.Output[*MetricAlarm] {
+	return pulumix.Output[*MetricAlarm]{
+		OutputState: i.ToMetricAlarmOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricAlarmArrayInput is an input type that accepts MetricAlarmArray and MetricAlarmArrayOutput values.
 // You can construct a concrete instance of `MetricAlarmArrayInput` via:
 //
@@ -639,6 +658,12 @@ func (i MetricAlarmArray) ToMetricAlarmArrayOutput() MetricAlarmArrayOutput {
 
 func (i MetricAlarmArray) ToMetricAlarmArrayOutputWithContext(ctx context.Context) MetricAlarmArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmArrayOutput)
+}
+
+func (i MetricAlarmArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricAlarm] {
+	return pulumix.Output[[]*MetricAlarm]{
+		OutputState: i.ToMetricAlarmArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MetricAlarmMapInput is an input type that accepts MetricAlarmMap and MetricAlarmMapOutput values.
@@ -666,6 +691,12 @@ func (i MetricAlarmMap) ToMetricAlarmMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMapOutput)
 }
 
+func (i MetricAlarmMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricAlarm] {
+	return pulumix.Output[map[string]*MetricAlarm]{
+		OutputState: i.ToMetricAlarmMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricAlarmOutput struct{ *pulumi.OutputState }
 
 func (MetricAlarmOutput) ElementType() reflect.Type {
@@ -678,6 +709,12 @@ func (o MetricAlarmOutput) ToMetricAlarmOutput() MetricAlarmOutput {
 
 func (o MetricAlarmOutput) ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput {
 	return o
+}
+
+func (o MetricAlarmOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricAlarm] {
+	return pulumix.Output[*MetricAlarm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
@@ -778,6 +815,8 @@ func (o MetricAlarmOutput) Statistic() pulumi.StringPtrOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 func (o MetricAlarmOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -821,6 +860,12 @@ func (o MetricAlarmArrayOutput) ToMetricAlarmArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o MetricAlarmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricAlarm] {
+	return pulumix.Output[[]*MetricAlarm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricAlarmArrayOutput) Index(i pulumi.IntInput) MetricAlarmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricAlarm {
 		return vs[0].([]*MetricAlarm)[vs[1].(int)]
@@ -839,6 +884,12 @@ func (o MetricAlarmMapOutput) ToMetricAlarmMapOutput() MetricAlarmMapOutput {
 
 func (o MetricAlarmMapOutput) ToMetricAlarmMapOutputWithContext(ctx context.Context) MetricAlarmMapOutput {
 	return o
+}
+
+func (o MetricAlarmMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricAlarm] {
+	return pulumix.Output[map[string]*MetricAlarm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricAlarmMapOutput) MapIndex(k pulumi.StringInput) MetricAlarmOutput {

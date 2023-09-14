@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 bucket policies can be imported using the bucket name, e.g.,
+ * Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket

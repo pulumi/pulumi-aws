@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Phone Number resource. For more information see
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +82,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,7 +106,7 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Phone Numbers can be imported using its `id` e.g.,
+// Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 //
 // ```sh
 //
@@ -152,6 +154,7 @@ func NewPhoneNumber(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PhoneNumber
 	err := ctx.RegisterResource("aws:connect/phoneNumber:PhoneNumber", name, args, &resource, opts...)
 	if err != nil {
@@ -277,6 +280,12 @@ func (i *PhoneNumber) ToPhoneNumberOutputWithContext(ctx context.Context) PhoneN
 	return pulumi.ToOutputWithContext(ctx, i).(PhoneNumberOutput)
 }
 
+func (i *PhoneNumber) ToOutput(ctx context.Context) pulumix.Output[*PhoneNumber] {
+	return pulumix.Output[*PhoneNumber]{
+		OutputState: i.ToPhoneNumberOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PhoneNumberArrayInput is an input type that accepts PhoneNumberArray and PhoneNumberArrayOutput values.
 // You can construct a concrete instance of `PhoneNumberArrayInput` via:
 //
@@ -300,6 +309,12 @@ func (i PhoneNumberArray) ToPhoneNumberArrayOutput() PhoneNumberArrayOutput {
 
 func (i PhoneNumberArray) ToPhoneNumberArrayOutputWithContext(ctx context.Context) PhoneNumberArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PhoneNumberArrayOutput)
+}
+
+func (i PhoneNumberArray) ToOutput(ctx context.Context) pulumix.Output[[]*PhoneNumber] {
+	return pulumix.Output[[]*PhoneNumber]{
+		OutputState: i.ToPhoneNumberArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PhoneNumberMapInput is an input type that accepts PhoneNumberMap and PhoneNumberMapOutput values.
@@ -327,6 +342,12 @@ func (i PhoneNumberMap) ToPhoneNumberMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PhoneNumberMapOutput)
 }
 
+func (i PhoneNumberMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PhoneNumber] {
+	return pulumix.Output[map[string]*PhoneNumber]{
+		OutputState: i.ToPhoneNumberMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhoneNumberOutput struct{ *pulumi.OutputState }
 
 func (PhoneNumberOutput) ElementType() reflect.Type {
@@ -339,6 +360,12 @@ func (o PhoneNumberOutput) ToPhoneNumberOutput() PhoneNumberOutput {
 
 func (o PhoneNumberOutput) ToPhoneNumberOutputWithContext(ctx context.Context) PhoneNumberOutput {
 	return o
+}
+
+func (o PhoneNumberOutput) ToOutput(ctx context.Context) pulumix.Output[*PhoneNumber] {
+	return pulumix.Output[*PhoneNumber]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the phone number.
@@ -405,6 +432,12 @@ func (o PhoneNumberArrayOutput) ToPhoneNumberArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o PhoneNumberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PhoneNumber] {
+	return pulumix.Output[[]*PhoneNumber]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PhoneNumberArrayOutput) Index(i pulumi.IntInput) PhoneNumberOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PhoneNumber {
 		return vs[0].([]*PhoneNumber)[vs[1].(int)]
@@ -423,6 +456,12 @@ func (o PhoneNumberMapOutput) ToPhoneNumberMapOutput() PhoneNumberMapOutput {
 
 func (o PhoneNumberMapOutput) ToPhoneNumberMapOutputWithContext(ctx context.Context) PhoneNumberMapOutput {
 	return o
+}
+
+func (o PhoneNumberMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PhoneNumber] {
+	return pulumix.Output[map[string]*PhoneNumber]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhoneNumberMapOutput) MapIndex(k pulumi.StringInput) PhoneNumberOutput {

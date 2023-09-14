@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -17,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,6 +46,7 @@ import (
 //
 // ```
 func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) (*GetSdkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSdkResult
 	err := ctx.Invoke("aws:apigateway/getSdk:getSdk", args, &rv, opts...)
 	if err != nil {
@@ -122,6 +125,12 @@ func (o GetSdkResultOutput) ToGetSdkResultOutput() GetSdkResultOutput {
 
 func (o GetSdkResultOutput) ToGetSdkResultOutputWithContext(ctx context.Context) GetSdkResultOutput {
 	return o
+}
+
+func (o GetSdkResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSdkResult] {
+	return pulumix.Output[GetSdkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // SDK as a string.

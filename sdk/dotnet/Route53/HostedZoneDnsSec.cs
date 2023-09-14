@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
+    /// Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
@@ -104,6 +104,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
@@ -162,6 +164,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("hostedZoneId", required: true)]
         public Input<string> HostedZoneId { get; set; } = null!;
@@ -182,6 +186,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }

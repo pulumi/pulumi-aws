@@ -293,7 +293,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        ACM PCA Certificates can be imported using their ARN, e.g.,
+        Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
 
         ```sh
          $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
@@ -327,7 +327,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        ACM PCA Certificates can be imported using their ARN, e.g.,
+        Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
 
         ```sh
          $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a

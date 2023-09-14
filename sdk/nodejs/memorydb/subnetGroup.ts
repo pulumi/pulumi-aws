@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `name` to import a subnet group. For example
+ * Using `pulumi import`, import a subnet group using its `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
@@ -78,6 +78,8 @@ export class SubnetGroup extends pulumi.CustomResource {
     public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     *
+     * The following arguments are optional:
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -155,6 +157,8 @@ export interface SubnetGroupState {
     namePrefix?: pulumi.Input<string>;
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     *
+     * The following arguments are optional:
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -189,6 +193,8 @@ export interface SubnetGroupArgs {
     namePrefix?: pulumi.Input<string>;
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     *
+     * The following arguments are optional:
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

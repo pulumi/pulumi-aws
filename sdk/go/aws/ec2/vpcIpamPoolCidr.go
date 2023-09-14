@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provisions a CIDR from an IPAM address pool.
@@ -20,13 +22,11 @@ import (
 //
 // ## Import
 //
-// IPAMs can be imported using the `<cidr>_<ipam-pool-id>`. Please note we **DO NOT** use the ipam pool cidr id as this was introduced after the resource already existed. An import example
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_ipam_pool_cidr.example
 //
-//	$ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
-//
-// ```
+//	id = "172.20.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For exampleconsole % TODO import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +52,7 @@ func NewVpcIpamPoolCidr(ctx *pulumi.Context,
 	if args.IpamPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamPoolCidr
 	err := ctx.RegisterResource("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr", name, args, &resource, opts...)
 	if err != nil {
@@ -149,6 +150,12 @@ func (i *VpcIpamPoolCidr) ToVpcIpamPoolCidrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrOutput)
 }
 
+func (i *VpcIpamPoolCidr) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPoolCidr] {
+	return pulumix.Output[*VpcIpamPoolCidr]{
+		OutputState: i.ToVpcIpamPoolCidrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcIpamPoolCidrArrayInput is an input type that accepts VpcIpamPoolCidrArray and VpcIpamPoolCidrArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPoolCidrArrayInput` via:
 //
@@ -172,6 +179,12 @@ func (i VpcIpamPoolCidrArray) ToVpcIpamPoolCidrArrayOutput() VpcIpamPoolCidrArra
 
 func (i VpcIpamPoolCidrArray) ToVpcIpamPoolCidrArrayOutputWithContext(ctx context.Context) VpcIpamPoolCidrArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrArrayOutput)
+}
+
+func (i VpcIpamPoolCidrArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPoolCidr] {
+	return pulumix.Output[[]*VpcIpamPoolCidr]{
+		OutputState: i.ToVpcIpamPoolCidrArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcIpamPoolCidrMapInput is an input type that accepts VpcIpamPoolCidrMap and VpcIpamPoolCidrMapOutput values.
@@ -199,6 +212,12 @@ func (i VpcIpamPoolCidrMap) ToVpcIpamPoolCidrMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrMapOutput)
 }
 
+func (i VpcIpamPoolCidrMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPoolCidr] {
+	return pulumix.Output[map[string]*VpcIpamPoolCidr]{
+		OutputState: i.ToVpcIpamPoolCidrMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcIpamPoolCidrOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrOutput) ElementType() reflect.Type {
@@ -211,6 +230,12 @@ func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrOutput() VpcIpamPoolCidrOutput {
 
 func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrOutputWithContext(ctx context.Context) VpcIpamPoolCidrOutput {
 	return o
+}
+
+func (o VpcIpamPoolCidrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPoolCidr] {
+	return pulumix.Output[*VpcIpamPoolCidr]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
@@ -254,6 +279,12 @@ func (o VpcIpamPoolCidrArrayOutput) ToVpcIpamPoolCidrArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o VpcIpamPoolCidrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPoolCidr] {
+	return pulumix.Output[[]*VpcIpamPoolCidr]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIpamPoolCidrArrayOutput) Index(i pulumi.IntInput) VpcIpamPoolCidrOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamPoolCidr {
 		return vs[0].([]*VpcIpamPoolCidr)[vs[1].(int)]
@@ -272,6 +303,12 @@ func (o VpcIpamPoolCidrMapOutput) ToVpcIpamPoolCidrMapOutput() VpcIpamPoolCidrMa
 
 func (o VpcIpamPoolCidrMapOutput) ToVpcIpamPoolCidrMapOutputWithContext(ctx context.Context) VpcIpamPoolCidrMapOutput {
 	return o
+}
+
+func (o VpcIpamPoolCidrMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPoolCidr] {
+	return pulumix.Output[map[string]*VpcIpamPoolCidr]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIpamPoolCidrMapOutput) MapIndex(k pulumi.StringInput) VpcIpamPoolCidrOutput {

@@ -34,12 +34,16 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="document")
     private @Nullable Output<String> document;
 
     /**
      * @return Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> document() {
@@ -143,6 +147,8 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param document Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -153,6 +159,8 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param document Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

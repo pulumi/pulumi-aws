@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Import
     /// 
-    /// EBS Snapshot can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import EBS Snapshot using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901

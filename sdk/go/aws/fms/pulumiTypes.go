@@ -7,13 +7,19 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type PolicyExcludeMap struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -32,6 +38,8 @@ type PolicyExcludeMapArgs struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -45,6 +53,12 @@ func (i PolicyExcludeMapArgs) ToPolicyExcludeMapOutput() PolicyExcludeMapOutput 
 
 func (i PolicyExcludeMapArgs) ToPolicyExcludeMapOutputWithContext(ctx context.Context) PolicyExcludeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExcludeMapOutput)
+}
+
+func (i PolicyExcludeMapArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyExcludeMap] {
+	return pulumix.Output[PolicyExcludeMap]{
+		OutputState: i.ToPolicyExcludeMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicyExcludeMapArgs) ToPolicyExcludeMapPtrOutput() PolicyExcludeMapPtrOutput {
@@ -88,6 +102,12 @@ func (i *policyExcludeMapPtrType) ToPolicyExcludeMapPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExcludeMapPtrOutput)
 }
 
+func (i *policyExcludeMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyExcludeMap] {
+	return pulumix.Output[*PolicyExcludeMap]{
+		OutputState: i.ToPolicyExcludeMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyExcludeMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyExcludeMapOutput) ElementType() reflect.Type {
@@ -112,12 +132,20 @@ func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx conte
 	}).(PolicyExcludeMapPtrOutput)
 }
 
+func (o PolicyExcludeMapOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyExcludeMap] {
+	return pulumix.Output[PolicyExcludeMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyExcludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -134,6 +162,12 @@ func (o PolicyExcludeMapPtrOutput) ToPolicyExcludeMapPtrOutput() PolicyExcludeMa
 
 func (o PolicyExcludeMapPtrOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx context.Context) PolicyExcludeMapPtrOutput {
 	return o
+}
+
+func (o PolicyExcludeMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyExcludeMap] {
+	return pulumix.Output[*PolicyExcludeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyExcludeMapPtrOutput) Elem() PolicyExcludeMapOutput {
@@ -157,6 +191,8 @@ func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -170,6 +206,8 @@ type PolicyIncludeMap struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -188,6 +226,8 @@ type PolicyIncludeMapArgs struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -201,6 +241,12 @@ func (i PolicyIncludeMapArgs) ToPolicyIncludeMapOutput() PolicyIncludeMapOutput 
 
 func (i PolicyIncludeMapArgs) ToPolicyIncludeMapOutputWithContext(ctx context.Context) PolicyIncludeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIncludeMapOutput)
+}
+
+func (i PolicyIncludeMapArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyIncludeMap] {
+	return pulumix.Output[PolicyIncludeMap]{
+		OutputState: i.ToPolicyIncludeMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicyIncludeMapArgs) ToPolicyIncludeMapPtrOutput() PolicyIncludeMapPtrOutput {
@@ -244,6 +290,12 @@ func (i *policyIncludeMapPtrType) ToPolicyIncludeMapPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIncludeMapPtrOutput)
 }
 
+func (i *policyIncludeMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyIncludeMap] {
+	return pulumix.Output[*PolicyIncludeMap]{
+		OutputState: i.ToPolicyIncludeMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyIncludeMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyIncludeMapOutput) ElementType() reflect.Type {
@@ -268,12 +320,20 @@ func (o PolicyIncludeMapOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx conte
 	}).(PolicyIncludeMapPtrOutput)
 }
 
+func (o PolicyIncludeMapOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyIncludeMap] {
+	return pulumix.Output[PolicyIncludeMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyIncludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyIncludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -290,6 +350,12 @@ func (o PolicyIncludeMapPtrOutput) ToPolicyIncludeMapPtrOutput() PolicyIncludeMa
 
 func (o PolicyIncludeMapPtrOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx context.Context) PolicyIncludeMapPtrOutput {
 	return o
+}
+
+func (o PolicyIncludeMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyIncludeMap] {
+	return pulumix.Output[*PolicyIncludeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyIncludeMapPtrOutput) Elem() PolicyIncludeMapOutput {
@@ -313,6 +379,8 @@ func (o PolicyIncludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIncludeMap) []string {
 		if v == nil {
@@ -325,6 +393,8 @@ func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 type PolicySecurityServicePolicyData struct {
 	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData *string `pulumi:"managedServiceData"`
+	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+	PolicyOption *PolicySecurityServicePolicyDataPolicyOption `pulumi:"policyOption"`
 	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 	Type string `pulumi:"type"`
 }
@@ -343,6 +413,8 @@ type PolicySecurityServicePolicyDataInput interface {
 type PolicySecurityServicePolicyDataArgs struct {
 	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
+	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+	PolicyOption PolicySecurityServicePolicyDataPolicyOptionPtrInput `pulumi:"policyOption"`
 	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -357,6 +429,12 @@ func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataOu
 
 func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataOutput)
+}
+
+func (i PolicySecurityServicePolicyDataArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
+	return pulumix.Output[PolicySecurityServicePolicyData]{
+		OutputState: i.ToPolicySecurityServicePolicyDataOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput {
@@ -400,6 +478,12 @@ func (i *policySecurityServicePolicyDataPtrType) ToPolicySecurityServicePolicyDa
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
+func (i *policySecurityServicePolicyDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyData] {
+	return pulumix.Output[*PolicySecurityServicePolicyData]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicySecurityServicePolicyDataOutput struct{ *pulumi.OutputState }
 
 func (PolicySecurityServicePolicyDataOutput) ElementType() reflect.Type {
@@ -424,9 +508,22 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 	}).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
+func (o PolicySecurityServicePolicyDataOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
+	return pulumix.Output[PolicySecurityServicePolicyData]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
+}
+
+// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+func (o PolicySecurityServicePolicyDataOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
+		return v.PolicyOption
+	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
 // The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
@@ -446,6 +543,12 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyD
 
 func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
 	return o
+}
+
+func (o PolicySecurityServicePolicyDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyData] {
+	return pulumix.Output[*PolicySecurityServicePolicyData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePolicyDataOutput {
@@ -468,6 +571,16 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyOption
+	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
+}
+
 // The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
@@ -478,6 +591,512 @@ func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicySecurityServicePolicyDataPolicyOption struct {
+	// Defines the deployment model to use for the firewall policy. Documented below.
+	NetworkFirewallPolicy    *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy    `pulumi:"networkFirewallPolicy"`
+	ThirdPartyFirewallPolicy *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy `pulumi:"thirdPartyFirewallPolicy"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionArgs and PolicySecurityServicePolicyDataPolicyOptionOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionOutput() PolicySecurityServicePolicyDataPolicyOptionOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionArgs struct {
+	// Defines the deployment model to use for the firewall policy. Documented below.
+	NetworkFirewallPolicy    PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput    `pulumi:"networkFirewallPolicy"`
+	ThirdPartyFirewallPolicy PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput `pulumi:"thirdPartyFirewallPolicy"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOption)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToPolicySecurityServicePolicyDataPolicyOptionOutput() PolicySecurityServicePolicyDataPolicyOptionOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToPolicySecurityServicePolicyDataPolicyOptionOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionOutput)
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOption] {
+	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOption]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutput() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionOutput).ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionPtrInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionArgs, PolicySecurityServicePolicyDataPolicyOptionPtr and PolicySecurityServicePolicyDataPolicyOptionPtrOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionPtrInput` via:
+//
+//	        PolicySecurityServicePolicyDataPolicyOptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicySecurityServicePolicyDataPolicyOptionPtrInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionPtrOutput() PolicySecurityServicePolicyDataPolicyOptionPtrOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionPtrOutput
+}
+
+type policySecurityServicePolicyDataPolicyOptionPtrType PolicySecurityServicePolicyDataPolicyOptionArgs
+
+func PolicySecurityServicePolicyDataPolicyOptionPtr(v *PolicySecurityServicePolicyDataPolicyOptionArgs) PolicySecurityServicePolicyDataPolicyOptionPtrInput {
+	return (*policySecurityServicePolicyDataPolicyOptionPtrType)(v)
+}
+
+func (*policySecurityServicePolicyDataPolicyOptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOption)(nil)).Elem()
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionPtrType) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutput() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(context.Background())
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionPtrType) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption] {
+	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOption)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToPolicySecurityServicePolicyDataPolicyOptionOutput() PolicySecurityServicePolicyDataPolicyOptionOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToPolicySecurityServicePolicyDataPolicyOptionOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutput() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return o.ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOption {
+		return &v
+	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOption] {
+	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Defines the deployment model to use for the firewall policy. Documented below.
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) NetworkFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
+		return v.NetworkFirewallPolicy
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ThirdPartyFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
+		return v.ThirdPartyFirewallPolicy
+	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOption)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutput() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption] {
+	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOption) PolicySecurityServicePolicyDataPolicyOption {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySecurityServicePolicyDataPolicyOption
+		return ret
+	}).(PolicySecurityServicePolicyDataPolicyOptionOutput)
+}
+
+// Defines the deployment model to use for the firewall policy. Documented below.
+func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) NetworkFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkFirewallPolicy
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ThirdPartyFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ThirdPartyFirewallPolicy
+	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy struct {
+	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+	FirewallDeploymentModel *string `pulumi:"firewallDeploymentModel"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs struct {
+	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+	FirewallDeploymentModel pulumi.StringPtrInput `pulumi:"firewallDeploymentModel"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput)
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
+	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput).ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs, PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtr and PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput` via:
+//
+//	        PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput
+}
+
+type policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs
+
+func PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtr(v *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput {
+	return (*policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType)(v)
+}
+
+func (*policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy)(nil)).Elem()
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
+	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return o.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
+		return &v
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
+	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *string {
+		return v.FirewallDeploymentModel
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
+	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy
+		return ret
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput)
+}
+
+// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirewallDeploymentModel
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy struct {
+	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+	FirewallDeploymentModel *string `pulumi:"firewallDeploymentModel"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs and PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs struct {
+	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+	FirewallDeploymentModel pulumi.StringPtrInput `pulumi:"firewallDeploymentModel"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput)
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
+	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput).ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs, PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtr and PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput` via:
+//
+//	        PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput
+}
+
+type policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrType PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs
+
+func PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtr(v *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput {
+	return (*policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrType)(v)
+}
+
+func (*policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy)(nil)).Elem()
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrType) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrType) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
+	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return o.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
+		return &v
+	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
+	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *string {
+		return v.FirewallDeploymentModel
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
+	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy
+		return ret
+	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput)
+}
+
+// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirewallDeploymentModel
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapInput)(nil)).Elem(), PolicyExcludeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapPtrInput)(nil)).Elem(), PolicyExcludeMapArgs{})
@@ -485,10 +1104,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIncludeMapPtrInput)(nil)).Elem(), PolicyIncludeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs{})
 	pulumi.RegisterOutputType(PolicyExcludeMapOutput{})
 	pulumi.RegisterOutputType(PolicyExcludeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyIncludeMapOutput{})
 	pulumi.RegisterOutputType(PolicyIncludeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPtrOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionPtrOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput{})
 }

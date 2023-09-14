@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
+ * Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012

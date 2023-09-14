@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Global Accelerator accelerators can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

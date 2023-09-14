@@ -176,7 +176,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     import pulumi_aws as aws
 
     example = aws.organizations.get_organization()
-    pulumi.export("accountIds", [__item.id for __item in [example.accounts]])
+    pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
     ### SNS topic that can be interacted by the organization only
 
@@ -213,14 +213,14 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
-        accounts=__ret__.accounts,
-        arn=__ret__.arn,
-        aws_service_access_principals=__ret__.aws_service_access_principals,
-        enabled_policy_types=__ret__.enabled_policy_types,
-        feature_set=__ret__.feature_set,
-        id=__ret__.id,
-        master_account_arn=__ret__.master_account_arn,
-        master_account_email=__ret__.master_account_email,
-        master_account_id=__ret__.master_account_id,
-        non_master_accounts=__ret__.non_master_accounts,
-        roots=__ret__.roots)
+        accounts=pulumi.get(__ret__, 'accounts'),
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_service_access_principals=pulumi.get(__ret__, 'aws_service_access_principals'),
+        enabled_policy_types=pulumi.get(__ret__, 'enabled_policy_types'),
+        feature_set=pulumi.get(__ret__, 'feature_set'),
+        id=pulumi.get(__ret__, 'id'),
+        master_account_arn=pulumi.get(__ret__, 'master_account_arn'),
+        master_account_email=pulumi.get(__ret__, 'master_account_email'),
+        master_account_id=pulumi.get(__ret__, 'master_account_id'),
+        non_master_accounts=pulumi.get(__ret__, 'non_master_accounts'),
+        roots=pulumi.get(__ret__, 'roots'))

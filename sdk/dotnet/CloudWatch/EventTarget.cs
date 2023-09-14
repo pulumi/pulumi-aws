@@ -515,6 +515,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Identifiers = new[]
     ///                         {
     ///                             "events.amazonaws.com",
+    ///                             "delivery.logs.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
@@ -538,6 +539,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Identifiers = new[]
     ///                         {
     ///                             "events.amazonaws.com",
+    ///                             "delivery.logs.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
@@ -574,7 +576,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+    /// Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
@@ -664,6 +666,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("rule")]
         public Output<string> Rule { get; private set; } = null!;
@@ -673,6 +677,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("runCommandTargets")]
         public Output<ImmutableArray<Outputs.EventTargetRunCommandTarget>> RunCommandTargets { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Output("sagemakerPipelineTarget")]
+        public Output<Outputs.EventTargetSagemakerPipelineTarget?> SagemakerPipelineTarget { get; private set; } = null!;
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
@@ -813,6 +823,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("rule", required: true)]
         public Input<string> Rule { get; set; } = null!;
@@ -828,6 +840,12 @@ namespace Pulumi.Aws.CloudWatch
             get => _runCommandTargets ?? (_runCommandTargets = new InputList<Inputs.EventTargetRunCommandTargetArgs>());
             set => _runCommandTargets = value;
         }
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("sagemakerPipelineTarget")]
+        public Input<Inputs.EventTargetSagemakerPipelineTargetArgs>? SagemakerPipelineTarget { get; set; }
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
@@ -930,6 +948,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("rule")]
         public Input<string>? Rule { get; set; }
@@ -945,6 +965,12 @@ namespace Pulumi.Aws.CloudWatch
             get => _runCommandTargets ?? (_runCommandTargets = new InputList<Inputs.EventTargetRunCommandTargetGetArgs>());
             set => _runCommandTargets = value;
         }
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("sagemakerPipelineTarget")]
+        public Input<Inputs.EventTargetSagemakerPipelineTargetGetArgs>? SagemakerPipelineTarget { get; set; }
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.

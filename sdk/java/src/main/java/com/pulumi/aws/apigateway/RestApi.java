@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -178,11 +177,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.,
+ * Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
  * ```
+ *  ~&gt; __NOTE:__ Resource import does not currently support the `body` attribute.
  * 
  */
 @ResourceType(type="aws:apigateway/restApi:RestApi")
@@ -332,18 +332,18 @@ public class RestApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.failOnWarnings);
     }
     /**
-     * Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    @Export(name="minimumCompressionSize", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> minimumCompressionSize;
+    @Export(name="minimumCompressionSize", refs={String.class}, tree="[0]")
+    private Output<String> minimumCompressionSize;
 
     /**
-     * @return Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * @return Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    public Output<Optional<Integer>> minimumCompressionSize() {
-        return Codegen.optional(this.minimumCompressionSize);
+    public Output<String> minimumCompressionSize() {
+        return this.minimumCompressionSize;
     }
     /**
      * Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.

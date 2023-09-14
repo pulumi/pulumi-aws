@@ -14,6 +14,8 @@ __all__ = [
     'StackSetAutoDeployment',
     'StackSetInstanceDeploymentTargets',
     'StackSetInstanceOperationPreferences',
+    'StackSetInstanceStackInstanceSummary',
+    'StackSetManagedExecution',
     'StackSetOperationPreferences',
     'GetCloudFormationTypeLoggingConfigResult',
 ]
@@ -254,6 +256,89 @@ class StackSetInstanceOperationPreferences(dict):
         The order of the Regions in where you want to perform the stack operation.
         """
         return pulumi.get(self, "region_orders")
+
+
+@pulumi.output_type
+class StackSetInstanceStackInstanceSummary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "organizationalUnitId":
+            suggest = "organizational_unit_id"
+        elif key == "stackId":
+            suggest = "stack_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetInstanceStackInstanceSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetInstanceStackInstanceSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetInstanceStackInstanceSummary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: Optional[str] = None,
+                 organizational_unit_id: Optional[str] = None,
+                 stack_id: Optional[str] = None):
+        """
+        :param str account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        :param str organizational_unit_id: Organizational unit ID in which the stack is deployed.
+        :param str stack_id: Stack identifier.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if organizational_unit_id is not None:
+            pulumi.set(__self__, "organizational_unit_id", organizational_unit_id)
+        if stack_id is not None:
+            pulumi.set(__self__, "stack_id", stack_id)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        """
+        Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="organizationalUnitId")
+    def organizational_unit_id(self) -> Optional[str]:
+        """
+        Organizational unit ID in which the stack is deployed.
+        """
+        return pulumi.get(self, "organizational_unit_id")
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> Optional[str]:
+        """
+        Stack identifier.
+        """
+        return pulumi.get(self, "stack_id")
+
+
+@pulumi.output_type
+class StackSetManagedExecution(dict):
+    def __init__(__self__, *,
+                 active: Optional[bool] = None):
+        """
+        :param bool active: When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        """
+        When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+        """
+        return pulumi.get(self, "active")
 
 
 @pulumi.output_type

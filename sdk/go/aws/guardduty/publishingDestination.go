@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
@@ -22,11 +24,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -178,7 +180,7 @@ import (
 //
 // ## Import
 //
-// GuardDuty PublishingDestination can be imported using the master GuardDuty detector ID and PublishingDestinationID, e.g.,
+// Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
 //
 // ```sh
 //
@@ -191,6 +193,8 @@ type PublishingDestination struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType pulumi.StringPtrOutput `pulumi:"destinationType"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
@@ -214,6 +218,7 @@ func NewPublishingDestination(ctx *pulumi.Context,
 	if args.KmsKeyArn == nil {
 		return nil, errors.New("invalid value for required argument 'KmsKeyArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublishingDestination
 	err := ctx.RegisterResource("aws:guardduty/publishingDestination:PublishingDestination", name, args, &resource, opts...)
 	if err != nil {
@@ -239,6 +244,8 @@ type publishingDestinationState struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn *string `pulumi:"destinationArn"`
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType *string `pulumi:"destinationType"`
 	// The detector ID of the GuardDuty.
 	DetectorId *string `pulumi:"detectorId"`
@@ -250,6 +257,8 @@ type PublishingDestinationState struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn pulumi.StringPtrInput
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringPtrInput
@@ -265,6 +274,8 @@ type publishingDestinationArgs struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn string `pulumi:"destinationArn"`
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType *string `pulumi:"destinationType"`
 	// The detector ID of the GuardDuty.
 	DetectorId string `pulumi:"detectorId"`
@@ -277,6 +288,8 @@ type PublishingDestinationArgs struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn pulumi.StringInput
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringInput
@@ -307,6 +320,12 @@ func (i *PublishingDestination) ToPublishingDestinationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationOutput)
 }
 
+func (i *PublishingDestination) ToOutput(ctx context.Context) pulumix.Output[*PublishingDestination] {
+	return pulumix.Output[*PublishingDestination]{
+		OutputState: i.ToPublishingDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PublishingDestinationArrayInput is an input type that accepts PublishingDestinationArray and PublishingDestinationArrayOutput values.
 // You can construct a concrete instance of `PublishingDestinationArrayInput` via:
 //
@@ -330,6 +349,12 @@ func (i PublishingDestinationArray) ToPublishingDestinationArrayOutput() Publish
 
 func (i PublishingDestinationArray) ToPublishingDestinationArrayOutputWithContext(ctx context.Context) PublishingDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationArrayOutput)
+}
+
+func (i PublishingDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PublishingDestination] {
+	return pulumix.Output[[]*PublishingDestination]{
+		OutputState: i.ToPublishingDestinationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PublishingDestinationMapInput is an input type that accepts PublishingDestinationMap and PublishingDestinationMapOutput values.
@@ -357,6 +382,12 @@ func (i PublishingDestinationMap) ToPublishingDestinationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationMapOutput)
 }
 
+func (i PublishingDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublishingDestination] {
+	return pulumix.Output[map[string]*PublishingDestination]{
+		OutputState: i.ToPublishingDestinationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublishingDestinationOutput struct{ *pulumi.OutputState }
 
 func (PublishingDestinationOutput) ElementType() reflect.Type {
@@ -371,12 +402,20 @@ func (o PublishingDestinationOutput) ToPublishingDestinationOutputWithContext(ct
 	return o
 }
 
+func (o PublishingDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*PublishingDestination] {
+	return pulumix.Output[*PublishingDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 func (o PublishingDestinationOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
 // Currently there is only "S3" available as destination type which is also the default value
+//
+// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 func (o PublishingDestinationOutput) DestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringPtrOutput { return v.DestinationType }).(pulumi.StringPtrOutput)
 }
@@ -405,6 +444,12 @@ func (o PublishingDestinationArrayOutput) ToPublishingDestinationArrayOutputWith
 	return o
 }
 
+func (o PublishingDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PublishingDestination] {
+	return pulumix.Output[[]*PublishingDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PublishingDestinationArrayOutput) Index(i pulumi.IntInput) PublishingDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublishingDestination {
 		return vs[0].([]*PublishingDestination)[vs[1].(int)]
@@ -423,6 +468,12 @@ func (o PublishingDestinationMapOutput) ToPublishingDestinationMapOutput() Publi
 
 func (o PublishingDestinationMapOutput) ToPublishingDestinationMapOutputWithContext(ctx context.Context) PublishingDestinationMapOutput {
 	return o
+}
+
+func (o PublishingDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublishingDestination] {
+	return pulumix.Output[map[string]*PublishingDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublishingDestinationMapOutput) MapIndex(k pulumi.StringInput) PublishingDestinationOutput {

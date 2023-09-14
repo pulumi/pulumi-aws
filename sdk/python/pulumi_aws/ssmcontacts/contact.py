@@ -20,10 +20,12 @@ class ContactArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Contact resource.
-        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan.
+        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
-        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         """
         pulumi.set(__self__, "alias", alias)
@@ -37,7 +39,7 @@ class ContactArgs:
     @pulumi.getter
     def alias(self) -> pulumi.Input[str]:
         """
-        A unique and identifiable alias for the contact or escalation plan.
+        A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         """
         return pulumi.get(self, "alias")
 
@@ -51,6 +53,8 @@ class ContactArgs:
         """
         The type of contact engaged. A single contact is type PERSONAL and an escalation
         plan is type ESCALATION.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -62,7 +66,7 @@ class ContactArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Full friendly name of the contact or escalation plan.
+        Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "display_name")
 
@@ -94,13 +98,15 @@ class _ContactState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Contact resources.
-        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan.
+        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan.
+        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
+               
+               The following arguments are optional:
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -119,7 +125,7 @@ class _ContactState:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique and identifiable alias for the contact or escalation plan.
+        A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         """
         return pulumi.get(self, "alias")
 
@@ -143,7 +149,7 @@ class _ContactState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Full friendly name of the contact or escalation plan.
+        Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "display_name")
 
@@ -181,6 +187,8 @@ class _ContactState:
         """
         The type of contact engaged. A single contact is type PERSONAL and an escalation
         plan is type ESCALATION.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -232,7 +240,7 @@ class Contact(pulumi.CustomResource):
 
         ## Import
 
-        Import SSM Contact using the `ARN`. For example
+        Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
         ```sh
          $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
@@ -240,11 +248,13 @@ class Contact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan.
-        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan.
+        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
+        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -285,7 +295,7 @@ class Contact(pulumi.CustomResource):
 
         ## Import
 
-        Import SSM Contact using the `ARN`. For example
+        Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
         ```sh
          $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
@@ -352,13 +362,15 @@ class Contact(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan.
+        :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan.
+        :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -376,7 +388,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
         """
-        A unique and identifiable alias for the contact or escalation plan.
+        A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         """
         return pulumi.get(self, "alias")
 
@@ -392,7 +404,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Full friendly name of the contact or escalation plan.
+        Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "display_name")
 
@@ -418,6 +430,8 @@ class Contact(pulumi.CustomResource):
         """
         The type of contact engaged. A single contact is type PERSONAL and an escalation
         plan is type ESCALATION.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Lattice Access Log Subscription can be imported using the access log subscription ID, e.g.,
+ * Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589

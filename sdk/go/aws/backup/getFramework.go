@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information on an existing backup framework.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pulumi.InvokeOption) (*LookupFrameworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrameworkResult
 	err := ctx.Invoke("aws:backup/getFramework:getFramework", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o LookupFrameworkResultOutput) ToLookupFrameworkResultOutput() LookupFrame
 
 func (o LookupFrameworkResultOutput) ToLookupFrameworkResultOutputWithContext(ctx context.Context) LookupFrameworkResultOutput {
 	return o
+}
+
+func (o LookupFrameworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrameworkResult] {
+	return pulumix.Output[LookupFrameworkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the backup framework.

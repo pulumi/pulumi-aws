@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DynamoDB tables can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import DynamoDB tables using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
@@ -272,12 +272,16 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Unique within a region name of the table.
      * 
+     * Optional arguments:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique within a region name of the table.
+     * 
+     * Optional arguments:
      * 
      */
     public Output<String> name() {

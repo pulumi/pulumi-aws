@@ -60,9 +60,6 @@ class GetArnResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -116,6 +113,7 @@ class AwaitableGetArnResult(GetArnResult):
 
 
 def get_arn(arn: Optional[str] = None,
+            id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArnResult:
     """
     Parses an ARN into its constituent parts.
@@ -134,21 +132,23 @@ def get_arn(arn: Optional[str] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getArn:getArn', __args__, opts=opts, typ=GetArnResult).value
 
     return AwaitableGetArnResult(
-        account=__ret__.account,
-        arn=__ret__.arn,
-        id=__ret__.id,
-        partition=__ret__.partition,
-        region=__ret__.region,
-        resource=__ret__.resource,
-        service=__ret__.service)
+        account=pulumi.get(__ret__, 'account'),
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        partition=pulumi.get(__ret__, 'partition'),
+        region=pulumi.get(__ret__, 'region'),
+        resource=pulumi.get(__ret__, 'resource'),
+        service=pulumi.get(__ret__, 'service'))
 
 
 @_utilities.lift_output_func(get_arn)
 def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
+                   id: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArnResult]:
     """
     Parses an ARN into its constituent parts.

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     {
         /// <summary>
         /// ARN that uniquely identifies the data location resource.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

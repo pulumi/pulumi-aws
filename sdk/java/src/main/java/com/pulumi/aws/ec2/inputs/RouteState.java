@@ -78,12 +78,16 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of a managed prefix list destination.
      * 
+     * One of the following target arguments must be supplied:
+     * 
      */
     @Import(name="destinationPrefixListId")
     private @Nullable Output<String> destinationPrefixListId;
 
     /**
      * @return The ID of a managed prefix list destination.
+     * 
+     * One of the following target arguments must be supplied:
      * 
      */
     public Optional<Output<String>> destinationPrefixListId() {
@@ -123,22 +127,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of an EC2 instance.
      * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
      */
-    @Deprecated /* Use network_interface_id instead */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
      * @return Identifier of an EC2 instance.
      * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
      */
-    @Deprecated /* Use network_interface_id instead */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
@@ -221,12 +217,16 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the routing table.
      * 
+     * One of the following destination arguments must be supplied:
+     * 
      */
     @Import(name="routeTableId")
     private @Nullable Output<String> routeTableId;
 
     /**
      * @return The ID of the routing table.
+     * 
+     * One of the following destination arguments must be supplied:
      * 
      */
     public Optional<Output<String>> routeTableId() {
@@ -281,12 +281,16 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of a VPC peering connection.
      * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
+     * 
      */
     @Import(name="vpcPeeringConnectionId")
     private @Nullable Output<String> vpcPeeringConnectionId;
 
     /**
      * @return Identifier of a VPC peering connection.
+     * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
      * 
      */
     public Optional<Output<String>> vpcPeeringConnectionId() {
@@ -421,6 +425,8 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param destinationPrefixListId The ID of a managed prefix list destination.
          * 
+         * One of the following target arguments must be supplied:
+         * 
          * @return builder
          * 
          */
@@ -431,6 +437,8 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param destinationPrefixListId The ID of a managed prefix list destination.
+         * 
+         * One of the following target arguments must be supplied:
          * 
          * @return builder
          * 
@@ -486,11 +494,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use network_interface_id instead
-         * 
          */
-        @Deprecated /* Use network_interface_id instead */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
@@ -501,11 +505,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use network_interface_id instead
-         * 
          */
-        @Deprecated /* Use network_interface_id instead */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
@@ -618,6 +618,8 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routeTableId The ID of the routing table.
          * 
+         * One of the following destination arguments must be supplied:
+         * 
          * @return builder
          * 
          */
@@ -628,6 +630,8 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param routeTableId The ID of the routing table.
+         * 
+         * One of the following destination arguments must be supplied:
          * 
          * @return builder
          * 
@@ -702,6 +706,8 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vpcPeeringConnectionId Identifier of a VPC peering connection.
          * 
+         * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
+         * 
          * @return builder
          * 
          */
@@ -712,6 +718,8 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcPeeringConnectionId Identifier of a VPC peering connection.
+         * 
+         * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
          * 
          * @return builder
          * 

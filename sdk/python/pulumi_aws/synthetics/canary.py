@@ -41,6 +41,8 @@ class CanaryArgs:
         :param pulumi.Input[str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
@@ -140,6 +142,8 @@ class CanaryArgs:
     def schedule(self) -> pulumi.Input['CanaryScheduleArgs']:
         """
         Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "schedule")
 
@@ -348,6 +352,8 @@ class _CanaryState:
         :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_location_arn: ARN of the Lambda layer where Synthetics stores the canary script code.
         :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
         :param pulumi.Input[str] status: Canary status.
@@ -580,6 +586,8 @@ class _CanaryState:
     def schedule(self) -> Optional[pulumi.Input['CanaryScheduleArgs']]:
         """
         Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "schedule")
 
@@ -744,7 +752,7 @@ class Canary(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics Canaries can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
         ```sh
          $ pulumi import aws:synthetics/canary:Canary some some-canary
@@ -765,6 +773,8 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
         :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -801,7 +811,7 @@ class Canary(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics Canaries can be imported using the `name`, e.g.,
+        Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
         ```sh
          $ pulumi import aws:synthetics/canary:Canary some some-canary
@@ -939,6 +949,8 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_location_arn: ARN of the Lambda layer where Synthetics stores the canary script code.
         :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
         :param pulumi.Input[str] status: Canary status.
@@ -1096,6 +1108,8 @@ class Canary(pulumi.CustomResource):
     def schedule(self) -> pulumi.Output['outputs.CanarySchedule']:
         """
         Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "schedule")
 

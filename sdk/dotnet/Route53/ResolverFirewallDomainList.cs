@@ -29,11 +29,15 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    ///  Route 53 Resolver DNS Firewall domain lists can be imported using the Route 53 Resolver DNS Firewall domain list ID, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
-    /// ```
+    /// Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleterraform import {
+    /// 
+    ///  to = aws_route53_resolver_firewall_domain_list.example
+    /// 
+    ///  id = "rslvr-fdl-0123456789abcdef" } Using `TODO import`, import
+    /// 
+    /// Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList")]
     public partial class ResolverFirewallDomainList : global::Pulumi.CustomResource
@@ -57,7 +61,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -136,7 +140,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -180,7 +184,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

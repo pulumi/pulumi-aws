@@ -13,6 +13,12 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether or not to allow the use of regular expressions in the login page path.
+        /// </summary>
+        [Input("enableRegexInPath")]
+        public Input<bool>? EnableRegexInPath { get; set; }
+
+        /// <summary>
         /// The path of the login endpoint for your application.
         /// </summary>
         [Input("loginPath", required: true)]

@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+ * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
@@ -168,6 +168,8 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
@@ -176,6 +178,8 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * @return Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
+    /// Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.VpcIpamPool` provides details about an IPAM pool.
@@ -27,15 +29,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpcIamPool, err := ec2.GetVpcIamPool(ctx, &ec2.GetVpcIamPoolArgs{
-//				Filters: []ec2.GetVpcIamPoolFilter{
+//			testVpcIpamPool, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
+//				Filters: []ec2.GetVpcIpamPoolFilter{
 //					{
 //						Name: "description",
 //						Values: []string{
@@ -54,7 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    *pulumi.String(testVpcIamPool.Id),
+//				Ipv4IpamPoolId:    *pulumi.String(testVpcIpamPool.Id),
 //				Ipv4NetmaskLength: pulumi.Int(28),
 //			})
 //			if err != nil {
@@ -65,7 +67,10 @@ import (
 //	}
 //
 // ```
+//
+// Deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIamPoolResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPool:getVpcIamPool", args, &rv, opts...)
 	if err != nil {
@@ -171,6 +176,12 @@ func (o GetVpcIamPoolResultOutput) ToGetVpcIamPoolResultOutput() GetVpcIamPoolRe
 
 func (o GetVpcIamPoolResultOutput) ToGetVpcIamPoolResultOutputWithContext(ctx context.Context) GetVpcIamPoolResultOutput {
 	return o
+}
+
+func (o GetVpcIamPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcIamPoolResult] {
+	return pulumix.Output[GetVpcIamPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IP protocol assigned to this pool.

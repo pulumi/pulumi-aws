@@ -15,6 +15,7 @@ import com.pulumi.aws.cloudwatch.outputs.EventTargetKinesisTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetRedshiftTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetRetryPolicy;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetRunCommandTarget;
+import com.pulumi.aws.cloudwatch.outputs.EventTargetSagemakerPipelineTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetSqsTarget;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -522,7 +523,9 @@ import javax.annotation.Nullable;
  *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .identifiers(                        
+ *                             &#34;events.amazonaws.com&#34;,
+ *                             &#34;delivery.logs.amazonaws.com&#34;)
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -531,7 +534,9 @@ import javax.annotation.Nullable;
  *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*:*&#34;, arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .identifiers(                        
+ *                             &#34;events.amazonaws.com&#34;,
+ *                             &#34;delivery.logs.amazonaws.com&#34;)
  *                         .build())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test(&#34;ArnEquals&#34;)
@@ -557,7 +562,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+ * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
@@ -753,12 +758,16 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
     /**
      * The name of the rule you want to add targets to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="rule", refs={String.class}, tree="[0]")
     private Output<String> rule;
 
     /**
      * @return The name of the rule you want to add targets to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> rule() {
@@ -777,6 +786,20 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<EventTargetRunCommandTarget>>> runCommandTargets() {
         return Codegen.optional(this.runCommandTargets);
+    }
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    @Export(name="sagemakerPipelineTarget", refs={EventTargetSagemakerPipelineTarget.class}, tree="[0]")
+    private Output</* @Nullable */ EventTargetSagemakerPipelineTarget> sagemakerPipelineTarget;
+
+    /**
+     * @return Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    public Output<Optional<EventTargetSagemakerPipelineTarget>> sagemakerPipelineTarget() {
+        return Codegen.optional(this.sagemakerPipelineTarget);
     }
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttp2RouteMatchHeaderMatch
     {
         /// <summary>
-        /// Header value sent by the client must match the specified value exactly.
+        /// Value used to replace matched path.
         /// </summary>
         public readonly string? Exact;
         /// <summary>

@@ -328,7 +328,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        DB Parameter groups can be imported using the `name`, e.g.,
+        Using `pulumi import`, import DB Parameter groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
@@ -409,7 +409,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        DB Parameter groups can be imported using the `name`, e.g.,
+        Using `pulumi import`, import DB Parameter groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg

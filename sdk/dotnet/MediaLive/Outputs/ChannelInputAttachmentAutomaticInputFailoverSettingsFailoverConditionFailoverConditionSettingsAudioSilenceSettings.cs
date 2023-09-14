@@ -14,9 +14,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings
     {
         /// <summary>
-        /// The name of the audio selector used as the source for this AudioDescription.
+        /// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
         /// </summary>
         public readonly string AudioSelectorName;
+        /// <summary>
+        /// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+        /// </summary>
         public readonly int? AudioSilenceThresholdMsec;
 
         [OutputConstructor]

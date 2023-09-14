@@ -162,6 +162,10 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly string Status;
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// AWS WAF web ACL associated with this distribution.
+        /// </summary>
+        public readonly string WebAclId;
 
         [OutputConstructor]
         private GetDistributionResult(
@@ -185,7 +189,9 @@ namespace Pulumi.Aws.CloudFront
 
             string status,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string>? tags,
+
+            string webAclId)
         {
             Aliases = aliases;
             Arn = arn;
@@ -198,6 +204,7 @@ namespace Pulumi.Aws.CloudFront
             LastModifiedTime = lastModifiedTime;
             Status = status;
             Tags = tags;
+            WebAclId = webAclId;
         }
     }
 }

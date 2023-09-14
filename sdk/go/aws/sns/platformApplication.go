@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SNS platform application resource
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +79,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,7 +101,7 @@ import (
 //
 // ## Import
 //
-// SNS platform applications can be imported using the ARN, e.g.,
+// Using `pulumi import`, import SNS platform applications using the ARN. For example:
 //
 // ```sh
 //
@@ -136,6 +138,8 @@ type PlatformApplication struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"successFeedbackRoleArn"`
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate pulumi.StringPtrOutput `pulumi:"successFeedbackSampleRate"`
 }
 
@@ -163,6 +167,7 @@ func NewPlatformApplication(ctx *pulumi.Context,
 		"platformPrincipal",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlatformApplication
 	err := ctx.RegisterResource("aws:sns/platformApplication:PlatformApplication", name, args, &resource, opts...)
 	if err != nil {
@@ -212,6 +217,8 @@ type platformApplicationState struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
 }
 
@@ -243,6 +250,8 @@ type PlatformApplicationState struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate pulumi.StringPtrInput
 }
 
@@ -276,6 +285,8 @@ type platformApplicationArgs struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
 }
 
@@ -306,6 +317,8 @@ type PlatformApplicationArgs struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate pulumi.StringPtrInput
 }
 
@@ -330,6 +343,12 @@ func (i *PlatformApplication) ToPlatformApplicationOutput() PlatformApplicationO
 
 func (i *PlatformApplication) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationOutput)
+}
+
+func (i *PlatformApplication) ToOutput(ctx context.Context) pulumix.Output[*PlatformApplication] {
+	return pulumix.Output[*PlatformApplication]{
+		OutputState: i.ToPlatformApplicationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PlatformApplicationArrayInput is an input type that accepts PlatformApplicationArray and PlatformApplicationArrayOutput values.
@@ -357,6 +376,12 @@ func (i PlatformApplicationArray) ToPlatformApplicationArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationArrayOutput)
 }
 
+func (i PlatformApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PlatformApplication] {
+	return pulumix.Output[[]*PlatformApplication]{
+		OutputState: i.ToPlatformApplicationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlatformApplicationMapInput is an input type that accepts PlatformApplicationMap and PlatformApplicationMapOutput values.
 // You can construct a concrete instance of `PlatformApplicationMapInput` via:
 //
@@ -382,6 +407,12 @@ func (i PlatformApplicationMap) ToPlatformApplicationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationMapOutput)
 }
 
+func (i PlatformApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlatformApplication] {
+	return pulumix.Output[map[string]*PlatformApplication]{
+		OutputState: i.ToPlatformApplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlatformApplicationOutput struct{ *pulumi.OutputState }
 
 func (PlatformApplicationOutput) ElementType() reflect.Type {
@@ -394,6 +425,12 @@ func (o PlatformApplicationOutput) ToPlatformApplicationOutput() PlatformApplica
 
 func (o PlatformApplicationOutput) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
 	return o
+}
+
+func (o PlatformApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*PlatformApplication] {
+	return pulumix.Output[*PlatformApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
@@ -462,6 +499,8 @@ func (o PlatformApplicationOutput) SuccessFeedbackRoleArn() pulumi.StringPtrOutp
 }
 
 // The sample rate percentage (0-100) of successfully delivered messages.
+//
+// The following attributes are needed only when using APNS token credentials:
 func (o PlatformApplicationOutput) SuccessFeedbackSampleRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.SuccessFeedbackSampleRate }).(pulumi.StringPtrOutput)
 }
@@ -478,6 +517,12 @@ func (o PlatformApplicationArrayOutput) ToPlatformApplicationArrayOutput() Platf
 
 func (o PlatformApplicationArrayOutput) ToPlatformApplicationArrayOutputWithContext(ctx context.Context) PlatformApplicationArrayOutput {
 	return o
+}
+
+func (o PlatformApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PlatformApplication] {
+	return pulumix.Output[[]*PlatformApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlatformApplicationArrayOutput) Index(i pulumi.IntInput) PlatformApplicationOutput {
@@ -498,6 +543,12 @@ func (o PlatformApplicationMapOutput) ToPlatformApplicationMapOutput() PlatformA
 
 func (o PlatformApplicationMapOutput) ToPlatformApplicationMapOutputWithContext(ctx context.Context) PlatformApplicationMapOutput {
 	return o
+}
+
+func (o PlatformApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlatformApplication] {
+	return pulumix.Output[map[string]*PlatformApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlatformApplicationMapOutput) MapIndex(k pulumi.StringInput) PlatformApplicationOutput {

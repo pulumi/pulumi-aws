@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Data quality job definitions can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import data quality job definitions using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo

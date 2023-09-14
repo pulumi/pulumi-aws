@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const example = new aws.ec2.Eip("example", {vpc: true});
+ * const example = new aws.ec2.Eip("example", {domain: "vpc"});
  * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
  *     instanceId: web.id,
  *     allocationId: example.id,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EIP Assocations can be imported using their association ID.
+ * Using `pulumi import`, import EIP Assocations using their association IDs. For example:
  *
  * ```sh
  *  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345

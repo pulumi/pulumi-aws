@@ -128,11 +128,11 @@ def get_instance_type_offerings(engine_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult).value
 
     return AwaitableGetInstanceTypeOfferingsResult(
-        broker_instance_options=__ret__.broker_instance_options,
-        engine_type=__ret__.engine_type,
-        host_instance_type=__ret__.host_instance_type,
-        id=__ret__.id,
-        storage_type=__ret__.storage_type)
+        broker_instance_options=pulumi.get(__ret__, 'broker_instance_options'),
+        engine_type=pulumi.get(__ret__, 'engine_type'),
+        host_instance_type=pulumi.get(__ret__, 'host_instance_type'),
+        id=pulumi.get(__ret__, 'id'),
+        storage_type=pulumi.get(__ret__, 'storage_type'))
 
 
 @_utilities.lift_output_func(get_instance_type_offerings)

@@ -113,7 +113,9 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
+        Using `pulumi import`, import
+
+        Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
 
         ```sh
          $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
@@ -146,7 +148,9 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
+        Using `pulumi import`, import
+
+        Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
 
         ```sh
          $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70

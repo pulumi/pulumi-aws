@@ -8,11 +8,16 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
 // instances to be requested on the Spot market.
+//
+// > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+// We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
 //
 // ## Example Usage
 // ### Using launch specifications
@@ -22,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,7 +84,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -128,66 +133,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-//				VpcId: _var.Vpc_id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				ImageId:      pulumi.String("ami-516b9131"),
-//				InstanceType: pulumi.String("m1.small"),
-//				KeyName:      pulumi.String("some-key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
-//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:      pulumi.String("0.005"),
-//				TargetCapacity: pulumi.Int(2),
-//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
-//				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
-//					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
-//						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							Id:      fooLaunchTemplate.ID(),
-//							Version: fooLaunchTemplate.LatestVersion,
-//						},
-//						Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
-//							&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-//								SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[0]),
-//							},
-//							&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-//								SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[1]),
-//							},
-//							&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-//								SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[2]),
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_policy_attachment.TestAttach,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// Filters: []ec2.GetSubnetsFilter{
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// _var.Vpc_id,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
+// ImageId: pulumi.String("ami-516b9131"),
+// InstanceType: pulumi.String("m1.small"),
+// KeyName: pulumi.String("some-key"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
+// IamFleetRole: pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// SpotPrice: pulumi.String("0.005"),
+// TargetCapacity: pulumi.Int(2),
+// ValidUntil: pulumi.String("2019-11-04T20:44:20Z"),
+// LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
+// &ec2.SpotFleetRequestLaunchTemplateConfigArgs{
+// LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+// Id: fooLaunchTemplate.ID(),
+// Version: fooLaunchTemplate.LatestVersion,
+// },
+// Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
+// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// SubnetId: *pulumi.String(example.Ids[0]),
+// },
+// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// SubnetId: *pulumi.String(example.Ids[1]),
+// },
+// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// SubnetId: *pulumi.String(example.Ids[2]),
+// },
+// },
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_policy_attachment.TestAttach,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
 //
-// Spot Fleet Requests can be imported using `id`, e.g.,
+// Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
 //
 // ```sh
 //
@@ -228,6 +238,12 @@ type SpotFleetRequest struct {
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	//
+	// **Note**: This takes in similar but not
+	// identical inputs as `ec2.Instance`.  There are limitations on
+	// what you can specify. See the list of officially supported inputs in the
+	// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+	// a additional parameter `iamInstanceProfileArn` takes `iam.InstanceProfile` attribute `arn` as input.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayOutput `pulumi:"launchSpecifications"`
 	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
@@ -289,6 +305,7 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 	if args.TargetCapacity == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCapacity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpotFleetRequest
 	err := ctx.RegisterResource("aws:ec2/spotFleetRequest:SpotFleetRequest", name, args, &resource, opts...)
 	if err != nil {
@@ -342,6 +359,12 @@ type spotFleetRequestState struct {
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	//
+	// **Note**: This takes in similar but not
+	// identical inputs as `ec2.Instance`.  There are limitations on
+	// what you can specify. See the list of officially supported inputs in the
+	// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+	// a additional parameter `iamInstanceProfileArn` takes `iam.InstanceProfile` attribute `arn` as input.
 	LaunchSpecifications []SpotFleetRequestLaunchSpecification `pulumi:"launchSpecifications"`
 	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
@@ -422,6 +445,12 @@ type SpotFleetRequestState struct {
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	//
+	// **Note**: This takes in similar but not
+	// identical inputs as `ec2.Instance`.  There are limitations on
+	// what you can specify. See the list of officially supported inputs in the
+	// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+	// a additional parameter `iamInstanceProfileArn` takes `iam.InstanceProfile` attribute `arn` as input.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayInput
 	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
@@ -505,6 +534,12 @@ type spotFleetRequestArgs struct {
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	//
+	// **Note**: This takes in similar but not
+	// identical inputs as `ec2.Instance`.  There are limitations on
+	// what you can specify. See the list of officially supported inputs in the
+	// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+	// a additional parameter `iamInstanceProfileArn` takes `iam.InstanceProfile` attribute `arn` as input.
 	LaunchSpecifications []SpotFleetRequestLaunchSpecification `pulumi:"launchSpecifications"`
 	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
@@ -581,6 +616,12 @@ type SpotFleetRequestArgs struct {
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	//
+	// **Note**: This takes in similar but not
+	// identical inputs as `ec2.Instance`.  There are limitations on
+	// what you can specify. See the list of officially supported inputs in the
+	// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+	// a additional parameter `iamInstanceProfileArn` takes `iam.InstanceProfile` attribute `arn` as input.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayInput
 	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
@@ -648,6 +689,12 @@ func (i *SpotFleetRequest) ToSpotFleetRequestOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestOutput)
 }
 
+func (i *SpotFleetRequest) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequest] {
+	return pulumix.Output[*SpotFleetRequest]{
+		OutputState: i.ToSpotFleetRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotFleetRequestArrayInput is an input type that accepts SpotFleetRequestArray and SpotFleetRequestArrayOutput values.
 // You can construct a concrete instance of `SpotFleetRequestArrayInput` via:
 //
@@ -671,6 +718,12 @@ func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutput() SpotFleetRequestA
 
 func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutputWithContext(ctx context.Context) SpotFleetRequestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestArrayOutput)
+}
+
+func (i SpotFleetRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpotFleetRequest] {
+	return pulumix.Output[[]*SpotFleetRequest]{
+		OutputState: i.ToSpotFleetRequestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpotFleetRequestMapInput is an input type that accepts SpotFleetRequestMap and SpotFleetRequestMapOutput values.
@@ -698,6 +751,12 @@ func (i SpotFleetRequestMap) ToSpotFleetRequestMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestMapOutput)
 }
 
+func (i SpotFleetRequestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotFleetRequest] {
+	return pulumix.Output[map[string]*SpotFleetRequest]{
+		OutputState: i.ToSpotFleetRequestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetRequestOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestOutput) ElementType() reflect.Type {
@@ -710,6 +769,12 @@ func (o SpotFleetRequestOutput) ToSpotFleetRequestOutput() SpotFleetRequestOutpu
 
 func (o SpotFleetRequestOutput) ToSpotFleetRequestOutputWithContext(ctx context.Context) SpotFleetRequestOutput {
 	return o
+}
+
+func (o SpotFleetRequestOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequest] {
+	return pulumix.Output[*SpotFleetRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates how to allocate the target capacity across
@@ -767,6 +832,12 @@ func (o SpotFleetRequestOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
 // Used to define the launch configuration of the
 // spot-fleet request. Can be specified multiple times to define different bids
 // across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+//
+// **Note**: This takes in similar but not
+// identical inputs as `ec2.Instance`.  There are limitations on
+// what you can specify. See the list of officially supported inputs in the
+// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+// a additional parameter `iamInstanceProfileArn` takes `iam.InstanceProfile` attribute `arn` as input.
 func (o SpotFleetRequestOutput) LaunchSpecifications() SpotFleetRequestLaunchSpecificationArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) SpotFleetRequestLaunchSpecificationArrayOutput {
 		return v.LaunchSpecifications
@@ -893,6 +964,12 @@ func (o SpotFleetRequestArrayOutput) ToSpotFleetRequestArrayOutputWithContext(ct
 	return o
 }
 
+func (o SpotFleetRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpotFleetRequest] {
+	return pulumix.Output[[]*SpotFleetRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpotFleetRequest {
 		return vs[0].([]*SpotFleetRequest)[vs[1].(int)]
@@ -911,6 +988,12 @@ func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutput() SpotFleetReques
 
 func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutputWithContext(ctx context.Context) SpotFleetRequestMapOutput {
 	return o
+}
+
+func (o SpotFleetRequestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotFleetRequest] {
+	return pulumix.Output[map[string]*SpotFleetRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetRequestMapOutput) MapIndex(k pulumi.StringInput) SpotFleetRequestOutput {

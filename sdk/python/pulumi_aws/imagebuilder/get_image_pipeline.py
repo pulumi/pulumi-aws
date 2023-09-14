@@ -22,7 +22,7 @@ class GetImagePipelineResult:
     """
     A collection of values returned by getImagePipeline.
     """
-    def __init__(__self__, arn=None, container_recipe_arn=None, date_created=None, date_last_run=None, date_next_run=None, date_updated=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, platform=None, schedules=None, status=None, tags=None):
+    def __init__(__self__, arn=None, container_recipe_arn=None, date_created=None, date_last_run=None, date_next_run=None, date_updated=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_scanning_configurations=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, platform=None, schedules=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetImagePipelineResult:
         if image_recipe_arn and not isinstance(image_recipe_arn, str):
             raise TypeError("Expected argument 'image_recipe_arn' to be a str")
         pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+        if image_scanning_configurations and not isinstance(image_scanning_configurations, list):
+            raise TypeError("Expected argument 'image_scanning_configurations' to be a list")
+        pulumi.set(__self__, "image_scanning_configurations", image_scanning_configurations)
         if image_tests_configurations and not isinstance(image_tests_configurations, list):
             raise TypeError("Expected argument 'image_tests_configurations' to be a list")
         pulumi.set(__self__, "image_tests_configurations", image_tests_configurations)
@@ -164,6 +167,11 @@ class GetImagePipelineResult:
         return pulumi.get(self, "image_recipe_arn")
 
     @property
+    @pulumi.getter(name="imageScanningConfigurations")
+    def image_scanning_configurations(self) -> Sequence['outputs.GetImagePipelineImageScanningConfigurationResult']:
+        return pulumi.get(self, "image_scanning_configurations")
+
+    @property
     @pulumi.getter(name="imageTestsConfigurations")
     def image_tests_configurations(self) -> Sequence['outputs.GetImagePipelineImageTestsConfigurationResult']:
         """
@@ -237,6 +245,7 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
             enhanced_image_metadata_enabled=self.enhanced_image_metadata_enabled,
             id=self.id,
             image_recipe_arn=self.image_recipe_arn,
+            image_scanning_configurations=self.image_scanning_configurations,
             image_tests_configurations=self.image_tests_configurations,
             infrastructure_configuration_arn=self.infrastructure_configuration_arn,
             name=self.name,
@@ -272,24 +281,25 @@ def get_image_pipeline(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImagePipeline:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult).value
 
     return AwaitableGetImagePipelineResult(
-        arn=__ret__.arn,
-        container_recipe_arn=__ret__.container_recipe_arn,
-        date_created=__ret__.date_created,
-        date_last_run=__ret__.date_last_run,
-        date_next_run=__ret__.date_next_run,
-        date_updated=__ret__.date_updated,
-        description=__ret__.description,
-        distribution_configuration_arn=__ret__.distribution_configuration_arn,
-        enhanced_image_metadata_enabled=__ret__.enhanced_image_metadata_enabled,
-        id=__ret__.id,
-        image_recipe_arn=__ret__.image_recipe_arn,
-        image_tests_configurations=__ret__.image_tests_configurations,
-        infrastructure_configuration_arn=__ret__.infrastructure_configuration_arn,
-        name=__ret__.name,
-        platform=__ret__.platform,
-        schedules=__ret__.schedules,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        container_recipe_arn=pulumi.get(__ret__, 'container_recipe_arn'),
+        date_created=pulumi.get(__ret__, 'date_created'),
+        date_last_run=pulumi.get(__ret__, 'date_last_run'),
+        date_next_run=pulumi.get(__ret__, 'date_next_run'),
+        date_updated=pulumi.get(__ret__, 'date_updated'),
+        description=pulumi.get(__ret__, 'description'),
+        distribution_configuration_arn=pulumi.get(__ret__, 'distribution_configuration_arn'),
+        enhanced_image_metadata_enabled=pulumi.get(__ret__, 'enhanced_image_metadata_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        image_recipe_arn=pulumi.get(__ret__, 'image_recipe_arn'),
+        image_scanning_configurations=pulumi.get(__ret__, 'image_scanning_configurations'),
+        image_tests_configurations=pulumi.get(__ret__, 'image_tests_configurations'),
+        infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        platform=pulumi.get(__ret__, 'platform'),
+        schedules=pulumi.get(__ret__, 'schedules'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_image_pipeline)

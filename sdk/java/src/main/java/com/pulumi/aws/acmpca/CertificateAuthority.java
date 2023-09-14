@@ -109,6 +109,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -133,7 +134,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .forceDestroy(true)
+ *             .build());
  * 
  *         final var acmpcaBucketAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -171,6 +174,7 @@ import javax.annotation.Nullable;
  *                     .enabled(true)
  *                     .expirationInDays(7)
  *                     .s3BucketName(exampleBucketV2.id())
+ *                     .s3ObjectAcl(&#34;BUCKET_OWNER_FULL_CONTROL&#34;)
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -183,7 +187,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
+ * Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
@@ -359,24 +363,6 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      */
     public Output<String> serial() {
         return this.serial;
-    }
-    /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
-     * @deprecated
-     * The reported value of the &#34;status&#34; attribute is often inaccurate. Use the resource&#39;s &#34;enabled&#34; attribute to explicitly set status.
-     * 
-     */
-    @Deprecated /* The reported value of the ""status"" attribute is often inaccurate. Use the resource's ""enabled"" attribute to explicitly set status. */
-    @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
-
-    /**
-     * @return (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
-     */
-    public Output<String> status() {
-        return this.status;
     }
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

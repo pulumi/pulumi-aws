@@ -37,6 +37,8 @@ class EntityRecognizerArgs:
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
                Each version must have a unique name within the Entity Recognizer.
@@ -128,6 +130,8 @@ class EntityRecognizerArgs:
         Name for the Entity Recognizer.
         Has a maximum length of 63 characters.
         Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -233,6 +237,8 @@ class _EntityRecognizerState:
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
@@ -344,6 +350,8 @@ class _EntityRecognizerState:
         Name for the Entity Recognizer.
         Has a maximum length of 63 characters.
         Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -488,7 +496,7 @@ class EntityRecognizer(pulumi.CustomResource):
 
         ## Import
 
-        Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+        Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 
         ```sh
          $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
@@ -505,6 +513,8 @@ class EntityRecognizer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
                Each version must have a unique name within the Entity Recognizer.
@@ -565,7 +575,7 @@ class EntityRecognizer(pulumi.CustomResource):
 
         ## Import
 
-        Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+        Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 
         ```sh
          $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
@@ -662,6 +672,8 @@ class EntityRecognizer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
@@ -746,6 +758,8 @@ class EntityRecognizer(pulumi.CustomResource):
         Name for the Entity Recognizer.
         Has a maximum length of 63 characters.
         Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

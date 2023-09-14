@@ -30,11 +30,17 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("desiredVcpus")]
         public Input<int>? DesiredVcpus { get; set; }
 
+        [Input("ec2Configurations")]
+        private InputList<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>? _ec2Configurations;
+
         /// <summary>
         /// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("ec2Configuration")]
-        public Input<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>? Ec2Configuration { get; set; }
+        public InputList<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationArgs> Ec2Configurations
+        {
+            get => _ec2Configurations ?? (_ec2Configurations = new InputList<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>());
+            set => _ec2Configurations = value;
+        }
 
         /// <summary>
         /// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -83,6 +89,12 @@ namespace Pulumi.Aws.Batch.Inputs
         /// </summary>
         [Input("minVcpus")]
         public Input<int>? MinVcpus { get; set; }
+
+        /// <summary>
+        /// The Amazon EC2 placement group to associate with your compute resources.
+        /// </summary>
+        [Input("placementGroup")]
+        public Input<string>? PlacementGroup { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

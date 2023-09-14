@@ -123,6 +123,9 @@ def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilter
     :param str pool_id: ID of the specific COIP Pool to retrieve.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -133,13 +136,13 @@ def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilter
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts, typ=GetCoipPoolResult).value
 
     return AwaitableGetCoipPoolResult(
-        arn=__ret__.arn,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        local_gateway_route_table_id=__ret__.local_gateway_route_table_id,
-        pool_cidrs=__ret__.pool_cidrs,
-        pool_id=__ret__.pool_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        local_gateway_route_table_id=pulumi.get(__ret__, 'local_gateway_route_table_id'),
+        pool_cidrs=pulumi.get(__ret__, 'pool_cidrs'),
+        pool_id=pulumi.get(__ret__, 'pool_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_coip_pool)
@@ -160,5 +163,8 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     :param str pool_id: ID of the specific COIP Pool to retrieve.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

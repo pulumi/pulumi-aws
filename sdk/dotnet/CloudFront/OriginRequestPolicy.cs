@@ -65,7 +65,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+    /// Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3

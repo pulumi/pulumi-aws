@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
@@ -244,12 +244,16 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
     /**
      * Unique name for the image builder.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique name for the image builder.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

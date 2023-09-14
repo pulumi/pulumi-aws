@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
@@ -24,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,7 +61,7 @@ import (
 //
 // ## Import
 //
-// Endpoints can be imported using the `endpoint_id`, e.g.,
+// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 //
 // ```sh
 //
@@ -81,7 +83,7 @@ type Endpoint struct {
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
@@ -90,6 +92,8 @@ type Endpoint struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings EndpointKinesisSettingsPtrOutput `pulumi:"kinesisSettings"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrOutput `pulumi:"mongodbSettings"`
@@ -143,6 +147,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:dms/endpoint:Endpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -177,7 +182,7 @@ type endpointState struct {
 	EndpointId *string `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType *string `pulumi:"endpointType"`
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName *string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
@@ -186,6 +191,8 @@ type endpointState struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
@@ -229,7 +236,7 @@ type EndpointState struct {
 	EndpointId pulumi.StringPtrInput
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType pulumi.StringPtrInput
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName pulumi.StringPtrInput
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
@@ -238,6 +245,8 @@ type EndpointState struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings EndpointKinesisSettingsPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringPtrInput
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
@@ -283,7 +292,7 @@ type endpointArgs struct {
 	EndpointId string `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType string `pulumi:"endpointType"`
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
@@ -292,6 +301,8 @@ type endpointArgs struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
@@ -332,7 +343,7 @@ type EndpointArgs struct {
 	EndpointId pulumi.StringInput
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType pulumi.StringInput
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName pulumi.StringInput
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
@@ -341,6 +352,8 @@ type EndpointArgs struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings EndpointKinesisSettingsPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringPtrInput
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
@@ -392,6 +405,12 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
+func (i *Endpoint) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: i.ToEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointArrayInput` via:
 //
@@ -415,6 +434,12 @@ func (i EndpointArray) ToEndpointArrayOutput() EndpointArrayOutput {
 
 func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) EndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointArrayOutput)
+}
+
+func (i EndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: i.ToEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
@@ -442,6 +467,12 @@ func (i EndpointMap) ToEndpointMapOutputWithContext(ctx context.Context) Endpoin
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMapOutput)
 }
 
+func (i EndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: i.ToEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
@@ -454,6 +485,12 @@ func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
 
 func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
 	return o
+}
+
+func (o EndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN for the certificate.
@@ -486,7 +523,7 @@ func (o EndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 func (o EndpointOutput) EngineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
 }
@@ -507,6 +544,8 @@ func (o EndpointOutput) KinesisSettings() EndpointKinesisSettingsPtrOutput {
 }
 
 // ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+//
+// The following arguments are optional:
 func (o EndpointOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -594,6 +633,12 @@ func (o EndpointArrayOutput) ToEndpointArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointArrayOutput) Index(i pulumi.IntInput) EndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Endpoint {
 		return vs[0].([]*Endpoint)[vs[1].(int)]
@@ -612,6 +657,12 @@ func (o EndpointMapOutput) ToEndpointMapOutput() EndpointMapOutput {
 
 func (o EndpointMapOutput) ToEndpointMapOutputWithContext(ctx context.Context) EndpointMapOutput {
 	return o
+}
+
+func (o EndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointMapOutput) MapIndex(k pulumi.StringInput) EndpointOutput {

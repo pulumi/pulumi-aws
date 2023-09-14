@@ -479,11 +479,12 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
         ```
+         -> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -547,11 +548,12 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.,
+        Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For example:
 
         ```sh
          $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
         ```
+         -> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

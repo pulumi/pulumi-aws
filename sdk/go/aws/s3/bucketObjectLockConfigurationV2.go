@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,7 +106,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -133,7 +135,19 @@ import (
 //
 // ## Import
 //
-// S3 bucket Object Lock configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket Object Lock configuration resource should be imported using the `bucket` e.g.,
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+//
+// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+//
+// import {
+//
+//	to = aws_s3_bucket_object_lock_configuration.example
+//
+//	id = "bucket-name,123456789012" }
+//
+// __Using `pulumi import` to import__ S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+//
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 //
 // ```sh
 //
@@ -141,7 +155,7 @@ import (
 //
 // ```
 //
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket Object Lock configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 //
 // ```sh
 //
@@ -181,6 +195,7 @@ func NewBucketObjectLockConfigurationV2(ctx *pulumi.Context,
 		"token",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketObjectLockConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2", name, args, &resource, opts...)
 	if err != nil {
@@ -286,6 +301,12 @@ func (i *BucketObjectLockConfigurationV2) ToBucketObjectLockConfigurationV2Outpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2Output)
 }
 
+func (i *BucketObjectLockConfigurationV2) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationV2] {
+	return pulumix.Output[*BucketObjectLockConfigurationV2]{
+		OutputState: i.ToBucketObjectLockConfigurationV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketObjectLockConfigurationV2ArrayInput is an input type that accepts BucketObjectLockConfigurationV2Array and BucketObjectLockConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationV2ArrayInput` via:
 //
@@ -309,6 +330,12 @@ func (i BucketObjectLockConfigurationV2Array) ToBucketObjectLockConfigurationV2A
 
 func (i BucketObjectLockConfigurationV2Array) ToBucketObjectLockConfigurationV2ArrayOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2ArrayOutput)
+}
+
+func (i BucketObjectLockConfigurationV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketObjectLockConfigurationV2] {
+	return pulumix.Output[[]*BucketObjectLockConfigurationV2]{
+		OutputState: i.ToBucketObjectLockConfigurationV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketObjectLockConfigurationV2MapInput is an input type that accepts BucketObjectLockConfigurationV2Map and BucketObjectLockConfigurationV2MapOutput values.
@@ -336,6 +363,12 @@ func (i BucketObjectLockConfigurationV2Map) ToBucketObjectLockConfigurationV2Map
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2MapOutput)
 }
 
+func (i BucketObjectLockConfigurationV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketObjectLockConfigurationV2] {
+	return pulumix.Output[map[string]*BucketObjectLockConfigurationV2]{
+		OutputState: i.ToBucketObjectLockConfigurationV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectLockConfigurationV2Output struct{ *pulumi.OutputState }
 
 func (BucketObjectLockConfigurationV2Output) ElementType() reflect.Type {
@@ -348,6 +381,12 @@ func (o BucketObjectLockConfigurationV2Output) ToBucketObjectLockConfigurationV2
 
 func (o BucketObjectLockConfigurationV2Output) ToBucketObjectLockConfigurationV2OutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2Output {
 	return o
+}
+
+func (o BucketObjectLockConfigurationV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationV2] {
+	return pulumix.Output[*BucketObjectLockConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bucket.
@@ -390,6 +429,12 @@ func (o BucketObjectLockConfigurationV2ArrayOutput) ToBucketObjectLockConfigurat
 	return o
 }
 
+func (o BucketObjectLockConfigurationV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketObjectLockConfigurationV2] {
+	return pulumix.Output[[]*BucketObjectLockConfigurationV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketObjectLockConfigurationV2ArrayOutput) Index(i pulumi.IntInput) BucketObjectLockConfigurationV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketObjectLockConfigurationV2 {
 		return vs[0].([]*BucketObjectLockConfigurationV2)[vs[1].(int)]
@@ -408,6 +453,12 @@ func (o BucketObjectLockConfigurationV2MapOutput) ToBucketObjectLockConfiguratio
 
 func (o BucketObjectLockConfigurationV2MapOutput) ToBucketObjectLockConfigurationV2MapOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2MapOutput {
 	return o
+}
+
+func (o BucketObjectLockConfigurationV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketObjectLockConfigurationV2] {
+	return pulumix.Output[map[string]*BucketObjectLockConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectLockConfigurationV2MapOutput) MapIndex(k pulumi.StringInput) BucketObjectLockConfigurationV2Output {

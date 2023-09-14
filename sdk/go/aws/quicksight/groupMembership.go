@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing QuickSight Group Membership
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+// Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
 //
 // ```sh
 //
@@ -59,7 +61,7 @@ type GroupMembership struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The name of the member to add to the group.
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 }
 
@@ -76,6 +78,7 @@ func NewGroupMembership(ctx *pulumi.Context,
 	if args.MemberName == nil {
 		return nil, errors.New("invalid value for required argument 'MemberName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupMembership
 	err := ctx.RegisterResource("aws:quicksight/groupMembership:GroupMembership", name, args, &resource, opts...)
 	if err != nil {
@@ -105,7 +108,7 @@ type groupMembershipState struct {
 	GroupName *string `pulumi:"groupName"`
 	// The name of the member to add to the group.
 	MemberName *string `pulumi:"memberName"`
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -117,7 +120,7 @@ type GroupMembershipState struct {
 	GroupName pulumi.StringPtrInput
 	// The name of the member to add to the group.
 	MemberName pulumi.StringPtrInput
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 }
 
@@ -132,7 +135,7 @@ type groupMembershipArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// The name of the member to add to the group.
 	MemberName string `pulumi:"memberName"`
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -144,7 +147,7 @@ type GroupMembershipArgs struct {
 	GroupName pulumi.StringInput
 	// The name of the member to add to the group.
 	MemberName pulumi.StringInput
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 }
 
@@ -169,6 +172,12 @@ func (i *GroupMembership) ToGroupMembershipOutput() GroupMembershipOutput {
 
 func (i *GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipOutput)
+}
+
+func (i *GroupMembership) ToOutput(ctx context.Context) pulumix.Output[*GroupMembership] {
+	return pulumix.Output[*GroupMembership]{
+		OutputState: i.ToGroupMembershipOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GroupMembershipArrayInput is an input type that accepts GroupMembershipArray and GroupMembershipArrayOutput values.
@@ -196,6 +205,12 @@ func (i GroupMembershipArray) ToGroupMembershipArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipArrayOutput)
 }
 
+func (i GroupMembershipArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupMembership] {
+	return pulumix.Output[[]*GroupMembership]{
+		OutputState: i.ToGroupMembershipArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupMembershipMapInput is an input type that accepts GroupMembershipMap and GroupMembershipMapOutput values.
 // You can construct a concrete instance of `GroupMembershipMapInput` via:
 //
@@ -221,6 +236,12 @@ func (i GroupMembershipMap) ToGroupMembershipMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipMapOutput)
 }
 
+func (i GroupMembershipMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupMembership] {
+	return pulumix.Output[map[string]*GroupMembership]{
+		OutputState: i.ToGroupMembershipMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMembershipOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipOutput) ElementType() reflect.Type {
@@ -233,6 +254,12 @@ func (o GroupMembershipOutput) ToGroupMembershipOutput() GroupMembershipOutput {
 
 func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
 	return o
+}
+
+func (o GroupMembershipOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMembership] {
+	return pulumix.Output[*GroupMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMembershipOutput) Arn() pulumi.StringOutput {
@@ -254,7 +281,7 @@ func (o GroupMembershipOutput) MemberName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MemberName }).(pulumi.StringOutput)
 }
 
-// The namespace. Defaults to `default`. Currently only `default` is supported.
+// The namespace that you want the user to be a part of. Defaults to `default`.
 func (o GroupMembershipOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -271,6 +298,12 @@ func (o GroupMembershipArrayOutput) ToGroupMembershipArrayOutput() GroupMembersh
 
 func (o GroupMembershipArrayOutput) ToGroupMembershipArrayOutputWithContext(ctx context.Context) GroupMembershipArrayOutput {
 	return o
+}
+
+func (o GroupMembershipArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupMembership] {
+	return pulumix.Output[[]*GroupMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMembershipArrayOutput) Index(i pulumi.IntInput) GroupMembershipOutput {
@@ -291,6 +324,12 @@ func (o GroupMembershipMapOutput) ToGroupMembershipMapOutput() GroupMembershipMa
 
 func (o GroupMembershipMapOutput) ToGroupMembershipMapOutputWithContext(ctx context.Context) GroupMembershipMapOutput {
 	return o
+}
+
+func (o GroupMembershipMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupMembership] {
+	return pulumix.Output[map[string]*GroupMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMembershipMapOutput) MapIndex(k pulumi.StringInput) GroupMembershipOutput {

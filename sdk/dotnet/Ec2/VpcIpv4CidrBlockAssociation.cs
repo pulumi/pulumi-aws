@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
     ///     {
     ///         VpcId = main.Id,
-    ///         CidrBlock = "172.2.0.0/16",
+    ///         CidrBlock = "172.20.0.0/16",
     ///     });
     /// 
     /// });
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+    /// Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS RBin Rule.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rbin"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rbin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +58,7 @@ import (
 //
 // ## Import
 //
-// RBin Rule can be imported using the `id`, e.g.,
+// Using `pulumi import`, import RBin Rule using the `id`. For example:
 //
 // ```sh
 //
@@ -80,6 +82,8 @@ type Rule struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodOutput `pulumi:"retentionPeriod"`
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  pulumi.StringOutput    `pulumi:"status"`
@@ -100,6 +104,7 @@ func NewRule(ctx *pulumi.Context,
 	if args.RetentionPeriod == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionPeriod'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws:rbin/rule:Rule", name, args, &resource, opts...)
 	if err != nil {
@@ -136,6 +141,8 @@ type ruleState struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType *string `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod *RuleRetentionPeriod `pulumi:"retentionPeriod"`
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  *string           `pulumi:"status"`
@@ -158,6 +165,8 @@ type RuleState struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringPtrInput
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodPtrInput
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  pulumi.StringPtrInput
@@ -179,6 +188,8 @@ type ruleArgs struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType string `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriod `pulumi:"retentionPeriod"`
 	Tags            map[string]string   `pulumi:"tags"`
 }
@@ -194,6 +205,8 @@ type RuleArgs struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringInput
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodInput
 	Tags            pulumi.StringMapInput
 }
@@ -221,6 +234,12 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
 }
 
+func (i *Rule) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
+	return pulumix.Output[*Rule]{
+		OutputState: i.ToRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleArrayInput is an input type that accepts RuleArray and RuleArrayOutput values.
 // You can construct a concrete instance of `RuleArrayInput` via:
 //
@@ -244,6 +263,12 @@ func (i RuleArray) ToRuleArrayOutput() RuleArrayOutput {
 
 func (i RuleArray) ToRuleArrayOutputWithContext(ctx context.Context) RuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleArrayOutput)
+}
+
+func (i RuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*Rule] {
+	return pulumix.Output[[]*Rule]{
+		OutputState: i.ToRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RuleMapInput is an input type that accepts RuleMap and RuleMapOutput values.
@@ -271,6 +296,12 @@ func (i RuleMap) ToRuleMapOutputWithContext(ctx context.Context) RuleMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMapOutput)
 }
 
+func (i RuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Rule] {
+	return pulumix.Output[map[string]*Rule]{
+		OutputState: i.ToRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleOutput struct{ *pulumi.OutputState }
 
 func (RuleOutput) ElementType() reflect.Type {
@@ -283,6 +314,12 @@ func (o RuleOutput) ToRuleOutput() RuleOutput {
 
 func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
+}
+
+func (o RuleOutput) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
+	return pulumix.Output[*Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleOutput) Arn() pulumi.StringOutput {
@@ -320,6 +357,8 @@ func (o RuleOutput) ResourceType() pulumi.StringOutput {
 }
 
 // Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+//
+// The following arguments are optional:
 func (o RuleOutput) RetentionPeriod() RuleRetentionPeriodOutput {
 	return o.ApplyT(func(v *Rule) RuleRetentionPeriodOutput { return v.RetentionPeriod }).(RuleRetentionPeriodOutput)
 }
@@ -351,6 +390,12 @@ func (o RuleArrayOutput) ToRuleArrayOutputWithContext(ctx context.Context) RuleA
 	return o
 }
 
+func (o RuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Rule] {
+	return pulumix.Output[[]*Rule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleArrayOutput) Index(i pulumi.IntInput) RuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Rule {
 		return vs[0].([]*Rule)[vs[1].(int)]
@@ -369,6 +414,12 @@ func (o RuleMapOutput) ToRuleMapOutput() RuleMapOutput {
 
 func (o RuleMapOutput) ToRuleMapOutputWithContext(ctx context.Context) RuleMapOutput {
 	return o
+}
+
+func (o RuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Rule] {
+	return pulumix.Output[map[string]*Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleMapOutput) MapIndex(k pulumi.StringInput) RuleOutput {

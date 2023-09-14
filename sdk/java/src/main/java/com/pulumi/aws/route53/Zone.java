@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Zones can be imported using the `zone id`, e.g.,
+ * Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9

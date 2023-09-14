@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Models can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import models using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/model:Model test_model model-foo
@@ -129,6 +129,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The `primary_container` and `container` block both support:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -238,6 +240,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The `primary_container` and `container` block both support:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -312,6 +316,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The `primary_container` and `container` block both support:
         /// </summary>
         public InputMap<string> Tags
         {

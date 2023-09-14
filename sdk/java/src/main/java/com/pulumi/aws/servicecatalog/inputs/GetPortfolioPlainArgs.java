@@ -33,12 +33,16 @@ public final class GetPortfolioPlainArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Portfolio identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
      * @return Portfolio identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String id() {
@@ -99,6 +103,8 @@ public final class GetPortfolioPlainArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param id Portfolio identifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

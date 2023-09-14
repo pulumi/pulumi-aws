@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the `secretsmanager.Secret` resource.
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // ## Import
 //
-// `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
+// Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
 //
 // ```sh
 //
@@ -66,6 +68,8 @@ type SecretVersion struct {
 	// The unique identifier of the version of the secret.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+	//
+	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
 	VersionStages pulumi.StringArrayOutput `pulumi:"versionStages"`
 }
 
@@ -90,6 +94,7 @@ func NewSecretVersion(ctx *pulumi.Context,
 		"secretString",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecretVersion
 	err := ctx.RegisterResource("aws:secretsmanager/secretVersion:SecretVersion", name, args, &resource, opts...)
 	if err != nil {
@@ -123,6 +128,8 @@ type secretVersionState struct {
 	// The unique identifier of the version of the secret.
 	VersionId *string `pulumi:"versionId"`
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+	//
+	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
 	VersionStages []string `pulumi:"versionStages"`
 }
 
@@ -138,6 +145,8 @@ type SecretVersionState struct {
 	// The unique identifier of the version of the secret.
 	VersionId pulumi.StringPtrInput
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+	//
+	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
 	VersionStages pulumi.StringArrayInput
 }
 
@@ -153,6 +162,8 @@ type secretVersionArgs struct {
 	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secretBinary is not set.
 	SecretString *string `pulumi:"secretString"`
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+	//
+	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
 	VersionStages []string `pulumi:"versionStages"`
 }
 
@@ -165,6 +176,8 @@ type SecretVersionArgs struct {
 	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secretBinary is not set.
 	SecretString pulumi.StringPtrInput
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+	//
+	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
 	VersionStages pulumi.StringArrayInput
 }
 
@@ -189,6 +202,12 @@ func (i *SecretVersion) ToSecretVersionOutput() SecretVersionOutput {
 
 func (i *SecretVersion) ToSecretVersionOutputWithContext(ctx context.Context) SecretVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretVersionOutput)
+}
+
+func (i *SecretVersion) ToOutput(ctx context.Context) pulumix.Output[*SecretVersion] {
+	return pulumix.Output[*SecretVersion]{
+		OutputState: i.ToSecretVersionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecretVersionArrayInput is an input type that accepts SecretVersionArray and SecretVersionArrayOutput values.
@@ -216,6 +235,12 @@ func (i SecretVersionArray) ToSecretVersionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SecretVersionArrayOutput)
 }
 
+func (i SecretVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecretVersion] {
+	return pulumix.Output[[]*SecretVersion]{
+		OutputState: i.ToSecretVersionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecretVersionMapInput is an input type that accepts SecretVersionMap and SecretVersionMapOutput values.
 // You can construct a concrete instance of `SecretVersionMapInput` via:
 //
@@ -241,6 +266,12 @@ func (i SecretVersionMap) ToSecretVersionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SecretVersionMapOutput)
 }
 
+func (i SecretVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretVersion] {
+	return pulumix.Output[map[string]*SecretVersion]{
+		OutputState: i.ToSecretVersionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecretVersionOutput struct{ *pulumi.OutputState }
 
 func (SecretVersionOutput) ElementType() reflect.Type {
@@ -253,6 +284,12 @@ func (o SecretVersionOutput) ToSecretVersionOutput() SecretVersionOutput {
 
 func (o SecretVersionOutput) ToSecretVersionOutputWithContext(ctx context.Context) SecretVersionOutput {
 	return o
+}
+
+func (o SecretVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*SecretVersion] {
+	return pulumix.Output[*SecretVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the secret.
@@ -281,6 +318,8 @@ func (o SecretVersionOutput) VersionId() pulumi.StringOutput {
 }
 
 // Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+//
+// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
 func (o SecretVersionOutput) VersionStages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringArrayOutput { return v.VersionStages }).(pulumi.StringArrayOutput)
 }
@@ -297,6 +336,12 @@ func (o SecretVersionArrayOutput) ToSecretVersionArrayOutput() SecretVersionArra
 
 func (o SecretVersionArrayOutput) ToSecretVersionArrayOutputWithContext(ctx context.Context) SecretVersionArrayOutput {
 	return o
+}
+
+func (o SecretVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecretVersion] {
+	return pulumix.Output[[]*SecretVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecretVersionArrayOutput) Index(i pulumi.IntInput) SecretVersionOutput {
@@ -317,6 +362,12 @@ func (o SecretVersionMapOutput) ToSecretVersionMapOutput() SecretVersionMapOutpu
 
 func (o SecretVersionMapOutput) ToSecretVersionMapOutputWithContext(ctx context.Context) SecretVersionMapOutput {
 	return o
+}
+
+func (o SecretVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretVersion] {
+	return pulumix.Output[map[string]*SecretVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecretVersionMapOutput) MapIndex(k pulumi.StringInput) SecretVersionOutput {

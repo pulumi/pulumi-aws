@@ -24,6 +24,8 @@ public final class AssociationOutputLocation {
     /**
      * @return The S3 bucket region.
      * 
+     * Targets specify what instance IDs or tags to apply the document to and has these keys:
+     * 
      */
     private @Nullable String s3Region;
 
@@ -44,6 +46,8 @@ public final class AssociationOutputLocation {
     }
     /**
      * @return The S3 bucket region.
+     * 
+     * Targets specify what instance IDs or tags to apply the document to and has these keys:
      * 
      */
     public Optional<String> s3Region() {

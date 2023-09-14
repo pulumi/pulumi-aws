@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Product.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +55,7 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_product` can be imported using the product ID, e.g.,
+// Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
 //
 // ```sh
 //
@@ -94,6 +96,8 @@ type Product struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -113,6 +117,7 @@ func NewProduct(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Product
 	err := ctx.RegisterResource("aws:servicecatalog/product:Product", name, args, &resource, opts...)
 	if err != nil {
@@ -166,6 +171,8 @@ type productState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -201,6 +208,8 @@ type ProductState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -230,6 +239,8 @@ type productArgs struct {
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -256,6 +267,8 @@ type ProductArgs struct {
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -280,6 +293,12 @@ func (i *Product) ToProductOutput() ProductOutput {
 
 func (i *Product) ToProductOutputWithContext(ctx context.Context) ProductOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductOutput)
+}
+
+func (i *Product) ToOutput(ctx context.Context) pulumix.Output[*Product] {
+	return pulumix.Output[*Product]{
+		OutputState: i.ToProductOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProductArrayInput is an input type that accepts ProductArray and ProductArrayOutput values.
@@ -307,6 +326,12 @@ func (i ProductArray) ToProductArrayOutputWithContext(ctx context.Context) Produ
 	return pulumi.ToOutputWithContext(ctx, i).(ProductArrayOutput)
 }
 
+func (i ProductArray) ToOutput(ctx context.Context) pulumix.Output[[]*Product] {
+	return pulumix.Output[[]*Product]{
+		OutputState: i.ToProductArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProductMapInput is an input type that accepts ProductMap and ProductMapOutput values.
 // You can construct a concrete instance of `ProductMapInput` via:
 //
@@ -332,6 +357,12 @@ func (i ProductMap) ToProductMapOutputWithContext(ctx context.Context) ProductMa
 	return pulumi.ToOutputWithContext(ctx, i).(ProductMapOutput)
 }
 
+func (i ProductMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Product] {
+	return pulumix.Output[map[string]*Product]{
+		OutputState: i.ToProductMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProductOutput struct{ *pulumi.OutputState }
 
 func (ProductOutput) ElementType() reflect.Type {
@@ -344,6 +375,12 @@ func (o ProductOutput) ToProductOutput() ProductOutput {
 
 func (o ProductOutput) ToProductOutputWithContext(ctx context.Context) ProductOutput {
 	return o
+}
+
+func (o ProductOutput) ToOutput(ctx context.Context) pulumix.Output[*Product] {
+	return pulumix.Output[*Product]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -422,6 +459,8 @@ func (o ProductOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+//
+// The following arguments are optional:
 func (o ProductOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -438,6 +477,12 @@ func (o ProductArrayOutput) ToProductArrayOutput() ProductArrayOutput {
 
 func (o ProductArrayOutput) ToProductArrayOutputWithContext(ctx context.Context) ProductArrayOutput {
 	return o
+}
+
+func (o ProductArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Product] {
+	return pulumix.Output[[]*Product]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProductArrayOutput) Index(i pulumi.IntInput) ProductOutput {
@@ -458,6 +503,12 @@ func (o ProductMapOutput) ToProductMapOutput() ProductMapOutput {
 
 func (o ProductMapOutput) ToProductMapOutputWithContext(ctx context.Context) ProductMapOutput {
 	return o
+}
+
+func (o ProductMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Product] {
+	return pulumix.Output[map[string]*Product]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProductMapOutput) MapIndex(k pulumi.StringInput) ProductOutput {

@@ -94,7 +94,12 @@ def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['Ge
 
 
     :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -103,10 +108,10 @@ def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['Ge
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations', __args__, opts=opts, typ=GetRouteTablePropagationsResult).value
 
     return AwaitableGetRouteTablePropagationsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        transit_gateway_route_table_id=__ret__.transit_gateway_route_table_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
 
 
 @_utilities.lift_output_func(get_route_table_propagations)
@@ -128,6 +133,11 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
 
 
     :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+           
+           The following arguments are optional:
     """
     ...

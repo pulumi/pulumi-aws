@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+    /// Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> MemberName { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
+        /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> MemberName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
+        /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? MemberName { get; set; }
 
         /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
+        /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

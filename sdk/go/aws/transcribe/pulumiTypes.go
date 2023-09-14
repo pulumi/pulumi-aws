@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type LanguageModelInputDataConfig struct {
 	// IAM role with access to S3 bucket.
@@ -16,6 +20,8 @@ type LanguageModelInputDataConfig struct {
 	// S3 URI where training data is located.
 	S3Uri string `pulumi:"s3Uri"`
 	// S3 URI where tuning data is located.
+	//
+	// The following arguments are optional:
 	TuningDataS3Uri *string `pulumi:"tuningDataS3Uri"`
 }
 
@@ -36,6 +42,8 @@ type LanguageModelInputDataConfigArgs struct {
 	// S3 URI where training data is located.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 	// S3 URI where tuning data is located.
+	//
+	// The following arguments are optional:
 	TuningDataS3Uri pulumi.StringPtrInput `pulumi:"tuningDataS3Uri"`
 }
 
@@ -49,6 +57,12 @@ func (i LanguageModelInputDataConfigArgs) ToLanguageModelInputDataConfigOutput()
 
 func (i LanguageModelInputDataConfigArgs) ToLanguageModelInputDataConfigOutputWithContext(ctx context.Context) LanguageModelInputDataConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageModelInputDataConfigOutput)
+}
+
+func (i LanguageModelInputDataConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LanguageModelInputDataConfig] {
+	return pulumix.Output[LanguageModelInputDataConfig]{
+		OutputState: i.ToLanguageModelInputDataConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LanguageModelInputDataConfigArgs) ToLanguageModelInputDataConfigPtrOutput() LanguageModelInputDataConfigPtrOutput {
@@ -92,6 +106,12 @@ func (i *languageModelInputDataConfigPtrType) ToLanguageModelInputDataConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageModelInputDataConfigPtrOutput)
 }
 
+func (i *languageModelInputDataConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*LanguageModelInputDataConfig] {
+	return pulumix.Output[*LanguageModelInputDataConfig]{
+		OutputState: i.ToLanguageModelInputDataConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LanguageModelInputDataConfigOutput struct{ *pulumi.OutputState }
 
 func (LanguageModelInputDataConfigOutput) ElementType() reflect.Type {
@@ -116,6 +136,12 @@ func (o LanguageModelInputDataConfigOutput) ToLanguageModelInputDataConfigPtrOut
 	}).(LanguageModelInputDataConfigPtrOutput)
 }
 
+func (o LanguageModelInputDataConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LanguageModelInputDataConfig] {
+	return pulumix.Output[LanguageModelInputDataConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // IAM role with access to S3 bucket.
 func (o LanguageModelInputDataConfigOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LanguageModelInputDataConfig) string { return v.DataAccessRoleArn }).(pulumi.StringOutput)
@@ -127,6 +153,8 @@ func (o LanguageModelInputDataConfigOutput) S3Uri() pulumi.StringOutput {
 }
 
 // S3 URI where tuning data is located.
+//
+// The following arguments are optional:
 func (o LanguageModelInputDataConfigOutput) TuningDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LanguageModelInputDataConfig) *string { return v.TuningDataS3Uri }).(pulumi.StringPtrOutput)
 }
@@ -143,6 +171,12 @@ func (o LanguageModelInputDataConfigPtrOutput) ToLanguageModelInputDataConfigPtr
 
 func (o LanguageModelInputDataConfigPtrOutput) ToLanguageModelInputDataConfigPtrOutputWithContext(ctx context.Context) LanguageModelInputDataConfigPtrOutput {
 	return o
+}
+
+func (o LanguageModelInputDataConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LanguageModelInputDataConfig] {
+	return pulumix.Output[*LanguageModelInputDataConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LanguageModelInputDataConfigPtrOutput) Elem() LanguageModelInputDataConfigOutput {
@@ -176,6 +210,8 @@ func (o LanguageModelInputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 }
 
 // S3 URI where tuning data is located.
+//
+// The following arguments are optional:
 func (o LanguageModelInputDataConfigPtrOutput) TuningDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LanguageModelInputDataConfig) *string {
 		if v == nil {

@@ -14,7 +14,6 @@ __all__ = [
     'ClusterLogDeliveryConfiguration',
     'GlobalReplicationGroupGlobalNodeGroup',
     'ParameterGroupParameter',
-    'ReplicationGroupClusterMode',
     'ReplicationGroupLogDeliveryConfiguration',
     'UserAuthenticationMode',
     'GetClusterCacheNodeResult',
@@ -244,56 +243,6 @@ class ParameterGroupParameter(dict):
         The value of the ElastiCache parameter.
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ReplicationGroupClusterMode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "numNodeGroups":
-            suggest = "num_node_groups"
-        elif key == "replicasPerNodeGroup":
-            suggest = "replicas_per_node_group"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReplicationGroupClusterMode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ReplicationGroupClusterMode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ReplicationGroupClusterMode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 num_node_groups: Optional[int] = None,
-                 replicas_per_node_group: Optional[int] = None):
-        """
-        :param int num_node_groups: Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
-        :param int replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        """
-        if num_node_groups is not None:
-            pulumi.set(__self__, "num_node_groups", num_node_groups)
-        if replicas_per_node_group is not None:
-            pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
-
-    @property
-    @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> Optional[int]:
-        """
-        Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
-        """
-        return pulumi.get(self, "num_node_groups")
-
-    @property
-    @pulumi.getter(name="replicasPerNodeGroup")
-    def replicas_per_node_group(self) -> Optional[int]:
-        """
-        Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        """
-        return pulumi.get(self, "replicas_per_node_group")
 
 
 @pulumi.output_type

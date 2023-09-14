@@ -172,6 +172,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     * 
+     */
+    @Import(name="backupTarget")
+    private @Nullable Output<String> backupTarget;
+
+    /**
+     * @return Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     * 
+     */
+    public Optional<Output<String>> backupTarget() {
+        return Optional.ofNullable(this.backupTarget);
+    }
+
+    /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
      * 
@@ -274,12 +289,20 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      * 
+     * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
+     * 
      */
     @Import(name="customerOwnedIpEnabled")
     private @Nullable Output<Boolean> customerOwnedIpEnabled;
 
     /**
      * @return Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     * 
+     * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
      * 
      */
     public Optional<Output<Boolean>> customerOwnedIpEnabled() {
@@ -434,14 +457,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -515,16 +538,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
     /**
-     * @return The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     public Optional<Output<String>> identifier() {
@@ -532,16 +553,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     @Import(name="identifierPrefix")
     private @Nullable Output<String> identifierPrefix;
 
     /**
-     * @return Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     public Optional<Output<String>> identifierPrefix() {
@@ -791,16 +810,20 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * @deprecated
+     * This property has been deprecated. Please use &#39;dbName&#39; instead.
      * 
      */
+    @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * @deprecated
+     * This property has been deprecated. Please use &#39;dbName&#39; instead.
      * 
      */
+    @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -1066,33 +1089,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Import(name="securityGroupNames")
-    private @Nullable Output<List<String>> securityGroupNames;
-
-    /**
-     * @return List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<List<String>>> securityGroupNames() {
-        return Optional.ofNullable(this.securityGroupNames);
-    }
-
-    /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
@@ -1304,6 +1300,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.availabilityZone = $.availabilityZone;
         this.backupRetentionPeriod = $.backupRetentionPeriod;
+        this.backupTarget = $.backupTarget;
         this.backupWindow = $.backupWindow;
         this.blueGreenUpdate = $.blueGreenUpdate;
         this.caCertIdentifier = $.caCertIdentifier;
@@ -1358,7 +1355,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.resourceId = $.resourceId;
         this.restoreToPointInTime = $.restoreToPointInTime;
         this.s3Import = $.s3Import;
-        this.securityGroupNames = $.securityGroupNames;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.status = $.status;
@@ -1583,6 +1579,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param backupTarget Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupTarget(@Nullable Output<String> backupTarget) {
+            $.backupTarget = backupTarget;
+            return this;
+        }
+
+        /**
+         * @param backupTarget Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupTarget(String backupTarget) {
+            return backupTarget(Output.of(backupTarget));
+        }
+
+        /**
          * @param backupWindow The daily time range (in UTC) during which automated backups are created if they are enabled.
          * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
          * 
@@ -1721,6 +1738,10 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param customerOwnedIpEnabled Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
          * 
+         * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+         * Replicate database managed by the provider will promote the database to a fully
+         * standalone database.
+         * 
          * @return builder
          * 
          */
@@ -1731,6 +1752,10 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param customerOwnedIpEnabled Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+         * 
+         * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+         * Replicate database managed by the provider will promote the database to a fully
+         * standalone database.
          * 
          * @return builder
          * 
@@ -1951,7 +1976,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
          * 
          * @return builder
          * 
@@ -1962,7 +1987,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
          * 
          * @return builder
          * 
@@ -2062,8 +2087,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The name of the RDS instance,
-         * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
          * 
          * @return builder
          * 
@@ -2074,8 +2098,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The name of the RDS instance,
-         * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
          * 
          * @return builder
          * 
@@ -2085,8 +2108,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifierPrefix Creates a unique
-         * identifier beginning with the specified prefix. Conflicts with `identifier`.
+         * @param identifierPrefix Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
          * 
          * @return builder
          * 
@@ -2097,8 +2119,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifierPrefix Creates a unique
-         * identifier beginning with the specified prefix. Conflicts with `identifier`.
+         * @param identifierPrefix Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
          * 
          * @return builder
          * 
@@ -2474,22 +2495,26 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated. Please use &#39;dbName&#39; instead.
+         * 
          */
+        @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
         /**
-         * @param name The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated. Please use &#39;dbName&#39; instead.
+         * 
          */
+        @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -2848,55 +2873,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder s3Import(InstanceS3ImportArgs s3Import) {
             return s3Import(Output.of(s3Import));
-        }
-
-        /**
-         * @param securityGroupNames List of DB Security Groups to
-         * associate. Only used for [DB Instances on the _EC2-Classic_
-         * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(@Nullable Output<List<String>> securityGroupNames) {
-            $.securityGroupNames = securityGroupNames;
-            return this;
-        }
-
-        /**
-         * @param securityGroupNames List of DB Security Groups to
-         * associate. Only used for [DB Instances on the _EC2-Classic_
-         * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(List<String> securityGroupNames) {
-            return securityGroupNames(Output.of(securityGroupNames));
-        }
-
-        /**
-         * @param securityGroupNames List of DB Security Groups to
-         * associate. Only used for [DB Instances on the _EC2-Classic_
-         * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(String... securityGroupNames) {
-            return securityGroupNames(List.of(securityGroupNames));
         }
 
         /**

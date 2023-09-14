@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic MapReduce Cluster Instance Group configuration.
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +50,7 @@ import (
 //
 // ## Import
 //
-// EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
+// Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
 //
 // ```sh
 //
@@ -65,6 +67,42 @@ type InstanceGroup struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson pulumi.StringPtrOutput `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs InstanceGroupEbsConfigArrayOutput `pulumi:"ebsConfigs"`
@@ -95,6 +133,7 @@ func NewInstanceGroup(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceGroup
 	err := ctx.RegisterResource("aws:emr/instanceGroup:InstanceGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -124,6 +163,42 @@ type instanceGroupState struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId *string `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs []InstanceGroupEbsConfig `pulumi:"ebsConfigs"`
@@ -149,6 +224,42 @@ type InstanceGroupState struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringPtrInput
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson pulumi.StringPtrInput
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs InstanceGroupEbsConfigArrayInput
@@ -178,6 +289,42 @@ type instanceGroupArgs struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs []InstanceGroupEbsConfig `pulumi:"ebsConfigs"`
@@ -200,6 +347,42 @@ type InstanceGroupArgs struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringInput
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	ConfigurationsJson pulumi.StringPtrInput
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs InstanceGroupEbsConfigArrayInput
@@ -236,6 +419,12 @@ func (i *InstanceGroup) ToInstanceGroupOutputWithContext(ctx context.Context) In
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupOutput)
 }
 
+func (i *InstanceGroup) ToOutput(ctx context.Context) pulumix.Output[*InstanceGroup] {
+	return pulumix.Output[*InstanceGroup]{
+		OutputState: i.ToInstanceGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceGroupArrayInput is an input type that accepts InstanceGroupArray and InstanceGroupArrayOutput values.
 // You can construct a concrete instance of `InstanceGroupArrayInput` via:
 //
@@ -259,6 +448,12 @@ func (i InstanceGroupArray) ToInstanceGroupArrayOutput() InstanceGroupArrayOutpu
 
 func (i InstanceGroupArray) ToInstanceGroupArrayOutputWithContext(ctx context.Context) InstanceGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupArrayOutput)
+}
+
+func (i InstanceGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceGroup] {
+	return pulumix.Output[[]*InstanceGroup]{
+		OutputState: i.ToInstanceGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceGroupMapInput is an input type that accepts InstanceGroupMap and InstanceGroupMapOutput values.
@@ -286,6 +481,12 @@ func (i InstanceGroupMap) ToInstanceGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupMapOutput)
 }
 
+func (i InstanceGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceGroup] {
+	return pulumix.Output[map[string]*InstanceGroup]{
+		OutputState: i.ToInstanceGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceGroupOutput struct{ *pulumi.OutputState }
 
 func (InstanceGroupOutput) ElementType() reflect.Type {
@@ -298,6 +499,12 @@ func (o InstanceGroupOutput) ToInstanceGroupOutput() InstanceGroupOutput {
 
 func (o InstanceGroupOutput) ToInstanceGroupOutputWithContext(ctx context.Context) InstanceGroupOutput {
 	return o
+}
+
+func (o InstanceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceGroup] {
+	return pulumix.Output[*InstanceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
@@ -316,6 +523,47 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 }
 
 // A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+//				ConfigurationsJson: pulumi.String(`[
+//
+// {
+// "Classification": "hadoop-env",
+// "Configurations": [
+// {
+// "Classification": "export",
+// "Properties": {
+// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+// }
+// }
+// ],
+// "Properties": {}
+// }
+// ]
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o InstanceGroupOutput) ConfigurationsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringPtrOutput { return v.ConfigurationsJson }).(pulumi.StringPtrOutput)
 }
@@ -369,6 +617,12 @@ func (o InstanceGroupArrayOutput) ToInstanceGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o InstanceGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceGroup] {
+	return pulumix.Output[[]*InstanceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceGroupArrayOutput) Index(i pulumi.IntInput) InstanceGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceGroup {
 		return vs[0].([]*InstanceGroup)[vs[1].(int)]
@@ -387,6 +641,12 @@ func (o InstanceGroupMapOutput) ToInstanceGroupMapOutput() InstanceGroupMapOutpu
 
 func (o InstanceGroupMapOutput) ToInstanceGroupMapOutputWithContext(ctx context.Context) InstanceGroupMapOutput {
 	return o
+}
+
+func (o InstanceGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceGroup] {
+	return pulumix.Output[map[string]*InstanceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceGroupMapOutput) MapIndex(k pulumi.StringInput) InstanceGroupOutput {

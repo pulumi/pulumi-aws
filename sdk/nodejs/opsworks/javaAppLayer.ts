@@ -136,6 +136,10 @@ export class JavaAppLayer extends pulumi.CustomResource {
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -324,6 +328,10 @@ export interface JavaAppLayerState {
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -425,6 +433,10 @@ export interface JavaAppLayerArgs {
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

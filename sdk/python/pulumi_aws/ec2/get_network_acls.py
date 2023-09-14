@@ -131,6 +131,9 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
 
 
     :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
     :param str vpc_id: VPC ID that you want to filter from.
@@ -143,11 +146,11 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkAcls:getNetworkAcls', __args__, opts=opts, typ=GetNetworkAclsResult).value
 
     return AwaitableGetNetworkAclsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_network_acls)
@@ -197,6 +200,9 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
 
 
     :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
     :param str vpc_id: VPC ID that you want to filter from.

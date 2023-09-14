@@ -35,7 +35,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
+    /// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
@@ -88,6 +88,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Email address of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -170,6 +172,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Email address of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -226,6 +230,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Email address of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

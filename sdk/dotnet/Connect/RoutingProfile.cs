@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+    /// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
@@ -107,9 +107,6 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Output("queueConfigs")]
         public Output<ImmutableArray<Outputs.RoutingProfileQueueConfig>> QueueConfigs { get; private set; } = null!;
-
-        [Output("queueConfigsAssociateds")]
-        public Output<ImmutableArray<Outputs.RoutingProfileQueueConfigsAssociated>> QueueConfigsAssociateds { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the Routing Profile.
@@ -297,15 +294,6 @@ namespace Pulumi.Aws.Connect
         {
             get => _queueConfigs ?? (_queueConfigs = new InputList<Inputs.RoutingProfileQueueConfigGetArgs>());
             set => _queueConfigs = value;
-        }
-
-        [Input("queueConfigsAssociateds")]
-        private InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs>? _queueConfigsAssociateds;
-        [Obsolete(@"Use the queue_configs instead")]
-        public InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs> QueueConfigsAssociateds
-        {
-            get => _queueConfigsAssociateds ?? (_queueConfigsAssociateds = new InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs>());
-            set => _queueConfigsAssociateds = value;
         }
 
         /// <summary>

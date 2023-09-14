@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type LifecyclePolicyPolicyDetails struct {
 	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
@@ -26,6 +30,8 @@ type LifecyclePolicyPolicyDetails struct {
 	// See the `schedule` configuration block.
 	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	//
+	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. TODO is unable to detect this at plan time but it will fail during apply.
 	TargetTags map[string]string `pulumi:"targetTags"`
 }
 
@@ -56,6 +62,8 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	// See the `schedule` configuration block.
 	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	//
+	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. TODO is unable to detect this at plan time but it will fail during apply.
 	TargetTags pulumi.StringMapInput `pulumi:"targetTags"`
 }
 
@@ -69,6 +77,12 @@ func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsOutput()
 
 func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[LifecyclePolicyPolicyDetails]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsPtrOutput() LifecyclePolicyPolicyDetailsPtrOutput {
@@ -112,6 +126,12 @@ func (i *lifecyclePolicyPolicyDetailsPtrType) ToLifecyclePolicyPolicyDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsPtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetails]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsOutput) ElementType() reflect.Type {
@@ -134,6 +154,12 @@ func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetails {
 		return &v
 	}).(LifecyclePolicyPolicyDetailsPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[LifecyclePolicyPolicyDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
@@ -172,6 +198,8 @@ func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDet
 }
 
 // A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+//
+// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. TODO is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]string { return v.TargetTags }).(pulumi.StringMapOutput)
 }
@@ -188,6 +216,12 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtr
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetailsOutput {
@@ -271,6 +305,8 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicy
 }
 
 // A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+//
+// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. TODO is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]string {
 		if v == nil {
@@ -317,6 +353,12 @@ func (i LifecyclePolicyPolicyDetailsActionArgs) ToLifecyclePolicyPolicyDetailsAc
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsActionArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsAction] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsAction]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyPolicyDetailsActionArgs) ToLifecyclePolicyPolicyDetailsActionPtrOutput() LifecyclePolicyPolicyDetailsActionPtrOutput {
 	return i.ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(context.Background())
 }
@@ -358,6 +400,12 @@ func (i *lifecyclePolicyPolicyDetailsActionPtrType) ToLifecyclePolicyPolicyDetai
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionPtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsAction] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsAction]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsActionOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsActionOutput) ElementType() reflect.Type {
@@ -380,6 +428,12 @@ func (o LifecyclePolicyPolicyDetailsActionOutput) ToLifecyclePolicyPolicyDetails
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsAction) *LifecyclePolicyPolicyDetailsAction {
 		return &v
 	}).(LifecyclePolicyPolicyDetailsActionPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsActionOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsAction] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
@@ -406,6 +460,12 @@ func (o LifecyclePolicyPolicyDetailsActionPtrOutput) ToLifecyclePolicyPolicyDeta
 
 func (o LifecyclePolicyPolicyDetailsActionPtrOutput) ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsAction] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsActionPtrOutput) Elem() LifecyclePolicyPolicyDetailsActionOutput {
@@ -479,6 +539,12 @@ func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs) ToLifecyclePolicy
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopy] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopy]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput is an input type that accepts LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray and LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput` via:
 //
@@ -504,6 +570,12 @@ func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray) ToLifecyclePolic
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetailsActionCrossRegionCopy] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetailsActionCrossRegionCopy]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ElementType() reflect.Type {
@@ -516,6 +588,12 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ToLifecyclePoli
 
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopy] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
@@ -549,6 +627,12 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) ToLifecycl
 
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetailsActionCrossRegionCopy] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetailsActionCrossRegionCopy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput {
@@ -594,6 +678,12 @@ func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -606,6 +696,12 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
 
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
@@ -623,9 +719,9 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -641,9 +737,9 @@ type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleInput interface 
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -657,6 +753,12 @@ func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToLifec
 
 func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
@@ -700,6 +802,12 @@ func (i *lifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrType) ToL
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ElementType() reflect.Type {
@@ -724,12 +832,18 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToLif
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) string { return v.IntervalUnit }).(pulumi.StringOutput)
 }
@@ -748,6 +862,12 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) To
 	return o
 }
 
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
 		if v != nil {
@@ -758,7 +878,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) El
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *int {
 		if v == nil {
@@ -768,7 +888,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *string {
 		if v == nil {
@@ -815,6 +935,12 @@ func (i LifecyclePolicyPolicyDetailsEventSourceArgs) ToLifecyclePolicyPolicyDeta
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsEventSourceArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsEventSource] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsEventSource]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsEventSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyPolicyDetailsEventSourceArgs) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutput() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
 	return i.ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(context.Background())
 }
@@ -856,6 +982,12 @@ func (i *lifecyclePolicyPolicyDetailsEventSourcePtrType) ToLifecyclePolicyPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsEventSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsEventSource] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsEventSource]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsEventSourceOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsEventSourceOutput) ElementType() reflect.Type {
@@ -878,6 +1010,12 @@ func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToLifecyclePolicyPolicyDe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsEventSource) *LifecyclePolicyPolicyDetailsEventSource {
 		return &v
 	}).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsEventSource] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsEventSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
@@ -904,6 +1042,12 @@ func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) ToLifecyclePolicyPolic
 
 func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsEventSource] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsEventSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Elem() LifecyclePolicyPolicyDetailsEventSourceOutput {
@@ -977,6 +1121,12 @@ func (i LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ToLifecyclePolicy
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceParametersOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsEventSourceParameters] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsEventSourceParameters]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsEventSourceParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
 	return i.ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(context.Background())
 }
@@ -1018,6 +1168,12 @@ func (i *lifecyclePolicyPolicyDetailsEventSourceParametersPtrType) ToLifecyclePo
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsEventSourceParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsEventSourceParameters] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsEventSourceParameters]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsEventSourceParametersOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ElementType() reflect.Type {
@@ -1040,6 +1196,12 @@ func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ToLifecyclePoli
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsEventSourceParameters) *LifecyclePolicyPolicyDetailsEventSourceParameters {
 		return &v
 	}).(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsEventSourceParameters] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsEventSourceParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
@@ -1069,6 +1231,12 @@ func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) ToLifecycleP
 
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsEventSourceParameters] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsEventSourceParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) Elem() LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
@@ -1148,6 +1316,12 @@ func (i LifecyclePolicyPolicyDetailsParametersArgs) ToLifecyclePolicyPolicyDetai
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsParametersOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsParametersArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsParameters] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsParameters]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyPolicyDetailsParametersArgs) ToLifecyclePolicyPolicyDetailsParametersPtrOutput() LifecyclePolicyPolicyDetailsParametersPtrOutput {
 	return i.ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(context.Background())
 }
@@ -1189,6 +1363,12 @@ func (i *lifecyclePolicyPolicyDetailsParametersPtrType) ToLifecyclePolicyPolicyD
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsParameters] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsParameters]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsParametersOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsParametersOutput) ElementType() reflect.Type {
@@ -1213,6 +1393,12 @@ func (o LifecyclePolicyPolicyDetailsParametersOutput) ToLifecyclePolicyPolicyDet
 	}).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsParametersOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsParameters] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
 func (o LifecyclePolicyPolicyDetailsParametersOutput) ExcludeBootVolume() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) *bool { return v.ExcludeBootVolume }).(pulumi.BoolPtrOutput)
@@ -1235,6 +1421,12 @@ func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ToLifecyclePolicyPolicy
 
 func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsParametersPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsParameters] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) Elem() LifecyclePolicyPolicyDetailsParametersOutput {
@@ -1336,6 +1528,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleArgs) ToLifecyclePolicyPolicyDetails
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsSchedule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsSchedule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyPolicyDetailsScheduleArrayInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArray and LifecyclePolicyPolicyDetailsScheduleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleArrayInput` via:
 //
@@ -1361,6 +1559,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleArray) ToLifecyclePolicyPolicyDetail
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetailsSchedule] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetailsSchedule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsScheduleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsScheduleOutput) ElementType() reflect.Type {
@@ -1373,6 +1577,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) ToLifecyclePolicyPolicyDetai
 
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) ToLifecyclePolicyPolicyDetailsScheduleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsSchedule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
@@ -1451,6 +1661,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) ToLifecyclePolicyPolicy
 	return o
 }
 
+func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetailsSchedule] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetailsSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyPolicyDetailsScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyPolicyDetailsSchedule {
 		return vs[0].([]LifecyclePolicyPolicyDetailsSchedule)[vs[1].(int)]
@@ -1458,15 +1674,15 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
-	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
 	CronExpression *string `pulumi:"cronExpression"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
 	Location *string `pulumi:"location"`
-	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	Times *string `pulumi:"times"`
 }
 
@@ -1482,15 +1698,15 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs struct {
-	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
 	CronExpression pulumi.StringPtrInput `pulumi:"cronExpression"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	Times pulumi.StringPtrInput `pulumi:"times"`
 }
 
@@ -1504,6 +1720,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs) ToLifecyclePolicyPol
 
 func (i LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCreateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCreateRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCreateRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleCreateRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput struct{ *pulumi.OutputState }
@@ -1520,17 +1742,23 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCreateRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCreateRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) CronExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.CronExpression }).(pulumi.StringPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -1540,7 +1768,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Location() pulumi.
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Times() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Times }).(pulumi.StringPtrOutput)
 }
@@ -1598,6 +1826,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs) ToLifecycle
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput` via:
 //
@@ -1623,6 +1857,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray) ToLifecycl
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ElementType() reflect.Type {
@@ -1635,6 +1875,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ToLifecyc
 
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
@@ -1685,6 +1931,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) ToLi
 	return o
 }
 
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
 		return vs[0].([]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule)[vs[1].(int)]
@@ -1692,9 +1944,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) Inde
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -1710,9 +1962,9 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleInput i
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -1726,6 +1978,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs
 
 func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
@@ -1769,6 +2027,12 @@ func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtr
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) ElementType() reflect.Type {
@@ -1793,12 +2057,18 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutp
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) string {
 		return v.IntervalUnit
@@ -1819,6 +2089,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 	return o
 }
 
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
 		if v != nil {
@@ -1829,7 +2105,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *int {
 		if v == nil {
@@ -1839,7 +2115,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *string {
 		if v == nil {
@@ -1850,9 +2126,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -1868,9 +2144,9 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput inte
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -1884,6 +2160,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) T
 
 func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
@@ -1927,6 +2209,12 @@ func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) ElementType() reflect.Type {
@@ -1951,12 +2239,18 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) string {
 		return v.IntervalUnit
@@ -1977,6 +2271,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	return o
 }
 
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
 		if v != nil {
@@ -1987,7 +2287,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *int {
 		if v == nil {
@@ -1997,7 +2297,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *string {
 		if v == nil {
@@ -2008,11 +2308,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 }
 
 type LifecyclePolicyPolicyDetailsScheduleDeprecateRule struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count *int `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2028,11 +2328,11 @@ type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2046,6 +2346,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToLifecyclePolicy
 
 func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
@@ -2089,6 +2395,12 @@ func (i *lifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrType) ToLifecyclePo
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ElementType() reflect.Type {
@@ -2113,17 +2425,23 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToLifecyclePoli
 	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleDeprecateRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2142,6 +2460,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) ToLifecycleP
 	return o
 }
 
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleDeprecateRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
 		if v != nil {
@@ -2152,7 +2476,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Elem() Lifec
 	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
 		if v == nil {
@@ -2162,7 +2486,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Count() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
 		if v == nil {
@@ -2172,7 +2496,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Interval() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string {
 		if v == nil {
@@ -2185,11 +2509,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRule struct {
 	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count *int `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2207,11 +2531,11 @@ type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput interface {
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs struct {
 	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2225,6 +2549,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToLifecyclePoli
 
 func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleFastRestoreRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleFastRestoreRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
@@ -2268,6 +2598,12 @@ func (i *lifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrType) ToLifecycle
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleFastRestoreRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleFastRestoreRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ElementType() reflect.Type {
@@ -2292,22 +2628,28 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ToLifecyclePo
 	}).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleFastRestoreRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleFastRestoreRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Availability Zones in which to enable fast snapshot restore.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2324,6 +2666,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) ToLifecycl
 
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleFastRestoreRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleFastRestoreRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput {
@@ -2346,7 +2694,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Availabili
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
 		if v == nil {
@@ -2356,7 +2704,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
 		if v == nil {
@@ -2366,7 +2714,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Interval()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string {
 		if v == nil {
@@ -2377,11 +2725,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) IntervalUn
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRule struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count *int `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2397,11 +2745,11 @@ type LifecyclePolicyPolicyDetailsScheduleRetainRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2415,6 +2763,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs) ToLifecyclePolicyPol
 
 func (i LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleRetainRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleRetainRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleRetainRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput struct{ *pulumi.OutputState }
@@ -2431,17 +2785,23 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleRetainRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleRetainRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2481,6 +2841,12 @@ func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToLifecyclePolicyPoli
 
 func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleShareRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleShareRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleShareRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
@@ -2524,6 +2890,12 @@ func (i *lifecyclePolicyPolicyDetailsScheduleShareRulePtrType) ToLifecyclePolicy
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsScheduleShareRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleShareRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleShareRule]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsScheduleShareRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ElementType() reflect.Type {
@@ -2546,6 +2918,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ToLifecyclePolicyPo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsScheduleShareRule) *LifecyclePolicyPolicyDetailsScheduleShareRule {
 		return &v
 	}).(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetailsScheduleShareRule] {
+	return pulumix.Output[LifecyclePolicyPolicyDetailsScheduleShareRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IDs of the AWS accounts with which to share the snapshots.
@@ -2573,6 +2951,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) ToLifecyclePolic
 
 func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleShareRule] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetailsScheduleShareRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleShareRuleOutput {

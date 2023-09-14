@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Workflow resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +74,7 @@ import (
 //
 // ## Import
 //
-// Glue Workflows can be imported using `name`, e.g.,
+// Using `pulumi import`, import Glue Workflows using `name`. For example:
 //
 // ```sh
 //
@@ -85,7 +87,7 @@ type Workflow struct {
 	// Amazon Resource Name (ARN) of Glue Workflow
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties pulumi.MapOutput `pulumi:"defaultRunProperties"`
+	DefaultRunProperties pulumi.StringMapOutput `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -105,6 +107,7 @@ func NewWorkflow(ctx *pulumi.Context,
 		args = &WorkflowArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws:glue/workflow:Workflow", name, args, &resource, opts...)
 	if err != nil {
@@ -130,7 +133,7 @@ type workflowState struct {
 	// Amazon Resource Name (ARN) of Glue Workflow
 	Arn *string `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties map[string]interface{} `pulumi:"defaultRunProperties"`
+	DefaultRunProperties map[string]string `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -147,7 +150,7 @@ type WorkflowState struct {
 	// Amazon Resource Name (ARN) of Glue Workflow
 	Arn pulumi.StringPtrInput
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties pulumi.MapInput
+	DefaultRunProperties pulumi.StringMapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -166,7 +169,7 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties map[string]interface{} `pulumi:"defaultRunProperties"`
+	DefaultRunProperties map[string]string `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -180,7 +183,7 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties pulumi.MapInput
+	DefaultRunProperties pulumi.StringMapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -214,6 +217,12 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
+func (i *Workflow) ToOutput(ctx context.Context) pulumix.Output[*Workflow] {
+	return pulumix.Output[*Workflow]{
+		OutputState: i.ToWorkflowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowArrayInput is an input type that accepts WorkflowArray and WorkflowArrayOutput values.
 // You can construct a concrete instance of `WorkflowArrayInput` via:
 //
@@ -237,6 +246,12 @@ func (i WorkflowArray) ToWorkflowArrayOutput() WorkflowArrayOutput {
 
 func (i WorkflowArray) ToWorkflowArrayOutputWithContext(ctx context.Context) WorkflowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowArrayOutput)
+}
+
+func (i WorkflowArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workflow] {
+	return pulumix.Output[[]*Workflow]{
+		OutputState: i.ToWorkflowArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkflowMapInput is an input type that accepts WorkflowMap and WorkflowMapOutput values.
@@ -264,6 +279,12 @@ func (i WorkflowMap) ToWorkflowMapOutputWithContext(ctx context.Context) Workflo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowMapOutput)
 }
 
+func (i WorkflowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workflow] {
+	return pulumix.Output[map[string]*Workflow]{
+		OutputState: i.ToWorkflowMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOutput) ElementType() reflect.Type {
@@ -278,14 +299,20 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+func (o WorkflowOutput) ToOutput(ctx context.Context) pulumix.Output[*Workflow] {
+	return pulumix.Output[*Workflow]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) of Glue Workflow
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-func (o WorkflowOutput) DefaultRunProperties() pulumi.MapOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.MapOutput { return v.DefaultRunProperties }).(pulumi.MapOutput)
+func (o WorkflowOutput) DefaultRunProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.DefaultRunProperties }).(pulumi.StringMapOutput)
 }
 
 // Description of the workflow.
@@ -327,6 +354,12 @@ func (o WorkflowArrayOutput) ToWorkflowArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o WorkflowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workflow] {
+	return pulumix.Output[[]*Workflow]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowArrayOutput) Index(i pulumi.IntInput) WorkflowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workflow {
 		return vs[0].([]*Workflow)[vs[1].(int)]
@@ -345,6 +378,12 @@ func (o WorkflowMapOutput) ToWorkflowMapOutput() WorkflowMapOutput {
 
 func (o WorkflowMapOutput) ToWorkflowMapOutputWithContext(ctx context.Context) WorkflowMapOutput {
 	return o
+}
+
+func (o WorkflowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workflow] {
+	return pulumix.Output[map[string]*Workflow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowMapOutput) MapIndex(k pulumi.StringInput) WorkflowOutput {

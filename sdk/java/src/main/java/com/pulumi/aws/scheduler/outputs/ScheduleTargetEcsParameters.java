@@ -87,6 +87,8 @@ public final class ScheduleTargetEcsParameters {
     /**
      * @return ARN of the task definition to use.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String taskDefinitionArn;
 
@@ -184,6 +186,8 @@ public final class ScheduleTargetEcsParameters {
     }
     /**
      * @return ARN of the task definition to use.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String taskDefinitionArn() {

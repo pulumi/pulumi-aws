@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AppAutoBranchCreationConfig struct {
 	// Basic authorization credentials for the autocreated branch.
@@ -79,6 +83,12 @@ func (i AppAutoBranchCreationConfigArgs) ToAppAutoBranchCreationConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AppAutoBranchCreationConfigOutput)
 }
 
+func (i AppAutoBranchCreationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AppAutoBranchCreationConfig] {
+	return pulumix.Output[AppAutoBranchCreationConfig]{
+		OutputState: i.ToAppAutoBranchCreationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AppAutoBranchCreationConfigArgs) ToAppAutoBranchCreationConfigPtrOutput() AppAutoBranchCreationConfigPtrOutput {
 	return i.ToAppAutoBranchCreationConfigPtrOutputWithContext(context.Background())
 }
@@ -120,6 +130,12 @@ func (i *appAutoBranchCreationConfigPtrType) ToAppAutoBranchCreationConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AppAutoBranchCreationConfigPtrOutput)
 }
 
+func (i *appAutoBranchCreationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppAutoBranchCreationConfig] {
+	return pulumix.Output[*AppAutoBranchCreationConfig]{
+		OutputState: i.ToAppAutoBranchCreationConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppAutoBranchCreationConfigOutput struct{ *pulumi.OutputState }
 
 func (AppAutoBranchCreationConfigOutput) ElementType() reflect.Type {
@@ -142,6 +158,12 @@ func (o AppAutoBranchCreationConfigOutput) ToAppAutoBranchCreationConfigPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAutoBranchCreationConfig) *AppAutoBranchCreationConfig {
 		return &v
 	}).(AppAutoBranchCreationConfigPtrOutput)
+}
+
+func (o AppAutoBranchCreationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AppAutoBranchCreationConfig] {
+	return pulumix.Output[AppAutoBranchCreationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Basic authorization credentials for the autocreated branch.
@@ -206,6 +228,12 @@ func (o AppAutoBranchCreationConfigPtrOutput) ToAppAutoBranchCreationConfigPtrOu
 
 func (o AppAutoBranchCreationConfigPtrOutput) ToAppAutoBranchCreationConfigPtrOutputWithContext(ctx context.Context) AppAutoBranchCreationConfigPtrOutput {
 	return o
+}
+
+func (o AppAutoBranchCreationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppAutoBranchCreationConfig] {
+	return pulumix.Output[*AppAutoBranchCreationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppAutoBranchCreationConfigPtrOutput) Elem() AppAutoBranchCreationConfigOutput {
@@ -363,6 +391,12 @@ func (i AppCustomRuleArgs) ToAppCustomRuleOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AppCustomRuleOutput)
 }
 
+func (i AppCustomRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppCustomRule] {
+	return pulumix.Output[AppCustomRule]{
+		OutputState: i.ToAppCustomRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppCustomRuleArrayInput is an input type that accepts AppCustomRuleArray and AppCustomRuleArrayOutput values.
 // You can construct a concrete instance of `AppCustomRuleArrayInput` via:
 //
@@ -388,6 +422,12 @@ func (i AppCustomRuleArray) ToAppCustomRuleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AppCustomRuleArrayOutput)
 }
 
+func (i AppCustomRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppCustomRule] {
+	return pulumix.Output[[]AppCustomRule]{
+		OutputState: i.ToAppCustomRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (AppCustomRuleOutput) ElementType() reflect.Type {
@@ -400,6 +440,12 @@ func (o AppCustomRuleOutput) ToAppCustomRuleOutput() AppCustomRuleOutput {
 
 func (o AppCustomRuleOutput) ToAppCustomRuleOutputWithContext(ctx context.Context) AppCustomRuleOutput {
 	return o
+}
+
+func (o AppCustomRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppCustomRule] {
+	return pulumix.Output[AppCustomRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Condition for a URL rewrite or redirect rule, such as a country code.
@@ -434,6 +480,12 @@ func (o AppCustomRuleArrayOutput) ToAppCustomRuleArrayOutput() AppCustomRuleArra
 
 func (o AppCustomRuleArrayOutput) ToAppCustomRuleArrayOutputWithContext(ctx context.Context) AppCustomRuleArrayOutput {
 	return o
+}
+
+func (o AppCustomRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppCustomRule] {
+	return pulumix.Output[[]AppCustomRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppCustomRuleArrayOutput) Index(i pulumi.IntInput) AppCustomRuleOutput {
@@ -487,6 +539,12 @@ func (i AppProductionBranchArgs) ToAppProductionBranchOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AppProductionBranchOutput)
 }
 
+func (i AppProductionBranchArgs) ToOutput(ctx context.Context) pulumix.Output[AppProductionBranch] {
+	return pulumix.Output[AppProductionBranch]{
+		OutputState: i.ToAppProductionBranchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppProductionBranchArrayInput is an input type that accepts AppProductionBranchArray and AppProductionBranchArrayOutput values.
 // You can construct a concrete instance of `AppProductionBranchArrayInput` via:
 //
@@ -512,6 +570,12 @@ func (i AppProductionBranchArray) ToAppProductionBranchArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppProductionBranchArrayOutput)
 }
 
+func (i AppProductionBranchArray) ToOutput(ctx context.Context) pulumix.Output[[]AppProductionBranch] {
+	return pulumix.Output[[]AppProductionBranch]{
+		OutputState: i.ToAppProductionBranchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppProductionBranchOutput struct{ *pulumi.OutputState }
 
 func (AppProductionBranchOutput) ElementType() reflect.Type {
@@ -524,6 +588,12 @@ func (o AppProductionBranchOutput) ToAppProductionBranchOutput() AppProductionBr
 
 func (o AppProductionBranchOutput) ToAppProductionBranchOutputWithContext(ctx context.Context) AppProductionBranchOutput {
 	return o
+}
+
+func (o AppProductionBranchOutput) ToOutput(ctx context.Context) pulumix.Output[AppProductionBranch] {
+	return pulumix.Output[AppProductionBranch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Branch name for the production branch.
@@ -558,6 +628,12 @@ func (o AppProductionBranchArrayOutput) ToAppProductionBranchArrayOutput() AppPr
 
 func (o AppProductionBranchArrayOutput) ToAppProductionBranchArrayOutputWithContext(ctx context.Context) AppProductionBranchArrayOutput {
 	return o
+}
+
+func (o AppProductionBranchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppProductionBranch] {
+	return pulumix.Output[[]AppProductionBranch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppProductionBranchArrayOutput) Index(i pulumi.IntInput) AppProductionBranchOutput {
@@ -611,6 +687,12 @@ func (i DomainAssociationSubDomainArgs) ToDomainAssociationSubDomainOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationSubDomainOutput)
 }
 
+func (i DomainAssociationSubDomainArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAssociationSubDomain] {
+	return pulumix.Output[DomainAssociationSubDomain]{
+		OutputState: i.ToDomainAssociationSubDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainAssociationSubDomainArrayInput is an input type that accepts DomainAssociationSubDomainArray and DomainAssociationSubDomainArrayOutput values.
 // You can construct a concrete instance of `DomainAssociationSubDomainArrayInput` via:
 //
@@ -636,6 +718,12 @@ func (i DomainAssociationSubDomainArray) ToDomainAssociationSubDomainArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationSubDomainArrayOutput)
 }
 
+func (i DomainAssociationSubDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainAssociationSubDomain] {
+	return pulumix.Output[[]DomainAssociationSubDomain]{
+		OutputState: i.ToDomainAssociationSubDomainArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainAssociationSubDomainOutput struct{ *pulumi.OutputState }
 
 func (DomainAssociationSubDomainOutput) ElementType() reflect.Type {
@@ -648,6 +736,12 @@ func (o DomainAssociationSubDomainOutput) ToDomainAssociationSubDomainOutput() D
 
 func (o DomainAssociationSubDomainOutput) ToDomainAssociationSubDomainOutputWithContext(ctx context.Context) DomainAssociationSubDomainOutput {
 	return o
+}
+
+func (o DomainAssociationSubDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAssociationSubDomain] {
+	return pulumix.Output[DomainAssociationSubDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Branch name setting for the subdomain.
@@ -682,6 +776,12 @@ func (o DomainAssociationSubDomainArrayOutput) ToDomainAssociationSubDomainArray
 
 func (o DomainAssociationSubDomainArrayOutput) ToDomainAssociationSubDomainArrayOutputWithContext(ctx context.Context) DomainAssociationSubDomainArrayOutput {
 	return o
+}
+
+func (o DomainAssociationSubDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainAssociationSubDomain] {
+	return pulumix.Output[[]DomainAssociationSubDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainAssociationSubDomainArrayOutput) Index(i pulumi.IntInput) DomainAssociationSubDomainOutput {

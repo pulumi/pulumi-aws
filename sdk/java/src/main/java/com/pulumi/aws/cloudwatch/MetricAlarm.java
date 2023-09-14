@@ -275,7 +275,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.,
+ * Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
@@ -553,12 +553,16 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

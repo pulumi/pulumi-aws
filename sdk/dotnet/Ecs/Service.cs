@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
+    /// Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -257,6 +257,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -489,6 +491,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -701,6 +705,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

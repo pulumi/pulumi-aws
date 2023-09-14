@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway Connect.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupConnect(ctx *pulumi.Context, args *LookupConnectArgs, opts ...pulumi.InvokeOption) (*LookupConnectResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectResult
 	err := ctx.Invoke("aws:ec2transitgateway/getConnect:getConnect", args, &rv, opts...)
 	if err != nil {
@@ -145,6 +148,12 @@ func (o LookupConnectResultOutput) ToLookupConnectResultOutput() LookupConnectRe
 
 func (o LookupConnectResultOutput) ToLookupConnectResultOutputWithContext(ctx context.Context) LookupConnectResultOutput {
 	return o
+}
+
+func (o LookupConnectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectResult] {
+	return pulumix.Output[LookupConnectResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupConnectResultOutput) Filters() GetConnectFilterArrayOutput {

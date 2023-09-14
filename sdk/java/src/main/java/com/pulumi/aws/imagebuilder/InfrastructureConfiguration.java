@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+ * Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  *  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -210,12 +210,16 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
     /**
      * Name for the configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name for the configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

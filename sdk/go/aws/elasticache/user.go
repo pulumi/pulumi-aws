@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ElastiCache user resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +83,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +114,7 @@ import (
 //
 // ## Import
 //
-// ElastiCache users can be imported using the `user_id`, e.g.,
+// Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
 //
 // ```sh
 //
@@ -140,6 +142,8 @@ type User struct {
 	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -169,6 +173,7 @@ func NewUser(ctx *pulumi.Context,
 		"passwords",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws:elasticache/user:User", name, args, &resource, opts...)
 	if err != nil {
@@ -209,6 +214,8 @@ type userState struct {
 	// The ID of the user.
 	UserId *string `pulumi:"userId"`
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 }
 
@@ -231,6 +238,8 @@ type UserState struct {
 	// The ID of the user.
 	UserId pulumi.StringPtrInput
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 }
 
@@ -254,6 +263,8 @@ type userArgs struct {
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -274,6 +285,8 @@ type UserArgs struct {
 	// The ID of the user.
 	UserId pulumi.StringInput
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 }
 
@@ -298,6 +311,12 @@ func (i *User) ToUserOutput() UserOutput {
 
 func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
+}
+
+func (i *User) ToOutput(ctx context.Context) pulumix.Output[*User] {
+	return pulumix.Output[*User]{
+		OutputState: i.ToUserOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
@@ -325,6 +344,12 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(UserArrayOutput)
 }
 
+func (i UserArray) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
+	return pulumix.Output[[]*User]{
+		OutputState: i.ToUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
@@ -350,6 +375,12 @@ func (i UserMap) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserMapOutput)
 }
 
+func (i UserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
+	return pulumix.Output[map[string]*User]{
+		OutputState: i.ToUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
@@ -362,6 +393,12 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+func (o UserOutput) ToOutput(ctx context.Context) pulumix.Output[*User] {
+	return pulumix.Output[*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
@@ -409,6 +446,8 @@ func (o UserOutput) UserId() pulumi.StringOutput {
 }
 
 // The username of the user.
+//
+// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
@@ -425,6 +464,12 @@ func (o UserArrayOutput) ToUserArrayOutput() UserArrayOutput {
 
 func (o UserArrayOutput) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOutput {
 	return o
+}
+
+func (o UserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
+	return pulumix.Output[[]*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserArrayOutput) Index(i pulumi.IntInput) UserOutput {
@@ -445,6 +490,12 @@ func (o UserMapOutput) ToUserMapOutput() UserMapOutput {
 
 func (o UserMapOutput) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return o
+}
+
+func (o UserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
+	return pulumix.Output[map[string]*User]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserMapOutput) MapIndex(k pulumi.StringInput) UserOutput {

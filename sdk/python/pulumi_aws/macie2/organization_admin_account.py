@@ -81,7 +81,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
+        Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
 
         ```sh
          $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
@@ -113,7 +113,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
+        Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
 
         ```sh
          $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1

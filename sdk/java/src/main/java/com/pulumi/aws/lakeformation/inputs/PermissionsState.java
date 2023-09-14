@@ -146,12 +146,20 @@ public final class PermissionsState extends com.pulumi.resources.ResourceArgs {
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
+     * &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+     * 
+     * One of the following is required:
+     * 
      */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
     /**
      * @return Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * 
+     * &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+     * 
+     * One of the following is required:
      * 
      */
     public Optional<Output<String>> principal() {
@@ -176,12 +184,16 @@ public final class PermissionsState extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block for a table with columns resource. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tableWithColumns")
     private @Nullable Output<PermissionsTableWithColumnsArgs> tableWithColumns;
 
     /**
      * @return Configuration block for a table with columns resource. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<PermissionsTableWithColumnsArgs>> tableWithColumns() {
@@ -413,6 +425,10 @@ public final class PermissionsState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param principal Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
          * 
+         * &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+         * 
+         * One of the following is required:
+         * 
          * @return builder
          * 
          */
@@ -423,6 +439,10 @@ public final class PermissionsState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param principal Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+         * 
+         * &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+         * 
+         * One of the following is required:
          * 
          * @return builder
          * 
@@ -455,6 +475,8 @@ public final class PermissionsState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableWithColumns Configuration block for a table with columns resource. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -465,6 +487,8 @@ public final class PermissionsState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tableWithColumns Configuration block for a table with columns resource. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

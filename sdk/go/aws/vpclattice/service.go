@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS VPC Lattice Service.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Service can be imported using the `id`, e.g.,
+// Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
 //
 // ```sh
 //
@@ -63,6 +65,8 @@ type Service struct {
 	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
 	DnsEntries ServiceDnsEntryArrayOutput `pulumi:"dnsEntries"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the service.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -79,6 +83,7 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:vpclattice/service:Service", name, args, &resource, opts...)
 	if err != nil {
@@ -112,6 +117,8 @@ type serviceState struct {
 	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
 	DnsEntries []ServiceDnsEntry `pulumi:"dnsEntries"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Status of the service.
 	Status *string `pulumi:"status"`
@@ -133,6 +140,8 @@ type ServiceState struct {
 	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
 	DnsEntries ServiceDnsEntryArrayInput
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Status of the service.
 	Status pulumi.StringPtrInput
@@ -154,6 +163,8 @@ type serviceArgs struct {
 	// Custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,6 +179,8 @@ type ServiceArgs struct {
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -196,6 +209,12 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
+func (i *Service) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: i.ToServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
@@ -219,6 +238,12 @@ func (i ServiceArray) ToServiceArrayOutput() ServiceArrayOutput {
 
 func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) ServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceArrayOutput)
+}
+
+func (i ServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: i.ToServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
@@ -246,6 +271,12 @@ func (i ServiceMap) ToServiceMapOutputWithContext(ctx context.Context) ServiceMa
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMapOutput)
 }
 
+func (i ServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: i.ToServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
@@ -258,6 +289,12 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+func (o ServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
@@ -286,6 +323,8 @@ func (o ServiceOutput) DnsEntries() ServiceDnsEntryArrayOutput {
 }
 
 // Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+//
+// The following arguments are optional:
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -319,6 +358,12 @@ func (o ServiceArrayOutput) ToServiceArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceArrayOutput) Index(i pulumi.IntInput) ServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Service {
 		return vs[0].([]*Service)[vs[1].(int)]
@@ -337,6 +382,12 @@ func (o ServiceMapOutput) ToServiceMapOutput() ServiceMapOutput {
 
 func (o ServiceMapOutput) ToServiceMapOutputWithContext(ctx context.Context) ServiceMapOutput {
 	return o
+}
+
+func (o ServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceMapOutput) MapIndex(k pulumi.StringInput) ServiceOutput {

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// MediaLive Multiplex can be imported using the `id`, e.g.,
+    /// Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
@@ -83,6 +83,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// name of Multiplex.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -168,6 +170,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// name of Multiplex.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -224,6 +228,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// name of Multiplex.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

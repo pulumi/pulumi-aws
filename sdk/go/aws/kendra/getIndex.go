@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra Index.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.InvokeOption) (*LookupIndexResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIndexResult
 	err := ctx.Invoke("aws:kendra/getIndex:getIndex", args, &rv, opts...)
 	if err != nil {
@@ -132,6 +135,12 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutput() LookupIndexResultOu
 
 func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx context.Context) LookupIndexResultOutput {
 	return o
+}
+
+func (o LookupIndexResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIndexResult] {
+	return pulumix.Output[LookupIndexResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Index.

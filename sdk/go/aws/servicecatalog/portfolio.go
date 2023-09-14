@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a Service Catalog Portfolio.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
+// Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
 //
 // ```sh
 //
@@ -76,6 +78,7 @@ func NewPortfolio(ctx *pulumi.Context,
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Portfolio
 	err := ctx.RegisterResource("aws:servicecatalog/portfolio:Portfolio", name, args, &resource, opts...)
 	if err != nil {
@@ -177,6 +180,12 @@ func (i *Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioO
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioOutput)
 }
 
+func (i *Portfolio) ToOutput(ctx context.Context) pulumix.Output[*Portfolio] {
+	return pulumix.Output[*Portfolio]{
+		OutputState: i.ToPortfolioOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PortfolioArrayInput is an input type that accepts PortfolioArray and PortfolioArrayOutput values.
 // You can construct a concrete instance of `PortfolioArrayInput` via:
 //
@@ -200,6 +209,12 @@ func (i PortfolioArray) ToPortfolioArrayOutput() PortfolioArrayOutput {
 
 func (i PortfolioArray) ToPortfolioArrayOutputWithContext(ctx context.Context) PortfolioArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioArrayOutput)
+}
+
+func (i PortfolioArray) ToOutput(ctx context.Context) pulumix.Output[[]*Portfolio] {
+	return pulumix.Output[[]*Portfolio]{
+		OutputState: i.ToPortfolioArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PortfolioMapInput is an input type that accepts PortfolioMap and PortfolioMapOutput values.
@@ -227,6 +242,12 @@ func (i PortfolioMap) ToPortfolioMapOutputWithContext(ctx context.Context) Portf
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioMapOutput)
 }
 
+func (i PortfolioMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Portfolio] {
+	return pulumix.Output[map[string]*Portfolio]{
+		OutputState: i.ToPortfolioMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PortfolioOutput struct{ *pulumi.OutputState }
 
 func (PortfolioOutput) ElementType() reflect.Type {
@@ -239,6 +260,12 @@ func (o PortfolioOutput) ToPortfolioOutput() PortfolioOutput {
 
 func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput {
 	return o
+}
+
+func (o PortfolioOutput) ToOutput(ctx context.Context) pulumix.Output[*Portfolio] {
+	return pulumix.Output[*Portfolio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortfolioOutput) Arn() pulumi.StringOutput {
@@ -288,6 +315,12 @@ func (o PortfolioArrayOutput) ToPortfolioArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o PortfolioArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Portfolio] {
+	return pulumix.Output[[]*Portfolio]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PortfolioArrayOutput) Index(i pulumi.IntInput) PortfolioOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Portfolio {
 		return vs[0].([]*Portfolio)[vs[1].(int)]
@@ -306,6 +339,12 @@ func (o PortfolioMapOutput) ToPortfolioMapOutput() PortfolioMapOutput {
 
 func (o PortfolioMapOutput) ToPortfolioMapOutputWithContext(ctx context.Context) PortfolioMapOutput {
 	return o
+}
+
+func (o PortfolioMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Portfolio] {
+	return pulumix.Output[map[string]*Portfolio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortfolioMapOutput) MapIndex(k pulumi.StringInput) PortfolioOutput {

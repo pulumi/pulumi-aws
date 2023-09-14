@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
  * Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
  * 
  * ## Example Usage
+ * ### Basic Usage
  * ```java
  * package generated_program;
  * 
@@ -86,7 +87,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Usage with SNS
+ * ### With SNS
  * ```java
  * package generated_program;
  * 
@@ -157,8 +158,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Specify Lambda permissions for API Gateway REST API
+ * ### With API Gateway REST API
  * ```java
  * package generated_program;
  * 
@@ -196,8 +196,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Usage with CloudWatch log group
+ * ### With CloudWatch Log Group
  * ```java
  * package generated_program;
  * 
@@ -272,8 +271,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example function URL cross-account invoke policy
+ * ### With Cross-Account Invocation Policy
  * ```java
  * package generated_program;
  * 
@@ -313,17 +311,50 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With `replace_triggered_by` Lifecycle Configuration
+ * 
+ * If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var logging = new Permission(&#34;logging&#34;, PermissionArgs.builder()        
+ *             .action(&#34;lambda:InvokeFunction&#34;)
+ *             .function(aws_lambda_function.example().function_name())
+ *             .principal(&#34;events.amazonaws.com&#34;)
+ *             .sourceArn(&#34;arn:aws:events:eu-west-1:111122223333:rule/RunDaily&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
- * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
+ * Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
  * ```
- * 
  * ```sh
- *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+ * $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
  * ```
  * 
  */
@@ -402,12 +433,20 @@ public class Permission extends com.pulumi.resources.CustomResource {
     /**
      * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
      * 
+     * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+     * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+     * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+     * 
      */
     @Export(name="principalOrgId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> principalOrgId;
 
     /**
      * @return The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+     * 
+     * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+     * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+     * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
      * 
      */
     public Output<Optional<String>> principalOrgId() {

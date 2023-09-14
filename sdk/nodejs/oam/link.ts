@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudWatch Observability Access Manager Link can be imported using the `arn`, e.g.,
+ * Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
  *
  * ```sh
  *  $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
@@ -86,6 +86,8 @@ export class Link extends pulumi.CustomResource {
     public /*out*/ readonly sinkArn!: pulumi.Output<string>;
     /**
      * Identifier of the sink to use to create this link.
+     *
+     * The following arguments are optional:
      */
     public readonly sinkIdentifier!: pulumi.Output<string>;
     /**
@@ -172,6 +174,8 @@ export interface LinkState {
     sinkArn?: pulumi.Input<string>;
     /**
      * Identifier of the sink to use to create this link.
+     *
+     * The following arguments are optional:
      */
     sinkIdentifier?: pulumi.Input<string>;
     /**
@@ -195,6 +199,8 @@ export interface LinkArgs {
     resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Identifier of the sink to use to create this link.
+     *
+     * The following arguments are optional:
      */
     sinkIdentifier: pulumi.Input<string>;
     /**

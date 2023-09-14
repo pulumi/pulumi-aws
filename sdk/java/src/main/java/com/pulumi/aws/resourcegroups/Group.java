@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Resource groups can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import resource groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name

@@ -273,7 +273,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Import
 
-        Placement groups can be imported using the `name`, e.g.,
+        Using `pulumi import`, import placement groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
@@ -311,7 +311,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Import
 
-        Placement groups can be imported using the `name`, e.g.,
+        Using `pulumi import`, import placement groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group

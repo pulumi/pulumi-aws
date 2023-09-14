@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Certificates can be imported using the `certificate_id`, e.g.,
+// Using `pulumi import`, import certificates using the `certificate_id`. For example:
 //
 // ```sh
 //
@@ -58,6 +60,8 @@ type Certificate struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The certificate identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem pulumi.StringPtrOutput `pulumi:"certificatePem"`
@@ -90,6 +94,7 @@ func NewCertificate(ctx *pulumi.Context,
 		"certificateWallet",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:dms/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {
@@ -115,6 +120,8 @@ type certificateState struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The certificate identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId *string `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem *string `pulumi:"certificatePem"`
@@ -130,6 +137,8 @@ type CertificateState struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn pulumi.StringPtrInput
 	// The certificate identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId pulumi.StringPtrInput
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem pulumi.StringPtrInput
@@ -147,6 +156,8 @@ func (CertificateState) ElementType() reflect.Type {
 
 type certificateArgs struct {
 	// The certificate identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId string `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem *string `pulumi:"certificatePem"`
@@ -159,6 +170,8 @@ type certificateArgs struct {
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The certificate identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId pulumi.StringInput
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem pulumi.StringPtrInput
@@ -191,6 +204,12 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
+func (i *Certificate) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: i.ToCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
@@ -214,6 +233,12 @@ func (i CertificateArray) ToCertificateArrayOutput() CertificateArrayOutput {
 
 func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateArrayOutput)
+}
+
+func (i CertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: i.ToCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
@@ -241,6 +266,12 @@ func (i CertificateMap) ToCertificateMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateMapOutput)
 }
 
+func (i CertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: i.ToCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
@@ -255,12 +286,20 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) for the certificate.
 func (o CertificateOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
 // The certificate identifier.
+//
+// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 func (o CertificateOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
 }
@@ -299,6 +338,12 @@ func (o CertificateArrayOutput) ToCertificateArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Certificate {
 		return vs[0].([]*Certificate)[vs[1].(int)]
@@ -317,6 +362,12 @@ func (o CertificateMapOutput) ToCertificateMapOutput() CertificateMapOutput {
 
 func (o CertificateMapOutput) ToCertificateMapOutputWithContext(ctx context.Context) CertificateMapOutput {
 	return o
+}
+
+func (o CertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateMapOutput) MapIndex(k pulumi.StringInput) CertificateOutput {

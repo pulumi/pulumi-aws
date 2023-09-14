@@ -19,14 +19,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final DataSourceArgs Empty = new DataSourceArgs();
 
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<DataSourceConfigurationArgs> configuration;
 
     /**
-     * @return A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * @return A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
     public Optional<Output<DataSourceConfigurationArgs>> configuration() {
@@ -64,14 +64,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of the index for your Amazon Kendra data_source.
+     * The identifier of the index for your Amazon Kendra data source.
      * 
      */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index for your Amazon Kendra data_source.
+     * @return The identifier of the index for your Amazon Kendra data source.
      * 
      */
     public Output<String> indexId() {
@@ -94,14 +94,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for your Data Source connector.
+     * A name for your data source connector.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for your Data Source connector.
+     * @return A name for your data source connector.
      * 
      */
     public Optional<Output<String>> name() {
@@ -156,12 +156,16 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -202,7 +206,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+         * @param configuration A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
          * 
          * @return builder
          * 
@@ -213,7 +217,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+         * @param configuration A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
          * 
          * @return builder
          * 
@@ -265,7 +269,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexId The identifier of the index for your Amazon Kendra data_source.
+         * @param indexId The identifier of the index for your Amazon Kendra data source.
          * 
          * @return builder
          * 
@@ -276,7 +280,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexId The identifier of the index for your Amazon Kendra data_source.
+         * @param indexId The identifier of the index for your Amazon Kendra data source.
          * 
          * @return builder
          * 
@@ -307,7 +311,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for your Data Source connector.
+         * @param name A name for your data source connector.
          * 
          * @return builder
          * 
@@ -318,7 +322,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for your Data Source connector.
+         * @param name A name for your data source connector.
          * 
          * @return builder
          * 
@@ -393,6 +397,8 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -403,6 +409,8 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

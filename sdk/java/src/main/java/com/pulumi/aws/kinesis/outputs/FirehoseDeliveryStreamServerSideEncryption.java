@@ -20,6 +20,8 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
     /**
      * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
      * 
+     * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
+     * 
      */
     private @Nullable String keyArn;
     /**
@@ -38,6 +40,8 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
     }
     /**
      * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+     * 
+     * The `extended_s3_configuration` object supports the same fields from s3_configuration as well as the following:
      * 
      */
     public Optional<String> keyArn() {

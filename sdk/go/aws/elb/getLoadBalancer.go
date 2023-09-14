@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a "classic" Elastic Load Balancer (ELB).
@@ -25,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -50,6 +52,7 @@ import (
 //
 // ```
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("aws:elb/getLoadBalancer:getLoadBalancer", args, &rv, opts...)
 	if err != nil {
@@ -128,6 +131,12 @@ func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutput() Looku
 
 func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithContext(ctx context.Context) LookupLoadBalancerResultOutput {
 	return o
+}
+
+func (o LookupLoadBalancerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoadBalancerResult] {
+	return pulumix.Output[LookupLoadBalancerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLoadBalancerResultOutput) AccessLogs() GetLoadBalancerAccessLogsOutput {

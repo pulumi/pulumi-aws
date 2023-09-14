@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ElastiCache Cluster resource, which manages either a
@@ -38,7 +40,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,7 +69,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,7 +101,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,7 +126,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -163,7 +165,7 @@ import (
 //
 // ## Import
 //
-// ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+// Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 //
 // ```sh
 //
@@ -198,10 +200,11 @@ type Cluster struct {
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -226,6 +229,8 @@ type Cluster struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode pulumi.StringPtrOutput `pulumi:"outpostMode"`
 	// The name of the parameter group to associate with this cache cluster.
+	//
+	// The following arguments are optional:
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -237,10 +242,6 @@ type Cluster struct {
 	ReplicationGroupId pulumi.StringOutput `pulumi:"replicationGroupId"`
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrOutput `pulumi:"snapshotArns"`
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
@@ -255,6 +256,8 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -264,6 +267,7 @@ func NewCluster(ctx *pulumi.Context,
 		args = &ClusterArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:elasticache/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {
@@ -311,10 +315,11 @@ type clusterState struct {
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -339,6 +344,8 @@ type clusterState struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode *string `pulumi:"outpostMode"`
 	// The name of the parameter group to associate with this cache cluster.
+	//
+	// The following arguments are optional:
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port *int `pulumi:"port"`
@@ -350,10 +357,6 @@ type clusterState struct {
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
@@ -368,6 +371,8 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
 type ClusterState struct {
@@ -396,10 +401,11 @@ type ClusterState struct {
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringPtrInput
@@ -424,6 +430,8 @@ type ClusterState struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode pulumi.StringPtrInput
 	// The name of the parameter group to associate with this cache cluster.
+	//
+	// The following arguments are optional:
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntPtrInput
@@ -435,10 +443,6 @@ type ClusterState struct {
 	ReplicationGroupId pulumi.StringPtrInput
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds pulumi.StringArrayInput
-	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayInput
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
@@ -453,6 +457,8 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -477,10 +483,11 @@ type clusterArgs struct {
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
@@ -503,6 +510,8 @@ type clusterArgs struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode *string `pulumi:"outpostMode"`
 	// The name of the parameter group to associate with this cache cluster.
+	//
+	// The following arguments are optional:
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port *int `pulumi:"port"`
@@ -514,10 +523,6 @@ type clusterArgs struct {
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
@@ -530,6 +535,8 @@ type clusterArgs struct {
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -551,10 +558,11 @@ type ClusterArgs struct {
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
@@ -577,6 +585,8 @@ type ClusterArgs struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode pulumi.StringPtrInput
 	// The name of the parameter group to associate with this cache cluster.
+	//
+	// The following arguments are optional:
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntPtrInput
@@ -588,10 +598,6 @@ type ClusterArgs struct {
 	ReplicationGroupId pulumi.StringPtrInput
 	// One or more VPC security groups associated with the cache cluster
 	SecurityGroupIds pulumi.StringArrayInput
-	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayInput
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
@@ -604,6 +610,8 @@ type ClusterArgs struct {
 	SubnetGroupName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -627,6 +635,12 @@ func (i *Cluster) ToClusterOutput() ClusterOutput {
 
 func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
+}
+
+func (i *Cluster) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: i.ToClusterOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
@@ -654,6 +668,12 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterArrayOutput)
 }
 
+func (i ClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: i.ToClusterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
@@ -679,6 +699,12 @@ func (i ClusterMap) ToClusterMapOutputWithContext(ctx context.Context) ClusterMa
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMapOutput)
 }
 
+func (i ClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: i.ToClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
@@ -691,6 +717,12 @@ func (o ClusterOutput) ToClusterOutput() ClusterOutput {
 
 func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return o
+}
+
+func (o ClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
@@ -748,10 +780,11 @@ func (o ClusterOutput) Engine() pulumi.StringOutput {
 // Version number of the cache engine to be used.
 // If not set, defaults to the latest version.
 // See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+// When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 // Otherwise, specify the full version desired, e.g., `5.0.6`.
-// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -809,6 +842,8 @@ func (o ClusterOutput) OutpostMode() pulumi.StringPtrOutput {
 }
 
 // The name of the parameter group to associate with this cache cluster.
+//
+// The following arguments are optional:
 func (o ClusterOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
@@ -836,13 +871,6 @@ func (o ClusterOutput) ReplicationGroupId() pulumi.StringOutput {
 // One or more VPC security groups associated with the cache cluster
 func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
-}
-
-// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-//
-// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-func (o ClusterOutput) SecurityGroupNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }
 
 // Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
@@ -880,6 +908,11 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+func (o ClusterOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type ClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterArrayOutput) ElementType() reflect.Type {
@@ -892,6 +925,12 @@ func (o ClusterArrayOutput) ToClusterArrayOutput() ClusterArrayOutput {
 
 func (o ClusterArrayOutput) ToClusterArrayOutputWithContext(ctx context.Context) ClusterArrayOutput {
 	return o
+}
+
+func (o ClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterArrayOutput) Index(i pulumi.IntInput) ClusterOutput {
@@ -912,6 +951,12 @@ func (o ClusterMapOutput) ToClusterMapOutput() ClusterMapOutput {
 
 func (o ClusterMapOutput) ToClusterMapOutputWithContext(ctx context.Context) ClusterMapOutput {
 	return o
+}
+
+func (o ClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterMapOutput) MapIndex(k pulumi.StringInput) ClusterOutput {

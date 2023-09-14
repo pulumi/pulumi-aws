@@ -7,13 +7,45 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type GetLicenseGrantsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
+	// 			Filters: []licensemanager.GetLicenseGrantsFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
@@ -34,6 +66,34 @@ type GetLicenseGrantsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
+	// 			Filters: []licensemanager.GetLicenseGrantsFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -49,6 +109,12 @@ func (i GetLicenseGrantsFilterArgs) ToGetLicenseGrantsFilterOutput() GetLicenseG
 
 func (i GetLicenseGrantsFilterArgs) ToGetLicenseGrantsFilterOutputWithContext(ctx context.Context) GetLicenseGrantsFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetLicenseGrantsFilterOutput)
+}
+
+func (i GetLicenseGrantsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetLicenseGrantsFilter] {
+	return pulumix.Output[GetLicenseGrantsFilter]{
+		OutputState: i.ToGetLicenseGrantsFilterOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetLicenseGrantsFilterArrayInput is an input type that accepts GetLicenseGrantsFilterArray and GetLicenseGrantsFilterArrayOutput values.
@@ -76,6 +142,12 @@ func (i GetLicenseGrantsFilterArray) ToGetLicenseGrantsFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetLicenseGrantsFilterArrayOutput)
 }
 
+func (i GetLicenseGrantsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLicenseGrantsFilter] {
+	return pulumix.Output[[]GetLicenseGrantsFilter]{
+		OutputState: i.ToGetLicenseGrantsFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLicenseGrantsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetLicenseGrantsFilterOutput) ElementType() reflect.Type {
@@ -90,9 +162,46 @@ func (o GetLicenseGrantsFilterOutput) ToGetLicenseGrantsFilterOutputWithContext(
 	return o
 }
 
+func (o GetLicenseGrantsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetLicenseGrantsFilter] {
+	return pulumix.Output[GetLicenseGrantsFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
+//				Filters: []licensemanager.GetLicenseGrantsFilter{
+//					{
+//						Name: "ProductSKU",
+//						Values: []string{
+//							"",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetLicenseGrantsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLicenseGrantsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -114,6 +223,12 @@ func (o GetLicenseGrantsFilterArrayOutput) ToGetLicenseGrantsFilterArrayOutput()
 
 func (o GetLicenseGrantsFilterArrayOutput) ToGetLicenseGrantsFilterArrayOutputWithContext(ctx context.Context) GetLicenseGrantsFilterArrayOutput {
 	return o
+}
+
+func (o GetLicenseGrantsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLicenseGrantsFilter] {
+	return pulumix.Output[[]GetLicenseGrantsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLicenseGrantsFilterArrayOutput) Index(i pulumi.IntInput) GetLicenseGrantsFilterOutput {
@@ -161,6 +276,12 @@ func (i GetReceivedLicenseConsumptionConfigurationArgs) ToGetReceivedLicenseCons
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseConsumptionConfigurationOutput)
 }
 
+func (i GetReceivedLicenseConsumptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseConsumptionConfiguration] {
+	return pulumix.Output[GetReceivedLicenseConsumptionConfiguration]{
+		OutputState: i.ToGetReceivedLicenseConsumptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseConsumptionConfigurationArrayInput is an input type that accepts GetReceivedLicenseConsumptionConfigurationArray and GetReceivedLicenseConsumptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseConsumptionConfigurationArrayInput` via:
 //
@@ -186,6 +307,12 @@ func (i GetReceivedLicenseConsumptionConfigurationArray) ToGetReceivedLicenseCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseConsumptionConfigurationArrayOutput)
 }
 
+func (i GetReceivedLicenseConsumptionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseConsumptionConfiguration] {
+	return pulumix.Output[[]GetReceivedLicenseConsumptionConfiguration]{
+		OutputState: i.ToGetReceivedLicenseConsumptionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseConsumptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseConsumptionConfigurationOutput) ElementType() reflect.Type {
@@ -198,6 +325,12 @@ func (o GetReceivedLicenseConsumptionConfigurationOutput) ToGetReceivedLicenseCo
 
 func (o GetReceivedLicenseConsumptionConfigurationOutput) ToGetReceivedLicenseConsumptionConfigurationOutputWithContext(ctx context.Context) GetReceivedLicenseConsumptionConfigurationOutput {
 	return o
+}
+
+func (o GetReceivedLicenseConsumptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseConsumptionConfiguration] {
+	return pulumix.Output[GetReceivedLicenseConsumptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Details about a borrow configuration. Detailed below
@@ -230,6 +363,12 @@ func (o GetReceivedLicenseConsumptionConfigurationArrayOutput) ToGetReceivedLice
 
 func (o GetReceivedLicenseConsumptionConfigurationArrayOutput) ToGetReceivedLicenseConsumptionConfigurationArrayOutputWithContext(ctx context.Context) GetReceivedLicenseConsumptionConfigurationArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicenseConsumptionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseConsumptionConfiguration] {
+	return pulumix.Output[[]GetReceivedLicenseConsumptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicenseConsumptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseConsumptionConfigurationOutput {
@@ -275,6 +414,12 @@ func (i GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs) ToGet
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput)
 }
 
+func (i GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseConsumptionConfigurationBorrowConfiguration] {
+	return pulumix.Output[GetReceivedLicenseConsumptionConfigurationBorrowConfiguration]{
+		OutputState: i.ToGetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayInput is an input type that accepts GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArray and GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayInput` via:
 //
@@ -300,6 +445,12 @@ func (i GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArray) ToGe
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput)
 }
 
+func (i GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationBorrowConfiguration] {
+	return pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationBorrowConfiguration]{
+		OutputState: i.ToGetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) ElementType() reflect.Type {
@@ -312,6 +463,12 @@ func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) ToG
 
 func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) ToGetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutputWithContext(ctx context.Context) GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput {
 	return o
+}
+
+func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseConsumptionConfigurationBorrowConfiguration] {
+	return pulumix.Output[GetReceivedLicenseConsumptionConfigurationBorrowConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether early check-ins are allowed.
@@ -338,6 +495,12 @@ func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput
 
 func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput) ToGetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutputWithContext(ctx context.Context) GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationBorrowConfiguration] {
+	return pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationBorrowConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput {
@@ -379,6 +542,12 @@ func (i GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput)
 }
 
+func (i GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration] {
+	return pulumix.Output[GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration]{
+		OutputState: i.ToGetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayInput is an input type that accepts GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArray and GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayInput` via:
 //
@@ -404,6 +573,12 @@ func (i GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArray)
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput)
 }
 
+func (i GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration] {
+	return pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration]{
+		OutputState: i.ToGetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput) ElementType() reflect.Type {
@@ -416,6 +591,12 @@ func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput
 
 func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput) ToGetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutputWithContext(ctx context.Context) GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput {
 	return o
+}
+
+func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration] {
+	return pulumix.Output[GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum time for the provisional configuration, in minutes.
@@ -437,6 +618,12 @@ func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayO
 
 func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput) ToGetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutputWithContext(ctx context.Context) GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration] {
+	return pulumix.Output[[]GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput {
@@ -494,6 +681,12 @@ func (i GetReceivedLicenseEntitlementArgs) ToGetReceivedLicenseEntitlementOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseEntitlementOutput)
 }
 
+func (i GetReceivedLicenseEntitlementArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseEntitlement] {
+	return pulumix.Output[GetReceivedLicenseEntitlement]{
+		OutputState: i.ToGetReceivedLicenseEntitlementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseEntitlementArrayInput is an input type that accepts GetReceivedLicenseEntitlementArray and GetReceivedLicenseEntitlementArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseEntitlementArrayInput` via:
 //
@@ -519,6 +712,12 @@ func (i GetReceivedLicenseEntitlementArray) ToGetReceivedLicenseEntitlementArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseEntitlementArrayOutput)
 }
 
+func (i GetReceivedLicenseEntitlementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseEntitlement] {
+	return pulumix.Output[[]GetReceivedLicenseEntitlement]{
+		OutputState: i.ToGetReceivedLicenseEntitlementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseEntitlementOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseEntitlementOutput) ElementType() reflect.Type {
@@ -531,6 +730,12 @@ func (o GetReceivedLicenseEntitlementOutput) ToGetReceivedLicenseEntitlementOutp
 
 func (o GetReceivedLicenseEntitlementOutput) ToGetReceivedLicenseEntitlementOutputWithContext(ctx context.Context) GetReceivedLicenseEntitlementOutput {
 	return o
+}
+
+func (o GetReceivedLicenseEntitlementOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseEntitlement] {
+	return pulumix.Output[GetReceivedLicenseEntitlement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether check-ins are allowed.
@@ -570,6 +775,12 @@ func (o GetReceivedLicenseEntitlementArrayOutput) ToGetReceivedLicenseEntitlemen
 
 func (o GetReceivedLicenseEntitlementArrayOutput) ToGetReceivedLicenseEntitlementArrayOutputWithContext(ctx context.Context) GetReceivedLicenseEntitlementArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicenseEntitlementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseEntitlement] {
+	return pulumix.Output[[]GetReceivedLicenseEntitlement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicenseEntitlementArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseEntitlementOutput {
@@ -619,6 +830,12 @@ func (i GetReceivedLicenseIssuerArgs) ToGetReceivedLicenseIssuerOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseIssuerOutput)
 }
 
+func (i GetReceivedLicenseIssuerArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseIssuer] {
+	return pulumix.Output[GetReceivedLicenseIssuer]{
+		OutputState: i.ToGetReceivedLicenseIssuerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseIssuerArrayInput is an input type that accepts GetReceivedLicenseIssuerArray and GetReceivedLicenseIssuerArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseIssuerArrayInput` via:
 //
@@ -644,6 +861,12 @@ func (i GetReceivedLicenseIssuerArray) ToGetReceivedLicenseIssuerArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseIssuerArrayOutput)
 }
 
+func (i GetReceivedLicenseIssuerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseIssuer] {
+	return pulumix.Output[[]GetReceivedLicenseIssuer]{
+		OutputState: i.ToGetReceivedLicenseIssuerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseIssuerOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseIssuerOutput) ElementType() reflect.Type {
@@ -656,6 +879,12 @@ func (o GetReceivedLicenseIssuerOutput) ToGetReceivedLicenseIssuerOutput() GetRe
 
 func (o GetReceivedLicenseIssuerOutput) ToGetReceivedLicenseIssuerOutputWithContext(ctx context.Context) GetReceivedLicenseIssuerOutput {
 	return o
+}
+
+func (o GetReceivedLicenseIssuerOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseIssuer] {
+	return pulumix.Output[GetReceivedLicenseIssuer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Issuer key fingerprint.
@@ -685,6 +914,12 @@ func (o GetReceivedLicenseIssuerArrayOutput) ToGetReceivedLicenseIssuerArrayOutp
 
 func (o GetReceivedLicenseIssuerArrayOutput) ToGetReceivedLicenseIssuerArrayOutputWithContext(ctx context.Context) GetReceivedLicenseIssuerArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicenseIssuerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseIssuer] {
+	return pulumix.Output[[]GetReceivedLicenseIssuer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicenseIssuerArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseIssuerOutput {
@@ -730,6 +965,12 @@ func (i GetReceivedLicenseLicenseMetadataArgs) ToGetReceivedLicenseLicenseMetada
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseLicenseMetadataOutput)
 }
 
+func (i GetReceivedLicenseLicenseMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseLicenseMetadata] {
+	return pulumix.Output[GetReceivedLicenseLicenseMetadata]{
+		OutputState: i.ToGetReceivedLicenseLicenseMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseLicenseMetadataArrayInput is an input type that accepts GetReceivedLicenseLicenseMetadataArray and GetReceivedLicenseLicenseMetadataArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseLicenseMetadataArrayInput` via:
 //
@@ -755,6 +996,12 @@ func (i GetReceivedLicenseLicenseMetadataArray) ToGetReceivedLicenseLicenseMetad
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseLicenseMetadataArrayOutput)
 }
 
+func (i GetReceivedLicenseLicenseMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseLicenseMetadata] {
+	return pulumix.Output[[]GetReceivedLicenseLicenseMetadata]{
+		OutputState: i.ToGetReceivedLicenseLicenseMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseLicenseMetadataOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseLicenseMetadataOutput) ElementType() reflect.Type {
@@ -767,6 +1014,12 @@ func (o GetReceivedLicenseLicenseMetadataOutput) ToGetReceivedLicenseLicenseMeta
 
 func (o GetReceivedLicenseLicenseMetadataOutput) ToGetReceivedLicenseLicenseMetadataOutputWithContext(ctx context.Context) GetReceivedLicenseLicenseMetadataOutput {
 	return o
+}
+
+func (o GetReceivedLicenseLicenseMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseLicenseMetadata] {
+	return pulumix.Output[GetReceivedLicenseLicenseMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name.
@@ -791,6 +1044,12 @@ func (o GetReceivedLicenseLicenseMetadataArrayOutput) ToGetReceivedLicenseLicens
 
 func (o GetReceivedLicenseLicenseMetadataArrayOutput) ToGetReceivedLicenseLicenseMetadataArrayOutputWithContext(ctx context.Context) GetReceivedLicenseLicenseMetadataArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicenseLicenseMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseLicenseMetadata] {
+	return pulumix.Output[[]GetReceivedLicenseLicenseMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicenseLicenseMetadataArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseLicenseMetadataOutput {
@@ -840,6 +1099,12 @@ func (i GetReceivedLicenseReceivedMetadataArgs) ToGetReceivedLicenseReceivedMeta
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseReceivedMetadataOutput)
 }
 
+func (i GetReceivedLicenseReceivedMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseReceivedMetadata] {
+	return pulumix.Output[GetReceivedLicenseReceivedMetadata]{
+		OutputState: i.ToGetReceivedLicenseReceivedMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseReceivedMetadataArrayInput is an input type that accepts GetReceivedLicenseReceivedMetadataArray and GetReceivedLicenseReceivedMetadataArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseReceivedMetadataArrayInput` via:
 //
@@ -865,6 +1130,12 @@ func (i GetReceivedLicenseReceivedMetadataArray) ToGetReceivedLicenseReceivedMet
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseReceivedMetadataArrayOutput)
 }
 
+func (i GetReceivedLicenseReceivedMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseReceivedMetadata] {
+	return pulumix.Output[[]GetReceivedLicenseReceivedMetadata]{
+		OutputState: i.ToGetReceivedLicenseReceivedMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseReceivedMetadataOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseReceivedMetadataOutput) ElementType() reflect.Type {
@@ -877,6 +1148,12 @@ func (o GetReceivedLicenseReceivedMetadataOutput) ToGetReceivedLicenseReceivedMe
 
 func (o GetReceivedLicenseReceivedMetadataOutput) ToGetReceivedLicenseReceivedMetadataOutputWithContext(ctx context.Context) GetReceivedLicenseReceivedMetadataOutput {
 	return o
+}
+
+func (o GetReceivedLicenseReceivedMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseReceivedMetadata] {
+	return pulumix.Output[GetReceivedLicenseReceivedMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of allowed operations.
@@ -906,6 +1183,12 @@ func (o GetReceivedLicenseReceivedMetadataArrayOutput) ToGetReceivedLicenseRecei
 
 func (o GetReceivedLicenseReceivedMetadataArrayOutput) ToGetReceivedLicenseReceivedMetadataArrayOutputWithContext(ctx context.Context) GetReceivedLicenseReceivedMetadataArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicenseReceivedMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseReceivedMetadata] {
+	return pulumix.Output[[]GetReceivedLicenseReceivedMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicenseReceivedMetadataArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseReceivedMetadataOutput {
@@ -951,6 +1234,12 @@ func (i GetReceivedLicenseValidityArgs) ToGetReceivedLicenseValidityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseValidityOutput)
 }
 
+func (i GetReceivedLicenseValidityArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseValidity] {
+	return pulumix.Output[GetReceivedLicenseValidity]{
+		OutputState: i.ToGetReceivedLicenseValidityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReceivedLicenseValidityArrayInput is an input type that accepts GetReceivedLicenseValidityArray and GetReceivedLicenseValidityArrayOutput values.
 // You can construct a concrete instance of `GetReceivedLicenseValidityArrayInput` via:
 //
@@ -976,6 +1265,12 @@ func (i GetReceivedLicenseValidityArray) ToGetReceivedLicenseValidityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicenseValidityArrayOutput)
 }
 
+func (i GetReceivedLicenseValidityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseValidity] {
+	return pulumix.Output[[]GetReceivedLicenseValidity]{
+		OutputState: i.ToGetReceivedLicenseValidityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicenseValidityOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicenseValidityOutput) ElementType() reflect.Type {
@@ -988,6 +1283,12 @@ func (o GetReceivedLicenseValidityOutput) ToGetReceivedLicenseValidityOutput() G
 
 func (o GetReceivedLicenseValidityOutput) ToGetReceivedLicenseValidityOutputWithContext(ctx context.Context) GetReceivedLicenseValidityOutput {
 	return o
+}
+
+func (o GetReceivedLicenseValidityOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseValidity] {
+	return pulumix.Output[GetReceivedLicenseValidity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Start of the validity time range.
@@ -1014,6 +1315,12 @@ func (o GetReceivedLicenseValidityArrayOutput) ToGetReceivedLicenseValidityArray
 	return o
 }
 
+func (o GetReceivedLicenseValidityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicenseValidity] {
+	return pulumix.Output[[]GetReceivedLicenseValidity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetReceivedLicenseValidityArrayOutput) Index(i pulumi.IntInput) GetReceivedLicenseValidityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReceivedLicenseValidity {
 		return vs[0].([]GetReceivedLicenseValidity)[vs[1].(int)]
@@ -1024,6 +1331,34 @@ type GetReceivedLicensesFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
+	// 			Filters: []licensemanager.GetReceivedLicensesFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
@@ -1044,6 +1379,34 @@ type GetReceivedLicensesFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
+	// 			Filters: []licensemanager.GetReceivedLicensesFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1059,6 +1422,12 @@ func (i GetReceivedLicensesFilterArgs) ToGetReceivedLicensesFilterOutput() GetRe
 
 func (i GetReceivedLicensesFilterArgs) ToGetReceivedLicensesFilterOutputWithContext(ctx context.Context) GetReceivedLicensesFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicensesFilterOutput)
+}
+
+func (i GetReceivedLicensesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicensesFilter] {
+	return pulumix.Output[GetReceivedLicensesFilter]{
+		OutputState: i.ToGetReceivedLicensesFilterOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetReceivedLicensesFilterArrayInput is an input type that accepts GetReceivedLicensesFilterArray and GetReceivedLicensesFilterArrayOutput values.
@@ -1086,6 +1455,12 @@ func (i GetReceivedLicensesFilterArray) ToGetReceivedLicensesFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetReceivedLicensesFilterArrayOutput)
 }
 
+func (i GetReceivedLicensesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicensesFilter] {
+	return pulumix.Output[[]GetReceivedLicensesFilter]{
+		OutputState: i.ToGetReceivedLicensesFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReceivedLicensesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetReceivedLicensesFilterOutput) ElementType() reflect.Type {
@@ -1100,9 +1475,46 @@ func (o GetReceivedLicensesFilterOutput) ToGetReceivedLicensesFilterOutputWithCo
 	return o
 }
 
+func (o GetReceivedLicensesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicensesFilter] {
+	return pulumix.Output[GetReceivedLicensesFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
+//				Filters: []licensemanager.GetReceivedLicensesFilter{
+//					{
+//						Name: "ProductSKU",
+//						Values: []string{
+//							"",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetReceivedLicensesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicensesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1124,6 +1536,12 @@ func (o GetReceivedLicensesFilterArrayOutput) ToGetReceivedLicensesFilterArrayOu
 
 func (o GetReceivedLicensesFilterArrayOutput) ToGetReceivedLicensesFilterArrayOutputWithContext(ctx context.Context) GetReceivedLicensesFilterArrayOutput {
 	return o
+}
+
+func (o GetReceivedLicensesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReceivedLicensesFilter] {
+	return pulumix.Output[[]GetReceivedLicensesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReceivedLicensesFilterArrayOutput) Index(i pulumi.IntInput) GetReceivedLicensesFilterOutput {

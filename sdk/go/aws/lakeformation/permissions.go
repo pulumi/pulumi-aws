@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
@@ -33,9 +35,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,8 +88,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -159,7 +161,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -190,7 +192,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -224,7 +226,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -285,10 +287,16 @@ type Permissions struct {
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayOutput `pulumi:"permissionsWithGrantOptions"`
 	// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	//
+	// > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+	//
+	// One of the following is required:
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTableOutput `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
+	//
+	// The following arguments are optional:
 	TableWithColumns PermissionsTableWithColumnsOutput `pulumi:"tableWithColumns"`
 }
 
@@ -305,6 +313,7 @@ func NewPermissions(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Permissions
 	err := ctx.RegisterResource("aws:lakeformation/permissions:Permissions", name, args, &resource, opts...)
 	if err != nil {
@@ -344,10 +353,16 @@ type permissionsState struct {
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string `pulumi:"permissionsWithGrantOptions"`
 	// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	//
+	// > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+	//
+	// One of the following is required:
 	Principal *string `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table *PermissionsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
+	//
+	// The following arguments are optional:
 	TableWithColumns *PermissionsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -369,10 +384,16 @@ type PermissionsState struct {
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayInput
 	// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	//
+	// > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+	//
+	// One of the following is required:
 	Principal pulumi.StringPtrInput
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTablePtrInput
 	// Configuration block for a table with columns resource. Detailed below.
+	//
+	// The following arguments are optional:
 	TableWithColumns PermissionsTableWithColumnsPtrInput
 }
 
@@ -398,10 +419,16 @@ type permissionsArgs struct {
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string `pulumi:"permissionsWithGrantOptions"`
 	// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	//
+	// > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+	//
+	// One of the following is required:
 	Principal string `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table *PermissionsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
+	//
+	// The following arguments are optional:
 	TableWithColumns *PermissionsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -424,10 +451,16 @@ type PermissionsArgs struct {
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayInput
 	// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	//
+	// > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+	//
+	// One of the following is required:
 	Principal pulumi.StringInput
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTablePtrInput
 	// Configuration block for a table with columns resource. Detailed below.
+	//
+	// The following arguments are optional:
 	TableWithColumns PermissionsTableWithColumnsPtrInput
 }
 
@@ -452,6 +485,12 @@ func (i *Permissions) ToPermissionsOutput() PermissionsOutput {
 
 func (i *Permissions) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsOutput)
+}
+
+func (i *Permissions) ToOutput(ctx context.Context) pulumix.Output[*Permissions] {
+	return pulumix.Output[*Permissions]{
+		OutputState: i.ToPermissionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PermissionsArrayInput is an input type that accepts PermissionsArray and PermissionsArrayOutput values.
@@ -479,6 +518,12 @@ func (i PermissionsArray) ToPermissionsArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsArrayOutput)
 }
 
+func (i PermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*Permissions] {
+	return pulumix.Output[[]*Permissions]{
+		OutputState: i.ToPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PermissionsMapInput is an input type that accepts PermissionsMap and PermissionsMapOutput values.
 // You can construct a concrete instance of `PermissionsMapInput` via:
 //
@@ -504,6 +549,12 @@ func (i PermissionsMap) ToPermissionsMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsMapOutput)
 }
 
+func (i PermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Permissions] {
+	return pulumix.Output[map[string]*Permissions]{
+		OutputState: i.ToPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsOutput) ElementType() reflect.Type {
@@ -516,6 +567,12 @@ func (o PermissionsOutput) ToPermissionsOutput() PermissionsOutput {
 
 func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
 	return o
+}
+
+func (o PermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*Permissions] {
+	return pulumix.Output[*Permissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -559,6 +616,10 @@ func (o PermissionsOutput) PermissionsWithGrantOptions() pulumi.StringArrayOutpu
 }
 
 // Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+//
+// > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+//
+// One of the following is required:
 func (o PermissionsOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permissions) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
@@ -569,6 +630,8 @@ func (o PermissionsOutput) Table() PermissionsTableOutput {
 }
 
 // Configuration block for a table with columns resource. Detailed below.
+//
+// The following arguments are optional:
 func (o PermissionsOutput) TableWithColumns() PermissionsTableWithColumnsOutput {
 	return o.ApplyT(func(v *Permissions) PermissionsTableWithColumnsOutput { return v.TableWithColumns }).(PermissionsTableWithColumnsOutput)
 }
@@ -585,6 +648,12 @@ func (o PermissionsArrayOutput) ToPermissionsArrayOutput() PermissionsArrayOutpu
 
 func (o PermissionsArrayOutput) ToPermissionsArrayOutputWithContext(ctx context.Context) PermissionsArrayOutput {
 	return o
+}
+
+func (o PermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Permissions] {
+	return pulumix.Output[[]*Permissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsArrayOutput) Index(i pulumi.IntInput) PermissionsOutput {
@@ -605,6 +674,12 @@ func (o PermissionsMapOutput) ToPermissionsMapOutput() PermissionsMapOutput {
 
 func (o PermissionsMapOutput) ToPermissionsMapOutputWithContext(ctx context.Context) PermissionsMapOutput {
 	return o
+}
+
+func (o PermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Permissions] {
+	return pulumix.Output[map[string]*Permissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsMapOutput) MapIndex(k pulumi.StringInput) PermissionsOutput {

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
-    /// The AWS organization can be imported by using the `id`, e.g.,
+    /// Using `pulumi import`, import the AWS organization using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:organizations/organization:Organization my_org o-1234567

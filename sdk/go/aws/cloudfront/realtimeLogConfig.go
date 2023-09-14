@@ -8,14 +8,107 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFront real-time log configuration resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "cloudfront.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Actions: []string{
+// "kinesis:DescribeStreamSummary",
+// "kinesis:DescribeStream",
+// "kinesis:PutRecord",
+// "kinesis:PutRecords",
+// },
+// Resources: interface{}{
+// aws_kinesis_stream.Example.Arn,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleRolePolicy, err := iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+// Role: exampleRole.ID(),
+// Policy: *pulumi.String(examplePolicyDocument.Json),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cloudfront.NewRealtimeLogConfig(ctx, "exampleRealtimeLogConfig", &cloudfront.RealtimeLogConfigArgs{
+// SamplingRate: pulumi.Int(75),
+// Fields: pulumi.StringArray{
+// pulumi.String("timestamp"),
+// pulumi.String("c-ip"),
+// },
+// Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+// StreamType: pulumi.String("Kinesis"),
+// KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+// RoleArn: exampleRole.Arn,
+// StreamArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleRolePolicy,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
-// CloudFront real-time log configurations can be imported using the ARN, e.g.,
+// Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
 //
 // ```sh
 //
@@ -53,6 +146,7 @@ func NewRealtimeLogConfig(ctx *pulumi.Context,
 	if args.SamplingRate == nil {
 		return nil, errors.New("invalid value for required argument 'SamplingRate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RealtimeLogConfig
 	err := ctx.RegisterResource("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -150,6 +244,12 @@ func (i *RealtimeLogConfig) ToRealtimeLogConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigOutput)
 }
 
+func (i *RealtimeLogConfig) ToOutput(ctx context.Context) pulumix.Output[*RealtimeLogConfig] {
+	return pulumix.Output[*RealtimeLogConfig]{
+		OutputState: i.ToRealtimeLogConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RealtimeLogConfigArrayInput is an input type that accepts RealtimeLogConfigArray and RealtimeLogConfigArrayOutput values.
 // You can construct a concrete instance of `RealtimeLogConfigArrayInput` via:
 //
@@ -173,6 +273,12 @@ func (i RealtimeLogConfigArray) ToRealtimeLogConfigArrayOutput() RealtimeLogConf
 
 func (i RealtimeLogConfigArray) ToRealtimeLogConfigArrayOutputWithContext(ctx context.Context) RealtimeLogConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigArrayOutput)
+}
+
+func (i RealtimeLogConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*RealtimeLogConfig] {
+	return pulumix.Output[[]*RealtimeLogConfig]{
+		OutputState: i.ToRealtimeLogConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RealtimeLogConfigMapInput is an input type that accepts RealtimeLogConfigMap and RealtimeLogConfigMapOutput values.
@@ -200,6 +306,12 @@ func (i RealtimeLogConfigMap) ToRealtimeLogConfigMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigMapOutput)
 }
 
+func (i RealtimeLogConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RealtimeLogConfig] {
+	return pulumix.Output[map[string]*RealtimeLogConfig]{
+		OutputState: i.ToRealtimeLogConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RealtimeLogConfigOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigOutput) ElementType() reflect.Type {
@@ -212,6 +324,12 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutput() RealtimeLogConfigOu
 
 func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx context.Context) RealtimeLogConfigOutput {
 	return o
+}
+
+func (o RealtimeLogConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*RealtimeLogConfig] {
+	return pulumix.Output[*RealtimeLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
@@ -253,6 +371,12 @@ func (o RealtimeLogConfigArrayOutput) ToRealtimeLogConfigArrayOutputWithContext(
 	return o
 }
 
+func (o RealtimeLogConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RealtimeLogConfig] {
+	return pulumix.Output[[]*RealtimeLogConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RealtimeLogConfigArrayOutput) Index(i pulumi.IntInput) RealtimeLogConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RealtimeLogConfig {
 		return vs[0].([]*RealtimeLogConfig)[vs[1].(int)]
@@ -271,6 +395,12 @@ func (o RealtimeLogConfigMapOutput) ToRealtimeLogConfigMapOutput() RealtimeLogCo
 
 func (o RealtimeLogConfigMapOutput) ToRealtimeLogConfigMapOutputWithContext(ctx context.Context) RealtimeLogConfigMapOutput {
 	return o
+}
+
+func (o RealtimeLogConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RealtimeLogConfig] {
+	return pulumix.Output[map[string]*RealtimeLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RealtimeLogConfigMapOutput) MapIndex(k pulumi.StringInput) RealtimeLogConfigOutput {

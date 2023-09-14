@@ -20,20 +20,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     replicationGroupDescription: "primary replication group",
+ *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
  *     nodeType: "cache.m5.large",
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * });
  * const example = new aws.elasticache.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
  *     primaryReplicationGroupId: primary.id,
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
- *     replicationGroupDescription: "secondary replication group",
+ *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * }, {
  *     provider: aws.other_region,
  * });
@@ -57,11 +57,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     replicationGroupDescription: "primary replication group",
+ *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "6.0",
  *     nodeType: "cache.m5.large",
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * });
  * const example = new aws.elasticache.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
@@ -69,9 +69,9 @@ import * as utilities from "../utilities";
  *     engineVersion: "6.2",
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
- *     replicationGroupDescription: "secondary replication group",
+ *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * }, {
  *     provider: aws.other_region,
  * });
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+ * Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For example:
  *
  * ```sh
  *  $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
@@ -150,9 +150,10 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -298,9 +299,10 @@ export interface GlobalReplicationGroupState {
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -366,9 +368,10 @@ export interface GlobalReplicationGroupArgs {
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**

@@ -46,14 +46,14 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The standards control ARN.
+     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
     @Import(name="standardsControlArn", required=true)
     private Output<String> standardsControlArn;
 
     /**
-     * @return The standards control ARN.
+     * @return The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
     public Output<String> standardsControlArn() {
@@ -129,7 +129,7 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param standardsControlArn The standards control ARN.
+         * @param standardsControlArn The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param standardsControlArn The standards control ARN.
+         * @param standardsControlArn The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
          * 
          * @return builder
          * 

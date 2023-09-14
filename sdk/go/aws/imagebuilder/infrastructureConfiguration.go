@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Infrastructure Configuration.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +64,7 @@ import (
 //
 // ## Import
 //
-// `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+// Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
 //
@@ -91,6 +93,8 @@ type InfrastructureConfiguration struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging InfrastructureConfigurationLoggingPtrOutput `pulumi:"logging"`
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
@@ -118,6 +122,7 @@ func NewInfrastructureConfiguration(ctx *pulumi.Context,
 	if args.InstanceProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceProfileName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InfrastructureConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -159,6 +164,8 @@ type infrastructureConfigurationState struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -196,6 +203,8 @@ type InfrastructureConfigurationState struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging InfrastructureConfigurationLoggingPtrInput
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
@@ -231,6 +240,8 @@ type infrastructureConfigurationArgs struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -261,6 +272,8 @@ type InfrastructureConfigurationArgs struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging InfrastructureConfigurationLoggingPtrInput
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
@@ -299,6 +312,12 @@ func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationOutput)
 }
 
+func (i *InfrastructureConfiguration) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfiguration] {
+	return pulumix.Output[*InfrastructureConfiguration]{
+		OutputState: i.ToInfrastructureConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InfrastructureConfigurationArrayInput is an input type that accepts InfrastructureConfigurationArray and InfrastructureConfigurationArrayOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationArrayInput` via:
 //
@@ -322,6 +341,12 @@ func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutp
 
 func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutputWithContext(ctx context.Context) InfrastructureConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationArrayOutput)
+}
+
+func (i InfrastructureConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*InfrastructureConfiguration] {
+	return pulumix.Output[[]*InfrastructureConfiguration]{
+		OutputState: i.ToInfrastructureConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InfrastructureConfigurationMapInput is an input type that accepts InfrastructureConfigurationMap and InfrastructureConfigurationMapOutput values.
@@ -349,6 +374,12 @@ func (i InfrastructureConfigurationMap) ToInfrastructureConfigurationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationMapOutput)
 }
 
+func (i InfrastructureConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InfrastructureConfiguration] {
+	return pulumix.Output[map[string]*InfrastructureConfiguration]{
+		OutputState: i.ToInfrastructureConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfrastructureConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationOutput) ElementType() reflect.Type {
@@ -361,6 +392,12 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutput()
 
 func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWithContext(ctx context.Context) InfrastructureConfigurationOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfiguration] {
+	return pulumix.Output[*InfrastructureConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the configuration.
@@ -411,6 +448,8 @@ func (o InfrastructureConfigurationOutput) Logging() InfrastructureConfiguration
 }
 
 // Name for the configuration.
+//
+// The following arguments are optional:
 func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -464,6 +503,12 @@ func (o InfrastructureConfigurationArrayOutput) ToInfrastructureConfigurationArr
 	return o
 }
 
+func (o InfrastructureConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InfrastructureConfiguration] {
+	return pulumix.Output[[]*InfrastructureConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InfrastructureConfigurationArrayOutput) Index(i pulumi.IntInput) InfrastructureConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InfrastructureConfiguration {
 		return vs[0].([]*InfrastructureConfiguration)[vs[1].(int)]
@@ -482,6 +527,12 @@ func (o InfrastructureConfigurationMapOutput) ToInfrastructureConfigurationMapOu
 
 func (o InfrastructureConfigurationMapOutput) ToInfrastructureConfigurationMapOutputWithContext(ctx context.Context) InfrastructureConfigurationMapOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InfrastructureConfiguration] {
+	return pulumix.Output[map[string]*InfrastructureConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfrastructureConfigurationMapOutput) MapIndex(k pulumi.StringInput) InfrastructureConfigurationOutput {

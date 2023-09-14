@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon MSK Connect Worker Configuration Resource.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mskconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +44,7 @@ import (
 //
 // ## Import
 //
-// MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
+// Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
 //
 // ```sh
 //
@@ -61,6 +63,8 @@ type WorkerConfiguration struct {
 	// The name of the worker configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringOutput `pulumi:"propertiesFileContent"`
 }
 
@@ -74,6 +78,7 @@ func NewWorkerConfiguration(ctx *pulumi.Context,
 	if args.PropertiesFileContent == nil {
 		return nil, errors.New("invalid value for required argument 'PropertiesFileContent'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkerConfiguration
 	err := ctx.RegisterResource("aws:mskconnect/workerConfiguration:WorkerConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -105,6 +110,8 @@ type workerConfigurationState struct {
 	// The name of the worker configuration.
 	Name *string `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent *string `pulumi:"propertiesFileContent"`
 }
 
@@ -118,6 +125,8 @@ type WorkerConfigurationState struct {
 	// The name of the worker configuration.
 	Name pulumi.StringPtrInput
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringPtrInput
 }
 
@@ -131,6 +140,8 @@ type workerConfigurationArgs struct {
 	// The name of the worker configuration.
 	Name *string `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent string `pulumi:"propertiesFileContent"`
 }
 
@@ -141,6 +152,8 @@ type WorkerConfigurationArgs struct {
 	// The name of the worker configuration.
 	Name pulumi.StringPtrInput
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringInput
 }
 
@@ -165,6 +178,12 @@ func (i *WorkerConfiguration) ToWorkerConfigurationOutput() WorkerConfigurationO
 
 func (i *WorkerConfiguration) ToWorkerConfigurationOutputWithContext(ctx context.Context) WorkerConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationOutput)
+}
+
+func (i *WorkerConfiguration) ToOutput(ctx context.Context) pulumix.Output[*WorkerConfiguration] {
+	return pulumix.Output[*WorkerConfiguration]{
+		OutputState: i.ToWorkerConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkerConfigurationArrayInput is an input type that accepts WorkerConfigurationArray and WorkerConfigurationArrayOutput values.
@@ -192,6 +211,12 @@ func (i WorkerConfigurationArray) ToWorkerConfigurationArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationArrayOutput)
 }
 
+func (i WorkerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkerConfiguration] {
+	return pulumix.Output[[]*WorkerConfiguration]{
+		OutputState: i.ToWorkerConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkerConfigurationMapInput is an input type that accepts WorkerConfigurationMap and WorkerConfigurationMapOutput values.
 // You can construct a concrete instance of `WorkerConfigurationMapInput` via:
 //
@@ -217,6 +242,12 @@ func (i WorkerConfigurationMap) ToWorkerConfigurationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationMapOutput)
 }
 
+func (i WorkerConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkerConfiguration] {
+	return pulumix.Output[map[string]*WorkerConfiguration]{
+		OutputState: i.ToWorkerConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkerConfigurationOutput) ElementType() reflect.Type {
@@ -229,6 +260,12 @@ func (o WorkerConfigurationOutput) ToWorkerConfigurationOutput() WorkerConfigura
 
 func (o WorkerConfigurationOutput) ToWorkerConfigurationOutputWithContext(ctx context.Context) WorkerConfigurationOutput {
 	return o
+}
+
+func (o WorkerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkerConfiguration] {
+	return pulumix.Output[*WorkerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the Amazon Resource Name (ARN) of the worker configuration.
@@ -252,6 +289,8 @@ func (o WorkerConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+//
+// The following arguments are optional:
 func (o WorkerConfigurationOutput) PropertiesFileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.PropertiesFileContent }).(pulumi.StringOutput)
 }
@@ -268,6 +307,12 @@ func (o WorkerConfigurationArrayOutput) ToWorkerConfigurationArrayOutput() Worke
 
 func (o WorkerConfigurationArrayOutput) ToWorkerConfigurationArrayOutputWithContext(ctx context.Context) WorkerConfigurationArrayOutput {
 	return o
+}
+
+func (o WorkerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkerConfiguration] {
+	return pulumix.Output[[]*WorkerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkerConfigurationArrayOutput) Index(i pulumi.IntInput) WorkerConfigurationOutput {
@@ -288,6 +333,12 @@ func (o WorkerConfigurationMapOutput) ToWorkerConfigurationMapOutput() WorkerCon
 
 func (o WorkerConfigurationMapOutput) ToWorkerConfigurationMapOutputWithContext(ctx context.Context) WorkerConfigurationMapOutput {
 	return o
+}
+
+func (o WorkerConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkerConfiguration] {
+	return pulumix.Output[map[string]*WorkerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkerConfigurationMapOutput) MapIndex(k pulumi.StringInput) WorkerConfigurationOutput {

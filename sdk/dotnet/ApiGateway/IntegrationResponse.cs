@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_integration_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+    /// Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
@@ -136,6 +136,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// HTTP status code.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("statusCode")]
         public Output<string> StatusCode { get; private set; } = null!;
@@ -242,6 +244,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// HTTP status code.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -310,6 +314,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// HTTP status code.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }

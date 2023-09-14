@@ -67,6 +67,8 @@ namespace Pulumi.Aws.Scheduler.Outputs
         public readonly int? TaskCount;
         /// <summary>
         /// ARN of the task definition to use.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string TaskDefinitionArn;
 

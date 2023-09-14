@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Synthetics Canaries can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:synthetics/canary:Canary some some-canary
@@ -276,12 +276,16 @@ public class Canary extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="schedule", refs={CanarySchedule.class}, tree="[0]")
     private Output<CanarySchedule> schedule;
 
     /**
      * @return Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<CanarySchedule> schedule() {

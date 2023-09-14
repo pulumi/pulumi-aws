@@ -31,6 +31,10 @@ class PermissionsArgs:
         The set of arguments for constructing a Permissions resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+               
+               > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+               
+               One of the following is required:
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input['PermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
@@ -40,6 +44,8 @@ class PermissionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input['PermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -79,6 +85,10 @@ class PermissionsArgs:
     def principal(self) -> pulumi.Input[str]:
         """
         Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+
+        > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+
+        One of the following is required:
         """
         return pulumi.get(self, "principal")
 
@@ -187,6 +197,8 @@ class PermissionsArgs:
     def table_with_columns(self) -> Optional[pulumi.Input['PermissionsTableWithColumnsArgs']]:
         """
         Configuration block for a table with columns resource. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "table_with_columns")
 
@@ -220,8 +232,14 @@ class _PermissionsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+               
+               > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+               
+               One of the following is required:
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input['PermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+               
+               The following arguments are optional:
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -347,6 +365,10 @@ class _PermissionsState:
     def principal(self) -> Optional[pulumi.Input[str]]:
         """
         Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+
+        > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+
+        One of the following is required:
         """
         return pulumi.get(self, "principal")
 
@@ -371,6 +393,8 @@ class _PermissionsState:
     def table_with_columns(self) -> Optional[pulumi.Input['PermissionsTableWithColumnsArgs']]:
         """
         Configuration block for a table with columns resource. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "table_with_columns")
 
@@ -550,8 +574,14 @@ class Permissions(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+               
+               > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+               
+               One of the following is required:
         :param pulumi.Input[pulumi.InputType['PermissionsTableArgs']] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsTableWithColumnsArgs']] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -789,8 +819,14 @@ class Permissions(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+               
+               > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+               
+               One of the following is required:
         :param pulumi.Input[pulumi.InputType['PermissionsTableArgs']] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsTableWithColumnsArgs']] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -878,6 +914,10 @@ class Permissions(pulumi.CustomResource):
     def principal(self) -> pulumi.Output[str]:
         """
         Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+
+        > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+
+        One of the following is required:
         """
         return pulumi.get(self, "principal")
 
@@ -894,6 +934,8 @@ class Permissions(pulumi.CustomResource):
     def table_with_columns(self) -> pulumi.Output['outputs.PermissionsTableWithColumns']:
         """
         Configuration block for a table with columns resource. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "table_with_columns")
 

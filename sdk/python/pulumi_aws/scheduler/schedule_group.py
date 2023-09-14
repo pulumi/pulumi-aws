@@ -230,7 +230,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
         ## Import
 
-        Schedule groups can be imported using the `name`. For example
+        Using `pulumi import`, import schedule groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
@@ -266,7 +266,7 @@ class ScheduleGroup(pulumi.CustomResource):
 
         ## Import
 
-        Schedule groups can be imported using the `name`. For example
+        Using `pulumi import`, import schedule groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group

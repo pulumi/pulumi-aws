@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -138,6 +139,21 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         return Optional.ofNullable(this.s3BackupMode);
     }
 
+    /**
+     * The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    @Import(name="s3Configuration", required=true)
+    private Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration;
+
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration() {
+        return this.s3Configuration;
+    }
+
     private FirehoseDeliveryStreamSplunkConfigurationArgs() {}
 
     private FirehoseDeliveryStreamSplunkConfigurationArgs(FirehoseDeliveryStreamSplunkConfigurationArgs $) {
@@ -149,6 +165,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         this.processingConfiguration = $.processingConfiguration;
         this.retryDuration = $.retryDuration;
         this.s3BackupMode = $.s3BackupMode;
+        this.s3Configuration = $.s3Configuration;
     }
 
     public static Builder builder() {
@@ -337,9 +354,31 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
             return s3BackupMode(Output.of(s3BackupMode));
         }
 
+        /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration) {
+            $.s3Configuration = s3Configuration;
+            return this;
+        }
+
+        /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs s3Configuration) {
+            return s3Configuration(Output.of(s3Configuration));
+        }
+
         public FirehoseDeliveryStreamSplunkConfigurationArgs build() {
             $.hecEndpoint = Objects.requireNonNull($.hecEndpoint, "expected parameter 'hecEndpoint' to be non-null");
             $.hecToken = Objects.requireNonNull($.hecToken, "expected parameter 'hecToken' to be non-null");
+            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
             return $;
         }
     }

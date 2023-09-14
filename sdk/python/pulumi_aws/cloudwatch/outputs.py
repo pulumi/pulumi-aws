@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CompositeAlarmActionsSuppressor',
     'EventConnectionAuthParameters',
     'EventConnectionAuthParametersApiKey',
     'EventConnectionAuthParametersBasic',
@@ -44,7 +45,10 @@ __all__ = [
     'EventTargetRedshiftTarget',
     'EventTargetRetryPolicy',
     'EventTargetRunCommandTarget',
+    'EventTargetSagemakerPipelineTarget',
+    'EventTargetSagemakerPipelineTargetPipelineParameterList',
     'EventTargetSqsTarget',
+    'InternetMonitorHealthEventsConfig',
     'InternetMonitorInternetMeasurementsLogDelivery',
     'InternetMonitorInternetMeasurementsLogDeliveryS3Config',
     'LogMetricFilterMetricTransformation',
@@ -64,6 +68,65 @@ __all__ = [
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult',
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult',
 ]
+
+@pulumi.output_type
+class CompositeAlarmActionsSuppressor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionPeriod":
+            suggest = "extension_period"
+        elif key == "waitPeriod":
+            suggest = "wait_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CompositeAlarmActionsSuppressor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CompositeAlarmActionsSuppressor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CompositeAlarmActionsSuppressor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm: str,
+                 extension_period: int,
+                 wait_period: int):
+        """
+        :param str alarm: Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        :param int extension_period: The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+        :param int wait_period: The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        pulumi.set(__self__, "alarm", alarm)
+        pulumi.set(__self__, "extension_period", extension_period)
+        pulumi.set(__self__, "wait_period", wait_period)
+
+    @property
+    @pulumi.getter
+    def alarm(self) -> str:
+        """
+        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        """
+        return pulumi.get(self, "alarm")
+
+    @property
+    @pulumi.getter(name="extensionPeriod")
+    def extension_period(self) -> int:
+        """
+        The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        return pulumi.get(self, "extension_period")
+
+    @property
+    @pulumi.getter(name="waitPeriod")
+    def wait_period(self) -> int:
+        """
+        The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        return pulumi.get(self, "wait_period")
+
 
 @pulumi.output_type
 class EventConnectionAuthParameters(dict):
@@ -1394,6 +1457,8 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
         """
         :param Sequence[str] subnets: The subnets associated with the task or service.
         :param bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+               
+               For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         :param Sequence[str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -1415,6 +1480,8 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
     def assign_public_ip(self) -> Optional[bool]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -1823,6 +1890,71 @@ class EventTargetRunCommandTarget(dict):
 
 
 @pulumi.output_type
+class EventTargetSagemakerPipelineTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineParameterLists":
+            suggest = "pipeline_parameter_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetSagemakerPipelineTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetSagemakerPipelineTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetSagemakerPipelineTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_parameter_lists: Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']] = None):
+        """
+        :param Sequence['EventTargetSagemakerPipelineTargetPipelineParameterListArgs'] pipeline_parameter_lists: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
+        if pipeline_parameter_lists is not None:
+            pulumi.set(__self__, "pipeline_parameter_lists", pipeline_parameter_lists)
+
+    @property
+    @pulumi.getter(name="pipelineParameterLists")
+    def pipeline_parameter_lists(self) -> Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']]:
+        """
+        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
+        return pulumi.get(self, "pipeline_parameter_lists")
+
+
+@pulumi.output_type
+class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EventTargetSqsTarget(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1856,6 +1988,56 @@ class EventTargetSqsTarget(dict):
         The FIFO message group ID to use as the target.
         """
         return pulumi.get(self, "message_group_id")
+
+
+@pulumi.output_type
+class InternetMonitorHealthEventsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityScoreThreshold":
+            suggest = "availability_score_threshold"
+        elif key == "performanceScoreThreshold":
+            suggest = "performance_score_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InternetMonitorHealthEventsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InternetMonitorHealthEventsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InternetMonitorHealthEventsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_score_threshold: Optional[float] = None,
+                 performance_score_threshold: Optional[float] = None):
+        """
+        :param float availability_score_threshold: The health event threshold percentage set for availability scores.
+        :param float performance_score_threshold: The health event threshold percentage set for performance scores.
+        """
+        if availability_score_threshold is not None:
+            pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+        if performance_score_threshold is not None:
+            pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+
+    @property
+    @pulumi.getter(name="availabilityScoreThreshold")
+    def availability_score_threshold(self) -> Optional[float]:
+        """
+        The health event threshold percentage set for availability scores.
+        """
+        return pulumi.get(self, "availability_score_threshold")
+
+    @property
+    @pulumi.getter(name="performanceScoreThreshold")
+    def performance_score_threshold(self) -> Optional[float]:
+        """
+        The health event threshold percentage set for performance scores.
+        """
+        return pulumi.get(self, "performance_score_threshold")
 
 
 @pulumi.output_type
@@ -2069,6 +2251,8 @@ class MetricAlarmMetricQuery(dict):
                For metrics with regular resolution, valid values are any multiple of `60`.
                For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         :param bool return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+               
+               > **NOTE:**  You must specify either `metric` or `expression`. Not both.
         """
         pulumi.set(__self__, "id", id)
         if account_id is not None:
@@ -2139,6 +2323,8 @@ class MetricAlarmMetricQuery(dict):
     def return_data(self) -> Optional[bool]:
         """
         Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+
+        > **NOTE:**  You must specify either `metric` or `expression`. Not both.
         """
         return pulumi.get(self, "return_data")
 
@@ -2483,6 +2669,8 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
         """
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs' audit: Configures the detection of sensitive data.
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs' deidentify: Configures the masking of sensitive data.
+               
+               > Every policy statement must specify exactly one operation.
         """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
@@ -2502,6 +2690,8 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
     def deidentify(self) -> Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult']:
         """
         Configures the masking of sensitive data.
+
+        > Every policy statement must specify exactly one operation.
         """
         return pulumi.get(self, "deidentify")
 

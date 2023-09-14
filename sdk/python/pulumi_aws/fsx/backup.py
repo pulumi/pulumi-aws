@@ -274,7 +274,7 @@ class Backup(pulumi.CustomResource):
 
         ## Import
 
-        FSx Backups can be imported using the `id`, e.g.,
+        Using `pulumi import`, import FSx Backups using the `id`. For example:
 
         ```sh
          $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
@@ -354,7 +354,7 @@ class Backup(pulumi.CustomResource):
 
         ## Import
 
-        FSx Backups can be imported using the `id`, e.g.,
+        Using `pulumi import`, import FSx Backups using the `id`. For example:
 
         ```sh
          $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33

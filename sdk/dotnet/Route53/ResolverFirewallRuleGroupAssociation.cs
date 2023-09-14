@@ -36,11 +36,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route 53 Resolver DNS Firewall rule group associations can be imported using the Route 53 Resolver DNS Firewall rule group association ID, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-    /// ```
+    ///  to = aws_route53_resolver_firewall_rule_group_association.example
+    /// 
+    ///  id = "rslvr-frgassoc-0123456789abcdef" } Using `TODO import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")]
     public partial class ResolverFirewallRuleGroupAssociation : global::Pulumi.CustomResource
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Route53
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

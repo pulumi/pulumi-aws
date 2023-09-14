@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Recovery Readiness readiness checks can be imported via the readiness check name, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check
+ *  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
  * ```
  */
 export class ReadinessCheck extends pulumi.CustomResource {
@@ -65,6 +65,8 @@ export class ReadinessCheck extends pulumi.CustomResource {
     public readonly readinessCheckName!: pulumi.Output<string>;
     /**
      * Name describing the resource set that will be monitored for readiness.
+     *
+     * The following arguments are optional:
      */
     public readonly resourceSetName!: pulumi.Output<string>;
     /**
@@ -127,6 +129,8 @@ export interface ReadinessCheckState {
     readinessCheckName?: pulumi.Input<string>;
     /**
      * Name describing the resource set that will be monitored for readiness.
+     *
+     * The following arguments are optional:
      */
     resourceSetName?: pulumi.Input<string>;
     /**
@@ -149,6 +153,8 @@ export interface ReadinessCheckArgs {
     readinessCheckName: pulumi.Input<string>;
     /**
      * Name describing the resource set that will be monitored for readiness.
+     *
+     * The following arguments are optional:
      */
     resourceSetName: pulumi.Input<string>;
     /**

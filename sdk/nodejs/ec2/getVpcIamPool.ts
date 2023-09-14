@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpcIamPool = aws.ec2.getVpcIamPool({
+ * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
  *     filters: [
  *         {
  *             name: "description",
@@ -37,12 +37,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIamPool.then(testVpcIamPool => testVpcIamPool.id),
+ *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
  *     ipv4NetmaskLength: 28,
  * });
  * ```
  */
+/** @deprecated aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
 export function getVpcIamPool(args?: GetVpcIamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolResult> {
+    pulumi.log.warn("getVpcIamPool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool")
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -168,7 +170,7 @@ export interface GetVpcIamPoolResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpcIamPool = aws.ec2.getVpcIamPool({
+ * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
  *     filters: [
  *         {
  *             name: "description",
@@ -181,11 +183,12 @@ export interface GetVpcIamPoolResult {
  *     ],
  * });
  * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIamPool.then(testVpcIamPool => testVpcIamPool.id),
+ *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
  *     ipv4NetmaskLength: 28,
  * });
  * ```
  */
+/** @deprecated aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
 export function getVpcIamPoolOutput(args?: GetVpcIamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolResult> {
     return pulumi.output(args).apply((a: any) => getVpcIamPool(a, opts))
 }

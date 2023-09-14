@@ -12,10 +12,13 @@ import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
 import com.pulumi.aws.msk.inputs.GetConfigurationPlainArgs;
 import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
 import com.pulumi.aws.msk.inputs.GetKafkaVersionPlainArgs;
+import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
+import com.pulumi.aws.msk.inputs.GetVpcConnectionPlainArgs;
 import com.pulumi.aws.msk.outputs.GetBrokerNodesResult;
 import com.pulumi.aws.msk.outputs.GetClusterResult;
 import com.pulumi.aws.msk.outputs.GetConfigurationResult;
 import com.pulumi.aws.msk.outputs.GetKafkaVersionResult;
+import com.pulumi.aws.msk.outputs.GetVpcConnectionResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -738,5 +741,153 @@ public final class MskFunctions {
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain(GetKafkaVersionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:msk/getKafkaVersion:getKafkaVersion", TypeShape.of(GetKafkaVersionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information on an Amazon MSK VPC Connection.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
+     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args) {
+        return getVpcConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on an Amazon MSK VPC Connection.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
+     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args) {
+        return getVpcConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on an Amazon MSK VPC Connection.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
+     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:msk/getVpcConnection:getVpcConnection", TypeShape.of(GetVpcConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information on an Amazon MSK VPC Connection.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
+     *             .arn(aws_msk_vpc_connection.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:msk/getVpcConnection:getVpcConnection", TypeShape.of(GetVpcConnectionResult.class), args, Utilities.withVersion(options));
     }
 }

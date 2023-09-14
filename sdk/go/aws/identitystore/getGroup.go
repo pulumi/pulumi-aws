@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get an Identity Store Group.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult
 	err := ctx.Invoke("aws:identitystore/getGroup:getGroup", args, &rv, opts...)
 	if err != nil {
@@ -29,8 +32,12 @@ type LookupGroupArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter *GetGroupFilter `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
 	GroupId *string `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
@@ -73,8 +80,12 @@ type LookupGroupOutputArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter GetGroupFilterPtrInput `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 }
 
@@ -95,6 +106,12 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutput() LookupGroupResultOu
 
 func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx context.Context) LookupGroupResultOutput {
 	return o
+}
+
+func (o LookupGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGroupResult] {
+	return pulumix.Output[LookupGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupGroupResultOutput) AlternateIdentifier() GetGroupAlternateIdentifierPtrOutput {

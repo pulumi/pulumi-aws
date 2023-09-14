@@ -23,6 +23,8 @@ class UserStackAssociationArgs:
         :param pulumi.Input[str] authentication_type: Authentication type for the user.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -60,6 +62,8 @@ class UserStackAssociationArgs:
     def user_name(self) -> pulumi.Input[str]:
         """
         Email address of the user who is associated with the stack.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -93,6 +97,8 @@ class _UserStackAssociationState:
         :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
+               
+               The following arguments are optional:
         """
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
@@ -144,6 +150,8 @@ class _UserStackAssociationState:
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
         Email address of the user who is associated with the stack.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -183,7 +191,7 @@ class UserStackAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
@@ -195,6 +203,8 @@ class UserStackAssociation(pulumi.CustomResource):
         :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -223,7 +233,7 @@ class UserStackAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+        Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
 
         ```sh
          $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
@@ -292,6 +302,8 @@ class UserStackAssociation(pulumi.CustomResource):
         :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -332,6 +344,8 @@ class UserStackAssociation(pulumi.CustomResource):
     def user_name(self) -> pulumi.Output[str]:
         """
         Email address of the user who is associated with the stack.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 

@@ -45,19 +45,25 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Individual routes can be imported using `ROUTETABLEID_DESTINATION`. [Local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) can be imported using the VPC's IPv4 or IPv6 CIDR blocks. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
+ * Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
+ *
+ * Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
+ *
+ * Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
+ *
+ * __Using `pulumi import` to import__ individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
+ *
+ * Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
  *
  * ```sh
  *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
  * ```
- *
- *  Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125` similarlyconsole
+ *  Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
  *
  * ```sh
  *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
  * ```
- *
- *  Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
+ *  Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
  *
  * ```sh
  *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
@@ -109,6 +115,8 @@ export class Route extends pulumi.CustomResource {
     public readonly destinationIpv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The ID of a managed prefix list destination.
+     *
+     * One of the following target arguments must be supplied:
      */
     public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
     /**
@@ -121,10 +129,8 @@ export class Route extends pulumi.CustomResource {
     public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 instance.
-     *
-     * @deprecated Use network_interface_id instead
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    public /*out*/ readonly instanceId!: pulumi.Output<string>;
     /**
      * The AWS account ID of the owner of the EC2 instance.
      */
@@ -147,6 +153,8 @@ export class Route extends pulumi.CustomResource {
     public /*out*/ readonly origin!: pulumi.Output<string>;
     /**
      * The ID of the routing table.
+     *
+     * One of the following destination arguments must be supplied:
      */
     public readonly routeTableId!: pulumi.Output<string>;
     /**
@@ -163,6 +171,8 @@ export class Route extends pulumi.CustomResource {
     public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC peering connection.
+     *
+     * Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
      */
     public readonly vpcPeeringConnectionId!: pulumi.Output<string | undefined>;
 
@@ -209,7 +219,6 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
             resourceInputs["egressOnlyGatewayId"] = args ? args.egressOnlyGatewayId : undefined;
             resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
             resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
@@ -217,6 +226,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
             resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["instanceOwnerId"] = undefined /*out*/;
             resourceInputs["origin"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -248,6 +258,8 @@ export interface RouteState {
     destinationIpv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of a managed prefix list destination.
+     *
+     * One of the following target arguments must be supplied:
      */
     destinationPrefixListId?: pulumi.Input<string>;
     /**
@@ -260,8 +272,6 @@ export interface RouteState {
     gatewayId?: pulumi.Input<string>;
     /**
      * Identifier of an EC2 instance.
-     *
-     * @deprecated Use network_interface_id instead
      */
     instanceId?: pulumi.Input<string>;
     /**
@@ -286,6 +296,8 @@ export interface RouteState {
     origin?: pulumi.Input<string>;
     /**
      * The ID of the routing table.
+     *
+     * One of the following destination arguments must be supplied:
      */
     routeTableId?: pulumi.Input<string>;
     /**
@@ -302,6 +314,8 @@ export interface RouteState {
     vpcEndpointId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC peering connection.
+     *
+     * Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
      */
     vpcPeeringConnectionId?: pulumi.Input<string>;
 }
@@ -328,6 +342,8 @@ export interface RouteArgs {
     destinationIpv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of a managed prefix list destination.
+     *
+     * One of the following target arguments must be supplied:
      */
     destinationPrefixListId?: pulumi.Input<string>;
     /**
@@ -338,12 +354,6 @@ export interface RouteArgs {
      * Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
      */
     gatewayId?: pulumi.Input<string>;
-    /**
-     * Identifier of an EC2 instance.
-     *
-     * @deprecated Use network_interface_id instead
-     */
-    instanceId?: pulumi.Input<string>;
     /**
      * Identifier of a Outpost local gateway.
      */
@@ -358,6 +368,8 @@ export interface RouteArgs {
     networkInterfaceId?: pulumi.Input<string>;
     /**
      * The ID of the routing table.
+     *
+     * One of the following destination arguments must be supplied:
      */
     routeTableId: pulumi.Input<string>;
     /**
@@ -370,6 +382,8 @@ export interface RouteArgs {
     vpcEndpointId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC peering connection.
+     *
+     * Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
      */
     vpcPeeringConnectionId?: pulumi.Input<string>;
 }

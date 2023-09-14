@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic mysql blueprint
- * 
  * ```java
  * package generated_program;
  * 
@@ -57,14 +56,13 @@ import javax.annotation.Nullable;
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .name(&#34;test&#34;)
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Basic postrgres blueprint
- * 
  * ```java
  * package generated_program;
  * 
@@ -93,7 +91,7 @@ import javax.annotation.Nullable;
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .name(&#34;test&#34;)
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
@@ -102,7 +100,6 @@ import javax.annotation.Nullable;
  * ### Custom backup and maintenance windows
  * 
  * Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
- * 
  * ```java
  * package generated_program;
  * 
@@ -131,9 +128,9 @@ import javax.annotation.Nullable;
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .name(&#34;test&#34;)
  *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
  *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
@@ -142,7 +139,6 @@ import javax.annotation.Nullable;
  * ### Final Snapshots
  * 
  * To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
- * 
  * ```java
  * package generated_program;
  * 
@@ -172,9 +168,9 @@ import javax.annotation.Nullable;
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .name(&#34;test&#34;)
  *             .preferredBackupWindow(&#34;16:00-16:30&#34;)
  *             .preferredMaintenanceWindow(&#34;Tue:17:00-Tue:17:30&#34;)
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
@@ -183,7 +179,6 @@ import javax.annotation.Nullable;
  * ### Apply Immediately
  * 
  * To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
- * 
  * ```java
  * package generated_program;
  * 
@@ -213,7 +208,7 @@ import javax.annotation.Nullable;
  *             .masterDatabaseName(&#34;testdatabasename&#34;)
  *             .masterPassword(&#34;testdatabasepassword&#34;)
  *             .masterUsername(&#34;test&#34;)
- *             .name(&#34;test&#34;)
+ *             .relationalDatabaseName(&#34;test&#34;)
  *             .build());
  * 
  *     }
@@ -268,7 +263,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lightsail Databases can be imported using their name, e.g.
+ * Using `pulumi import`, import Lightsail Databases using their name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:lightsail/database:Database foo &#39;bar&#39;
@@ -585,9 +580,17 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<Double> ramSize() {
         return this.ramSize;
     }
+    /**
+     * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * 
+     */
     @Export(name="relationalDatabaseName", refs={String.class}, tree="[0]")
     private Output<String> relationalDatabaseName;
 
+    /**
+     * @return The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * 
+     */
     public Output<String> relationalDatabaseName() {
         return this.relationalDatabaseName;
     }

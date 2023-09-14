@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+ * Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:
  *
  * ```sh
  *  $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_networkmanager_global_network` can be imported using the global network ID, e.g.
+ * Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For example:
  *
  * ```sh
  *  $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4

@@ -145,6 +145,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         > **NOTE:** S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
 
+        > **NOTE:** Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
+        Running TODO operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
+        See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
+
         ## Example Usage
         ### With neither a filter nor prefix specified
 
@@ -418,13 +422,18 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket lifecycle configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` e.g.,
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        __Using `pulumi import` to import__ S3 bucket lifecycle configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
@@ -455,6 +464,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         > **NOTE:** S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
 
+        > **NOTE:** Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
+        Running TODO operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
+        See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
+
         ## Example Usage
         ### With neither a filter nor prefix specified
 
@@ -728,13 +741,18 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket lifecycle configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` e.g.,
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        __Using `pulumi import` to import__ S3 bucket lifecycle configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket lifecycle configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
          $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012

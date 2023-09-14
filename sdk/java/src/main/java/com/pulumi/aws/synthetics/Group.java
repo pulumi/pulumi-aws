@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Synthetics Group can be imported using the `name`, e.g.,
+ * Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:synthetics/group:Group example example
@@ -88,12 +88,16 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * Name of the group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

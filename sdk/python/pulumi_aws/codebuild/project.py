@@ -45,6 +45,8 @@ class ProjectArgs:
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
         :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
@@ -149,6 +151,8 @@ class ProjectArgs:
     def source(self) -> pulumi.Input['ProjectSourceArgs']:
         """
         Configuration block. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source")
 
@@ -440,6 +444,8 @@ class _ProjectState:
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -769,6 +775,8 @@ class _ProjectState:
     def source(self) -> Optional[pulumi.Input['ProjectSourceArgs']]:
         """
         Configuration block. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source")
 
@@ -944,7 +952,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[
@@ -1009,7 +1017,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
@@ -1029,7 +1037,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.,
+        Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
         ```sh
          $ pulumi import aws:codebuild/project:Project name project-name
@@ -1057,6 +1065,8 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
@@ -1157,7 +1167,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[
@@ -1222,7 +1232,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
@@ -1242,7 +1252,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.,
+        Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
         ```sh
          $ pulumi import aws:codebuild/project:Project name project-name
@@ -1397,6 +1407,8 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1616,6 +1628,8 @@ class Project(pulumi.CustomResource):
     def source(self) -> pulumi.Output['outputs.ProjectSource']:
         """
         Configuration block. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source")
 

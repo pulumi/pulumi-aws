@@ -48,12 +48,16 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The globally unique identifier for the identity store.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
     /**
      * @return The globally unique identifier for the identity store.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> identityStoreId() {
@@ -131,6 +135,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityStoreId The globally unique identifier for the identity store.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param identityStoreId The globally unique identifier for the identity store.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

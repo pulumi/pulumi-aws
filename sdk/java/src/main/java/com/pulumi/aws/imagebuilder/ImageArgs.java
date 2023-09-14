@@ -96,12 +96,16 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="infrastructureConfigurationArn", required=true)
     private Output<String> infrastructureConfigurationArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> infrastructureConfigurationArn() {
@@ -261,6 +265,8 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param infrastructureConfigurationArn Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -271,6 +277,8 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param infrastructureConfigurationArn Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -185,7 +185,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Object Lambda Access Point policies can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+        Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
 
         ```sh
          $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
@@ -241,7 +241,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Object Lambda Access Point policies can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+        Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
 
         ```sh
          $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example

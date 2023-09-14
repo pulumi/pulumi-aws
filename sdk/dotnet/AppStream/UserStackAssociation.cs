@@ -42,7 +42,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+    /// Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
@@ -71,6 +71,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Email address of the user who is associated with the stack.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -141,6 +143,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Email address of the user who is associated with the stack.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -173,6 +177,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Email address of the user who is associated with the stack.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

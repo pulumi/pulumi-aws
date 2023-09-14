@@ -86,11 +86,11 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// 
     /// ## Import
     /// 
-    /// CodeStar notification rule can be imported using the ARN, e.g.,
+    /// In TODO v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-    /// ```
+    ///  to = aws_codestarnotifications_notification_rule.foo
+    /// 
+    ///  id = "arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b" } Using `TODO import`, import CodeStar notification rule using the ARN. For exampleconsole % TODO import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
     /// </summary>
     [AwsResourceType("aws:codestarnotifications/notificationRule:NotificationRule")]
     public partial class NotificationRule : global::Pulumi.CustomResource
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

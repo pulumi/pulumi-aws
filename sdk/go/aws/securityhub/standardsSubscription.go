@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Subscribes to a Security Hub standard.
@@ -22,8 +24,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,29 +64,33 @@ import (
 //
 // ## Import
 //
-// Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
+// In TODO v1.5.0 and later, use an `import` block to import Security Hub standards subscriptions using the standards subscription ARN. For exampleterraform import {
 //
-// ```sh
+//	to = aws_securityhub_standards_subscription.cis
 //
-//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+//	id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0" } terraform import {
 //
-// ```
+//	to = aws_securityhub_standards_subscription.pci_321
 //
-// ```sh
+//	id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1" } terraform import {
 //
-//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+//	to = aws_securityhub_standards_subscription.nist_800_53_rev_5
 //
-// ```
-//
-// ```sh
-//
-//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
-//
-// ```
+//	id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0" } Using `TODO import`, import Security Hub standards subscriptions using the standards subscription ARN. For exampleconsole % TODO import aws_securityhub_standards_subscription.cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0 console % TODO import aws_securityhub_standards_subscription.pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1 console % TODO import aws_securityhub_standards_subscription.nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
 type StandardsSubscription struct {
 	pulumi.CustomResourceState
 
 	// The ARN of a standard - see below.
+	//
+	// Currently available standards (remember to replace `${var.region}` as appropriate):
+	//
+	// | Name                                     | ARN                                                                                             |
+	// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+	// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+	// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+	// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+	// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+	// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
 	StandardsArn pulumi.StringOutput `pulumi:"standardsArn"`
 }
 
@@ -98,6 +104,7 @@ func NewStandardsSubscription(ctx *pulumi.Context,
 	if args.StandardsArn == nil {
 		return nil, errors.New("invalid value for required argument 'StandardsArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StandardsSubscription
 	err := ctx.RegisterResource("aws:securityhub/standardsSubscription:StandardsSubscription", name, args, &resource, opts...)
 	if err != nil {
@@ -121,11 +128,31 @@ func GetStandardsSubscription(ctx *pulumi.Context,
 // Input properties used for looking up and filtering StandardsSubscription resources.
 type standardsSubscriptionState struct {
 	// The ARN of a standard - see below.
+	//
+	// Currently available standards (remember to replace `${var.region}` as appropriate):
+	//
+	// | Name                                     | ARN                                                                                             |
+	// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+	// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+	// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+	// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+	// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+	// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
 	StandardsArn *string `pulumi:"standardsArn"`
 }
 
 type StandardsSubscriptionState struct {
 	// The ARN of a standard - see below.
+	//
+	// Currently available standards (remember to replace `${var.region}` as appropriate):
+	//
+	// | Name                                     | ARN                                                                                             |
+	// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+	// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+	// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+	// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+	// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+	// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
 	StandardsArn pulumi.StringPtrInput
 }
 
@@ -135,12 +162,32 @@ func (StandardsSubscriptionState) ElementType() reflect.Type {
 
 type standardsSubscriptionArgs struct {
 	// The ARN of a standard - see below.
+	//
+	// Currently available standards (remember to replace `${var.region}` as appropriate):
+	//
+	// | Name                                     | ARN                                                                                             |
+	// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+	// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+	// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+	// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+	// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+	// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
 	StandardsArn string `pulumi:"standardsArn"`
 }
 
 // The set of arguments for constructing a StandardsSubscription resource.
 type StandardsSubscriptionArgs struct {
 	// The ARN of a standard - see below.
+	//
+	// Currently available standards (remember to replace `${var.region}` as appropriate):
+	//
+	// | Name                                     | ARN                                                                                             |
+	// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+	// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+	// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+	// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+	// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+	// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
 	StandardsArn pulumi.StringInput
 }
 
@@ -165,6 +212,12 @@ func (i *StandardsSubscription) ToStandardsSubscriptionOutput() StandardsSubscri
 
 func (i *StandardsSubscription) ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionOutput)
+}
+
+func (i *StandardsSubscription) ToOutput(ctx context.Context) pulumix.Output[*StandardsSubscription] {
+	return pulumix.Output[*StandardsSubscription]{
+		OutputState: i.ToStandardsSubscriptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StandardsSubscriptionArrayInput is an input type that accepts StandardsSubscriptionArray and StandardsSubscriptionArrayOutput values.
@@ -192,6 +245,12 @@ func (i StandardsSubscriptionArray) ToStandardsSubscriptionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionArrayOutput)
 }
 
+func (i StandardsSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsSubscription] {
+	return pulumix.Output[[]*StandardsSubscription]{
+		OutputState: i.ToStandardsSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StandardsSubscriptionMapInput is an input type that accepts StandardsSubscriptionMap and StandardsSubscriptionMapOutput values.
 // You can construct a concrete instance of `StandardsSubscriptionMapInput` via:
 //
@@ -217,6 +276,12 @@ func (i StandardsSubscriptionMap) ToStandardsSubscriptionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionMapOutput)
 }
 
+func (i StandardsSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsSubscription] {
+	return pulumix.Output[map[string]*StandardsSubscription]{
+		OutputState: i.ToStandardsSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StandardsSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (StandardsSubscriptionOutput) ElementType() reflect.Type {
@@ -231,7 +296,23 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutputWithContext(ct
 	return o
 }
 
+func (o StandardsSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardsSubscription] {
+	return pulumix.Output[*StandardsSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of a standard - see below.
+//
+// Currently available standards (remember to replace `${var.region}` as appropriate):
+//
+// | Name                                     | ARN                                                                                             |
+// |------------------------------------------|-------------------------------------------------------------------------------------------------|
+// | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+// | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+// | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+// | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+// | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
 func (o StandardsSubscriptionOutput) StandardsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsSubscription) pulumi.StringOutput { return v.StandardsArn }).(pulumi.StringOutput)
 }
@@ -248,6 +329,12 @@ func (o StandardsSubscriptionArrayOutput) ToStandardsSubscriptionArrayOutput() S
 
 func (o StandardsSubscriptionArrayOutput) ToStandardsSubscriptionArrayOutputWithContext(ctx context.Context) StandardsSubscriptionArrayOutput {
 	return o
+}
+
+func (o StandardsSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsSubscription] {
+	return pulumix.Output[[]*StandardsSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardsSubscriptionArrayOutput) Index(i pulumi.IntInput) StandardsSubscriptionOutput {
@@ -268,6 +355,12 @@ func (o StandardsSubscriptionMapOutput) ToStandardsSubscriptionMapOutput() Stand
 
 func (o StandardsSubscriptionMapOutput) ToStandardsSubscriptionMapOutputWithContext(ctx context.Context) StandardsSubscriptionMapOutput {
 	return o
+}
+
+func (o StandardsSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsSubscription] {
+	return pulumix.Output[map[string]*StandardsSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardsSubscriptionMapOutput) MapIndex(k pulumi.StringInput) StandardsSubscriptionOutput {

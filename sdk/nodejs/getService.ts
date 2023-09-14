@@ -47,6 +47,7 @@ export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getService:getService", {
         "dnsName": args.dnsName,
+        "id": args.id,
         "region": args.region,
         "reverseDnsName": args.reverseDnsName,
         "reverseDnsPrefix": args.reverseDnsPrefix,
@@ -62,6 +63,7 @@ export interface GetServiceArgs {
      * DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      */
     dnsName?: string;
+    id?: string;
     /**
      * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
      */
@@ -85,9 +87,6 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     readonly dnsName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     readonly partition: string;
     readonly region: string;
@@ -148,6 +147,7 @@ export interface GetServiceOutputArgs {
      * DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      */
     dnsName?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
      */

@@ -354,14 +354,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      * 
      */
     @Import(name="validationMethod")
     private @Nullable Output<String> validationMethod;
 
     /**
-     * @return Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * @return Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      * 
      */
     public Optional<Output<String>> validationMethod() {
@@ -932,7 +932,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
          * 
          * @return builder
          * 
@@ -943,7 +943,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
          * 
          * @return builder
          * 

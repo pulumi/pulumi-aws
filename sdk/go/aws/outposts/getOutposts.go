@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Outposts.
@@ -19,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetOutposts(ctx *pulumi.Context, args *GetOutpostsArgs, opts ...pulumi.InvokeOption) (*GetOutpostsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostsResult
 	err := ctx.Invoke("aws:outposts/getOutposts:getOutposts", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o GetOutpostsResultOutput) ToGetOutpostsResultOutput() GetOutpostsResultOu
 
 func (o GetOutpostsResultOutput) ToGetOutpostsResultOutputWithContext(ctx context.Context) GetOutpostsResultOutput {
 	return o
+}
+
+func (o GetOutpostsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOutpostsResult] {
+	return pulumix.Output[GetOutpostsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of Amazon Resource Names (ARNs).

@@ -442,7 +442,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         )])
         cloud9_eip = aws.ec2.Eip("cloud9Eip",
             instance=cloud9_instance.id,
-            vpc=True)
+            domain="vpc")
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
 
@@ -511,7 +511,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         )])
         cloud9_eip = aws.ec2.Eip("cloud9Eip",
             instance=cloud9_instance.id,
-            vpc=True)
+            domain="vpc")
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
 

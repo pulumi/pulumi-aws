@@ -41,6 +41,8 @@ export interface GetQuicksightGroupArgs {
     awsAccountId?: string;
     /**
      * The name of the group that you want to match.
+     *
+     * The following arguments are optional:
      */
     groupName: string;
     /**
@@ -104,6 +106,8 @@ export interface GetQuicksightGroupOutputArgs {
     awsAccountId?: pulumi.Input<string>;
     /**
      * The name of the group that you want to match.
+     *
+     * The following arguments are optional:
      */
     groupName: pulumi.Input<string>;
     /**

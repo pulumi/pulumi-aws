@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Dax
     /// 
     /// ## Import
     /// 
-    /// DAX Subnet Group can be imported using the `name`, e.g.,
+    /// Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.imagebuilder.inputs;
 
+import com.pulumi.aws.imagebuilder.inputs.ImagePipelineImageScanningConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineImageTestsConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineScheduleArgs;
 import com.pulumi.core.Output;
@@ -170,6 +171,21 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    @Import(name="imageScanningConfiguration")
+    private @Nullable Output<ImagePipelineImageScanningConfigurationArgs> imageScanningConfiguration;
+
+    /**
+     * @return Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<ImagePipelineImageScanningConfigurationArgs>> imageScanningConfiguration() {
+        return Optional.ofNullable(this.imageScanningConfiguration);
+    }
+
+    /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
@@ -202,12 +218,16 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     /**
      * Name of the image pipeline.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the image pipeline.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -302,6 +322,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         this.distributionConfigurationArn = $.distributionConfigurationArn;
         this.enhancedImageMetadataEnabled = $.enhancedImageMetadataEnabled;
         this.imageRecipeArn = $.imageRecipeArn;
+        this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTestsConfiguration = $.imageTestsConfiguration;
         this.infrastructureConfigurationArn = $.infrastructureConfigurationArn;
         this.name = $.name;
@@ -541,6 +562,27 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param imageScanningConfiguration Configuration block with image scanning configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageScanningConfiguration(@Nullable Output<ImagePipelineImageScanningConfigurationArgs> imageScanningConfiguration) {
+            $.imageScanningConfiguration = imageScanningConfiguration;
+            return this;
+        }
+
+        /**
+         * @param imageScanningConfiguration Configuration block with image scanning configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageScanningConfiguration(ImagePipelineImageScanningConfigurationArgs imageScanningConfiguration) {
+            return imageScanningConfiguration(Output.of(imageScanningConfiguration));
+        }
+
+        /**
          * @param imageTestsConfiguration Configuration block with image tests configuration. Detailed below.
          * 
          * @return builder
@@ -585,6 +627,8 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Name of the image pipeline.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -595,6 +639,8 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param name Name of the image pipeline.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

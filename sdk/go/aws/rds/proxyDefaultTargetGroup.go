@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an RDS DB proxy default target group resource.
@@ -22,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +82,7 @@ import (
 //
 // ## Import
 //
-// DB proxy default target groups can be imported using the `db_proxy_name`, e.g.,
+// Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
 //
 // ```sh
 //
@@ -110,6 +112,7 @@ func NewProxyDefaultTargetGroup(ctx *pulumi.Context,
 	if args.DbProxyName == nil {
 		return nil, errors.New("invalid value for required argument 'DbProxyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyDefaultTargetGroup
 	err := ctx.RegisterResource("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -195,6 +198,12 @@ func (i *ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupOutput)
 }
 
+func (i *ProxyDefaultTargetGroup) ToOutput(ctx context.Context) pulumix.Output[*ProxyDefaultTargetGroup] {
+	return pulumix.Output[*ProxyDefaultTargetGroup]{
+		OutputState: i.ToProxyDefaultTargetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProxyDefaultTargetGroupArrayInput is an input type that accepts ProxyDefaultTargetGroupArray and ProxyDefaultTargetGroupArrayOutput values.
 // You can construct a concrete instance of `ProxyDefaultTargetGroupArrayInput` via:
 //
@@ -218,6 +227,12 @@ func (i ProxyDefaultTargetGroupArray) ToProxyDefaultTargetGroupArrayOutput() Pro
 
 func (i ProxyDefaultTargetGroupArray) ToProxyDefaultTargetGroupArrayOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupArrayOutput)
+}
+
+func (i ProxyDefaultTargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyDefaultTargetGroup] {
+	return pulumix.Output[[]*ProxyDefaultTargetGroup]{
+		OutputState: i.ToProxyDefaultTargetGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProxyDefaultTargetGroupMapInput is an input type that accepts ProxyDefaultTargetGroupMap and ProxyDefaultTargetGroupMapOutput values.
@@ -245,6 +260,12 @@ func (i ProxyDefaultTargetGroupMap) ToProxyDefaultTargetGroupMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupMapOutput)
 }
 
+func (i ProxyDefaultTargetGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyDefaultTargetGroup] {
+	return pulumix.Output[map[string]*ProxyDefaultTargetGroup]{
+		OutputState: i.ToProxyDefaultTargetGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProxyDefaultTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (ProxyDefaultTargetGroupOutput) ElementType() reflect.Type {
@@ -257,6 +278,12 @@ func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutput() ProxyDe
 
 func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupOutput {
 	return o
+}
+
+func (o ProxyDefaultTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ProxyDefaultTargetGroup] {
+	return pulumix.Output[*ProxyDefaultTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) representing the target group.
@@ -295,6 +322,12 @@ func (o ProxyDefaultTargetGroupArrayOutput) ToProxyDefaultTargetGroupArrayOutput
 	return o
 }
 
+func (o ProxyDefaultTargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyDefaultTargetGroup] {
+	return pulumix.Output[[]*ProxyDefaultTargetGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProxyDefaultTargetGroupArrayOutput) Index(i pulumi.IntInput) ProxyDefaultTargetGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProxyDefaultTargetGroup {
 		return vs[0].([]*ProxyDefaultTargetGroup)[vs[1].(int)]
@@ -313,6 +346,12 @@ func (o ProxyDefaultTargetGroupMapOutput) ToProxyDefaultTargetGroupMapOutput() P
 
 func (o ProxyDefaultTargetGroupMapOutput) ToProxyDefaultTargetGroupMapOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupMapOutput {
 	return o
+}
+
+func (o ProxyDefaultTargetGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyDefaultTargetGroup] {
+	return pulumix.Output[map[string]*ProxyDefaultTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProxyDefaultTargetGroupMapOutput) MapIndex(k pulumi.StringInput) ProxyDefaultTargetGroupOutput {

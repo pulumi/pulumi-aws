@@ -114,11 +114,11 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceGroupResult).value
 
     return AwaitableGetLocalGatewayVirtualInterfaceGroupResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        local_gateway_id=__ret__.local_gateway_id,
-        local_gateway_virtual_interface_ids=__ret__.local_gateway_virtual_interface_ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
+        local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_local_gateway_virtual_interface_group)

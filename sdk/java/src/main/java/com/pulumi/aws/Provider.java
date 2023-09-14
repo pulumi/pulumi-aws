@@ -129,6 +129,40 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.region);
     }
     /**
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     * 
+     */
+    @Export(name="retryMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> retryMode;
+
+    /**
+     * @return Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     * 
+     */
+    public Output<Optional<String>> retryMode() {
+        return Codegen.optional(this.retryMode);
+    }
+    /**
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * 
+     */
+    @Export(name="s3UsEast1RegionalEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> s3UsEast1RegionalEndpoint;
+
+    /**
+     * @return Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * 
+     */
+    public Output<Optional<String>> s3UsEast1RegionalEndpoint() {
+        return Codegen.optional(this.s3UsEast1RegionalEndpoint);
+    }
+    /**
      * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
@@ -141,24 +175,6 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> secretKey() {
         return Codegen.optional(this.secretKey);
-    }
-    /**
-     * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     * 
-     * @deprecated
-     * Use shared_credentials_files instead.
-     * 
-     */
-    @Deprecated /* Use shared_credentials_files instead. */
-    @Export(name="sharedCredentialsFile", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sharedCredentialsFile;
-
-    /**
-     * @return The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     * 
-     */
-    public Output<Optional<String>> sharedCredentialsFile() {
-        return Codegen.optional(this.sharedCredentialsFile);
     }
     /**
      * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.

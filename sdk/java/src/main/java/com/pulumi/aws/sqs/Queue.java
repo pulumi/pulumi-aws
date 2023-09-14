@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SQS Queues can be imported using the `queue url`, e.g.,
+ * Using `pulumi import`, import SQS Queues using the queue `url`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue

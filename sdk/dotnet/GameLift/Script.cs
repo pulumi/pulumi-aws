@@ -37,7 +37,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// GameLift Scripts can be imported using the ID, e.g.,
+    /// Using `pulumi import`, import GameLift Scripts using the ID. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;

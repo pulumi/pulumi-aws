@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupInstanceRefreshPreferences
     {
         /// <summary>
-        /// Automatically rollback if instance refresh fails. Defaults to `false`.
+        /// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         /// </summary>
         public readonly bool? AutoRollback;
         /// <summary>
@@ -34,9 +34,17 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly int? MinHealthyPercentage;
         /// <summary>
+        /// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+        /// </summary>
+        public readonly string? ScaleInProtectedInstances;
+        /// <summary>
         /// Replace instances that already have your desired configuration. Defaults to `false`.
         /// </summary>
         public readonly bool? SkipMatching;
+        /// <summary>
+        /// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+        /// </summary>
+        public readonly string? StandbyInstances;
 
         [OutputConstructor]
         private GroupInstanceRefreshPreferences(
@@ -50,14 +58,20 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             int? minHealthyPercentage,
 
-            bool? skipMatching)
+            string? scaleInProtectedInstances,
+
+            bool? skipMatching,
+
+            string? standbyInstances)
         {
             AutoRollback = autoRollback;
             CheckpointDelay = checkpointDelay;
             CheckpointPercentages = checkpointPercentages;
             InstanceWarmup = instanceWarmup;
             MinHealthyPercentage = minHealthyPercentage;
+            ScaleInProtectedInstances = scaleInProtectedInstances;
             SkipMatching = skipMatching;
+            StandbyInstances = standbyInstances;
         }
     }
 }

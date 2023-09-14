@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 func GetAccessKey(ctx *pulumi.Context) string {
@@ -83,16 +86,24 @@ func GetRegion(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string)
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
-// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-// Specific to the Amazon S3 service.
-//
-// Deprecated: Use s3_use_path_style instead.
-func GetS3ForcePathStyle(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "aws:s3ForcePathStyle")
+// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+// `AWS_RETRY_MODE` environment variable.
+func GetRetryMode(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:retryMode")
+}
+
+// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+func GetS3UsEast1RegionalEndpoint(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:s3UsEast1RegionalEndpoint")
 }
 
 // Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -112,13 +123,6 @@ func GetSharedConfigFiles(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:sharedConfigFiles")
 }
 
-// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-//
-// Deprecated: Use shared_credentials_files instead.
-func GetSharedCredentialsFile(ctx *pulumi.Context) string {
-	return config.Get(ctx, "aws:sharedCredentialsFile")
-}
-
 // List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
 func GetSharedCredentialsFiles(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:sharedCredentialsFiles")
@@ -131,14 +135,9 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return false
-}
-
-// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-//
-// Deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-func GetSkipGetEc2Platforms(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "aws:skipGetEc2Platforms")
+	var value bool
+	value = false
+	return value
 }
 
 // Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
@@ -147,7 +146,9 @@ func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
@@ -157,7 +158,9 @@ func GetSkipRegionValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.

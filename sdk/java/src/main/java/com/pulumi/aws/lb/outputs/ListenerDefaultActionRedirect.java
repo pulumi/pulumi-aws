@@ -39,6 +39,8 @@ public final class ListenerDefaultActionRedirect {
     /**
      * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
      * 
+     * The following arguments are optional:
+     * 
      */
     private String statusCode;
 
@@ -80,6 +82,8 @@ public final class ListenerDefaultActionRedirect {
     }
     /**
      * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public String statusCode() {

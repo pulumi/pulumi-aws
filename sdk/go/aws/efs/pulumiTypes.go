@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AccessPointPosixUser struct {
 	// POSIX group ID used for all file system operations using this access point.
@@ -49,6 +53,12 @@ func (i AccessPointPosixUserArgs) ToAccessPointPosixUserOutput() AccessPointPosi
 
 func (i AccessPointPosixUserArgs) ToAccessPointPosixUserOutputWithContext(ctx context.Context) AccessPointPosixUserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserOutput)
+}
+
+func (i AccessPointPosixUserArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointPosixUser] {
+	return pulumix.Output[AccessPointPosixUser]{
+		OutputState: i.ToAccessPointPosixUserOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AccessPointPosixUserArgs) ToAccessPointPosixUserPtrOutput() AccessPointPosixUserPtrOutput {
@@ -92,6 +102,12 @@ func (i *accessPointPosixUserPtrType) ToAccessPointPosixUserPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserPtrOutput)
 }
 
+func (i *accessPointPosixUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPosixUser] {
+	return pulumix.Output[*AccessPointPosixUser]{
+		OutputState: i.ToAccessPointPosixUserPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointPosixUserOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPosixUserOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPosixUser) *AccessPointPosixUser {
 		return &v
 	}).(AccessPointPosixUserPtrOutput)
+}
+
+func (o AccessPointPosixUserOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointPosixUser] {
+	return pulumix.Output[AccessPointPosixUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // POSIX group ID used for all file system operations using this access point.
@@ -143,6 +165,12 @@ func (o AccessPointPosixUserPtrOutput) ToAccessPointPosixUserPtrOutput() AccessP
 
 func (o AccessPointPosixUserPtrOutput) ToAccessPointPosixUserPtrOutputWithContext(ctx context.Context) AccessPointPosixUserPtrOutput {
 	return o
+}
+
+func (o AccessPointPosixUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPosixUser] {
+	return pulumix.Output[*AccessPointPosixUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointPosixUserPtrOutput) Elem() AccessPointPosixUserOutput {
@@ -222,6 +250,12 @@ func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryOutput)
 }
 
+func (i AccessPointRootDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointRootDirectory] {
+	return pulumix.Output[AccessPointRootDirectory]{
+		OutputState: i.ToAccessPointRootDirectoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryPtrOutput() AccessPointRootDirectoryPtrOutput {
 	return i.ToAccessPointRootDirectoryPtrOutputWithContext(context.Background())
 }
@@ -263,6 +297,12 @@ func (i *accessPointRootDirectoryPtrType) ToAccessPointRootDirectoryPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryPtrOutput)
 }
 
+func (i *accessPointRootDirectoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointRootDirectory] {
+	return pulumix.Output[*AccessPointRootDirectory]{
+		OutputState: i.ToAccessPointRootDirectoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccessPointRootDirectoryOutput) ElementType() reflect.Type {
@@ -287,6 +327,12 @@ func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutputWithC
 	}).(AccessPointRootDirectoryPtrOutput)
 }
 
+func (o AccessPointRootDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointRootDirectory] {
+	return pulumix.Output[AccessPointRootDirectory]{
+		OutputState: o.OutputState,
+	}
+}
+
 // POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
 func (o AccessPointRootDirectoryOutput) CreationInfo() AccessPointRootDirectoryCreationInfoPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointRootDirectoryCreationInfo { return v.CreationInfo }).(AccessPointRootDirectoryCreationInfoPtrOutput)
@@ -309,6 +355,12 @@ func (o AccessPointRootDirectoryPtrOutput) ToAccessPointRootDirectoryPtrOutput()
 
 func (o AccessPointRootDirectoryPtrOutput) ToAccessPointRootDirectoryPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryPtrOutput {
 	return o
+}
+
+func (o AccessPointRootDirectoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointRootDirectory] {
+	return pulumix.Output[*AccessPointRootDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointRootDirectoryPtrOutput) Elem() AccessPointRootDirectoryOutput {
@@ -382,6 +434,12 @@ func (i AccessPointRootDirectoryCreationInfoArgs) ToAccessPointRootDirectoryCrea
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryCreationInfoOutput)
 }
 
+func (i AccessPointRootDirectoryCreationInfoArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[AccessPointRootDirectoryCreationInfo]{
+		OutputState: i.ToAccessPointRootDirectoryCreationInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccessPointRootDirectoryCreationInfoArgs) ToAccessPointRootDirectoryCreationInfoPtrOutput() AccessPointRootDirectoryCreationInfoPtrOutput {
 	return i.ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(context.Background())
 }
@@ -423,6 +481,12 @@ func (i *accessPointRootDirectoryCreationInfoPtrType) ToAccessPointRootDirectory
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryCreationInfoPtrOutput)
 }
 
+func (i *accessPointRootDirectoryCreationInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[*AccessPointRootDirectoryCreationInfo]{
+		OutputState: i.ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointRootDirectoryCreationInfoOutput struct{ *pulumi.OutputState }
 
 func (AccessPointRootDirectoryCreationInfoOutput) ElementType() reflect.Type {
@@ -445,6 +509,12 @@ func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointRootDirectoryCreationInfo) *AccessPointRootDirectoryCreationInfo {
 		return &v
 	}).(AccessPointRootDirectoryCreationInfoPtrOutput)
+}
+
+func (o AccessPointRootDirectoryCreationInfoOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[AccessPointRootDirectoryCreationInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // POSIX group ID to apply to the `rootDirectory`.
@@ -474,6 +544,12 @@ func (o AccessPointRootDirectoryCreationInfoPtrOutput) ToAccessPointRootDirector
 
 func (o AccessPointRootDirectoryCreationInfoPtrOutput) ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoPtrOutput {
 	return o
+}
+
+func (o AccessPointRootDirectoryCreationInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[*AccessPointRootDirectoryCreationInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointRootDirectoryCreationInfoPtrOutput) Elem() AccessPointRootDirectoryCreationInfoOutput {
@@ -549,6 +625,12 @@ func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyOutput)
 }
 
+func (i BackupPolicyBackupPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyBackupPolicy] {
+	return pulumix.Output[BackupPolicyBackupPolicy]{
+		OutputState: i.ToBackupPolicyBackupPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
 	return i.ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Background())
 }
@@ -590,6 +672,12 @@ func (i *backupPolicyBackupPolicyPtrType) ToBackupPolicyBackupPolicyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyPtrOutput)
 }
 
+func (i *backupPolicyBackupPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyBackupPolicy] {
+	return pulumix.Output[*BackupPolicyBackupPolicy]{
+		OutputState: i.ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupPolicyBackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyBackupPolicyOutput) ElementType() reflect.Type {
@@ -614,6 +702,12 @@ func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyPtrOutputWithC
 	}).(BackupPolicyBackupPolicyPtrOutput)
 }
 
+func (o BackupPolicyBackupPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyBackupPolicy] {
+	return pulumix.Output[BackupPolicyBackupPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
 func (o BackupPolicyBackupPolicyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPolicyBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
@@ -631,6 +725,12 @@ func (o BackupPolicyBackupPolicyPtrOutput) ToBackupPolicyBackupPolicyPtrOutput()
 
 func (o BackupPolicyBackupPolicyPtrOutput) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
 	return o
+}
+
+func (o BackupPolicyBackupPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyBackupPolicy] {
+	return pulumix.Output[*BackupPolicyBackupPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPolicyBackupPolicyPtrOutput) Elem() BackupPolicyBackupPolicyOutput {
@@ -690,6 +790,12 @@ func (i FileSystemLifecyclePolicyArgs) ToFileSystemLifecyclePolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyOutput)
 }
 
+func (i FileSystemLifecyclePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemLifecyclePolicy] {
+	return pulumix.Output[FileSystemLifecyclePolicy]{
+		OutputState: i.ToFileSystemLifecyclePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileSystemLifecyclePolicyArrayInput is an input type that accepts FileSystemLifecyclePolicyArray and FileSystemLifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `FileSystemLifecyclePolicyArrayInput` via:
 //
@@ -715,6 +821,12 @@ func (i FileSystemLifecyclePolicyArray) ToFileSystemLifecyclePolicyArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyArrayOutput)
 }
 
+func (i FileSystemLifecyclePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemLifecyclePolicy] {
+	return pulumix.Output[[]FileSystemLifecyclePolicy]{
+		OutputState: i.ToFileSystemLifecyclePolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -727,6 +839,12 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutput() Fil
 
 func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyOutput {
 	return o
+}
+
+func (o FileSystemLifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemLifecyclePolicy] {
+	return pulumix.Output[FileSystemLifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
@@ -751,6 +869,12 @@ func (o FileSystemLifecyclePolicyArrayOutput) ToFileSystemLifecyclePolicyArrayOu
 
 func (o FileSystemLifecyclePolicyArrayOutput) ToFileSystemLifecyclePolicyArrayOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyArrayOutput {
 	return o
+}
+
+func (o FileSystemLifecyclePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemLifecyclePolicy] {
+	return pulumix.Output[[]FileSystemLifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSystemLifecyclePolicyOutput {
@@ -800,6 +924,12 @@ func (i FileSystemSizeInByteArgs) ToFileSystemSizeInByteOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSizeInByteOutput)
 }
 
+func (i FileSystemSizeInByteArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemSizeInByte] {
+	return pulumix.Output[FileSystemSizeInByte]{
+		OutputState: i.ToFileSystemSizeInByteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileSystemSizeInByteArrayInput is an input type that accepts FileSystemSizeInByteArray and FileSystemSizeInByteArrayOutput values.
 // You can construct a concrete instance of `FileSystemSizeInByteArrayInput` via:
 //
@@ -825,6 +955,12 @@ func (i FileSystemSizeInByteArray) ToFileSystemSizeInByteArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSizeInByteArrayOutput)
 }
 
+func (i FileSystemSizeInByteArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemSizeInByte] {
+	return pulumix.Output[[]FileSystemSizeInByte]{
+		OutputState: i.ToFileSystemSizeInByteArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileSystemSizeInByteOutput struct{ *pulumi.OutputState }
 
 func (FileSystemSizeInByteOutput) ElementType() reflect.Type {
@@ -837,6 +973,12 @@ func (o FileSystemSizeInByteOutput) ToFileSystemSizeInByteOutput() FileSystemSiz
 
 func (o FileSystemSizeInByteOutput) ToFileSystemSizeInByteOutputWithContext(ctx context.Context) FileSystemSizeInByteOutput {
 	return o
+}
+
+func (o FileSystemSizeInByteOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemSizeInByte] {
+	return pulumix.Output[FileSystemSizeInByte]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The latest known metered size (in bytes) of data stored in the file system.
@@ -866,6 +1008,12 @@ func (o FileSystemSizeInByteArrayOutput) ToFileSystemSizeInByteArrayOutput() Fil
 
 func (o FileSystemSizeInByteArrayOutput) ToFileSystemSizeInByteArrayOutputWithContext(ctx context.Context) FileSystemSizeInByteArrayOutput {
 	return o
+}
+
+func (o FileSystemSizeInByteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemSizeInByte] {
+	return pulumix.Output[[]FileSystemSizeInByte]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileSystemSizeInByteArrayOutput) Index(i pulumi.IntInput) FileSystemSizeInByteOutput {
@@ -919,6 +1067,12 @@ func (i ReplicationConfigurationDestinationArgs) ToReplicationConfigurationDesti
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDestinationOutput)
 }
 
+func (i ReplicationConfigurationDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationDestination] {
+	return pulumix.Output[ReplicationConfigurationDestination]{
+		OutputState: i.ToReplicationConfigurationDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ReplicationConfigurationDestinationArgs) ToReplicationConfigurationDestinationPtrOutput() ReplicationConfigurationDestinationPtrOutput {
 	return i.ToReplicationConfigurationDestinationPtrOutputWithContext(context.Background())
 }
@@ -960,6 +1114,12 @@ func (i *replicationConfigurationDestinationPtrType) ToReplicationConfigurationD
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDestinationPtrOutput)
 }
 
+func (i *replicationConfigurationDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationDestination] {
+	return pulumix.Output[*ReplicationConfigurationDestination]{
+		OutputState: i.ToReplicationConfigurationDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationConfigurationDestinationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationDestinationOutput) ElementType() reflect.Type {
@@ -982,6 +1142,12 @@ func (o ReplicationConfigurationDestinationOutput) ToReplicationConfigurationDes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationDestination) *ReplicationConfigurationDestination {
 		return &v
 	}).(ReplicationConfigurationDestinationPtrOutput)
+}
+
+func (o ReplicationConfigurationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationDestination] {
+	return pulumix.Output[ReplicationConfigurationDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
@@ -1019,6 +1185,12 @@ func (o ReplicationConfigurationDestinationPtrOutput) ToReplicationConfiguration
 
 func (o ReplicationConfigurationDestinationPtrOutput) ToReplicationConfigurationDestinationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDestinationPtrOutput {
 	return o
+}
+
+func (o ReplicationConfigurationDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationDestination] {
+	return pulumix.Output[*ReplicationConfigurationDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationDestinationPtrOutput) Elem() ReplicationConfigurationDestinationOutput {
@@ -1120,6 +1292,12 @@ func (i GetAccessPointPosixUserArgs) ToGetAccessPointPosixUserOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPosixUserOutput)
 }
 
+func (i GetAccessPointPosixUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccessPointPosixUser] {
+	return pulumix.Output[GetAccessPointPosixUser]{
+		OutputState: i.ToGetAccessPointPosixUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAccessPointPosixUserArrayInput is an input type that accepts GetAccessPointPosixUserArray and GetAccessPointPosixUserArrayOutput values.
 // You can construct a concrete instance of `GetAccessPointPosixUserArrayInput` via:
 //
@@ -1145,6 +1323,12 @@ func (i GetAccessPointPosixUserArray) ToGetAccessPointPosixUserArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPosixUserArrayOutput)
 }
 
+func (i GetAccessPointPosixUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessPointPosixUser] {
+	return pulumix.Output[[]GetAccessPointPosixUser]{
+		OutputState: i.ToGetAccessPointPosixUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAccessPointPosixUserOutput struct{ *pulumi.OutputState }
 
 func (GetAccessPointPosixUserOutput) ElementType() reflect.Type {
@@ -1157,6 +1341,12 @@ func (o GetAccessPointPosixUserOutput) ToGetAccessPointPosixUserOutput() GetAcce
 
 func (o GetAccessPointPosixUserOutput) ToGetAccessPointPosixUserOutputWithContext(ctx context.Context) GetAccessPointPosixUserOutput {
 	return o
+}
+
+func (o GetAccessPointPosixUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccessPointPosixUser] {
+	return pulumix.Output[GetAccessPointPosixUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Group ID
@@ -1186,6 +1376,12 @@ func (o GetAccessPointPosixUserArrayOutput) ToGetAccessPointPosixUserArrayOutput
 
 func (o GetAccessPointPosixUserArrayOutput) ToGetAccessPointPosixUserArrayOutputWithContext(ctx context.Context) GetAccessPointPosixUserArrayOutput {
 	return o
+}
+
+func (o GetAccessPointPosixUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessPointPosixUser] {
+	return pulumix.Output[[]GetAccessPointPosixUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAccessPointPosixUserArrayOutput) Index(i pulumi.IntInput) GetAccessPointPosixUserOutput {
@@ -1231,6 +1427,12 @@ func (i GetAccessPointRootDirectoryArgs) ToGetAccessPointRootDirectoryOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryOutput)
 }
 
+func (i GetAccessPointRootDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccessPointRootDirectory] {
+	return pulumix.Output[GetAccessPointRootDirectory]{
+		OutputState: i.ToGetAccessPointRootDirectoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAccessPointRootDirectoryArrayInput is an input type that accepts GetAccessPointRootDirectoryArray and GetAccessPointRootDirectoryArrayOutput values.
 // You can construct a concrete instance of `GetAccessPointRootDirectoryArrayInput` via:
 //
@@ -1256,6 +1458,12 @@ func (i GetAccessPointRootDirectoryArray) ToGetAccessPointRootDirectoryArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryArrayOutput)
 }
 
+func (i GetAccessPointRootDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessPointRootDirectory] {
+	return pulumix.Output[[]GetAccessPointRootDirectory]{
+		OutputState: i.ToGetAccessPointRootDirectoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetAccessPointRootDirectoryOutput) ElementType() reflect.Type {
@@ -1268,6 +1476,12 @@ func (o GetAccessPointRootDirectoryOutput) ToGetAccessPointRootDirectoryOutput()
 
 func (o GetAccessPointRootDirectoryOutput) ToGetAccessPointRootDirectoryOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryOutput {
 	return o
+}
+
+func (o GetAccessPointRootDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccessPointRootDirectory] {
+	return pulumix.Output[GetAccessPointRootDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Single element list containing information on the creation permissions of the directory
@@ -1292,6 +1506,12 @@ func (o GetAccessPointRootDirectoryArrayOutput) ToGetAccessPointRootDirectoryArr
 
 func (o GetAccessPointRootDirectoryArrayOutput) ToGetAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryArrayOutput {
 	return o
+}
+
+func (o GetAccessPointRootDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessPointRootDirectory] {
+	return pulumix.Output[[]GetAccessPointRootDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAccessPointRootDirectoryArrayOutput) Index(i pulumi.IntInput) GetAccessPointRootDirectoryOutput {
@@ -1341,6 +1561,12 @@ func (i GetAccessPointRootDirectoryCreationInfoArgs) ToGetAccessPointRootDirecto
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryCreationInfoOutput)
 }
 
+func (i GetAccessPointRootDirectoryCreationInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[GetAccessPointRootDirectoryCreationInfo]{
+		OutputState: i.ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAccessPointRootDirectoryCreationInfoArrayInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArray and GetAccessPointRootDirectoryCreationInfoArrayOutput values.
 // You can construct a concrete instance of `GetAccessPointRootDirectoryCreationInfoArrayInput` via:
 //
@@ -1366,6 +1592,12 @@ func (i GetAccessPointRootDirectoryCreationInfoArray) ToGetAccessPointRootDirect
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryCreationInfoArrayOutput)
 }
 
+func (i GetAccessPointRootDirectoryCreationInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[[]GetAccessPointRootDirectoryCreationInfo]{
+		OutputState: i.ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAccessPointRootDirectoryCreationInfoOutput struct{ *pulumi.OutputState }
 
 func (GetAccessPointRootDirectoryCreationInfoOutput) ElementType() reflect.Type {
@@ -1378,6 +1610,12 @@ func (o GetAccessPointRootDirectoryCreationInfoOutput) ToGetAccessPointRootDirec
 
 func (o GetAccessPointRootDirectoryCreationInfoOutput) ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoOutput {
 	return o
+}
+
+func (o GetAccessPointRootDirectoryCreationInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[GetAccessPointRootDirectoryCreationInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // POSIX owner group ID
@@ -1407,6 +1645,12 @@ func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) ToGetAccessPointRoot
 
 func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoArrayOutput {
 	return o
+}
+
+func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessPointRootDirectoryCreationInfo] {
+	return pulumix.Output[[]GetAccessPointRootDirectoryCreationInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) Index(i pulumi.IntInput) GetAccessPointRootDirectoryCreationInfoOutput {
@@ -1448,6 +1692,12 @@ func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyOutput)
 }
 
+func (i GetFileSystemLifecyclePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetFileSystemLifecyclePolicy] {
+	return pulumix.Output[GetFileSystemLifecyclePolicy]{
+		OutputState: i.ToGetFileSystemLifecyclePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetFileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -1460,6 +1710,12 @@ func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyOutput
 
 func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyOutput {
 	return o
+}
+
+func (o GetFileSystemLifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetFileSystemLifecyclePolicy] {
+	return pulumix.Output[GetFileSystemLifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput {

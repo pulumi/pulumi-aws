@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AutoScaling Schedule resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +65,7 @@ import (
 //
 // ## Import
 //
-// AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.,
+// Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
 //
 // ```sh
 //
@@ -88,10 +90,14 @@ type Schedule struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringOutput `pulumi:"recurrence"`
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName pulumi.StringOutput `pulumi:"scheduledActionName"`
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
@@ -108,6 +114,7 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.ScheduledActionName == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduledActionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schedule
 	err := ctx.RegisterResource("aws:autoscaling/schedule:Schedule", name, args, &resource, opts...)
 	if err != nil {
@@ -145,10 +152,14 @@ type scheduleState struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName *string `pulumi:"scheduledActionName"`
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime *string `pulumi:"startTime"`
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -168,10 +179,14 @@ type ScheduleState struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName pulumi.StringPtrInput
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime pulumi.StringPtrInput
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -193,10 +208,14 @@ type scheduleArgs struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName string `pulumi:"scheduledActionName"`
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime *string `pulumi:"startTime"`
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -215,10 +234,14 @@ type ScheduleArgs struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName pulumi.StringInput
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime pulumi.StringPtrInput
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -243,6 +266,12 @@ func (i *Schedule) ToScheduleOutput() ScheduleOutput {
 
 func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleOutput)
+}
+
+func (i *Schedule) ToOutput(ctx context.Context) pulumix.Output[*Schedule] {
+	return pulumix.Output[*Schedule]{
+		OutputState: i.ToScheduleOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
@@ -270,6 +299,12 @@ func (i ScheduleArray) ToScheduleArrayOutputWithContext(ctx context.Context) Sch
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleArrayOutput)
 }
 
+func (i ScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*Schedule] {
+	return pulumix.Output[[]*Schedule]{
+		OutputState: i.ToScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduleMapInput is an input type that accepts ScheduleMap and ScheduleMapOutput values.
 // You can construct a concrete instance of `ScheduleMapInput` via:
 //
@@ -295,6 +330,12 @@ func (i ScheduleMap) ToScheduleMapOutputWithContext(ctx context.Context) Schedul
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMapOutput)
 }
 
+func (i ScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Schedule] {
+	return pulumix.Output[map[string]*Schedule]{
+		OutputState: i.ToScheduleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleOutput) ElementType() reflect.Type {
@@ -307,6 +348,12 @@ func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
 
 func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return o
+}
+
+func (o ScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*Schedule] {
+	return pulumix.Output[*Schedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN assigned by AWS to the autoscaling schedule.
@@ -345,6 +392,8 @@ func (o ScheduleOutput) Recurrence() pulumi.StringOutput {
 }
 
 // The name of this scaling action.
+//
+// The following arguments are optional:
 func (o ScheduleOutput) ScheduledActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.ScheduledActionName }).(pulumi.StringOutput)
 }
@@ -355,6 +404,8 @@ func (o ScheduleOutput) StartTime() pulumi.StringOutput {
 }
 
 // Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+//
+// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 func (o ScheduleOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -371,6 +422,12 @@ func (o ScheduleArrayOutput) ToScheduleArrayOutput() ScheduleArrayOutput {
 
 func (o ScheduleArrayOutput) ToScheduleArrayOutputWithContext(ctx context.Context) ScheduleArrayOutput {
 	return o
+}
+
+func (o ScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Schedule] {
+	return pulumix.Output[[]*Schedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleOutput {
@@ -391,6 +448,12 @@ func (o ScheduleMapOutput) ToScheduleMapOutput() ScheduleMapOutput {
 
 func (o ScheduleMapOutput) ToScheduleMapOutputWithContext(ctx context.Context) ScheduleMapOutput {
 	return o
+}
+
+func (o ScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Schedule] {
+	return pulumix.Output[map[string]*Schedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleMapOutput) MapIndex(k pulumi.StringInput) ScheduleOutput {

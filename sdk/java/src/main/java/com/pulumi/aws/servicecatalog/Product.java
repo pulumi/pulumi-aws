@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_product` can be imported using the product ID, e.g.,
+ * Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
  * 
  * ```sh
  *  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
@@ -285,12 +285,16 @@ public class Product extends com.pulumi.resources.CustomResource {
     /**
      * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

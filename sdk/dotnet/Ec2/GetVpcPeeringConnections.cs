@@ -17,6 +17,40 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// Note: To use this data source in a count, the resources should exist before trying to access
         /// the data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcPeeringConnectionsFilterInputArgs
+        ///             {
+        ///                 Name = "requester-vpc-info.vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     aws_vpc.Foo.Id,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var pc = ;
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcPeeringConnectionsResult> InvokeAsync(GetVpcPeeringConnectionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsArgs(), options.WithDefaults());
@@ -27,6 +61,40 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// Note: To use this data source in a count, the resources should exist before trying to access
         /// the data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcPeeringConnectionsFilterInputArgs
+        ///             {
+        ///                 Name = "requester-vpc-info.vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     aws_vpc.Foo.Id,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var pc = ;
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcPeeringConnectionsResult> Invoke(GetVpcPeeringConnectionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsInvokeArgs(), options.WithDefaults());
@@ -53,6 +121,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired VPC Peering Connection.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -86,6 +157,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired VPC Peering Connection.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public InputMap<string> Tags
         {

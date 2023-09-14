@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition {
     /**
-     * @return The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+     * @return Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
      * 
      */
     private String labelName;
 
     private WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition() {}
     /**
-     * @return The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+     * @return Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
      * 
      */
     public String labelName() {

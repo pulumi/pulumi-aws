@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AutoScaling Scaling Policy resource.
@@ -26,8 +28,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,14 +64,14 @@ import (
 //	}
 //
 // ```
-// ### Create target tarcking scaling policy using metric math
+// ### Create target tracking scaling policy using metric math
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,7 +146,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -209,7 +211,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -260,7 +262,7 @@ import (
 //
 // ## Import
 //
-// AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+// Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 //
 // ```sh
 //
@@ -279,12 +281,16 @@ type Policy struct {
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrOutput `pulumi:"cooldown"`
 	// Whether the scaling policy is enabled or disabled. Default: `true`.
+	//
+	// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrOutput `pulumi:"estimatedInstanceWarmup"`
 	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType pulumi.StringOutput `pulumi:"metricAggregationType"`
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+	//
+	// The following arguments are only available to "SimpleScaling" type policies:
 	MinAdjustmentMagnitude pulumi.IntPtrOutput `pulumi:"minAdjustmentMagnitude"`
 	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -298,8 +304,70 @@ type Policy struct {
 	ScalingAdjustment pulumi.IntPtrOutput `pulumi:"scalingAdjustment"`
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("1"),
+	// 					MetricIntervalUpperBound: pulumi.String("2"),
+	// 					ScalingAdjustment:        -1,
+	// 				},
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("2"),
+	// 					MetricIntervalUpperBound: pulumi.String("3"),
+	// 					ScalingAdjustment:        pulumi.Int(1),
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayOutput `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+	// 				PredefinedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{
+	// 					PredefinedMetricType: pulumi.String("ASGAverageCPUUtilization"),
+	// 				},
+	// 				TargetValue: pulumi.Float64(40),
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrOutput `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -313,6 +381,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.AutoscalingGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoscalingGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:autoscaling/policy:Policy", name, args, &resource, opts...)
 	if err != nil {
@@ -344,12 +413,16 @@ type policyState struct {
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
 	// Whether the scaling policy is enabled or disabled. Default: `true`.
+	//
+	// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
 	Enabled *bool `pulumi:"enabled"`
 	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
 	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType *string `pulumi:"metricAggregationType"`
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+	//
+	// The following arguments are only available to "SimpleScaling" type policies:
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
@@ -363,8 +436,70 @@ type policyState struct {
 	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("1"),
+	// 					MetricIntervalUpperBound: pulumi.String("2"),
+	// 					ScalingAdjustment:        -1,
+	// 				},
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("2"),
+	// 					MetricIntervalUpperBound: pulumi.String("3"),
+	// 					ScalingAdjustment:        pulumi.Int(1),
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in step adjustments:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+	// 				PredefinedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{
+	// 					PredefinedMetricType: pulumi.String("ASGAverageCPUUtilization"),
+	// 				},
+	// 				TargetValue: pulumi.Float64(40),
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration *PolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -378,12 +513,16 @@ type PolicyState struct {
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
 	// Whether the scaling policy is enabled or disabled. Default: `true`.
+	//
+	// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
 	Enabled pulumi.BoolPtrInput
 	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
 	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType pulumi.StringPtrInput
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+	//
+	// The following arguments are only available to "SimpleScaling" type policies:
 	MinAdjustmentMagnitude pulumi.IntPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
@@ -397,8 +536,70 @@ type PolicyState struct {
 	ScalingAdjustment pulumi.IntPtrInput
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("1"),
+	// 					MetricIntervalUpperBound: pulumi.String("2"),
+	// 					ScalingAdjustment:        -1,
+	// 				},
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("2"),
+	// 					MetricIntervalUpperBound: pulumi.String("3"),
+	// 					ScalingAdjustment:        pulumi.Int(1),
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayInput
 	// Target tracking policy. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+	// 				PredefinedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{
+	// 					PredefinedMetricType: pulumi.String("ASGAverageCPUUtilization"),
+	// 				},
+	// 				TargetValue: pulumi.Float64(40),
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrInput
 }
 
@@ -414,12 +615,16 @@ type policyArgs struct {
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
 	// Whether the scaling policy is enabled or disabled. Default: `true`.
+	//
+	// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
 	Enabled *bool `pulumi:"enabled"`
 	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
 	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType *string `pulumi:"metricAggregationType"`
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+	//
+	// The following arguments are only available to "SimpleScaling" type policies:
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
@@ -433,8 +638,70 @@ type policyArgs struct {
 	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("1"),
+	// 					MetricIntervalUpperBound: pulumi.String("2"),
+	// 					ScalingAdjustment:        -1,
+	// 				},
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("2"),
+	// 					MetricIntervalUpperBound: pulumi.String("3"),
+	// 					ScalingAdjustment:        pulumi.Int(1),
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in step adjustments:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+	// 				PredefinedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{
+	// 					PredefinedMetricType: pulumi.String("ASGAverageCPUUtilization"),
+	// 				},
+	// 				TargetValue: pulumi.Float64(40),
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration *PolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -447,12 +714,16 @@ type PolicyArgs struct {
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
 	// Whether the scaling policy is enabled or disabled. Default: `true`.
+	//
+	// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
 	Enabled pulumi.BoolPtrInput
 	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
 	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType pulumi.StringPtrInput
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+	//
+	// The following arguments are only available to "SimpleScaling" type policies:
 	MinAdjustmentMagnitude pulumi.IntPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
@@ -466,8 +737,70 @@ type PolicyArgs struct {
 	ScalingAdjustment pulumi.IntPtrInput
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("1"),
+	// 					MetricIntervalUpperBound: pulumi.String("2"),
+	// 					ScalingAdjustment:        -1,
+	// 				},
+	// 				&autoscaling.PolicyStepAdjustmentArgs{
+	// 					MetricIntervalLowerBound: pulumi.String("2"),
+	// 					MetricIntervalUpperBound: pulumi.String("3"),
+	// 					ScalingAdjustment:        pulumi.Int(1),
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayInput
 	// Target tracking policy. These have the following structure:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+	// 			TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+	// 				PredefinedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{
+	// 					PredefinedMetricType: pulumi.String("ASGAverageCPUUtilization"),
+	// 				},
+	// 				TargetValue: pulumi.Float64(40),
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The following fields are available in target tracking configuration:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrInput
 }
 
@@ -492,6 +825,12 @@ func (i *Policy) ToPolicyOutput() PolicyOutput {
 
 func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
+}
+
+func (i *Policy) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: i.ToPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyArrayInput is an input type that accepts PolicyArray and PolicyArrayOutput values.
@@ -519,6 +858,12 @@ func (i PolicyArray) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyA
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyArrayOutput)
 }
 
+func (i PolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Policy] {
+	return pulumix.Output[[]*Policy]{
+		OutputState: i.ToPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyMapInput is an input type that accepts PolicyMap and PolicyMapOutput values.
 // You can construct a concrete instance of `PolicyMapInput` via:
 //
@@ -544,6 +889,12 @@ func (i PolicyMap) ToPolicyMapOutputWithContext(ctx context.Context) PolicyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMapOutput)
 }
 
+func (i PolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Policy] {
+	return pulumix.Output[map[string]*Policy]{
+		OutputState: i.ToPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
@@ -556,6 +907,12 @@ func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
 
 func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return o
+}
+
+func (o PolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
@@ -579,6 +936,8 @@ func (o PolicyOutput) Cooldown() pulumi.IntPtrOutput {
 }
 
 // Whether the scaling policy is enabled or disabled. Default: `true`.
+//
+// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
 func (o PolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -594,6 +953,8 @@ func (o PolicyOutput) MetricAggregationType() pulumi.StringOutput {
 }
 
 // Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+//
+// The following arguments are only available to "SimpleScaling" type policies:
 func (o PolicyOutput) MinAdjustmentMagnitude() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.MinAdjustmentMagnitude }).(pulumi.IntPtrOutput)
 }
@@ -622,11 +983,79 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 
 // Set of adjustments that manage
 // group scaling. These have the following structure:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+//				StepAdjustments: autoscaling.PolicyStepAdjustmentArray{
+//					&autoscaling.PolicyStepAdjustmentArgs{
+//						MetricIntervalLowerBound: pulumi.String("1"),
+//						MetricIntervalUpperBound: pulumi.String("2"),
+//						ScalingAdjustment:        -1,
+//					},
+//					&autoscaling.PolicyStepAdjustmentArgs{
+//						MetricIntervalLowerBound: pulumi.String("2"),
+//						MetricIntervalUpperBound: pulumi.String("3"),
+//						ScalingAdjustment:        pulumi.Int(1),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following fields are available in step adjustments:
 func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v *Policy) PolicyStepAdjustmentArrayOutput { return v.StepAdjustments }).(PolicyStepAdjustmentArrayOutput)
 }
 
 // Target tracking policy. These have the following structure:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+//				TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+//					PredefinedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{
+//						PredefinedMetricType: pulumi.String("ASGAverageCPUUtilization"),
+//					},
+//					TargetValue: pulumi.Float64(40),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following fields are available in target tracking configuration:
 func (o PolicyOutput) TargetTrackingConfiguration() PolicyTargetTrackingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyTargetTrackingConfigurationPtrOutput { return v.TargetTrackingConfiguration }).(PolicyTargetTrackingConfigurationPtrOutput)
 }
@@ -643,6 +1072,12 @@ func (o PolicyArrayOutput) ToPolicyArrayOutput() PolicyArrayOutput {
 
 func (o PolicyArrayOutput) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyArrayOutput {
 	return o
+}
+
+func (o PolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Policy] {
+	return pulumix.Output[[]*Policy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyArrayOutput) Index(i pulumi.IntInput) PolicyOutput {
@@ -663,6 +1098,12 @@ func (o PolicyMapOutput) ToPolicyMapOutput() PolicyMapOutput {
 
 func (o PolicyMapOutput) ToPolicyMapOutputWithContext(ctx context.Context) PolicyMapOutput {
 	return o
+}
+
+func (o PolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Policy] {
+	return pulumix.Output[map[string]*Policy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyMapOutput) MapIndex(k pulumi.StringInput) PolicyOutput {

@@ -156,6 +156,8 @@ def get_constraint(accept_language: Optional[str] = None,
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str description: Description of the constraint.
     :param str id: Constraint identifier.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -165,15 +167,15 @@ def get_constraint(accept_language: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getConstraint:getConstraint', __args__, opts=opts, typ=GetConstraintResult).value
 
     return AwaitableGetConstraintResult(
-        accept_language=__ret__.accept_language,
-        description=__ret__.description,
-        id=__ret__.id,
-        owner=__ret__.owner,
-        parameters=__ret__.parameters,
-        portfolio_id=__ret__.portfolio_id,
-        product_id=__ret__.product_id,
-        status=__ret__.status,
-        type=__ret__.type)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        owner=pulumi.get(__ret__, 'owner'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        portfolio_id=pulumi.get(__ret__, 'portfolio_id'),
+        product_id=pulumi.get(__ret__, 'product_id'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_constraint)
@@ -199,5 +201,7 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str description: Description of the constraint.
     :param str id: Constraint identifier.
+           
+           The following arguments are optional:
     """
     ...

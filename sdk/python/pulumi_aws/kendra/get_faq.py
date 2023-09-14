@@ -237,21 +237,21 @@ def get_faq(faq_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kendra/getFaq:getFaq', __args__, opts=opts, typ=GetFaqResult).value
 
     return AwaitableGetFaqResult(
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        error_message=__ret__.error_message,
-        faq_id=__ret__.faq_id,
-        file_format=__ret__.file_format,
-        id=__ret__.id,
-        index_id=__ret__.index_id,
-        language_code=__ret__.language_code,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        s3_paths=__ret__.s3_paths,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        updated_at=__ret__.updated_at)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        faq_id=pulumi.get(__ret__, 'faq_id'),
+        file_format=pulumi.get(__ret__, 'file_format'),
+        id=pulumi.get(__ret__, 'id'),
+        index_id=pulumi.get(__ret__, 'index_id'),
+        language_code=pulumi.get(__ret__, 'language_code'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        s3_paths=pulumi.get(__ret__, 's3_paths'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_faq)

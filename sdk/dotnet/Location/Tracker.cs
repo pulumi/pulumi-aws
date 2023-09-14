@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Import
     /// 
-    /// `aws_location_tracker` resources can be imported using the tracker name, e.g.
+    /// Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:location/tracker:Tracker example example
@@ -85,6 +85,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the tracker resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("trackerName")]
         public Output<string> TrackerName { get; private set; } = null!;
@@ -173,6 +175,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the tracker resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("trackerName", required: true)]
         public Input<string> TrackerName { get; set; } = null!;
@@ -241,6 +245,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the tracker resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("trackerName")]
         public Input<string>? TrackerName { get; set; }

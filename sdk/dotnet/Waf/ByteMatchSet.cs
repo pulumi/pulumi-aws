@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Import
     /// 
-    /// WAF Byte Match Set can be imported using the id, e.g.,
+    /// Using `pulumi import`, import WAF Byte Match Set using the id. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

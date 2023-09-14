@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.,
+ * Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
  *
  * ```sh
  *  $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
@@ -62,6 +62,8 @@ export class RecoveryGroup extends pulumi.CustomResource {
     public readonly cells!: pulumi.Output<string[] | undefined>;
     /**
      * A unique name describing the recovery group.
+     *
+     * The following argument are optional:
      */
     public readonly recoveryGroupName!: pulumi.Output<string>;
     /**
@@ -121,6 +123,8 @@ export interface RecoveryGroupState {
     cells?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A unique name describing the recovery group.
+     *
+     * The following argument are optional:
      */
     recoveryGroupName?: pulumi.Input<string>;
     /**
@@ -143,6 +147,8 @@ export interface RecoveryGroupArgs {
     cells?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A unique name describing the recovery group.
+     *
+     * The following argument are optional:
      */
     recoveryGroupName: pulumi.Input<string>;
     /**

@@ -14,9 +14,10 @@ from .get_account_alias import *
 from .get_group import *
 from .get_instance_profile import *
 from .get_instance_profiles import *
-from .get_openid_connect_provider import *
+from .get_open_id_connect_provider import *
 from .get_policy import *
 from .get_policy_document import *
+from .get_principal_policy_simulation import *
 from .get_role import *
 from .get_roles import *
 from .get_saml_provider import *
@@ -37,6 +38,7 @@ from .role import *
 from .role_policy import *
 from .role_policy_attachment import *
 from .saml_provider import *
+from .security_token_service_preferences import *
 from .server_certificate import *
 from .service_linked_role import *
 from .service_specific_credential import *

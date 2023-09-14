@@ -10,6 +10,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AnalysisParametersArgs',
+    'AnalysisParametersDateTimeParameterArgs',
+    'AnalysisParametersDecimalParameterArgs',
+    'AnalysisParametersIntegerParameterArgs',
+    'AnalysisParametersStringParameterArgs',
+    'AnalysisPermissionArgs',
+    'AnalysisSourceEntityArgs',
+    'AnalysisSourceEntitySourceTemplateArgs',
+    'AnalysisSourceEntitySourceTemplateDataSetReferenceArgs',
+    'DashboardDashboardPublishOptionsArgs',
+    'DashboardDashboardPublishOptionsAdHocFilteringOptionArgs',
+    'DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs',
+    'DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs',
+    'DashboardDashboardPublishOptionsDataPointTooltipOptionArgs',
+    'DashboardDashboardPublishOptionsExportToCsvOptionArgs',
+    'DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs',
+    'DashboardDashboardPublishOptionsSheetControlsOptionArgs',
+    'DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs',
+    'DashboardDashboardPublishOptionsVisualAxisSortOptionArgs',
+    'DashboardDashboardPublishOptionsVisualMenuOptionArgs',
+    'DashboardParametersArgs',
+    'DashboardParametersDateTimeParameterArgs',
+    'DashboardParametersDecimalParameterArgs',
+    'DashboardParametersIntegerParameterArgs',
+    'DashboardParametersStringParameterArgs',
+    'DashboardPermissionArgs',
+    'DashboardSourceEntityArgs',
+    'DashboardSourceEntitySourceTemplateArgs',
+    'DashboardSourceEntitySourceTemplateDataSetReferenceArgs',
     'DataSetColumnGroupArgs',
     'DataSetColumnGroupGeoSpatialColumnGroupArgs',
     'DataSetColumnLevelPermissionRuleArgs',
@@ -76,13 +105,1118 @@ __all__ = [
     'DataSourceSslPropertiesArgs',
     'DataSourceVpcConnectionPropertiesArgs',
     'FolderPermissionArgs',
+    'IamPolicyAssignmentIdentitiesArgs',
+    'NamespaceTimeoutsArgs',
+    'RefreshScheduleScheduleArgs',
+    'RefreshScheduleScheduleScheduleFrequencyArgs',
+    'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs',
     'TemplatePermissionArgs',
     'TemplateSourceEntityArgs',
     'TemplateSourceEntitySourceAnalysisArgs',
     'TemplateSourceEntitySourceAnalysisDataSetReferenceArgs',
     'TemplateSourceEntitySourceTemplateArgs',
+    'ThemeConfigurationArgs',
+    'ThemeConfigurationDataColorPaletteArgs',
+    'ThemeConfigurationSheetArgs',
+    'ThemeConfigurationSheetTileArgs',
+    'ThemeConfigurationSheetTileBorderArgs',
+    'ThemeConfigurationSheetTileLayoutArgs',
+    'ThemeConfigurationSheetTileLayoutGutterArgs',
+    'ThemeConfigurationSheetTileLayoutMarginArgs',
+    'ThemeConfigurationTypographyArgs',
+    'ThemeConfigurationTypographyFontFamilyArgs',
+    'ThemeConfigurationUiColorPaletteArgs',
+    'ThemePermissionArgs',
+    'VpcConnectionTimeoutsArgs',
     'GetDataSetColumnLevelPermissionRuleArgs',
 ]
+
+@pulumi.input_type
+class AnalysisParametersArgs:
+    def __init__(__self__, *,
+                 date_time_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]]] = None,
+                 decimal_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]]] = None,
+                 integer_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]]] = None,
+                 string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        """
+        if date_time_parameters is not None:
+            pulumi.set(__self__, "date_time_parameters", date_time_parameters)
+        if decimal_parameters is not None:
+            pulumi.set(__self__, "decimal_parameters", decimal_parameters)
+        if integer_parameters is not None:
+            pulumi.set(__self__, "integer_parameters", integer_parameters)
+        if string_parameters is not None:
+            pulumi.set(__self__, "string_parameters", string_parameters)
+
+    @property
+    @pulumi.getter(name="dateTimeParameters")
+    def date_time_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        """
+        return pulumi.get(self, "date_time_parameters")
+
+    @date_time_parameters.setter
+    def date_time_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]]]):
+        pulumi.set(self, "date_time_parameters", value)
+
+    @property
+    @pulumi.getter(name="decimalParameters")
+    def decimal_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        """
+        return pulumi.get(self, "decimal_parameters")
+
+    @decimal_parameters.setter
+    def decimal_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]]]):
+        pulumi.set(self, "decimal_parameters", value)
+
+    @property
+    @pulumi.getter(name="integerParameters")
+    def integer_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        """
+        return pulumi.get(self, "integer_parameters")
+
+    @integer_parameters.setter
+    def integer_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]]]):
+        pulumi.set(self, "integer_parameters", value)
+
+    @property
+    @pulumi.getter(name="stringParameters")
+    def string_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        """
+        return pulumi.get(self, "string_parameters")
+
+    @string_parameters.setter
+    def string_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]]]):
+        pulumi.set(self, "string_parameters", value)
+
+
+@pulumi.input_type
+class AnalysisParametersDateTimeParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the analysis.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AnalysisParametersDecimalParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the analysis.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AnalysisParametersIntegerParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the analysis.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AnalysisParametersStringParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the analysis.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AnalysisPermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: List of IAM actions to grant or revoke permissions on.
+        :param pulumi.Input[str] principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class AnalysisSourceEntityArgs:
+    def __init__(__self__, *,
+                 source_template: Optional[pulumi.Input['AnalysisSourceEntitySourceTemplateArgs']] = None):
+        """
+        :param pulumi.Input['AnalysisSourceEntitySourceTemplateArgs'] source_template: The source template. See source_template.
+        """
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional[pulumi.Input['AnalysisSourceEntitySourceTemplateArgs']]:
+        """
+        The source template. See source_template.
+        """
+        return pulumi.get(self, "source_template")
+
+    @source_template.setter
+    def source_template(self, value: Optional[pulumi.Input['AnalysisSourceEntitySourceTemplateArgs']]):
+        pulumi.set(self, "source_template", value)
+
+
+@pulumi.input_type
+class AnalysisSourceEntitySourceTemplateArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['AnalysisSourceEntitySourceTemplateDataSetReferenceArgs']]]):
+        """
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisSourceEntitySourceTemplateDataSetReferenceArgs']]] data_set_references: List of dataset references. See data_set_references.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['AnalysisSourceEntitySourceTemplateDataSetReferenceArgs']]]:
+        """
+        List of dataset references. See data_set_references.
+        """
+        return pulumi.get(self, "data_set_references")
+
+    @data_set_references.setter
+    def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['AnalysisSourceEntitySourceTemplateDataSetReferenceArgs']]]):
+        pulumi.set(self, "data_set_references", value)
+
+
+@pulumi.input_type
+class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs:
+    def __init__(__self__, *,
+                 data_set_arn: pulumi.Input[str],
+                 data_set_placeholder: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_set_arn: Dataset Amazon Resource Name (ARN).
+        :param pulumi.Input[str] data_set_placeholder: Dataset placeholder.
+        """
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+        pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
+
+    @property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> pulumi.Input[str]:
+        """
+        Dataset Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "data_set_arn")
+
+    @data_set_arn.setter
+    def data_set_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetPlaceholder")
+    def data_set_placeholder(self) -> pulumi.Input[str]:
+        """
+        Dataset placeholder.
+        """
+        return pulumi.get(self, "data_set_placeholder")
+
+    @data_set_placeholder.setter
+    def data_set_placeholder(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_placeholder", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsArgs:
+    def __init__(__self__, *,
+                 ad_hoc_filtering_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs']] = None,
+                 data_point_drill_up_down_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs']] = None,
+                 data_point_menu_label_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs']] = None,
+                 data_point_tooltip_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs']] = None,
+                 export_to_csv_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs']] = None,
+                 export_with_hidden_fields_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs']] = None,
+                 sheet_controls_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgs']] = None,
+                 sheet_layout_element_maximization_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs']] = None,
+                 visual_axis_sort_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs']] = None,
+                 visual_menu_option: Optional[pulumi.Input['DashboardDashboardPublishOptionsVisualMenuOptionArgs']] = None):
+        """
+        :param pulumi.Input['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs'] ad_hoc_filtering_option: Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs'] data_point_drill_up_down_option: The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs'] data_point_menu_label_option: The data point menu label options of a dashboard. See data_point_menu_label_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs'] data_point_tooltip_option: The data point tool tip options of a dashboard. See data_point_tooltip_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs'] export_to_csv_option: Export to .csv option. See export_to_csv_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs'] export_with_hidden_fields_option: Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgs'] sheet_controls_option: Sheet controls option. See sheet_controls_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs'] sheet_layout_element_maximization_option: The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs'] visual_axis_sort_option: The axis sort options of a dashboard. See visual_axis_sort_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsVisualMenuOptionArgs'] visual_menu_option: The menu options of a visual in a dashboard. See visual_menu_option.
+        """
+        if ad_hoc_filtering_option is not None:
+            pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
+        if data_point_drill_up_down_option is not None:
+            pulumi.set(__self__, "data_point_drill_up_down_option", data_point_drill_up_down_option)
+        if data_point_menu_label_option is not None:
+            pulumi.set(__self__, "data_point_menu_label_option", data_point_menu_label_option)
+        if data_point_tooltip_option is not None:
+            pulumi.set(__self__, "data_point_tooltip_option", data_point_tooltip_option)
+        if export_to_csv_option is not None:
+            pulumi.set(__self__, "export_to_csv_option", export_to_csv_option)
+        if export_with_hidden_fields_option is not None:
+            pulumi.set(__self__, "export_with_hidden_fields_option", export_with_hidden_fields_option)
+        if sheet_controls_option is not None:
+            pulumi.set(__self__, "sheet_controls_option", sheet_controls_option)
+        if sheet_layout_element_maximization_option is not None:
+            pulumi.set(__self__, "sheet_layout_element_maximization_option", sheet_layout_element_maximization_option)
+        if visual_axis_sort_option is not None:
+            pulumi.set(__self__, "visual_axis_sort_option", visual_axis_sort_option)
+        if visual_menu_option is not None:
+            pulumi.set(__self__, "visual_menu_option", visual_menu_option)
+
+    @property
+    @pulumi.getter(name="adHocFilteringOption")
+    def ad_hoc_filtering_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs']]:
+        """
+        Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+        """
+        return pulumi.get(self, "ad_hoc_filtering_option")
+
+    @ad_hoc_filtering_option.setter
+    def ad_hoc_filtering_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs']]):
+        pulumi.set(self, "ad_hoc_filtering_option", value)
+
+    @property
+    @pulumi.getter(name="dataPointDrillUpDownOption")
+    def data_point_drill_up_down_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs']]:
+        """
+        The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+        """
+        return pulumi.get(self, "data_point_drill_up_down_option")
+
+    @data_point_drill_up_down_option.setter
+    def data_point_drill_up_down_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs']]):
+        pulumi.set(self, "data_point_drill_up_down_option", value)
+
+    @property
+    @pulumi.getter(name="dataPointMenuLabelOption")
+    def data_point_menu_label_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs']]:
+        """
+        The data point menu label options of a dashboard. See data_point_menu_label_option.
+        """
+        return pulumi.get(self, "data_point_menu_label_option")
+
+    @data_point_menu_label_option.setter
+    def data_point_menu_label_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs']]):
+        pulumi.set(self, "data_point_menu_label_option", value)
+
+    @property
+    @pulumi.getter(name="dataPointTooltipOption")
+    def data_point_tooltip_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs']]:
+        """
+        The data point tool tip options of a dashboard. See data_point_tooltip_option.
+        """
+        return pulumi.get(self, "data_point_tooltip_option")
+
+    @data_point_tooltip_option.setter
+    def data_point_tooltip_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs']]):
+        pulumi.set(self, "data_point_tooltip_option", value)
+
+    @property
+    @pulumi.getter(name="exportToCsvOption")
+    def export_to_csv_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs']]:
+        """
+        Export to .csv option. See export_to_csv_option.
+        """
+        return pulumi.get(self, "export_to_csv_option")
+
+    @export_to_csv_option.setter
+    def export_to_csv_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs']]):
+        pulumi.set(self, "export_to_csv_option", value)
+
+    @property
+    @pulumi.getter(name="exportWithHiddenFieldsOption")
+    def export_with_hidden_fields_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs']]:
+        """
+        Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+        """
+        return pulumi.get(self, "export_with_hidden_fields_option")
+
+    @export_with_hidden_fields_option.setter
+    def export_with_hidden_fields_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs']]):
+        pulumi.set(self, "export_with_hidden_fields_option", value)
+
+    @property
+    @pulumi.getter(name="sheetControlsOption")
+    def sheet_controls_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgs']]:
+        """
+        Sheet controls option. See sheet_controls_option.
+        """
+        return pulumi.get(self, "sheet_controls_option")
+
+    @sheet_controls_option.setter
+    def sheet_controls_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgs']]):
+        pulumi.set(self, "sheet_controls_option", value)
+
+    @property
+    @pulumi.getter(name="sheetLayoutElementMaximizationOption")
+    def sheet_layout_element_maximization_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs']]:
+        """
+        The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+        """
+        return pulumi.get(self, "sheet_layout_element_maximization_option")
+
+    @sheet_layout_element_maximization_option.setter
+    def sheet_layout_element_maximization_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs']]):
+        pulumi.set(self, "sheet_layout_element_maximization_option", value)
+
+    @property
+    @pulumi.getter(name="visualAxisSortOption")
+    def visual_axis_sort_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs']]:
+        """
+        The axis sort options of a dashboard. See visual_axis_sort_option.
+        """
+        return pulumi.get(self, "visual_axis_sort_option")
+
+    @visual_axis_sort_option.setter
+    def visual_axis_sort_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs']]):
+        pulumi.set(self, "visual_axis_sort_option", value)
+
+    @property
+    @pulumi.getter(name="visualMenuOption")
+    def visual_menu_option(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsVisualMenuOptionArgs']]:
+        """
+        The menu options of a visual in a dashboard. See visual_menu_option.
+        """
+        return pulumi.get(self, "visual_menu_option")
+
+    @visual_menu_option.setter
+    def visual_menu_option(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsVisualMenuOptionArgs']]):
+        pulumi.set(self, "visual_menu_option", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsAdHocFilteringOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsDataPointTooltipOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsExportToCsvOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsSheetControlsOptionArgs:
+    def __init__(__self__, *,
+                 visibility_state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] visibility_state: Visibility state. Possibles values: EXPANDED, COLLAPSED.
+        """
+        if visibility_state is not None:
+            pulumi.set(__self__, "visibility_state", visibility_state)
+
+    @property
+    @pulumi.getter(name="visibilityState")
+    def visibility_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Visibility state. Possibles values: EXPANDED, COLLAPSED.
+        """
+        return pulumi.get(self, "visibility_state")
+
+    @visibility_state.setter
+    def visibility_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility_state", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsVisualAxisSortOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardDashboardPublishOptionsVisualMenuOptionArgs:
+    def __init__(__self__, *,
+                 availability_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_status: Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        if availability_status is not None:
+            pulumi.set(__self__, "availability_status", availability_status)
+
+    @property
+    @pulumi.getter(name="availabilityStatus")
+    def availability_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+        return pulumi.get(self, "availability_status")
+
+    @availability_status.setter
+    def availability_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_status", value)
+
+
+@pulumi.input_type
+class DashboardParametersArgs:
+    def __init__(__self__, *,
+                 date_time_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]]] = None,
+                 decimal_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]]] = None,
+                 integer_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]]] = None,
+                 string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        """
+        if date_time_parameters is not None:
+            pulumi.set(__self__, "date_time_parameters", date_time_parameters)
+        if decimal_parameters is not None:
+            pulumi.set(__self__, "decimal_parameters", decimal_parameters)
+        if integer_parameters is not None:
+            pulumi.set(__self__, "integer_parameters", integer_parameters)
+        if string_parameters is not None:
+            pulumi.set(__self__, "string_parameters", string_parameters)
+
+    @property
+    @pulumi.getter(name="dateTimeParameters")
+    def date_time_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        """
+        return pulumi.get(self, "date_time_parameters")
+
+    @date_time_parameters.setter
+    def date_time_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]]]):
+        pulumi.set(self, "date_time_parameters", value)
+
+    @property
+    @pulumi.getter(name="decimalParameters")
+    def decimal_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        """
+        return pulumi.get(self, "decimal_parameters")
+
+    @decimal_parameters.setter
+    def decimal_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]]]):
+        pulumi.set(self, "decimal_parameters", value)
+
+    @property
+    @pulumi.getter(name="integerParameters")
+    def integer_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        """
+        return pulumi.get(self, "integer_parameters")
+
+    @integer_parameters.setter
+    def integer_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]]]):
+        pulumi.set(self, "integer_parameters", value)
+
+    @property
+    @pulumi.getter(name="stringParameters")
+    def string_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]]]:
+        """
+        A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        """
+        return pulumi.get(self, "string_parameters")
+
+    @string_parameters.setter
+    def string_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]]]):
+        pulumi.set(self, "string_parameters", value)
+
+
+@pulumi.input_type
+class DashboardParametersDateTimeParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the dashboard.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class DashboardParametersDecimalParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the dashboard.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class DashboardParametersIntegerParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the dashboard.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class DashboardParametersStringParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Display name for the dashboard.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Display name for the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class DashboardPermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: List of IAM actions to grant or revoke permissions on.
+        :param pulumi.Input[str] principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class DashboardSourceEntityArgs:
+    def __init__(__self__, *,
+                 source_template: Optional[pulumi.Input['DashboardSourceEntitySourceTemplateArgs']] = None):
+        """
+        :param pulumi.Input['DashboardSourceEntitySourceTemplateArgs'] source_template: The source template. See source_template.
+        """
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional[pulumi.Input['DashboardSourceEntitySourceTemplateArgs']]:
+        """
+        The source template. See source_template.
+        """
+        return pulumi.get(self, "source_template")
+
+    @source_template.setter
+    def source_template(self, value: Optional[pulumi.Input['DashboardSourceEntitySourceTemplateArgs']]):
+        pulumi.set(self, "source_template", value)
+
+
+@pulumi.input_type
+class DashboardSourceEntitySourceTemplateArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]]):
+        """
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]] data_set_references: List of dataset references. See data_set_references.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]]:
+        """
+        List of dataset references. See data_set_references.
+        """
+        return pulumi.get(self, "data_set_references")
+
+    @data_set_references.setter
+    def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]]):
+        pulumi.set(self, "data_set_references", value)
+
+
+@pulumi.input_type
+class DashboardSourceEntitySourceTemplateDataSetReferenceArgs:
+    def __init__(__self__, *,
+                 data_set_arn: pulumi.Input[str],
+                 data_set_placeholder: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_set_arn: Dataset Amazon Resource Name (ARN).
+        :param pulumi.Input[str] data_set_placeholder: Dataset placeholder.
+        """
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+        pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
+
+    @property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> pulumi.Input[str]:
+        """
+        Dataset Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "data_set_arn")
+
+    @data_set_arn.setter
+    def data_set_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetPlaceholder")
+    def data_set_placeholder(self) -> pulumi.Input[str]:
+        """
+        Dataset placeholder.
+        """
+        return pulumi.get(self, "data_set_placeholder")
+
+    @data_set_placeholder.setter
+    def data_set_placeholder(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_placeholder", value)
+
 
 @pulumi.input_type
 class DataSetColumnGroupArgs:
@@ -3291,6 +4425,233 @@ class FolderPermissionArgs:
 
 
 @pulumi.input_type
+class IamPolicyAssignmentIdentitiesArgs:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Array of Quicksight user names to assign the policy to.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of Quicksight user names to assign the policy to.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
+class NamespaceTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+
+@pulumi.input_type
+class RefreshScheduleScheduleArgs:
+    def __init__(__self__, *,
+                 refresh_type: pulumi.Input[str],
+                 schedule_frequency: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']] = None,
+                 start_after_date_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] refresh_type: The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs'] schedule_frequency: The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        :param pulumi.Input[str] start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+        """
+        pulumi.set(__self__, "refresh_type", refresh_type)
+        if schedule_frequency is not None:
+            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        if start_after_date_time is not None:
+            pulumi.set(__self__, "start_after_date_time", start_after_date_time)
+
+    @property
+    @pulumi.getter(name="refreshType")
+    def refresh_type(self) -> pulumi.Input[str]:
+        """
+        The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        """
+        return pulumi.get(self, "refresh_type")
+
+    @refresh_type.setter
+    def refresh_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "refresh_type", value)
+
+    @property
+    @pulumi.getter(name="scheduleFrequency")
+    def schedule_frequency(self) -> Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']]:
+        """
+        The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        """
+        return pulumi.get(self, "schedule_frequency")
+
+    @schedule_frequency.setter
+    def schedule_frequency(self, value: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']]):
+        pulumi.set(self, "schedule_frequency", value)
+
+    @property
+    @pulumi.getter(name="startAfterDateTime")
+    def start_after_date_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+        """
+        return pulumi.get(self, "start_after_date_time")
+
+    @start_after_date_time.setter
+    def start_after_date_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_after_date_time", value)
+
+
+@pulumi.input_type
+class RefreshScheduleScheduleScheduleFrequencyArgs:
+    def __init__(__self__, *,
+                 interval: pulumi.Input[str],
+                 refresh_on_day: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']] = None,
+                 time_of_the_day: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interval: The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs'] refresh_on_day: The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        :param pulumi.Input[str] time_of_the_day: The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        :param pulumi.Input[str] timezone: The timezone that you want the refresh schedule to use.
+        """
+        pulumi.set(__self__, "interval", interval)
+        if refresh_on_day is not None:
+            pulumi.set(__self__, "refresh_on_day", refresh_on_day)
+        if time_of_the_day is not None:
+            pulumi.set(__self__, "time_of_the_day", time_of_the_day)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="refreshOnDay")
+    def refresh_on_day(self) -> Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']]:
+        """
+        The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        """
+        return pulumi.get(self, "refresh_on_day")
+
+    @refresh_on_day.setter
+    def refresh_on_day(self, value: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']]):
+        pulumi.set(self, "refresh_on_day", value)
+
+    @property
+    @pulumi.getter(name="timeOfTheDay")
+    def time_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        """
+        return pulumi.get(self, "time_of_the_day")
+
+    @time_of_the_day.setter
+    def time_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_of_the_day", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timezone that you want the refresh schedule to use.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs:
+    def __init__(__self__, *,
+                 day_of_month: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] day_of_month: The day of the month that you want to schedule refresh on.
+        :param pulumi.Input[str] day_of_week: The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        """
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[pulumi.Input[str]]:
+        """
+        The day of the month that you want to schedule refresh on.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "day_of_month", value)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input[str]]:
+        """
+        The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "day_of_week", value)
+
+
+@pulumi.input_type
 class TemplatePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -3460,6 +4821,689 @@ class TemplateSourceEntitySourceTemplateArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationArgs:
+    def __init__(__self__, *,
+                 data_color_palette: Optional[pulumi.Input['ThemeConfigurationDataColorPaletteArgs']] = None,
+                 sheet: Optional[pulumi.Input['ThemeConfigurationSheetArgs']] = None,
+                 typography: Optional[pulumi.Input['ThemeConfigurationTypographyArgs']] = None,
+                 ui_color_palette: Optional[pulumi.Input['ThemeConfigurationUiColorPaletteArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationDataColorPaletteArgs'] data_color_palette: Color properties that apply to chart data colors. See data_color_palette.
+        :param pulumi.Input['ThemeConfigurationSheetArgs'] sheet: Display options related to sheets. See sheet.
+        :param pulumi.Input['ThemeConfigurationTypographyArgs'] typography: Determines the typography options. See typography.
+        :param pulumi.Input['ThemeConfigurationUiColorPaletteArgs'] ui_color_palette: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+        """
+        if data_color_palette is not None:
+            pulumi.set(__self__, "data_color_palette", data_color_palette)
+        if sheet is not None:
+            pulumi.set(__self__, "sheet", sheet)
+        if typography is not None:
+            pulumi.set(__self__, "typography", typography)
+        if ui_color_palette is not None:
+            pulumi.set(__self__, "ui_color_palette", ui_color_palette)
+
+    @property
+    @pulumi.getter(name="dataColorPalette")
+    def data_color_palette(self) -> Optional[pulumi.Input['ThemeConfigurationDataColorPaletteArgs']]:
+        """
+        Color properties that apply to chart data colors. See data_color_palette.
+        """
+        return pulumi.get(self, "data_color_palette")
+
+    @data_color_palette.setter
+    def data_color_palette(self, value: Optional[pulumi.Input['ThemeConfigurationDataColorPaletteArgs']]):
+        pulumi.set(self, "data_color_palette", value)
+
+    @property
+    @pulumi.getter
+    def sheet(self) -> Optional[pulumi.Input['ThemeConfigurationSheetArgs']]:
+        """
+        Display options related to sheets. See sheet.
+        """
+        return pulumi.get(self, "sheet")
+
+    @sheet.setter
+    def sheet(self, value: Optional[pulumi.Input['ThemeConfigurationSheetArgs']]):
+        pulumi.set(self, "sheet", value)
+
+    @property
+    @pulumi.getter
+    def typography(self) -> Optional[pulumi.Input['ThemeConfigurationTypographyArgs']]:
+        """
+        Determines the typography options. See typography.
+        """
+        return pulumi.get(self, "typography")
+
+    @typography.setter
+    def typography(self, value: Optional[pulumi.Input['ThemeConfigurationTypographyArgs']]):
+        pulumi.set(self, "typography", value)
+
+    @property
+    @pulumi.getter(name="uiColorPalette")
+    def ui_color_palette(self) -> Optional[pulumi.Input['ThemeConfigurationUiColorPaletteArgs']]:
+        """
+        Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+        """
+        return pulumi.get(self, "ui_color_palette")
+
+    @ui_color_palette.setter
+    def ui_color_palette(self, value: Optional[pulumi.Input['ThemeConfigurationUiColorPaletteArgs']]):
+        pulumi.set(self, "ui_color_palette", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationDataColorPaletteArgs:
+    def __init__(__self__, *,
+                 colors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 empty_fill_color: Optional[pulumi.Input[str]] = None,
+                 min_max_gradients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] colors: List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+        :param pulumi.Input[str] empty_fill_color: The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] min_max_gradients: The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        """
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if empty_fill_color is not None:
+            pulumi.set(__self__, "empty_fill_color", empty_fill_color)
+        if min_max_gradients is not None:
+            pulumi.set(__self__, "min_max_gradients", min_max_gradients)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+        """
+        return pulumi.get(self, "colors")
+
+    @colors.setter
+    def colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "colors", value)
+
+    @property
+    @pulumi.getter(name="emptyFillColor")
+    def empty_fill_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        """
+        return pulumi.get(self, "empty_fill_color")
+
+    @empty_fill_color.setter
+    def empty_fill_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "empty_fill_color", value)
+
+    @property
+    @pulumi.getter(name="minMaxGradients")
+    def min_max_gradients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        """
+        return pulumi.get(self, "min_max_gradients")
+
+    @min_max_gradients.setter
+    def min_max_gradients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "min_max_gradients", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetArgs:
+    def __init__(__self__, *,
+                 tile: Optional[pulumi.Input['ThemeConfigurationSheetTileArgs']] = None,
+                 tile_layout: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationSheetTileArgs'] tile: The display options for tiles. See tile.
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutArgs'] tile_layout: The layout options for tiles. See tile_layout.
+        """
+        if tile is not None:
+            pulumi.set(__self__, "tile", tile)
+        if tile_layout is not None:
+            pulumi.set(__self__, "tile_layout", tile_layout)
+
+    @property
+    @pulumi.getter
+    def tile(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileArgs']]:
+        """
+        The display options for tiles. See tile.
+        """
+        return pulumi.get(self, "tile")
+
+    @tile.setter
+    def tile(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileArgs']]):
+        pulumi.set(self, "tile", value)
+
+    @property
+    @pulumi.getter(name="tileLayout")
+    def tile_layout(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutArgs']]:
+        """
+        The layout options for tiles. See tile_layout.
+        """
+        return pulumi.get(self, "tile_layout")
+
+    @tile_layout.setter
+    def tile_layout(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutArgs']]):
+        pulumi.set(self, "tile_layout", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileArgs:
+    def __init__(__self__, *,
+                 border: Optional[pulumi.Input['ThemeConfigurationSheetTileBorderArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationSheetTileBorderArgs'] border: The border around a tile. See border.
+        """
+        if border is not None:
+            pulumi.set(__self__, "border", border)
+
+    @property
+    @pulumi.getter
+    def border(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileBorderArgs']]:
+        """
+        The border around a tile. See border.
+        """
+        return pulumi.get(self, "border")
+
+    @border.setter
+    def border(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileBorderArgs']]):
+        pulumi.set(self, "border", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileBorderArgs:
+    def __init__(__self__, *,
+                 show: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] show: The option to enable display of borders for visuals.
+        """
+        if show is not None:
+            pulumi.set(__self__, "show", show)
+
+    @property
+    @pulumi.getter
+    def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The option to enable display of borders for visuals.
+        """
+        return pulumi.get(self, "show")
+
+    @show.setter
+    def show(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileLayoutArgs:
+    def __init__(__self__, *,
+                 gutter: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs']] = None,
+                 margin: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs'] gutter: The gutter settings that apply between tiles. See gutter.
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs'] margin: The margin settings that apply around the outside edge of sheets. See margin.
+        """
+        if gutter is not None:
+            pulumi.set(__self__, "gutter", gutter)
+        if margin is not None:
+            pulumi.set(__self__, "margin", margin)
+
+    @property
+    @pulumi.getter
+    def gutter(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs']]:
+        """
+        The gutter settings that apply between tiles. See gutter.
+        """
+        return pulumi.get(self, "gutter")
+
+    @gutter.setter
+    def gutter(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs']]):
+        pulumi.set(self, "gutter", value)
+
+    @property
+    @pulumi.getter
+    def margin(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs']]:
+        """
+        The margin settings that apply around the outside edge of sheets. See margin.
+        """
+        return pulumi.get(self, "margin")
+
+    @margin.setter
+    def margin(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs']]):
+        pulumi.set(self, "margin", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileLayoutGutterArgs:
+    def __init__(__self__, *,
+                 show: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] show: This Boolean value controls whether to display a gutter space between sheet tiles.
+        """
+        if show is not None:
+            pulumi.set(__self__, "show", show)
+
+    @property
+    @pulumi.getter
+    def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This Boolean value controls whether to display a gutter space between sheet tiles.
+        """
+        return pulumi.get(self, "show")
+
+    @show.setter
+    def show(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileLayoutMarginArgs:
+    def __init__(__self__, *,
+                 show: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] show: This Boolean value controls whether to display sheet margins.
+        """
+        if show is not None:
+            pulumi.set(__self__, "show", show)
+
+    @property
+    @pulumi.getter
+    def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This Boolean value controls whether to display sheet margins.
+        """
+        return pulumi.get(self, "show")
+
+    @show.setter
+    def show(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationTypographyArgs:
+    def __init__(__self__, *,
+                 font_families: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
+        """
+        if font_families is not None:
+            pulumi.set(__self__, "font_families", font_families)
+
+    @property
+    @pulumi.getter(name="fontFamilies")
+    def font_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]]:
+        """
+        Determines the list of font families. Maximum number of 5 items. See font_families.
+        """
+        return pulumi.get(self, "font_families")
+
+    @font_families.setter
+    def font_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]]):
+        pulumi.set(self, "font_families", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationTypographyFontFamilyArgs:
+    def __init__(__self__, *,
+                 font_family: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] font_family: Font family name.
+        """
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+
+    @property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        Font family name.
+        """
+        return pulumi.get(self, "font_family")
+
+    @font_family.setter
+    def font_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "font_family", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationUiColorPaletteArgs:
+    def __init__(__self__, *,
+                 accent: Optional[pulumi.Input[str]] = None,
+                 accent_foreground: Optional[pulumi.Input[str]] = None,
+                 danger: Optional[pulumi.Input[str]] = None,
+                 danger_foreground: Optional[pulumi.Input[str]] = None,
+                 dimension: Optional[pulumi.Input[str]] = None,
+                 dimension_foreground: Optional[pulumi.Input[str]] = None,
+                 measure: Optional[pulumi.Input[str]] = None,
+                 measure_foreground: Optional[pulumi.Input[str]] = None,
+                 primary_background: Optional[pulumi.Input[str]] = None,
+                 primary_foreground: Optional[pulumi.Input[str]] = None,
+                 secondary_background: Optional[pulumi.Input[str]] = None,
+                 secondary_foreground: Optional[pulumi.Input[str]] = None,
+                 success: Optional[pulumi.Input[str]] = None,
+                 success_foreground: Optional[pulumi.Input[str]] = None,
+                 warning: Optional[pulumi.Input[str]] = None,
+                 warning_foreground: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] accent: Color (hexadecimal) that applies to selected states and buttons.
+        :param pulumi.Input[str] accent_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+        :param pulumi.Input[str] danger: Color (hexadecimal) that applies to error messages.
+        :param pulumi.Input[str] danger_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+        :param pulumi.Input[str] dimension: Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+        :param pulumi.Input[str] dimension_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+        :param pulumi.Input[str] measure: Color (hexadecimal) that applies to the names of fields that are identified as measures.
+        :param pulumi.Input[str] measure_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+        :param pulumi.Input[str] primary_background: Color (hexadecimal) that applies to visuals and other high emphasis UI.
+        :param pulumi.Input[str] primary_foreground: Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+        :param pulumi.Input[str] secondary_background: Color (hexadecimal) that applies to the sheet background and sheet controls.
+        :param pulumi.Input[str] secondary_foreground: Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+        :param pulumi.Input[str] success: Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+        :param pulumi.Input[str] success_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+        :param pulumi.Input[str] warning: Color (hexadecimal) that applies to warning and informational messages.
+        :param pulumi.Input[str] warning_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+        """
+        if accent is not None:
+            pulumi.set(__self__, "accent", accent)
+        if accent_foreground is not None:
+            pulumi.set(__self__, "accent_foreground", accent_foreground)
+        if danger is not None:
+            pulumi.set(__self__, "danger", danger)
+        if danger_foreground is not None:
+            pulumi.set(__self__, "danger_foreground", danger_foreground)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if dimension_foreground is not None:
+            pulumi.set(__self__, "dimension_foreground", dimension_foreground)
+        if measure is not None:
+            pulumi.set(__self__, "measure", measure)
+        if measure_foreground is not None:
+            pulumi.set(__self__, "measure_foreground", measure_foreground)
+        if primary_background is not None:
+            pulumi.set(__self__, "primary_background", primary_background)
+        if primary_foreground is not None:
+            pulumi.set(__self__, "primary_foreground", primary_foreground)
+        if secondary_background is not None:
+            pulumi.set(__self__, "secondary_background", secondary_background)
+        if secondary_foreground is not None:
+            pulumi.set(__self__, "secondary_foreground", secondary_foreground)
+        if success is not None:
+            pulumi.set(__self__, "success", success)
+        if success_foreground is not None:
+            pulumi.set(__self__, "success_foreground", success_foreground)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+        if warning_foreground is not None:
+            pulumi.set(__self__, "warning_foreground", warning_foreground)
+
+    @property
+    @pulumi.getter
+    def accent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to selected states and buttons.
+        """
+        return pulumi.get(self, "accent")
+
+    @accent.setter
+    def accent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accent", value)
+
+    @property
+    @pulumi.getter(name="accentForeground")
+    def accent_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+        """
+        return pulumi.get(self, "accent_foreground")
+
+    @accent_foreground.setter
+    def accent_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accent_foreground", value)
+
+    @property
+    @pulumi.getter
+    def danger(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to error messages.
+        """
+        return pulumi.get(self, "danger")
+
+    @danger.setter
+    def danger(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "danger", value)
+
+    @property
+    @pulumi.getter(name="dangerForeground")
+    def danger_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+        """
+        return pulumi.get(self, "danger_foreground")
+
+    @danger_foreground.setter
+    def danger_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "danger_foreground", value)
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+        """
+        return pulumi.get(self, "dimension")
+
+    @dimension.setter
+    def dimension(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dimension", value)
+
+    @property
+    @pulumi.getter(name="dimensionForeground")
+    def dimension_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+        """
+        return pulumi.get(self, "dimension_foreground")
+
+    @dimension_foreground.setter
+    def dimension_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dimension_foreground", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to the names of fields that are identified as measures.
+        """
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="measureForeground")
+    def measure_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+        """
+        return pulumi.get(self, "measure_foreground")
+
+    @measure_foreground.setter
+    def measure_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "measure_foreground", value)
+
+    @property
+    @pulumi.getter(name="primaryBackground")
+    def primary_background(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to visuals and other high emphasis UI.
+        """
+        return pulumi.get(self, "primary_background")
+
+    @primary_background.setter
+    def primary_background(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_background", value)
+
+    @property
+    @pulumi.getter(name="primaryForeground")
+    def primary_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+        """
+        return pulumi.get(self, "primary_foreground")
+
+    @primary_foreground.setter
+    def primary_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_foreground", value)
+
+    @property
+    @pulumi.getter(name="secondaryBackground")
+    def secondary_background(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to the sheet background and sheet controls.
+        """
+        return pulumi.get(self, "secondary_background")
+
+    @secondary_background.setter
+    def secondary_background(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_background", value)
+
+    @property
+    @pulumi.getter(name="secondaryForeground")
+    def secondary_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+        """
+        return pulumi.get(self, "secondary_foreground")
+
+    @secondary_foreground.setter
+    def secondary_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_foreground", value)
+
+    @property
+    @pulumi.getter
+    def success(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+        """
+        return pulumi.get(self, "success")
+
+    @success.setter
+    def success(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success", value)
+
+    @property
+    @pulumi.getter(name="successForeground")
+    def success_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+        """
+        return pulumi.get(self, "success_foreground")
+
+    @success_foreground.setter
+    def success_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_foreground", value)
+
+    @property
+    @pulumi.getter
+    def warning(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to warning and informational messages.
+        """
+        return pulumi.get(self, "warning")
+
+    @warning.setter
+    def warning(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warning", value)
+
+    @property
+    @pulumi.getter(name="warningForeground")
+    def warning_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+        """
+        return pulumi.get(self, "warning_foreground")
+
+    @warning_foreground.setter
+    def warning_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warning_foreground", value)
+
+
+@pulumi.input_type
+class ThemePermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: List of IAM actions to grant or revoke permissions on.
+        :param pulumi.Input[str] principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class VpcConnectionTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 @pulumi.input_type

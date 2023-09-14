@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Connection of Direct Connect.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,7 +102,7 @@ import (
 //
 // ## Import
 //
-// Direct Connect connections can be imported using the `connection id`, e.g.,
+// Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 //
 // ```sh
 //
@@ -137,6 +139,8 @@ type Connection struct {
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec pulumi.BoolPtrOutput `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
@@ -145,7 +149,7 @@ type Connection struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VLAN ID.
-	VlanId pulumi.StringOutput `pulumi:"vlanId"`
+	VlanId pulumi.IntOutput `pulumi:"vlanId"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -161,6 +165,7 @@ func NewConnection(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:directconnect/connection:Connection", name, args, &resource, opts...)
 	if err != nil {
@@ -210,6 +215,8 @@ type connectionState struct {
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec *bool `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -218,7 +225,7 @@ type connectionState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VLAN ID.
-	VlanId *string `pulumi:"vlanId"`
+	VlanId *int `pulumi:"vlanId"`
 }
 
 type ConnectionState struct {
@@ -249,6 +256,8 @@ type ConnectionState struct {
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec pulumi.BoolPtrInput
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -257,7 +266,7 @@ type ConnectionState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The VLAN ID.
-	VlanId pulumi.StringPtrInput
+	VlanId pulumi.IntPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -276,6 +285,8 @@ type connectionArgs struct {
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec *bool `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -296,6 +307,8 @@ type ConnectionArgs struct {
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec pulumi.BoolPtrInput
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -326,6 +339,12 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
+func (i *Connection) ToOutput(ctx context.Context) pulumix.Output[*Connection] {
+	return pulumix.Output[*Connection]{
+		OutputState: i.ToConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
 // You can construct a concrete instance of `ConnectionArrayInput` via:
 //
@@ -349,6 +368,12 @@ func (i ConnectionArray) ToConnectionArrayOutput() ConnectionArrayOutput {
 
 func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context) ConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionArrayOutput)
+}
+
+func (i ConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Connection] {
+	return pulumix.Output[[]*Connection]{
+		OutputState: i.ToConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
@@ -376,6 +401,12 @@ func (i ConnectionMap) ToConnectionMapOutputWithContext(ctx context.Context) Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMapOutput)
 }
 
+func (i ConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connection] {
+	return pulumix.Output[map[string]*Connection]{
+		OutputState: i.ToConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
@@ -388,6 +419,12 @@ func (o ConnectionOutput) ToConnectionOutput() ConnectionOutput {
 
 func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) ConnectionOutput {
 	return o
+}
+
+func (o ConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Connection] {
+	return pulumix.Output[*Connection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the connection.
@@ -456,6 +493,8 @@ func (o ConnectionOutput) ProviderName() pulumi.StringOutput {
 }
 
 // Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+//
+// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 func (o ConnectionOutput) RequestMacsec() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.BoolPtrOutput { return v.RequestMacsec }).(pulumi.BoolPtrOutput)
 }
@@ -476,8 +515,8 @@ func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The VLAN ID.
-func (o ConnectionOutput) VlanId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.VlanId }).(pulumi.StringOutput)
+func (o ConnectionOutput) VlanId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Connection) pulumi.IntOutput { return v.VlanId }).(pulumi.IntOutput)
 }
 
 type ConnectionArrayOutput struct{ *pulumi.OutputState }
@@ -492,6 +531,12 @@ func (o ConnectionArrayOutput) ToConnectionArrayOutput() ConnectionArrayOutput {
 
 func (o ConnectionArrayOutput) ToConnectionArrayOutputWithContext(ctx context.Context) ConnectionArrayOutput {
 	return o
+}
+
+func (o ConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Connection] {
+	return pulumix.Output[[]*Connection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionArrayOutput) Index(i pulumi.IntInput) ConnectionOutput {
@@ -512,6 +557,12 @@ func (o ConnectionMapOutput) ToConnectionMapOutput() ConnectionMapOutput {
 
 func (o ConnectionMapOutput) ToConnectionMapOutputWithContext(ctx context.Context) ConnectionMapOutput {
 	return o
+}
+
+func (o ConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connection] {
+	return pulumix.Output[map[string]*Connection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionMapOutput) MapIndex(k pulumi.StringInput) ConnectionOutput {

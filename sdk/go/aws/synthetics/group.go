@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Synthetics Group resource.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/synthetics"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,7 +41,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch Synthetics Group can be imported using the `name`, e.g.,
+// Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
 //
 // ```sh
 //
@@ -54,6 +56,8 @@ type Group struct {
 	// ID of the Group.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -68,6 +72,7 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:synthetics/group:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -95,6 +100,8 @@ type groupState struct {
 	// ID of the Group.
 	GroupId *string `pulumi:"groupId"`
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -108,6 +115,8 @@ type GroupState struct {
 	// ID of the Group.
 	GroupId pulumi.StringPtrInput
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -121,6 +130,8 @@ func (GroupState) ElementType() reflect.Type {
 
 type groupArgs struct {
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -129,6 +140,8 @@ type groupArgs struct {
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -157,6 +170,12 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
 }
 
+func (i *Group) ToOutput(ctx context.Context) pulumix.Output[*Group] {
+	return pulumix.Output[*Group]{
+		OutputState: i.ToGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
 // You can construct a concrete instance of `GroupArrayInput` via:
 //
@@ -180,6 +199,12 @@ func (i GroupArray) ToGroupArrayOutput() GroupArrayOutput {
 
 func (i GroupArray) ToGroupArrayOutputWithContext(ctx context.Context) GroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupArrayOutput)
+}
+
+func (i GroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*Group] {
+	return pulumix.Output[[]*Group]{
+		OutputState: i.ToGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GroupMapInput is an input type that accepts GroupMap and GroupMapOutput values.
@@ -207,6 +232,12 @@ func (i GroupMap) ToGroupMapOutputWithContext(ctx context.Context) GroupMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMapOutput)
 }
 
+func (i GroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Group] {
+	return pulumix.Output[map[string]*Group]{
+		OutputState: i.ToGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
@@ -221,6 +252,12 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+func (o GroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Group] {
+	return pulumix.Output[*Group]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the Group.
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -232,6 +269,8 @@ func (o GroupOutput) GroupId() pulumi.StringOutput {
 }
 
 // Name of the group.
+//
+// The following arguments are optional:
 func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -260,6 +299,12 @@ func (o GroupArrayOutput) ToGroupArrayOutputWithContext(ctx context.Context) Gro
 	return o
 }
 
+func (o GroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Group] {
+	return pulumix.Output[[]*Group]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupArrayOutput) Index(i pulumi.IntInput) GroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Group {
 		return vs[0].([]*Group)[vs[1].(int)]
@@ -278,6 +323,12 @@ func (o GroupMapOutput) ToGroupMapOutput() GroupMapOutput {
 
 func (o GroupMapOutput) ToGroupMapOutputWithContext(ctx context.Context) GroupMapOutput {
 	return o
+}
+
+func (o GroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Group] {
+	return pulumix.Output[map[string]*Group]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMapOutput) MapIndex(k pulumi.StringInput) GroupOutput {

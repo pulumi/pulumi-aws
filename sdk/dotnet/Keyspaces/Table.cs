@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Import
     /// 
-    /// Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+    /// Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
@@ -73,6 +73,12 @@ namespace Pulumi.Aws.Keyspaces
         /// </summary>
         [Output("capacitySpecification")]
         public Output<Outputs.TableCapacitySpecification> CapacitySpecification { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Output("clientSideTimestamps")]
+        public Output<Outputs.TableClientSideTimestamps?> ClientSideTimestamps { get; private set; } = null!;
 
         /// <summary>
         /// A description of the table.
@@ -112,6 +118,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
@@ -187,6 +195,12 @@ namespace Pulumi.Aws.Keyspaces
         public Input<Inputs.TableCapacitySpecificationArgs>? CapacitySpecification { get; set; }
 
         /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Input("clientSideTimestamps")]
+        public Input<Inputs.TableClientSideTimestampsArgs>? ClientSideTimestamps { get; set; }
+
+        /// <summary>
         /// A description of the table.
         /// </summary>
         [Input("comment")]
@@ -224,6 +238,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -267,6 +283,12 @@ namespace Pulumi.Aws.Keyspaces
         public Input<Inputs.TableCapacitySpecificationGetArgs>? CapacitySpecification { get; set; }
 
         /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Input("clientSideTimestamps")]
+        public Input<Inputs.TableClientSideTimestampsGetArgs>? ClientSideTimestamps { get; set; }
+
+        /// <summary>
         /// A description of the table.
         /// </summary>
         [Input("comment")]
@@ -304,6 +326,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

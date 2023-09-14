@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by including VoiceConnectorItems in the request.
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +67,7 @@ import (
 //
 // ## Import
 //
-// Configuration Recorder can be imported using the name, e.g.,
+// Using `pulumi import`, import Configuration Recorder using the name. For example:
 //
 // ```sh
 //
@@ -88,6 +90,7 @@ func NewVoiceConnectorGroup(ctx *pulumi.Context,
 		args = &VoiceConnectorGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnectorGroup
 	err := ctx.RegisterResource("aws:chime/voiceConnectorGroup:VoiceConnectorGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -165,6 +168,12 @@ func (i *VoiceConnectorGroup) ToVoiceConnectorGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupOutput)
 }
 
+func (i *VoiceConnectorGroup) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorGroup] {
+	return pulumix.Output[*VoiceConnectorGroup]{
+		OutputState: i.ToVoiceConnectorGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VoiceConnectorGroupArrayInput is an input type that accepts VoiceConnectorGroupArray and VoiceConnectorGroupArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorGroupArrayInput` via:
 //
@@ -188,6 +197,12 @@ func (i VoiceConnectorGroupArray) ToVoiceConnectorGroupArrayOutput() VoiceConnec
 
 func (i VoiceConnectorGroupArray) ToVoiceConnectorGroupArrayOutputWithContext(ctx context.Context) VoiceConnectorGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupArrayOutput)
+}
+
+func (i VoiceConnectorGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorGroup] {
+	return pulumix.Output[[]*VoiceConnectorGroup]{
+		OutputState: i.ToVoiceConnectorGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VoiceConnectorGroupMapInput is an input type that accepts VoiceConnectorGroupMap and VoiceConnectorGroupMapOutput values.
@@ -215,6 +230,12 @@ func (i VoiceConnectorGroupMap) ToVoiceConnectorGroupMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorGroupMapOutput)
 }
 
+func (i VoiceConnectorGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorGroup] {
+	return pulumix.Output[map[string]*VoiceConnectorGroup]{
+		OutputState: i.ToVoiceConnectorGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VoiceConnectorGroupOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorGroupOutput) ElementType() reflect.Type {
@@ -227,6 +248,12 @@ func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupOutput() VoiceConnectorG
 
 func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupOutputWithContext(ctx context.Context) VoiceConnectorGroupOutput {
 	return o
+}
+
+func (o VoiceConnectorGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorGroup] {
+	return pulumix.Output[*VoiceConnectorGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Chime Voice Connectors to route inbound calls to.
@@ -253,6 +280,12 @@ func (o VoiceConnectorGroupArrayOutput) ToVoiceConnectorGroupArrayOutputWithCont
 	return o
 }
 
+func (o VoiceConnectorGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorGroup] {
+	return pulumix.Output[[]*VoiceConnectorGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VoiceConnectorGroupArrayOutput) Index(i pulumi.IntInput) VoiceConnectorGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorGroup {
 		return vs[0].([]*VoiceConnectorGroup)[vs[1].(int)]
@@ -271,6 +304,12 @@ func (o VoiceConnectorGroupMapOutput) ToVoiceConnectorGroupMapOutput() VoiceConn
 
 func (o VoiceConnectorGroupMapOutput) ToVoiceConnectorGroupMapOutputWithContext(ctx context.Context) VoiceConnectorGroupMapOutput {
 	return o
+}
+
+func (o VoiceConnectorGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorGroup] {
+	return pulumix.Output[map[string]*VoiceConnectorGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VoiceConnectorGroupMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorGroupOutput {

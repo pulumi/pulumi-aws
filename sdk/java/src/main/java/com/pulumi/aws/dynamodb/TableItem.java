@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DynamoDB table items cannot be imported.
+ * You cannot import DynamoDB table items.
  * 
  */
 @ResourceType(type="aws:dynamodb/tableItem:TableItem")

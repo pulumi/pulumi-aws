@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver&#39;s_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
+ * This configuration provides an example of using multiple TODO AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver&#39;s_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
  * ```java
  * package generated_program;
  * 
@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ram.ResourceShare;
  * import com.pulumi.aws.ram.ResourceShareArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ram.PrincipalAssociation;
  * import com.pulumi.aws.ram.PrincipalAssociationArgs;
  * import com.pulumi.aws.ram.ResourceShareAccepter;
@@ -81,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Resource share accepters can be imported using the resource share ARN, e.g.,
+ * In TODO v1.5.0 and later, use an `import` block to import resource share accepters using the resource share ARN. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
- * ```
+ *  to = aws_ram_resource_share_accepter.example
+ * 
+ *  id = &#34;arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767&#34; } Using `TODO import`, import resource share accepters using the resource share ARN. For exampleconsole % TODO import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
  * 
  */
 @ResourceType(type="aws:ram/resourceShareAccepter:ResourceShareAccepter")

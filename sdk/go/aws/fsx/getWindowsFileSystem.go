@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information on FSx Windows File System.
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupWindowsFileSystem(ctx *pulumi.Context, args *LookupWindowsFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFileSystemResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWindowsFileSystemResult
 	err := ctx.Invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args, &rv, opts...)
 	if err != nil {
@@ -74,6 +77,8 @@ type LookupWindowsFileSystemResult struct {
 	DailyAutomaticBackupStartTime string `pulumi:"dailyAutomaticBackupStartTime"`
 	// The file system deployment type.
 	DeploymentType string `pulumi:"deploymentType"`
+	// The SSD IOPS configuration for the file system.
+	DiskIopsConfigurations []GetWindowsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfigurations"`
 	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
 	DnsName string `pulumi:"dnsName"`
 	// Identifier of the file system (e.g. `fs-12345678`).
@@ -145,6 +150,12 @@ func (o LookupWindowsFileSystemResultOutput) ToLookupWindowsFileSystemResultOutp
 	return o
 }
 
+func (o LookupWindowsFileSystemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWindowsFileSystemResult] {
+	return pulumix.Output[LookupWindowsFileSystemResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID for Microsoft Active Directory instance that the file system is join to.
 func (o LookupWindowsFileSystemResultOutput) ActiveDirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.ActiveDirectoryId }).(pulumi.StringOutput)
@@ -189,6 +200,13 @@ func (o LookupWindowsFileSystemResultOutput) DailyAutomaticBackupStartTime() pul
 // The file system deployment type.
 func (o LookupWindowsFileSystemResultOutput) DeploymentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.DeploymentType }).(pulumi.StringOutput)
+}
+
+// The SSD IOPS configuration for the file system.
+func (o LookupWindowsFileSystemResultOutput) DiskIopsConfigurations() GetWindowsFileSystemDiskIopsConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) []GetWindowsFileSystemDiskIopsConfiguration {
+		return v.DiskIopsConfigurations
+	}).(GetWindowsFileSystemDiskIopsConfigurationArrayOutput)
 }
 
 // DNS name for the file system (e.g. `fs-12345678.corp.example.com`).

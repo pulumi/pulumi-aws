@@ -11,6 +11,7 @@ from .classifier import *
 from .connection import *
 from .crawler import *
 from .data_catalog_encryption_settings import *
+from .data_quality_ruleset import *
 from .dev_endpoint import *
 from .get_catalog_table import *
 from .get_connection import *

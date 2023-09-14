@@ -42,13 +42,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
+ * Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
+ *
+ * Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+ *
+ * __Using `pulumi import` to import.__ For example:
+ *
+ * Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
  *
  * ```sh
  *  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
  * ```
- *
- *  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
+ *  Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
  *
  * ```sh
  *  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
@@ -117,6 +122,8 @@ export class AccessPoint extends pulumi.CustomResource {
     public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean>;
     /**
      * Name you want to assign to this access point.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -225,6 +232,8 @@ export interface AccessPointState {
     hasPublicAccessPolicy?: pulumi.Input<boolean>;
     /**
      * Name you want to assign to this access point.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -263,6 +272,8 @@ export interface AccessPointArgs {
     bucketAccountId?: pulumi.Input<string>;
     /**
      * Name you want to assign to this access point.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

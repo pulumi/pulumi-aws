@@ -55,6 +55,8 @@ public final class ListenerDefaultAction {
     /**
      * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String type;
 
@@ -110,6 +112,8 @@ public final class ListenerDefaultAction {
     }
     /**
      * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String type() {

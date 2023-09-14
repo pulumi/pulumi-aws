@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
+ * Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
@@ -168,70 +168,70 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * DynamoDB settings. See below
+     * DynamoDB settings. See DynamoDB Config
      * 
      */
     @Export(name="dynamodbConfig", refs={DataSourceDynamodbConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceDynamodbConfig> dynamodbConfig;
 
     /**
-     * @return DynamoDB settings. See below
+     * @return DynamoDB settings. See DynamoDB Config
      * 
      */
     public Output<Optional<DataSourceDynamodbConfig>> dynamodbConfig() {
         return Codegen.optional(this.dynamodbConfig);
     }
     /**
-     * Amazon Elasticsearch settings. See below
+     * Amazon Elasticsearch settings. See ElasticSearch Config
      * 
      */
     @Export(name="elasticsearchConfig", refs={DataSourceElasticsearchConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceElasticsearchConfig> elasticsearchConfig;
 
     /**
-     * @return Amazon Elasticsearch settings. See below
+     * @return Amazon Elasticsearch settings. See ElasticSearch Config
      * 
      */
     public Output<Optional<DataSourceElasticsearchConfig>> elasticsearchConfig() {
         return Codegen.optional(this.elasticsearchConfig);
     }
     /**
-     * AWS EventBridge settings. See below
+     * AWS EventBridge settings. See Event Bridge Config
      * 
      */
     @Export(name="eventBridgeConfig", refs={DataSourceEventBridgeConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceEventBridgeConfig> eventBridgeConfig;
 
     /**
-     * @return AWS EventBridge settings. See below
+     * @return AWS EventBridge settings. See Event Bridge Config
      * 
      */
     public Output<Optional<DataSourceEventBridgeConfig>> eventBridgeConfig() {
         return Codegen.optional(this.eventBridgeConfig);
     }
     /**
-     * HTTP settings. See below
+     * HTTP settings. See HTTP Config
      * 
      */
     @Export(name="httpConfig", refs={DataSourceHttpConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceHttpConfig> httpConfig;
 
     /**
-     * @return HTTP settings. See below
+     * @return HTTP settings. See HTTP Config
      * 
      */
     public Output<Optional<DataSourceHttpConfig>> httpConfig() {
         return Codegen.optional(this.httpConfig);
     }
     /**
-     * AWS Lambda settings. See below
+     * AWS Lambda settings. See Lambda Config
      * 
      */
     @Export(name="lambdaConfig", refs={DataSourceLambdaConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceLambdaConfig> lambdaConfig;
 
     /**
-     * @return AWS Lambda settings. See below
+     * @return AWS Lambda settings. See Lambda Config
      * 
      */
     public Output<Optional<DataSourceLambdaConfig>> lambdaConfig() {
@@ -252,14 +252,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Amazon OpenSearch Service settings. See below
+     * Amazon OpenSearch Service settings. See OpenSearch Service Config
      * 
      */
     @Export(name="opensearchserviceConfig", refs={DataSourceOpensearchserviceConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceOpensearchserviceConfig> opensearchserviceConfig;
 
     /**
-     * @return Amazon OpenSearch Service settings. See below
+     * @return Amazon OpenSearch Service settings. See OpenSearch Service Config
      * 
      */
     public Output<Optional<DataSourceOpensearchserviceConfig>> opensearchserviceConfig() {
@@ -294,14 +294,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceRoleArn);
     }
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     public Output<String> type() {

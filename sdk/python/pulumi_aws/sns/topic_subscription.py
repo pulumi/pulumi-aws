@@ -30,6 +30,8 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
@@ -88,6 +90,8 @@ class TopicSubscriptionArgs:
     def topic(self) -> pulumi.Input[str]:
         """
         ARN of the SNS topic to subscribe to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic")
 
@@ -227,6 +231,8 @@ class _TopicSubscriptionState:
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -432,6 +438,8 @@ class _TopicSubscriptionState:
     def topic(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the SNS topic to subscribe to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic")
 
@@ -607,19 +615,19 @@ class TopicSubscription(pulumi.CustomResource):
         sns_topic_topic = aws.sns.Topic("sns-topicTopic",
             display_name=sns["display_name"],
             policy=sns_topic_policy.json,
-            opts=pulumi.ResourceOptions(provider="aws.sns"))
+            opts=pulumi.ResourceOptions(provider=aws["sns"]))
         sqs_queue = aws.sqs.Queue("sqs-queue", policy=sqs_queue_policy.json,
-        opts=pulumi.ResourceOptions(provider="aws.sqs"))
+        opts=pulumi.ResourceOptions(provider=aws["sqs"]))
         sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topicTopicSubscription",
             topic=sns_topic_topic.arn,
             protocol="sqs",
             endpoint=sqs_queue.arn,
-            opts=pulumi.ResourceOptions(provider="aws.sns2sqs"))
+            opts=pulumi.ResourceOptions(provider=aws["sns2sqs"]))
         ```
 
         ## Import
 
-        SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+        Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
 
         ```sh
          $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
@@ -638,6 +646,8 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -795,19 +805,19 @@ class TopicSubscription(pulumi.CustomResource):
         sns_topic_topic = aws.sns.Topic("sns-topicTopic",
             display_name=sns["display_name"],
             policy=sns_topic_policy.json,
-            opts=pulumi.ResourceOptions(provider="aws.sns"))
+            opts=pulumi.ResourceOptions(provider=aws["sns"]))
         sqs_queue = aws.sqs.Queue("sqs-queue", policy=sqs_queue_policy.json,
-        opts=pulumi.ResourceOptions(provider="aws.sqs"))
+        opts=pulumi.ResourceOptions(provider=aws["sqs"]))
         sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topicTopicSubscription",
             topic=sns_topic_topic.arn,
             protocol="sqs",
             endpoint=sqs_queue.arn,
-            opts=pulumi.ResourceOptions(provider="aws.sns2sqs"))
+            opts=pulumi.ResourceOptions(provider=aws["sns2sqs"]))
         ```
 
         ## Import
 
-        SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+        Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
 
         ```sh
          $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
@@ -916,6 +926,8 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1055,6 +1067,8 @@ class TopicSubscription(pulumi.CustomResource):
     def topic(self) -> pulumi.Output[str]:
         """
         ARN of the SNS topic to subscribe to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic")
 

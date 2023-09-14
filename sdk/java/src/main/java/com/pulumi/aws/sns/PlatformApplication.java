@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SNS platform applications can be imported using the ARN, e.g.,
+ * Using `pulumi import`, import SNS platform applications using the ARN. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
@@ -310,12 +310,16 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
      * 
+     * The following attributes are needed only when using APNS token credentials:
+     * 
      */
     @Export(name="successFeedbackSampleRate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> successFeedbackSampleRate;
 
     /**
      * @return The sample rate percentage (0-100) of successfully delivered messages.
+     * 
+     * The following attributes are needed only when using APNS token credentials:
      * 
      */
     public Output<Optional<String>> successFeedbackSampleRate() {

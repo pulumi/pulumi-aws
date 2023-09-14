@@ -403,7 +403,7 @@ class EndpointGroup(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator endpoint groups can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
 
         ```sh
          $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
@@ -448,7 +448,7 @@ class EndpointGroup(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator endpoint groups can be imported using the `id`, e.g.,
+        Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
 
         ```sh
          $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx

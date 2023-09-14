@@ -282,17 +282,17 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      * 
      */
     @Import(name="queues")
-    private @Nullable Output<List<String>> queues;
+    private @Nullable Output<String> queues;
 
     /**
-     * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      * 
      */
-    public Optional<Output<List<String>>> queues() {
+    public Optional<Output<String>> queues() {
         return Optional.ofNullable(this.queues);
     }
 
@@ -881,34 +881,24 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
          * 
          * @return builder
          * 
          */
-        public Builder queues(@Nullable Output<List<String>> queues) {
+        public Builder queues(@Nullable Output<String> queues) {
             $.queues = queues;
             return this;
         }
 
         /**
-         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
          * 
          * @return builder
          * 
          */
-        public Builder queues(List<String> queues) {
+        public Builder queues(String queues) {
             return queues(Output.of(queues));
-        }
-
-        /**
-         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder queues(String... queues) {
-            return queues(List.of(queues));
         }
 
         /**

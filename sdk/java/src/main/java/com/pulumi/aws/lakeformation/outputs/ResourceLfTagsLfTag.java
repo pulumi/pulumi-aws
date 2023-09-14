@@ -24,6 +24,8 @@ public final class ResourceLfTagsLfTag {
     /**
      * @return Value from the possible values for the LF-tag.
      * 
+     * The following argument is optional:
+     * 
      */
     private String value;
 
@@ -44,6 +46,8 @@ public final class ResourceLfTagsLfTag {
     }
     /**
      * @return Value from the possible values for the LF-tag.
+     * 
+     * The following argument is optional:
      * 
      */
     public String value() {
